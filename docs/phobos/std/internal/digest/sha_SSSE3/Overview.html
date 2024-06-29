@@ -1,0 +1,337 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Module - std.internal.digest.sha_SSSE3 | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Module - std.internal.digest.sha_SSSE3 | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../../index.html">
+            <img id="logo" class="svg" src="../../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.internal.digest.sha_SSSE3.Overview">
+<h1 class='section'>Module - std.internal.digest.sha_SSSE3</h1><h2 class='section'>About</h2><p>Computes SHA1 digests of arbitrary data, using an optimized algorithm with SSSE3 instructions.</p>
+<h3 class='section'>Authors</h3><p>The general idea is described by Dean Gaudet. Another important observation is published by Max Locktyukhin. (Both implementations are public domain.) Translation to X86 and D by Kai Nacke <a href="mailto:kai@redstar.de">kai@redstar.de</a></p>
+<h3 class='section'>References</h3><p>$(LINK2 <a href="http://arctic.org/%7Edean/crypto/sha1.html">http://arctic.org/~dean/crypto/sha1.html</a>) $(LINK2 <a href="http://software.intel.com/en-us/articles/improving-the-performance-of-the-secure-hash-algorithm-1/">http://software.intel.com/en-us/articles/improving-the-performance-of-the-secure-hash-algorithm-1/</a>, Fast implementation of SHA1)</p>
+<h2 class='section'>Aliases</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Aliases/ExtraArgs.html">ExtraArgs</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Functions/bswap_shufb_ctl.html">bswap_shufb_ctl</a></td>
+<td>Returns the reference to the byte shuffle control word.</td>
+</tr>
+<tr>
+<td><a href="Functions/Ch.html">Ch</a></td>
+<td>Calculates Ch(x, y, z) = z ^ (x &amp; (y ^ z))</td>
+</tr>
+<tr>
+<td><a href="Functions/constant.html">constant</a></td>
+<td>Returns the reference to constant used in round i.</td>
+</tr>
+<tr>
+<td><a href="Functions/epilogue.html">epilogue</a></td>
+<td>The epilogue sequence. Just pop the saved registers from stack and return to caller.</td>
+</tr>
+<tr>
+<td><a href="Functions/F.html">F</a></td>
+<td>Returns function for round i. Function returns result in T1 and may destroy T2.</td>
+</tr>
+<tr>
+<td><a href="Functions/loadstate.html">loadstate</a></td>
+<td>Generates instructions to load state from memory into registers.</td>
+</tr>
+<tr>
+<td><a href="Functions/Maj.html">Maj</a></td>
+<td>Calculates Maj(x, y, z) = (x &amp; y) <code>|</code> (z &amp; (x ^ y))</td>
+</tr>
+<tr>
+<td><a href="Functions/Parity.html">Parity</a></td>
+<td>Calculates Parity(x, y, z) = x ^ y ^ z</td>
+</tr>
+<tr>
+<td><a href="Functions/precalc.html">precalc</a></td>
+<td>Choose right precalc method.</td>
+</tr>
+<tr>
+<td><a href="Functions/precalc_00_15.html">precalc_00_15</a></td>
+<td>Loads the message words and performs the little to big endian conversion. Requires that the shuffle control word and the round constant is loaded into required XMM register. The BUFFER_PTR register must point to the buffer.</td>
+</tr>
+<tr>
+<td><a href="Functions/precalc_16_31.html">precalc_16_31</a></td>
+<td>Done on 4 consequtive W[i] values in a single XMM register W[i  ] = (W[i-3] ^ W[i-8] ^ W[i-14] ^ W[i-16]) rol 1 W[i+1] = (W[i-2] ^ W[i-7] ^ W[i-13] ^ W[i-15]) rol 1 W[i+2] = (W[i-1] ^ W[i-6] ^ W[i-12] ^ W[i-14]) rol 1 W[i+3] = (   0   ^ W[i-5] ^ W[i-11] ^ W[i-13]) rol 1</td>
+</tr>
+<tr>
+<td><a href="Functions/precalc_32_79.html">precalc_32_79</a></td>
+<td>Performs the main calculation as decribed above.</td>
+</tr>
+<tr>
+<td><a href="Functions/prologue.html">prologue</a></td>
+<td>The prologue sequence.</td>
+</tr>
+<tr>
+<td><a href="Functions/regno.html">regno</a></td>
+<td>Returns the XMM register number used in round i</td>
+</tr>
+<tr>
+<td><a href="Functions/round.html">round</a></td>
+<td>Return code for round i and i+1. Performs the following rotation: in=&gt;out: A=&gt;D, B=&gt;E, C=&gt;A, D=&gt;B, E=&gt;C</td>
+</tr>
+<tr>
+<td><a href="Functions/savestate.html">savestate</a></td>
+<td>Generates instructions to update state from registers, saving result in memory.</td>
+</tr>
+<tr>
+<td><a href="Functions/swt3264.html">swt3264</a></td>
+<td>Chooses the instruction sequence based on the 32bit or 64bit model.</td>
+</tr>
+<tr>
+<td><a href="Functions/to_string.html">to_string</a></td>
+<td>Simple version to produce numbers &lt; 100 as string.</td>
+</tr>
+<tr>
+<td><a href="Functions/transformSSSE3.html">transformSSSE3</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/weave.html">weave</a></td>
+<td>Weaves the 2 instruction sequences together.</td>
+</tr>
+<tr>
+<td><a href="Functions/WiKi.html">WiKi</a></td>
+<td>Returns reference to storage of value W[i] + K[i].</td>
+</tr>
+<tr>
+<td><a href="Functions/WiKiV.html">WiKiV</a></td>
+<td>Returns reference to storage of vector (W + K)[i .. i+4].</td>
+</tr>
+<tr>
+<td><a href="Functions/WiV.html">WiV</a></td>
+<td>Returns reference to storage of vector W[i .. i+4].</td>
+</tr>
+<tr>
+<td><a href="Functions/wrap.html">wrap</a></td>
+<td>Flattens the instruction sequence and wraps it in an asm block.</td>
+</tr>
+<tr>
+<td><a href="Functions/xsetup.html">xsetup</a></td>
+<td>Returns instruction used to setup a round.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Variables/A.html">A</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/B.html">B</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/BUFFER_PTR.html">BUFFER_PTR</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/BUFFER_PTR.html">BUFFER_PTR</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/C.html">C</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/constants.html">constants</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/CONSTANTS_PTR.html">CONSTANTS_PTR</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/D.html">D</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/E.html">E</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/PRECALC_AHEAD.html">PRECALC_AHEAD</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/SP.html">SP</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/SP.html">SP</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/STATE_PTR.html">STATE_PTR</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/STATE_PTR.html">STATE_PTR</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/T1.html">T1</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/T2.html">T2</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/W_TMP.html">W_TMP</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/W_TMP2.html">W_TMP2</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/X_CONSTANT.html">X_CONSTANT</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/X_CONSTANT.html">X_CONSTANT</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/X_SHUFFLECTL.html">X_SHUFFLECTL</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/X_SHUFFLECTL.html">X_SHUFFLECTL</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,329 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Module - std.concurrency | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Module - std.concurrency | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.concurrency.Overview">
+<h1 class='section'>Module - std.concurrency</h1><h2 class='section'>About</h2><p>$(SCRIPT inhibitQuickIndex = 1;) $(DIVC quickindex, $(BOOKTABLE, $(TR $(TH Category) $(TH Symbols)) $(TR $(TD Tid) $(TD $(MYREF locate) $(MYREF ownerTid) $(MYREF register) $(MYREF spawn) $(MYREF spawnLinked) $(MYREF thisTid) $(MYREF Tid) $(MYREF TidMissingException) $(MYREF unregister) )) $(TR $(TD Message passing) $(TD $(MYREF prioritySend) $(MYREF receive) $(MYREF receiveOnly) $(MYREF receiveTimeout) $(MYREF send) $(MYREF setMaxMailboxSize) )) $(TR $(TD Message-related types) $(TD $(MYREF LinkTerminated) $(MYREF MailboxFull) $(MYREF MessageMismatch) $(MYREF OnCrowding) $(MYREF OwnerTerminated) $(MYREF PriorityMessageException) )) $(TR $(TD Scheduler) $(TD $(MYREF FiberScheduler) $(MYREF Generator) $(MYREF Scheduler) $(MYREF scheduler) $(MYREF ThreadInfo) $(MYREF ThreadScheduler) $(MYREF yield) )) $(TR $(TD Misc) $(TD $(MYREF initOnce) )) ))</p>
+<p>This is a low-level messaging API upon which more structured or restrictive APIs may be built.  The general idea is that every messageable entity is represented by a common handle type called a <code>Tid</code> , which allows messages to be sent to logical threads that are executing in both the current process and in external processes using the same interface.  This is an important aspect of scalability because it allows the components of a program to be spread across available resources with few to no changes to the actual implementation.</p>
+<p>A logical thread is an execution context that has its own stack and which runs asynchronously to other logical threads.  These may be preemptively scheduled kernel threads, $(MREF_ALTTEXT fibers, core, thread, fiber) (cooperative user-space threads), or some other concept with similar behavior.</p>
+<p>The type of concurrency used when logical threads are created is determined by the $(LREF Scheduler) selected at initialization time.  The default behavior is currently to create a new kernel thread per call to spawn, but other schedulers are available that multiplex fibers across the main thread or use some combination of the two approaches.</p>
+<p>Copyright: Copyright Sean Kelly 2009 - 2014. License:   <a href="http://www.boost.org/LICENSE_1_0.txt">Boost License 1.0</a>. Authors:   Sean Kelly, Alex Rønne Petersen, Martin Nowak Source:    $(PHOBOSSRC std/concurrency.d)</p>
+<h2 class='section'>Classes</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Classes/FiberScheduler.html">FiberScheduler</a></td>
+<td>An example <code>Scheduler</code> using $(MREF_ALTTEXT <code>Fiber</code> s, core, thread, fiber).</td>
+</tr>
+<tr>
+<td><a href="Classes/Generator.html">Generator</a></td>
+<td>A Generator is a $(MREF_ALTTEXT Fiber, core, thread, fiber) that periodically returns values of type <code>T</code> to the caller via <code>yield</code> .  This is represented as an InputRange.</td>
+</tr>
+<tr>
+<td><a href="Classes/LinkTerminated.html">LinkTerminated</a></td>
+<td>Thrown if a linked thread has terminated.</td>
+</tr>
+<tr>
+<td><a href="Classes/MailboxFull.html">MailboxFull</a></td>
+<td>Thrown on mailbox crowding if the mailbox is configured with <code>OnCrowding.throwException</code> .</td>
+</tr>
+<tr>
+<td><a href="Classes/MessageBox.html">MessageBox</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Classes/MessageMismatch.html">MessageMismatch</a></td>
+<td>Thrown on calls to $(LREF receiveOnly) if a message other than the type the receiving thread expected is sent.</td>
+</tr>
+<tr>
+<td><a href="Classes/OwnerTerminated.html">OwnerTerminated</a></td>
+<td>Thrown on calls to $(LREF receive) if the thread that spawned the receiving thread has terminated and no more messages exist.</td>
+</tr>
+<tr>
+<td><a href="Classes/PriorityMessageException.html">PriorityMessageException</a></td>
+<td>Thrown if a message was sent to a thread via $(REF prioritySend, std,concurrency) and the receiver does not have a handler for a message of this type.</td>
+</tr>
+<tr>
+<td><a href="Classes/ThreadScheduler.html">ThreadScheduler</a></td>
+<td>An example <code>Scheduler</code> using kernel threads.</td>
+</tr>
+<tr>
+<td><a href="Classes/TidMissingException.html">TidMissingException</a></td>
+<td>Thrown when a <code>Tid</code> is missing, e.g. when $(LREF ownerTid) doesn't find an owner thread.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Structs/List.html">List</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/Message.html">Message</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/ThreadInfo.html">ThreadInfo</a></td>
+<td>Encapsulates all implementation-level data needed for scheduling.</td>
+</tr>
+<tr>
+<td><a href="Structs/Tid.html">Tid</a></td>
+<td>An opaque type used to represent a logical thread.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Functions/checkops.html">checkops</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/hasLocalAliasing.html">hasLocalAliasing</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/initOnce.html">initOnce</a></td>
+<td>Initializes $(D_PARAM var) with the lazy $(D_PARAM init) value in a thread-safe manner.</td>
+</tr>
+<tr>
+<td><a href="Functions/initOnceLock.html">initOnceLock</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/locate.html">locate</a></td>
+<td>Gets the <code>Tid</code> associated with name.</td>
+</tr>
+<tr>
+<td><a href="Functions/onCrowdingBlock.html">onCrowdingBlock</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/onCrowdingIgnore.html">onCrowdingIgnore</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/onCrowdingThrow.html">onCrowdingThrow</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/ownerTid.html">ownerTid</a></td>
+<td>Return the <code>Tid</code> of the thread which spawned the caller's thread.</td>
+</tr>
+<tr>
+<td><a href="Functions/prioritySend.html">prioritySend</a></td>
+<td>Places the values as a message on the front of tid's message queue.</td>
+</tr>
+<tr>
+<td><a href="Functions/receive.html">receive</a></td>
+<td>Receives a message from another thread.</td>
+</tr>
+<tr>
+<td><a href="Functions/receiveFunction.html">receiveFunction</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/receiveOnly.html">receiveOnly</a></td>
+<td>Receives only messages with arguments of the specified types.</td>
+</tr>
+<tr>
+<td><a href="Functions/receiveTimeout.html">receiveTimeout</a></td>
+<td>Receives a message from another thread and gives up if no match arrives within a specified duration.</td>
+</tr>
+<tr>
+<td><a href="Functions/register.html">register</a></td>
+<td>Associates name with tid.</td>
+</tr>
+<tr>
+<td><a href="Functions/registryLock.html">registryLock</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/send.html">send</a></td>
+<td>Places the values as a message at the back of tid's message queue.</td>
+</tr>
+<tr>
+<td><a href="Functions/setMaxMailboxSize.html">setMaxMailboxSize</a></td>
+<td>Sets a maximum mailbox size.</td>
+</tr>
+<tr>
+<td><a href="Functions/spawn.html">spawn</a></td>
+<td>Starts <code>fn(args)</code> in a new logical thread.</td>
+</tr>
+<tr>
+<td><a href="Functions/spawnLinked.html">spawnLinked</a></td>
+<td>Starts <code>fn(args)</code> in a logical thread and will receive a <code>LinkTerminated</code> message when the operation terminates.</td>
+</tr>
+<tr>
+<td><a href="Functions/thisInfo.html">thisInfo</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/thisTid.html">thisTid</a></td>
+<td>Returns: The <code>Tid</code> of the caller's thread.</td>
+</tr>
+<tr>
+<td><a href="Functions/unregister.html">unregister</a></td>
+<td>Removes the registered name associated with a tid.</td>
+</tr>
+<tr>
+<td><a href="Functions/unregisterMe.html">unregisterMe</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/yield.html">yield</a></td>
+<td>If the caller is a <code>Fiber</code> and is not a $(LREF Generator), this function will call <code>scheduler.yield()</code> or <code>Fiber.yield()</code> , as appropriate.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Variables/isSpawnable.html">isSpawnable</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/namesByTid.html">namesByTid</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/scheduler.html">scheduler</a></td>
+<td>Sets the <code>Scheduler</code> behavior within the program.</td>
+</tr>
+<tr>
+<td><a href="Variables/tidByName.html">tidByName</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

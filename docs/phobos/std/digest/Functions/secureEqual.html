@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Overloads for - secureEqual | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Overloads for - secureEqual | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../index.html">
+            <img id="logo" class="svg" src="../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.digest.Functions.secureEqual">
+<h1 class='section'>Overloads for - secureEqual</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.digest</dd></dl>
+</div><h2 class='section api'>secureEqual(r1, r2)   </h2>
+ <pre><code class='lang-d'>bool secureEqual(
+  R1 r1,
+  R2 r2
+) </code></pre><p>Securely compares two digest representations while protecting against timing attacks. Do not use <code>==</code> to compare digest representations.</p>
+<h3 class='section'>The attack happens as follows</h3><p>$(OL $(LI An attacker wants to send harmful data to your server, which requires a integrity HMAC SHA1 token signed with a secret.) $(LI The length of the token is known to be 40 characters long due to its format, so the attacker first sends <code>&quot;0000000000000000000000000000000000000000&quot;</code> , then <code>&quot;1000000000000000000000000000000000000000&quot;</code> , and so on.) $(LI The given HMAC token is compared with the expected token using the <code>==</code> string comparison, which returns <code>false</code> as soon as the first wrong element is found. If a wrong element is found, then a rejection is sent back to the sender.) $(LI Eventually, the attacker is able to determine the first character in the correct token because the sever takes slightly longer to return a rejection. This is due to the comparison moving on to second item in the two arrays, seeing they are different, and then sending the rejection.) $(LI It may seem like too small of a difference in time for the attacker to notice, but security researchers have shown that differences as small as $(LINK2 <a href="http://www.cs.rice.edu/%7Edwallach/pub/crosby-timing2009.pdf">http://www.cs.rice.edu/~dwallach/pub/crosby-timing2009.pdf</a>, 20µs can be reliably distinguished) even with network inconsistencies.) $(LI Repeat the process for each character until the attacker has the whole correct token and the server accepts the harmful data. This can be done in a week with the attacker pacing the attack to 10 requests per second with only one client.) )</p>
+<p>This function defends against this attack by always comparing every single item in the array if the two arrays are the same length. Therefore, this function is always $(BIGOH n) for ranges of the same length.</p>
+<p>This attack can also be mitigated via rate limiting and banning IPs which have too many rejected requests. However, this does not completely solve the problem, as the attacker could be in control of a bot net. To fully defend against the timing attack, rate limiting, banning IPs, and using this function should be used together.</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>r1</code> R1  </dt>
+<dd>
+
+
+<p>A digest representation</p>
+
+</dd><dt><code>r2</code> R2  </dt>
+<dd>
+
+
+<p>A digest representation</p>
+
+</dd></dl><p>r2 = A digest representation Returns: <code>true</code> if both representations are equal, <code>false</code> otherwise See_Also: $(LINK2 <a href="https://en.wikipedia.org/wiki/Timing_attack">https://en.wikipedia.org/wiki/Timing_attack</a>, The Wikipedia article on timing attacks).</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

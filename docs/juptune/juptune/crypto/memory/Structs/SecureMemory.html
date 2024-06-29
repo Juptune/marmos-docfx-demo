@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct - SecureMemory | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct - SecureMemory | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../../index.html">
+            <img id="logo" class="svg" src="../../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="juptune.crypto.memory.Structs.SecureMemory">
+<h1 class='section'>Struct - SecureMemory</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>juptune.crypto.memory</dd></dl>
+</div><pre><code class='lang-d'>public struct SecureMemory
+{
+  // Sets the memory to no access. 
+  alias makeNoAccess = &lt;todo: marmos support pending&gt;;
+  // Sets the memory to read-only. 
+  alias makeReadOnly = &lt;todo: marmos support pending&gt;;
+  // Sets the memory to read/write. 
+  alias makeReadWrite = &lt;todo: marmos support pending&gt;;
+  // Sets the memory to write-only. 
+  alias makeWriteOnly = &lt;todo: marmos support pending&gt;;
+
+  // Provides a safe(ish) way to access the underlying user memory. 
+  void access( &lt;bug: unknown&gt; func ) ;
+  // ditto 
+  void access( &lt;bug: unknown&gt; func ) ;
+  // Allocates a new SecureMemory struct, with the given length. 
+  Result allocate( SecureMemory memory, size_t length ) static;
+  // Compares this memory to another memory in constant time for the given length of this memory. 
+  bool constantTimeCompare( &lt;bug: unknown&gt; other ) ;
+  // ditto. 
+  bool constantTimeCompare( SecureMemory other ) ;
+  // 
+  size_t length( ) ;
+  // Unless you realllllly need this, just use `access` or `constantTimeCompare` instead. 
+  &lt;bug: unknown&gt; unsafeSlice( ) ;
+
+  // 
+  __enumMember CANARY_VALUE;
+}</code></pre><h2 class='section'>About</h2><p>Memory for sensitive data - hardened using OS memory protection mechanisms, as well as providing constant-time operations to help mitigate timing attacks.</p>
+<h3 class='section'>Performance</h3><p>Please note that this struct has to make a <em>lot</em> of syscalls, and is therefore pretty slow compared to general-purpose memory, especially due to mmap and munmap.</p>
+<p>You should only use this for secret data, and potentially setup something like an object pool to reuse the memory if you need to do a lot of operations on it, as even deallocation is slow.</p>
+<p>Kind reminder to never let performance get in the way of security - benchmark results matter a lot less than security results.</p>
+<h3 class='section'>Technical</h3><p>This struct directly uses mmap and munmap for memory allocation and deallocation.</p>
+<p>The user memory range is locked in RAM using mlock, so that it probably won't be swapped; it is also marked as MADV_DONTDUMP, so that it probably won't be dumped to disk e.g. by a core dump.</p>
+<p>More minorly, the memory is also marked as MADV_WIPEONFORK, so that it is wiped on fork, in case you use fork() + Juptune for some reason (which isn't supported anyway, btw)</p>
+<p>Given a desired length of 1024 bytes, and a page size of 4096 bytes: - Two guard pages are allocated, one before the user memory, and one after the user memory. - A page for the user memory is allocated. (1024 &lt; 4096)</p>
+<p>The memory layout is as follows:</p>
+<p>======================================== = Guard Page (1 page)                  = ======================================== = User Memory (enough pages as needed) = ======================================== = Guard Page (1 page)                  = ========================================</p>
+<p>The guard pages are guard pages - they will crash on access.</p>
+<p>The user memory is a set of (by default) read/write pages. The slice returned to the user ends at the very last page, so that any overflow will be caught by the guard page.</p>
+<p>The start of the user memory therefore is unused by the user. This is filled with a canary value of 0xCC, which is checked on deallocation to ensure that no data has underflowed out of the user memory.</p>
+<p>The guard page at the end is... also a guard page - it will crash on access.</p>
+<h2 class='section'>Aliases</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../SecureMemory/Aliases/makeNoAccess.html">makeNoAccess</a></td>
+<td>Sets the memory to no access.</td>
+</tr>
+<tr>
+<td><a href="../SecureMemory/Aliases/makeReadOnly.html">makeReadOnly</a></td>
+<td>Sets the memory to read-only.</td>
+</tr>
+<tr>
+<td><a href="../SecureMemory/Aliases/makeReadWrite.html">makeReadWrite</a></td>
+<td>Sets the memory to read/write.</td>
+</tr>
+<tr>
+<td><a href="../SecureMemory/Aliases/makeWriteOnly.html">makeWriteOnly</a></td>
+<td>Sets the memory to write-only.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../SecureMemory/Functions/access.html">access</a></td>
+<td>Provides a safe(ish) way to access the underlying user memory.</td>
+</tr>
+<tr>
+<td><a href="../SecureMemory/Functions/allocate.html">allocate</a></td>
+<td>Allocates a new SecureMemory struct, with the given length.</td>
+</tr>
+<tr>
+<td><a href="../SecureMemory/Functions/constantTimeCompare.html">constantTimeCompare</a></td>
+<td>Compares this memory to another memory in constant time for the given length of this memory.</td>
+</tr>
+<tr>
+<td><a href="../SecureMemory/Functions/length.html">length</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../SecureMemory/Functions/unsafeSlice.html">unsafeSlice</a></td>
+<td>Unless you realllllly need this, just use <code>access</code> or <code>constantTimeCompare</code> instead.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../SecureMemory/Variables/CANARY_VALUE.html">CANARY_VALUE</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

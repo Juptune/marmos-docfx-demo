@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class - MessageBox | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class - MessageBox | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../index.html">
+            <img id="logo" class="svg" src="../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.concurrency.Classes.MessageBox">
+<h1 class='section'>Class - MessageBox</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.concurrency</dd></dl>
+</div><pre><code class='lang-d'>public class MessageBox
+{
+  // 
+  alias ListT = &lt;todo: marmos support pending&gt;;
+  // 
+  alias OnMaxFn = &lt;todo: marmos support pending&gt;;
+
+  // 
+  void close( ) final;
+  // 
+  bool isClosed( ) final;
+  // 
+  bool isControlMsg( Message msg ) ;
+  // 
+  bool isLinkDeadMsg( Message msg ) ;
+  // 
+  bool isPriorityMsg( Message msg ) ;
+  // 
+  bool mboxFull( ) ;
+  // 
+  void put( Message msg ) final;
+  // 
+  void setMaxMsgs( size_t num, &lt;bug: unknown&gt; call ) final;
+  // 
+  void updateMsgCount( ) ;
+
+  // 
+  bool m_closed;
+  // 
+  ListT m_localBox;
+  // 
+  size_t m_localMsgs;
+  // 
+  ListT m_localPty;
+  // 
+  Mutex m_lock;
+  // 
+  size_t m_maxMsgs;
+  // 
+  Condition m_notFull;
+  // 
+  OnMaxFn m_onMaxMsgs;
+  // 
+  Condition m_putMsg;
+  // 
+  size_t m_putQueue;
+  // 
+  ListT m_sharedBox;
+  // 
+  ListT m_sharedPty;
+}</code></pre><h2 class='section'>Aliases</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../MessageBox/Aliases/ListT.html">ListT</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MessageBox/Aliases/OnMaxFn.html">OnMaxFn</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../MessageBox/Functions/close.html">close</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MessageBox/Functions/isClosed.html">isClosed</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MessageBox/Functions/isControlMsg.html">isControlMsg</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MessageBox/Functions/isLinkDeadMsg.html">isLinkDeadMsg</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MessageBox/Functions/isPriorityMsg.html">isPriorityMsg</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MessageBox/Functions/mboxFull.html">mboxFull</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MessageBox/Functions/put.html">put</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MessageBox/Functions/setMaxMsgs.html">setMaxMsgs</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MessageBox/Functions/updateMsgCount.html">updateMsgCount</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../MessageBox/Variables/m_closed.html">m_closed</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MessageBox/Variables/m_localBox.html">m_localBox</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MessageBox/Variables/m_localMsgs.html">m_localMsgs</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MessageBox/Variables/m_localPty.html">m_localPty</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MessageBox/Variables/m_lock.html">m_lock</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MessageBox/Variables/m_maxMsgs.html">m_maxMsgs</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MessageBox/Variables/m_notFull.html">m_notFull</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MessageBox/Variables/m_onMaxMsgs.html">m_onMaxMsgs</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MessageBox/Variables/m_putMsg.html">m_putMsg</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MessageBox/Variables/m_putQueue.html">m_putQueue</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MessageBox/Variables/m_sharedBox.html">m_sharedBox</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MessageBox/Variables/m_sharedPty.html">m_sharedPty</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

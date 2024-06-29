@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Module - std.functional | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Module - std.functional | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.functional.Overview">
+<h1 class='section'>Module - std.functional</h1><h2 class='section'>About</h2><p>Functions that manipulate other functions.</p>
+<p>This module provides functions for compile time function composition. These functions are helpful when constructing predicates for the algorithms in $(MREF std, algorithm) or $(MREF std, range).</p>
+<p>$(SCRIPT inhibitQuickIndex = 1;) $(DIVC quickindex, $(BOOKTABLE , $(TR $(TH Function Name) $(TH Description) ) $(TR $(TD $(LREF adjoin)) $(TD Joins a couple of functions into one that executes the original functions independently and returns a tuple with all the results. )) $(TR $(TD $(LREF compose), $(LREF pipe)) $(TD Join a couple of functions into one that executes the original functions one after the other, using one function's result for the next function's argument. )) $(TR $(TD $(LREF lessThan), $(LREF greaterThan), $(LREF equalTo)) $(TD Ready-made predicate functions to compare two values. )) $(TR $(TD $(LREF memoize)) $(TD Creates a function that caches its result for fast re-evaluation. )) $(TR $(TD $(LREF not)) $(TD Creates a function that negates another. )) $(TR $(TD $(LREF partial)) $(TD Creates a function that binds the first argument of a given function to a given value. )) $(TR $(TD $(LREF curry)) $(TD Converts a multi-argument function into a series of single-argument functions.  f(x, y) == curry(f)(x)(y) )) $(TR $(TD $(LREF reverseArgs)) $(TD Predicate that reverses the order of its arguments. )) $(TR $(TD $(LREF toDelegate)) $(TD Converts a callable to a delegate. )) $(TR $(TD $(LREF unaryFun), $(LREF binaryFun)) $(TD Create a unary or binary function from a string. Most often used when defining algorithms on ranges. )) $(TR $(TD $(LREF bind)) $(TD Passes the fields of a struct as arguments to a function. )) ))</p>
+<p>Copyright: Copyright Andrei Alexandrescu 2008 - 2009. License:   $(HTTP boost.org/LICENSE_1_0.txt, Boost License 1.0). Authors:   $(HTTP erdani.org, Andrei Alexandrescu) Source:    $(PHOBOSSRC std/functional.d)</p>
+<h2 class='section'>Aliases</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Aliases/equalTo.html">equalTo</a></td>
+<td>Predicate that returns $(D_PARAM a == b). Correctly compares signed and unsigned integers, ie. !(-1 == ~0U).</td>
+</tr>
+<tr>
+<td><a href="Aliases/greaterThan.html">greaterThan</a></td>
+<td>Predicate that returns $(D_PARAM a &gt; b). Correctly compares signed and unsigned integers, ie. 2U &gt; -1.</td>
+</tr>
+<tr>
+<td><a href="Aliases/lessThan.html">lessThan</a></td>
+<td>Predicate that returns $(D_PARAM a &lt; b). Correctly compares signed and unsigned integers, ie. -1 &lt; 2U.</td>
+</tr>
+<tr>
+<td><a href="Aliases/pipe.html">pipe</a></td>
+<td>Pipes functions in sequence. Offers the same functionality as $(D compose), but with functions specified in reverse order. This may lead to more readable code in some situation because the order of execution is the same as lexical order.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Structs/CurryImpl.html">CurryImpl</a></td>
+<td>Takes a function of (potentially) many arguments, and returns a function taking one argument and returns a callable taking the rest.  f(x, y) == curry(f)(x)(y)</td>
+</tr>
+<tr>
+<td><a href="Structs/DelegateFaker.html">DelegateFaker</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Functions/bind.html">bind</a></td>
+<td>Passes the fields of a struct as arguments to a function.</td>
+</tr>
+<tr>
+<td><a href="Functions/curry.html">curry</a></td>
+<td>Takes a function of (potentially) many arguments, and returns a function taking one argument and returns a callable taking the rest.  f(x, y) == curry(f)(x)(y)</td>
+</tr>
+<tr>
+<td><a href="Functions/memoize.html">memoize</a></td>
+<td>$(LINK2 <a href="https://en.wikipedia.org/wiki/Memoization">https://en.wikipedia.org/wiki/Memoization</a>, Memoizes) a function so as to avoid repeated computation. The memoization structure is a hash table keyed by a tuple of the function's arguments. There is a speed gain if the function is repeatedly called with the same arguments and is more expensive than a hash table lookup. For more information on memoization, refer to $(HTTP docs.google.com/viewer?url=http%3A%2F%2Fhop.perl.plover.com%2Fbook%2Fpdf%2F03CachingAndMemoization.pdf, this book chapter).</td>
+</tr>
+<tr>
+<td><a href="Functions/not.html">not</a></td>
+<td>Negates predicate <code>pred</code> .</td>
+</tr>
+<tr>
+<td><a href="Functions/reverseArgs.html">reverseArgs</a></td>
+<td>N-ary predicate that reverses the order of arguments, e.g., given $(D pred(a, b, c)), returns $(D pred(c, b, a)).</td>
+</tr>
+<tr>
+<td><a href="Functions/safeOp.html">safeOp</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/toDelegate.html">toDelegate</a></td>
+<td>Convert a callable to a delegate with the same parameter list and return type, avoiding heap allocations and use of auxiliary storage.</td>
+</tr>
+<tr>
+<td><a href="Functions/unsafeOp.html">unsafeOp</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

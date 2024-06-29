@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct - Segregator | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct - Segregator | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../../../../index.html">
+            <img id="logo" class="svg" src="../../../../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.experimental.allocator.building_blocks.segregator.Structs.Segregator">
+<h1 class='section'>Struct - Segregator</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.experimental.allocator.building_blocks.segregator</dd></dl>
+</div><pre><code class='lang-d'>public struct Segregator
+{
+  // This method is defined if both allocators define it, and forwards to `SmallAllocator` or `LargeAllocator` appropriately. 
+  &lt;bug: unknown&gt; alignedAllocate( size_t __anonymous, uint __anonymous ) ;
+  // This method is defined only if at least one of the allocators defines it, and work similarly to `reallocate` . 
+  bool alignedReallocate( &lt;bug: unknown&gt; b, size_t s, uint a ) ;
+  // The memory is obtained from `SmallAllocator` if $(D s &lt;= threshold), or `LargeAllocator` otherwise. 
+  &lt;bug: unknown&gt; allocate( size_t __anonymous ) ;
+  // This function is defined only if both allocators define it, and forwards appropriately depending on `b.length` . 
+  bool deallocate( &lt;bug: unknown&gt; b ) ;
+  // This function is defined only if both allocators define it, and calls `deallocateAll` for them in turn. 
+  bool deallocateAll( ) ;
+  // This function is defined only if both allocators define it, and returns the conjunction of `empty` calls for the two. 
+  Ternary empty( ) ;
+  // This method is defined only if at least one of the allocators defines it. If `SmallAllocator` defines `expand` and $(D b.length + delta &lt;= threshold), the call is forwarded to `SmallAllocator` . If $(D LargeAllocator) defines `expand` and $(D b.length &gt; threshold), the call is forwarded to `LargeAllocator` . Otherwise, the call returns `false` . 
+  bool expand( &lt;bug: unknown&gt; b, size_t delta ) ;
+  // This method is defined only if at least one of the allocators defines it. The good allocation size is obtained from `SmallAllocator` if $(D s &lt;= threshold), or `LargeAllocator` otherwise. (If one of the allocators does not define `goodAllocSize` , the default implementation in this module applies.) 
+  size_t goodAllocSize( size_t s ) static;
+  // This method is defined only if both allocators define it. The call is forwarded to `SmallAllocator` if $(D b.length &lt;= threshold), or $(D LargeAllocator) otherwise. 
+  Ternary owns( &lt;bug: unknown&gt; b ) ;
+  // This method is defined only if at least one of the allocators defines it. If `SmallAllocator` defines `reallocate` and $(D b.length &lt;= threshold &amp;&amp; s &lt;= threshold), the call is forwarded to $(D SmallAllocator). If `LargeAllocator` defines `expand` and $(D b.length &gt; threshold &amp;&amp; s &gt; threshold), the call is forwarded to $(D LargeAllocator). Otherwise, the call returns `false` . 
+  bool reallocate( &lt;bug: unknown&gt; b, size_t s ) ;
+
+  // The alignment offered is the minimum of the two allocators&#39; alignment. 
+  uint alignment;
+  // 
+  uint alignment;
+  // 
+  static shared Segregator instance;
+  // 
+  __enumMember sharedMethods;
+}</code></pre><h2 class='section'>About</h2><p>Dispatches allocations (and deallocations) between two allocators ($(D SmallAllocator) and <code>LargeAllocator</code> ) depending on the size allocated, as follows. All allocations smaller than or equal to <code>threshold</code> will be dispatched to <code>SmallAllocator</code> . The others will go to <code>LargeAllocator</code> .</p>
+<p>If both allocators are <code>shared</code> , the <code>Segregator</code> will also offer $(D shared) methods.</p>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Segregator/Functions/alignedAllocate.html">alignedAllocate</a></td>
+<td>This method is defined if both allocators define it, and forwards to <code>SmallAllocator</code> or <code>LargeAllocator</code> appropriately.</td>
+</tr>
+<tr>
+<td><a href="../Segregator/Functions/alignedReallocate.html">alignedReallocate</a></td>
+<td>This method is defined only if at least one of the allocators defines it, and work similarly to <code>reallocate</code> .</td>
+</tr>
+<tr>
+<td><a href="../Segregator/Functions/allocate.html">allocate</a></td>
+<td>The memory is obtained from <code>SmallAllocator</code> if $(D s &lt;= threshold), or <code>LargeAllocator</code> otherwise.</td>
+</tr>
+<tr>
+<td><a href="../Segregator/Functions/deallocate.html">deallocate</a></td>
+<td>This function is defined only if both allocators define it, and forwards appropriately depending on <code>b.length</code> .</td>
+</tr>
+<tr>
+<td><a href="../Segregator/Functions/deallocateAll.html">deallocateAll</a></td>
+<td>This function is defined only if both allocators define it, and calls <code>deallocateAll</code> for them in turn.</td>
+</tr>
+<tr>
+<td><a href="../Segregator/Functions/empty.html">empty</a></td>
+<td>This function is defined only if both allocators define it, and returns the conjunction of <code>empty</code> calls for the two.</td>
+</tr>
+<tr>
+<td><a href="../Segregator/Functions/expand.html">expand</a></td>
+<td>This method is defined only if at least one of the allocators defines it. If <code>SmallAllocator</code> defines <code>expand</code> and $(D b.length + delta &lt;= threshold), the call is forwarded to <code>SmallAllocator</code> . If $(D LargeAllocator) defines <code>expand</code> and $(D b.length &gt; threshold), the call is forwarded to <code>LargeAllocator</code> . Otherwise, the call returns <code>false</code> .</td>
+</tr>
+<tr>
+<td><a href="../Segregator/Functions/goodAllocSize.html">goodAllocSize</a></td>
+<td>This method is defined only if at least one of the allocators defines it. The good allocation size is obtained from <code>SmallAllocator</code> if $(D s &lt;= threshold), or <code>LargeAllocator</code> otherwise. (If one of the allocators does not define <code>goodAllocSize</code> , the default implementation in this module applies.)</td>
+</tr>
+<tr>
+<td><a href="../Segregator/Functions/owns.html">owns</a></td>
+<td>This method is defined only if both allocators define it. The call is forwarded to <code>SmallAllocator</code> if $(D b.length &lt;= threshold), or $(D LargeAllocator) otherwise.</td>
+</tr>
+<tr>
+<td><a href="../Segregator/Functions/reallocate.html">reallocate</a></td>
+<td>This method is defined only if at least one of the allocators defines it. If <code>SmallAllocator</code> defines <code>reallocate</code> and $(D b.length &lt;= threshold &amp;&amp; s &lt;= threshold), the call is forwarded to $(D SmallAllocator). If <code>LargeAllocator</code> defines <code>expand</code> and $(D b.length &gt; threshold &amp;&amp; s &gt; threshold), the call is forwarded to $(D LargeAllocator). Otherwise, the call returns <code>false</code> .</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Segregator/Variables/alignment.html">alignment</a></td>
+<td>The alignment offered is the minimum of the two allocators' alignment.</td>
+</tr>
+<tr>
+<td><a href="../Segregator/Variables/alignment.html">alignment</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Segregator/Variables/instance.html">instance</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Segregator/Variables/sharedMethods.html">sharedMethods</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

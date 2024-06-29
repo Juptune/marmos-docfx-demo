@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Overloads for - sort | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Overloads for - sort | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../../index.html">
+            <img id="logo" class="svg" src="../../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.algorithm.sorting.Functions.sort">
+<h1 class='section'>Overloads for - sort</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.algorithm.sorting</dd></dl>
+</div><h2 class='section api'>sort(r)   </h2>
+ <pre><code class='lang-d'>SortedRange!(Rangeless) sort(
+  Range r
+) </code></pre><p>Sorts a random-access range according to the predicate <code>less</code> .</p>
+<p>Performs $(BIGOH r.length log(r.length)) evaluations of <code>less</code>. If <code>less</code> involves expensive computations on the sort key, it may be worthwhile to use $(LREF schwartzSort) instead.</p>
+<p>Stable sorting requires <code>hasAssignableElements!Range</code> to be true.</p>
+<p><code>sort</code> returns a $(REF SortedRange, std,range) over the original range, allowing functions that can take advantage of sorted data to know that the range is sorted and adjust accordingly. The $(REF SortedRange, std,range) is a wrapper around the original range, so both it and the original range are sorted. Other functions can't know that the original range has been sorted, but they $(I can) know that $(REF SortedRange, std,range) has been sorted.</p>
+<h3 class='section'>Preconditions</h3><p>The predicate is expected to satisfy certain rules in order for <code>sort</code> to behave as expected - otherwise, the program may fail on certain inputs (but not others) when not compiled in release mode, due to the cursory <code>assumeSorted</code> check. Specifically, <code>sort</code> expects <code>less(a,b) &amp;&amp; less(b,c)</code> to imply <code>less(a,c)</code> (transitivity), and, conversely, <code>!less(a,b) &amp;&amp; !less(b,c)</code> to imply <code>!less(a,c)</code> . Note that the default predicate (<code>&quot;a &lt; b&quot;</code>) does not always satisfy these conditions for floating point types, because the expression will always be <code>false</code> when either <code>a</code> or <code>b</code> is NaN. Use $(REF cmp, std,math) instead.</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>less</code> &lt;parameter not found&gt;  </dt>
+<dd>
+
+
+<p>The predicate to sort by.</p>
+
+</dd><dt><code>ss</code> &lt;parameter not found&gt;  </dt>
+<dd>
+
+
+<p>The swapping strategy to use.</p>
+
+</dd><dt><code>r</code> Range  </dt>
+<dd>
+
+
+<p>The range to sort.</p>
+
+</dd></dl><p>Returns: The initial range wrapped as a <code>SortedRange</code> with the predicate <code>binaryFun!less</code> .</p>
+<p>Algorithms: $(HTTP en.wikipedia.org/wiki/Introsort, Introsort) is used for unstable sorting and $(HTTP en.wikipedia.org/wiki/Timsort, Timsort) is used for stable sorting. Each algorithm has benefits beyond stability. Introsort is generally faster but Timsort may achieve greater speeds on data with low entropy or if predicate calls are expensive. Introsort performs no allocations whereas Timsort will perform one or more allocations per call. Both algorithms have $(BIGOH n log n) worst-case time complexity.</p>
+<h3 class='section'>See_Also</h3><p><span class="math">\((REF assumeSorted, std,range)\)</span>(BR) <span class="math">\((REF SortedRange, std,range)\)</span>(BR) <span class="math">\((REF SwapStrategy, std,algorithm,mutation)\)</span>(BR) $(REF binaryFun, std,functional)</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

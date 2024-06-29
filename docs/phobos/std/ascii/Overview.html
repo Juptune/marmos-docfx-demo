@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Module - std.ascii | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Module - std.ascii | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.ascii.Overview">
+<h1 class='section'>Module - std.ascii</h1><h2 class='section'>About</h2><p>Functions which operate on ASCII characters.</p>
+<p>All of the functions in std.ascii accept Unicode characters but effectively ignore them if they're not ASCII. All <code>isX</code> functions return <code>false</code> for non-ASCII characters, and all <code>toX</code> functions do nothing to non-ASCII characters.</p>
+<p>For functions which operate on Unicode characters, see $(MREF std, uni).</p>
+<p>$(SCRIPT inhibitQuickIndex = 1;) $(DIVC quickindex, $(BOOKTABLE, $(TR $(TH Category) $(TH Functions)) $(TR $(TD Validation) $(TD $(LREF isAlpha) $(LREF isAlphaNum) $(LREF isASCII) $(LREF isControl) $(LREF isDigit) $(LREF isGraphical) $(LREF isHexDigit) $(LREF isOctalDigit) $(LREF isPrintable) $(LREF isPunctuation) $(LREF isUpper) $(LREF isWhite) )) $(TR $(TD Conversions) $(TD $(LREF toLower) $(LREF toUpper) )) $(TR $(TD Constants) $(TD $(LREF digits) $(LREF fullHexDigits) $(LREF hexDigits) $(LREF letters) $(LREF lowercase) $(LREF lowerHexDigits) $(LREF newline) $(LREF octalDigits) $(LREF uppercase) $(LREF whitespace) )) $(TR $(TD Enums) $(TD $(LREF ControlChar) $(LREF LetterCase) )) )) References: $(LINK2 <a href="http://www.digitalmars.com/d/ascii-table.html">http://www.digitalmars.com/d/ascii-table.html</a>, ASCII Table), $(HTTP en.wikipedia.org/wiki/Ascii, Wikipedia)</p>
+<p>License:   $(HTTP <a href="http://www.boost.org/LICENSE_1_0.txt">www.boost.org/LICENSE_1_0.txt</a>, Boost License 1.0). Authors:   $(HTTP digitalmars.com, Walter Bright) and $(HTTP jmdavisprog.com, Jonathan M Davis) Source:    $(PHOBOSSRC std/ascii.d)</p>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Functions/isAlpha.html">isAlpha</a></td>
+<td>Params: c = The character to test. Returns: Whether <code>c</code> is an ASCII letter (A .. Z, a .. z).</td>
+</tr>
+<tr>
+<td><a href="Functions/isAlphaNum.html">isAlphaNum</a></td>
+<td>Params: c = The character to test. Returns: Whether <code>c</code> is a letter or a number (0 .. 9, a .. z, A .. Z).</td>
+</tr>
+<tr>
+<td><a href="Functions/isASCII.html">isASCII</a></td>
+<td>Params: c = The character to test. Returns: Whether or not <code>c</code> is in the ASCII character set - i.e. in the range 0 .. 0x7F.</td>
+</tr>
+<tr>
+<td><a href="Functions/isControl.html">isControl</a></td>
+<td>Params: c = The character to test. Returns: Whether <code>c</code> is a control character.</td>
+</tr>
+<tr>
+<td><a href="Functions/isDigit.html">isDigit</a></td>
+<td>Params: c = The character to test. Returns: Whether <code>c</code> is a digit (0 .. 9).</td>
+</tr>
+<tr>
+<td><a href="Functions/isGraphical.html">isGraphical</a></td>
+<td>Params: c = The character to test. Returns: Whether or not <code>c</code> is a printable character other than the space character.</td>
+</tr>
+<tr>
+<td><a href="Functions/isHexDigit.html">isHexDigit</a></td>
+<td>Params: c = The character to test. Returns: Whether <code>c</code> is a digit in base 16 (0 .. 9, A .. F, a .. f).</td>
+</tr>
+<tr>
+<td><a href="Functions/isLower.html">isLower</a></td>
+<td>Params: c = The character to test. Returns: Whether <code>c</code> is a lowercase ASCII letter (a .. z).</td>
+</tr>
+<tr>
+<td><a href="Functions/isOctalDigit.html">isOctalDigit</a></td>
+<td>Params: c = The character to test. Returns: Whether <code>c</code> is a digit in base 8 (0 .. 7).</td>
+</tr>
+<tr>
+<td><a href="Functions/isPrintable.html">isPrintable</a></td>
+<td>Params: c = The character to test. Returns: Whether or not <code>c</code> is a printable character - including the space character.</td>
+</tr>
+<tr>
+<td><a href="Functions/isPunctuation.html">isPunctuation</a></td>
+<td>Params: c = The character to test. Returns: Whether or not <code>c</code> is a punctuation character. That includes all ASCII characters which are not control characters, letters, digits, or whitespace.</td>
+</tr>
+<tr>
+<td><a href="Functions/isUpper.html">isUpper</a></td>
+<td>Params: c = The character to test. Returns: Whether <code>c</code> is an uppercase ASCII letter (A .. Z).</td>
+</tr>
+<tr>
+<td><a href="Functions/isWhite.html">isWhite</a></td>
+<td>Params: c = The character to test. Returns: Whether or not <code>c</code> is a whitespace character. That includes the space, tab, vertical tab, form feed, carriage return, and linefeed characters.</td>
+</tr>
+<tr>
+<td><a href="Functions/toLower.html">toLower</a></td>
+<td>Converts an ASCII letter to lowercase.</td>
+</tr>
+<tr>
+<td><a href="Functions/toUpper.html">toUpper</a></td>
+<td>Converts an ASCII letter to uppercase.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Variables/digits.html">digits</a></td>
+<td>0 .. 9</td>
+</tr>
+<tr>
+<td><a href="Variables/fullHexDigits.html">fullHexDigits</a></td>
+<td>0 .. 9A .. Fa .. f</td>
+</tr>
+<tr>
+<td><a href="Variables/hexDigits.html">hexDigits</a></td>
+<td>0 .. 9A .. F</td>
+</tr>
+<tr>
+<td><a href="Variables/letters.html">letters</a></td>
+<td>A .. Za .. z</td>
+</tr>
+<tr>
+<td><a href="Variables/lowercase.html">lowercase</a></td>
+<td>a .. z</td>
+</tr>
+<tr>
+<td><a href="Variables/lowerHexDigits.html">lowerHexDigits</a></td>
+<td>0 .. 9a .. f</td>
+</tr>
+<tr>
+<td><a href="Variables/newline.html">newline</a></td>
+<td>Newline sequence for this system.</td>
+</tr>
+<tr>
+<td><a href="Variables/octalDigits.html">octalDigits</a></td>
+<td>0 .. 7</td>
+</tr>
+<tr>
+<td><a href="Variables/uppercase.html">uppercase</a></td>
+<td>A .. Z</td>
+</tr>
+<tr>
+<td><a href="Variables/whitespace.html">whitespace</a></td>
+<td>ASCII whitespace</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

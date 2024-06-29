@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class - ThreadScheduler | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class - ThreadScheduler | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../index.html">
+            <img id="logo" class="svg" src="../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.concurrency.Classes.ThreadScheduler">
+<h1 class='section'>Class - ThreadScheduler</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.concurrency</dd></dl>
+</div><pre><code class='lang-d'>public class ThreadScheduler
+{
+  // Creates a new `Condition` variable.  No custom behavior is needed here. 
+  Condition newCondition( Mutex m ) ;
+  // Creates a new kernel thread and assigns it to run the supplied op. 
+  void spawn( &lt;bug: unknown&gt; op ) ;
+  // This simply runs op directly, since no real scheduling is needed by this approach. 
+  void start( &lt;bug: unknown&gt; op ) ;
+  // Returns `ThreadInfo.thisInfo` , since it is a thread-local instance of `ThreadInfo` , which is the correct behavior for this scheduler. 
+  ThreadInfo thisInfo( ) ;
+  // This scheduler does no explicit multiplexing, so this is a no-op. 
+  void yield( ) ;
+}</code></pre><h2 class='section'>About</h2><p>An example <code>Scheduler</code> using kernel threads.</p>
+<p>This is an example <code>Scheduler</code> that mirrors the default scheduling behavior of creating one kernel thread per call to spawn.  It is fully functional and may be instantiated and used, but is not a necessary part of the default functioning of this module.</p>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../ThreadScheduler/Functions/newCondition.html">newCondition</a></td>
+<td>Creates a new <code>Condition</code> variable.  No custom behavior is needed here.</td>
+</tr>
+<tr>
+<td><a href="../ThreadScheduler/Functions/spawn.html">spawn</a></td>
+<td>Creates a new kernel thread and assigns it to run the supplied op.</td>
+</tr>
+<tr>
+<td><a href="../ThreadScheduler/Functions/start.html">start</a></td>
+<td>This simply runs op directly, since no real scheduling is needed by this approach.</td>
+</tr>
+<tr>
+<td><a href="../ThreadScheduler/Functions/thisInfo.html">thisInfo</a></td>
+<td>Returns <code>ThreadInfo.thisInfo</code> , since it is a thread-local instance of <code>ThreadInfo</code> , which is the correct behavior for this scheduler.</td>
+</tr>
+<tr>
+<td><a href="../ThreadScheduler/Functions/yield.html">yield</a></td>
+<td>This scheduler does no explicit multiplexing, so this is a no-op.</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

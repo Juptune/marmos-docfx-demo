@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct - MemoryBlockPool | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct - MemoryBlockPool | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../../../index.html">
+            <img id="logo" class="svg" src="../../../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="juptune.core.ds.block.Structs.MemoryBlockPool">
+<h1 class='section'>Struct - MemoryBlockPool</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>juptune.core.ds.block</dd></dl>
+</div><pre><code class='lang-d'>public struct MemoryBlockPool
+{
+  // 
+  void addFreeBlock( size_t powerOfTwo, &lt;bug: unknown&gt; block ) ;
+  // Allocates a certain amount of blocks from the pool, at a specific power of two size. 
+  Result allocate( size_t powerOfTwo, size_t blockCount, MemoryBlockAllocation allocation ) ;
+  // 
+  &lt;bug: unknown&gt; bucketByPower( size_t power ) ;
+  // 
+  AllocationOffsets calculateAllocationOffsets( size_t powerOfTwo, size_t blockCount ) static;
+  // Preallocates a certain amount of blocks from the system, at a specific power of two size. 
+  Result preallocateBlocks( size_t powerOfTwo, size_t blockCount ) ;
+
+  // 
+  __enumMember BLOCK_BUCKETS;
+  // Maximum block size, in power of two 
+  __enumMember MAX_BLOCK_POWER;
+  // Maximum block size, in bytes 
+  __enumMember MAX_BLOCK_SIZE;
+  // Minimum block size, in power of two 
+  __enumMember MIN_BLOCK_POWER;
+  // Minimum block size, in bytes 
+  __enumMember MIN_BLOCK_SIZE;
+}</code></pre><h2 class='section'>About</h2><p>A pool used to manage blocks of memory of varying sizes.</p>
+<h3 class='section'>Notes</h3><p>This pool is not thread safe.</p>
+<p>It is not safe to move this pool once any memory has been allocated from it.</p>
+<p>This pool is not garbage collected. Once this pool's dtor is called, all memory allocated by this pool is freed. This also means that any allocations will become unsafe to use after the pool's dtor is called.</p>
+<p>Additionally memory blocks are not made aware to the GC, so please do not store GC pointers into the blocks.</p>
+<p>This pool is weakly safe in the sense that the user's management of memory is sane, and also trusted in the sense that calculations within the pool are correct.</p>
+<p>Block sizes are powers of two, and are in the range [256, 1024 **1024 ** 4] inclusive.</p>
+<h3 class='section'>Usage</h3><p>First you must preallocate blocks into the pool using <code>preallocateBlocks</code> .</p>
+<p>You can then allocate blocks from the pool using <code>allocate</code> , and free the blocks by calling <code>.free</code> or <code>.__xdtor</code> on the resulting allocation object.</p>
+<p>Due to the nature of the pool's memory model, it may be more efficient to allocate a larger number of blocks at once rather than allocating them one at a time.</p>
+<p>Currently there's not really any way to free data once preallocated beyond calling the destructor but this of course frees the entire set of data. This is a TODO since it hurts my brain when thinking about the overall flow of a program.</p>
+<h3 class='section'>Memory model</h3><p>&quot;Preallocation&quot; of blocks simply means that the pool will allocate a large chunk of memory from the system, where the size is dependent on the amount of blocks requested, and then split that memory up to form the resulting memory blocks.</p>
+<p>Each preallocation contains blocks for a single power of two.</p>
+<p>The layout of the memory is as follows, where the top is the start of the allocation:</p>
+<p>[AllocationMetadata (internal struct)] [n MemoryBlocks (internal struct)] [n*(1 &lt;&lt; powerOfTwo) bytes]</p>
+<p>The <code>AllocationMetadata</code> struct is used to form a linked list of preallocation so that the pool can free all of its data when it is destroyed.</p>
+<p>The <code>MemoryBlock</code> struct is used to form a linked list of free blocks; store the underlying ubyte slice from the preallocation, and other misc internal metadata.</p>
+<p>The <code>n*(1 &lt;&lt; powerOfTwo) bytes</code> is the unstructured chunk of memory that is split equally amongst each <code>MemoryBlock</code> . This is where your user data lives.</p>
+<p>Additionally this pool only contains a linked list of free blocks, and does not keep track of allocated blocks.</p>
+<p>Free block lists are stored within a static array of buckets, where each bucket represents a power of two, for easy and fast lookup.</p>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../MemoryBlockPool/Functions/addFreeBlock.html">addFreeBlock</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MemoryBlockPool/Functions/allocate.html">allocate</a></td>
+<td>Allocates a certain amount of blocks from the pool, at a specific power of two size.</td>
+</tr>
+<tr>
+<td><a href="../MemoryBlockPool/Functions/bucketByPower.html">bucketByPower</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MemoryBlockPool/Functions/calculateAllocationOffsets.html">calculateAllocationOffsets</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MemoryBlockPool/Functions/preallocateBlocks.html">preallocateBlocks</a></td>
+<td>Preallocates a certain amount of blocks from the system, at a specific power of two size.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../MemoryBlockPool/Variables/BLOCK_BUCKETS.html">BLOCK_BUCKETS</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MemoryBlockPool/Variables/MAX_BLOCK_POWER.html">MAX_BLOCK_POWER</a></td>
+<td>Maximum block size, in power of two</td>
+</tr>
+<tr>
+<td><a href="../MemoryBlockPool/Variables/MAX_BLOCK_SIZE.html">MAX_BLOCK_SIZE</a></td>
+<td>Maximum block size, in bytes</td>
+</tr>
+<tr>
+<td><a href="../MemoryBlockPool/Variables/MIN_BLOCK_POWER.html">MIN_BLOCK_POWER</a></td>
+<td>Minimum block size, in power of two</td>
+</tr>
+<tr>
+<td><a href="../MemoryBlockPool/Variables/MIN_BLOCK_SIZE.html">MIN_BLOCK_SIZE</a></td>
+<td>Minimum block size, in bytes</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

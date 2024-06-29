@@ -1,0 +1,231 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Module - std.experimental.allocator.common | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Module - std.experimental.allocator.common | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../../index.html">
+            <img id="logo" class="svg" src="../../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.experimental.allocator.common.Overview">
+<h1 class='section'>Module - std.experimental.allocator.common</h1><h2 class='section'>About</h2><p>Utility and ancillary artifacts of <code>std.experimental.allocator</code> . This module shouldn't be used directly; its functionality will be migrated into more appropriate parts of <code>std</code> .</p>
+<p>Authors: $(HTTP erdani.com, Andrei Alexandrescu), Timon Gehr (<code>Ternary</code>)</p>
+<p>Source: $(PHOBOSSRC std/experimental/allocator/common.d)</p>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Functions/alignDownTo.html">alignDownTo</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/alignedAt.html">alignedAt</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/alignedReallocate.html">alignedReallocate</a></td>
+<td>The default <code>alignedReallocate</code> function first attempts to use <code>expand</code> . If <code>Allocator.expand</code> is not defined or returns <code>false</code> ,  $(D alignedReallocate) allocates a new block of memory of appropriate size and copies data from the old block to the new block. Finally, if <code>Allocator</code> defines <code>deallocate</code> , <code>alignedReallocate</code> uses it to free the old memory block.</td>
+</tr>
+<tr>
+<td><a href="Functions/alignUpTo.html">alignUpTo</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/divideRoundUp.html">divideRoundUp</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/effectiveAlignment.html">effectiveAlignment</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/forwardToMember.html">forwardToMember</a></td>
+<td>Forwards each of the methods in <code>funs</code> (if defined) to <code>member</code> .</td>
+</tr>
+<tr>
+<td><a href="Functions/goodAllocSize.html">goodAllocSize</a></td>
+<td>The default good size allocation is deduced as <code>n</code> rounded up to the allocator's alignment.</td>
+</tr>
+<tr>
+<td><a href="Functions/isGoodDynamicAlignment.html">isGoodDynamicAlignment</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/isGoodStaticAlignment.html">isGoodStaticAlignment</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/reallocate.html">reallocate</a></td>
+<td>The default <code>reallocate</code> function first attempts to use <code>expand</code> . If $(D Allocator.expand) is not defined or returns <code>false</code> , <code>reallocate</code> allocates a new block of memory of appropriate size and copies data from the old block to the new block. Finally, if <code>Allocator</code> defines <code>deallocate</code> , $(D reallocate) uses it to free the old memory block.</td>
+</tr>
+<tr>
+<td><a href="Functions/roundDownToAlignment.html">roundDownToAlignment</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/roundStartToMultipleOf.html">roundStartToMultipleOf</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/roundUpToAlignment.html">roundUpToAlignment</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/roundUpToMultipleOf.html">roundUpToMultipleOf</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/roundUpToPowerOf2.html">roundUpToPowerOf2</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/testAllocator.html">testAllocator</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/testAllocatorObject.html">testAllocatorObject</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/trailingZeros.html">trailingZeros</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Variables/chooseAtRuntime.html">chooseAtRuntime</a></td>
+<td><code>chooseAtRuntime</code> is a compile-time constant of type <code>size_t</code> that several parameterized structures in this module recognize to mean deferral to runtime of the exact value. For example, $(D BitmappedBlock!(Allocator, 4096)) (described in detail below) defines a block allocator with block size of 4096 bytes, whereas $(D BitmappedBlock!(Allocator, chooseAtRuntime)) defines a block allocator that has a field storing the block size, initialized by the user.</td>
+</tr>
+<tr>
+<td><a href="Variables/hasStaticallyKnownAlignment.html">hasStaticallyKnownAlignment</a></td>
+<td>Returns <code>true</code> if the <code>Allocator</code> has the alignment known at compile time; otherwise it returns <code>false</code> .</td>
+</tr>
+<tr>
+<td><a href="Variables/isAllocator.html">isAllocator</a></td>
+<td>Is <code>true</code> iff <code>A</code> is an allocator.</td>
+</tr>
+<tr>
+<td><a href="Variables/platformAlignment.html">platformAlignment</a></td>
+<td>The alignment that is guaranteed to accommodate any D object allocation on the current platform.</td>
+</tr>
+<tr>
+<td><a href="Variables/unbounded.html">unbounded</a></td>
+<td><code>unbounded</code> is a compile-time constant of type <code>size_t</code> that several parameterized structures in this module recognize to mean &quot;infinite&quot; bounds for the parameter. For example, <code>Freelist</code> (described in detail below) accepts a <code>maxNodes</code> parameter limiting the number of freelist items. If <code>unbounded</code> is passed for <code>maxNodes</code> , then there is no limit and no checking for the number of nodes.</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
