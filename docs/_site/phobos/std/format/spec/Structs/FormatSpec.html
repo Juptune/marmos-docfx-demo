@@ -1,0 +1,321 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct - FormatSpec | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct - FormatSpec | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../../index.html">
+            <img id="logo" class="svg" src="../../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.format.spec.Structs.FormatSpec">
+<h1 class='section'>Struct - FormatSpec</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.format.spec</dd></dl>
+</div><pre><code class='lang-d'>public struct FormatSpec
+{
+  // 
+  void fillUp( ) ;
+  // 
+  string getCurFmtStr( ) ;
+  // Set to `DYNAMIC` when the separator character is supplied at runtime. 
+  int separatorCharPos( ) ;
+  // ditto 
+  void separatorCharPos( int value ) ;
+  // Provides a string representation. 
+  string toString( ) ;
+
+  // 
+  ubyte allFlags;
+  // Special value for `width` , `precision` and `separators` . 
+  int DYNAMIC;
+  // The separator charactar is supplied at runtime. 
+  bool dynamicSeparatorChar;
+  // The format specifier contained a `&#39;-&#39;` . 
+  bool flDash;
+  // The format specifier contained a `&#39;=&#39;` . 
+  bool flEqual;
+  // The format specifier contained a `&#39;#&#39;` . 
+  bool flHash;
+  // The format specifier contained a `&#39;+&#39;` . 
+  bool flPlus;
+  // The format specifier contained a `&#39;,&#39;` . 
+  bool flSeparator;
+  // The format specifier contained a space. 
+  bool flSpace;
+  // The format specifier contained a `&#39;0&#39;` . 
+  bool flZero;
+  // Index of the last argument for positional parameter ranges. 
+  ubyte indexEnd;
+  // Index of the argument for positional parameters. 
+  ubyte indexStart;
+  // Sequence `&quot;:&quot;` inserted between element key and element value of an associative array. 
+  &lt;bug: unknown&gt; keySeparator;
+  // The inner format string of a nested format specifier. 
+  &lt;bug: unknown&gt; nested;
+  // Precision. Its semantic depends on the format character. 
+  int precision;
+  // The separator of a nested format specifier. 
+  &lt;bug: unknown&gt; sep;
+  // Character to use as separator. 
+  dchar separatorChar;
+  // Number of elements between separators. 
+  int separators;
+  // Sequence `&quot;]&quot;` inserted after each range or range like structure. 
+  &lt;bug: unknown&gt; seqAfter;
+  // Sequence `&quot;[&quot;` inserted before each range or range like structure. 
+  &lt;bug: unknown&gt; seqBefore;
+  // Sequence `&quot;, &quot;` inserted between elements of a range, a range like structure or the elements of an associative array. 
+  &lt;bug: unknown&gt; seqSeparator;
+  // The format character. 
+  char spec;
+  // Contains the part of the format string, that has not yet been parsed. 
+  &lt;bug: unknown&gt; trailing;
+  // Special value for `precision` and `separators` . 
+  int UNSPECIFIED;
+  // Minimum width. 
+  int width;
+}</code></pre><h2 class='section'>About</h2><p>A general handler for format strings.</p>
+<p>This handler centers around the function $(LREF writeUpToNextSpec), which parses the $(MREF_ALTTEXT format string, std,format) until the next format specifier is found. After the call, it provides information about this format specifier in its numerous variables.</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>Char</code>   </dt>
+<dd>
+
+
+<p>the character type of the format string</p>
+
+</dd></dl><h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../FormatSpec/Functions/fillUp.html">fillUp</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../FormatSpec/Functions/getCurFmtStr.html">getCurFmtStr</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../FormatSpec/Functions/separatorCharPos.html">separatorCharPos</a></td>
+<td>Set to <code>DYNAMIC</code> when the separator character is supplied at runtime.</td>
+</tr>
+<tr>
+<td><a href="../FormatSpec/Functions/toString.html">toString</a></td>
+<td>Provides a string representation.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../FormatSpec/Variables/allFlags.html">allFlags</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../FormatSpec/Variables/DYNAMIC.html">DYNAMIC</a></td>
+<td>Special value for <code>width</code> , <code>precision</code> and <code>separators</code> .</td>
+</tr>
+<tr>
+<td><a href="../FormatSpec/Variables/dynamicSeparatorChar.html">dynamicSeparatorChar</a></td>
+<td>The separator charactar is supplied at runtime.</td>
+</tr>
+<tr>
+<td><a href="../FormatSpec/Variables/flDash.html">flDash</a></td>
+<td>The format specifier contained a <code>'-'</code> .</td>
+</tr>
+<tr>
+<td><a href="../FormatSpec/Variables/flEqual.html">flEqual</a></td>
+<td>The format specifier contained a <code>'='</code> .</td>
+</tr>
+<tr>
+<td><a href="../FormatSpec/Variables/flHash.html">flHash</a></td>
+<td>The format specifier contained a <code>'#'</code> .</td>
+</tr>
+<tr>
+<td><a href="../FormatSpec/Variables/flPlus.html">flPlus</a></td>
+<td>The format specifier contained a <code>'+'</code> .</td>
+</tr>
+<tr>
+<td><a href="../FormatSpec/Variables/flSeparator.html">flSeparator</a></td>
+<td>The format specifier contained a <code>','</code> .</td>
+</tr>
+<tr>
+<td><a href="../FormatSpec/Variables/flSpace.html">flSpace</a></td>
+<td>The format specifier contained a space.</td>
+</tr>
+<tr>
+<td><a href="../FormatSpec/Variables/flZero.html">flZero</a></td>
+<td>The format specifier contained a <code>'0'</code> .</td>
+</tr>
+<tr>
+<td><a href="../FormatSpec/Variables/indexEnd.html">indexEnd</a></td>
+<td>Index of the last argument for positional parameter ranges.</td>
+</tr>
+<tr>
+<td><a href="../FormatSpec/Variables/indexStart.html">indexStart</a></td>
+<td>Index of the argument for positional parameters.</td>
+</tr>
+<tr>
+<td><a href="../FormatSpec/Variables/keySeparator.html">keySeparator</a></td>
+<td>Sequence <code>&quot;:&quot;</code> inserted between element key and element value of an associative array.</td>
+</tr>
+<tr>
+<td><a href="../FormatSpec/Variables/nested.html">nested</a></td>
+<td>The inner format string of a nested format specifier.</td>
+</tr>
+<tr>
+<td><a href="../FormatSpec/Variables/precision.html">precision</a></td>
+<td>Precision. Its semantic depends on the format character.</td>
+</tr>
+<tr>
+<td><a href="../FormatSpec/Variables/sep.html">sep</a></td>
+<td>The separator of a nested format specifier.</td>
+</tr>
+<tr>
+<td><a href="../FormatSpec/Variables/separatorChar.html">separatorChar</a></td>
+<td>Character to use as separator.</td>
+</tr>
+<tr>
+<td><a href="../FormatSpec/Variables/separators.html">separators</a></td>
+<td>Number of elements between separators.</td>
+</tr>
+<tr>
+<td><a href="../FormatSpec/Variables/seqAfter.html">seqAfter</a></td>
+<td>Sequence <code>&quot;]&quot;</code> inserted after each range or range like structure.</td>
+</tr>
+<tr>
+<td><a href="../FormatSpec/Variables/seqBefore.html">seqBefore</a></td>
+<td>Sequence <code>&quot;[&quot;</code> inserted before each range or range like structure.</td>
+</tr>
+<tr>
+<td><a href="../FormatSpec/Variables/seqSeparator.html">seqSeparator</a></td>
+<td>Sequence <code>&quot;, &quot;</code> inserted between elements of a range, a range like structure or the elements of an associative array.</td>
+</tr>
+<tr>
+<td><a href="../FormatSpec/Variables/spec.html">spec</a></td>
+<td>The format character.</td>
+</tr>
+<tr>
+<td><a href="../FormatSpec/Variables/trailing.html">trailing</a></td>
+<td>Contains the part of the format string, that has not yet been parsed.</td>
+</tr>
+<tr>
+<td><a href="../FormatSpec/Variables/UNSPECIFIED.html">UNSPECIFIED</a></td>
+<td>Special value for <code>precision</code> and <code>separators</code> .</td>
+</tr>
+<tr>
+<td><a href="../FormatSpec/Variables/width.html">width</a></td>
+<td>Minimum width.</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

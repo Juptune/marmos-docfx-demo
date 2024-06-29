@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct - BitmappedBlockWithInternalPointers | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct - BitmappedBlockWithInternalPointers | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../../../../index.html">
+            <img id="logo" class="svg" src="../../../../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.experimental.allocator.building_blocks.bitmapped_block.Structs.BitmappedBlockWithInternalPointers">
+<h1 class='section'>Struct - BitmappedBlockWithInternalPointers</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.experimental.allocator.building_blocks.bitmapped_block</dd></dl>
+</div><pre><code class='lang-d'>public struct BitmappedBlockWithInternalPointers
+{
+  // Allocator primitives. 
+  alias alignment = &lt;todo: marmos support pending&gt;;
+
+  // Ditto 
+  &lt;bug: unknown&gt; allocate( size_t bytes ) ;
+  // Ditto 
+  &lt;bug: unknown&gt; allocateAll( ) ;
+  // Ditto 
+  bool deallocate( &lt;bug: unknown&gt; b ) ;
+  // 
+  void doneMarking( ) ;
+  // Ditto 
+  Ternary empty( ) ;
+  // 
+  bool ensureRoomForAllocStart( size_t len ) ;
+  // Ditto 
+  bool expand( &lt;bug: unknown&gt; b, size_t bytes ) ;
+  // Ditto 
+  size_t goodAllocSize( size_t n ) ;
+  // 
+  void markAllAsUnused( ) ;
+  // 
+  bool markAsUsed( &lt;bug: unknown&gt; b ) ;
+  // Ditto 
+  Ternary resolveInternalPointer( &lt;bug: unknown&gt; p, &lt;bug: unknown&gt; result ) ;
+}</code></pre><h2 class='section'>About</h2><p>A <code>BitmappedBlock</code> with additional structure for supporting <code>resolveInternalPointer</code> . To that end, <code>BitmappedBlockWithInternalPointers</code> adds a bitmap (one bit per block) that marks object starts. The bitmap itself has variable size and is allocated together with regular allocations.</p>
+<p>The time complexity of <code>resolveInternalPointer</code> is $(BIGOH k), where <code>k</code> is the size of the object within which the internal pointer is looked up.</p>
+<h2 class='section'>Aliases</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../BitmappedBlockWithInternalPointers/Aliases/alignment.html">alignment</a></td>
+<td>Allocator primitives.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../BitmappedBlockWithInternalPointers/Functions/allocate.html">allocate</a></td>
+<td>Ditto</td>
+</tr>
+<tr>
+<td><a href="../BitmappedBlockWithInternalPointers/Functions/allocateAll.html">allocateAll</a></td>
+<td>Ditto</td>
+</tr>
+<tr>
+<td><a href="../BitmappedBlockWithInternalPointers/Functions/deallocate.html">deallocate</a></td>
+<td>Ditto</td>
+</tr>
+<tr>
+<td><a href="../BitmappedBlockWithInternalPointers/Functions/doneMarking.html">doneMarking</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BitmappedBlockWithInternalPointers/Functions/empty.html">empty</a></td>
+<td>Ditto</td>
+</tr>
+<tr>
+<td><a href="../BitmappedBlockWithInternalPointers/Functions/ensureRoomForAllocStart.html">ensureRoomForAllocStart</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BitmappedBlockWithInternalPointers/Functions/expand.html">expand</a></td>
+<td>Ditto</td>
+</tr>
+<tr>
+<td><a href="../BitmappedBlockWithInternalPointers/Functions/goodAllocSize.html">goodAllocSize</a></td>
+<td>Ditto</td>
+</tr>
+<tr>
+<td><a href="../BitmappedBlockWithInternalPointers/Functions/markAllAsUnused.html">markAllAsUnused</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BitmappedBlockWithInternalPointers/Functions/markAsUsed.html">markAsUsed</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BitmappedBlockWithInternalPointers/Functions/resolveInternalPointer.html">resolveInternalPointer</a></td>
+<td>Ditto</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

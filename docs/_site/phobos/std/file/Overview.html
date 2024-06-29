@@ -1,0 +1,438 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Module - std.file | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Module - std.file | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.file.Overview">
+<h1 class='section'>Module - std.file</h1><h2 class='section'>About</h2><p>Utilities for manipulating files and scanning directories. Functions in this module handle files as a unit, e.g., read or write one file at a time. For opening files and manipulating them via handles refer to module $(MREF std, stdio).</p>
+<p>$(SCRIPT inhibitQuickIndex = 1;) $(DIVC quickindex, $(BOOKTABLE, $(TR $(TH Category) $(TH Functions)) $(TR $(TD General) $(TD $(LREF exists) $(LREF isDir) $(LREF isFile) $(LREF isSymlink) $(LREF rename) $(LREF thisExePath) )) $(TR $(TD Directories) $(TD $(LREF chdir) $(LREF dirEntries) $(LREF getcwd) $(LREF mkdir) $(LREF mkdirRecurse) $(LREF rmdir) $(LREF rmdirRecurse) $(LREF tempDir) )) $(TR $(TD Files) $(TD $(LREF append) $(LREF copy) $(LREF read) $(LREF readText) $(LREF remove) $(LREF slurp) $(LREF write) )) $(TR $(TD Symlinks) $(TD $(LREF symlink) $(LREF readLink) )) $(TR $(TD Attributes) $(TD $(LREF attrIsDir) $(LREF attrIsFile) $(LREF attrIsSymlink) $(LREF getAttributes) $(LREF getLinkAttributes) $(LREF getSize) $(LREF setAttributes) )) $(TR $(TD Timestamp) $(TD $(LREF getTimes) $(LREF getTimesWin) $(LREF setTimes) $(LREF timeLastModified) $(LREF timeLastAccessed) $(LREF timeStatusChanged) )) $(TR $(TD Other) $(TD $(LREF DirEntry) $(LREF FileException) $(LREF PreserveAttributes) $(LREF SpanMode) $(LREF getAvailableDiskSpace) )) ))</p>
+<p>Copyright: Copyright The D Language Foundation 2007 - 2011. See_Also:  The $(HTTP ddili.org/ders/d.en/files.html, official tutorial) for an introduction to working with files in D, module $(MREF std, stdio) for opening files and manipulating them via handles, and module $(MREF std, path) for manipulating path strings.</p>
+<p>License:   $(HTTP boost.org/LICENSE_1_0.txt, Boost License 1.0). Authors:   $(HTTP digitalmars.com, Walter Bright), $(HTTP erdani.org, Andrei Alexandrescu), $(HTTP jmdavisprog.com, Jonathan M Davis) Source:    $(PHOBOSSRC std/file.d)</p>
+<h2 class='section'>Aliases</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Aliases/attrgroup_t.html">attrgroup_t</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Aliases/DirIterator.html">DirIterator</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Aliases/FSChar.html">FSChar</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Aliases/PreserveAttributes.html">PreserveAttributes</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Classes</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Classes/FileException.html">FileException</a></td>
+<td>Exception thrown for file I/O errors.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Structs/attrlist.html">attrlist</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/DirEntry.html">DirEntry</a></td>
+<td>Info on a file, similar to what you'd get from stat on a POSIX system.</td>
+</tr>
+<tr>
+<td><a href="Structs/DirIteratorImpl.html">DirIteratorImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/TestAliasedString.html">TestAliasedString</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Functions/append.html">append</a></td>
+<td>Appends <code>buffer</code> to file <code>name</code> .</td>
+</tr>
+<tr>
+<td><a href="Functions/attrIsDir.html">attrIsDir</a></td>
+<td>Returns whether the given file attributes are for a directory.</td>
+</tr>
+<tr>
+<td><a href="Functions/attrIsFile.html">attrIsFile</a></td>
+<td>Returns whether the given file attributes are for a file.</td>
+</tr>
+<tr>
+<td><a href="Functions/attrIsSymlink.html">attrIsSymlink</a></td>
+<td>Returns whether the given file attributes are for a symbolic link.</td>
+</tr>
+<tr>
+<td><a href="Functions/cenforce.html">cenforce</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/chdir.html">chdir</a></td>
+<td>Change directory to <code>pathname</code> . Equivalent to <code>cd</code> on Windows and POSIX.</td>
+</tr>
+<tr>
+<td><a href="Functions/copy.html">copy</a></td>
+<td>Copy file <code>from</code> to file <code>to</code>. File timestamps are preserved. File attributes are preserved, if <code>preserve</code> equals <code>Yes.preserveAttributes</code> . On Windows only <code>Yes.preserveAttributes</code> (the default on Windows) is supported. If the target file exists, it is overwritten.</td>
+</tr>
+<tr>
+<td><a href="Functions/copyImpl.html">copyImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/deleteme.html">deleteme</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/dirEntries.html">dirEntries</a></td>
+<td>Returns an $(REF_ALTTEXT input range, isInputRange, std,range,primitives) of <code>DirEntry</code> that lazily iterates a given directory, also provides two ways of foreach iteration. The iteration variable can be of type <code>string</code> if only the name is needed, or <code>DirEntry</code> if additional details are needed. The span mode dictates how the directory is traversed. The name of each iterated directory entry contains the absolute or relative *path (depending on * pathname).</td>
+</tr>
+<tr>
+<td><a href="Functions/ensureDirExists.html">ensureDirExists</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/exists.html">exists</a></td>
+<td>Determine whether the given file (or directory) exists. Params: name = string or range of characters representing the file name Returns: true if the file *name specified as input * exists</td>
+</tr>
+<tr>
+<td><a href="Functions/existsImpl.html">existsImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/getAttributes.html">getAttributes</a></td>
+<td>Returns the attributes of the given file.</td>
+</tr>
+<tr>
+<td><a href="Functions/getAvailableDiskSpace.html">getAvailableDiskSpace</a></td>
+<td>Returns the available disk space based on a given path. On Windows, <code>path</code> must be a directory; on POSIX systems, it can be a file or directory.</td>
+</tr>
+<tr>
+<td><a href="Functions/getcwd.html">getcwd</a></td>
+<td>Get the current working directory. Throws: $(LREF FileException) on error.</td>
+</tr>
+<tr>
+<td><a href="Functions/getFileAttributesWin.html">getFileAttributesWin</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/getLinkAttributes.html">getLinkAttributes</a></td>
+<td>If the given file is a symbolic link, then this returns the attributes of the symbolic link itself rather than file that it points to. If the given file is $(I not) a symbolic link, then this function returns the same result as getAttributes.</td>
+</tr>
+<tr>
+<td><a href="Functions/getSize.html">getSize</a></td>
+<td>Get size of file <code>name</code> in bytes.</td>
+</tr>
+<tr>
+<td><a href="Functions/getTimes.html">getTimes</a></td>
+<td>Get the access and modified times of file or folder <code>name</code> .</td>
+</tr>
+<tr>
+<td><a href="Functions/getTimesWin.html">getTimesWin</a></td>
+<td>$(BLUE This function is Windows-Only.)</td>
+</tr>
+<tr>
+<td><a href="Functions/isDir.html">isDir</a></td>
+<td>Returns whether the given file is a directory.</td>
+</tr>
+<tr>
+<td><a href="Functions/isFile.html">isFile</a></td>
+<td>Returns whether the given file (or directory) is a file.</td>
+</tr>
+<tr>
+<td><a href="Functions/isSymlink.html">isSymlink</a></td>
+<td>Returns whether the given file is a symbolic link.</td>
+</tr>
+<tr>
+<td><a href="Functions/makeUlong.html">makeUlong</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/mkdir.html">mkdir</a></td>
+<td>Make a new directory <code>pathname</code> .</td>
+</tr>
+<tr>
+<td><a href="Functions/mkdirRecurse.html">mkdirRecurse</a></td>
+<td>Make directory and all parent directories as needed.</td>
+</tr>
+<tr>
+<td><a href="Functions/read.html">read</a></td>
+<td>Read entire contents of file <code>name</code> and returns it as an untyped array. If the file size is larger than <code>upTo</code> , only <code>upTo</code> bytes are read.</td>
+</tr>
+<tr>
+<td><a href="Functions/readImpl.html">readImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/readLink.html">readLink</a></td>
+<td>$(BLUE This function is POSIX-Only.)</td>
+</tr>
+<tr>
+<td><a href="Functions/readText.html">readText</a></td>
+<td>Reads and validates (using $(REF validate, std, utf)) a text file. S can be an array of any character type. However, no width or endian conversions are performed. So, if the width or endianness of the characters in the given file differ from the width or endianness of the element type of S, then validation will fail.</td>
+</tr>
+<tr>
+<td><a href="Functions/remove.html">remove</a></td>
+<td>Delete file <code>name</code> .</td>
+</tr>
+<tr>
+<td><a href="Functions/removeImpl.html">removeImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/rename.html">rename</a></td>
+<td>Rename file <code>from</code> to <code>to</code>, moving it between directories if required. If the target file exists, it is overwritten.</td>
+</tr>
+<tr>
+<td><a href="Functions/renameImpl.html">renameImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/rmdir.html">rmdir</a></td>
+<td>Remove directory <code>pathname</code> .</td>
+</tr>
+<tr>
+<td><a href="Functions/rmdirRecurse.html">rmdirRecurse</a></td>
+<td>Remove directory and all of its content and subdirectories, recursively.</td>
+</tr>
+<tr>
+<td><a href="Functions/setAttributes.html">setAttributes</a></td>
+<td>Set the attributes of the given file.</td>
+</tr>
+<tr>
+<td><a href="Functions/setattrlist.html">setattrlist</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/setTimes.html">setTimes</a></td>
+<td>Set access/modified times of file or folder <code>name</code> .</td>
+</tr>
+<tr>
+<td><a href="Functions/setTimesImpl.html">setTimesImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/slurp.html">slurp</a></td>
+<td>Reads a file line by line and parses the line into a single value or a $(REF Tuple, std,typecons) of values depending on the length of <code>Types</code> . The lines are parsed using the specified format string. The format string is passed to $(REF formattedRead, std,_format), and therefore must conform to the *format string specification outlined in $(MREF std, * format).</td>
+</tr>
+<tr>
+<td><a href="Functions/statTimeToStdTime.html">statTimeToStdTime</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/symlink.html">symlink</a></td>
+<td>$(BLUE This function is POSIX-Only.)</td>
+</tr>
+<tr>
+<td><a href="Functions/tempDir.html">tempDir</a></td>
+<td>Returns the path to a directory for temporary files. On POSIX platforms, it searches through the following list of directories and returns the first one which is found to exist: $(OL $(LI The directory given by the <code>TMPDIR</code> environment variable.) $(LI The directory given by the <code>TEMP</code> environment variable.) $(LI The directory given by the <code>TMP</code> environment variable.) $(LI <code>/tmp/</code> ) $(LI <code>/var/tmp/</code> ) $(LI <code>/usr/tmp/</code> ) )</td>
+</tr>
+<tr>
+<td><a href="Functions/thisExePath.html">thisExePath</a></td>
+<td>Returns the full path of the current executable.</td>
+</tr>
+<tr>
+<td><a href="Functions/timeLastAccessed.html">timeLastAccessed</a></td>
+<td>$(BLUE This function is POSIX-Only.)</td>
+</tr>
+<tr>
+<td><a href="Functions/timeLastModified.html">timeLastModified</a></td>
+<td>Returns the time that the given file was last modified.</td>
+</tr>
+<tr>
+<td><a href="Functions/timeStatusChanged.html">timeStatusChanged</a></td>
+<td>$(BLUE This function is POSIX-Only.)</td>
+</tr>
+<tr>
+<td><a href="Functions/trustedCloseHandle.html">trustedCloseHandle</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/trustedCreateFileW.html">trustedCreateFileW</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/trustedStat.html">trustedStat</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/write.html">write</a></td>
+<td>Write <code>buffer</code> to file <code>name</code> .</td>
+</tr>
+<tr>
+<td><a href="Functions/writeImpl.html">writeImpl</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Variables/ATTR_CMN_ACCTIME.html">ATTR_CMN_ACCTIME</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/ATTR_CMN_MODTIME.html">ATTR_CMN_MODTIME</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/preserveAttributesDefault.html">preserveAttributesDefault</a></td>
+<td>Defaults to <code>Yes.preserveAttributes</code> on Windows, and the opposite on all other platforms.</td>
+</tr>
+<tr>
+<td><a href="Variables/system_directory.html">system_directory</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/system_file.html">system_file</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

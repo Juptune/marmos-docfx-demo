@@ -1,0 +1,236 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct - Region | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct - Region | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../../../../index.html">
+            <img id="logo" class="svg" src="../../../../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.experimental.allocator.building_blocks.region.Structs.Region">
+<h1 class='section'>Struct - Region</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.experimental.allocator.building_blocks.region</dd></dl>
+</div><pre><code class='lang-d'>public struct Region
+{
+  // Alignment offered. 
+  alias alignment = &lt;todo: marmos support pending&gt;;
+
+  // Allocates `n` bytes of memory aligned at alignment `a` . 
+  &lt;bug: unknown&gt; alignedAllocate( size_t n, uint a ) ;
+  // Allocates `n` bytes of memory. The shortest path involves an alignment adjustment (if $(D alignment &gt; 1)), an increment, and a comparison. 
+  &lt;bug: unknown&gt; allocate( size_t n ) ;
+  // Allocates and returns all memory available to this region. 
+  &lt;bug: unknown&gt; allocateAll( ) ;
+  // Nonstandard property that returns bytes available for allocation. 
+  size_t available( ) ;
+  // Deallocates `b` . This works only if `b` was obtained as the last call to `allocate` ; otherwise (i.e. another allocation has occurred since) it does nothing. 
+  bool deallocate( &lt;bug: unknown&gt; b ) ;
+  // Deallocates all memory allocated by this region, which can be subsequently reused for new allocations. 
+  bool deallocateAll( ) ;
+  // Returns `Ternary.yes` if no memory has been allocated in this region, `Ternary.no` otherwise. (Never returns `Ternary.unknown` .) 
+  Ternary empty( ) ;
+  // Expands an allocated block in place. Expansion will succeed only if the block is the last allocated. Defined only if `growDownwards` is `No.growDownwards` . 
+  bool expand( &lt;bug: unknown&gt; b, size_t delta ) ;
+  // Rounds the given size to a multiple of the `alignment` 
+  size_t goodAllocSize( size_t n ) ;
+  // Queries whether `b` has been allocated with this region. 
+  Ternary owns( &lt;bug: unknown&gt; b ) ;
+  // 
+  &lt;bug: unknown&gt; roundedBegin( ) ;
+  // 
+  &lt;bug: unknown&gt; roundedEnd( ) ;
+
+  // The parent allocator. Depending on whether `ParentAllocator` holds state or not, this is a member variable or an alias for `ParentAllocator.instance` . 
+  ParentAllocator parent;
+}</code></pre><h2 class='section'>About</h2><p>A <code>Region</code> allocator allocates memory straight from one contiguous chunk. There is no deallocation, and once the region is full, allocation requests return <code>null</code> . Therefore, <code>Region</code> s are often used (a) in conjunction with more sophisticated allocators; or (b) for batch-style very fast allocations that deallocate everything at once.</p>
+<p>The region only stores three pointers, corresponding to the current position in the store and the limits. One allocation entails rounding up the allocation size for alignment purposes, bumping the current pointer, and comparing it against the limit.</p>
+<p><code>Region</code> deallocates the chunk of memory during destruction.</p>
+<p>The <code>minAlign</code> parameter establishes alignment. If $(D minAlign &gt; 1), the sizes of all allocation requests are rounded up to a multiple of <code>minAlign</code> . Applications aiming at maximum speed may want to choose $(D minAlign = 1) and control alignment externally.</p>
+<h2 class='section'>Aliases</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Region/Aliases/alignment.html">alignment</a></td>
+<td>Alignment offered.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Region/Functions/alignedAllocate.html">alignedAllocate</a></td>
+<td>Allocates <code>n</code> bytes of memory aligned at alignment <code>a</code> .</td>
+</tr>
+<tr>
+<td><a href="../Region/Functions/allocate.html">allocate</a></td>
+<td>Allocates <code>n</code> bytes of memory. The shortest path involves an alignment adjustment (if $(D alignment &gt; 1)), an increment, and a comparison.</td>
+</tr>
+<tr>
+<td><a href="../Region/Functions/allocateAll.html">allocateAll</a></td>
+<td>Allocates and returns all memory available to this region.</td>
+</tr>
+<tr>
+<td><a href="../Region/Functions/available.html">available</a></td>
+<td>Nonstandard property that returns bytes available for allocation.</td>
+</tr>
+<tr>
+<td><a href="../Region/Functions/deallocate.html">deallocate</a></td>
+<td>Deallocates <code>b</code> . This works only if <code>b</code> was obtained as the last call to <code>allocate</code> ; otherwise (i.e. another allocation has occurred since) it does nothing.</td>
+</tr>
+<tr>
+<td><a href="../Region/Functions/deallocateAll.html">deallocateAll</a></td>
+<td>Deallocates all memory allocated by this region, which can be subsequently reused for new allocations.</td>
+</tr>
+<tr>
+<td><a href="../Region/Functions/empty.html">empty</a></td>
+<td>Returns <code>Ternary.yes</code> if no memory has been allocated in this region, <code>Ternary.no</code> otherwise. (Never returns <code>Ternary.unknown</code> .)</td>
+</tr>
+<tr>
+<td><a href="../Region/Functions/expand.html">expand</a></td>
+<td>Expands an allocated block in place. Expansion will succeed only if the block is the last allocated. Defined only if <code>growDownwards</code> is <code>No.growDownwards</code> .</td>
+</tr>
+<tr>
+<td><a href="../Region/Functions/goodAllocSize.html">goodAllocSize</a></td>
+<td>Rounds the given size to a multiple of the <code>alignment</code></td>
+</tr>
+<tr>
+<td><a href="../Region/Functions/owns.html">owns</a></td>
+<td>Queries whether <code>b</code> has been allocated with this region.</td>
+</tr>
+<tr>
+<td><a href="../Region/Functions/roundedBegin.html">roundedBegin</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Region/Functions/roundedEnd.html">roundedEnd</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Region/Variables/parent.html">parent</a></td>
+<td>The parent allocator. Depending on whether <code>ParentAllocator</code> holds state or not, this is a member variable or an alias for <code>ParentAllocator.instance</code> .</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

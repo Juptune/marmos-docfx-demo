@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct - JSONValue | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct - JSONValue | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../index.html">
+            <img id="logo" class="svg" src="../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.json.Structs.JSONValue">
+<h1 class='section'>Struct - JSONValue</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.json</dd></dl>
+</div><pre><code class='lang-d'>public struct JSONValue
+{
+  // Value getter/setter for `JSONType.array` . Throws: `JSONException` for read access if `type` is not `JSONType.array` . Note: This is @system because of the following pattern: --- auto a = &amp;(json.array()); json.uinteger = 0;  // overwrite array pointer (*a)[0] = &quot;world&quot;;  // segmentation fault --- 
+  &lt;bug: unknown&gt; array( ) ;
+  // ditto 
+  &lt;bug: unknown&gt; array( &lt;bug: unknown&gt; v ) ;
+  // Value getter for `JSONType.array` . Unlike `array` , this retrieves the array by value and can be used in @safe code. 
+  &lt;bug: unknown&gt; arrayNoRef( ) ;
+  // Value getter/setter for boolean stored in JSON. Throws: `JSONException` for read access if `this.type` is not `JSONType.true_` or `JSONType.false_` . 
+  bool boolean( ) ;
+  // ditto 
+  bool boolean( bool v ) ;
+  // Value getter/setter for `JSONType.float_` . Note that despite the name, this is a $(B 64)-bit `double` , not a 32-bit `float` . Throws: `JSONException` for read access if `type` is not `JSONType.float_` . 
+  double floating( ) ;
+  // ditto 
+  double floating( double v ) ;
+  // Value getter/setter for `JSONType.integer` . Throws: `JSONException` for read access if `type` is not `JSONType.integer` . 
+  long integer( ) ;
+  // ditto 
+  long integer( long v ) ;
+  // Test whether the type is `JSONType.null_` 
+  bool isNull( ) ;
+  // Value getter/setter for `JSONType.object` . Throws: `JSONException` for read access if `type` is not `JSONType.object` . Note: This is @system because of the following pattern: --- auto a = &amp;(json.object()); json.uinteger = 0;        // overwrite AA pointer (*a)[&quot;hello&quot;] = &quot;world&quot;;  // segmentation fault --- 
+  &lt;bug: unknown&gt; object( ) ;
+  // ditto 
+  &lt;bug: unknown&gt; object( &lt;bug: unknown&gt; v ) ;
+  // Value getter for `JSONType.object` . Unlike `object` , this retrieves the object by value and can be used in @safe code. 
+  &lt;bug: unknown&gt; objectNoRef( ) ;
+  // Implements the foreach `opApply` interface for json arrays. 
+  int opApply( &lt;bug: unknown&gt; dg ) ;
+  // Implements the foreach `opApply` interface for json objects. 
+  int opApply( &lt;bug: unknown&gt; dg ) ;
+  // 
+  bool opEquals( JSONValue rhs ) ;
+  // ditto 
+  bool opEquals( JSONValue rhs ) ;
+  // Array syntax for JSON arrays. Throws: `JSONException` if `type` is not `JSONType.array` . 
+  JSONValue opIndex( size_t i ) ;
+  // Hash syntax for JSON objects. Throws: `JSONException` if `type` is not `JSONType.object` . 
+  JSONValue opIndex( string k ) ;
+  // Value getter/setter for `JSONType.string` . Throws: `JSONException` for read access if `type` is not `JSONType.string` . 
+  string str( ) ;
+  // ditto 
+  string str( string v ) ;
+  // Implicitly calls `toJSON` on this JSONValue, like `toString` , but also passes $(I true) as $(I pretty) argument. 
+  string toPrettyString( JSONOptions options ) ;
+  // Implicitly calls `toJSON` on this JSONValue. 
+  string toString( JSONOptions options ) ;
+  // Returns the JSONType of the value stored in this structure. 
+  JSONType type( ) ;
+  // Value getter/setter for `JSONType.uinteger` . Throws: `JSONException` for read access if `type` is not `JSONType.uinteger` . 
+  ulong uinteger( ) ;
+  // ditto 
+  ulong uinteger( ulong v ) ;
+
+  // An enum value that can be used to obtain a `JSONValue` representing an empty JSON array. 
+  __enumMember emptyArray;
+  // An enum value that can be used to obtain a `JSONValue` representing an empty JSON object. 
+  __enumMember emptyObject;
+  // 
+  Store store;
+  // 
+  JSONType type_tag;
+}</code></pre><h2 class='section'>About</h2><p>JSON value node</p>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../JSONValue/Functions/array.html">array</a></td>
+<td>Value getter/setter for <code>JSONType.array</code> . Throws: <code>JSONException</code> for read access if <code>type</code> is not <code>JSONType.array</code> . Note: This is @system because of the following pattern: --- auto a = &amp;(json.array()); json.uinteger = 0;  // overwrite array pointer (*a)[0] = &quot;world&quot;;  // segmentation fault ---</td>
+</tr>
+<tr>
+<td><a href="../JSONValue/Functions/arrayNoRef.html">arrayNoRef</a></td>
+<td>Value getter for <code>JSONType.array</code> . Unlike <code>array</code> , this retrieves the array by value and can be used in @safe code.</td>
+</tr>
+<tr>
+<td><a href="../JSONValue/Functions/boolean.html">boolean</a></td>
+<td>Value getter/setter for boolean stored in JSON. Throws: <code>JSONException</code> for read access if <code>this.type</code> is not <code>JSONType.true_</code> or <code>JSONType.false_</code> .</td>
+</tr>
+<tr>
+<td><a href="../JSONValue/Functions/floating.html">floating</a></td>
+<td>Value getter/setter for <code>JSONType.float_</code> . Note that despite the name, this is a $(B 64)-bit <code>double</code> , not a 32-bit <code>float</code> . Throws: <code>JSONException</code> for read access if <code>type</code> is not <code>JSONType.float_</code> .</td>
+</tr>
+<tr>
+<td><a href="../JSONValue/Functions/integer.html">integer</a></td>
+<td>Value getter/setter for <code>JSONType.integer</code> . Throws: <code>JSONException</code> for read access if <code>type</code> is not <code>JSONType.integer</code> .</td>
+</tr>
+<tr>
+<td><a href="../JSONValue/Functions/isNull.html">isNull</a></td>
+<td>Test whether the type is <code>JSONType.null_</code></td>
+</tr>
+<tr>
+<td><a href="../JSONValue/Functions/object.html">object</a></td>
+<td>Value getter/setter for <code>JSONType.object</code> . Throws: <code>JSONException</code> for read access if <code>type</code> is not <code>JSONType.object</code> . Note: This is @system because of the following pattern: --- auto a = &amp;(json.object()); json.uinteger = 0;        // overwrite AA pointer (*a)[&quot;hello&quot;] = &quot;world&quot;;  // segmentation fault ---</td>
+</tr>
+<tr>
+<td><a href="../JSONValue/Functions/objectNoRef.html">objectNoRef</a></td>
+<td>Value getter for <code>JSONType.object</code> . Unlike <code>object</code> , this retrieves the object by value and can be used in @safe code.</td>
+</tr>
+<tr>
+<td><a href="../JSONValue/Functions/opApply.html">opApply</a></td>
+<td>Implements the foreach <code>opApply</code> interface for json arrays.</td>
+</tr>
+<tr>
+<td><a href="../JSONValue/Functions/opEquals.html">opEquals</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../JSONValue/Functions/opIndex.html">opIndex</a></td>
+<td>Array syntax for JSON arrays. Throws: <code>JSONException</code> if <code>type</code> is not <code>JSONType.array</code> .</td>
+</tr>
+<tr>
+<td><a href="../JSONValue/Functions/str.html">str</a></td>
+<td>Value getter/setter for <code>JSONType.string</code> . Throws: <code>JSONException</code> for read access if <code>type</code> is not <code>JSONType.string</code> .</td>
+</tr>
+<tr>
+<td><a href="../JSONValue/Functions/toPrettyString.html">toPrettyString</a></td>
+<td>Implicitly calls <code>toJSON</code> on this JSONValue, like <code>toString</code> , but also passes $(I true) as $(I pretty) argument.</td>
+</tr>
+<tr>
+<td><a href="../JSONValue/Functions/toString.html">toString</a></td>
+<td>Implicitly calls <code>toJSON</code> on this JSONValue.</td>
+</tr>
+<tr>
+<td><a href="../JSONValue/Functions/type.html">type</a></td>
+<td>Returns the JSONType of the value stored in this structure.</td>
+</tr>
+<tr>
+<td><a href="../JSONValue/Functions/uinteger.html">uinteger</a></td>
+<td>Value getter/setter for <code>JSONType.uinteger</code> . Throws: <code>JSONException</code> for read access if <code>type</code> is not <code>JSONType.uinteger</code> .</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../JSONValue/Variables/emptyArray.html">emptyArray</a></td>
+<td>An enum value that can be used to obtain a <code>JSONValue</code> representing an empty JSON array.</td>
+</tr>
+<tr>
+<td><a href="../JSONValue/Variables/emptyObject.html">emptyObject</a></td>
+<td>An enum value that can be used to obtain a <code>JSONValue</code> representing an empty JSON object.</td>
+</tr>
+<tr>
+<td><a href="../JSONValue/Variables/store.html">store</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../JSONValue/Variables/type_tag.html">type_tag</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

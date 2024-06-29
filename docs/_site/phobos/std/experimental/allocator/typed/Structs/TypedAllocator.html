@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct - TypedAllocator | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct - TypedAllocator | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../../../index.html">
+            <img id="logo" class="svg" src="../../../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.experimental.allocator.typed.Structs.TypedAllocator">
+<h1 class='section'>Struct - TypedAllocator</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.experimental.allocator.typed</dd></dl>
+</div><pre><code class='lang-d'>public struct TypedAllocator
+{
+  // 
+  bool match( uint have, uint want ) static;
+
+  // 
+  Tuple!(Stride2!(Policies[1 .. __dollar])) extras;
+  // 
+  PrimaryAllocator primary;
+}</code></pre><h2 class='section'>About</h2><p><code>TypedAllocator</code> acts like a chassis on which several specialized allocators can be assembled. To let the system make a choice about a particular kind of allocation, use <code>Default</code> for the respective parameters.</p>
+<p>There is a hierarchy of allocation kinds. When an allocator is implemented for a given combination of flags, it is used. Otherwise, the next down the list is chosen.</p>
+<p>$(BOOKTABLE ,</p>
+<p>$(TR $(TH <code>AllocFlag</code> combination) $(TH Description))</p>
+<p><span class="math">\((T2 AllocFlag.threadLocal |\)</span>(NBSP)AllocFlag.hasNoIndirections |$(NBSP)AllocFlag.fixedSize, This is the most specific allocation policy: the memory being allocated is thread local, has no indirections at all, and will not be reallocated. Examples of types fitting this description: <code>int</code> , <code>double</code> , $(D Tuple!(int, long)), but not $(D Tuple!(int, string)), which contains an indirection.)</p>
+<p><span class="math">\((T2 AllocFlag.threadLocal |\)</span>(NBSP)AllocFlag.hasNoIndirections, As above, but may be reallocated later. Examples of types fitting this description are <code>int[]</code> , <code>double[]</code> , $(D Tuple!(int, long)[]), but not $(D Tuple!(int, string)[]), which contains an indirection.)</p>
+<p>$(T2 AllocFlag.threadLocal, As above, but may embed indirections. Examples of types fitting this description are <code>int*[]</code> , <code>Object[]</code> , $(D Tuple!(int, string)[]).)</p>
+<p><span class="math">\((T2 AllocFlag.immutableShared |\)</span>(NBSP)AllocFlag.hasNoIndirections |$(NBSP)AllocFlag.fixedSize, The type being allocated is <code>immutable</code> and has no pointers. The thread that allocated it must also deallocate it. Example: <code>immutable(int)</code> .)</p>
+<p><span class="math">\((T2 AllocFlag.immutableShared |\)</span>(NBSP)AllocFlag.hasNoIndirections, As above, but the type may be appended to in the future. Example: <code>string</code> .)</p>
+<p>$(T2 AllocFlag.immutableShared, As above, but the type may embed references. Example: <code>immutable(Object)[]</code> .)</p>
+<p><span class="math">\((T2 AllocFlag.hasNoIndirections |\)</span>(NBSP)AllocFlag.fixedSize, The type being allocated may be shared across threads, embeds no indirections, and has fixed size.)</p>
+<p>$(T2 AllocFlag.hasNoIndirections, The type being allocated may be shared across threads, may embed indirections, and has variable size.)</p>
+<p>$(T2 AllocFlag.fixedSize, The type being allocated may be shared across threads, may embed indirections, and has fixed size.)</p>
+<p>$(T2 0, The most conservative/general allocation: memory may be shared, deallocated in a different thread, may or may not be resized, and may embed references.) )</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>PrimaryAllocator</code>   </dt>
+<dd>
+
+
+<p>The default allocator.</p>
+
+</dd><dt><code>Policies</code>   </dt>
+<dd>
+
+
+<p>Zero or more pairs consisting of an <code>AllocFlag</code> and an allocator</p>
+
+</dd></dl><p>Policies = Zero or more pairs consisting of an <code>AllocFlag</code> and an allocator type.</p>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../TypedAllocator/Functions/match.html">match</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../TypedAllocator/Variables/extras.html">extras</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TypedAllocator/Variables/primary.html">primary</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

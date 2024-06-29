@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Overloads for - getopt | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Overloads for - getopt | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../index.html">
+            <img id="logo" class="svg" src="../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.getopt.Functions.getopt">
+<h1 class='section'>Overloads for - getopt</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.getopt</dd></dl>
+</div><h2 class='section api'>getopt(args, opts)   </h2>
+ <pre><code class='lang-d'>GetoptResult getopt(
+  &lt;bug: unknown&gt; args,
+  T opts
+) </code></pre><p>Parse and remove command line options from a string array.</p>
+<h3 class='section'>Synopsis</h3><p>--------- import std.getopt;</p>
+<p>string data = &quot;file.dat&quot;; int length = 24; bool verbose; enum Color { no, yes }; Color color;</p>
+<p>void main(string[] args) { auto helpInformation = getopt( args, &quot;length&quot;,  &amp;length,    // numeric &quot;file&quot;,    &amp;data,      // string &quot;verbose&quot;, &amp;verbose,   // flag &quot;color&quot;, &quot;Information about this color&quot;, &amp;color);    // enum ...</p>
+<p>if (helpInformation.helpWanted) { defaultGetoptPrinter(&quot;Some information about the program.&quot;, helpInformation.options); } } ---------</p>
+<p>The <code>getopt</code> function takes a reference to the command line (as received by <code>main</code> ) as its first argument, and an unbounded number of pairs of strings and pointers. Each string is an option meant to &quot;fill&quot; the value referenced by the pointer to its right (the &quot;bound&quot; pointer). The option string in the call to <code>getopt</code> should not start with a dash.</p>
+<p>In all cases, the command-line options that were parsed and used by <code>getopt</code> are removed from <code>args</code> . Whatever in the arguments did not look like an option is left in <code>args</code> for further processing by the program. Values that were unaffected by the options are not touched, so a common idiom is to initialize options to their defaults and then invoke <code>getopt</code> . If a command-line argument is recognized as an option with a parameter and the parameter cannot be parsed properly (e.g., a number is expected but not present), a <code>ConvException</code> exception is thrown. If <code>std.getopt.config.passThrough</code> was not passed to <code>getopt</code> and an unrecognized command-line argument is found, or if a required argument is missing a <code>GetOptException</code> is thrown.</p>
+<p>Depending on the type of the pointer being bound, <code>getopt</code> recognizes the following kinds of options:</p>
+<p>$(OL $(LI $(I Boolean options). A lone argument sets the option to <code>true</code> . Additionally $(B true) or $(B false) can be set within the option separated with an &quot;=&quot; sign:</p>
+<p>--------- bool verbose = false, debugging = true; getopt(args, &quot;verbose&quot;, &amp;verbose, &quot;debug&quot;, &amp;debugging); ---------</p>
+<p>To set <code>verbose</code> to <code>true</code> , invoke the program with either <code>--verbose</code> or <code>--verbose=true</code> .</p>
+<p>To set <code>debugging</code> to <code>false</code> , invoke the program with <code>--debugging=false</code> . )</p>
+<p>$(LI $(I Numeric options.) If an option is bound to a numeric type, a number is expected as the next option, or right within the option separated with an &quot;=&quot; sign:</p>
+<p>--------- uint timeout; getopt(args, &quot;timeout&quot;, &amp;timeout); ---------</p>
+<p>To set <code>timeout</code> to <code>5</code> , invoke the program with either <code>--timeout=5</code> or $(D --timeout 5). )</p>
+<p>$(LI $(I Incremental options.) If an option name has a &quot;+&quot; suffix and is bound to a numeric type, then the option's value tracks the number of times the option occurred on the command line:</p>
+<p>--------- uint paranoid; getopt(args, &quot;paranoid+&quot;, &amp;paranoid); ---------</p>
+<p>Invoking the program with &quot;--paranoid --paranoid --paranoid&quot; will set $(D paranoid) to 3. Note that an incremental option never expects a parameter, e.g., in the command line &quot;--paranoid 42 --paranoid&quot;, the &quot;42&quot; does not set <code>paranoid</code> to 42; instead, <code>paranoid</code> is set to 2 and &quot;42&quot; is not considered as part of the normal program arguments. )</p>
+<p>$(LI $(I Enum options.) If an option is bound to an enum, an enum symbol as a string is expected as the next option, or right within the option separated with an &quot;=&quot; sign:</p>
+<p>--------- enum Color { no, yes }; Color color; // default initialized to Color.no getopt(args, &quot;color&quot;, &amp;color); ---------</p>
+<p>To set <code>color</code> to <code>Color.yes</code> , invoke the program with either <code>--color=yes</code> or $(D --color yes). )</p>
+<p>$(LI $(I String options.) If an option is bound to a string, a string is expected as the next option, or right within the option separated with an &quot;=&quot; sign:</p>
+<p>--------- string outputFile; getopt(args, &quot;output&quot;, &amp;outputFile); ---------</p>
+<p>Invoking the program with &quot;--output=myfile.txt&quot; or &quot;--output myfile.txt&quot; will set <code>outputFile</code> to &quot;myfile.txt&quot;. If you want to pass a string containing spaces, you need to use the quoting that is appropriate to your shell, e.g. --output='my file.txt'. )</p>
+<p>$(LI $(I Array options.) If an option is bound to an array, a new element is appended to the array each time the option occurs:</p>
+<p>--------- string[] outputFiles; getopt(args, &quot;output&quot;, &amp;outputFiles); ---------</p>
+<p>Invoking the program with &quot;--output=myfile.txt --output=yourfile.txt&quot; or &quot;--output myfile.txt --output yourfile.txt&quot; will set <code>outputFiles</code> to $(D [ &quot;myfile.txt&quot;, &quot;yourfile.txt&quot; ]).</p>
+<p>Alternatively you can set $(LREF arraySep) to allow multiple elements in one parameter.</p>
+<p>--------- string[] outputFiles; arraySep = &quot;,&quot;;  // defaults to &quot;&quot;, meaning one element per parameter getopt(args, &quot;output&quot;, &amp;outputFiles); ---------</p>
+<p>With the above code you can invoke the program with &quot;--output=myfile.txt,yourfile.txt&quot;, or &quot;--output myfile.txt,yourfile.txt&quot;.)</p>
+<p>$(LI $(I Hash options.) If an option is bound to an associative array, a string of the form &quot;name=value&quot; is expected as the next option, or right within the option separated with an &quot;=&quot; sign:</p>
+<p>--------- double[string] tuningParms; getopt(args, &quot;tune&quot;, &amp;tuningParms); ---------</p>
+<p>Invoking the program with e.g. &quot;--tune=alpha=0.5 --tune beta=0.6&quot; will set <code>tuningParms</code> to [ &quot;alpha&quot; : 0.5, &quot;beta&quot; : 0.6 ].</p>
+<p>Alternatively you can set $(LREF arraySep) as the element separator:</p>
+<p>--------- double[string] tuningParms; arraySep = &quot;,&quot;;  // defaults to &quot;&quot;, meaning one element per parameter getopt(args, &quot;tune&quot;, &amp;tuningParms); ---------</p>
+<p>With the above code you can invoke the program with &quot;--tune=alpha=0.5,beta=0.6&quot;, or &quot;--tune alpha=0.5,beta=0.6&quot;.</p>
+<p>In general, the keys and values can be of any parsable types. )</p>
+<p>$(LI $(I Callback options.) An option can be bound to a function or delegate with the signature $(D void function()), $(D void function(string option)), $(D void function(string option, string value)), or their delegate equivalents.</p>
+<p>$(UL $(LI If the callback doesn't take any arguments, the callback is invoked whenever the option is seen. )</p>
+<p>$(LI If the callback takes one string argument, the option string (without the leading dash(es)) is passed to the callback.  After that, the option string is considered handled and removed from the options array.</p>
+<p>--------- void main(string[] args) { uint verbosityLevel = 1; void myHandler(string option) { if (option == &quot;quiet&quot;) { verbosityLevel = 0; } else { assert(option == &quot;verbose&quot;); verbosityLevel = 2; } } getopt(args, &quot;verbose&quot;, &amp;myHandler, &quot;quiet&quot;, &amp;myHandler); } ---------</p>
+<p>)</p>
+<p>$(LI If the callback takes two string arguments, the option string is handled as an option with one argument, and parsed accordingly. The option and its value are passed to the callback. After that, whatever was passed to the callback is considered handled and removed from the list.</p>
+<p>--------- int main(string[] args) { uint verbosityLevel = 1; bool handlerFailed = false; void myHandler(string option, string value) { switch (value) { case &quot;quiet&quot;: verbosityLevel = 0; break; case &quot;verbose&quot;: verbosityLevel = 2; break; case &quot;shouting&quot;: verbosityLevel = verbosityLevel.max; break; default : stderr.writeln(&quot;Unknown verbosity level &quot;, value); handlerFailed = true; break; } } getopt(args, &quot;verbosity&quot;, &amp;myHandler); return handlerFailed ? 1 : 0; } --------- ) )) )</p>
+<p>Options_with_multiple_names: Sometimes option synonyms are desirable, e.g. &quot;--verbose&quot;, &quot;--loquacious&quot;, and &quot;--garrulous&quot; should have the same effect. Such alternate option names can be included in the option specification, using &quot;|&quot; as a separator:</p>
+<p>--------- bool verbose; getopt(args, &quot;verbose|loquacious|garrulous&quot;, &amp;verbose); ---------</p>
+<p>Case: By default options are case-insensitive. You can change that behavior by passing <code>getopt</code> the <code>caseSensitive</code> directive like this:</p>
+<p>--------- bool foo, bar; getopt(args, std.getopt.config.caseSensitive, &quot;foo&quot;, &amp;foo, &quot;bar&quot;, &amp;bar); ---------</p>
+<p>In the example above, &quot;--foo&quot; and &quot;--bar&quot; are recognized, but &quot;--Foo&quot;, &quot;--Bar&quot;, &quot;--FOo&quot;, &quot;--bAr&quot;, etc. are rejected. The directive is active until the end of <code>getopt</code> , or until the converse directive <code>caseInsensitive</code> is encountered:</p>
+<p>--------- bool foo, bar; getopt(args, std.getopt.config.caseSensitive, &quot;foo&quot;, &amp;foo, std.getopt.config.caseInsensitive, &quot;bar&quot;, &amp;bar); ---------</p>
+<p>The option &quot;--Foo&quot; is rejected due to $(D std.getopt.config.caseSensitive), but not &quot;--Bar&quot;, &quot;--bAr&quot; etc. because the directive $(D std.getopt.config.caseInsensitive) turned sensitivity off before option &quot;bar&quot; was parsed.</p>
+<p>Short_versus_long_options: Traditionally, programs accepted single-letter options preceded by only one dash (e.g. <code>-t</code> ). <code>getopt</code> accepts such parameters seamlessly. When used with a double-dash (e.g. <code>--t</code> ), a single-letter option behaves the same as a multi-letter option. When used with a single dash, a single-letter option is accepted.</p>
+<p>To set <code>timeout</code> to <code>5</code> , use either of the following: <code>--timeout=5</code> , <code>--timeout 5</code> , <code>--t=5</code> , <code>--t 5</code> , <code>-t5</code> , or <code>-t 5</code> . Forms such as <code>-timeout=5</code> will be not accepted.</p>
+<p>For more details about short options, refer also to the next section.</p>
+<p>Bundling: Single-letter options can be bundled together, i.e. &quot;-abc&quot; is the same as $(D &quot;-a -b -c&quot;). By default, this option is turned off. You can turn it on with the <code>std.getopt.config.bundling</code> directive:</p>
+<p>--------- bool foo, bar; getopt(args, std.getopt.config.bundling, &quot;foo|f&quot;, &amp;foo, &quot;bar|b&quot;, &amp;bar); ---------</p>
+<p>In case you want to only enable bundling for some of the parameters, bundling can be turned off with <code>std.getopt.config.noBundling</code> .</p>
+<p>Required: An option can be marked as required. If that option is not present in the arguments an exception will be thrown.</p>
+<p>--------- bool foo, bar; getopt(args, std.getopt.config.required, &quot;foo|f&quot;, &amp;foo, &quot;bar|b&quot;, &amp;bar); ---------</p>
+<p>Only the option directly following <code>std.getopt.config.required</code> is required.</p>
+<p>Passing_unrecognized_options_through: If an application needs to do its own processing of whichever arguments <code>getopt</code> did not understand, it can pass the <code>std.getopt.config.passThrough</code> directive to <code>getopt</code> :</p>
+<p>--------- bool foo, bar; getopt(args, std.getopt.config.passThrough, &quot;foo&quot;, &amp;foo, &quot;bar&quot;, &amp;bar); ---------</p>
+<p>An unrecognized option such as &quot;--baz&quot; will be found untouched in <code>args</code> after <code>getopt</code> returns.</p>
+<p>Help_Information_Generation: If an option string is followed by another string, this string serves as a description for this option. The <code>getopt</code> function returns a struct of type <code>GetoptResult</code> . This return value contains information about all passed options as well a $(D bool GetoptResult.helpWanted) flag indicating whether information about these options was requested. The <code>getopt</code> function always adds an option for <code>--help|-h</code> to set the flag if the option is seen on the command line.</p>
+<p>Options_Terminator: A lone double-dash terminates <code>getopt</code> gathering. It is used to separate program options from other parameters (e.g., options to be passed to another program). Invoking the example above with $(D &quot;--foo -- --bar&quot;) parses foo but leaves &quot;--bar&quot; in <code>args</code> . The double-dash itself is removed from the argument array unless the <code>std.getopt.config.keepEndOfOptions</code> directive is given.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

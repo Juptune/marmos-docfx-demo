@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct - SafeRefCounted | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct - SafeRefCounted | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../index.html">
+            <img id="logo" class="svg" src="../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.typecons.Structs.SafeRefCounted">
+<h1 class='section'>Struct - SafeRefCounted</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.typecons</dd></dl>
+</div><pre><code class='lang-d'>public struct SafeRefCounted
+{
+  // Assignment operators. 
+  void opAssign( &lt;bug: unknown&gt; rhs ) ;
+  // Ditto 
+  void opAssign( T rhs ) ;
+  // 
+  void pureFree( &lt;bug: unknown&gt; ptr ) ;
+  // Returns a reference to the payload. If (autoInit == RefCountedAutoInitialize.yes), calls $(D refCountedStore.ensureInitialized). Otherwise, just issues $(D assert(refCountedStore.isInitialized)). Used with $(D alias refCountedPayload this;), so callers can just use the `SafeRefCounted` object as a `T` . 
+  T refCountedPayload( ) ;
+  // ditto 
+  T refCountedPayload( ) ;
+  // Returns storage implementation struct. 
+  RefCountedStore refCountedStore( ) ;
+
+  // 
+  __enumMember enableGCScan;
+}</code></pre><h2 class='section'>About</h2><p>Defines a reference-counted object containing a <code>T</code> value as payload.</p>
+<p>An instance of <code>SafeRefCounted</code> is a reference to a structure, which is referred to as the $(I store), or $(I storage implementation struct) in this documentation.  The store contains a reference count and the <code>T</code> payload.  <code>SafeRefCounted</code> uses <code>malloc</code> to allocate the store.  As instances of <code>SafeRefCounted</code> are copied or go out of scope, they will automatically increment or decrement the reference count.  When the reference count goes down to zero, <code>SafeRefCounted</code> will call <code>destroy</code> against the payload and call <code>free</code> to deallocate the store.  If the <code>T</code> payload contains any references to GC-allocated memory, then <code>SafeRefCounted</code> will add it to the GC memory that is scanned for pointers, and remove it from GC scanning before <code>free</code> is called on the store.</p>
+<p>One important consequence of <code>destroy</code> is that it will call the destructor of the <code>T</code> payload.  GC-managed references are not guaranteed to be valid during a destructor call, but other members of <code>T</code> , such as file handles or pointers to <code>malloc</code> memory, will still be valid during the destructor call.  This allows the <code>T</code> to deallocate or clean up any non-GC resources immediately after the reference count has reached zero.</p>
+<p>Without -preview=dip1000, <code>SafeRefCounted</code> is unsafe and should be used with care. No references to the payload should be escaped outside the <code>SafeRefCounted</code> object.</p>
+<p>With -preview=dip1000, <code>SafeRefCounted</code> is safe if it's payload is accessed only with the $(LREF borrow) function. Scope semantics can also prevent accidental escaping of <code>refCountedPayload</code> , but it's still up to the user to not destroy the last counted reference while the payload is in use. Due to that, <code>refCountedPayload</code> remains accessible only in <code>@system</code> code.</p>
+<p>The <code>autoInit</code> option makes the object ensure the store is automatically initialized. Leaving $(D autoInit == RefCountedAutoInitialize.yes) (the default option) is convenient but has the cost of a test whenever the payload is accessed. If $(D autoInit == RefCountedAutoInitialize.no), user code must call either <code>refCountedStore.isInitialized</code> or <code>refCountedStore.ensureInitialized</code> before attempting to access the payload. Not doing so results in null pointer dereference.</p>
+<p>If <code>T.this()</code> is annotated with <code>@disable</code> then <code>autoInit</code> must be <code>RefCountedAutoInitialize.no</code> in order to compile.</p>
+<h3 class='section'>See_Also</h3><p>$(LREF RefCounted)</p>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../SafeRefCounted/Functions/opAssign.html">opAssign</a></td>
+<td>Assignment operators.</td>
+</tr>
+<tr>
+<td><a href="../SafeRefCounted/Functions/pureFree.html">pureFree</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../SafeRefCounted/Functions/refCountedPayload.html">refCountedPayload</a></td>
+<td>Returns a reference to the payload. If (autoInit == RefCountedAutoInitialize.yes), calls $(D refCountedStore.ensureInitialized). Otherwise, just issues $(D assert(refCountedStore.isInitialized)). Used with $(D alias refCountedPayload this;), so callers can just use the <code>SafeRefCounted</code> object as a <code>T</code> .</td>
+</tr>
+<tr>
+<td><a href="../SafeRefCounted/Functions/refCountedStore.html">refCountedStore</a></td>
+<td>Returns storage implementation struct.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../SafeRefCounted/Variables/enableGCScan.html">enableGCScan</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

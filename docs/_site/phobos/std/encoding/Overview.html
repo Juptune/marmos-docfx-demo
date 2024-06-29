@@ -1,0 +1,343 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Module - std.encoding | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Module - std.encoding | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.encoding.Overview">
+<h1 class='section'>Module - std.encoding</h1><h2 class='section'>About</h2><p>Classes and functions for handling and transcoding between various encodings.</p>
+<p>For cases where the encoding is known at compile-time, functions are provided for arbitrary encoding and decoding of characters, arbitrary transcoding between strings of different type, as well as validation and sanitization.</p>
+<p>Encodings currently supported are UTF-8, UTF-16, UTF-32, ASCII, ISO-8859-1 (also known as LATIN-1), ISO-8859-2 (LATIN-2), WINDOWS-1250, WINDOWS-1251 and WINDOWS-1252.</p>
+<p>$(SCRIPT inhibitQuickIndex = 1;) $(DIVC quickindex, $(BOOKTABLE, $(TR $(TH Category) $(TH Functions)) $(TR $(TD Decode) $(TD $(LREF codePoints) $(LREF decode) $(LREF decodeReverse) $(LREF safeDecode) )) $(TR $(TD Conversion) $(TD $(LREF codeUnits) $(LREF sanitize) $(LREF transcode) )) $(TR $(TD Classification) $(TD $(LREF canEncode) $(LREF isValid) $(LREF isValidCodePoint) $(LREF isValidCodeUnit) )) $(TR $(TD BOM) $(TD $(LREF BOM) $(LREF BOMSeq) $(LREF getBOM) $(LREF utfBOM) )) $(TR $(TD Length &amp; Index) $(TD $(LREF firstSequence) $(LREF encodedLength) $(LREF index) $(LREF lastSequence) $(LREF validLength) )) $(TR $(TD Encoding schemes) $(TD $(LREF encodingName) $(LREF EncodingScheme) $(LREF EncodingSchemeASCII) $(LREF EncodingSchemeLatin1) $(LREF EncodingSchemeLatin2) $(LREF EncodingSchemeUtf16Native) $(LREF EncodingSchemeUtf32Native) $(LREF EncodingSchemeUtf8) $(LREF EncodingSchemeWindows1250) $(LREF EncodingSchemeWindows1251) $(LREF EncodingSchemeWindows1252) )) $(TR $(TD Representation) $(TD $(LREF AsciiChar) $(LREF AsciiString) $(LREF Latin1Char) $(LREF Latin1String) $(LREF Latin2Char) $(LREF Latin2String) $(LREF Windows1250Char) $(LREF Windows1250String) $(LREF Windows1251Char) $(LREF Windows1251String) $(LREF Windows1252Char) $(LREF Windows1252String) )) $(TR $(TD Exceptions) $(TD $(LREF INVALID_SEQUENCE) $(LREF EncodingException) )) ))</p>
+<p>For cases where the encoding is not known at compile-time, but is known at run-time, the abstract class $(LREF EncodingScheme) and its subclasses is provided.  To construct a run-time encoder/decoder, one does e.g.</p>
+<p>---------------------------------------------------- auto e = EncodingScheme.create(&quot;utf-8&quot;); ----------------------------------------------------</p>
+<p>This library supplies $(LREF EncodingScheme) subclasses for ASCII, ISO-8859-1 (also known as LATIN-1), ISO-8859-2 (LATIN-2), WINDOWS-1250, WINDOWS-1251, WINDOWS-1252, UTF-8, and (on little-endian architectures) UTF-16LE and UTF-32LE; or (on big-endian architectures) UTF-16BE and UTF-32BE.</p>
+<p>This library provides a mechanism whereby other modules may add $(LREF EncodingScheme) subclasses for any other encoding.</p>
+<p>Copyright: Copyright Janice Caron 2008 - 2009. License:   $(HTTP <a href="http://www.boost.org/LICENSE_1_0.txt">www.boost.org/LICENSE_1_0.txt</a>, Boost License 1.0). Authors:   Janice Caron Source:    $(PHOBOSSRC std/encoding.d)</p>
+<h2 class='section'>Aliases</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Aliases/AsciiString.html">AsciiString</a></td>
+<td>Ditto</td>
+</tr>
+<tr>
+<td><a href="Aliases/BOMSeq.html">BOMSeq</a></td>
+<td>The type stored inside <code>bomTable</code> .</td>
+</tr>
+<tr>
+<td><a href="Aliases/Latin1String.html">Latin1String</a></td>
+<td>Defines an Latin1-encoded string (as an array of $(D immutable(Latin1Char))).</td>
+</tr>
+<tr>
+<td><a href="Aliases/Latin2String.html">Latin2String</a></td>
+<td>Defines an Latin2-encoded string (as an array of $(D immutable(Latin2Char))).</td>
+</tr>
+<tr>
+<td><a href="Aliases/Windows1250String.html">Windows1250String</a></td>
+<td>Defines an Windows1250-encoded string (as an array of $(D immutable(Windows1250Char))).</td>
+</tr>
+<tr>
+<td><a href="Aliases/Windows1251String.html">Windows1251String</a></td>
+<td>Defines an Windows1251-encoded string (as an array of $(D immutable(Windows1251Char))).</td>
+</tr>
+<tr>
+<td><a href="Aliases/Windows1252String.html">Windows1252String</a></td>
+<td>Defines an Windows1252-encoded string (as an array of $(D immutable(Windows1252Char))).</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Classes</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Classes/EncodingException.html">EncodingException</a></td>
+<td>The base class for exceptions thrown by this module</td>
+</tr>
+<tr>
+<td><a href="Classes/EncodingScheme.html">EncodingScheme</a></td>
+<td>Abstract base class of all encoding schemes</td>
+</tr>
+<tr>
+<td><a href="Classes/EncodingSchemeASCII.html">EncodingSchemeASCII</a></td>
+<td>EncodingScheme to handle ASCII</td>
+</tr>
+<tr>
+<td><a href="Classes/EncodingSchemeLatin1.html">EncodingSchemeLatin1</a></td>
+<td>EncodingScheme to handle Latin-1</td>
+</tr>
+<tr>
+<td><a href="Classes/EncodingSchemeLatin2.html">EncodingSchemeLatin2</a></td>
+<td>EncodingScheme to handle Latin-2</td>
+</tr>
+<tr>
+<td><a href="Classes/EncodingSchemeUtf16Native.html">EncodingSchemeUtf16Native</a></td>
+<td>EncodingScheme to handle UTF-16 in native byte order</td>
+</tr>
+<tr>
+<td><a href="Classes/EncodingSchemeUtf32Native.html">EncodingSchemeUtf32Native</a></td>
+<td>EncodingScheme to handle UTF-32 in native byte order</td>
+</tr>
+<tr>
+<td><a href="Classes/EncodingSchemeUtf8.html">EncodingSchemeUtf8</a></td>
+<td>EncodingScheme to handle UTF-8</td>
+</tr>
+<tr>
+<td><a href="Classes/EncodingSchemeWindows1250.html">EncodingSchemeWindows1250</a></td>
+<td>EncodingScheme to handle Windows-1250</td>
+</tr>
+<tr>
+<td><a href="Classes/EncodingSchemeWindows1251.html">EncodingSchemeWindows1251</a></td>
+<td>EncodingScheme to handle Windows-1251</td>
+</tr>
+<tr>
+<td><a href="Classes/EncodingSchemeWindows1252.html">EncodingSchemeWindows1252</a></td>
+<td>EncodingScheme to handle Windows-1252</td>
+</tr>
+<tr>
+<td><a href="Classes/UnrecognizedEncodingException.html">UnrecognizedEncodingException</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Structs/CodePoints.html">CodePoints</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/CodeUnits.html">CodeUnits</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Functions/canEncode.html">canEncode</a></td>
+<td>Returns true iff it is possible to represent the specified codepoint in the encoding.</td>
+</tr>
+<tr>
+<td><a href="Functions/codePoints.html">codePoints</a></td>
+<td>Returns a foreachable struct which can bidirectionally iterate over all code points in a string.</td>
+</tr>
+<tr>
+<td><a href="Functions/codeUnits.html">codeUnits</a></td>
+<td>Returns a foreachable struct which can bidirectionally iterate over all code units in a code point.</td>
+</tr>
+<tr>
+<td><a href="Functions/decode.html">decode</a></td>
+<td>Decodes a single code point.</td>
+</tr>
+<tr>
+<td><a href="Functions/decodeReverse.html">decodeReverse</a></td>
+<td>Decodes a single code point from the end of a string.</td>
+</tr>
+<tr>
+<td><a href="Functions/encode.html">encode</a></td>
+<td>Encodes a single code point.</td>
+</tr>
+<tr>
+<td><a href="Functions/encodedLength.html">encodedLength</a></td>
+<td>Returns the number of code units required to encode a single code point.</td>
+</tr>
+<tr>
+<td><a href="Functions/encodingName.html">encodingName</a></td>
+<td>Returns the name of an encoding.</td>
+</tr>
+<tr>
+<td><a href="Functions/firstSequence.html">firstSequence</a></td>
+<td>Returns the length of the first encoded sequence.</td>
+</tr>
+<tr>
+<td><a href="Functions/getBOM.html">getBOM</a></td>
+<td>Returns a <code>BOMSeq</code> for a given <code>input</code> . If no <code>BOM</code> is present the <code>BOMSeq</code> for <code>BOM.none</code> is returned. The <code>BOM</code> sequence at the beginning of the range will not be comsumed from the passed range. If you pass a reference type range make sure that <code>save</code> creates a deep copy.</td>
+</tr>
+<tr>
+<td><a href="Functions/index.html">index</a></td>
+<td>Returns the array index at which the (n+1)th code point begins.</td>
+</tr>
+<tr>
+<td><a href="Functions/isValid.html">isValid</a></td>
+<td>Returns true if the string is encoded correctly</td>
+</tr>
+<tr>
+<td><a href="Functions/isValidCodePoint.html">isValidCodePoint</a></td>
+<td>Returns true if c is a valid code point</td>
+</tr>
+<tr>
+<td><a href="Functions/isValidCodeUnit.html">isValidCodeUnit</a></td>
+<td>Returns true if the code unit is legal. For example, the byte 0x80 would not be legal in ASCII, because ASCII code units must always be in the range 0x00 to 0x7F.</td>
+</tr>
+<tr>
+<td><a href="Functions/lastSequence.html">lastSequence</a></td>
+<td>Returns the length of the last encoded sequence.</td>
+</tr>
+<tr>
+<td><a href="Functions/safeDecode.html">safeDecode</a></td>
+<td>Decodes a single code point. The input does not have to be valid.</td>
+</tr>
+<tr>
+<td><a href="Functions/sanitize.html">sanitize</a></td>
+<td>Sanitizes a string by replacing malformed code unit sequences with valid code unit sequences. The result is guaranteed to be valid for this encoding.</td>
+</tr>
+<tr>
+<td><a href="Functions/transcode.html">transcode</a></td>
+<td>Convert a string from one encoding to another.</td>
+</tr>
+<tr>
+<td><a href="Functions/validLength.html">validLength</a></td>
+<td>Returns the length of the longest possible substring, starting from the first code unit, which is validly encoded.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Variables/bomTable.html">bomTable</a></td>
+<td>Mapping of a byte sequence to $(B Byte Order Mark (BOM))</td>
+</tr>
+<tr>
+<td><a href="Variables/INVALID_SEQUENCE.html">INVALID_SEQUENCE</a></td>
+<td>Special value returned by <code>safeDecode</code></td>
+</tr>
+<tr>
+<td><a href="Variables/utfBOM.html">utfBOM</a></td>
+<td>Constant defining a fully decoded BOM</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

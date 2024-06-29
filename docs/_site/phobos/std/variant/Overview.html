@@ -1,0 +1,215 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Module - std.variant | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Module - std.variant | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.variant.Overview">
+<h1 class='section'>Module - std.variant</h1><h2 class='section'>About</h2><p>This module implements a $(HTTP erdani.org/publications/cuj-04-2002.php.html,discriminated union) type (a.k.a. $(HTTP en.wikipedia.org/wiki/Tagged_union,tagged union), $(HTTP en.wikipedia.org/wiki/Algebraic_data_type,algebraic type)). Such types are useful for type-uniform binary interfaces, interfacing with scripting languages, and comfortable exploratory programming.</p>
+<p>A $(LREF Variant) object can hold a value of any type, with very few restrictions (such as <code>shared</code> types and noncopyable types). Setting the value is as immediate as assigning to the <code>Variant</code> object. To read back the value of the appropriate type <code>T</code> , use the $(LREF get) method. To query whether a <code>Variant</code> currently holds a value of type <code>T</code> , use $(LREF peek). To fetch the exact type currently held, call $(LREF type), which returns the <code>TypeInfo</code> of the current value.</p>
+<p>In addition to $(LREF Variant), this module also defines the $(LREF Algebraic) type constructor. Unlike <code>Variant</code> , <code>Algebraic</code> only allows a finite set of types, which are specified in the instantiation (e.g. $(D Algebraic!(int, string)) may only hold an <code>int</code> or a <code>string</code> ).</p>
+<p>$(RED Warning: $(LREF Algebraic) is outdated and not recommended for use in new code. Instead, use $(REF SumType, std,sumtype).)</p>
+<p>Credits: Reviewed by Brad Roberts. Daniel Keep provided a detailed code review prompting the following improvements: (1) better support for arrays; (2) support for associative arrays; (3) friendlier behavior towards the garbage collector. Copyright: Copyright Andrei Alexandrescu 2007 - 2015. License:   $(HTTP <a href="http://www.boost.org/LICENSE_1_0.txt">www.boost.org/LICENSE_1_0.txt</a>, Boost License 1.0). Authors:   $(HTTP erdani.org, Andrei Alexandrescu) Source:    $(PHOBOSSRC std/variant.d)</p>
+<h2 class='section'>Aliases</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Aliases/Algebraic.html">Algebraic</a></td>
+<td>Algebraic data type restricted to a closed set of possible types. It's an alias for $(LREF VariantN) with an appropriately-constructed maximum size. <code>Algebraic</code> is useful when it is desirable to restrict what a discriminated type could hold to the end of defining simpler and more efficient manipulation.</td>
+</tr>
+<tr>
+<td><a href="Aliases/This2Variant.html">This2Variant</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Aliases/Variant.html">Variant</a></td>
+<td>Alias for $(LREF VariantN) instantiated with the largest size of <code>creal</code> , <code>char[]</code> , and <code>void delegate()</code> . This ensures that <code>Variant</code> is large enough to hold all of D's predefined types unboxed, including all numeric types, pointers, delegates, and class references.  You may want to use <code>VariantN</code> directly with a different maximum size either for storing larger types unboxed, or for saving memory.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Classes</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Classes/VariantException.html">VariantException</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Structs/FakeComplexReal.html">FakeComplexReal</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/This.html">This</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/VariantN.html">VariantN</a></td>
+<td>Back-end type seldom used directly by user code. Two commonly-used types using <code>VariantN</code> are:</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Functions/tryVisit.html">tryVisit</a></td>
+<td>Behaves as $(LREF visit) but doesn't enforce that all types are handled by the visiting functions.</td>
+</tr>
+<tr>
+<td><a href="Functions/variantArray.html">variantArray</a></td>
+<td>Returns an array of variants constructed from <code>args</code> .</td>
+</tr>
+<tr>
+<td><a href="Functions/visit.html">visit</a></td>
+<td>Applies a delegate or function to the given $(LREF Algebraic) depending on the held type, ensuring that all types are handled by the visiting functions.</td>
+</tr>
+<tr>
+<td><a href="Functions/visitImpl.html">visitImpl</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Variables/maxSize.html">maxSize</a></td>
+<td>Gives the <code>sizeof</code> the largest type given.</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

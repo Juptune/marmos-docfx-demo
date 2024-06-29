@@ -1,0 +1,2 @@
+
+{"order":100,"items":[{"name":"Overview","href":"Overview.html","topicHref":"Overview.html"},{"name":"Structs","includedFrom":"~/phobos/std/experimental/allocator/mallocator/Structs/toc.yml","items":[{"name":"Mallocator","href":"Structs/Mallocator.html","topicHref":"Structs/Mallocator.html"},{"name":"AlignedMallocator","href":"Structs/AlignedMallocator.html","topicHref":"Structs/AlignedMallocator.html"}]}],"pdf":false}

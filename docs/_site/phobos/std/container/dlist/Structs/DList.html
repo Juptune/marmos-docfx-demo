@@ -1,0 +1,319 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct - DList | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct - DList | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../../index.html">
+            <img id="logo" class="svg" src="../../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.container.dlist.Structs.DList">
+<h1 class='section'>Struct - DList</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.container.dlist</dd></dl>
+</div><pre><code class='lang-d'>public struct DList
+{
+  // ditto 
+  alias insert = &lt;todo: marmos support pending&gt;;
+  // ditto 
+  alias stableInsert = &lt;todo: marmos support pending&gt;;
+  // ditto 
+  alias stableInsertAfter = &lt;todo: marmos support pending&gt;;
+  // ditto 
+  alias stableInsertBack = &lt;todo: marmos support pending&gt;;
+  // ditto 
+  alias stableInsertBefore = &lt;todo: marmos support pending&gt;;
+  // ditto 
+  alias stableInsertFront = &lt;todo: marmos support pending&gt;;
+  // ditto 
+  alias stableLinearRemove = &lt;todo: marmos support pending&gt;;
+  // ditto 
+  alias stableRemove = &lt;todo: marmos support pending&gt;;
+  // ditto 
+  alias stableRemoveAny = &lt;todo: marmos support pending&gt;;
+  // ditto 
+  alias stableRemoveBack = &lt;todo: marmos support pending&gt;;
+  // ditto 
+  alias stableRemoveBack = &lt;todo: marmos support pending&gt;;
+  // ditto 
+  alias stableRemoveFront = &lt;todo: marmos support pending&gt;;
+  // ditto 
+  alias stableRemoveFront = &lt;todo: marmos support pending&gt;;
+
+  // Forward to `opSlice().back` . 
+  T back( ) ;
+  // Removes all contents from the `DList` . 
+  void clear( ) ;
+  // Duplicates the container. The elements themselves are not transitively duplicated. 
+  DList dup( ) ;
+  // Property returning `true` if and only if the container has no elements. 
+  bool empty( ) ;
+  // 
+  &lt;bug: unknown&gt; findNodeByValue( &lt;bug: unknown&gt; n, T value ) ;
+  // Forward to `opSlice().front` . 
+  T front( ) ;
+  // 
+  void initialize( ) ;
+  // ditto 
+  Range linearRemove( Range r ) ;
+  // `linearRemove` functions as `remove` , but also accepts ranges that are result the of a `take` operation. This is a convenient way to remove a fixed amount of elements from the range. 
+  Range linearRemove( Take!(Range) r ) ;
+  // Removes the first occurence of an element from the list in linear time. 
+  bool linearRemoveElement( T value ) ;
+  // Returns a range that iterates over all elements of the container, in forward order. 
+  Range opSlice( ) ;
+  // Removes first element of `r` , wich must be a range obtained originally from this container, from both DList instance and range `r` . 
+  void popFirstOf( Range r ) ;
+  // Removes last element of `r` , wich must be a range obtained originally from this container, from both DList instance and range `r` . 
+  void popLastOf( Range r ) ;
+  // Removes all elements belonging to `r` , which must be a range obtained originally from this container. 
+  Range remove( Range r ) ;
+  // Picks one value in an unspecified position in the container, removes it from the container, and returns it. The stable version behaves the same, but guarantees that ranges iterating over the container are never invalidated. 
+  T removeAny( ) ;
+  // ditto 
+  void removeBack( ) ;
+  // ditto 
+  size_t removeBack( size_t howMany ) ;
+  // Removes the value at the front/back of the container. The stable version behaves the same, but guarantees that ranges iterating over the container are never invalidated. 
+  void removeFront( ) ;
+  // Removes `howMany` values at the front or back of the container. Unlike the unparameterized versions above, these functions do not throw if they could not remove `howMany` elements. Instead, if $(D howMany &gt; n), all elements are removed. The returned value is the effective number of elements removed. The stable version behaves the same, but guarantees that ranges iterating over the container are never invalidated. 
+  size_t removeFront( size_t howMany ) ;
+}</code></pre><h2 class='section'>About</h2><p>Implements a doubly-linked list.</p>
+<p><code>DList</code> uses reference semantics.</p>
+<h2 class='section'>Aliases</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../DList/Aliases/insert.html">insert</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../DList/Aliases/stableInsert.html">stableInsert</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../DList/Aliases/stableInsertAfter.html">stableInsertAfter</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../DList/Aliases/stableInsertBack.html">stableInsertBack</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../DList/Aliases/stableInsertBefore.html">stableInsertBefore</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../DList/Aliases/stableInsertFront.html">stableInsertFront</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../DList/Aliases/stableLinearRemove.html">stableLinearRemove</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../DList/Aliases/stableRemove.html">stableRemove</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../DList/Aliases/stableRemoveAny.html">stableRemoveAny</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../DList/Aliases/stableRemoveBack.html">stableRemoveBack</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../DList/Aliases/stableRemoveBack.html">stableRemoveBack</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../DList/Aliases/stableRemoveFront.html">stableRemoveFront</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../DList/Aliases/stableRemoveFront.html">stableRemoveFront</a></td>
+<td>ditto</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../DList/Functions/back.html">back</a></td>
+<td>Forward to <code>opSlice().back</code> .</td>
+</tr>
+<tr>
+<td><a href="../DList/Functions/clear.html">clear</a></td>
+<td>Removes all contents from the <code>DList</code> .</td>
+</tr>
+<tr>
+<td><a href="../DList/Functions/dup.html">dup</a></td>
+<td>Duplicates the container. The elements themselves are not transitively duplicated.</td>
+</tr>
+<tr>
+<td><a href="../DList/Functions/empty.html">empty</a></td>
+<td>Property returning <code>true</code> if and only if the container has no elements.</td>
+</tr>
+<tr>
+<td><a href="../DList/Functions/findNodeByValue.html">findNodeByValue</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../DList/Functions/front.html">front</a></td>
+<td>Forward to <code>opSlice().front</code> .</td>
+</tr>
+<tr>
+<td><a href="../DList/Functions/initialize.html">initialize</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../DList/Functions/linearRemove.html">linearRemove</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../DList/Functions/linearRemoveElement.html">linearRemoveElement</a></td>
+<td>Removes the first occurence of an element from the list in linear time.</td>
+</tr>
+<tr>
+<td><a href="../DList/Functions/opSlice.html">opSlice</a></td>
+<td>Returns a range that iterates over all elements of the container, in forward order.</td>
+</tr>
+<tr>
+<td><a href="../DList/Functions/popFirstOf.html">popFirstOf</a></td>
+<td>Removes first element of <code>r</code> , wich must be a range obtained originally from this container, from both DList instance and range <code>r</code> .</td>
+</tr>
+<tr>
+<td><a href="../DList/Functions/popLastOf.html">popLastOf</a></td>
+<td>Removes last element of <code>r</code> , wich must be a range obtained originally from this container, from both DList instance and range <code>r</code> .</td>
+</tr>
+<tr>
+<td><a href="../DList/Functions/remove.html">remove</a></td>
+<td>Removes all elements belonging to <code>r</code> , which must be a range obtained originally from this container.</td>
+</tr>
+<tr>
+<td><a href="../DList/Functions/removeAny.html">removeAny</a></td>
+<td>Picks one value in an unspecified position in the container, removes it from the container, and returns it. The stable version behaves the same, but guarantees that ranges iterating over the container are never invalidated.</td>
+</tr>
+<tr>
+<td><a href="../DList/Functions/removeBack.html">removeBack</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../DList/Functions/removeFront.html">removeFront</a></td>
+<td>Removes the value at the front/back of the container. The stable version behaves the same, but guarantees that ranges iterating over the container are never invalidated.</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

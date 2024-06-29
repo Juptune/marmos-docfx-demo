@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Module - std.sumtype | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Module - std.sumtype | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.sumtype.Overview">
+<h1 class='section'>Module - std.sumtype</h1><h2 class='section'>About</h2><p>[SumType] is a generic discriminated union implementation that uses design-by-introspection to generate safe and efficient code. Its features include:</p>
+<p>!!Unsupported comment block type: marmos.generic.model.DocCommentUnorderedListBlock!!</p>
+<p>$(H3 List of examples)</p>
+<p>!!Unsupported comment block type: marmos.generic.model.DocCommentUnorderedListBlock!!</p>
+<p>License: Boost License 1.0 Authors: Paul Backus Source: $(PHOBOSSRC std/sumtype.d)</p>
+<h2 class='section'>Classes</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Classes/MatchException.html">MatchException</a></td>
+<td>Thrown by [tryMatch] when an unhandled type is encountered.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Structs/SumType.html">SumType</a></td>
+<td>A <a href="https://en.wikipedia.org/wiki/Tagged_union">tagged union</a> that can hold a single value from any of a specified set of types.</td>
+</tr>
+<tr>
+<td><a href="Structs/TagTuple.html">TagTuple</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/This.html">This</a></td>
+<td>Placeholder used to refer to the enclosing [SumType].</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Functions/destroyIfOwner.html">destroyIfOwner</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/isClose.html">isClose</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/match.html">match</a></td>
+<td>Calls a type-appropriate function with the value held in a [SumType].</td>
+</tr>
+<tr>
+<td><a href="Functions/matchImpl.html">matchImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/stride.html">stride</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/tryMatch.html">tryMatch</a></td>
+<td>Attempts to call a type-appropriate function with the value held in a [SumType], and throws on failure.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Variables/canMatch.html">canMatch</a></td>
+<td>True if <code>handler</code> is a potential match for <code>Ts</code> , otherwise false.</td>
+</tr>
+<tr>
+<td><a href="Variables/hasPostblit.html">hasPostblit</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/isAssignableTo.html">isAssignableTo</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/isHashable.html">isHashable</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/isInout.html">isInout</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/isSumType.html">isSumType</a></td>
+<td>True if <code>T</code> is a [SumType] or implicitly converts to one, otherwise false.</td>
+</tr>
+<tr>
+<td><a href="Variables/isSumTypeInstance.html">isSumTypeInstance</a></td>
+<td>True if <code>T</code> is an instance of the <code>SumType</code> template, otherwise false.</td>
+</tr>
+<tr>
+<td><a href="Variables/typeCount.html">typeCount</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

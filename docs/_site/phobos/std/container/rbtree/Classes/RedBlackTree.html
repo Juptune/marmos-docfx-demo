@@ -1,0 +1,341 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class - RedBlackTree | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class - RedBlackTree | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../../index.html">
+            <img id="logo" class="svg" src="../../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.container.rbtree.Classes.RedBlackTree">
+<h1 class='section'>Class - RedBlackTree</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.container.rbtree</dd></dl>
+</div><pre><code class='lang-d'>public class RedBlackTree
+{
+  // Ditto 
+  alias ConstRange = &lt;todo: marmos support pending&gt;;
+  // Element type for the tree 
+  alias Elem = &lt;todo: marmos support pending&gt;;
+  // Ditto 
+  alias ImmutableRange = &lt;todo: marmos support pending&gt;;
+  // ditto 
+  alias insert = &lt;todo: marmos support pending&gt;;
+  // 
+  alias Node = &lt;todo: marmos support pending&gt;;
+  // The range types for `RedBlackTree` 
+  alias Range = &lt;todo: marmos support pending&gt;;
+  // 
+  alias RBNode = &lt;todo: marmos support pending&gt;;
+
+  // 
+  Node allocate( ) static;
+  // 
+  Node allocate( Elem v ) static;
+  // 
+  bool arrayEqual( &lt;bug: unknown&gt; arr ) ;
+  // The last element in the container 
+  Elem back( ) ;
+  // 
+  void check( ) ;
+  // Removes all elements from the container. 
+  void clear( ) ;
+  // Duplicate this container.  The resulting container contains a shallow copy of the elements. 
+  RedBlackTree dup( ) ;
+  // Check if any elements exist in the container.  Returns `false` if at least one element exists. 
+  bool empty( ) ;
+  // The front element in the container 
+  Elem front( ) ;
+  // Returns the number of elements in the container. 
+  size_t length( ) ;
+  // Get a range from the container with all elements that are &lt; e according to the less comparator 
+  Range lowerBound( Elem e ) ;
+  // Ditto 
+  ConstRange lowerBound( Elem e ) ;
+  // Ditto 
+  ImmutableRange lowerBound( Elem e ) ;
+  // Compares two trees for equality. 
+  bool opEquals( Object rhs ) override;
+  // Fetch a range that spans all the elements in the container. 
+  Range opSlice( ) ;
+  // Ditto 
+  ConstRange opSlice( ) ;
+  // Ditto 
+  ImmutableRange opSlice( ) ;
+  // 
+  void printTree( Node n, int indent ) ;
+  // Removes the given range from the container. 
+  Range remove( Range r ) ;
+  // Removes the given `Take!Range` from the container 
+  Range remove( Take!(Range) r ) ;
+  // Remove an element from the container and return its value. 
+  Elem removeAny( ) ;
+  // Remove the back element from the container. 
+  void removeBack( ) ;
+  // Remove the front element from the container. 
+  void removeFront( ) ;
+  // Generates a hash for the tree. Note that with a custom comparison function it may not hold that if two rbtrees are equal, the hashes of the trees will be equal. 
+  size_t toHash( ) override;
+  // Formats the RedBlackTree into a sink function. For more info see $(D std.format.formatValue). Note that this only is available when the element type can be formatted. Otherwise, the default toString from Object is used. 
+  void toString( &lt;bug: unknown&gt; sink, FormatSpec!(char) fmt ) ;
+  // Get a range from the container with all elements that are &gt; e according to the less comparator 
+  Range upperBound( Elem e ) ;
+  // Ditto 
+  ConstRange upperBound( Elem e ) ;
+  // Ditto 
+  ImmutableRange upperBound( Elem e ) ;
+
+  // 
+  __enumMember doUnittest;
+}</code></pre><h2 class='section'>About</h2><p>Implementation of a $(LINK2 <a href="https://en.wikipedia.org/wiki/Red%E2%80%93black_tree">https://en.wikipedia.org/wiki/Red%E2%80%93black_tree</a>, red-black tree) container.</p>
+<p>All inserts, removes, searches, and any function in general has complexity of $(BIGOH lg(n)).</p>
+<p>To use a different comparison than $(D &quot;a &lt; b&quot;), pass a different operator string that can be used by $(REF binaryFun, std,functional), or pass in a function, delegate, functor, or any type where $(D less(a, b)) results in a <code>bool</code> value.</p>
+<p>Note that less should produce a strict ordering.  That is, for two unequal elements <code>a</code> and <code>b</code> , $(D less(a, b) == !less(b, a)). $(D less(a, a)) should always equal <code>false</code> .</p>
+<p>If <code>allowDuplicates</code> is set to <code>true</code> , then inserting the same element more than once continues to add more elements.  If it is <code>false</code> , duplicate elements are ignored on insertion.  If duplicates are allowed, then new elements are inserted after all existing duplicate elements.</p>
+<h2 class='section'>Aliases</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../RedBlackTree/Aliases/_less.html">_less</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../RedBlackTree/Aliases/ConstRange.html">ConstRange</a></td>
+<td>Ditto</td>
+</tr>
+<tr>
+<td><a href="../RedBlackTree/Aliases/Elem.html">Elem</a></td>
+<td>Element type for the tree</td>
+</tr>
+<tr>
+<td><a href="../RedBlackTree/Aliases/ImmutableRange.html">ImmutableRange</a></td>
+<td>Ditto</td>
+</tr>
+<tr>
+<td><a href="../RedBlackTree/Aliases/insert.html">insert</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../RedBlackTree/Aliases/Node.html">Node</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../RedBlackTree/Aliases/Range.html">Range</a></td>
+<td>The range types for <code>RedBlackTree</code></td>
+</tr>
+<tr>
+<td><a href="../RedBlackTree/Aliases/RBNode.html">RBNode</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../RedBlackTree/Functions/allocate.html">allocate</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../RedBlackTree/Functions/arrayEqual.html">arrayEqual</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../RedBlackTree/Functions/back.html">back</a></td>
+<td>The last element in the container</td>
+</tr>
+<tr>
+<td><a href="../RedBlackTree/Functions/check.html">check</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../RedBlackTree/Functions/clear.html">clear</a></td>
+<td>Removes all elements from the container.</td>
+</tr>
+<tr>
+<td><a href="../RedBlackTree/Functions/dup.html">dup</a></td>
+<td>Duplicate this container.  The resulting container contains a shallow copy of the elements.</td>
+</tr>
+<tr>
+<td><a href="../RedBlackTree/Functions/empty.html">empty</a></td>
+<td>Check if any elements exist in the container.  Returns <code>false</code> if at least one element exists.</td>
+</tr>
+<tr>
+<td><a href="../RedBlackTree/Functions/front.html">front</a></td>
+<td>The front element in the container</td>
+</tr>
+<tr>
+<td><a href="../RedBlackTree/Functions/length.html">length</a></td>
+<td>Returns the number of elements in the container.</td>
+</tr>
+<tr>
+<td><a href="../RedBlackTree/Functions/lowerBound.html">lowerBound</a></td>
+<td>Get a range from the container with all elements that are &lt; e according to the less comparator</td>
+</tr>
+<tr>
+<td><a href="../RedBlackTree/Functions/opEquals.html">opEquals</a></td>
+<td>Compares two trees for equality.</td>
+</tr>
+<tr>
+<td><a href="../RedBlackTree/Functions/opSlice.html">opSlice</a></td>
+<td>Fetch a range that spans all the elements in the container.</td>
+</tr>
+<tr>
+<td><a href="../RedBlackTree/Functions/printTree.html">printTree</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../RedBlackTree/Functions/remove.html">remove</a></td>
+<td>Removes the given range from the container.</td>
+</tr>
+<tr>
+<td><a href="../RedBlackTree/Functions/removeAny.html">removeAny</a></td>
+<td>Remove an element from the container and return its value.</td>
+</tr>
+<tr>
+<td><a href="../RedBlackTree/Functions/removeBack.html">removeBack</a></td>
+<td>Remove the back element from the container.</td>
+</tr>
+<tr>
+<td><a href="../RedBlackTree/Functions/removeFront.html">removeFront</a></td>
+<td>Remove the front element from the container.</td>
+</tr>
+<tr>
+<td><a href="../RedBlackTree/Functions/toHash.html">toHash</a></td>
+<td>Generates a hash for the tree. Note that with a custom comparison function it may not hold that if two rbtrees are equal, the hashes of the trees will be equal.</td>
+</tr>
+<tr>
+<td><a href="../RedBlackTree/Functions/toString.html">toString</a></td>
+<td>Formats the RedBlackTree into a sink function. For more info see $(D std.format.formatValue). Note that this only is available when the element type can be formatted. Otherwise, the default toString from Object is used.</td>
+</tr>
+<tr>
+<td><a href="../RedBlackTree/Functions/upperBound.html">upperBound</a></td>
+<td>Get a range from the container with all elements that are &gt; e according to the less comparator</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../RedBlackTree/Variables/doUnittest.html">doUnittest</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

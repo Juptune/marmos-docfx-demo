@@ -1,0 +1,327 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Module - std.socket | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Module - std.socket | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.socket.Overview">
+<h1 class='section'>Module - std.socket</h1><h2 class='section'>About</h2><p>Socket primitives. Example: See $(SAMPLESRC listener.d) and $(SAMPLESRC htmlget.d) License: $(HTTP <a href="http://www.boost.org/LICENSE_1_0.txt">www.boost.org/LICENSE_1_0.txt</a>, Boost License 1.0). Authors: Christopher E. Miller, $(HTTP klickverbot.at, David Nadlinger), $(HTTP thecybershadow.net, Vladimir Panteleev) Source:  $(PHOBOSSRC std/socket.d)</p>
+<h2 class='section'>Aliases</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Aliases/_clinger.html">_clinger</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Aliases/_ctimeval.html">_ctimeval</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Classes</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Classes/Address.html">Address</a></td>
+<td>Abstract class for representing a socket address.</td>
+</tr>
+<tr>
+<td><a href="Classes/AddressException.html">AddressException</a></td>
+<td>Class for exceptions thrown from an <code>Address</code> .</td>
+</tr>
+<tr>
+<td><a href="Classes/HostException.html">HostException</a></td>
+<td>Class for exceptions thrown from an <code>InternetHost</code> .</td>
+</tr>
+<tr>
+<td><a href="Classes/Internet6Address.html">Internet6Address</a></td>
+<td>Encapsulates an IPv6 (Internet Protocol version 6) socket address.</td>
+</tr>
+<tr>
+<td><a href="Classes/InternetAddress.html">InternetAddress</a></td>
+<td>Encapsulates an IPv4 (Internet Protocol version 4) socket address.</td>
+</tr>
+<tr>
+<td><a href="Classes/InternetHost.html">InternetHost</a></td>
+<td>Class for resolving IPv4 addresses.</td>
+</tr>
+<tr>
+<td><a href="Classes/Protocol.html">Protocol</a></td>
+<td>Class for retrieving protocol information.</td>
+</tr>
+<tr>
+<td><a href="Classes/Service.html">Service</a></td>
+<td>Class for retrieving service information.</td>
+</tr>
+<tr>
+<td><a href="Classes/Socket.html">Socket</a></td>
+<td>Class that creates a network communication endpoint using the Berkeley sockets interface.</td>
+</tr>
+<tr>
+<td><a href="Classes/SocketAcceptException.html">SocketAcceptException</a></td>
+<td>Exception thrown by <code>Socket.accept</code> .</td>
+</tr>
+<tr>
+<td><a href="Classes/SocketException.html">SocketException</a></td>
+<td>Base exception thrown by <code>std.socket</code> .</td>
+</tr>
+<tr>
+<td><a href="Classes/SocketFeatureException.html">SocketFeatureException</a></td>
+<td>Socket exception representing attempts to use network capabilities not available on the current system.</td>
+</tr>
+<tr>
+<td><a href="Classes/SocketOSException.html">SocketOSException</a></td>
+<td>Socket exception representing network errors reported by the operating system.</td>
+</tr>
+<tr>
+<td><a href="Classes/SocketParameterException.html">SocketParameterException</a></td>
+<td>Socket exception representing invalid parameters specified by user code.</td>
+</tr>
+<tr>
+<td><a href="Classes/SocketSet.html">SocketSet</a></td>
+<td>A collection of sockets for use with <code>Socket.select</code> .</td>
+</tr>
+<tr>
+<td><a href="Classes/TcpSocket.html">TcpSocket</a></td>
+<td>Shortcut class for a TCP Socket.</td>
+</tr>
+<tr>
+<td><a href="Classes/UdpSocket.html">UdpSocket</a></td>
+<td>Shortcut class for a UDP Socket.</td>
+</tr>
+<tr>
+<td><a href="Classes/UnixAddress.html">UnixAddress</a></td>
+<td>Encapsulates an address for a Unix domain socket (<code>AF_UNIX</code>), i.e. a socket bound to a path name in the file system. Available only on supported systems.</td>
+</tr>
+<tr>
+<td><a href="Classes/UnknownAddress.html">UnknownAddress</a></td>
+<td>Encapsulates an unknown socket address.</td>
+</tr>
+<tr>
+<td><a href="Classes/UnknownAddressReference.html">UnknownAddressReference</a></td>
+<td>Encapsulates a reference to an arbitrary socket address.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Structs/AddressInfo.html">AddressInfo</a></td>
+<td>Holds information about a socket address retrieved by <code>getAddressInfo</code>.</td>
+</tr>
+<tr>
+<td><a href="Structs/Linger.html">Linger</a></td>
+<td>Linger information for use with SocketOption.LINGER.</td>
+</tr>
+<tr>
+<td><a href="Structs/sockaddr_un.html">sockaddr_un</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/TimeVal.html">TimeVal</a></td>
+<td>Duration timeout value.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Functions/formatGaiError.html">formatGaiError</a></td>
+<td>On POSIX, getaddrinfo uses its own error codes, and thus has its own formatting function.</td>
+</tr>
+<tr>
+<td><a href="Functions/formatSocketError.html">formatSocketError</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/getAddress.html">getAddress</a></td>
+<td>Provides protocol-independent translation from host names to socket addresses. Uses <code>getAddressInfo</code> if the current system supports it, and <code>InternetHost</code> otherwise.</td>
+</tr>
+<tr>
+<td><a href="Functions/getAddressInfo.html">getAddressInfo</a></td>
+<td>Provides protocol-independent translation from host names to socket addresses. If advanced functionality is not required, consider using <code>getAddress</code> for compatibility with older systems.</td>
+</tr>
+<tr>
+<td><a href="Functions/getAddressInfoImpl.html">getAddressInfoImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/lastSocketError.html">lastSocketError</a></td>
+<td>Returns the error message of the most recently encountered network error.</td>
+</tr>
+<tr>
+<td><a href="Functions/parseAddress.html">parseAddress</a></td>
+<td>Provides protocol-independent parsing of network addresses. Does not attempt name resolution. Uses <code>getAddressInfo</code> with <code>AddressInfoFlags.NUMERICHOST</code> if the current system supports it, and <code>InternetAddress</code> otherwise.</td>
+</tr>
+<tr>
+<td><a href="Functions/serviceToPort.html">serviceToPort</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/socketPair.html">socketPair</a></td>
+<td>Creates a pair of connected sockets.</td>
+</tr>
+<tr>
+<td><a href="Functions/softUnittest.html">softUnittest</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/wouldHaveBlocked.html">wouldHaveBlocked</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Variables/freeaddrinfoPointer.html">freeaddrinfoPointer</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/getaddrinfoPointer.html">getaddrinfoPointer</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/getnameinfoPointer.html">getnameinfoPointer</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/runSlowTests.html">runSlowTests</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

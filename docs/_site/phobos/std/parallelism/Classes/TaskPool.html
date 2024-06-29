@@ -1,0 +1,402 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class - TaskPool | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class - TaskPool | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../index.html">
+            <img id="logo" class="svg" src="../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.parallelism.Classes.TaskPool">
+<h1 class='section'>Class - TaskPool</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.parallelism</dd></dl>
+</div><pre><code class='lang-d'>public class TaskPool
+{
+  // 
+  void abstractPut( &lt;bug: unknown&gt; task ) ;
+  // 
+  void abstractPutGroupNoSync( &lt;bug: unknown&gt; h, &lt;bug: unknown&gt; t ) ;
+  // 
+  void abstractPutNoSync( &lt;bug: unknown&gt; task ) ;
+  // 
+  size_t defaultWorkUnitSize( size_t rangeLen ) ;
+  // 
+  bool deleteItem( &lt;bug: unknown&gt; item ) ;
+  // 
+  bool deleteItemNoSync( &lt;bug: unknown&gt; item ) ;
+  // 
+  void doJob( &lt;bug: unknown&gt; job ) ;
+  // 
+  void doSingleTask( ) ;
+  // 
+  void executeWorkLoop( ) ;
+  // Signals worker threads to terminate when the queue becomes empty. 
+  void finish( bool blocking ) ;
+  // These properties control whether the worker threads are daemon threads. A daemon thread is automatically terminated when all non-daemon threads have terminated.  A non-daemon thread will prevent a program from terminating as long as it has not terminated. 
+  bool isDaemon( ) ;
+  // Ditto 
+  void isDaemon( bool newVal ) ;
+  // 
+  void notify( ) ;
+  // 
+  void notifyAll( ) ;
+  // 
+  void notifyWaiters( ) ;
+  // 
+  &lt;bug: unknown&gt; pop( ) ;
+  // 
+  &lt;bug: unknown&gt; popNoSync( ) ;
+  // These functions allow getting and setting the OS scheduling priority of the worker threads in this `TaskPool` .  They forward to `core.thread.Thread.priority` , so a given priority value here means the same thing as an identical priority value in `core.thread` . 
+  int priority( ) ;
+  // Ditto 
+  void priority( int newPriority ) ;
+  // 
+  void queueLock( ) ;
+  // 
+  void queueUnlock( ) ;
+  // Returns the number of worker threads in the pool. 
+  size_t size( ) ;
+  // 
+  void startWorkLoop( ) ;
+  // Signals to all worker threads to terminate as soon as they are finished with their current `Task` , or immediately if they are not executing a `Task` .  `Task` s that were in queue will not be executed unless a call to `Task.workForce` , `Task.yieldForce` or `Task.spinForce` causes them to be executed. 
+  void stop( ) ;
+  // 
+  void tryDeleteExecute( &lt;bug: unknown&gt; toExecute ) ;
+  // 
+  void wait( ) ;
+  // 
+  void waiterLock( ) ;
+  // 
+  void waiterUnlock( ) ;
+  // 
+  void waitUntilCompletion( ) ;
+  // Gets the index of the current thread relative to this `TaskPool` .  Any thread not in this pool will receive an index of 0.  The worker threads in this pool receive unique indices of 1 through `this.size` . 
+  size_t workerIndex( ) ;
+
+  // 
+  &lt;bug: unknown&gt; head;
+  // 
+  immutable size_t instanceStartIndex;
+  // 
+  bool isSingleTask;
+  // 
+  __gshared size_t nextInstanceIndex;
+  // 
+  size_t nextThreadIndex;
+  // 
+  &lt;bug: unknown&gt; pool;
+  // 
+  Mutex queueMutex;
+  // 
+  Thread singleTaskThread;
+  // 
+  PoolState status;
+  // 
+  &lt;bug: unknown&gt; tail;
+  // 
+  static size_t threadIndex;
+  // 
+  Condition waiterCondition;
+  // 
+  Mutex waiterMutex;
+  // 
+  Condition workerCondition;
+}</code></pre><h2 class='section'>About</h2><p>This class encapsulates a task queue and a set of worker threads.  Its purpose is to efficiently map a large number of <code>Task</code> s onto a smaller number of threads.  A task queue is a FIFO queue of <code>Task</code> objects that have been submitted to the <code>TaskPool</code> and are awaiting execution.  A worker thread is a thread that executes the <code>Task</code> at the front of the queue when one is available and sleeps when the queue is empty.</p>
+<p>This class should usually be used via the global instantiation available via the $(REF taskPool, std,parallelism) property. Occasionally it is useful to explicitly instantiate a <code>TaskPool</code> :</p>
+<pre><code>1.1. When you want `TaskPool` instances with multiple priorities, for
+</code></pre>
+<p>example a low priority pool and a high priority pool.</p>
+<pre><code>1.1. When the threads in the global task pool are waiting on a
+</code></pre>
+<p>synchronization primitive (for example a mutex), and you want to parallelize the code that needs to run before these threads can be resumed.</p>
+<p>Note: The worker threads in this pool will not stop until <code>stop</code> or <code>finish</code> is called, even if the main thread has finished already. This may lead to programs that never end. If you do not want this behaviour, you can set <code>isDaemon</code> to true.</p>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../TaskPool/Functions/abstractPut.html">abstractPut</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Functions/abstractPutGroupNoSync.html">abstractPutGroupNoSync</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Functions/abstractPutNoSync.html">abstractPutNoSync</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Functions/defaultWorkUnitSize.html">defaultWorkUnitSize</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Functions/deleteItem.html">deleteItem</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Functions/deleteItemNoSync.html">deleteItemNoSync</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Functions/doJob.html">doJob</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Functions/doSingleTask.html">doSingleTask</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Functions/executeWorkLoop.html">executeWorkLoop</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Functions/finish.html">finish</a></td>
+<td>Signals worker threads to terminate when the queue becomes empty.</td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Functions/isDaemon.html">isDaemon</a></td>
+<td>These properties control whether the worker threads are daemon threads. A daemon thread is automatically terminated when all non-daemon threads have terminated.  A non-daemon thread will prevent a program from terminating as long as it has not terminated.</td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Functions/notify.html">notify</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Functions/notifyAll.html">notifyAll</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Functions/notifyWaiters.html">notifyWaiters</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Functions/pop.html">pop</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Functions/popNoSync.html">popNoSync</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Functions/priority.html">priority</a></td>
+<td>These functions allow getting and setting the OS scheduling priority of the worker threads in this <code>TaskPool</code> .  They forward to <code>core.thread.Thread.priority</code> , so a given priority value here means the same thing as an identical priority value in <code>core.thread</code> .</td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Functions/queueLock.html">queueLock</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Functions/queueUnlock.html">queueUnlock</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Functions/size.html">size</a></td>
+<td>Returns the number of worker threads in the pool.</td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Functions/startWorkLoop.html">startWorkLoop</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Functions/stop.html">stop</a></td>
+<td>Signals to all worker threads to terminate as soon as they are finished with their current <code>Task</code> , or immediately if they are not executing a <code>Task</code> .  <code>Task</code> s that were in queue will not be executed unless a call to <code>Task.workForce</code> , <code>Task.yieldForce</code> or <code>Task.spinForce</code> causes them to be executed.</td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Functions/tryDeleteExecute.html">tryDeleteExecute</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Functions/wait.html">wait</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Functions/waiterLock.html">waiterLock</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Functions/waiterUnlock.html">waiterUnlock</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Functions/waitUntilCompletion.html">waitUntilCompletion</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Functions/workerIndex.html">workerIndex</a></td>
+<td>Gets the index of the current thread relative to this <code>TaskPool</code> .  Any thread not in this pool will receive an index of 0.  The worker threads in this pool receive unique indices of 1 through <code>this.size</code> .</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../TaskPool/Variables/head.html">head</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Variables/instanceStartIndex.html">instanceStartIndex</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Variables/isSingleTask.html">isSingleTask</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Variables/nextInstanceIndex.html">nextInstanceIndex</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Variables/nextThreadIndex.html">nextThreadIndex</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Variables/pool.html">pool</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Variables/queueMutex.html">queueMutex</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Variables/singleTaskThread.html">singleTaskThread</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Variables/status.html">status</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Variables/tail.html">tail</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Variables/threadIndex.html">threadIndex</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Variables/waiterCondition.html">waiterCondition</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Variables/waiterMutex.html">waiterMutex</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TaskPool/Variables/workerCondition.html">workerCondition</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

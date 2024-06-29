@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct - AffixAllocator | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct - AffixAllocator | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../../../../index.html">
+            <img id="logo" class="svg" src="../../../../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.experimental.allocator.building_blocks.affix_allocator.Structs.AffixAllocator">
+<h1 class='section'>Struct - AffixAllocator</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.experimental.allocator.building_blocks.affix_allocator</dd></dl>
+</div><pre><code class='lang-d'>public struct AffixAllocator
+{
+  // Ditto 
+  &lt;bug: unknown&gt; allocate( size_t __anonymous ) ;
+  // Ditto 
+  bool deallocate( &lt;bug: unknown&gt; b ) ;
+  // Ditto 
+  bool deallocateAll( ) ;
+  // Ditto 
+  Ternary empty( ) ;
+  // Ditto 
+  bool expand( &lt;bug: unknown&gt; b, size_t delta ) ;
+  // Standard allocator methods. Each is defined if and only if the parent allocator defines the homonym method (except for `goodAllocSize` , which may use the global default). Also, the methods will be $(D shared) if the parent allocator defines them as such. 
+  size_t goodAllocSize( size_t __anonymous ) ;
+  // Ditto 
+  Ternary owns( &lt;bug: unknown&gt; __anonymous ) ;
+  // If the parent allocator `Allocator` is stateful, an instance of it is stored as a member. Otherwise, `AffixAllocator` uses `Allocator.instance` . In either case, the name `_parent` is uniformly used for accessing the parent allocator. 
+  Allocator parent( ) ;
+  // Ditto 
+  bool reallocate( &lt;bug: unknown&gt; b, size_t s ) ;
+
+  // If `Prefix` is `void` , the alignment is that of the parent. Otherwise, the alignment is the same as the `Prefix` &#39;s alignment. 
+  uint alignment;
+  // The `instance` singleton is defined if and only if the parent allocator has no state and defines its own `it` object. 
+  static AffixAllocator instance;
+}</code></pre><h2 class='section'>About</h2><p>Allocator that adds some extra data before (of type <code>Prefix</code> ) and/or after (of type <code>Suffix</code> ) any allocation made with its parent allocator. This is useful for uses where additional allocation-related information is needed, such as mutexes, reference counts, or walls for debugging memory corruption errors.</p>
+<p>If <code>Prefix</code> is not <code>void</code> , <code>Allocator</code> must guarantee an alignment at least as large as <code>Prefix.alignof</code> .</p>
+<p>Suffixes are slower to get at because of alignment rounding, so prefixes should be preferred. However, small prefixes blunt the alignment so if a large alignment with a small affix is needed, suffixes should be chosen.</p>
+<p>The following methods are defined if <code>Allocator</code> defines them, and forward to it: <code>deallocateAll</code> , <code>empty</code> , <code>owns</code> .</p>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../AffixAllocator/Functions/allocate.html">allocate</a></td>
+<td>Ditto</td>
+</tr>
+<tr>
+<td><a href="../AffixAllocator/Functions/deallocate.html">deallocate</a></td>
+<td>Ditto</td>
+</tr>
+<tr>
+<td><a href="../AffixAllocator/Functions/deallocateAll.html">deallocateAll</a></td>
+<td>Ditto</td>
+</tr>
+<tr>
+<td><a href="../AffixAllocator/Functions/empty.html">empty</a></td>
+<td>Ditto</td>
+</tr>
+<tr>
+<td><a href="../AffixAllocator/Functions/expand.html">expand</a></td>
+<td>Ditto</td>
+</tr>
+<tr>
+<td><a href="../AffixAllocator/Functions/goodAllocSize.html">goodAllocSize</a></td>
+<td>Standard allocator methods. Each is defined if and only if the parent allocator defines the homonym method (except for <code>goodAllocSize</code> , which may use the global default). Also, the methods will be $(D shared) if the parent allocator defines them as such.</td>
+</tr>
+<tr>
+<td><a href="../AffixAllocator/Functions/owns.html">owns</a></td>
+<td>Ditto</td>
+</tr>
+<tr>
+<td><a href="../AffixAllocator/Functions/parent.html">parent</a></td>
+<td>If the parent allocator <code>Allocator</code> is stateful, an instance of it is stored as a member. Otherwise, <code>AffixAllocator</code> uses <code>Allocator.instance</code> . In either case, the name <code>_parent</code> is uniformly used for accessing the parent allocator.</td>
+</tr>
+<tr>
+<td><a href="../AffixAllocator/Functions/reallocate.html">reallocate</a></td>
+<td>Ditto</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../AffixAllocator/Variables/alignment.html">alignment</a></td>
+<td>If <code>Prefix</code> is <code>void</code> , the alignment is that of the parent. Otherwise, the alignment is the same as the <code>Prefix</code> 's alignment.</td>
+</tr>
+<tr>
+<td><a href="../AffixAllocator/Variables/instance.html">instance</a></td>
+<td>The <code>instance</code> singleton is defined if and only if the parent allocator has no state and defines its own <code>it</code> object.</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

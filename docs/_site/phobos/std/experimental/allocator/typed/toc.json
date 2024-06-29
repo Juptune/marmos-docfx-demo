@@ -1,0 +1,2 @@
+
+{"order":100,"items":[{"name":"Overview","href":"Overview.html","topicHref":"Overview.html"},{"name":"Structs","includedFrom":"~/phobos/std/experimental/allocator/typed/Structs/toc.yml","items":[{"name":"TypedAllocator","href":"Structs/TypedAllocator.html","topicHref":"Structs/TypedAllocator.html"}]}],"pdf":false}

@@ -1,0 +1,406 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class - BacktrackingMatcher | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class - BacktrackingMatcher | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../../../index.html">
+            <img id="logo" class="svg" src="../../../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.regex.internal.backtracking.Classes.BacktrackingMatcher">
+<h1 class='section'>Class - BacktrackingMatcher</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.regex.internal.backtracking</dd></dl>
+</div><pre><code class='lang-d'>public class BacktrackingMatcher
+{
+  // 
+  alias DataIndex = &lt;todo: marmos support pending&gt;;
+  // 
+  alias MatchFn = &lt;todo: marmos support pending&gt;;
+  // 
+  alias RegEx = &lt;todo: marmos support pending&gt;;
+  // 
+  alias String = &lt;todo: marmos support pending&gt;;
+
+  // 
+  bool atEnd( ) ;
+  // 
+  bool atStart( ) ;
+  // 
+  &lt;bug: unknown&gt; bwdMatcher( RegEx re, &lt;bug: unknown&gt; memBlock ) auto;
+  // 
+  void dupTo( Matcher!(Char) m, &lt;bug: unknown&gt; memBlock ) override;
+  // 
+  &lt;bug: unknown&gt; fwdMatcher( RegEx re, &lt;bug: unknown&gt; memBlock ) auto;
+  // 
+  void initExternalMemory( &lt;bug: unknown&gt; memBlock ) ;
+  // 
+  void initialize( RegEx program, Stream stream, &lt;bug: unknown&gt; memBlock ) ;
+  // 
+  size_t initialMemory( RegEx re ) static;
+  // 
+  int match( &lt;bug: unknown&gt; matches ) override;
+  // 
+  int matchFinalize( ) ;
+  // 
+  int matchImpl( ) ;
+  // 
+  void newStack( ) ;
+  // 
+  void next( ) ;
+  // 
+  RegEx pattern( ) override;
+  // 
+  bool popState( ) ;
+  // 
+  bool prevStack( ) ;
+  // 
+  void pushState( uint pc, uint counter ) ;
+  // 
+  Matcher!(Char) rearm( &lt;bug: unknown&gt; data ) override;
+  // 
+  size_t refCount( ) override;
+  // 
+  void search( ) ;
+  // 
+  size_t stackAvail( ) ;
+  // 
+  size_t stackSize( RegEx re ) static;
+
+  // 
+  &lt;bug: unknown&gt; backrefed;
+  // 
+  uint counter;
+  // 
+  bool exhausted;
+  // 
+  dchar front;
+  // 
+  DataIndex index;
+  // 
+  uint infiniteNesting;
+  // 
+  __enumMember initialStack;
+  // 
+  __enumMember kicked;
+  // 
+  DataIndex lastState;
+  // 
+  &lt;bug: unknown&gt; matches;
+  // 
+  &lt;bug: unknown&gt; memory;
+  // 
+  &lt;bug: unknown&gt; merge;
+  // 
+  MatchFn nativeFn;
+  // 
+  uint pc;
+  // 
+  const RegEx re;
+  // 
+  Stream s;
+  // 
+  __enumMember stateSize;
+}</code></pre><h2 class='section'>Aliases</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../BacktrackingMatcher/Aliases/DataIndex.html">DataIndex</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Aliases/MatchFn.html">MatchFn</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Aliases/RegEx.html">RegEx</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Aliases/String.html">String</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../BacktrackingMatcher/Functions/atEnd.html">atEnd</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Functions/atStart.html">atStart</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Functions/bwdMatcher.html">bwdMatcher</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Functions/dupTo.html">dupTo</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Functions/fwdMatcher.html">fwdMatcher</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Functions/initExternalMemory.html">initExternalMemory</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Functions/initialize.html">initialize</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Functions/initialMemory.html">initialMemory</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Functions/match.html">match</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Functions/matchFinalize.html">matchFinalize</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Functions/matchImpl.html">matchImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Functions/newStack.html">newStack</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Functions/next.html">next</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Functions/pattern.html">pattern</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Functions/popState.html">popState</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Functions/prevStack.html">prevStack</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Functions/pushState.html">pushState</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Functions/rearm.html">rearm</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Functions/refCount.html">refCount</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Functions/search.html">search</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Functions/stackAvail.html">stackAvail</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Functions/stackSize.html">stackSize</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../BacktrackingMatcher/Variables/backrefed.html">backrefed</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Variables/counter.html">counter</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Variables/exhausted.html">exhausted</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Variables/front.html">front</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Variables/index.html">index</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Variables/infiniteNesting.html">infiniteNesting</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Variables/initialStack.html">initialStack</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Variables/kicked.html">kicked</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Variables/lastState.html">lastState</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Variables/matches.html">matches</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Variables/memory.html">memory</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Variables/merge.html">merge</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Variables/nativeFn.html">nativeFn</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Variables/pc.html">pc</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Variables/re.html">re</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Variables/s.html">s</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/Variables/stateSize.html">stateSize</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Overloads for - staticArray | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Overloads for - staticArray | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../index.html">
+            <img id="logo" class="svg" src="../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.array.Functions.staticArray">
+<h1 class='section'>Overloads for - staticArray</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.array</dd></dl>
+</div><h2 class='section api'>staticArray(a)   </h2>
+ <pre><code class='lang-d'>&lt;bug: unknown&gt; staticArray(
+  &lt;bug: unknown&gt; a
+) </code></pre><p>Constructs a static array from a dynamic array whose length is known at compile-time. The element type can be inferred or specified explicitly:</p>
+<p>!!Unsupported comment block type: marmos.generic.model.DocCommentUnorderedListBlock!!</p>
+<p>Note: <code>staticArray</code> returns by value, so expressions involving large arrays may be inefficient.</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>a</code> &lt;bug: unknown&gt;  </dt>
+<dd>
+
+
+<p>The input array.</p>
+
+</dd></dl><p>Returns: A static array constructed from <code>a</code> .</p>
+<h2 class='section api'>staticArray(a)   </h2>
+ <pre><code class='lang-d'>&lt;bug: unknown&gt; staticArray(
+  &lt;bug: unknown&gt; a
+) </code></pre><p>ditto</p>
+<h2 class='section api'>staticArray(a)   </h2>
+ <pre><code class='lang-d'>&lt;bug: unknown&gt; staticArray(
+  T a
+) auto</code></pre><p>Constructs a static array from a range. When <code>a.length</code> is not known at compile time, the number of elements must be given as a template argument (e.g. <code>myrange.staticArray!2</code> ). Size and type can be combined, if the source range elements are implicitly convertible to the requested element type (eg: <code>2.iota.staticArray!(long[2])</code> ).</p>
+<p>When the range <code>a</code> is known at compile time, it can be given as a template argument to avoid having to specify the number of elements (e.g.: <code>staticArray!(2.iota)</code> or <code>staticArray!(double, 2.iota)</code> ).</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>a</code> T  </dt>
+<dd>
+
+
+<p>The input range. If there are less elements than the specified length of the static array,</p>
+
+</dd></dl><p>the rest of it is default-initialized. If there are more than specified, the first elements up to the specified length are used. rangeLength = Output for the number of elements used from <code>a</code> . Optional.</p>
+<h2 class='section api'>staticArray(a, rangeLength)   </h2>
+ <pre><code class='lang-d'>&lt;bug: unknown&gt; staticArray(
+  T a,
+  size_t rangeLength
+) auto</code></pre><p>ditto</p>
+<h2 class='section api'>staticArray(a)   </h2>
+ <pre><code class='lang-d'>&lt;bug: unknown&gt; staticArray(
+  T a
+) auto</code></pre><p>ditto</p>
+<h2 class='section api'>staticArray(a, rangeLength)   </h2>
+ <pre><code class='lang-d'>&lt;bug: unknown&gt; staticArray(
+  T a,
+  size_t rangeLength
+) auto</code></pre><p>ditto</p>
+<h2 class='section api'>staticArray()   </h2>
+ <pre><code class='lang-d'>&lt;bug: unknown&gt; staticArray(
+) auto</code></pre><p>ditto</p>
+<h2 class='section api'>staticArray()   </h2>
+ <pre><code class='lang-d'>&lt;bug: unknown&gt; staticArray(
+) auto</code></pre><p>ditto</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

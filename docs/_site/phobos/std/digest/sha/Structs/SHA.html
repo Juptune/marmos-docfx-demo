@@ -1,0 +1,274 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct - SHA | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct - SHA | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../../index.html">
+            <img id="logo" class="svg" src="../../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.digest.sha.Structs.SHA">
+<h1 class='section'>Struct - SHA</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.digest.sha</dd></dl>
+</div><pre><code class='lang-d'>public struct SHA
+{
+  // 
+  uint BigSigma0( uint x ) ;
+  // 
+  ulong BigSigma0( ulong x ) ;
+  // 
+  uint BigSigma1( uint x ) ;
+  // 
+  ulong BigSigma1( ulong x ) ;
+  // Returns the finished SHA hash. This also calls $(LREF start) to reset the internal state. 
+  &lt;bug: unknown&gt; finish( ) ;
+  // 
+  uint Parity( uint x, uint y, uint z ) ;
+  // Use this to feed the digest with data. Also implements the $(REF isOutputRange, std,range,primitives) interface for `ubyte` and `const(ubyte)[]` . 
+  void put( &lt;bug: unknown&gt; input ) ;
+  // 
+  uint SmSigma0( uint x ) ;
+  // 
+  ulong SmSigma0( ulong x ) ;
+  // 
+  uint SmSigma1( uint x ) ;
+  // 
+  ulong SmSigma1( ulong x ) ;
+  // SHA initialization. Begins an SHA1/SHA2 operation. 
+  void start( ) ;
+  // 
+  void T_0_15( int i, &lt;bug: unknown&gt; input, &lt;bug: unknown&gt; W, uint A, uint B, uint C, uint D, uint E, uint T ) static;
+  // 
+  void T_16_19( int i, &lt;bug: unknown&gt; W, uint A, uint B, uint C, uint D, uint E, uint T ) static;
+  // 
+  void T_20_39( int i, &lt;bug: unknown&gt; W, uint A, uint B, uint C, uint D, uint E, uint T ) static;
+  // 
+  void T_40_59( int i, &lt;bug: unknown&gt; W, uint A, uint B, uint C, uint D, uint E, uint T ) static;
+  // 
+  void T_60_79( int i, &lt;bug: unknown&gt; W, uint A, uint B, uint C, uint D, uint E, uint T ) static;
+  // 
+  void transform( &lt;bug: unknown&gt; state, &lt;bug: unknown&gt; block ) static;
+  // 
+  void transformX86( &lt;bug: unknown&gt; state, &lt;bug: unknown&gt; block ) static;
+
+  // 
+  __enumMember blockSize;
+  // 
+  &lt;bug: unknown&gt; buffer;
+  // 
+  static immutable &lt;bug: unknown&gt; constants;
+  // 
+  &lt;bug: unknown&gt; count;
+  // 
+  static immutable &lt;bug: unknown&gt; padding;
+  // 
+  &lt;bug: unknown&gt; state;
+}</code></pre><h2 class='section'>About</h2><p>Template API SHA1/SHA2 implementation. Supports: SHA-1, SHA-224, SHA-256, SHA-384, SHA-512, SHA-512/224 and SHA-512/256.</p>
+<p>The hashBlockSize and digestSize are in bits. However, it's likely easier to simply use the convenience aliases: SHA1, SHA224, SHA256, SHA384, SHA512, SHA512_224 and SHA512_256.</p>
+<p>See <code>std.digest</code> for differences between template and OOP API.</p>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../SHA/Functions/BigSigma0.html">BigSigma0</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../SHA/Functions/BigSigma1.html">BigSigma1</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../SHA/Functions/finish.html">finish</a></td>
+<td>Returns the finished SHA hash. This also calls $(LREF start) to reset the internal state.</td>
+</tr>
+<tr>
+<td><a href="../SHA/Functions/Parity.html">Parity</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../SHA/Functions/put.html">put</a></td>
+<td>Use this to feed the digest with data. Also implements the $(REF isOutputRange, std,range,primitives) interface for <code>ubyte</code> and <code>const(ubyte)[]</code> .</td>
+</tr>
+<tr>
+<td><a href="../SHA/Functions/SmSigma0.html">SmSigma0</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../SHA/Functions/SmSigma1.html">SmSigma1</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../SHA/Functions/start.html">start</a></td>
+<td>SHA initialization. Begins an SHA1/SHA2 operation.</td>
+</tr>
+<tr>
+<td><a href="../SHA/Functions/T_0_15.html">T_0_15</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../SHA/Functions/T_16_19.html">T_16_19</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../SHA/Functions/T_20_39.html">T_20_39</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../SHA/Functions/T_40_59.html">T_40_59</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../SHA/Functions/T_60_79.html">T_60_79</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../SHA/Functions/transform.html">transform</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../SHA/Functions/transformX86.html">transformX86</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../SHA/Variables/blockSize.html">blockSize</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../SHA/Variables/buffer.html">buffer</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../SHA/Variables/constants.html">constants</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../SHA/Variables/count.html">count</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../SHA/Variables/padding.html">padding</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../SHA/Variables/state.html">state</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,346 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Module - std.stdio | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Module - std.stdio | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.stdio.Overview">
+<h1 class='section'>Module - std.stdio</h1><h2 class='section'>About</h2><p>$(SCRIPT inhibitQuickIndex = 1;) $(DIVC quickindex, $(BOOKTABLE, $(TR $(TH Category) $(TH Symbols)) $(TR $(TD File handles) $(TD $(MYREF popen) $(MYREF File) $(MYREF isFileHandle) $(MYREF openNetwork) $(MYREF stderr) $(MYREF stdin) $(MYREF stdout) )) $(TR $(TD Reading) $(TD $(MYREF chunks) $(MYREF lines) $(MYREF readf) $(MYREF readln) )) $(TR $(TD Writing) $(TD $(MYREF toFile) $(MYREF write) $(MYREF writef) $(MYREF writefln) $(MYREF writeln) )) $(TR $(TD Misc) $(TD $(MYREF KeepTerminator) $(MYREF LockType) $(MYREF StdioException) )) ))</p>
+<p>Standard I/O functions that extend $(LINK2 <a href="https://dlang.org/phobos/core_stdc_stdio.html">https://dlang.org/phobos/core_stdc_stdio.html</a>, core.stdc.stdio).  $(B core.stdc.stdio) is $(D_PARAM public)ally imported when importing $(B std.stdio).</p>
+<h3 class='section'>There are three layers of I/O</h3><p>$(OL $(LI The lowest layer is the operating system layer. The two main schemes are Windows and Posix.) $(LI C's $(TT stdio.h) which unifies the two operating system schemes.) $(LI $(TT std.stdio), this module, unifies the various $(TT stdio.h) implementations into a high level package for D programs.) )</p>
+<p>Source: $(PHOBOSSRC std/stdio.d) Copyright: Copyright The D Language Foundation 2007-. License:   $(HTTP boost.org/LICENSE_1_0.txt, Boost License 1.0). Authors:   $(HTTP digitalmars.com, Walter Bright), <span class="math">\((HTTP erdani.org, Andrei Alexandrescu), Alex Rønne Petersen Macros: CSTDIO=\)</span>(HTTP cplusplus.com/reference/cstdio/$1/, $1)</p>
+<h2 class='section'>Aliases</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Aliases/_FGETC.html">_FGETC</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Aliases/_FGETWC.html">_FGETWC</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Aliases/_FLOCK.html">_FLOCK</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Aliases/_FPUTC.html">_FPUTC</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Aliases/_FPUTWC.html">_FPUTWC</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Aliases/_FUNLOCK.html">_FUNLOCK</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Aliases/FGETC.html">FGETC</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Aliases/FGETWC.html">FGETWC</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Aliases/fileno_t.html">fileno_t</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Aliases/FLOCK.html">FLOCK</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Aliases/FPUTC.html">FPUTC</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Aliases/FPUTWC.html">FPUTWC</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Aliases/FSChar.html">FSChar</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Aliases/FUNLOCK.html">FUNLOCK</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Aliases/KeepTerminator.html">KeepTerminator</a></td>
+<td>If flag <code>KeepTerminator</code> is set to <code>KeepTerminator.yes</code> , then the delimiter is included in the strings returned.</td>
+</tr>
+<tr>
+<td><a href="Aliases/stderr.html">stderr</a></td>
+<td>The standard error stream.</td>
+</tr>
+<tr>
+<td><a href="Aliases/stdin.html">stdin</a></td>
+<td>The standard input stream.</td>
+</tr>
+<tr>
+<td><a href="Aliases/stdout.html">stdout</a></td>
+<td>The standard output stream.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Classes</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Classes/StdioException.html">StdioException</a></td>
+<td>Thrown if I/O errors happen.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Structs/ByRecordImpl.html">ByRecordImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/ChunksImpl.html">ChunksImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/File.html">File</a></td>
+<td>Encapsulates a <code>FILE*</code> . Generally D does not attempt to provide thin wrappers over equivalent functions in the C standard library, but manipulating <code>FILE*</code> values directly is unsafe and error-prone in many ways. The <code>File</code> type ensures safe manipulation, automatic file closing, and a lot of convenience.</td>
+</tr>
+<tr>
+<td><a href="Structs/lines.html">lines</a></td>
+<td>Iterates through the lines of a file by using <code>foreach</code> .</td>
+</tr>
+<tr>
+<td><a href="Structs/LockedFile.html">LockedFile</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/LockingTextReader.html">LockingTextReader</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/ReadlnAppender.html">ReadlnAppender</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Functions/byRecord.html">byRecord</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/chunks.html">chunks</a></td>
+<td>Iterates through a file a chunk at a time by using <code>foreach</code> .</td>
+</tr>
+<tr>
+<td><a href="Functions/makeGlobal.html">makeGlobal</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/openNetwork.html">openNetwork</a></td>
+<td>Experimental network access via the File interface</td>
+</tr>
+<tr>
+<td><a href="Functions/readf.html">readf</a></td>
+<td>Reads formatted data from <code>stdin</code> using $(REF formattedRead, std,<em>format). Params: format = The $(REF_ALTTEXT format string, formattedWrite, std, format). When passed as a compile-time argument, the string will be statically checked against the argument types passed. args = Items to be read. Returns: Same as <code>formattedRead</code> : The number of variables filled. If the input range <code>r</code> ends early, this number will be less than the number of variables provided. Example: ---- // test.d void main() { import std.stdio; foreach (</em>; 0 .. 3) { int a; readf!&quot; %d&quot;(a); writeln(++a); } } ---- $(CONSOLE % echo &quot;1 2 3&quot; <code>|</code> rdmd test.d 2 3 4 )</td>
+</tr>
+<tr>
+<td><a href="Functions/readln.html">readln</a></td>
+<td>Read line from <code>stdin</code> .</td>
+</tr>
+<tr>
+<td><a href="Functions/readlnImpl.html">readlnImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/testFilename.html">testFilename</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/toFile.html">toFile</a></td>
+<td>Writes an array or range to a file. Shorthand for $(D data.copy(File(fileName, &quot;wb&quot;).lockingBinaryWriter)). Similar to $(REF write, std,file), strings are written as-is, rather than encoded according to the <code>File</code> 's $(HTTP en.cppreference.com/w/c/io#Narrow_and_wide_orientation, orientation).</td>
+</tr>
+<tr>
+<td><a href="Functions/trustedFPUTC.html">trustedFPUTC</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/trustedFPUTWC.html">trustedFPUTWC</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/trustedFread.html">trustedFread</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/trustedFwrite.html">trustedFwrite</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/trustedStdout.html">trustedStdout</a></td>
+<td>Property used by writeln/etc. so it can infer @safe since stdout is gshared</td>
+</tr>
+<tr>
+<td><a href="Functions/write.html">write</a></td>
+<td>Writes its arguments in text format to standard output (without a trailing newline).</td>
+</tr>
+<tr>
+<td><a href="Functions/writef.html">writef</a></td>
+<td>Writes formatted data to standard output (without a trailing newline).</td>
+</tr>
+<tr>
+<td><a href="Functions/writefln.html">writefln</a></td>
+<td>Equivalent to $(D writef(fmt, args, '\n')).</td>
+</tr>
+<tr>
+<td><a href="Functions/writeln.html">writeln</a></td>
+<td>Equivalent to <code>write(args, '\n')</code> .  Calling <code>writeln</code> without arguments is valid and just prints a newline to the standard output.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Variables/isFileHandle.html">isFileHandle</a></td>
+<td>Indicates whether <code>T</code> is a file handle, i.e. the type is implicitly convertable to $(LREF File) or a pointer to a $(REF FILE, core,stdc,stdio).</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

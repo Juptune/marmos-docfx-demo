@@ -1,0 +1,359 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Overloads for - parse | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Overloads for - parse | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../index.html">
+            <img id="logo" class="svg" src="../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.conv.Functions.parse">
+<h1 class='section'>Overloads for - parse</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.conv</dd></dl>
+</div><h2 class='section api'>parse(source)   </h2>
+ <pre><code class='lang-d'>&lt;bug: unknown&gt; parse(
+  Source source
+) auto</code></pre><p>$(PANEL The <code>parse</code> family of functions works quite like the $(LREF to) family, except that: $(OL $(LI It only works with character ranges as input.) $(LI It takes the input by reference. This means that rvalues (such as string literals) are not accepted: use <code>to</code> instead.) $(LI It advances the input to the position following the conversion.) $(LI It does not throw if it could not convert the entire input.)) )</p>
+<p>This overload parses a <code>bool</code> from a character input range.</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>Target</code> &lt;parameter not found&gt;  </dt>
+<dd>
+
+
+<p>the boolean type to convert to</p>
+
+</dd><dt><code>source</code> Source  </dt>
+<dd>
+
+
+<p>the lvalue of an $(REF_ALTTEXT input range, isInputRange, std,range,primitives)</p>
+
+</dd><dt><code>doCount</code> &lt;parameter not found&gt;  </dt>
+<dd>
+
+
+<p>the flag for deciding to report the number of consumed characters</p>
+
+</dd></dl><h3 class='section'>Returns</h3><p>$(UL $(LI A <code>bool</code> if <code>doCount</code> is set to <code>No.doCount</code> ) $(LI A <code>tuple</code> containing a <code>bool</code> and a <code>size_t</code> if <code>doCount</code> is set to <code>Yes.doCount</code> ))</p>
+<h3 class='section'>Throws</h3><p>A $(LREF ConvException) if the range does not represent a <code>bool</code> .</p>
+<h3 class='section'>Note</h3><p>All character input range conversions using $(LREF to) are forwarded to <code>parse</code> and do not require lvalues.</p>
+<h2 class='section api'>parse(s)   </h2>
+ <pre><code class='lang-d'>&lt;bug: unknown&gt; parse(
+  Source s
+) auto</code></pre><p>Parses an integer from a character $(REF_ALTTEXT input range, isInputRange, std,range,primitives).</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>Target</code> &lt;parameter not found&gt;  </dt>
+<dd>
+
+
+<p>the integral type to convert to</p>
+
+</dd><dt><code>s</code> Source  </dt>
+<dd>
+
+
+<p>the lvalue of an input range</p>
+
+</dd><dt><code>doCount</code> &lt;parameter not found&gt;  </dt>
+<dd>
+
+
+<p>the flag for deciding to report the number of consumed characters</p>
+
+</dd></dl><h3 class='section'>Returns</h3><p>$(UL $(LI A number of type <code>Target</code> if <code>doCount</code> is set to <code>No.doCount</code> ) $(LI A <code>tuple</code> containing a number of type <code>Target</code> and a <code>size_t</code> if <code>doCount</code> is set to <code>Yes.doCount</code> ))</p>
+<h3 class='section'>Throws</h3><p>A $(LREF ConvException) If an overflow occurred during conversion or if no character of the input was meaningfully converted.</p>
+<h2 class='section api'>parse(source, radix)   </h2>
+ <pre><code class='lang-d'>&lt;bug: unknown&gt; parse(
+  Source source,
+  uint radix
+) auto</code></pre><p>ditto</p>
+<h2 class='section api'>parse(s)   </h2>
+ <pre><code class='lang-d'>&lt;bug: unknown&gt; parse(
+  Source s
+) auto</code></pre><p>Parses an <code>enum</code> type from a string representing an enum member name.</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>Target</code> &lt;parameter not found&gt;  </dt>
+<dd>
+
+
+<p>the <code>enum</code> type to convert to</p>
+
+</dd><dt><code>s</code> Source  </dt>
+<dd>
+
+
+<p>the lvalue of the range to parse</p>
+
+</dd><dt><code>doCount</code> &lt;parameter not found&gt;  </dt>
+<dd>
+
+
+<p>the flag for deciding to report the number of consumed characters</p>
+
+</dd></dl><h3 class='section'>Returns</h3><p>$(UL $(LI An <code>enum</code> of type <code>Target</code> if <code>doCount</code> is set to <code>No.doCount</code> ) $(LI A <code>tuple</code> containing an <code>enum</code> of type <code>Target</code> and a <code>size_t</code> if <code>doCount</code> is set to <code>Yes.doCount</code> ))</p>
+<h3 class='section'>Throws</h3><p>A $(LREF ConvException) if type <code>Target</code> does not have a member represented by <code>s</code> .</p>
+<h2 class='section api'>parse(source)   </h2>
+ <pre><code class='lang-d'>&lt;bug: unknown&gt; parse(
+  Source source
+) auto</code></pre><p>Parses a floating point number from a character range.</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>Target</code> &lt;parameter not found&gt;  </dt>
+<dd>
+
+
+<p>a floating point type</p>
+
+</dd><dt><code>source</code> Source  </dt>
+<dd>
+
+
+<p>the lvalue of the range to parse</p>
+
+</dd><dt><code>doCount</code> &lt;parameter not found&gt;  </dt>
+<dd>
+
+
+<p>the flag for deciding to report the number of consumed characters</p>
+
+</dd></dl><h3 class='section'>Returns</h3><p>$(UL $(LI A floating point number of type <code>Target</code> if <code>doCount</code> is set to <code>No.doCount</code> ) $(LI A <code>tuple</code> containing a floating point number of·type <code>Target</code> and a <code>size_t</code> if <code>doCount</code> is set to <code>Yes.doCount</code> ))</p>
+<h3 class='section'>Throws</h3><p>A $(LREF ConvException) if <code>source</code> is empty, if no number could be parsed, or if an overflow occurred.</p>
+<h2 class='section api'>parse(s)   </h2>
+ <pre><code class='lang-d'>&lt;bug: unknown&gt; parse(
+  Source s
+) auto</code></pre><p>Parses one character from a character range.</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>Target</code> &lt;parameter not found&gt;  </dt>
+<dd>
+
+
+<p>the type to convert to</p>
+
+</dd><dt><code>s</code> Source  </dt>
+<dd>
+
+
+<p>the lvalue of an $(REF_ALTTEXT input range, isInputRange, std,range,primitives)</p>
+
+</dd><dt><code>doCount</code> &lt;parameter not found&gt;  </dt>
+<dd>
+
+
+<p>the flag for deciding to report the number of consumed characters</p>
+
+</dd></dl><h3 class='section'>Returns</h3><p>$(UL $(LI A character of type <code>Target</code> if <code>doCount</code> is set to <code>No.doCount</code> ) $(LI A <code>tuple</code> containing a character of type <code>Target</code> and a <code>size_t</code> if <code>doCount</code> is set to <code>Yes.doCount</code> ))</p>
+<h3 class='section'>Throws</h3><p>A $(LREF ConvException) if the range is empty.</p>
+<h2 class='section api'>parse(s)   </h2>
+ <pre><code class='lang-d'>&lt;bug: unknown&gt; parse(
+  Source s
+) auto</code></pre><p>ditto</p>
+<h2 class='section api'>parse(s)   </h2>
+ <pre><code class='lang-d'>&lt;bug: unknown&gt; parse(
+  Source s
+) auto</code></pre><p>Parses <code>typeof(null)</code> from a character range if the range spells <code>&quot;null&quot;</code> . This function is case insensitive.</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>Target</code> &lt;parameter not found&gt;  </dt>
+<dd>
+
+
+<p>the type to convert to</p>
+
+</dd><dt><code>s</code> Source  </dt>
+<dd>
+
+
+<p>the lvalue of an $(REF_ALTTEXT input range, isInputRange, std,range,primitives)</p>
+
+</dd><dt><code>doCount</code> &lt;parameter not found&gt;  </dt>
+<dd>
+
+
+<p>the flag for deciding to report the number of consumed characters</p>
+
+</dd></dl><h3 class='section'>Returns</h3><p>$(UL $(LI <code>null</code> if <code>doCount</code> is set to <code>No.doCount</code> ) $(LI A <code>tuple</code> containing <code>null</code> and a <code>size_t</code> if <code>doCount</code> is set to <code>Yes.doCount</code> ))</p>
+<h3 class='section'>Throws</h3><p>A $(LREF ConvException) if the range doesn't represent <code>null</code> .</p>
+<h2 class='section api'>parse(s, lbracket, rbracket, comma)   </h2>
+ <pre><code class='lang-d'>&lt;bug: unknown&gt; parse(
+  Source s,
+  dchar lbracket,
+  dchar rbracket,
+  dchar comma
+) auto</code></pre><p>Parses an array from a string given the left bracket (default $(D '[')), right bracket (default <code>']'</code> ), and element separator (by default <code>','</code> ). A trailing separator is allowed.</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>s</code> Source  </dt>
+<dd>
+
+
+<p>The string to parse</p>
+
+</dd><dt><code>lbracket</code> dchar  </dt>
+<dd>
+
+
+<p>the character that starts the array</p>
+
+</dd><dt><code>rbracket</code> dchar  </dt>
+<dd>
+
+
+<p>the character that ends the array</p>
+
+</dd><dt><code>comma</code> dchar  </dt>
+<dd>
+
+
+<p>the character that separates the elements of the array</p>
+
+</dd><dt><code>doCount</code> &lt;parameter not found&gt;  </dt>
+<dd>
+
+
+<p>the flag for deciding to report the number of consumed characters</p>
+
+</dd></dl><h3 class='section'>Returns</h3><p>$(UL $(LI An array of type <code>Target</code> if <code>doCount</code> is set to <code>No.doCount</code> ) $(LI A <code>tuple</code> containing an array of type <code>Target</code> and a <code>size_t</code> if <code>doCount</code> is set to <code>Yes.doCount</code> ))</p>
+<h2 class='section api'>parse(s, lbracket, rbracket, comma)   </h2>
+ <pre><code class='lang-d'>&lt;bug: unknown&gt; parse(
+  Source s,
+  dchar lbracket,
+  dchar rbracket,
+  dchar comma
+) auto</code></pre><p>ditto</p>
+<h2 class='section api'>parse(s, lbracket, rbracket, keyval, comma)   </h2>
+ <pre><code class='lang-d'>&lt;bug: unknown&gt; parse(
+  Source s,
+  dchar lbracket,
+  dchar rbracket,
+  dchar keyval,
+  dchar comma
+) auto</code></pre><p>Parses an associative array from a string given the left bracket (default $(D '[')), right bracket (default <code>']'</code> ), key-value separator (default $(D ':')), and element seprator (by default <code>','</code> ).</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>s</code> Source  </dt>
+<dd>
+
+
+<p>the string to parse</p>
+
+</dd><dt><code>lbracket</code> dchar  </dt>
+<dd>
+
+
+<p>the character that starts the associative array</p>
+
+</dd><dt><code>rbracket</code> dchar  </dt>
+<dd>
+
+
+<p>the character that ends the associative array</p>
+
+</dd><dt><code>keyval</code> dchar  </dt>
+<dd>
+
+
+<p>the character that associates the key with the value</p>
+
+</dd><dt><code>comma</code> dchar  </dt>
+<dd>
+
+
+<p>the character that separates the elements of the associative array</p>
+
+</dd><dt><code>doCount</code> &lt;parameter not found&gt;  </dt>
+<dd>
+
+
+<p>the flag for deciding to report the number of consumed characters</p>
+
+</dd></dl><h3 class='section'>Returns</h3><p>$(UL $(LI An associative array of type <code>Target</code> if <code>doCount</code> is set to <code>No.doCount</code> ) $(LI A <code>tuple</code> containing an associative array of type <code>Target</code> and a <code>size_t</code> if <code>doCount</code> is set to <code>Yes.doCount</code> ))</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

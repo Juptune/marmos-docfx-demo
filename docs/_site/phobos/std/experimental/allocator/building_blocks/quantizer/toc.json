@@ -1,0 +1,2 @@
+
+{"order":100,"items":[{"name":"Overview","href":"Overview.html","topicHref":"Overview.html"},{"name":"Structs","includedFrom":"~/phobos/std/experimental/allocator/building_blocks/quantizer/Structs/toc.yml","items":[{"name":"Quantizer","href":"Structs/Quantizer.html","topicHref":"Structs/Quantizer.html"}]}],"pdf":false}

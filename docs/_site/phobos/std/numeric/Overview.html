@@ -1,0 +1,312 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Module - std.numeric | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Module - std.numeric | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.numeric.Overview">
+<h1 class='section'>Module - std.numeric</h1><h2 class='section'>About</h2><p>This module is a port of a growing fragment of the $(D_PARAM numeric) header in Alexander Stepanov's $(LINK2 <a href="https://en.wikipedia.org/wiki/Standard_Template_Library">https://en.wikipedia.org/wiki/Standard_Template_Library</a>, Standard Template Library), with a few additions.</p>
+<h3 class='section'>Macros</h3><p>Copyright: Copyright Andrei Alexandrescu 2008 - 2009. License:   $(HTTP <a href="http://www.boost.org/LICENSE_1_0.txt">www.boost.org/LICENSE_1_0.txt</a>, Boost License 1.0). Authors:   $(HTTP erdani.org, Andrei Alexandrescu), Don Clugston, Robert Jacques, Ilya Yaroshenko Source:    $(PHOBOSSRC std/numeric.d)</p>
+<h2 class='section'>Aliases</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Aliases/CustomFloat.html">CustomFloat</a></td>
+<td>Allows user code to define custom floating-point formats. These formats are for storage only; all operations on them are performed by first implicitly extracting them to <code>real</code> first. After the operation is completed the result can be stored in a custom floating-point value via assignment.</td>
+</tr>
+<tr>
+<td><a href="Aliases/CustomFloat.html">CustomFloat</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="Aliases/CustomFloatParams.html">CustomFloatParams</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Aliases/lookup_t.html">lookup_t</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Classes</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Classes/Fft.html">Fft</a></td>
+<td>A class for performing fast Fourier transforms of power of two sizes. This class encapsulates a large amount of state that is reusable when performing multiple FFTs of sizes smaller than or equal to that specified in the constructor.  This results in substantial speedups when performing multiple FFTs with a known maximum size.  However, a free function API is provided for convenience if you need to perform a one-off FFT.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Structs/CustomFloat.html">CustomFloat</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="Structs/GapWeightedSimilarityIncremental.html">GapWeightedSimilarityIncremental</a></td>
+<td>Similar to <code>gapWeightedSimilarity</code> , just works in an incremental manner by first revealing the matches of length 1, then gapped matches of length 2, and so on. The memory requirement is $(BIGOH s.length t.length). The time complexity is $(BIGOH s.length t.length) time for computing each step. Continuing on the previous example:</td>
+</tr>
+<tr>
+<td><a href="Structs/Stride.html">Stride</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Functions/cosineSimilarity.html">cosineSimilarity</a></td>
+<td>Computes the $(LINK2 <a href="https://en.wikipedia.org/wiki/Cosine_similarity">https://en.wikipedia.org/wiki/Cosine_similarity</a>, cosine similarity) of input ranges <code>a</code> and $(D b). The two ranges must have the same length. If both ranges define length, the check is done once; otherwise, it is done at each iteration. If either range has all-zero elements, return 0.</td>
+</tr>
+<tr>
+<td><a href="Functions/decimalToFactorial.html">decimalToFactorial</a></td>
+<td>This function transforms <code>decimal</code> value into a value in the factorial number system stored in <code>fac</code> .</td>
+</tr>
+<tr>
+<td><a href="Functions/dotProduct.html">dotProduct</a></td>
+<td>Computes the $(LINK2 <a href="https://en.wikipedia.org/wiki/Dot_product">https://en.wikipedia.org/wiki/Dot_product</a>, dot product) of input ranges <code>a</code> and $(D b). The two ranges must have the same length. If both ranges define length, the check is done once; otherwise, it is done at each iteration.</td>
+</tr>
+<tr>
+<td><a href="Functions/entropy.html">entropy</a></td>
+<td>Computes $(LINK2 <a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">https://en.wikipedia.org/wiki/Entropy_(information_theory)</a>, entropy) of input range <code>r</code> in bits. This function assumes (without checking) that the values in <code>r</code> are all in $(D [0, 1]). For the entropy to be meaningful, often <code>r</code> should be normalized too (i.e., its values should sum to 1). The two-parameter version stops evaluating as soon as the intermediate result is greater than or equal to <code>max</code> .</td>
+</tr>
+<tr>
+<td><a href="Functions/euclideanDistance.html">euclideanDistance</a></td>
+<td>Computes $(LINK2 <a href="https://en.wikipedia.org/wiki/Euclidean_distance">https://en.wikipedia.org/wiki/Euclidean_distance</a>, Euclidean distance) between input ranges <code>a</code> and <code>b</code> . The two ranges must have the same length. The three-parameter version stops computation as soon as the distance is greater than or equal to <code>limit</code> (this is useful to save computation if a small distance is sought).</td>
+</tr>
+<tr>
+<td><a href="Functions/fft.html">fft</a></td>
+<td>Convenience functions that create an <code>Fft</code> object, run the FFT or inverse FFT and return the result.  Useful for one-off FFTs.</td>
+</tr>
+<tr>
+<td><a href="Functions/findLocalMin.html">findLocalMin</a></td>
+<td>Find a real minimum of a real function <code>f(x)</code> via bracketing. Given a function <code>f</code> and a range <code>(ax .. bx)</code> , returns the value of <code>x</code> in the range which is closest to a minimum of <code>f(x)</code> . <code>f</code> is never evaluted at the endpoints of <code>ax</code> and <code>bx</code> . If <code>f(x)</code> has more than one minimum in the range, one will be chosen arbitrarily. If <code>f(x)</code> returns NaN or -Infinity, <code>(x, f(x), NaN)</code> will be returned; otherwise, this algorithm is guaranteed to succeed.</td>
+</tr>
+<tr>
+<td><a href="Functions/findRoot.html">findRoot</a></td>
+<td>Find a real root of a real function f(x) via bracketing.</td>
+</tr>
+<tr>
+<td><a href="Functions/gapWeightedSimilarity.html">gapWeightedSimilarity</a></td>
+<td>The so-called &quot;all-lengths gap-weighted string kernel&quot; computes a similarity measure between <code>s</code> and <code>t</code> based on all of their common subsequences of all lengths. Gapped subsequences are also included.</td>
+</tr>
+<tr>
+<td><a href="Functions/gapWeightedSimilarityIncremental.html">gapWeightedSimilarityIncremental</a></td>
+<td>Ditto</td>
+</tr>
+<tr>
+<td><a href="Functions/gapWeightedSimilarityNormalized.html">gapWeightedSimilarityNormalized</a></td>
+<td>The similarity per <code>gapWeightedSimilarity</code> has an issue in that it grows with the lengths of the two strings, even though the strings are not actually very similar. For example, the range $(D [&quot;Hello&quot;, &quot;world&quot;]) is increasingly similar with the range $(D [&quot;Hello&quot;, &quot;world&quot;, &quot;world&quot;, &quot;world&quot;,...]) as more instances of <code>&quot;world&quot;</code> are appended. To prevent that, <code>gapWeightedSimilarityNormalized</code> computes a normalized version of the similarity that is computed as $(D gapWeightedSimilarity(s, t, lambda) / sqrt(gapWeightedSimilarity(s, t, lambda) gapWeightedSimilarity(s, t, lambda))). The function <code>gapWeightedSimilarityNormalized</code> (a so-called normalized kernel) is bounded in $(D [0, 1]), reaches <code>0</code> only for ranges that don't match in any position, and <code>1</code> only for identical ranges.</td>
+</tr>
+<tr>
+<td><a href="Functions/gcd.html">gcd</a></td>
+<td>Computes the greatest common divisor of <code>a</code> and <code>b</code> by using an efficient algorithm such as $(HTTPS en.wikipedia.org/wiki/Euclidean_algorithm, Euclid's) or $(HTTPS en.wikipedia.org/wiki/Binary_GCD_algorithm, Stein's) algorithm.</td>
+</tr>
+<tr>
+<td><a href="Functions/gcdImpl.html">gcdImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/inverseFft.html">inverseFft</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="Functions/isCorrectCustomFloat.html">isCorrectCustomFloat</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/jensenShannonDivergence.html">jensenShannonDivergence</a></td>
+<td>Computes the $(LINK2 <a href="https://en.wikipedia.org/wiki/Jensen%E2%80%93Shannon_divergence">https://en.wikipedia.org/wiki/Jensen%E2%80%93Shannon_divergence</a>, Jensen-Shannon divergence) between <code>a</code> and $(D b), which is the sum $(D (ai **log(2 ** ai / (ai + bi)) + bi **log(2 ** bi / (ai + bi))) / 2). The base of logarithm is 2. The ranges are assumed to contain elements in $(D [0, 1]). Usually the ranges are normalized probability distributions, but this is not required or checked by <code>jensenShannonDivergence</code> . If the inputs are normalized, the result is bounded within $(D [0, 1]). The three-parameter version stops evaluations as soon as the intermediate result is greater than or equal to <code>limit</code> .</td>
+</tr>
+<tr>
+<td><a href="Functions/kullbackLeiblerDivergence.html">kullbackLeiblerDivergence</a></td>
+<td>Computes the $(LINK2 <a href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence">https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence</a>, Kullback-Leibler divergence) between input ranges <code>a</code> and <code>b</code> , which is the sum $(D ai log(ai / bi)). The base of logarithm is 2. The ranges are assumed to contain elements in $(D [0, 1]). Usually the ranges are normalized probability distributions, but this is not required or checked by $(D kullbackLeiblerDivergence). If any element <code>bi</code> is zero and the corresponding element <code>ai</code> nonzero, returns infinity. (Otherwise, if $(D ai == 0 &amp;&amp; bi == 0), the term $(D ai log(ai / bi)) is considered zero.) If the inputs are normalized, the result is positive.</td>
+</tr>
+<tr>
+<td><a href="Functions/lcm.html">lcm</a></td>
+<td>Computes the least common multiple of <code>a</code> and <code>b</code> . Arguments are the same as $(MYREF gcd).</td>
+</tr>
+<tr>
+<td><a href="Functions/normalize.html">normalize</a></td>
+<td>Normalizes values in <code>range</code> by multiplying each element with a number chosen such that values sum up to <code>sum</code> . If elements in $(D range) sum to zero, assigns $(D sum / range.length) to all. Normalization makes sense only if all elements in <code>range</code> are positive. <code>normalize</code> assumes that is the case without checking it.</td>
+</tr>
+<tr>
+<td><a href="Functions/oppositeSigns.html">oppositeSigns</a></td>
+<td>Return true if a and b have opposite sign.</td>
+</tr>
+<tr>
+<td><a href="Functions/roundDownToPowerOf2.html">roundDownToPowerOf2</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/secantMethod.html">secantMethod</a></td>
+<td>Implements the $(HTTP tinyurl.com/2zb9yr, secant method) for finding a root of the function <code>fun</code> starting from points $(D [xn_1, x_n]) (ideally close to the root). <code>Num</code> may be <code>float</code> , <code>double</code> , or <code>real</code> .</td>
+</tr>
+<tr>
+<td><a href="Functions/slowFourier2.html">slowFourier2</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/slowFourier4.html">slowFourier4</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/sumOfLog2s.html">sumOfLog2s</a></td>
+<td>Compute the sum of binary logarithms of the input range <code>r</code> . The error of this method is much smaller than with a naive sum of log2.</td>
+</tr>
+<tr>
+<td><a href="Functions/swapRealImag.html">swapRealImag</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Variables/isComplexLike.html">isComplexLike</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/isIEEEQuadruple.html">isIEEEQuadruple</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Variables/MakeLocalFft.html">MakeLocalFft</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Overloads for - remove | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Overloads for - remove | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../../index.html">
+            <img id="logo" class="svg" src="../../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.algorithm.mutation.Functions.remove">
+<h1 class='section'>Overloads for - remove</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.algorithm.mutation</dd></dl>
+</div><h2 class='section api'>remove(range, offset)   </h2>
+ <pre><code class='lang-d'>Range remove(
+  Range range,
+  Offset offset
+) </code></pre><p>Eliminates elements at given offsets from <code>range</code> and returns the shortened range.</p>
+<h3 class='section'>For example, here is how to remove a single element from an array</h3><p>$(RUNNABLE_EXAMPLE ---- import std.algorithm.mutation; string[] a = [ &quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot; ]; a = a.remove(1); // remove element at offset 1 assert(a == [ &quot;a&quot;, &quot;c&quot;, &quot;d&quot;]); ---- )</p>
+<p>Note that <code>remove</code> does not change the length of the original range directly; instead, it returns the shortened range. If its return value is not assigned to the original range, the original range will retain its original length, though its contents will have changed:</p>
+<p>$(RUNNABLE_EXAMPLE ---- import std.algorithm.mutation; int[] a = [ 3, 5, 7, 8 ]; assert(remove(a, 1) == [ 3, 7, 8 ]); assert(a == [ 3, 7, 8, 8 ]); ---- )</p>
+<p>The element at offset <code>1</code> has been removed and the rest of the elements have shifted up to fill its place, however, the original array remains of the same length. This is because all functions in <code>std.algorithm</code> only change $(I content), not $(I topology). The value <code>8</code> is repeated because $(LREF move) was invoked to rearrange elements, and on integers <code>move</code> simply copies the source to the destination.  To replace <code>a</code> with the effect of the removal, simply assign the slice returned by <code>remove</code> to it, as shown in the first example.</p>
+<p>$(H3 $(LNAME2 remove-multiple, Removing multiple elements))</p>
+<p>Multiple indices can be passed into <code>remove</code> . In that case, elements at the respective indices are all removed. The indices must be passed in increasing order, otherwise an exception occurs.</p>
+<p>$(RUNNABLE_EXAMPLE ---- import std.algorithm.mutation; int[] a = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]; assert(remove(a, 1, 3, 5) == [ 0, 2, 4, 6, 7, 8, 9, 10 ]); ---- )</p>
+<p>Note that all indices refer to slots in the $(I original) array, not in the array as it is being progressively shortened.</p>
+<h3 class='section'>Tuples of two integral offsets can be supplied to remove a range of indices</h3><p>$(RUNNABLE_EXAMPLE ---- import std.algorithm.mutation, std.typecons; int[] a = [ 3, 4, 5, 6, 7]; // remove elements at indices 1 and 2 assert(remove(a, tuple(1, 3)) == [ 3, 6, 7 ]); ---- )</p>
+<p>The tuple passes in a range closed to the left and open to the right (consistent with built-in slices), e.g. <code>tuple(1, 3)</code> means indices <code>1</code> and <code>2</code> but not <code>3</code> .</p>
+<p>Finally, any combination of integral offsets and tuples composed of two integral offsets can be passed in:</p>
+<p>$(RUNNABLE_EXAMPLE ---- import std.algorithm.mutation, std.typecons; int[] a = [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]; a = remove(a, 1, tuple(3, 5), 9); assert(a == [ 0, 2, 5, 6, 7, 8, 10 ]); ---- )</p>
+<p>In this case, the slots at positions 1, 3, 4, and 9 are removed from the array.</p>
+<p>$(H3 $(LNAME2 remove-moving, Moving strategy))</p>
+<p>If the need is to remove some elements in the range but the order of the remaining elements does not have to be preserved, you may want to pass <code>SwapStrategy.unstable</code> to <code>remove</code> .</p>
+<p>$(RUNNABLE_EXAMPLE ---- import std.algorithm.mutation; int[] a = [ 0, 1, 2, 3 ]; assert(remove!(SwapStrategy.unstable)(a, 1) == [ 0, 3, 2 ]); ---- )</p>
+<p>In the case above, the element at slot <code>1</code> is removed, but replaced with the last element of the range. Taking advantage of the relaxation of the stability requirement, <code>remove</code> moved elements from the end of the array over the slots to be removed. This way there is less data movement to be done which improves the execution time of the function.</p>
+<p><code>remove</code> works on bidirectional ranges that have assignable lvalue elements. The moving strategy is (listed from fastest to slowest):</p>
+<p>$(UL $(LI If $(D s == SwapStrategy.unstable &amp;&amp; isRandomAccessRange!Range &amp;&amp; hasLength!Range &amp;&amp; hasLvalueElements!Range), then elements are moved from the end of the range into the slots to be filled. In this case, the absolute minimum of moves is performed.) $(LI Otherwise, if $(D s == SwapStrategy.unstable &amp;&amp; isBidirectionalRange!Range &amp;&amp; hasLength!Range &amp;&amp; hasLvalueElements!Range), then elements are still moved from the end of the range, but time is spent on advancing between slots by repeated calls to <code>range.popFront</code> .) $(LI Otherwise, elements are moved incrementally towards the front of <code>range</code> ; a given element is never moved several times, but more elements are moved than in the previous cases.) )</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>s</code> &lt;parameter not found&gt;  </dt>
+<dd>
+
+
+<p>a SwapStrategy to determine if the original order needs to be preserved</p>
+
+</dd><dt><code>range</code> Range  </dt>
+<dd>
+
+
+<p>a $(REF_ALTTEXT bidirectional range, isBidirectionalRange, std,range,primitives)</p>
+
+</dd></dl><p>range = a $(REF_ALTTEXT bidirectional range, isBidirectionalRange, std,range,primitives) with a length member offset = which element(s) to remove</p>
+<h3 class='section'>Returns</h3><p>A range containing elements of <code>range</code> with 1 or more elements removed.</p>
+<h2 class='section api'>remove(range, offset)   </h2>
+ <pre><code class='lang-d'>Range remove(
+  Range range,
+  Offset offset
+) </code></pre><p>ditto</p>
+<h2 class='section api'>remove(range)   </h2>
+ <pre><code class='lang-d'>Range remove(
+  Range range
+) </code></pre><p>Reduces the length of the $(REF_ALTTEXT bidirectional range, isBidirectionalRange, std,range,primitives) <code>range</code> by removing elements that satisfy <code>pred</code> . If <code>s = SwapStrategy.unstable</code> , elements are moved from the right end of the range over the elements to eliminate. If <code>s = SwapStrategy.stable</code> (the default), elements are moved progressively to front such that their relative order is preserved. Returns the filtered range.</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>range</code> Range  </dt>
+<dd>
+
+
+<p>a bidirectional ranges with lvalue elements or mutable character arrays</p>
+
+</dd></dl><h3 class='section'>Returns</h3><p>the range with all of the elements where <code>pred</code> is <code>true</code> removed</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

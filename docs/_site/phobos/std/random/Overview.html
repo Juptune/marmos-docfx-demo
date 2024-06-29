@@ -1,0 +1,319 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Module - std.random | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Module - std.random | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.random.Overview">
+<h1 class='section'>Module - std.random</h1><h2 class='section'>About</h2><p>Facilities for random number generation.</p>
+<p>$(SCRIPT inhibitQuickIndex = 1;) $(DIVC quickindex, $(BOOKTABLE, $(TR $(TH Category) $(TH Functions)) $(TR $(TD Uniform sampling) $(TD $(LREF uniform) $(LREF uniform01) $(LREF uniformDistribution) )) $(TR $(TD Element sampling) $(TD $(LREF choice) $(LREF dice) )) $(TR $(TD Range sampling) $(TD $(LREF randomCover) $(LREF randomSample) )) $(TR $(TD Default Random Engines) $(TD $(LREF rndGen) $(LREF Random) $(LREF unpredictableSeed) )) $(TR $(TD Linear Congruential Engines) $(TD $(LREF MinstdRand) $(LREF MinstdRand0) $(LREF LinearCongruentialEngine) )) $(TR $(TD Mersenne Twister Engines) $(TD $(LREF Mt19937) $(LREF Mt19937_64) $(LREF MersenneTwisterEngine) )) $(TR $(TD Xorshift Engines) $(TD $(LREF Xorshift) $(LREF XorshiftEngine) $(LREF Xorshift32) $(LREF Xorshift64) $(LREF Xorshift96) $(LREF Xorshift128) $(LREF Xorshift160) $(LREF Xorshift192) )) $(TR $(TD Shuffle) $(TD $(LREF partialShuffle) $(LREF randomShuffle) )) $(TR $(TD Traits) $(TD $(LREF isSeedable) $(LREF isUniformRNG) )) ))</p>
+<p>$(RED Disclaimer:) The random number generators and API provided in this module are not designed to be cryptographically secure, and are therefore unsuitable for cryptographic or security-related purposes such as generating authentication tokens or network sequence numbers. For such needs, please use a reputable cryptographic library instead.</p>
+<p>The new-style generator objects hold their own state so they are immune of threading issues. The generators feature a number of well-known and well-documented methods of generating random numbers. An overall fast and reliable means to generate random numbers is the <span class="math">\((D_PARAM Mt19937) generator, which derives its name from &quot;\)</span>(LINK2 <a href="https://en.wikipedia.org/wiki/Mersenne_Twister">https://en.wikipedia.org/wiki/Mersenne_Twister</a>, Mersenne Twister) with a period of 2 to the power of 19937&quot;. In memory-constrained situations, $(LINK2 <a href="https://en.wikipedia.org/wiki/Linear_congruential_generator">https://en.wikipedia.org/wiki/Linear_congruential_generator</a>, linear congruential generators) such as <code>MinstdRand0</code> and <code>MinstdRand</code> might be useful. The standard library provides an alias $(D_PARAM Random) for whichever generator it considers the most fit for the target environment.</p>
+<p>In addition to random number generators, this module features distributions, which skew a generator's output statistical distribution in various ways. So far the uniform distribution for integers and real numbers have been implemented.</p>
+<p>Source:    $(PHOBOSSRC std/random.d)</p>
+<h3 class='section'>Macros</h3><p>Copyright: Copyright Andrei Alexandrescu 2008 - 2009, Joseph Rushton Wakeling 2012. License:   $(HTTP <a href="http://www.boost.org/LICENSE_1_0.txt">www.boost.org/LICENSE_1_0.txt</a>, Boost License 1.0). Authors:   $(HTTP erdani.org, Andrei Alexandrescu) Masahiro Nakagawa (Xorshift random generator) $(HTTP braingam.es, Joseph Rushton Wakeling) (Algorithm D for random sampling) Ilya Yaroshenko (Mersenne Twister implementation, adapted from $(HTTPS github.com/libmir/mir-random, mir-random)) Credits:   The entire random number library architecture is derived from the excellent $(HTTP open-std.org/jtc1/sc22/wg21/docs/papers/2007/n2461.pdf, C++0X) random number facility proposed by Jens Maurer and contributed to by researchers at the Fermi laboratory (excluding Xorshift).</p>
+<h2 class='section'>Aliases</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Aliases/MinstdRand.html">MinstdRand</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="Aliases/MinstdRand0.html">MinstdRand0</a></td>
+<td>Define $(D_PARAM LinearCongruentialEngine) generators with well-chosen parameters. <code>MinstdRand0</code> implements Park and Miller's &quot;minimal standard&quot; $(HTTP wikipedia.org/wiki/Park%E2%80%93Miller_random_number_generator, generator) that uses 16807 for the multiplier. <code>MinstdRand</code> implements a variant that has slightly better spectral behavior by using the multiplier 48271. Both generators are rather simplistic.</td>
+</tr>
+<tr>
+<td><a href="Aliases/Mt19937.html">Mt19937</a></td>
+<td>A <code>MersenneTwisterEngine</code> instantiated with the parameters of the original engine $(HTTP math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html, MT19937), generating uniformly-distributed 32-bit numbers with a period of 2 to the power of 19937. Recommended for random number generation unless memory is severely restricted, in which case a $(LREF LinearCongruentialEngine) would be the generator of choice.</td>
+</tr>
+<tr>
+<td><a href="Aliases/Mt19937_64.html">Mt19937_64</a></td>
+<td>A <code>MersenneTwisterEngine</code> instantiated with the parameters of the original engine $(HTTP en.wikipedia.org/wiki/Mersenne_Twister, MT19937-64), generating uniformly-distributed 64-bit numbers with a period of 2 to the power of 19937.</td>
+</tr>
+<tr>
+<td><a href="Aliases/PseudoRngTypes.html">PseudoRngTypes</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Aliases/Random.html">Random</a></td>
+<td>The &quot;default&quot;, &quot;favorite&quot;, &quot;suggested&quot; random number generator type on the current platform. It is an alias for one of the previously-defined generators. You may want to use it if (1) you need to generate some nice random numbers, and (2) you don't care for the minutiae of the method being used.</td>
+</tr>
+<tr>
+<td><a href="Aliases/Xorshift.html">Xorshift</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="Aliases/Xorshift128.html">Xorshift128</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="Aliases/Xorshift128_64.html">Xorshift128_64</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Aliases/Xorshift160.html">Xorshift160</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="Aliases/Xorshift192.html">Xorshift192</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="Aliases/Xorshift32.html">Xorshift32</a></td>
+<td>Define <code>XorshiftEngine</code> generators with well-chosen parameters. See each bits examples of &quot;Xorshift RNGs&quot;. <code>Xorshift</code> is a Xorshift128's alias because 128bits implementation is mostly used.</td>
+</tr>
+<tr>
+<td><a href="Aliases/Xorshift64.html">Xorshift64</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="Aliases/Xorshift64_64.html">Xorshift64_64</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Aliases/Xorshift96.html">Xorshift96</a></td>
+<td>ditto</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Structs/LinearCongruentialEngine.html">LinearCongruentialEngine</a></td>
+<td>Linear Congruential generator. When m = 0, no modulus is used.</td>
+</tr>
+<tr>
+<td><a href="Structs/MersenneTwisterEngine.html">MersenneTwisterEngine</a></td>
+<td>The $(LINK2 <a href="https://en.wikipedia.org/wiki/Mersenne_Twister">https://en.wikipedia.org/wiki/Mersenne_Twister</a>, Mersenne Twister) generator.</td>
+</tr>
+<tr>
+<td><a href="Structs/RandomCover.html">RandomCover</a></td>
+<td>Covers a given range <code>r</code> in a random manner, i.e. goes through each element of <code>r</code> once and only once, just in a random order. <code>r</code> must be a random-access range with length.</td>
+</tr>
+<tr>
+<td><a href="Structs/RandomCoverChoices.html">RandomCoverChoices</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/RandomSample.html">RandomSample</a></td>
+<td>Selects a random subsample out of <code>r</code> , containing exactly <code>n</code> elements. The order of elements is the same as in the original range. The total length of <code>r</code> must be known. If <code>total</code> is passed in, the total number of sample is considered to be $(D total). Otherwise, <code>RandomSample</code> uses <code>r.length</code> .</td>
+</tr>
+<tr>
+<td><a href="Structs/XorshiftEngine.html">XorshiftEngine</a></td>
+<td>Xorshift generator. Implemented according to $(HTTP <a href="http://www.jstatsoft.org/v08/i14/paper">www.jstatsoft.org/v08/i14/paper</a>, Xorshift RNGs) (Marsaglia, 2003) when the size is small. For larger sizes the generator uses Sebastino Vigna's optimization of using an index to avoid needing to rotate the internal array.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Functions/arc4random.html">arc4random</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/arc4random_buf.html">arc4random_buf</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/choice.html">choice</a></td>
+<td>Returns a random, uniformly chosen, element <code>e</code> from the supplied $(D Range range). If no random number generator is passed, the default <code>rndGen</code> is used.</td>
+</tr>
+<tr>
+<td><a href="Functions/dice.html">dice</a></td>
+<td>Get a random index into a list of weights corresponding to each index</td>
+</tr>
+<tr>
+<td><a href="Functions/diceImpl.html">diceImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/initMTEngine.html">initMTEngine</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Functions/partialShuffle.html">partialShuffle</a></td>
+<td>Partially shuffles the elements of <code>r</code> such that upon returning $(D r[0 .. n]) is a random subset of <code>r</code> and is randomly ordered.  $(D r[n .. r.length]) will contain the elements not in $(D r[0 .. n]).  These will be in an undefined order, but will not be random in the sense that their order after <code>partialShuffle</code> returns will not be independent of their order before <code>partialShuffle</code> was called.</td>
+</tr>
+<tr>
+<td><a href="Functions/randomCover.html">randomCover</a></td>
+<td>Ditto</td>
+</tr>
+<tr>
+<td><a href="Functions/randomSample.html">randomSample</a></td>
+<td>Ditto</td>
+</tr>
+<tr>
+<td><a href="Functions/randomShuffle.html">randomShuffle</a></td>
+<td>Shuffles elements of <code>r</code> using <code>gen</code> as a shuffler. <code>r</code> must be a random-access range with length.  If no RNG is specified, <code>rndGen</code> will be used.</td>
+</tr>
+<tr>
+<td><a href="Functions/rndGen.html">rndGen</a></td>
+<td>Global random number generator used by various functions in this module whenever no generator is specified. It is allocated per-thread and initialized to an unpredictable value for each thread.</td>
+</tr>
+<tr>
+<td><a href="Functions/uniform.html">uniform</a></td>
+<td>Generates a number between <code>a</code> and <code>b</code> . The <code>boundaries</code> parameter controls the shape of the interval (open vs. closed on either side). Valid values for <code>boundaries</code> are <code>&quot;[]&quot;</code> , <span class="math">\((D &quot;\)</span>(LPAREN)]&quot;), <code>&quot;[$(RPAREN)&quot;</code> , and <code>&quot;()&quot;</code> . The default interval is closed to the left and open to the right. The version that does not take <code>urng</code> uses the default generator <code>rndGen</code> .</td>
+</tr>
+<tr>
+<td><a href="Functions/uniform01.html">uniform01</a></td>
+<td>Generates a uniformly-distributed floating point number of type <code>T</code> in the range [0, 1$(RPAREN).  If no random number generator is specified, the default RNG <code>rndGen</code> will be used as the source of randomness.</td>
+</tr>
+<tr>
+<td><a href="Functions/uniformDistribution.html">uniformDistribution</a></td>
+<td>Generates a uniform probability distribution of size <code>n</code> , i.e., an array of size <code>n</code> of positive numbers of type <code>F</code> that sum to <code>1</code> . If <code>useThis</code> is provided, it is used as storage.</td>
+</tr>
+<tr>
+<td><a href="Functions/unpredictableSeed.html">unpredictableSeed</a></td>
+<td>A &quot;good&quot; seed for initializing random number engines. Initializing with $(D_PARAM unpredictableSeed) makes engines generate different random number sequences every run.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Variables/isSeedable.html">isSeedable</a></td>
+<td>Test if Rng is seedable. The overload taking a SeedType also makes sure that the Rng can be seeded with SeedType.</td>
+</tr>
+<tr>
+<td><a href="Variables/isSeedable.html">isSeedable</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="Variables/isUniformRNG.html">isUniformRNG</a></td>
+<td>Test if Rng is a random-number generator. The overload taking a ElementType also makes sure that the Rng generates values of that type.</td>
+</tr>
+<tr>
+<td><a href="Variables/isUniformRNG.html">isUniformRNG</a></td>
+<td>ditto</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
