@@ -160,67 +160,67 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../JSONValue/Functions/array.html">array</a></td>
+<td><a href="../JSONValue/JSONValue/Functions/array.html">array</a></td>
 <td>Value getter/setter for <code>JSONType.array</code> . Throws: <code>JSONException</code> for read access if <code>type</code> is not <code>JSONType.array</code> . Note: This is @system because of the following pattern: --- auto a = &amp;(json.array()); json.uinteger = 0;  // overwrite array pointer (*a)[0] = &quot;world&quot;;  // segmentation fault ---</td>
 </tr>
 <tr>
-<td><a href="../JSONValue/Functions/arrayNoRef.html">arrayNoRef</a></td>
+<td><a href="../JSONValue/JSONValue/Functions/arrayNoRef.html">arrayNoRef</a></td>
 <td>Value getter for <code>JSONType.array</code> . Unlike <code>array</code> , this retrieves the array by value and can be used in @safe code.</td>
 </tr>
 <tr>
-<td><a href="../JSONValue/Functions/boolean.html">boolean</a></td>
+<td><a href="../JSONValue/JSONValue/Functions/boolean.html">boolean</a></td>
 <td>Value getter/setter for boolean stored in JSON. Throws: <code>JSONException</code> for read access if <code>this.type</code> is not <code>JSONType.true_</code> or <code>JSONType.false_</code> .</td>
 </tr>
 <tr>
-<td><a href="../JSONValue/Functions/floating.html">floating</a></td>
+<td><a href="../JSONValue/JSONValue/Functions/floating.html">floating</a></td>
 <td>Value getter/setter for <code>JSONType.float_</code> . Note that despite the name, this is a $(B 64)-bit <code>double</code> , not a 32-bit <code>float</code> . Throws: <code>JSONException</code> for read access if <code>type</code> is not <code>JSONType.float_</code> .</td>
 </tr>
 <tr>
-<td><a href="../JSONValue/Functions/integer.html">integer</a></td>
+<td><a href="../JSONValue/JSONValue/Functions/integer.html">integer</a></td>
 <td>Value getter/setter for <code>JSONType.integer</code> . Throws: <code>JSONException</code> for read access if <code>type</code> is not <code>JSONType.integer</code> .</td>
 </tr>
 <tr>
-<td><a href="../JSONValue/Functions/isNull.html">isNull</a></td>
+<td><a href="../JSONValue/JSONValue/Functions/isNull.html">isNull</a></td>
 <td>Test whether the type is <code>JSONType.null_</code></td>
 </tr>
 <tr>
-<td><a href="../JSONValue/Functions/object.html">object</a></td>
+<td><a href="../JSONValue/JSONValue/Functions/object.html">object</a></td>
 <td>Value getter/setter for <code>JSONType.object</code> . Throws: <code>JSONException</code> for read access if <code>type</code> is not <code>JSONType.object</code> . Note: This is @system because of the following pattern: --- auto a = &amp;(json.object()); json.uinteger = 0;        // overwrite AA pointer (*a)[&quot;hello&quot;] = &quot;world&quot;;  // segmentation fault ---</td>
 </tr>
 <tr>
-<td><a href="../JSONValue/Functions/objectNoRef.html">objectNoRef</a></td>
+<td><a href="../JSONValue/JSONValue/Functions/objectNoRef.html">objectNoRef</a></td>
 <td>Value getter for <code>JSONType.object</code> . Unlike <code>object</code> , this retrieves the object by value and can be used in @safe code.</td>
 </tr>
 <tr>
-<td><a href="../JSONValue/Functions/opApply.html">opApply</a></td>
+<td><a href="../JSONValue/JSONValue/Functions/opApply.html">opApply</a></td>
 <td>Implements the foreach <code>opApply</code> interface for json arrays.</td>
 </tr>
 <tr>
-<td><a href="../JSONValue/Functions/opEquals.html">opEquals</a></td>
+<td><a href="../JSONValue/JSONValue/Functions/opEquals.html">opEquals</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../JSONValue/Functions/opIndex.html">opIndex</a></td>
+<td><a href="../JSONValue/JSONValue/Functions/opIndex.html">opIndex</a></td>
 <td>Array syntax for JSON arrays. Throws: <code>JSONException</code> if <code>type</code> is not <code>JSONType.array</code> .</td>
 </tr>
 <tr>
-<td><a href="../JSONValue/Functions/str.html">str</a></td>
+<td><a href="../JSONValue/JSONValue/Functions/str.html">str</a></td>
 <td>Value getter/setter for <code>JSONType.string</code> . Throws: <code>JSONException</code> for read access if <code>type</code> is not <code>JSONType.string</code> .</td>
 </tr>
 <tr>
-<td><a href="../JSONValue/Functions/toPrettyString.html">toPrettyString</a></td>
+<td><a href="../JSONValue/JSONValue/Functions/toPrettyString.html">toPrettyString</a></td>
 <td>Implicitly calls <code>toJSON</code> on this JSONValue, like <code>toString</code> , but also passes $(I true) as $(I pretty) argument.</td>
 </tr>
 <tr>
-<td><a href="../JSONValue/Functions/toString.html">toString</a></td>
+<td><a href="../JSONValue/JSONValue/Functions/toString.html">toString</a></td>
 <td>Implicitly calls <code>toJSON</code> on this JSONValue.</td>
 </tr>
 <tr>
-<td><a href="../JSONValue/Functions/type.html">type</a></td>
+<td><a href="../JSONValue/JSONValue/Functions/type.html">type</a></td>
 <td>Returns the JSONType of the value stored in this structure.</td>
 </tr>
 <tr>
-<td><a href="../JSONValue/Functions/uinteger.html">uinteger</a></td>
+<td><a href="../JSONValue/JSONValue/Functions/uinteger.html">uinteger</a></td>
 <td>Value getter/setter for <code>JSONType.uinteger</code> . Throws: <code>JSONException</code> for read access if <code>type</code> is not <code>JSONType.uinteger</code> .</td>
 </tr>
 </tbody>
@@ -234,19 +234,19 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../JSONValue/Variables/emptyArray.html">emptyArray</a></td>
+<td><a href="../JSONValue/JSONValue/Variables/emptyArray.html">emptyArray</a></td>
 <td>An enum value that can be used to obtain a <code>JSONValue</code> representing an empty JSON array.</td>
 </tr>
 <tr>
-<td><a href="../JSONValue/Variables/emptyObject.html">emptyObject</a></td>
+<td><a href="../JSONValue/JSONValue/Variables/emptyObject.html">emptyObject</a></td>
 <td>An enum value that can be used to obtain a <code>JSONValue</code> representing an empty JSON object.</td>
 </tr>
 <tr>
-<td><a href="../JSONValue/Variables/store.html">store</a></td>
+<td><a href="../JSONValue/JSONValue/Variables/store.html">store</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../JSONValue/Variables/type_tag.html">type_tag</a></td>
+<td><a href="../JSONValue/JSONValue/Variables/type_tag.html">type_tag</a></td>
 <td></td>
 </tr>
 </tbody>

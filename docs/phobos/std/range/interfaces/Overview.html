@@ -131,6 +131,74 @@
 </tr>
 </tbody>
 </table>
+<h2 class='section'>Interfaces</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Interfaces/BidirectionalAssignable.html">BidirectionalAssignable</a></td>
+<td>Adds assignable elements to BidirectionalRange.</td>
+</tr>
+<tr>
+<td><a href="Interfaces/BidirectionalRange.html">BidirectionalRange</a></td>
+<td>Interface for a bidirectional range of type <code>E</code> .</td>
+</tr>
+<tr>
+<td><a href="Interfaces/ForwardAssignable.html">ForwardAssignable</a></td>
+<td>Adds assignable elements to ForwardRange.</td>
+</tr>
+<tr>
+<td><a href="Interfaces/ForwardRange.html">ForwardRange</a></td>
+<td>Interface for a forward range of type <code>E</code> .</td>
+</tr>
+<tr>
+<td><a href="Interfaces/InputAssignable.html">InputAssignable</a></td>
+<td>Adds assignable elements to InputRange.</td>
+</tr>
+<tr>
+<td><a href="Interfaces/InputRange.html">InputRange</a></td>
+<td>These interfaces are intended to provide virtual function-based wrappers around input ranges with element type E.  This is useful where a well-defined binary interface is required, such as when a DLL function or virtual function needs to accept a generic range as a parameter. Note that $(REF_ALTTEXT isInputRange, isInputRange, std, range, primitives) and friends check for conformance to structural interfaces not for implementation of these <code>interface</code> types.</td>
+</tr>
+<tr>
+<td><a href="Interfaces/OutputRange.html">OutputRange</a></td>
+<td>Interface for an output range of type <code>E</code> .  Usage is similar to the <code>InputRange</code> interface and descendants.</td>
+</tr>
+<tr>
+<td><a href="Interfaces/RandomAccessFinite.html">RandomAccessFinite</a></td>
+<td>Interface for a finite random access range of type <code>E</code> .</td>
+</tr>
+<tr>
+<td><a href="Interfaces/RandomAccessInfinite.html">RandomAccessInfinite</a></td>
+<td>Interface for an infinite random access range of type <code>E</code> .</td>
+</tr>
+<tr>
+<td><a href="Interfaces/RandomFiniteAssignable.html">RandomFiniteAssignable</a></td>
+<td>Adds assignable elements to RandomAccessFinite.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Templates</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Templates/InputRangeObject.html">InputRangeObject</a></td>
+<td>Implements the most derived interface that <code>R</code> works with and wraps all relevant range primitives in virtual functions.  If <code>R</code> is already derived from the <code>InputRange</code> interface, aliases itself away.</td>
+</tr>
+<tr>
+<td><a href="Templates/MostDerivedInputRange.html">MostDerivedInputRange</a></td>
+<td>Returns the interface type that best matches <code>R</code> .</td>
+</tr>
+</tbody>
+</table>
 
 </article>
 

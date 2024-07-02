@@ -1,2 +1,0 @@
-
-{"order":100,"items":[{"name":"Overview","href":"Overview.html","topicHref":"Overview.html"},{"name":"Structs","includedFrom":"~/juptune/juptune/core/util/statemachine/Structs/toc.yml","items":[{"name":"StateTransition","href":"Structs/StateTransition.html","topicHref":"Structs/StateTransition.html"},{"name":"StateTransitionTable","href":"Structs/StateTransitionTable.html","topicHref":"Structs/StateTransitionTable.html"},{"name":"StateMachineStatic","href":"Structs/StateMachineStatic.html","topicHref":"Structs/StateMachineStatic.html"}]}],"pdf":false}

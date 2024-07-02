@@ -1,2 +1,0 @@
-
-{"order":100,"items":[{"name":"Overview","href":"Overview.html","topicHref":"Overview.html"},{"name":"Functions","includedFrom":"~/phobos/std/signals/Functions/toc.yml","items":[{"name":"rt_attachDisposeEvent","href":"Functions/rt_attachDisposeEvent.html","topicHref":"Functions/rt_attachDisposeEvent.html"},{"name":"rt_detachDisposeEvent","href":"Functions/rt_detachDisposeEvent.html","topicHref":"Functions/rt_detachDisposeEvent.html"},{"name":"linkin","href":"Functions/linkin.html","topicHref":"Functions/linkin.html"}]}],"pdf":false}

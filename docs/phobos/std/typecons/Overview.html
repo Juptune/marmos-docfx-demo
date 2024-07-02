@@ -200,7 +200,7 @@
 </tr>
 </tbody>
 </table>
-<h2 class='section'>Structs</h2><table>
+<h2 class='section'>Enums</h2><table>
 <thead>
 <tr>
 <th>Name</th>
@@ -209,64 +209,16 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="Structs/BitFlags.html">BitFlags</a></td>
-<td>A typesafe structure for storing combinations of enum values.</td>
+<td><a href="Enums/Flag.html">Flag</a></td>
+<td>Defines a simple, self-documenting yes/no flag. This makes it easy for APIs to define functions accepting flags without resorting to $(D bool), which is opaque in calls, and without needing to define an enumerated type separately. Using <code>Flag!&quot;Name&quot;</code> instead of $(D bool) makes the flag's meaning visible in calls. Each yes/no flag has its own type, which makes confusions and mix-ups impossible.</td>
 </tr>
 <tr>
-<td><a href="Structs/No.html">No</a></td>
-<td>Ditto</td>
+<td><a href="Enums/RefCountedAutoInitialize.html">RefCountedAutoInitialize</a></td>
+<td>Options regarding auto-initialization of a <code>SafeRefCounted</code> object (see the definition of <code>SafeRefCounted</code> below).</td>
 </tr>
 <tr>
-<td><a href="Structs/Nullable.html">Nullable</a></td>
-<td>Defines a value paired with a distinctive &quot;null&quot; state that denotes the absence of a value. If default constructed, a $(D Nullable!T) object starts in the null state. Assigning it renders it non-null. Calling <code>nullify</code> can nullify it again.</td>
-</tr>
-<tr>
-<td><a href="Structs/Nullable.html">Nullable</a></td>
-<td>Just like <code>Nullable!T</code> , except that the null state is defined as a particular value. For example, $(D Nullable!(uint, uint.max)) is an <code>uint</code> that sets aside the value <code>uint.max</code> to denote a null state. $(D Nullable!(T, nullValue)) is more storage-efficient than $(D Nullable!T) because it does not need to store an extra <code>bool</code> .</td>
-</tr>
-<tr>
-<td><a href="Structs/NullableRef.html">NullableRef</a></td>
-<td>Just like <code>Nullable!T</code> , except that the object refers to a value sitting elsewhere in memory. This makes assignments overwrite the initially assigned value. Internally <code>NullableRef!T</code> only stores a pointer to <code>T</code> (i.e., $(D Nullable!T.sizeof == (T*).sizeof)).</td>
-</tr>
-<tr>
-<td><a href="Structs/Rebindable.html">Rebindable</a></td>
-<td>ditto</td>
-</tr>
-<tr>
-<td><a href="Structs/Rebindable2.html">Rebindable2</a></td>
+<td><a href="Enums/TypeModifier.html">TypeModifier</a></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="Structs/RefCounted.html">RefCounted</a></td>
-<td>The old version of $(LREF SafeRefCounted), before $(LREF borrow) existed. Old code may be relying on <code>@safe</code> ty of some of the member functions which cannot be safe in the new scheme, and can avoid breakage by continuing to use this. <code>SafeRefCounted</code> should be preferred, as this type is outdated and unrecommended for new code.</td>
-</tr>
-<tr>
-<td><a href="Structs/SafeRefCounted.html">SafeRefCounted</a></td>
-<td>Defines a reference-counted object containing a <code>T</code> value as payload.</td>
-</tr>
-<tr>
-<td><a href="Structs/Scoped.html">Scoped</a></td>
-<td>Allocates a <code>class</code> object right inside the current scope, therefore avoiding the overhead of <code>new</code> . This facility is unsafe; it is the responsibility of the user to not escape a reference to the object outside the scope.</td>
-</tr>
-<tr>
-<td><a href="Structs/Ternary.html">Ternary</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/Tuple.html">Tuple</a></td>
-<td>Tuple of values, for example $(D Tuple!(int, string)) is a record that stores an <code>int</code> and a <code>string</code> . <code>Tuple</code> can be used to bundle values together, notably when returning multiple values from a function. If <code>obj</code> is a <code>Tuple</code> , the individual members are accessible with the syntax <code>obj[0]</code> for the first field, <code>obj[1]</code> for the second, and so on.</td>
-</tr>
-<tr>
-<td><a href="Structs/Typedef.html">Typedef</a></td>
-<td>$(B Typedef) allows the creation of a unique type which is based on an existing type. Unlike the <code>alias</code> feature, $(B Typedef) ensures the two types are not considered as equals.</td>
-</tr>
-<tr>
-<td><a href="Structs/Unique.html">Unique</a></td>
-<td>Encapsulates unique ownership of a resource.</td>
-</tr>
-<tr>
-<td><a href="Structs/Yes.html">Yes</a></td>
-<td>Convenience names that allow using e.g. <code>Yes.encryption</code> instead of <code>Flag!&quot;encryption&quot;.yes</code> and <code>No.encryption</code> instead of $(D Flag!&quot;encryption&quot;.no).</td>
 </tr>
 </tbody>
 </table>
@@ -345,6 +297,204 @@
 <tr>
 <td><a href="Functions/wrap.html">wrap</a></td>
 <td>Supports structural based typesafe conversion.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Interfaces</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Interfaces/Structural.html">Structural</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Structs/BitFlags.html">BitFlags</a></td>
+<td>A typesafe structure for storing combinations of enum values.</td>
+</tr>
+<tr>
+<td><a href="Structs/No.html">No</a></td>
+<td>Ditto</td>
+</tr>
+<tr>
+<td><a href="Structs/Nullable.html">Nullable</a></td>
+<td>Defines a value paired with a distinctive &quot;null&quot; state that denotes the absence of a value. If default constructed, a $(D Nullable!T) object starts in the null state. Assigning it renders it non-null. Calling <code>nullify</code> can nullify it again.</td>
+</tr>
+<tr>
+<td><a href="Structs/Nullable.html">Nullable</a></td>
+<td>Just like <code>Nullable!T</code> , except that the null state is defined as a particular value. For example, $(D Nullable!(uint, uint.max)) is an <code>uint</code> that sets aside the value <code>uint.max</code> to denote a null state. $(D Nullable!(T, nullValue)) is more storage-efficient than $(D Nullable!T) because it does not need to store an extra <code>bool</code> .</td>
+</tr>
+<tr>
+<td><a href="Structs/NullableRef.html">NullableRef</a></td>
+<td>Just like <code>Nullable!T</code> , except that the object refers to a value sitting elsewhere in memory. This makes assignments overwrite the initially assigned value. Internally <code>NullableRef!T</code> only stores a pointer to <code>T</code> (i.e., $(D Nullable!T.sizeof == (T*).sizeof)).</td>
+</tr>
+<tr>
+<td><a href="Structs/Rebindable.html">Rebindable</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="Structs/Rebindable2.html">Rebindable2</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/RefCounted.html">RefCounted</a></td>
+<td>The old version of $(LREF SafeRefCounted), before $(LREF borrow) existed. Old code may be relying on <code>@safe</code> ty of some of the member functions which cannot be safe in the new scheme, and can avoid breakage by continuing to use this. <code>SafeRefCounted</code> should be preferred, as this type is outdated and unrecommended for new code.</td>
+</tr>
+<tr>
+<td><a href="Structs/SafeRefCounted.html">SafeRefCounted</a></td>
+<td>Defines a reference-counted object containing a <code>T</code> value as payload.</td>
+</tr>
+<tr>
+<td><a href="Structs/Scoped.html">Scoped</a></td>
+<td>Allocates a <code>class</code> object right inside the current scope, therefore avoiding the overhead of <code>new</code> . This facility is unsafe; it is the responsibility of the user to not escape a reference to the object outside the scope.</td>
+</tr>
+<tr>
+<td><a href="Structs/Ternary.html">Ternary</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/Tuple.html">Tuple</a></td>
+<td>Tuple of values, for example $(D Tuple!(int, string)) is a record that stores an <code>int</code> and a <code>string</code> . <code>Tuple</code> can be used to bundle values together, notably when returning multiple values from a function. If <code>obj</code> is a <code>Tuple</code> , the individual members are accessible with the syntax <code>obj[0]</code> for the first field, <code>obj[1]</code> for the second, and so on.</td>
+</tr>
+<tr>
+<td><a href="Structs/Typedef.html">Typedef</a></td>
+<td>$(B Typedef) allows the creation of a unique type which is based on an existing type. Unlike the <code>alias</code> feature, $(B Typedef) ensures the two types are not considered as equals.</td>
+</tr>
+<tr>
+<td><a href="Structs/Unique.html">Unique</a></td>
+<td>Encapsulates unique ownership of a resource.</td>
+</tr>
+<tr>
+<td><a href="Structs/Yes.html">Yes</a></td>
+<td>Convenience names that allow using e.g. <code>Yes.encryption</code> instead of <code>Flag!&quot;encryption&quot;.yes</code> and <code>No.encryption</code> instead of $(D Flag!&quot;encryption&quot;.no).</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Templates</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Templates/AutoImplement_Helper.html">AutoImplement_Helper</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/Concat.html">Concat</a></td>
+<td>Supports structural based typesafe conversion.</td>
+</tr>
+<tr>
+<td><a href="Templates/DerivedFunctionType.html">DerivedFunctionType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/expandSpec.html">expandSpec</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/FieldSpec.html">FieldSpec</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/findCovariantFunction.html">findCovariantFunction</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/follows.html">follows</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/FuncInfo.html">FuncInfo</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/FuncInfo.html">FuncInfo</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/FuncInfo.html">FuncInfo</a></td>
+<td>Supports structural based typesafe conversion.</td>
+</tr>
+<tr>
+<td><a href="Templates/generateEmptyFunction.html">generateEmptyFunction</a></td>
+<td>Predefined how-policies for <code>AutoImplement</code> .  These templates are also used by <code>BlackHole</code> and <code>WhiteHole</code> , respectively.</td>
+</tr>
+<tr>
+<td><a href="Templates/hasRequireMethods.html">hasRequireMethods</a></td>
+<td>Supports structural based typesafe conversion.</td>
+</tr>
+<tr>
+<td><a href="Templates/isBitFlagEnum.html">isBitFlagEnum</a></td>
+<td>Detect whether an enum is of integral type and has only &quot;flag&quot; values (i.e. values with a bit count of exactly 1). Additionally, a zero value is allowed for compatibility with enums including a &quot;None&quot; value.</td>
+</tr>
+<tr>
+<td><a href="Templates/MemberFunctionGenerator.html">MemberFunctionGenerator</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/OverloadSet.html">OverloadSet</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/parseSpecs.html">parseSpecs</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/Proxy.html">Proxy</a></td>
+<td>Creates a proxy for the value <code>a</code> that will forward all operations while disabling implicit conversions. The aliased item <code>a</code> must be an $(B lvalue). This is useful for creating a new type from the &quot;base&quot; type (though this is $(B not) a subtype-supertype relationship; the new type is not related to the old type in any way, by design).</td>
+</tr>
+<tr>
+<td><a href="Templates/Rebindable.html">Rebindable</a></td>
+<td><code>Rebindable!(T)</code> is a simple, efficient wrapper that behaves just like an object of type <code>T</code> , except that you can reassign it to refer to another object. For completeness, <code>Rebindable!(T)</code> aliases itself away to <code>T</code> if <code>T</code> is a non-const object type.</td>
+</tr>
+<tr>
+<td><a href="Templates/RebindableCommon.html">RebindableCommon</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/replaceTypeInFunctionTypeUnless.html">replaceTypeInFunctionTypeUnless</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/ReplaceTypeUnless.html">ReplaceTypeUnless</a></td>
+<td>Like $(LREF ReplaceType), but does not perform replacement in types for which <code>pred</code> evaluates to <code>true</code> .</td>
+</tr>
+<tr>
+<td><a href="Templates/ReverseTupleSpecs.html">ReverseTupleSpecs</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/ReverseTupleType.html">ReverseTupleType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/TypedefType.html">TypedefType</a></td>
+<td>Get the underlying type which a <code>Typedef</code> wraps. If <code>T</code> is not a <code>Typedef</code> it will alias itself to <code>T</code> .</td>
+</tr>
+<tr>
+<td><a href="Templates/Uniq.html">Uniq</a></td>
+<td>Supports structural based typesafe conversion.</td>
+</tr>
+<tr>
+<td><a href="Templates/UnqualRef.html">UnqualRef</a></td>
+<td>Similar to <code>Rebindable!(T)</code> but strips all qualifiers from the reference as opposed to just constness / immutability. Primary intended use case is with shared (having thread-local reference to shared class data)</td>
 </tr>
 </tbody>
 </table>

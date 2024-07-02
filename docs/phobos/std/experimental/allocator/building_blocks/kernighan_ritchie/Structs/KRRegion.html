@@ -154,67 +154,67 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../KRRegion/Functions/allocate.html">allocate</a></td>
+<td><a href="../KRRegion/KRRegion/Functions/allocate.html">allocate</a></td>
 <td>Allocates <code>n</code> bytes. Allocation searches the list of available blocks until a free block with <code>n</code> or more bytes is found (first fit strategy). The block is split (if larger) and returned.</td>
 </tr>
 <tr>
-<td><a href="../KRRegion/Functions/allocateAll.html">allocateAll</a></td>
+<td><a href="../KRRegion/KRRegion/Functions/allocateAll.html">allocateAll</a></td>
 <td>Allocates all memory available to this allocator. If the allocator is empty, returns the entire available block of memory. Otherwise, it still performs a best-effort allocation: if there is no fragmentation (e.g. <code>allocate</code> has been used but not <code>deallocate</code> ), allocates and returns the only available block of memory.</td>
 </tr>
 <tr>
-<td><a href="../KRRegion/Functions/assertValid.html">assertValid</a></td>
+<td><a href="../KRRegion/KRRegion/Functions/assertValid.html">assertValid</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../KRRegion/Functions/byNodePtr.html">byNodePtr</a></td>
+<td><a href="../KRRegion/KRRegion/Functions/byNodePtr.html">byNodePtr</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../KRRegion/Functions/cancelRegionMode.html">cancelRegionMode</a></td>
+<td><a href="../KRRegion/KRRegion/Functions/cancelRegionMode.html">cancelRegionMode</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../KRRegion/Functions/coalesceAndMakeCircular.html">coalesceAndMakeCircular</a></td>
+<td><a href="../KRRegion/KRRegion/Functions/coalesceAndMakeCircular.html">coalesceAndMakeCircular</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../KRRegion/Functions/deallocate.html">deallocate</a></td>
+<td><a href="../KRRegion/KRRegion/Functions/deallocate.html">deallocate</a></td>
 <td>Deallocates <code>b</code> , which is assumed to have been previously allocated with this allocator. Deallocation performs a linear search in the free list to preserve its sorting order. It follows that blocks with higher addresses in allocators with many free blocks are slower to deallocate.</td>
 </tr>
 <tr>
-<td><a href="../KRRegion/Functions/deallocateAll.html">deallocateAll</a></td>
+<td><a href="../KRRegion/KRRegion/Functions/deallocateAll.html">deallocateAll</a></td>
 <td>Deallocates all memory currently allocated, making the allocator ready for other allocations. This is a $(BIGOH 1) operation.</td>
 </tr>
 <tr>
-<td><a href="../KRRegion/Functions/empty.html">empty</a></td>
+<td><a href="../KRRegion/KRRegion/Functions/empty.html">empty</a></td>
 <td>Returns: <code>Ternary.yes</code> if the allocator is empty, <code>Ternary.no</code> otherwise. Never returns <code>Ternary.unknown</code> .</td>
 </tr>
 <tr>
-<td><a href="../KRRegion/Functions/goodAllocSize.html">goodAllocSize</a></td>
+<td><a href="../KRRegion/KRRegion/Functions/goodAllocSize.html">goodAllocSize</a></td>
 <td>Adjusts <code>n</code> to a size suitable for allocation (two words or larger, word-aligned).</td>
 </tr>
 <tr>
-<td><a href="../KRRegion/Functions/merge.html">merge</a></td>
+<td><a href="../KRRegion/KRRegion/Functions/merge.html">merge</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../KRRegion/Functions/owns.html">owns</a></td>
+<td><a href="../KRRegion/KRRegion/Functions/owns.html">owns</a></td>
 <td>Checks whether the allocator is responsible for the allocation of <code>b</code> . It does a simple $(BIGOH 1) range check. <code>b</code> should be a buffer either allocated with <code>this</code> or obtained through other means.</td>
 </tr>
 <tr>
-<td><a href="../KRRegion/Functions/regionMode.html">regionMode</a></td>
+<td><a href="../KRRegion/KRRegion/Functions/regionMode.html">regionMode</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../KRRegion/Functions/sortFreelist.html">sortFreelist</a></td>
+<td><a href="../KRRegion/KRRegion/Functions/sortFreelist.html">sortFreelist</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../KRRegion/Functions/switchToFreeList.html">switchToFreeList</a></td>
+<td><a href="../KRRegion/KRRegion/Functions/switchToFreeList.html">switchToFreeList</a></td>
 <td>Forces free list mode. If already in free list mode, does nothing. Otherwise, sorts the free list accumulated so far and switches strategy for future allocations to KR style.</td>
 </tr>
 <tr>
-<td><a href="../KRRegion/Functions/toString.html">toString</a></td>
+<td><a href="../KRRegion/KRRegion/Functions/toString.html">toString</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -228,23 +228,23 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../KRRegion/Variables/alignment.html">alignment</a></td>
+<td><a href="../KRRegion/KRRegion/Variables/alignment.html">alignment</a></td>
 <td>Word-level alignment.</td>
 </tr>
 <tr>
-<td><a href="../KRRegion/Variables/bytesUsedRegionMode.html">bytesUsedRegionMode</a></td>
+<td><a href="../KRRegion/KRRegion/Variables/bytesUsedRegionMode.html">bytesUsedRegionMode</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../KRRegion/Variables/parent.html">parent</a></td>
+<td><a href="../KRRegion/KRRegion/Variables/parent.html">parent</a></td>
 <td>If <code>ParentAllocator</code> holds state, <code>parent</code> is a public member of type <code>KRRegion</code> . Otherwise, <code>parent</code> is an <code>alias</code> for <code>ParentAllocator.instance</code> .</td>
 </tr>
 <tr>
-<td><a href="../KRRegion/Variables/payload.html">payload</a></td>
+<td><a href="../KRRegion/KRRegion/Variables/payload.html">payload</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../KRRegion/Variables/root.html">root</a></td>
+<td><a href="../KRRegion/KRRegion/Variables/root.html">root</a></td>
 <td></td>
 </tr>
 </tbody>

@@ -85,7 +85,7 @@
         </div>
 
         <article data-uid="juptune.http.uri.Overview">
-<h1 class='section'>Module - juptune.http.uri</h1><h2 class='section'>Structs</h2><table>
+<h1 class='section'>Module - juptune.http.uri</h1><h2 class='section'>Enums</h2><table>
 <thead>
 <tr>
 <th>Name</th>
@@ -94,12 +94,20 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="Structs/ScopeUri.html">ScopeUri</a></td>
-<td>A fairly featureless POD struct that represents a URI that specifically does <strong>not</strong> own the data it points to.</td>
+<td><a href="Enums/Rfc3986CharType.html">Rfc3986CharType</a></td>
+<td></td>
 </tr>
 <tr>
-<td><a href="Structs/UriDecoder.html">UriDecoder</a></td>
-<td>Helpers</td>
+<td><a href="Enums/UriError.html">UriError</a></td>
+<td><code>Result</code> error enum</td>
+</tr>
+<tr>
+<td><a href="Enums/UriParseHints.html">UriParseHints</a></td>
+<td>A bitmask of hints that can be used to determine the structure of a URI.</td>
+</tr>
+<tr>
+<td><a href="Enums/UriParseRules.html">UriParseRules</a></td>
+<td>A set of rules that can be used to control the behaviour of the URI parser.</td>
 </tr>
 </tbody>
 </table>
@@ -162,6 +170,24 @@
 <tr>
 <td><a href="Functions/uriParseScheme.html">uriParseScheme</a></td>
 <td>&quot;Low level&quot; Uri parsing functions</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Structs/ScopeUri.html">ScopeUri</a></td>
+<td>A fairly featureless POD struct that represents a URI that specifically does <strong>not</strong> own the data it points to.</td>
+</tr>
+<tr>
+<td><a href="Structs/UriDecoder.html">UriDecoder</a></td>
+<td>Helpers</td>
 </tr>
 </tbody>
 </table>

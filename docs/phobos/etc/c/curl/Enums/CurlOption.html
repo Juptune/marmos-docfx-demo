@@ -1,0 +1,1284 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Enum - CurlOption | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Enum - CurlOption | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../../index.html">
+            <img id="logo" class="svg" src="../../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="etc.c.curl.Enums.CurlOption">
+<h1 class='section'>Enum - CurlOption</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>etc.c.curl</dd></dl>
+</div><pre><code class='lang-d'>enum CurlOption
+{
+  // (IPv6) Address scope 
+  __enumMember address_scope;
+  // Append instead of overwrite on upload! 
+  __enumMember append;
+  // We want the referrer field set automatically when following locations 
+  __enumMember autoreferer;
+  // Instruct libcurl to use a smaller receive buffer 
+  __enumMember buffersize;
+  // The CApath or CAfile used to validate the peer certificate this option is used only if SSL_VERIFYPEER is true 
+  __enumMember cainfo;
+  // The CApath directory used to validate the peer certificate this option is used only if SSL_VERIFYPEER is true 
+  __enumMember capath;
+  // Collect certificate chain info and allow it to get retrievable with CURLINFO_CERTINFO after the transfer is complete. (Unfortunately) only working with OpenSSL-powered builds. 
+  __enumMember certinfo;
+  // Directory matching callback called before downloading of an individual file (chunk) started 
+  __enumMember chunk_bgn_function;
+  // Let the application define custom chunk data pointer 
+  __enumMember chunk_data;
+  // Directory matching callback called after the file (chunk) was downloaded, or skipped 
+  __enumMember chunk_end_function;
+  // What policy to use when closing connections when the cache is filled up 
+  __enumMember closepolicy;
+  // no transfer, set up connection and let application use the socket by extracting it with CURLINFO_LASTSOCKET 
+  __enumMember connect_only;
+  // Time-out connect operations after this amount of seconds, if connects are OK within this time, then fine... This only aborts the connect phase. [Only works on unix-style/SIGALRM operating systems] 
+  __enumMember connecttimeout;
+  // ditto 
+  __enumMember connecttimeout_ms;
+  // Function that will be called to convert from the network encoding (instead of using the iconv calls in libcurl) 
+  __enumMember conv_from_network_function;
+  // Function that will be called to convert from UTF8 (instead of using the iconv calls in libcurl) Note that this is used only for SSL certificate processing 
+  __enumMember conv_from_utf8_function;
+  // Function that will be called to convert to the network encoding (instead of using the iconv calls in libcurl) 
+  __enumMember conv_to_network_function;
+  // 
+  __enumMember cookie;
+  // point to a file to read the initial cookies from, also enables &quot;cookie awareness&quot; 
+  __enumMember cookiefile;
+  // Specify which file name to write all known cookies in after completed operation. Set file name to &quot;-&quot; (dash) to make it go to stdout. 
+  __enumMember cookiejar;
+  // feed cookies into cookie engine 
+  __enumMember cookielist;
+  // mark this as start of a cookie session 
+  __enumMember cookiesession;
+  // POST volatile input fields. 
+  __enumMember copypostfields;
+  // send TYPE parameter? 
+  __enumMember crlf;
+  // CRL file 
+  __enumMember crlfile;
+  // Custom request, for customizing the get command like HTTP: DELETE, TRACE and others FTP: to use a different list command 
+  __enumMember customrequest;
+  // set the data for the debug function 
+  __enumMember debugdata;
+  // set the debug function 
+  __enumMember debugfunction;
+  // return bare names when listing directories 
+  __enumMember dirlistonly;
+  // DNS cache timeout 
+  __enumMember dns_cache_timeout;
+  // Non-zero value means to use the global dns cache 
+  __enumMember dns_use_global_cache;
+  // Set to the Entropy Gathering Daemon socket pathname 
+  __enumMember egdsocket;
+  // Set the Accept-Encoding string. Use this to tell a server you would like the response to be compressed. 
+  __enumMember encoding;
+  // Buffer to receive error messages in, must be at least CURL_ERROR_SIZE bytes big. If this is not used, error messages go to stderr instead: 
+  __enumMember errorbuffer;
+  // no output on http error codes &gt;= 300 
+  __enumMember failonerror;
+  // This is the FILE **or void ** the regular output should be written to. 
+  __enumMember file;
+  // Pass a long set to 1 to get the date of the requested document (if possible)! Pass a zero to shut it off. 
+  __enumMember filetime;
+  // FNMATCH_FUNCTION user pointer 
+  __enumMember fnmatch_data;
+  // Change match (fnmatch-like) callback for wildcard matching 
+  __enumMember fnmatch_function;
+  // use Location: Luke! 
+  __enumMember followlocation;
+  // Set to explicitly forbid the upcoming transfer&#39;s connection to be re-used when done. Do not use this unless you&#39;re absolutely sure of this, as it makes the operation slower and is less friendly for the network. 
+  __enumMember forbid_reuse;
+  // Set to explicitly use a new connection for the upcoming transfer. Do not use this unless you&#39;re absolutely sure of this, as it makes the operation slower and is less friendly for the network. 
+  __enumMember fresh_connect;
+  // zero terminated string for pass on to the FTP server when asked for &quot;account&quot; info 
+  __enumMember ftp_account;
+  // Pointer to command string to send if USER/PASS fails. 
+  __enumMember ftp_alternative_to_user;
+  // FTP Option that causes missing dirs to be created on the remote server. In 7.19.4 we introduced the convenience enums for this option using the CURLFTP_CREATE_DIR prefix. 
+  __enumMember ftp_create_missing_dirs;
+  // Select &quot;file method&quot; to use when doing FTP, see the curl_ftpmethod above. 
+  __enumMember ftp_filemethod;
+  // FTP option that changes the timeout, in seconds, associated with getting a response.  This is different from transfer timeout time and essentially places a demand on the FTP server to acknowledge commands in a timely manner. 
+  __enumMember ftp_response_timeout;
+  // Set to non-zero to skip the IP address received in a 227 PASV FTP server response. Typically used for FTP-SSL purposes but is not restricted to that. libcurl will then instead use the same IP address it used for the control connection. 
+  __enumMember ftp_skip_pasv_ip;
+  // Send CCC (Clear Command Channel) after authentication 
+  __enumMember ftp_ssl_ccc;
+  // Specifically switch on or off the FTP engine&#39;s use of the EPRT command ( it also disables the LPRT attempt). By default, those ones will always be attempted before the good old traditional PORT command. 
+  __enumMember ftp_use_eprt;
+  // Specifically switch on or off the FTP engine&#39;s use of the EPSV command. By default, that one will always be attempted before the more traditional PASV command. 
+  __enumMember ftp_use_epsv;
+  // FTP: send PRET before PASV 
+  __enumMember ftp_use_pret;
+  // Set the FTP PORT string (interface name, named or numerical IP address) Use i.e &#39;-&#39; to use default address. 
+  __enumMember ftpport;
+  // When FTP over SSL/TLS is selected (with CURLOPT_USE_SSL), this option can be used to change libcurl&#39;s default action which is to first try &quot;AUTH SSL&quot; and then &quot;AUTH TLS&quot; in this order, and proceed when a OK response has been received. 
+  __enumMember ftpsslauth;
+  // throw the header out too 
+  __enumMember header;
+  // ditto 
+  __enumMember headerdata;
+  // Function that will be called to store headers (instead of fwrite). The parameters will use fwrite() syntax, make sure to follow them. 
+  __enumMember headerfunction;
+  // ditto 
+  __enumMember http_content_decoding;
+  // set to zero to disable the libcurl&#39;s decoding and thus pass the raw body data to the application even when it is encoded/compressed 
+  __enumMember http_transfer_decoding;
+  // Specify which HTTP version to use! This must be set to one of the CURL_HTTP_VERSION* enums set below. 
+  __enumMember http_version;
+  // Set aliases for HTTP 200 in the HTTP Response header 
+  __enumMember http200aliases;
+  // Set this to a bitmask value to enable the particular authentications methods you like. Use this in combination with CURLOPT_USERPWD. Note that setting multiple bits may cause extra network round-trips. 
+  __enumMember httpauth;
+  // Set this to force the HTTP request to get back to GET. Only really usable if POST, PUT or a custom request have been used first. 
+  __enumMember httpget;
+  // This points to a linked list of headers, struct curl_slist kind 
+  __enumMember httpheader;
+  // This points to a linked list of post entries, struct curl_httppost 
+  __enumMember httppost;
+  // tunnel non-http operations through a HTTP proxy 
+  __enumMember httpproxytunnel;
+  // ignore Content-Length 
+  __enumMember ignore_content_length;
+  // not used 
+  __enumMember infile;
+  // If the CURLOPT_INFILE is used, this can be used to inform libcurl about how large the file being sent really is. That allows better error checking and better verifies that the upload was successful. -1 means unknown size. 
+  __enumMember infilesize;
+  // See the comment for INFILESIZE above, but in short, specifies the size of the file being uploaded.  -1 means unknown. 
+  __enumMember infilesize_large;
+  // The stream to pass to INTERLEAVEFUNCTION. 
+  __enumMember interleavedata;
+  // Let the application define a custom write method for RTP data 
+  __enumMember interleavefunction;
+  // Set the interface string to use as outgoing network interface 
+  __enumMember intrface;
+  // 
+  __enumMember ioctldata;
+  // 
+  __enumMember ioctlfunction;
+  // Set this option to one of the CURL_IPRESOLVE_* defines (see below) to tell libcurl to resolve names to those IP versions only. This only has affect on systems with support for more than one, i.e IPv4 *and* IPv6. 
+  __enumMember ipresolve;
+  // Issuer certificate 
+  __enumMember issuercert;
+  // password for the SSL or SSH private key 
+  __enumMember keypasswd;
+  // Set the krb4/5 security level, this also enables krb4/5 awareness.  This is a string, &#39;clear&#39;, &#39;safe&#39;, &#39;confidential&#39; or &#39;private&#39;.  If the string is set but doesn&#39;t match one of these, &#39;private&#39; will be used. 
+  __enumMember krblevel;
+  // the last unused 
+  __enumMember lastentry;
+  // Local port number to bind the socket to 
+  __enumMember localport;
+  // Number of ports to try, including the first one set with LOCALPORT. Thus, setting it to 1 will make no additional attempts but the first. 
+  __enumMember localportrange;
+  // If the download receives less than &quot;low speed limit&quot; bytes/second during &quot;low speed time&quot; seconds, the operations is aborted. You could i.e if you have a pretty high speed connection, abort if it is less than 2000 bytes/sec during 20 seconds. 
+  __enumMember low_speed_limit;
+  // Set the &quot;low speed time&quot; 
+  __enumMember low_speed_time;
+  // set the SMTP mail originator 
+  __enumMember mail_from;
+  // set the SMTP mail receiver(s) 
+  __enumMember mail_rcpt;
+  // ditto 
+  __enumMember max_recv_speed_large;
+  // If the connection proceeds too quickly then need to slow it down 
+  __enumMember max_send_speed_large;
+  // Max amount of cached alive connections 
+  __enumMember maxconnects;
+  // Set this option to limit the size of a file that will be downloaded from an HTTP or FTP server. 
+  __enumMember maxfilesize;
+  // Sets the maximum size of data that will be downloaded from an HTTP or FTP server.  See MAXFILESIZE above for the LONG version. 
+  __enumMember maxfilesize_large;
+  // Maximum number of http redirects to follow 
+  __enumMember maxredirs;
+  // Specify whether to read the user+password from the .netrc or the URL. This must be one of the CURL_NETRC_* enums below. 
+  __enumMember netrc;
+  // Set this option to the file name of your .netrc file you want libcurl to parse (using the CURLOPT_NETRC option). If not set, libcurl will do a poor attempt to find the user&#39;s home directory and check for a .netrc file in there. 
+  __enumMember netrc_file;
+  // ditto 
+  __enumMember new_directory_perms;
+  // Permission used when creating new files and directories on the remote server for protocols that support it, SFTP/SCP/FILE 
+  __enumMember new_file_perms;
+  // use HEAD to get http document 
+  __enumMember nobody;
+  // shut off the progress meter 
+  __enumMember noprogress;
+  // Comma separated list of hostnames defining no-proxy zones. These should match both hostnames directly, and hostnames within a domain. For example, local.com will match local.com and www.local.com, but NOT notlocal.com or www.notlocal.com. For compatibility with other implementations of this, .local.com will be considered to be the same as local.com. A single is the only valid wildcard, and effectively disables the use of proxy. 
+  __enumMember noproxy;
+  // Instruct libcurl to not use any signal/alarm handlers, even when using timeouts. This option is useful for multi-threaded applications. See libcurl-the-guide for more background information. 
+  __enumMember nosignal;
+  // ditto 
+  __enumMember opensocketdata;
+  // Callback function for opening socket (instead of socket(2)). Optionally, callback is able change the address or refuse to connect returning CURL_SOCKET_BAD.  The callback should have type curl_opensocket_callback 
+  __enumMember opensocketfunction;
+  // ditto 
+  __enumMember password;
+  // Port number to connect to, if other than default. 
+  __enumMember port;
+  // HTTP POST method 
+  __enumMember post;
+  // POST static input fields. 
+  __enumMember postfields;
+  // size of the POST input data, if strlen() is not good to use 
+  __enumMember postfieldsize;
+  // The LARGE version of the standard POSTFIELDSIZE option 
+  __enumMember postfieldsize_large;
+  // send linked-list of post-transfer QUOTE commands 
+  __enumMember postquote;
+  // Set the behaviour of POST when redirecting. Values must be set to one of CURL_REDIR* defines below. This used to be called CURLOPT_POST301 
+  __enumMember postredir;
+  // send linked-list of pre-transfer QUOTE commands 
+  __enumMember prequote;
+  // Set pointer to private data 
+  __enumMember private_opt;
+  // Data passed to the progress callback 
+  __enumMember progressdata;
+  // Function that will be called instead of the internal progress display function. This function should be defined as the curl_progress_callback prototype defines. 
+  __enumMember progressfunction;
+  // set the bitmask for the protocols that are allowed to be used for the transfer, which thus helps the app which takes URLs from users or other external inputs and want to restrict what protocol(s) to deal with. Defaults to CURLPROTO_ALL. 
+  __enumMember protocols;
+  // Name of proxy to use. 
+  __enumMember proxy;
+  // set transfer mode (;type=$(LT)a|i$(GT)) when doing FTP via an HTTP proxy 
+  __enumMember proxy_transfer_mode;
+  // Set this to a bitmask value to enable the particular authentications methods you like. Use this in combination with CURLOPT_PROXYUSERPWD. Note that setting multiple bits may cause extra network round-trips. 
+  __enumMember proxyauth;
+  // ditto 
+  __enumMember proxypassword;
+  // 
+  __enumMember proxyport;
+  // indicates type of proxy. accepted values are CURLPROXY_HTTP (default), CURLPROXY_SOCKS4, CURLPROXY_SOCKS4A and CURLPROXY_SOCKS5. 
+  __enumMember proxytype;
+  // &quot;name&quot; and &quot;pwd&quot; to use with Proxy when fetching. 
+  __enumMember proxyusername;
+  // &quot;name:password&quot; to use with proxy. 
+  __enumMember proxyuserpwd;
+  // HTTP PUT 
+  __enumMember put;
+  // send linked-list of QUOTE commands 
+  __enumMember quote;
+  // Set to a file name that contains random data for libcurl to use to seed the random engine when doing SSL connects. 
+  __enumMember random_file;
+  // Range to get, specified as an ASCII string. 
+  __enumMember range;
+  // ditto 
+  __enumMember readdata;
+  // Function that will be called to read the input (instead of fread). The parameters will use fread() syntax, make sure to follow them. 
+  __enumMember readfunction;
+  // set the bitmask for the protocols that libcurl is allowed to follow to, as a subset of the CURLOPT_PROTOCOLS ones. That means the protocol needs to be set in both bitmasks to be allowed to get redirected to. Defaults to all protocols except FILE and SCP. 
+  __enumMember redir_protocols;
+  // Set the referrer page (needed by some CGIs) 
+  __enumMember referer;
+  // send linked-list of name:port:address sets 
+  __enumMember resolve;
+  // Set the continuation offset. 
+  __enumMember resume_from;
+  // Sets the continuation offset.  There is also a LONG version of this; look above for RESUME_FROM. 
+  __enumMember resume_from_large;
+  // Manually initialize the client RTSP CSeq for this handle 
+  __enumMember rtsp_client_cseq;
+  // RTSP request method (OPTIONS, SETUP, PLAY, etc...) 
+  __enumMember rtsp_request;
+  // Manually initialize the server RTSP CSeq for this handle 
+  __enumMember rtsp_server_cseq;
+  // The RTSP session identifier 
+  __enumMember rtsp_session_id;
+  // The RTSP stream URI 
+  __enumMember rtsp_stream_uri;
+  // The Transport: header to use in RTSP requests 
+  __enumMember rtsp_transport;
+  // ditto 
+  __enumMember rtspheader;
+  // ditto 
+  __enumMember seekdata;
+  // Callback function for seeking in the input stream 
+  __enumMember seekfunction;
+  // Provide a CURLShare for mutexing non-ts data 
+  __enumMember share;
+  // 
+  __enumMember sockoptdata;
+  // callback function for setting socket options 
+  __enumMember sockoptfunction;
+  // Socks Service 
+  __enumMember socks5_gssapi_nec;
+  // Socks Service 
+  __enumMember socks5_gssapi_service;
+  // allowed SSH authentication methods 
+  __enumMember ssh_auth_types;
+  // used by scp/sftp to verify the host&#39;s public key 
+  __enumMember ssh_host_public_key_md5;
+  // set the SSH host key callback custom pointer 
+  __enumMember ssh_keydata;
+  // set the SSH host key callback, must point to a curl_sshkeycallback function 
+  __enumMember ssh_keyfunction;
+  // set the SSH knownhost file name to use 
+  __enumMember ssh_knownhosts;
+  // 
+  __enumMember ssh_private_keyfile;
+  // Used by scp/sftp to do public/private key authentication 
+  __enumMember ssh_public_keyfile;
+  // Specify which SSL ciphers to use 
+  __enumMember ssl_cipher_list;
+  // Set the userdata for the ssl context callback function&#39;s third argument 
+  __enumMember ssl_ctx_data;
+  // Set the ssl context callback function, currently only for OpenSSL ssl_ctx in second argument. The function must be matching the curl_ssl_ctx_callback proto. 
+  __enumMember ssl_ctx_function;
+  // set to 0 to disable session ID re-use for this transfer, default is enabled (== 1) 
+  __enumMember ssl_sessionid_cache;
+  // Set if we should verify the Common name from the peer certificate in ssl handshake, set 1 to check existence, 2 to ensure that it matches the provided hostname. 
+  __enumMember ssl_verifyhost;
+  // Set if we should verify the peer in ssl handshake, set 1 to verify. 
+  __enumMember ssl_verifypeer;
+  // name of the file keeping your private SSL-certificate 
+  __enumMember sslcert;
+  // type of the file keeping your SSL-certificate (&quot;DER&quot;, &quot;PEM&quot;, &quot;ENG&quot;) 
+  __enumMember sslcerttype;
+  // crypto engine for the SSL-sub system 
+  __enumMember sslengine;
+  // set the crypto engine for the SSL-sub system as default the param has no meaning... 
+  __enumMember sslengine_default;
+  // name of the file keeping your private SSL-key 
+  __enumMember sslkey;
+  // type of the file keeping your private SSL-key (&quot;DER&quot;, &quot;PEM&quot;, &quot;ENG&quot;) 
+  __enumMember sslkeytype;
+  // What version to specifically try to use. See CURL_SSLVERSION defines below. 
+  __enumMember sslversion;
+  // HTTP request, for odd commands like DELETE, TRACE and others 
+  __enumMember stderr;
+  // Enable/disable the TCP Nagle algorithm 
+  __enumMember tcp_nodelay;
+  // This points to a linked list of telnet options 
+  __enumMember telnetoptions;
+  // block size for TFTP transfers 
+  __enumMember tftp_blksize;
+  // What kind of HTTP time condition to use, see defines 
+  __enumMember timecondition;
+  // Time-out the read operation after this amount of seconds 
+  __enumMember timeout;
+  // Same as TIMEOUT and CONNECTTIMEOUT, but with ms resolution 
+  __enumMember timeout_ms;
+  // Time to use with the above condition. Specified in number of seconds since 1 Jan 1970 
+  __enumMember timevalue;
+  // Set a password for authenticated TLS 
+  __enumMember tlsauth_password;
+  // Set authentication type for authenticated TLS 
+  __enumMember tlsauth_type;
+  // Set a username for authenticated TLS 
+  __enumMember tlsauth_username;
+  // transfer data in text/ASCII format 
+  __enumMember transfertext;
+  // Continue to send authentication (user+password) when following locations, even when hostname changed. This can potentially send off the name and password to whatever host the server decides. 
+  __enumMember unrestricted_auth;
+  // this is an upload 
+  __enumMember upload;
+  // The full URL to get/put 
+  __enumMember url;
+  // 
+  __enumMember use_ssl;
+  // Set the User-Agent string (examined by some CGIs) 
+  __enumMember useragent;
+  // &quot;name&quot; and &quot;pwd&quot; to use when fetching. 
+  __enumMember username;
+  // &quot;name:password&quot; to use when fetching. 
+  __enumMember userpwd;
+  // talk a lot 
+  __enumMember verbose;
+  // Turn on wildcard matching 
+  __enumMember wildcardmatch;
+  // convenient alias 
+  __enumMember writedata;
+  // Function that will be called to store the output (instead of fwrite). The parameters will use fwrite() syntax, make sure to follow them. 
+  __enumMember writefunction;
+  // send FILE **or void ** to store headers to, if you use a callback it is simply passed to the callback unmodified 
+  __enumMember writeheader;
+  // Pass a pointer to string of the output using full variable-replacement as described elsewhere. 
+  __enumMember writeinfo;
+}</code></pre><h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/address_scope.html">address_scope</a></td>
+<td>(IPv6) Address scope</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/append.html">append</a></td>
+<td>Append instead of overwrite on upload!</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/autoreferer.html">autoreferer</a></td>
+<td>We want the referrer field set automatically when following locations</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/buffersize.html">buffersize</a></td>
+<td>Instruct libcurl to use a smaller receive buffer</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/cainfo.html">cainfo</a></td>
+<td>The CApath or CAfile used to validate the peer certificate this option is used only if SSL_VERIFYPEER is true</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/capath.html">capath</a></td>
+<td>The CApath directory used to validate the peer certificate this option is used only if SSL_VERIFYPEER is true</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/certinfo.html">certinfo</a></td>
+<td>Collect certificate chain info and allow it to get retrievable with CURLINFO_CERTINFO after the transfer is complete. (Unfortunately) only working with OpenSSL-powered builds.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/chunk_bgn_function.html">chunk_bgn_function</a></td>
+<td>Directory matching callback called before downloading of an individual file (chunk) started</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/chunk_data.html">chunk_data</a></td>
+<td>Let the application define custom chunk data pointer</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/chunk_end_function.html">chunk_end_function</a></td>
+<td>Directory matching callback called after the file (chunk) was downloaded, or skipped</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/closepolicy.html">closepolicy</a></td>
+<td>What policy to use when closing connections when the cache is filled up</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/connect_only.html">connect_only</a></td>
+<td>no transfer, set up connection and let application use the socket by extracting it with CURLINFO_LASTSOCKET</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/connecttimeout.html">connecttimeout</a></td>
+<td>Time-out connect operations after this amount of seconds, if connects are OK within this time, then fine... This only aborts the connect phase. [Only works on unix-style/SIGALRM operating systems]</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/connecttimeout_ms.html">connecttimeout_ms</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/conv_from_network_function.html">conv_from_network_function</a></td>
+<td>Function that will be called to convert from the network encoding (instead of using the iconv calls in libcurl)</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/conv_from_utf8_function.html">conv_from_utf8_function</a></td>
+<td>Function that will be called to convert from UTF8 (instead of using the iconv calls in libcurl) Note that this is used only for SSL certificate processing</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/conv_to_network_function.html">conv_to_network_function</a></td>
+<td>Function that will be called to convert to the network encoding (instead of using the iconv calls in libcurl)</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/cookie.html">cookie</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/cookiefile.html">cookiefile</a></td>
+<td>point to a file to read the initial cookies from, also enables &quot;cookie awareness&quot;</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/cookiejar.html">cookiejar</a></td>
+<td>Specify which file name to write all known cookies in after completed operation. Set file name to &quot;-&quot; (dash) to make it go to stdout.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/cookielist.html">cookielist</a></td>
+<td>feed cookies into cookie engine</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/cookiesession.html">cookiesession</a></td>
+<td>mark this as start of a cookie session</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/copypostfields.html">copypostfields</a></td>
+<td>POST volatile input fields.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/crlf.html">crlf</a></td>
+<td>send TYPE parameter?</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/crlfile.html">crlfile</a></td>
+<td>CRL file</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/customrequest.html">customrequest</a></td>
+<td>Custom request, for customizing the get command like HTTP: DELETE, TRACE and others FTP: to use a different list command</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/debugdata.html">debugdata</a></td>
+<td>set the data for the debug function</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/debugfunction.html">debugfunction</a></td>
+<td>set the debug function</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/dirlistonly.html">dirlistonly</a></td>
+<td>return bare names when listing directories</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/dns_cache_timeout.html">dns_cache_timeout</a></td>
+<td>DNS cache timeout</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/dns_use_global_cache.html">dns_use_global_cache</a></td>
+<td>Non-zero value means to use the global dns cache</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/egdsocket.html">egdsocket</a></td>
+<td>Set to the Entropy Gathering Daemon socket pathname</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/encoding.html">encoding</a></td>
+<td>Set the Accept-Encoding string. Use this to tell a server you would like the response to be compressed.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/errorbuffer.html">errorbuffer</a></td>
+<td>Buffer to receive error messages in, must be at least CURL_ERROR_SIZE bytes big. If this is not used, error messages go to stderr instead:</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/failonerror.html">failonerror</a></td>
+<td>no output on http error codes &gt;= 300</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/file.html">file</a></td>
+<td>This is the FILE **or void ** the regular output should be written to.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/filetime.html">filetime</a></td>
+<td>Pass a long set to 1 to get the date of the requested document (if possible)! Pass a zero to shut it off.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/fnmatch_data.html">fnmatch_data</a></td>
+<td>FNMATCH_FUNCTION user pointer</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/fnmatch_function.html">fnmatch_function</a></td>
+<td>Change match (fnmatch-like) callback for wildcard matching</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/followlocation.html">followlocation</a></td>
+<td>use Location: Luke!</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/forbid_reuse.html">forbid_reuse</a></td>
+<td>Set to explicitly forbid the upcoming transfer's connection to be re-used when done. Do not use this unless you're absolutely sure of this, as it makes the operation slower and is less friendly for the network.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/fresh_connect.html">fresh_connect</a></td>
+<td>Set to explicitly use a new connection for the upcoming transfer. Do not use this unless you're absolutely sure of this, as it makes the operation slower and is less friendly for the network.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/ftp_account.html">ftp_account</a></td>
+<td>zero terminated string for pass on to the FTP server when asked for &quot;account&quot; info</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/ftp_alternative_to_user.html">ftp_alternative_to_user</a></td>
+<td>Pointer to command string to send if USER/PASS fails.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/ftp_create_missing_dirs.html">ftp_create_missing_dirs</a></td>
+<td>FTP Option that causes missing dirs to be created on the remote server. In 7.19.4 we introduced the convenience enums for this option using the CURLFTP_CREATE_DIR prefix.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/ftp_filemethod.html">ftp_filemethod</a></td>
+<td>Select &quot;file method&quot; to use when doing FTP, see the curl_ftpmethod above.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/ftp_response_timeout.html">ftp_response_timeout</a></td>
+<td>FTP option that changes the timeout, in seconds, associated with getting a response.  This is different from transfer timeout time and essentially places a demand on the FTP server to acknowledge commands in a timely manner.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/ftp_skip_pasv_ip.html">ftp_skip_pasv_ip</a></td>
+<td>Set to non-zero to skip the IP address received in a 227 PASV FTP server response. Typically used for FTP-SSL purposes but is not restricted to that. libcurl will then instead use the same IP address it used for the control connection.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/ftp_ssl_ccc.html">ftp_ssl_ccc</a></td>
+<td>Send CCC (Clear Command Channel) after authentication</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/ftp_use_eprt.html">ftp_use_eprt</a></td>
+<td>Specifically switch on or off the FTP engine's use of the EPRT command ( it also disables the LPRT attempt). By default, those ones will always be attempted before the good old traditional PORT command.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/ftp_use_epsv.html">ftp_use_epsv</a></td>
+<td>Specifically switch on or off the FTP engine's use of the EPSV command. By default, that one will always be attempted before the more traditional PASV command.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/ftp_use_pret.html">ftp_use_pret</a></td>
+<td>FTP: send PRET before PASV</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/ftpport.html">ftpport</a></td>
+<td>Set the FTP PORT string (interface name, named or numerical IP address) Use i.e '-' to use default address.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/ftpsslauth.html">ftpsslauth</a></td>
+<td>When FTP over SSL/TLS is selected (with CURLOPT_USE_SSL), this option can be used to change libcurl's default action which is to first try &quot;AUTH SSL&quot; and then &quot;AUTH TLS&quot; in this order, and proceed when a OK response has been received.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/header.html">header</a></td>
+<td>throw the header out too</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/headerdata.html">headerdata</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/headerfunction.html">headerfunction</a></td>
+<td>Function that will be called to store headers (instead of fwrite). The parameters will use fwrite() syntax, make sure to follow them.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/http_content_decoding.html">http_content_decoding</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/http_transfer_decoding.html">http_transfer_decoding</a></td>
+<td>set to zero to disable the libcurl's decoding and thus pass the raw body data to the application even when it is encoded/compressed</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/http_version.html">http_version</a></td>
+<td>Specify which HTTP version to use! This must be set to one of the CURL_HTTP_VERSION* enums set below.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/http200aliases.html">http200aliases</a></td>
+<td>Set aliases for HTTP 200 in the HTTP Response header</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/httpauth.html">httpauth</a></td>
+<td>Set this to a bitmask value to enable the particular authentications methods you like. Use this in combination with CURLOPT_USERPWD. Note that setting multiple bits may cause extra network round-trips.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/httpget.html">httpget</a></td>
+<td>Set this to force the HTTP request to get back to GET. Only really usable if POST, PUT or a custom request have been used first.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/httpheader.html">httpheader</a></td>
+<td>This points to a linked list of headers, struct curl_slist kind</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/httppost.html">httppost</a></td>
+<td>This points to a linked list of post entries, struct curl_httppost</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/httpproxytunnel.html">httpproxytunnel</a></td>
+<td>tunnel non-http operations through a HTTP proxy</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/ignore_content_length.html">ignore_content_length</a></td>
+<td>ignore Content-Length</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/infile.html">infile</a></td>
+<td>not used</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/infilesize.html">infilesize</a></td>
+<td>If the CURLOPT_INFILE is used, this can be used to inform libcurl about how large the file being sent really is. That allows better error checking and better verifies that the upload was successful. -1 means unknown size.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/infilesize_large.html">infilesize_large</a></td>
+<td>See the comment for INFILESIZE above, but in short, specifies the size of the file being uploaded.  -1 means unknown.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/interleavedata.html">interleavedata</a></td>
+<td>The stream to pass to INTERLEAVEFUNCTION.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/interleavefunction.html">interleavefunction</a></td>
+<td>Let the application define a custom write method for RTP data</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/intrface.html">intrface</a></td>
+<td>Set the interface string to use as outgoing network interface</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/ioctldata.html">ioctldata</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/ioctlfunction.html">ioctlfunction</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/ipresolve.html">ipresolve</a></td>
+<td>Set this option to one of the CURL_IPRESOLVE_* defines (see below) to tell libcurl to resolve names to those IP versions only. This only has affect on systems with support for more than one, i.e IPv4 <em>and</em> IPv6.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/issuercert.html">issuercert</a></td>
+<td>Issuer certificate</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/keypasswd.html">keypasswd</a></td>
+<td>password for the SSL or SSH private key</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/krblevel.html">krblevel</a></td>
+<td>Set the krb4/5 security level, this also enables krb4/5 awareness.  This is a string, 'clear', 'safe', 'confidential' or 'private'.  If the string is set but doesn't match one of these, 'private' will be used.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/lastentry.html">lastentry</a></td>
+<td>the last unused</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/localport.html">localport</a></td>
+<td>Local port number to bind the socket to</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/localportrange.html">localportrange</a></td>
+<td>Number of ports to try, including the first one set with LOCALPORT. Thus, setting it to 1 will make no additional attempts but the first.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/low_speed_limit.html">low_speed_limit</a></td>
+<td>If the download receives less than &quot;low speed limit&quot; bytes/second during &quot;low speed time&quot; seconds, the operations is aborted. You could i.e if you have a pretty high speed connection, abort if it is less than 2000 bytes/sec during 20 seconds.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/low_speed_time.html">low_speed_time</a></td>
+<td>Set the &quot;low speed time&quot;</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/mail_from.html">mail_from</a></td>
+<td>set the SMTP mail originator</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/mail_rcpt.html">mail_rcpt</a></td>
+<td>set the SMTP mail receiver(s)</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/max_recv_speed_large.html">max_recv_speed_large</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/max_send_speed_large.html">max_send_speed_large</a></td>
+<td>If the connection proceeds too quickly then need to slow it down</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/maxconnects.html">maxconnects</a></td>
+<td>Max amount of cached alive connections</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/maxfilesize.html">maxfilesize</a></td>
+<td>Set this option to limit the size of a file that will be downloaded from an HTTP or FTP server.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/maxfilesize_large.html">maxfilesize_large</a></td>
+<td>Sets the maximum size of data that will be downloaded from an HTTP or FTP server.  See MAXFILESIZE above for the LONG version.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/maxredirs.html">maxredirs</a></td>
+<td>Maximum number of http redirects to follow</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/netrc.html">netrc</a></td>
+<td>Specify whether to read the user+password from the .netrc or the URL. This must be one of the CURL_NETRC_* enums below.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/netrc_file.html">netrc_file</a></td>
+<td>Set this option to the file name of your .netrc file you want libcurl to parse (using the CURLOPT_NETRC option). If not set, libcurl will do a poor attempt to find the user's home directory and check for a .netrc file in there.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/new_directory_perms.html">new_directory_perms</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/new_file_perms.html">new_file_perms</a></td>
+<td>Permission used when creating new files and directories on the remote server for protocols that support it, SFTP/SCP/FILE</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/nobody.html">nobody</a></td>
+<td>use HEAD to get http document</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/noprogress.html">noprogress</a></td>
+<td>shut off the progress meter</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/noproxy.html">noproxy</a></td>
+<td>Comma separated list of hostnames defining no-proxy zones. These should match both hostnames directly, and hostnames within a domain. For example, local.com will match local.com and <a href="http://www.local.com">www.local.com</a>, but NOT notlocal.com or <a href="http://www.notlocal.com">www.notlocal.com</a>. For compatibility with other implementations of this, .local.com will be considered to be the same as local.com. A single is the only valid wildcard, and effectively disables the use of proxy.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/nosignal.html">nosignal</a></td>
+<td>Instruct libcurl to not use any signal/alarm handlers, even when using timeouts. This option is useful for multi-threaded applications. See libcurl-the-guide for more background information.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/opensocketdata.html">opensocketdata</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/opensocketfunction.html">opensocketfunction</a></td>
+<td>Callback function for opening socket (instead of socket(2)). Optionally, callback is able change the address or refuse to connect returning CURL_SOCKET_BAD.  The callback should have type curl_opensocket_callback</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/password.html">password</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/port.html">port</a></td>
+<td>Port number to connect to, if other than default.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/post.html">post</a></td>
+<td>HTTP POST method</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/postfields.html">postfields</a></td>
+<td>POST static input fields.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/postfieldsize.html">postfieldsize</a></td>
+<td>size of the POST input data, if strlen() is not good to use</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/postfieldsize_large.html">postfieldsize_large</a></td>
+<td>The LARGE version of the standard POSTFIELDSIZE option</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/postquote.html">postquote</a></td>
+<td>send linked-list of post-transfer QUOTE commands</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/postredir.html">postredir</a></td>
+<td>Set the behaviour of POST when redirecting. Values must be set to one of CURL_REDIR* defines below. This used to be called CURLOPT_POST301</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/prequote.html">prequote</a></td>
+<td>send linked-list of pre-transfer QUOTE commands</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/private_opt.html">private_opt</a></td>
+<td>Set pointer to private data</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/progressdata.html">progressdata</a></td>
+<td>Data passed to the progress callback</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/progressfunction.html">progressfunction</a></td>
+<td>Function that will be called instead of the internal progress display function. This function should be defined as the curl_progress_callback prototype defines.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/protocols.html">protocols</a></td>
+<td>set the bitmask for the protocols that are allowed to be used for the transfer, which thus helps the app which takes URLs from users or other external inputs and want to restrict what protocol(s) to deal with. Defaults to CURLPROTO_ALL.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/proxy.html">proxy</a></td>
+<td>Name of proxy to use.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/proxy_transfer_mode.html">proxy_transfer_mode</a></td>
+<td>set transfer mode (;type=<span class="math">\((LT)a`|`i\)</span>(GT)) when doing FTP via an HTTP proxy</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/proxyauth.html">proxyauth</a></td>
+<td>Set this to a bitmask value to enable the particular authentications methods you like. Use this in combination with CURLOPT_PROXYUSERPWD. Note that setting multiple bits may cause extra network round-trips.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/proxypassword.html">proxypassword</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/proxyport.html">proxyport</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/proxytype.html">proxytype</a></td>
+<td>indicates type of proxy. accepted values are CURLPROXY_HTTP (default), CURLPROXY_SOCKS4, CURLPROXY_SOCKS4A and CURLPROXY_SOCKS5.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/proxyusername.html">proxyusername</a></td>
+<td>&quot;name&quot; and &quot;pwd&quot; to use with Proxy when fetching.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/proxyuserpwd.html">proxyuserpwd</a></td>
+<td>&quot;name:password&quot; to use with proxy.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/put.html">put</a></td>
+<td>HTTP PUT</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/quote.html">quote</a></td>
+<td>send linked-list of QUOTE commands</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/random_file.html">random_file</a></td>
+<td>Set to a file name that contains random data for libcurl to use to seed the random engine when doing SSL connects.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/range.html">range</a></td>
+<td>Range to get, specified as an ASCII string.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/readdata.html">readdata</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/readfunction.html">readfunction</a></td>
+<td>Function that will be called to read the input (instead of fread). The parameters will use fread() syntax, make sure to follow them.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/redir_protocols.html">redir_protocols</a></td>
+<td>set the bitmask for the protocols that libcurl is allowed to follow to, as a subset of the CURLOPT_PROTOCOLS ones. That means the protocol needs to be set in both bitmasks to be allowed to get redirected to. Defaults to all protocols except FILE and SCP.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/referer.html">referer</a></td>
+<td>Set the referrer page (needed by some CGIs)</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/resolve.html">resolve</a></td>
+<td>send linked-list of name:port:address sets</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/resume_from.html">resume_from</a></td>
+<td>Set the continuation offset.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/resume_from_large.html">resume_from_large</a></td>
+<td>Sets the continuation offset.  There is also a LONG version of this; look above for RESUME_FROM.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/rtsp_client_cseq.html">rtsp_client_cseq</a></td>
+<td>Manually initialize the client RTSP CSeq for this handle</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/rtsp_request.html">rtsp_request</a></td>
+<td>RTSP request method (OPTIONS, SETUP, PLAY, etc...)</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/rtsp_server_cseq.html">rtsp_server_cseq</a></td>
+<td>Manually initialize the server RTSP CSeq for this handle</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/rtsp_session_id.html">rtsp_session_id</a></td>
+<td>The RTSP session identifier</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/rtsp_stream_uri.html">rtsp_stream_uri</a></td>
+<td>The RTSP stream URI</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/rtsp_transport.html">rtsp_transport</a></td>
+<td>The Transport: header to use in RTSP requests</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/rtspheader.html">rtspheader</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/seekdata.html">seekdata</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/seekfunction.html">seekfunction</a></td>
+<td>Callback function for seeking in the input stream</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/share.html">share</a></td>
+<td>Provide a CURLShare for mutexing non-ts data</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/sockoptdata.html">sockoptdata</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/sockoptfunction.html">sockoptfunction</a></td>
+<td>callback function for setting socket options</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/socks5_gssapi_nec.html">socks5_gssapi_nec</a></td>
+<td>Socks Service</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/socks5_gssapi_service.html">socks5_gssapi_service</a></td>
+<td>Socks Service</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/ssh_auth_types.html">ssh_auth_types</a></td>
+<td>allowed SSH authentication methods</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/ssh_host_public_key_md5.html">ssh_host_public_key_md5</a></td>
+<td>used by scp/sftp to verify the host's public key</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/ssh_keydata.html">ssh_keydata</a></td>
+<td>set the SSH host key callback custom pointer</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/ssh_keyfunction.html">ssh_keyfunction</a></td>
+<td>set the SSH host key callback, must point to a curl_sshkeycallback function</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/ssh_knownhosts.html">ssh_knownhosts</a></td>
+<td>set the SSH knownhost file name to use</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/ssh_private_keyfile.html">ssh_private_keyfile</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/ssh_public_keyfile.html">ssh_public_keyfile</a></td>
+<td>Used by scp/sftp to do public/private key authentication</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/ssl_cipher_list.html">ssl_cipher_list</a></td>
+<td>Specify which SSL ciphers to use</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/ssl_ctx_data.html">ssl_ctx_data</a></td>
+<td>Set the userdata for the ssl context callback function's third argument</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/ssl_ctx_function.html">ssl_ctx_function</a></td>
+<td>Set the ssl context callback function, currently only for OpenSSL ssl_ctx in second argument. The function must be matching the curl_ssl_ctx_callback proto.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/ssl_sessionid_cache.html">ssl_sessionid_cache</a></td>
+<td>set to 0 to disable session ID re-use for this transfer, default is enabled (== 1)</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/ssl_verifyhost.html">ssl_verifyhost</a></td>
+<td>Set if we should verify the Common name from the peer certificate in ssl handshake, set 1 to check existence, 2 to ensure that it matches the provided hostname.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/ssl_verifypeer.html">ssl_verifypeer</a></td>
+<td>Set if we should verify the peer in ssl handshake, set 1 to verify.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/sslcert.html">sslcert</a></td>
+<td>name of the file keeping your private SSL-certificate</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/sslcerttype.html">sslcerttype</a></td>
+<td>type of the file keeping your SSL-certificate (&quot;DER&quot;, &quot;PEM&quot;, &quot;ENG&quot;)</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/sslengine.html">sslengine</a></td>
+<td>crypto engine for the SSL-sub system</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/sslengine_default.html">sslengine_default</a></td>
+<td>set the crypto engine for the SSL-sub system as default the param has no meaning...</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/sslkey.html">sslkey</a></td>
+<td>name of the file keeping your private SSL-key</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/sslkeytype.html">sslkeytype</a></td>
+<td>type of the file keeping your private SSL-key (&quot;DER&quot;, &quot;PEM&quot;, &quot;ENG&quot;)</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/sslversion.html">sslversion</a></td>
+<td>What version to specifically try to use. See CURL_SSLVERSION defines below.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/stderr.html">stderr</a></td>
+<td>HTTP request, for odd commands like DELETE, TRACE and others</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/tcp_nodelay.html">tcp_nodelay</a></td>
+<td>Enable/disable the TCP Nagle algorithm</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/telnetoptions.html">telnetoptions</a></td>
+<td>This points to a linked list of telnet options</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/tftp_blksize.html">tftp_blksize</a></td>
+<td>block size for TFTP transfers</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/timecondition.html">timecondition</a></td>
+<td>What kind of HTTP time condition to use, see defines</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/timeout.html">timeout</a></td>
+<td>Time-out the read operation after this amount of seconds</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/timeout_ms.html">timeout_ms</a></td>
+<td>Same as TIMEOUT and CONNECTTIMEOUT, but with ms resolution</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/timevalue.html">timevalue</a></td>
+<td>Time to use with the above condition. Specified in number of seconds since 1 Jan 1970</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/tlsauth_password.html">tlsauth_password</a></td>
+<td>Set a password for authenticated TLS</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/tlsauth_type.html">tlsauth_type</a></td>
+<td>Set authentication type for authenticated TLS</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/tlsauth_username.html">tlsauth_username</a></td>
+<td>Set a username for authenticated TLS</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/transfertext.html">transfertext</a></td>
+<td>transfer data in text/ASCII format</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/unrestricted_auth.html">unrestricted_auth</a></td>
+<td>Continue to send authentication (user+password) when following locations, even when hostname changed. This can potentially send off the name and password to whatever host the server decides.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/upload.html">upload</a></td>
+<td>this is an upload</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/url.html">url</a></td>
+<td>The full URL to get/put</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/use_ssl.html">use_ssl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/useragent.html">useragent</a></td>
+<td>Set the User-Agent string (examined by some CGIs)</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/username.html">username</a></td>
+<td>&quot;name&quot; and &quot;pwd&quot; to use when fetching.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/userpwd.html">userpwd</a></td>
+<td>&quot;name:password&quot; to use when fetching.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/verbose.html">verbose</a></td>
+<td>talk a lot</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/wildcardmatch.html">wildcardmatch</a></td>
+<td>Turn on wildcard matching</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/writedata.html">writedata</a></td>
+<td>convenient alias</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/writefunction.html">writefunction</a></td>
+<td>Function that will be called to store the output (instead of fwrite). The parameters will use fwrite() syntax, make sure to follow them.</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/writeheader.html">writeheader</a></td>
+<td>send FILE **or void ** to store headers to, if you use a callback it is simply passed to the callback unmodified</td>
+</tr>
+<tr>
+<td><a href="../CurlOption/CurlOption/Variables/writeinfo.html">writeinfo</a></td>
+<td>Pass a pointer to string of the output using full variable-replacement as described elsewhere.</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -151,7 +151,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../FreeList/Aliases/alignment.html">alignment</a></td>
+<td><a href="../FreeList/FreeList/Aliases/alignment.html">alignment</a></td>
 <td>Alignment offered.</td>
 </tr>
 </tbody>
@@ -165,51 +165,51 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../FreeList/Functions/allocate.html">allocate</a></td>
+<td><a href="../FreeList/FreeList/Functions/allocate.html">allocate</a></td>
 <td>Allocates memory either off of the free list or from the parent allocator. If <code>n</code> is within <span class="math">\((D [min, max]) or if the free list is unchecked (\)</span>(D minSize == 0 &amp;&amp; maxSize == size_t.max)), then the free list is consulted first. If not empty (hit), the block at the front of the free list is removed from the list and returned. Otherwise (miss), a new block of <code>max</code> bytes is allocated, truncated to <code>n</code> bytes, and returned.</td>
 </tr>
 <tr>
-<td><a href="../FreeList/Functions/blockFor.html">blockFor</a></td>
+<td><a href="../FreeList/FreeList/Functions/blockFor.html">blockFor</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../FreeList/Functions/deallocate.html">deallocate</a></td>
+<td><a href="../FreeList/FreeList/Functions/deallocate.html">deallocate</a></td>
 <td>If <code>block.length</code> is within <span class="math">\((D [min, max]) or if the free list is unchecked (\)</span>(D minSize == 0 &amp;&amp; maxSize == size_t.max)), then inserts the block at the front of the free list. For all others, forwards to $(D parent.deallocate) if <code>Parent.deallocate</code> is defined.</td>
 </tr>
 <tr>
-<td><a href="../FreeList/Functions/deallocateAll.html">deallocateAll</a></td>
+<td><a href="../FreeList/FreeList/Functions/deallocateAll.html">deallocateAll</a></td>
 <td>Defined only if <code>ParentAllocator</code> defines <code>deallocateAll</code> . If so, forwards to it and resets the freelist.</td>
 </tr>
 <tr>
-<td><a href="../FreeList/Functions/freeListEligible.html">freeListEligible</a></td>
+<td><a href="../FreeList/FreeList/Functions/freeListEligible.html">freeListEligible</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../FreeList/Functions/goodAllocSize.html">goodAllocSize</a></td>
+<td><a href="../FreeList/FreeList/Functions/goodAllocSize.html">goodAllocSize</a></td>
 <td>If $(D maxSize == unbounded), returns  <code>parent.goodAllocSize(bytes)</code> . Otherwise, returns <code>max</code> for sizes in the interval $(D [min, max]), and <code>parent.goodAllocSize(bytes)</code> otherwise.</td>
 </tr>
 <tr>
-<td><a href="../FreeList/Functions/max.html">max</a></td>
+<td><a href="../FreeList/FreeList/Functions/max.html">max</a></td>
 <td>Returns the largest allocation size eligible for allocation from the freelist. (If $(D maxSize != chooseAtRuntime), this is simply an alias for <code>maxSize</code> .) All allocation requests for sizes greater than or equal to <code>min</code> and less than or equal to <code>max</code> are rounded to $(D max) and forwarded to the parent allocator. When the block fitting the same constraint gets deallocated, it is put in the freelist with the allocated size assumed to be <code>max</code> .</td>
 </tr>
 <tr>
-<td><a href="../FreeList/Functions/min.html">min</a></td>
+<td><a href="../FreeList/FreeList/Functions/min.html">min</a></td>
 <td>Returns the smallest allocation size eligible for allocation from the freelist. (If $(D minSize != chooseAtRuntime), this is simply an alias for <code>minSize</code> .)</td>
 </tr>
 <tr>
-<td><a href="../FreeList/Functions/minimize.html">minimize</a></td>
+<td><a href="../FreeList/FreeList/Functions/minimize.html">minimize</a></td>
 <td>Nonstandard function that minimizes the memory usage of the freelist by freeing each element in turn. Defined only if <code>ParentAllocator</code> defines <code>deallocate</code> . $(D FreeList!(0, unbounded)) does not have this function.</td>
 </tr>
 <tr>
-<td><a href="../FreeList/Functions/tooLarge.html">tooLarge</a></td>
+<td><a href="../FreeList/FreeList/Functions/tooLarge.html">tooLarge</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../FreeList/Functions/tooSmall.html">tooSmall</a></td>
+<td><a href="../FreeList/FreeList/Functions/tooSmall.html">tooSmall</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../FreeList/Functions/updateStats.html">updateStats</a></td>
+<td><a href="../FreeList/FreeList/Functions/updateStats.html">updateStats</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -223,39 +223,39 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../FreeList/Variables/accumMisses.html">accumMisses</a></td>
+<td><a href="../FreeList/FreeList/Variables/accumMisses.html">accumMisses</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../FreeList/Variables/accumSamples.html">accumSamples</a></td>
+<td><a href="../FreeList/FreeList/Variables/accumSamples.html">accumSamples</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../FreeList/Variables/hasTolerance.html">hasTolerance</a></td>
+<td><a href="../FreeList/FreeList/Variables/hasTolerance.html">hasTolerance</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../FreeList/Variables/parent.html">parent</a></td>
+<td><a href="../FreeList/FreeList/Variables/parent.html">parent</a></td>
 <td>The parent allocator. Depending on whether <code>ParentAllocator</code> holds state or not, this is a member variable or an alias for <code>ParentAllocator.instance</code> .</td>
 </tr>
 <tr>
-<td><a href="../FreeList/Variables/probMiss.html">probMiss</a></td>
+<td><a href="../FreeList/FreeList/Variables/probMiss.html">probMiss</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../FreeList/Variables/root.html">root</a></td>
+<td><a href="../FreeList/FreeList/Variables/root.html">root</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../FreeList/Variables/tooFewMisses.html">tooFewMisses</a></td>
+<td><a href="../FreeList/FreeList/Variables/tooFewMisses.html">tooFewMisses</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../FreeList/Variables/unchecked.html">unchecked</a></td>
+<td><a href="../FreeList/FreeList/Variables/unchecked.html">unchecked</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../FreeList/Variables/windowLength.html">windowLength</a></td>
+<td><a href="../FreeList/FreeList/Variables/windowLength.html">windowLength</a></td>
 <td></td>
 </tr>
 </tbody>

@@ -174,7 +174,7 @@
 </tr>
 </tbody>
 </table>
-<h2 class='section'>Structs</h2><table>
+<h2 class='section'>Enums</h2><table>
 <thead>
 <tr>
 <th>Name</th>
@@ -183,75 +183,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="Structs/assumeSize.html">assumeSize</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/BitPacked.html">BitPacked</a></td>
-<td><span class="math">\((P Opaque wrapper around unsigned built-in integers and code unit (char/wchar/dchar) types. Parameter `sz` indicates that the value is confined to the range of [0, 2^^sz\)</span>(RPAREN). With this knowledge it can be packed more tightly when stored in certain data-structures like trie. )</td>
-</tr>
-<tr>
-<td><a href="Structs/clamp.html">clamp</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/clampIdx.html">clampIdx</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/CodepointInterval.html">CodepointInterval</a></td>
-<td>The recommended type of <span class="math">\((REF Tuple, std,_typecons) to represent [a, b\)</span>(RPAREN) intervals of $(CODEPOINTS). As used in $(LREF InversionList). Any interval type should pass $(LREF isIntegralPair) trait.</td>
-</tr>
-<tr>
-<td><a href="Structs/CowArray.html">CowArray</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/DecompressedIntervals.html">DecompressedIntervals</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/GcPolicy.html">GcPolicy</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/InversionList.html">InversionList</a></td>
-<td>$(P <code>InversionList</code> is a set of <span class="math">\((CODEPOINTS) represented as an array of open-right [a, b\)</span>(RPAREN) intervals (see <span class="math">\((LREF CodepointInterval) above). The name comes from the way the representation reads left to right. For instance a set of all values [10, 50\)</span>(RPAREN), [80, 90$(RPAREN), plus a singular value 60 looks like this: ) --- 10, 50, 60, 61, 80, 90 --- $(P The way to read this is: start with negative meaning that all numbers smaller then the next one are not present in this set (and positive - the contrary). Then switch positive/negative after each number passed from left to right. ) $(P This way negative spans until 10, then positive until 50, then negative until 60, then positive until 61, and so on. As seen this provides a space-efficient storage of highly redundant data that comes in long runs. A description which Unicode $(CHARACTER) properties fit nicely. The technique itself could be seen as a variation on $(LINK2 https://en.wikipedia.org/wiki/Run-length_encoding, RLE encoding). )</td>
-</tr>
-<tr>
-<td><a href="Structs/MatcherConcept.html">MatcherConcept</a></td>
-<td>Conceptual type that outlines the common properties of all UTF Matchers.</td>
-</tr>
-<tr>
-<td><a href="Structs/MultiArray.html">MultiArray</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/PackedArrayViewImpl.html">PackedArrayViewImpl</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/PackedPtrImpl.html">PackedPtrImpl</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/ReallocPolicy.html">ReallocPolicy</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/sliceBits.html">sliceBits</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/SliceOverIndexed.html">SliceOverIndexed</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/Trie.html">Trie</a></td>
-<td>$(P A generic Trie data-structure for a fixed number of stages. The design goal is optimal speed with smallest footprint size. ) $(P It's intentionally read-only and doesn't provide constructors. To construct one use a special builder, see $(LREF TrieBuilder) and $(LREF buildTrie). )</td>
-</tr>
-<tr>
-<td><a href="Structs/TrieBuilder.html">TrieBuilder</a></td>
+<td><a href="Enums/Mode.html">Mode</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -426,6 +358,158 @@
 </tr>
 <tr>
 <td><a href="Functions/write24.html">write24</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Structs/assumeSize.html">assumeSize</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/BitPacked.html">BitPacked</a></td>
+<td><span class="math">\((P Opaque wrapper around unsigned built-in integers and code unit (char/wchar/dchar) types. Parameter `sz` indicates that the value is confined to the range of [0, 2^^sz\)</span>(RPAREN). With this knowledge it can be packed more tightly when stored in certain data-structures like trie. )</td>
+</tr>
+<tr>
+<td><a href="Structs/clamp.html">clamp</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/clampIdx.html">clampIdx</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/CodepointInterval.html">CodepointInterval</a></td>
+<td>The recommended type of <span class="math">\((REF Tuple, std,_typecons) to represent [a, b\)</span>(RPAREN) intervals of $(CODEPOINTS). As used in $(LREF InversionList). Any interval type should pass $(LREF isIntegralPair) trait.</td>
+</tr>
+<tr>
+<td><a href="Structs/CowArray.html">CowArray</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/DecompressedIntervals.html">DecompressedIntervals</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/GcPolicy.html">GcPolicy</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/InversionList.html">InversionList</a></td>
+<td>$(P <code>InversionList</code> is a set of <span class="math">\((CODEPOINTS) represented as an array of open-right [a, b\)</span>(RPAREN) intervals (see <span class="math">\((LREF CodepointInterval) above). The name comes from the way the representation reads left to right. For instance a set of all values [10, 50\)</span>(RPAREN), [80, 90$(RPAREN), plus a singular value 60 looks like this: ) --- 10, 50, 60, 61, 80, 90 --- $(P The way to read this is: start with negative meaning that all numbers smaller then the next one are not present in this set (and positive - the contrary). Then switch positive/negative after each number passed from left to right. ) $(P This way negative spans until 10, then positive until 50, then negative until 60, then positive until 61, and so on. As seen this provides a space-efficient storage of highly redundant data that comes in long runs. A description which Unicode $(CHARACTER) properties fit nicely. The technique itself could be seen as a variation on $(LINK2 https://en.wikipedia.org/wiki/Run-length_encoding, RLE encoding). )</td>
+</tr>
+<tr>
+<td><a href="Structs/MatcherConcept.html">MatcherConcept</a></td>
+<td>Conceptual type that outlines the common properties of all UTF Matchers.</td>
+</tr>
+<tr>
+<td><a href="Structs/MultiArray.html">MultiArray</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/PackedArrayViewImpl.html">PackedArrayViewImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/PackedPtrImpl.html">PackedPtrImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/ReallocPolicy.html">ReallocPolicy</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/sliceBits.html">sliceBits</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/SliceOverIndexed.html">SliceOverIndexed</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/Trie.html">Trie</a></td>
+<td>$(P A generic Trie data-structure for a fixed number of stages. The design goal is optimal speed with smallest footprint size. ) $(P It's intentionally read-only and doesn't provide constructors. To construct one use a special builder, see $(LREF TrieBuilder) and $(LREF buildTrie). )</td>
+</tr>
+<tr>
+<td><a href="Structs/TrieBuilder.html">TrieBuilder</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Templates</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Templates/bitSizeOf.html">bitSizeOf</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/callableWith.html">callableWith</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/codepointTrie.html">codepointTrie</a></td>
+<td>A slightly more general tool for building fixed <code>Trie</code> for the Unicode data.</td>
+</tr>
+<tr>
+<td><a href="Templates/ForwardStrings.html">ForwardStrings</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/fullBitSize.html">fullBitSize</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/GetBitSlicing.html">GetBitSlicing</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/GetComparators.html">GetComparators</a></td>
+<td>The most general utility for construction of <code>Trie</code> s short of using <code>TrieBuilder</code> directly.</td>
+</tr>
+<tr>
+<td><a href="Templates/idxTypes.html">idxTypes</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/isBitPacked.html">isBitPacked</a></td>
+<td>Tests if <code>T</code> is some instantiation of $(LREF BitPacked)!(U, x) and thus suitable for packing.</td>
+</tr>
+<tr>
+<td><a href="Templates/isCodepointSet.html">isCodepointSet</a></td>
+<td>Tests if T is some kind a set of code points. Intended for template constraints.</td>
+</tr>
+<tr>
+<td><a href="Templates/isValidArgsForTrie.html">isValidArgsForTrie</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/Sequence.html">Sequence</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/TypeOfBitPacked.html">TypeOfBitPacked</a></td>
+<td>Gives the type <code>U</code> from $(LREF BitPacked)!(U, x) or <code>T</code> itself for every other type.</td>
+</tr>
+<tr>
+<td><a href="Templates/Utf16Matcher.html">Utf16Matcher</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/Utf8Matcher.html">Utf8Matcher</a></td>
 <td></td>
 </tr>
 </tbody>

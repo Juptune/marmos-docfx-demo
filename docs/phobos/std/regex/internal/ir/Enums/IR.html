@@ -1,0 +1,354 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Enum - IR | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Enum - IR | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../../../index.html">
+            <img id="logo" class="svg" src="../../../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.regex.internal.ir.Enums.IR">
+<h1 class='section'>Enum - IR</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.regex.internal.ir</dd></dl>
+</div><pre><code class='lang-d'>enum IR
+{
+  // 
+  __enumMember Any;
+  // 
+  __enumMember Backref;
+  // 
+  __enumMember Bof;
+  // 
+  __enumMember Bol;
+  // 
+  __enumMember Char;
+  // 
+  __enumMember CodepointSet;
+  // 
+  __enumMember End;
+  // 
+  __enumMember Eof;
+  // 
+  __enumMember Eol;
+  // 
+  __enumMember GotoEndOr;
+  // 
+  __enumMember GroupEnd;
+  // 
+  __enumMember GroupStart;
+  // 
+  __enumMember InfiniteBloomEnd;
+  // 
+  __enumMember InfiniteBloomStart;
+  // 
+  __enumMember InfiniteEnd;
+  // 
+  __enumMember InfiniteQEnd;
+  // 
+  __enumMember InfiniteQStart;
+  // 
+  __enumMember InfiniteStart;
+  // 
+  __enumMember LookaheadEnd;
+  // 
+  __enumMember LookaheadStart;
+  // 
+  __enumMember LookbehindEnd;
+  // 
+  __enumMember LookbehindStart;
+  // 
+  __enumMember NeglookaheadEnd;
+  // 
+  __enumMember NeglookaheadStart;
+  // 
+  __enumMember NeglookbehindEnd;
+  // 
+  __enumMember NeglookbehindStart;
+  // 
+  __enumMember Nop;
+  // 
+  __enumMember Notwordboundary;
+  // 
+  __enumMember Option;
+  // 
+  __enumMember OrChar;
+  // 
+  __enumMember OrEnd;
+  // 
+  __enumMember OrStart;
+  // 
+  __enumMember RepeatEnd;
+  // 
+  __enumMember RepeatQEnd;
+  // 
+  __enumMember RepeatQStart;
+  // 
+  __enumMember RepeatStart;
+  // 
+  __enumMember Trie;
+  // 
+  __enumMember Wordboundary;
+}</code></pre><h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../IR/IR/Variables/Any.html">Any</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/Backref.html">Backref</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/Bof.html">Bof</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/Bol.html">Bol</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/Char.html">Char</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/CodepointSet.html">CodepointSet</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/End.html">End</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/Eof.html">Eof</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/Eol.html">Eol</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/GotoEndOr.html">GotoEndOr</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/GroupEnd.html">GroupEnd</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/GroupStart.html">GroupStart</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/InfiniteBloomEnd.html">InfiniteBloomEnd</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/InfiniteBloomStart.html">InfiniteBloomStart</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/InfiniteEnd.html">InfiniteEnd</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/InfiniteQEnd.html">InfiniteQEnd</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/InfiniteQStart.html">InfiniteQStart</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/InfiniteStart.html">InfiniteStart</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/LookaheadEnd.html">LookaheadEnd</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/LookaheadStart.html">LookaheadStart</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/LookbehindEnd.html">LookbehindEnd</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/LookbehindStart.html">LookbehindStart</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/NeglookaheadEnd.html">NeglookaheadEnd</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/NeglookaheadStart.html">NeglookaheadStart</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/NeglookbehindEnd.html">NeglookbehindEnd</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/NeglookbehindStart.html">NeglookbehindStart</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/Nop.html">Nop</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/Notwordboundary.html">Notwordboundary</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/Option.html">Option</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/OrChar.html">OrChar</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/OrEnd.html">OrEnd</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/OrStart.html">OrStart</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/RepeatEnd.html">RepeatEnd</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/RepeatQEnd.html">RepeatQEnd</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/RepeatQStart.html">RepeatQStart</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/RepeatStart.html">RepeatStart</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/Trie.html">Trie</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../IR/IR/Variables/Wordboundary.html">Wordboundary</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

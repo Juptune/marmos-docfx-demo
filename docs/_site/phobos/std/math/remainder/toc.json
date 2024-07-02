@@ -1,2 +1,0 @@
-
-{"order":100,"items":[{"name":"Overview","href":"Overview.html","topicHref":"Overview.html"},{"name":"Functions","includedFrom":"~/phobos/std/math/remainder/Functions/toc.yml","items":[{"name":"fmod","href":"Functions/fmod.html","topicHref":"Functions/fmod.html"},{"name":"modf","href":"Functions/modf.html","topicHref":"Functions/modf.html"},{"name":"remainder","href":"Functions/remainder.html","topicHref":"Functions/remainder.html"},{"name":"remquo","href":"Functions/remquo.html","topicHref":"Functions/remquo.html"}]}],"pdf":false}

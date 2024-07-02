@@ -1,0 +1,499 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Enum - EmailStatusCode | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Enum - EmailStatusCode | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../../index.html">
+            <img id="logo" class="svg" src="../../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.net.isemail.Enums.EmailStatusCode">
+<h1 class='section'>Enum - EmailStatusCode</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.net.isemail</dd></dl>
+</div><pre><code class='lang-d'>enum EmailStatusCode
+{
+  // All finer grained error checking is turned on. Address containing errors or warnings is considered invalid. A specific email status code will be returned indicating the error/warning of the address. 
+  __enumMember any;
+  // Address is valid within the message but cannot be used unmodified for the envelope 
+  __enumMember cFoldingWhitespace;
+  // Address contains comments 
+  __enumMember comment;
+  // Address contains deprecated elements but may still be valid in restricted contexts 
+  __enumMember deprecated_;
+  // Address contains a comment in a position that is deprecated 
+  __enumMember deprecatedComment;
+  // Address contains a comment or Folding White Space around the @ sign 
+  __enumMember deprecatedCommentFoldingWhitespaceNearAt;
+  // A comment contains a deprecated character 
+  __enumMember deprecatedCommentText;
+  // Address contains an obsolete form of Folding White Space 
+  __enumMember deprecatedFoldingWhitespace;
+  // The local part is in a deprecated form 
+  __enumMember deprecatedLocalPart;
+  // A quoted pair contains a deprecated character 
+  __enumMember deprecatedQuotedPair;
+  // A quoted string contains a deprecated character 
+  __enumMember deprecatedQuotedText;
+  // Address is valid but a DNS check was not successful 
+  __enumMember dnsWarning;
+  // Could not find an MX record for this domain but an A-record does exist 
+  __enumMember dnsWarningNoMXRecord;
+  // Could not find an MX record or an A-record for this domain 
+  __enumMember dnsWarningNoRecord;
+  // Address is invalid for any purpose 
+  __enumMember error;
+  // The address cannot end with a backslash 
+  __enumMember errorBackslashEnd;
+  // The address may not contain consecutive dots 
+  __enumMember errorConsecutiveDots;
+  // Address contains a carriage return that is not followed by a line feed 
+  __enumMember errorCrNoLf;
+  // A domain or subdomain cannot end with a hyphen 
+  __enumMember errorDomainHyphenEnd;
+  // A domain or subdomain cannot begin with a hyphen 
+  __enumMember errorDomainHyphenStart;
+  // Neither part of the address may end with a dot 
+  __enumMember errorDotEnd;
+  // Neither part of the address may begin with a dot 
+  __enumMember errorDotStart;
+  // A comment contains a character that is not allowed 
+  __enumMember errorExpectingCommentText;
+  // A domain literal contains a character that is not allowed 
+  __enumMember errorExpectingDomainText;
+  // The address contains a character that is not allowed in a quoted pair 
+  __enumMember errorExpectingQuotedPair;
+  // A quoted string contains a character that is not allowed 
+  __enumMember errorExpectingQuotedText;
+  // Address contains a character that is not allowed 
+  __enumMember errorExpectingText;
+  // Folding White Space contains consecutive CRLF sequences 
+  __enumMember errorFoldingWhitespaceCrflX2;
+  // Folding White Space ends with a CRLF sequence 
+  __enumMember errorFoldingWhitespaceCrLfEnd;
+  // Address has no domain part 
+  __enumMember errorNoDomain;
+  // Address has no local part 
+  __enumMember errorNoLocalPart;
+  // Address contains text after a comment or Folding White Space 
+  __enumMember errorTextAfterCommentFoldingWhitespace;
+  // Extra characters were found after the end of the domain literal 
+  __enumMember errorTextAfterDomainLiteral;
+  // Address contains text after a quoted string 
+  __enumMember errorTextAfterQuotedString;
+  // Unclosed comment 
+  __enumMember errorUnclosedComment;
+  // Domain literal is missing its closing bracket 
+  __enumMember errorUnclosedDomainLiteral;
+  // Unclosed quoted string 
+  __enumMember errorUnclosedQuotedString;
+  // Address contains Folding White Space 
+  __enumMember foldingWhitespace;
+  // Address is either considered valid or not, no finer grained error checking is performed. Returned email status code will be either Error or Valid. 
+  __enumMember none;
+  // Address is valid for SMTP but has unusual elements 
+  __enumMember rfc5321;
+  // Address is valid but at a literal address not a domain 
+  __enumMember rfc5321AddressLiteral;
+  // Address is valid but contains a :: that only elides one zero group 
+  __enumMember rfc5321IpV6Deprecated;
+  // Address is valid but contains a quoted string 
+  __enumMember rfc5321QuotedString;
+  // Address is valid but at a Top Level Domain 
+  __enumMember rfc5321TopLevelDomain;
+  // Address is valid but the Top Level Domain begins with a number 
+  __enumMember rfc5321TopLevelDomainNumeric;
+  // The address is only valid according to the broad definition of RFC 5322. It is otherwise invalid 
+  __enumMember rfc5322;
+  // Address is RFC 5322 compliant but contains domain characters that are not allowed by DNS 
+  __enumMember rfc5322Domain;
+  // The domain literal is not a valid RFC 5321 address literal 
+  __enumMember rfc5322DomainLiteral;
+  // The domain literal is not a valid RFC 5321 address literal and it contains obsolete characters 
+  __enumMember rfc5322DomainLiteralObsoleteText;
+  // The domain part is too long 
+  __enumMember rfc5322DomainTooLong;
+  // The IPv6 address contains an illegal group of characters 
+  __enumMember rfc5322IpV6BadChar;
+  // IPv6 address ends with a single colon 
+  __enumMember rfc5322IpV6ColonEnd;
+  // IPv6 address starts with a single colon 
+  __enumMember rfc5322IpV6ColonStart;
+  // The IPv6 literal address contains the wrong number of groups 
+  __enumMember rfc5322IpV6GroupCount;
+  // The IPv6 address has too many groups 
+  __enumMember rfc5322IpV6MaxGroups;
+  // The IPv6 literal address contains too many :: sequences 
+  __enumMember rfc5322IpV6TooManyDoubleColons;
+  // The domain part contains an element that is too long 
+  __enumMember rfc5322LabelTooLong;
+  // The local part of the address is too long 
+  __enumMember rfc5322LocalTooLong;
+  // Address is too long 
+  __enumMember rfc5322TooLong;
+  // Address is valid 
+  __enumMember valid;
+  // Address is valid 
+  __enumMember validCategory;
+  // Address containing warnings is considered valid, that is, any status code below 16 is considered valid. 
+  __enumMember warning;
+}</code></pre><h2 class='section'>About</h2><p>An email status code, indicating if an email address is valid or not. If it is invalid it also indicates why.</p>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/any.html">any</a></td>
+<td>All finer grained error checking is turned on. Address containing errors or warnings is considered invalid. A specific email status code will be returned indicating the error/warning of the address.</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/cFoldingWhitespace.html">cFoldingWhitespace</a></td>
+<td>Address is valid within the message but cannot be used unmodified for the envelope</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/comment.html">comment</a></td>
+<td>Address contains comments</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/deprecated_.html">deprecated_</a></td>
+<td>Address contains deprecated elements but may still be valid in restricted contexts</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/deprecatedComment.html">deprecatedComment</a></td>
+<td>Address contains a comment in a position that is deprecated</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/deprecatedCommentFoldingWhitespaceNearAt.html">deprecatedCommentFoldingWhitespaceNearAt</a></td>
+<td>Address contains a comment or Folding White Space around the @ sign</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/deprecatedCommentText.html">deprecatedCommentText</a></td>
+<td>A comment contains a deprecated character</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/deprecatedFoldingWhitespace.html">deprecatedFoldingWhitespace</a></td>
+<td>Address contains an obsolete form of Folding White Space</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/deprecatedLocalPart.html">deprecatedLocalPart</a></td>
+<td>The local part is in a deprecated form</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/deprecatedQuotedPair.html">deprecatedQuotedPair</a></td>
+<td>A quoted pair contains a deprecated character</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/deprecatedQuotedText.html">deprecatedQuotedText</a></td>
+<td>A quoted string contains a deprecated character</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/dnsWarning.html">dnsWarning</a></td>
+<td>Address is valid but a DNS check was not successful</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/dnsWarningNoMXRecord.html">dnsWarningNoMXRecord</a></td>
+<td>Could not find an MX record for this domain but an A-record does exist</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/dnsWarningNoRecord.html">dnsWarningNoRecord</a></td>
+<td>Could not find an MX record or an A-record for this domain</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/error.html">error</a></td>
+<td>Address is invalid for any purpose</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/errorBackslashEnd.html">errorBackslashEnd</a></td>
+<td>The address cannot end with a backslash</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/errorConsecutiveDots.html">errorConsecutiveDots</a></td>
+<td>The address may not contain consecutive dots</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/errorCrNoLf.html">errorCrNoLf</a></td>
+<td>Address contains a carriage return that is not followed by a line feed</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/errorDomainHyphenEnd.html">errorDomainHyphenEnd</a></td>
+<td>A domain or subdomain cannot end with a hyphen</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/errorDomainHyphenStart.html">errorDomainHyphenStart</a></td>
+<td>A domain or subdomain cannot begin with a hyphen</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/errorDotEnd.html">errorDotEnd</a></td>
+<td>Neither part of the address may end with a dot</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/errorDotStart.html">errorDotStart</a></td>
+<td>Neither part of the address may begin with a dot</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/errorExpectingCommentText.html">errorExpectingCommentText</a></td>
+<td>A comment contains a character that is not allowed</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/errorExpectingDomainText.html">errorExpectingDomainText</a></td>
+<td>A domain literal contains a character that is not allowed</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/errorExpectingQuotedPair.html">errorExpectingQuotedPair</a></td>
+<td>The address contains a character that is not allowed in a quoted pair</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/errorExpectingQuotedText.html">errorExpectingQuotedText</a></td>
+<td>A quoted string contains a character that is not allowed</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/errorExpectingText.html">errorExpectingText</a></td>
+<td>Address contains a character that is not allowed</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/errorFoldingWhitespaceCrflX2.html">errorFoldingWhitespaceCrflX2</a></td>
+<td>Folding White Space contains consecutive CRLF sequences</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/errorFoldingWhitespaceCrLfEnd.html">errorFoldingWhitespaceCrLfEnd</a></td>
+<td>Folding White Space ends with a CRLF sequence</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/errorNoDomain.html">errorNoDomain</a></td>
+<td>Address has no domain part</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/errorNoLocalPart.html">errorNoLocalPart</a></td>
+<td>Address has no local part</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/errorTextAfterCommentFoldingWhitespace.html">errorTextAfterCommentFoldingWhitespace</a></td>
+<td>Address contains text after a comment or Folding White Space</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/errorTextAfterDomainLiteral.html">errorTextAfterDomainLiteral</a></td>
+<td>Extra characters were found after the end of the domain literal</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/errorTextAfterQuotedString.html">errorTextAfterQuotedString</a></td>
+<td>Address contains text after a quoted string</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/errorUnclosedComment.html">errorUnclosedComment</a></td>
+<td>Unclosed comment</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/errorUnclosedDomainLiteral.html">errorUnclosedDomainLiteral</a></td>
+<td>Domain literal is missing its closing bracket</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/errorUnclosedQuotedString.html">errorUnclosedQuotedString</a></td>
+<td>Unclosed quoted string</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/foldingWhitespace.html">foldingWhitespace</a></td>
+<td>Address contains Folding White Space</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/none.html">none</a></td>
+<td>Address is either considered valid or not, no finer grained error checking is performed. Returned email status code will be either Error or Valid.</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/rfc5321.html">rfc5321</a></td>
+<td>Address is valid for SMTP but has unusual elements</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/rfc5321AddressLiteral.html">rfc5321AddressLiteral</a></td>
+<td>Address is valid but at a literal address not a domain</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/rfc5321IpV6Deprecated.html">rfc5321IpV6Deprecated</a></td>
+<td>Address is valid but contains a :: that only elides one zero group</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/rfc5321QuotedString.html">rfc5321QuotedString</a></td>
+<td>Address is valid but contains a quoted string</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/rfc5321TopLevelDomain.html">rfc5321TopLevelDomain</a></td>
+<td>Address is valid but at a Top Level Domain</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/rfc5321TopLevelDomainNumeric.html">rfc5321TopLevelDomainNumeric</a></td>
+<td>Address is valid but the Top Level Domain begins with a number</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/rfc5322.html">rfc5322</a></td>
+<td>The address is only valid according to the broad definition of RFC 5322. It is otherwise invalid</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/rfc5322Domain.html">rfc5322Domain</a></td>
+<td>Address is RFC 5322 compliant but contains domain characters that are not allowed by DNS</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/rfc5322DomainLiteral.html">rfc5322DomainLiteral</a></td>
+<td>The domain literal is not a valid RFC 5321 address literal</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/rfc5322DomainLiteralObsoleteText.html">rfc5322DomainLiteralObsoleteText</a></td>
+<td>The domain literal is not a valid RFC 5321 address literal and it contains obsolete characters</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/rfc5322DomainTooLong.html">rfc5322DomainTooLong</a></td>
+<td>The domain part is too long</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/rfc5322IpV6BadChar.html">rfc5322IpV6BadChar</a></td>
+<td>The IPv6 address contains an illegal group of characters</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/rfc5322IpV6ColonEnd.html">rfc5322IpV6ColonEnd</a></td>
+<td>IPv6 address ends with a single colon</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/rfc5322IpV6ColonStart.html">rfc5322IpV6ColonStart</a></td>
+<td>IPv6 address starts with a single colon</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/rfc5322IpV6GroupCount.html">rfc5322IpV6GroupCount</a></td>
+<td>The IPv6 literal address contains the wrong number of groups</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/rfc5322IpV6MaxGroups.html">rfc5322IpV6MaxGroups</a></td>
+<td>The IPv6 address has too many groups</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/rfc5322IpV6TooManyDoubleColons.html">rfc5322IpV6TooManyDoubleColons</a></td>
+<td>The IPv6 literal address contains too many :: sequences</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/rfc5322LabelTooLong.html">rfc5322LabelTooLong</a></td>
+<td>The domain part contains an element that is too long</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/rfc5322LocalTooLong.html">rfc5322LocalTooLong</a></td>
+<td>The local part of the address is too long</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/rfc5322TooLong.html">rfc5322TooLong</a></td>
+<td>Address is too long</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/valid.html">valid</a></td>
+<td>Address is valid</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/validCategory.html">validCategory</a></td>
+<td>Address is valid</td>
+</tr>
+<tr>
+<td><a href="../EmailStatusCode/EmailStatusCode/Variables/warning.html">warning</a></td>
+<td>Address containing warnings is considered valid, that is, any status code below 16 is considered valid.</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

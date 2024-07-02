@@ -110,15 +110,15 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Mallocator/Functions/allocate.html">allocate</a></td>
+<td><a href="../Mallocator/Mallocator/Functions/allocate.html">allocate</a></td>
 <td>Standard allocator methods per the semantics defined above. The <code>deallocate</code> and <code>reallocate</code> methods are <code>@system</code> because they may move memory around, leaving dangling pointers in user code. Somewhat paradoxically, <code>malloc</code> is <code>@safe</code> but that's only useful to safe programs that can afford to leak memory allocated.</td>
 </tr>
 <tr>
-<td><a href="../Mallocator/Functions/deallocate.html">deallocate</a></td>
+<td><a href="../Mallocator/Mallocator/Functions/deallocate.html">deallocate</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../Mallocator/Functions/reallocate.html">reallocate</a></td>
+<td><a href="../Mallocator/Mallocator/Functions/reallocate.html">reallocate</a></td>
 <td>Ditto</td>
 </tr>
 </tbody>
@@ -132,11 +132,11 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Mallocator/Variables/alignment.html">alignment</a></td>
+<td><a href="../Mallocator/Mallocator/Variables/alignment.html">alignment</a></td>
 <td>The alignment is a static constant equal to <code>platformAlignment</code> , which ensures proper alignment for any D data type.</td>
 </tr>
 <tr>
-<td><a href="../Mallocator/Variables/instance.html">instance</a></td>
+<td><a href="../Mallocator/Mallocator/Variables/instance.html">instance</a></td>
 <td>Returns the global instance of this allocator type. The C heap allocator is thread-safe, therefore all of its methods and <code>it</code> itself are <code>shared</code> .</td>
 </tr>
 </tbody>

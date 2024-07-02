@@ -1,0 +1,325 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Enum - ControlChar | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Enum - ControlChar | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../index.html">
+            <img id="logo" class="svg" src="../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.ascii.Enums.ControlChar">
+<h1 class='section'>Enum - ControlChar</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.ascii</dd></dl>
+</div><pre><code class='lang-d'>enum ControlChar
+{
+  // Acknowledge 
+  __enumMember ack;
+  // Bell 
+  __enumMember bel;
+  // Backspace 
+  __enumMember bs;
+  // Cancel 
+  __enumMember can;
+  // Carriage return 
+  __enumMember cr;
+  // Device control 1 
+  __enumMember dc1;
+  // Device control 2 
+  __enumMember dc2;
+  // Device control 3 
+  __enumMember dc3;
+  // Device control 4 
+  __enumMember dc4;
+  // Delete 
+  __enumMember del;
+  // Data link escape 
+  __enumMember dle;
+  // End of medium 
+  __enumMember em;
+  // Enquiry 
+  __enumMember enq;
+  // End of transmission 
+  __enumMember eot;
+  // Escape 
+  __enumMember esc;
+  // End of transmission block 
+  __enumMember etb;
+  // End of text 
+  __enumMember etx;
+  // NP form feed, new page 
+  __enumMember ff;
+  // File separator 
+  __enumMember fs;
+  // Group separator 
+  __enumMember gs;
+  // NL line feed, new line 
+  __enumMember lf;
+  // Negative acknowledge 
+  __enumMember nak;
+  // Null 
+  __enumMember nul;
+  // Record separator 
+  __enumMember rs;
+  // Shift in 
+  __enumMember si;
+  // Shift out 
+  __enumMember so;
+  // Start of heading 
+  __enumMember soh;
+  // Start of text 
+  __enumMember stx;
+  // Substitute 
+  __enumMember sub;
+  // Synchronous idle 
+  __enumMember syn;
+  // Horizontal tab 
+  __enumMember tab;
+  // Unit separator 
+  __enumMember us;
+  // Vertical tab 
+  __enumMember vt;
+}</code></pre><h2 class='section'>About</h2><p>All control characters in the ASCII table ($(HTTPS <a href="http://www.asciitable.com">www.asciitable.com</a>, source)).</p>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/ack.html">ack</a></td>
+<td>Acknowledge</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/bel.html">bel</a></td>
+<td>Bell</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/bs.html">bs</a></td>
+<td>Backspace</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/can.html">can</a></td>
+<td>Cancel</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/cr.html">cr</a></td>
+<td>Carriage return</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/dc1.html">dc1</a></td>
+<td>Device control 1</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/dc2.html">dc2</a></td>
+<td>Device control 2</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/dc3.html">dc3</a></td>
+<td>Device control 3</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/dc4.html">dc4</a></td>
+<td>Device control 4</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/del.html">del</a></td>
+<td>Delete</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/dle.html">dle</a></td>
+<td>Data link escape</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/em.html">em</a></td>
+<td>End of medium</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/enq.html">enq</a></td>
+<td>Enquiry</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/eot.html">eot</a></td>
+<td>End of transmission</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/esc.html">esc</a></td>
+<td>Escape</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/etb.html">etb</a></td>
+<td>End of transmission block</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/etx.html">etx</a></td>
+<td>End of text</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/ff.html">ff</a></td>
+<td>NP form feed, new page</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/fs.html">fs</a></td>
+<td>File separator</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/gs.html">gs</a></td>
+<td>Group separator</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/lf.html">lf</a></td>
+<td>NL line feed, new line</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/nak.html">nak</a></td>
+<td>Negative acknowledge</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/nul.html">nul</a></td>
+<td>Null</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/rs.html">rs</a></td>
+<td>Record separator</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/si.html">si</a></td>
+<td>Shift in</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/so.html">so</a></td>
+<td>Shift out</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/soh.html">soh</a></td>
+<td>Start of heading</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/stx.html">stx</a></td>
+<td>Start of text</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/sub.html">sub</a></td>
+<td>Substitute</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/syn.html">syn</a></td>
+<td>Synchronous idle</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/tab.html">tab</a></td>
+<td>Horizontal tab</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/us.html">us</a></td>
+<td>Unit separator</td>
+</tr>
+<tr>
+<td><a href="../ControlChar/ControlChar/Variables/vt.html">vt</a></td>
+<td>Vertical tab</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -129,7 +129,7 @@
 </tr>
 </tbody>
 </table>
-<h2 class='section'>Structs</h2><table>
+<h2 class='section'>Enums</h2><table>
 <thead>
 <tr>
 <th>Name</th>
@@ -138,100 +138,20 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="Structs/Bitwise.html">Bitwise</a></td>
-<td></td>
+<td><a href="Enums/SearchPolicy.html">SearchPolicy</a></td>
+<td>Policy used with the searching primitives <code>lowerBound</code> , $(D upperBound), and <code>equalRange</code> of $(LREF SortedRange) below.</td>
 </tr>
 <tr>
-<td><a href="Structs/ChooseResult.html">ChooseResult</a></td>
-<td></td>
+<td><a href="Enums/SortedRangeOptions.html">SortedRangeOptions</a></td>
+<td>Options for $(LREF SortedRange) ranges (below).</td>
 </tr>
 <tr>
-<td><a href="Structs/Chunks.html">Chunks</a></td>
-<td>This range iterates over fixed-sized chunks of size <code>chunkSize</code> of a <code>source</code> range. <code>Source</code> must be an $(REF_ALTTEXT input range, isInputRange, std,range,primitives). <code>chunkSize</code> must be greater than zero.</td>
+<td><a href="Enums/StoppingPolicy.html">StoppingPolicy</a></td>
+<td>Dictates how iteration in a $(LREF zip) and $(LREF lockstep) should stop. By default stop at the end of the shortest of all ranges.</td>
 </tr>
 <tr>
-<td><a href="Structs/Cycle.html">Cycle</a></td>
-<td>Repeats the given forward range ad infinitum. If the original range is infinite (fact that would make <code>Cycle</code> the identity application), <code>Cycle</code> detects that and aliases itself to the range type itself. That works for non-forward ranges too. If the original range has random access, <code>Cycle</code> offers random access and also offers a constructor taking an initial position <code>index</code> . <code>Cycle</code> works with static arrays in addition to ranges, mostly for performance reasons.</td>
-</tr>
-<tr>
-<td><a href="Structs/Cycle.html">Cycle</a></td>
-<td>ditto</td>
-</tr>
-<tr>
-<td><a href="Structs/EvenChunks.html">EvenChunks</a></td>
-<td>This range splits a <code>source</code> range into <code>chunkCount</code> chunks of approximately equal length. <code>Source</code> must be a forward range with known length.</td>
-</tr>
-<tr>
-<td><a href="Structs/FrontTransversal.html">FrontTransversal</a></td>
-<td>Given a range of ranges, iterate transversally through the first elements of each of the enclosed ranges.</td>
-</tr>
-<tr>
-<td><a href="Structs/Generator.html">Generator</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/Indexed.html">Indexed</a></td>
-<td>This struct takes two ranges, <code>source</code> and <code>indices</code> , and creates a view of <code>source</code> as if its elements were reordered according to <code>indices</code> . <code>indices</code> may include only a subset of the elements of <code>source</code> and may also repeat elements.</td>
-</tr>
-<tr>
-<td><a href="Structs/Lockstep.html">Lockstep</a></td>
-<td>Iterate multiple ranges in lockstep using a <code>foreach</code> loop. In contrast to $(LREF zip) it allows reference access to its elements. If only a single range is passed in, the <code>Lockstep</code> aliases itself away.  If the ranges are of different lengths and <code>s</code> == <code>StoppingPolicy.shortest</code> stop after the shortest range is empty.  If the ranges are of different lengths and <code>s</code> == <code>StoppingPolicy.requireSameLength</code> , throw an exception.  <code>s</code> may not be <code>StoppingPolicy.longest</code> , and passing this will throw an exception.</td>
-</tr>
-<tr>
-<td><a href="Structs/NullSink.html">NullSink</a></td>
-<td>An OutputRange that discards the data it receives.</td>
-</tr>
-<tr>
-<td><a href="Structs/OnlyResult.html">OnlyResult</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/OnlyResult.html">OnlyResult</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/Recurrence.html">Recurrence</a></td>
-<td>Creates a mathematical sequence given the initial values and a recurrence function that computes the next value from the existing values. The sequence comes in the form of an infinite forward range. The type <code>Recurrence</code> itself is seldom used directly; most often, recurrences are obtained by calling the function $(D recurrence).</td>
-</tr>
-<tr>
-<td><a href="Structs/RefRange.html">RefRange</a></td>
-<td>Wrapper which effectively makes it possible to pass a range by reference. Both the original range and the RefRange will always have the exact same elements. Any operation done on one will affect the other. So, for instance, if it's passed to a function which would implicitly copy the original range if it were passed to it, the original range is $(I not) copied but is consumed as if it were a reference type.</td>
-</tr>
-<tr>
-<td><a href="Structs/Repeat.html">Repeat</a></td>
-<td>Create a range which repeats one value.</td>
-</tr>
-<tr>
-<td><a href="Structs/Sequence.html">Sequence</a></td>
-<td><code>Sequence</code> is similar to <code>Recurrence</code> except that iteration is presented in the so-called $(HTTP en.wikipedia.org/wiki/Closed_form, closed form). This means that the <code>n</code> th element in the series is computable directly from the initial values and <code>n</code> itself. This implies that the interface offered by <code>Sequence</code> is a random-access range, as opposed to the regular <code>Recurrence</code> , which only offers forward iteration.</td>
-</tr>
-<tr>
-<td><a href="Structs/Slides.html">Slides</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/SortedRange.html">SortedRange</a></td>
-<td>Represents a sorted range. In addition to the regular range primitives, supports additional operations that take advantage of the ordering, such as merge and binary search. To obtain a $(D SortedRange) from an unsorted range <code>r</code> , use $(REF sort, std,algorithm,sorting) which sorts <code>r</code> in place and returns the corresponding <code>SortedRange</code> . To construct a <code>SortedRange</code> from a range <code>r</code> that is known to be already sorted, use $(LREF assumeSorted).</td>
-</tr>
-<tr>
-<td><a href="Structs/Take.html">Take</a></td>
-<td>ditto</td>
-</tr>
-<tr>
-<td><a href="Structs/Transposed.html">Transposed</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/Transversal.html">Transversal</a></td>
-<td>Given a range of ranges, iterate transversally through the <code>n</code> th element of each of the enclosed ranges. This function is similar to <code>unzip</code> in other languages.</td>
-</tr>
-<tr>
-<td><a href="Structs/Zip.html">Zip</a></td>
-<td>Iterate several ranges in lockstep. The element type is a proxy tuple that allows accessing the current element in the <code>n</code> th range by using <code>e[n]</code> .</td>
-</tr>
-<tr>
-<td><a href="Structs/ZipShortest.html">ZipShortest</a></td>
-<td></td>
+<td><a href="Enums/TransverseOptions.html">TransverseOptions</a></td>
+<td>Options for the $(LREF FrontTransversal) and $(LREF Transversal) ranges (below).</td>
 </tr>
 </tbody>
 </table>
@@ -418,6 +338,112 @@
 <tr>
 <td><a href="Functions/zip.html">zip</a></td>
 <td>Ditto</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Structs/Bitwise.html">Bitwise</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/ChooseResult.html">ChooseResult</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/Chunks.html">Chunks</a></td>
+<td>This range iterates over fixed-sized chunks of size <code>chunkSize</code> of a <code>source</code> range. <code>Source</code> must be an $(REF_ALTTEXT input range, isInputRange, std,range,primitives). <code>chunkSize</code> must be greater than zero.</td>
+</tr>
+<tr>
+<td><a href="Structs/Cycle.html">Cycle</a></td>
+<td>Repeats the given forward range ad infinitum. If the original range is infinite (fact that would make <code>Cycle</code> the identity application), <code>Cycle</code> detects that and aliases itself to the range type itself. That works for non-forward ranges too. If the original range has random access, <code>Cycle</code> offers random access and also offers a constructor taking an initial position <code>index</code> . <code>Cycle</code> works with static arrays in addition to ranges, mostly for performance reasons.</td>
+</tr>
+<tr>
+<td><a href="Structs/Cycle.html">Cycle</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="Structs/EvenChunks.html">EvenChunks</a></td>
+<td>This range splits a <code>source</code> range into <code>chunkCount</code> chunks of approximately equal length. <code>Source</code> must be a forward range with known length.</td>
+</tr>
+<tr>
+<td><a href="Structs/FrontTransversal.html">FrontTransversal</a></td>
+<td>Given a range of ranges, iterate transversally through the first elements of each of the enclosed ranges.</td>
+</tr>
+<tr>
+<td><a href="Structs/Generator.html">Generator</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/Indexed.html">Indexed</a></td>
+<td>This struct takes two ranges, <code>source</code> and <code>indices</code> , and creates a view of <code>source</code> as if its elements were reordered according to <code>indices</code> . <code>indices</code> may include only a subset of the elements of <code>source</code> and may also repeat elements.</td>
+</tr>
+<tr>
+<td><a href="Structs/Lockstep.html">Lockstep</a></td>
+<td>Iterate multiple ranges in lockstep using a <code>foreach</code> loop. In contrast to $(LREF zip) it allows reference access to its elements. If only a single range is passed in, the <code>Lockstep</code> aliases itself away.  If the ranges are of different lengths and <code>s</code> == <code>StoppingPolicy.shortest</code> stop after the shortest range is empty.  If the ranges are of different lengths and <code>s</code> == <code>StoppingPolicy.requireSameLength</code> , throw an exception.  <code>s</code> may not be <code>StoppingPolicy.longest</code> , and passing this will throw an exception.</td>
+</tr>
+<tr>
+<td><a href="Structs/NullSink.html">NullSink</a></td>
+<td>An OutputRange that discards the data it receives.</td>
+</tr>
+<tr>
+<td><a href="Structs/OnlyResult.html">OnlyResult</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/OnlyResult.html">OnlyResult</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/Recurrence.html">Recurrence</a></td>
+<td>Creates a mathematical sequence given the initial values and a recurrence function that computes the next value from the existing values. The sequence comes in the form of an infinite forward range. The type <code>Recurrence</code> itself is seldom used directly; most often, recurrences are obtained by calling the function $(D recurrence).</td>
+</tr>
+<tr>
+<td><a href="Structs/RefRange.html">RefRange</a></td>
+<td>Wrapper which effectively makes it possible to pass a range by reference. Both the original range and the RefRange will always have the exact same elements. Any operation done on one will affect the other. So, for instance, if it's passed to a function which would implicitly copy the original range if it were passed to it, the original range is $(I not) copied but is consumed as if it were a reference type.</td>
+</tr>
+<tr>
+<td><a href="Structs/Repeat.html">Repeat</a></td>
+<td>Create a range which repeats one value.</td>
+</tr>
+<tr>
+<td><a href="Structs/Sequence.html">Sequence</a></td>
+<td><code>Sequence</code> is similar to <code>Recurrence</code> except that iteration is presented in the so-called $(HTTP en.wikipedia.org/wiki/Closed_form, closed form). This means that the <code>n</code> th element in the series is computable directly from the initial values and <code>n</code> itself. This implies that the interface offered by <code>Sequence</code> is a random-access range, as opposed to the regular <code>Recurrence</code> , which only offers forward iteration.</td>
+</tr>
+<tr>
+<td><a href="Structs/Slides.html">Slides</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/SortedRange.html">SortedRange</a></td>
+<td>Represents a sorted range. In addition to the regular range primitives, supports additional operations that take advantage of the ordering, such as merge and binary search. To obtain a $(D SortedRange) from an unsorted range <code>r</code> , use $(REF sort, std,algorithm,sorting) which sorts <code>r</code> in place and returns the corresponding <code>SortedRange</code> . To construct a <code>SortedRange</code> from a range <code>r</code> that is known to be already sorted, use $(LREF assumeSorted).</td>
+</tr>
+<tr>
+<td><a href="Structs/Take.html">Take</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="Structs/Transposed.html">Transposed</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/Transversal.html">Transversal</a></td>
+<td>Given a range of ranges, iterate transversally through the <code>n</code> th element of each of the enclosed ranges. This function is similar to <code>unzip</code> in other languages.</td>
+</tr>
+<tr>
+<td><a href="Structs/Zip.html">Zip</a></td>
+<td>Iterate several ranges in lockstep. The element type is a proxy tuple that allows accessing the current element in the <code>n</code> th range by using <code>e[n]</code> .</td>
+</tr>
+<tr>
+<td><a href="Structs/ZipShortest.html">ZipShortest</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>

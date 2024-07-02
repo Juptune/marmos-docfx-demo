@@ -194,111 +194,111 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Socket/Functions/accept.html">accept</a></td>
+<td><a href="../Socket/Socket/Functions/accept.html">accept</a></td>
 <td>Accept an incoming connection. If the socket is blocking, <code>accept</code> waits for a connection request. Throws <code>SocketAcceptException</code> if unable to accept. See <code>accepting</code> for use with derived classes.</td>
 </tr>
 <tr>
-<td><a href="../Socket/Functions/accepting.html">accepting</a></td>
+<td><a href="../Socket/Socket/Functions/accepting.html">accepting</a></td>
 <td>Called by <code>accept</code> when a new <code>Socket</code> must be created for a new connection. To use a derived class, override this method and return an instance of your class. The returned <code>Socket</code> 's handle must not be set; <code>Socket</code> has a protected constructor <code>this()</code> to use in this situation.</td>
 </tr>
 <tr>
-<td><a href="../Socket/Functions/addressFamily.html">addressFamily</a></td>
+<td><a href="../Socket/Socket/Functions/addressFamily.html">addressFamily</a></td>
 <td>Get the socket's address family.</td>
 </tr>
 <tr>
-<td><a href="../Socket/Functions/bind.html">bind</a></td>
+<td><a href="../Socket/Socket/Functions/bind.html">bind</a></td>
 <td>Associate a local address with this socket.</td>
 </tr>
 <tr>
-<td><a href="../Socket/Functions/blocking.html">blocking</a></td>
+<td><a href="../Socket/Socket/Functions/blocking.html">blocking</a></td>
 <td>Get/set socket's blocking flag.</td>
 </tr>
 <tr>
-<td><a href="../Socket/Functions/capToInt.html">capToInt</a></td>
+<td><a href="../Socket/Socket/Functions/capToInt.html">capToInt</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../Socket/Functions/close.html">close</a></td>
+<td><a href="../Socket/Socket/Functions/close.html">close</a></td>
 <td>Immediately drop any connections and release socket resources. The <code>Socket</code> object is no longer usable after <code>close</code> . Calling <code>shutdown</code> before <code>close</code> is recommended for connection-oriented sockets.</td>
 </tr>
 <tr>
-<td><a href="../Socket/Functions/connect.html">connect</a></td>
+<td><a href="../Socket/Socket/Functions/connect.html">connect</a></td>
 <td>Establish a connection. If the socket is blocking, connect waits for the connection to be made. If the socket is nonblocking, connect returns immediately and the connection attempt is still in progress.</td>
 </tr>
 <tr>
-<td><a href="../Socket/Functions/createAddress.html">createAddress</a></td>
+<td><a href="../Socket/Socket/Functions/createAddress.html">createAddress</a></td>
 <td>Can be overridden to support other addresses. Returns: A new <code>Address</code> object for the current address family.</td>
 </tr>
 <tr>
-<td><a href="../Socket/Functions/getErrorText.html">getErrorText</a></td>
+<td><a href="../Socket/Socket/Functions/getErrorText.html">getErrorText</a></td>
 <td>Get a text description of this socket's error status, and clear the socket's error status.</td>
 </tr>
 <tr>
-<td><a href="../Socket/Functions/getOption.html">getOption</a></td>
+<td><a href="../Socket/Socket/Functions/getOption.html">getOption</a></td>
 <td>Get a socket option. Returns: The number of bytes written to <code>result</code> . The length, in bytes, of the actual result - very different from getsockopt()</td>
 </tr>
 <tr>
-<td><a href="../Socket/Functions/handle.html">handle</a></td>
+<td><a href="../Socket/Socket/Functions/handle.html">handle</a></td>
 <td>Get underlying socket handle.</td>
 </tr>
 <tr>
-<td><a href="../Socket/Functions/hostName.html">hostName</a></td>
+<td><a href="../Socket/Socket/Functions/hostName.html">hostName</a></td>
 <td>Returns: The local machine's host name</td>
 </tr>
 <tr>
-<td><a href="../Socket/Functions/isAlive.html">isAlive</a></td>
+<td><a href="../Socket/Socket/Functions/isAlive.html">isAlive</a></td>
 <td>Property that indicates if this is a valid, alive socket.</td>
 </tr>
 <tr>
-<td><a href="../Socket/Functions/listen.html">listen</a></td>
+<td><a href="../Socket/Socket/Functions/listen.html">listen</a></td>
 <td>Listen for an incoming connection. <code>bind</code> must be called before you can <code>listen</code> . The <code>backlog</code> is a request of how many pending incoming connections are queued until <code>accept</code> ed.</td>
 </tr>
 <tr>
-<td><a href="../Socket/Functions/localAddress.html">localAddress</a></td>
+<td><a href="../Socket/Socket/Functions/localAddress.html">localAddress</a></td>
 <td>Local endpoint <code>Address</code> .</td>
 </tr>
 <tr>
-<td><a href="../Socket/Functions/receive.html">receive</a></td>
+<td><a href="../Socket/Socket/Functions/receive.html">receive</a></td>
 <td>Receive data on the connection. If the socket is blocking, <code>receive</code> waits until there is data to be received. Returns: The number of bytes actually received, <code>0</code> if the remote side has closed the connection, or <code>Socket.ERROR</code> on failure.</td>
 </tr>
 <tr>
-<td><a href="../Socket/Functions/receiveFrom.html">receiveFrom</a></td>
+<td><a href="../Socket/Socket/Functions/receiveFrom.html">receiveFrom</a></td>
 <td>Receive data and get the remote endpoint <code>Address</code> . If the socket is blocking, <code>receiveFrom</code> waits until there is data to be received. Returns: The number of bytes actually received, <code>0</code> if the remote side has closed the connection, or <code>Socket.ERROR</code> on failure.</td>
 </tr>
 <tr>
-<td><a href="../Socket/Functions/release.html">release</a></td>
+<td><a href="../Socket/Socket/Functions/release.html">release</a></td>
 <td>Releases the underlying socket handle from the Socket object. Once it is released, you cannot use the Socket object's methods anymore. This also means the Socket destructor will no longer close the socket - it becomes your responsibility.</td>
 </tr>
 <tr>
-<td><a href="../Socket/Functions/remoteAddress.html">remoteAddress</a></td>
+<td><a href="../Socket/Socket/Functions/remoteAddress.html">remoteAddress</a></td>
 <td>Remote endpoint <code>Address</code> .</td>
 </tr>
 <tr>
-<td><a href="../Socket/Functions/select.html">select</a></td>
+<td><a href="../Socket/Socket/Functions/select.html">select</a></td>
 <td>Wait for a socket to change status. A wait timeout of $(REF Duration, core, time) or <code>TimeVal</code> , may be specified; if a timeout is not specified or the <code>TimeVal</code> is <code>null</code> , the maximum timeout is used. The <code>TimeVal</code> timeout has an unspecified value when <code>select</code> returns. Returns: The number of sockets with status changes, <code>0</code> on timeout, or <code>-1</code> on interruption. If the return value is greater than <code>0</code> , the <code>SocketSets</code> are updated to only contain the sockets having status changes. For a connecting socket, a write status change means the connection is established and it's able to send. For a listening socket, a read status change means there is an incoming connection request and it's able to accept.</td>
 </tr>
 <tr>
-<td><a href="../Socket/Functions/send.html">send</a></td>
+<td><a href="../Socket/Socket/Functions/send.html">send</a></td>
 <td>Send data on the connection. If the socket is blocking and there is no buffer space left, <code>send</code> waits. Returns: The number of bytes actually sent, or <code>Socket.ERROR</code> on failure.</td>
 </tr>
 <tr>
-<td><a href="../Socket/Functions/sendTo.html">sendTo</a></td>
+<td><a href="../Socket/Socket/Functions/sendTo.html">sendTo</a></td>
 <td>Send data to a specific destination Address. If the destination address is not specified, a connection must have been made and that address is used. If the socket is blocking and there is no buffer space left, <code>sendTo</code> waits. Returns: The number of bytes actually sent, or <code>Socket.ERROR</code> on failure.</td>
 </tr>
 <tr>
-<td><a href="../Socket/Functions/setKeepAlive.html">setKeepAlive</a></td>
+<td><a href="../Socket/Socket/Functions/setKeepAlive.html">setKeepAlive</a></td>
 <td>Enables TCP keep-alive with the specified parameters.</td>
 </tr>
 <tr>
-<td><a href="../Socket/Functions/setOption.html">setOption</a></td>
+<td><a href="../Socket/Socket/Functions/setOption.html">setOption</a></td>
 <td>Set a socket option.</td>
 </tr>
 <tr>
-<td><a href="../Socket/Functions/setSock.html">setSock</a></td>
+<td><a href="../Socket/Socket/Functions/setSock.html">setSock</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../Socket/Functions/shutdown.html">shutdown</a></td>
+<td><a href="../Socket/Socket/Functions/shutdown.html">shutdown</a></td>
 <td>Disables sends and/or receives.</td>
 </tr>
 </tbody>
@@ -312,15 +312,15 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Socket/Variables/ERROR.html">ERROR</a></td>
+<td><a href="../Socket/Socket/Variables/ERROR.html">ERROR</a></td>
 <td>Send or receive error code. See <code>wouldHaveBlocked</code> , <code>lastSocketError</code> and <code>Socket.getErrorText</code> for obtaining more information about the error.</td>
 </tr>
 <tr>
-<td><a href="../Socket/Variables/sock.html">sock</a></td>
+<td><a href="../Socket/Socket/Variables/sock.html">sock</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../Socket/Variables/WINSOCK_TIMEOUT_SKEW.html">WINSOCK_TIMEOUT_SKEW</a></td>
+<td><a href="../Socket/Socket/Variables/WINSOCK_TIMEOUT_SKEW.html">WINSOCK_TIMEOUT_SKEW</a></td>
 <td></td>
 </tr>
 </tbody>

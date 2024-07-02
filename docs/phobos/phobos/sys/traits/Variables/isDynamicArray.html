@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Variable - isDynamicArray | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Variable - isDynamicArray | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../../index.html">
+            <img id="logo" class="svg" src="../../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="phobos.sys.traits.Variables.isDynamicArray">
+<h1 class='section'>Variable - isDynamicArray</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>phobos.sys.traits</dd></dl>
+</div><h2 class='section api'>isDynamicArray   </h2>
+ <pre><code class='lang-d'>__enumMember isDynamicArray</code></pre><h2 class='section'>About</h2><p>Whether the given type is a dynamic array (or what is sometimes referred to as a slice, since a dynamic array in D is a slice of memory).</p>
+<p>Note that this does not include implicit conversions or enum types. The type itself must be a dynamic array.</p>
+<h3 class='section'>Remember that D&#39;s dynamic arrays are essentially</h3><p>--- struct DynamicArray(T) { size_t length; T* ptr; } --- where $(D ptr) points to the first element in the array, and $(D length) is the number of elements in the array.</p>
+<p>A dynamic array is not a pointer (unlike arrays in C/C++), and its elements do not live inside the dynamic array itself. The dynamic array is simply a slice of memory and does not own or manage its own memory. It can be a slice of any piece of memory, including GC-allocated memory, the stack, malloc-ed memory, etc. (with what kind of memory it is of course being determined by how the dynamic array was created in the first place) - though if you do any operations on it which end up requiring allocation (e.g. appending to it if it doesn't have the capacity to expand in-place, which it won't if it isn't a slice of GC-allocated memory), then that reallocation will result in the dynamic array being a slice of newly allocated, GC-backed memory (regardless of what it was a slice of before), since it's the GC that deals with those allocations.</p>
+<p>As long as code just accesses the elements or members of the dynamic array - or reduces its length so that it's a smaller slice - it will continue to point to whatever block of memory it pointed to originally. And because the GC makes sure that appending to a dynamic array does not stomp on the memory of any other dynamic arrays, appending to a dynamic array will not affect any other dynamic array which is a slice of that same block of memory whether a reallocation occurs or not.</p>
+<p>Regardless, since what allocated the memory that the dynamic array is a slice of is irrevelant to the type of the dynamic array, whether a given type is a dynamic array has nothing to do with the kind of memory that's backing it. A dynamic array which is a slice of a static array of $(D int) is the the same type as a dynamic array of $(D int) allocated with $(D new) - i.e. both are $(D int[]). So, this trait will not tell you anything about what kind of memory a dynamic array is a slice of. It just tells you whether the type is a dynamic array or not.</p>
+<p>If for some reason, it matters for a function what kind of memory backs one of its parameters which is a dynamic array, or it needs to be made clear whether the function will possibly cause that dynamic array to be reallocated, then that needs to be indicated by the documentation and cannot be enforced with a template constraint. A template constraint can enforce that a type used with a template meets certain criteria (e.g. that it's a dynamic array), but it cannot enforce anything about how the template actually uses the type.</p>
+<p>However, it $(D is) possible to enforce that a function doesn't use any operations on a dynamic array which might cause it to be reallocated by marking that function as $(D @nogc).</p>
+<p>In most cases though, code can be written to not care what kind of memory backs a dynamic array, because none of the operations on a dynamic array actually care what kind of memory it's a slice of. It mostly just matters when you need to track the lifetime of the memory, because it wasn't allocated by the GC, or when it matters whether a dynamic array could be reallocated or not (e.g. because the code needs to have that dynamic array continue to point to the same block of memory).</p>
+<h3 class='section'>See_Also</h3><p>$(LREF isPointer) $(LREF isStaticArray) $(DDSUBLINK spec/arrays, , The language spec for arrays)</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -109,7 +109,7 @@
 </tr>
 </tbody>
 </table>
-<h2 class='section'>Structs</h2><table>
+<h2 class='section'>Enums</h2><table>
 <thead>
 <tr>
 <th>Name</th>
@@ -118,28 +118,12 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="Structs/Date.html">Date</a></td>
-<td>Represents a date in the $(HTTP en.wikipedia.org/wiki/Proleptic_Gregorian_calendar, Proleptic Gregorian Calendar) ranging from 32,768 B.C. to 32,767 A.D. Positive years are A.D. Non-positive years are B.C.</td>
+<td><a href="Enums/DayOfWeek.html">DayOfWeek</a></td>
+<td>Represents the 7 days of the Gregorian week (Sunday is 0).</td>
 </tr>
 <tr>
-<td><a href="Structs/DateTime.html">DateTime</a></td>
-<td>Combines the $(REF Date,std,datetime,date) and $(REF TimeOfDay,std,datetime,date) structs to give an object which holds both the date and the time. It is optimized for calendar-based operations and has no concept of time zone. For an object which is optimized for time operations based on the system time, use $(REF SysTime,std,datetime,systime). $(REF SysTime,std,datetime,systime) has a concept of time zone and has much higher precision (hnsecs). <code>DateTime</code> is intended primarily for calendar-based uses rather than precise time operations.</td>
-</tr>
-<tr>
-<td><a href="Structs/DayOfYear.html">DayOfYear</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/GregDay.html">GregDay</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/MonthDay.html">MonthDay</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/TimeOfDay.html">TimeOfDay</a></td>
-<td>Represents a time of day with hours, minutes, and seconds. It uses 24 hour time.</td>
+<td><a href="Enums/Month.html">Month</a></td>
+<td>Represents the 12 months of the Gregorian year (January is 1).</td>
 </tr>
 </tbody>
 </table>
@@ -234,6 +218,40 @@
 <tr>
 <td><a href="Functions/yearIsLeapYear.html">yearIsLeapYear</a></td>
 <td>Whether the given Gregorian Year is a leap year.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Structs/Date.html">Date</a></td>
+<td>Represents a date in the $(HTTP en.wikipedia.org/wiki/Proleptic_Gregorian_calendar, Proleptic Gregorian Calendar) ranging from 32,768 B.C. to 32,767 A.D. Positive years are A.D. Non-positive years are B.C.</td>
+</tr>
+<tr>
+<td><a href="Structs/DateTime.html">DateTime</a></td>
+<td>Combines the $(REF Date,std,datetime,date) and $(REF TimeOfDay,std,datetime,date) structs to give an object which holds both the date and the time. It is optimized for calendar-based operations and has no concept of time zone. For an object which is optimized for time operations based on the system time, use $(REF SysTime,std,datetime,systime). $(REF SysTime,std,datetime,systime) has a concept of time zone and has much higher precision (hnsecs). <code>DateTime</code> is intended primarily for calendar-based uses rather than precise time operations.</td>
+</tr>
+<tr>
+<td><a href="Structs/DayOfYear.html">DayOfYear</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/GregDay.html">GregDay</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/MonthDay.html">MonthDay</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/TimeOfDay.html">TimeOfDay</a></td>
+<td>Represents a time of day with hours, minutes, and seconds. It uses 24 hour time.</td>
 </tr>
 </tbody>
 </table>

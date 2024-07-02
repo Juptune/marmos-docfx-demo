@@ -185,7 +185,7 @@
 </tr>
 </tbody>
 </table>
-<h2 class='section'>Structs</h2><table>
+<h2 class='section'>Enums</h2><table>
 <thead>
 <tr>
 <th>Name</th>
@@ -194,31 +194,11 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="Structs/ByRecordImpl.html">ByRecordImpl</a></td>
-<td></td>
+<td><a href="Enums/LockType.html">LockType</a></td>
+<td>Used to specify the lock type for <code>File.lock</code> and <code>File.tryLock</code> .</td>
 </tr>
 <tr>
-<td><a href="Structs/ChunksImpl.html">ChunksImpl</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/File.html">File</a></td>
-<td>Encapsulates a <code>FILE*</code> . Generally D does not attempt to provide thin wrappers over equivalent functions in the C standard library, but manipulating <code>FILE*</code> values directly is unsafe and error-prone in many ways. The <code>File</code> type ensures safe manipulation, automatic file closing, and a lot of convenience.</td>
-</tr>
-<tr>
-<td><a href="Structs/lines.html">lines</a></td>
-<td>Iterates through the lines of a file by using <code>foreach</code> .</td>
-</tr>
-<tr>
-<td><a href="Structs/LockedFile.html">LockedFile</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/LockingTextReader.html">LockingTextReader</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/ReadlnAppender.html">ReadlnAppender</a></td>
+<td><a href="Enums/StdFileHandle.html">StdFileHandle</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -302,6 +282,44 @@
 <tr>
 <td><a href="Functions/writeln.html">writeln</a></td>
 <td>Equivalent to <code>write(args, '\n')</code> .  Calling <code>writeln</code> without arguments is valid and just prints a newline to the standard output.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Structs/ByRecordImpl.html">ByRecordImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/ChunksImpl.html">ChunksImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/File.html">File</a></td>
+<td>Encapsulates a <code>FILE*</code> . Generally D does not attempt to provide thin wrappers over equivalent functions in the C standard library, but manipulating <code>FILE*</code> values directly is unsafe and error-prone in many ways. The <code>File</code> type ensures safe manipulation, automatic file closing, and a lot of convenience.</td>
+</tr>
+<tr>
+<td><a href="Structs/lines.html">lines</a></td>
+<td>Iterates through the lines of a file by using <code>foreach</code> .</td>
+</tr>
+<tr>
+<td><a href="Structs/LockedFile.html">LockedFile</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/LockingTextReader.html">LockingTextReader</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/ReadlnAppender.html">ReadlnAppender</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>

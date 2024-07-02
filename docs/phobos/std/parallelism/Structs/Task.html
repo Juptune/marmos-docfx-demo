@@ -141,11 +141,11 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Task/Aliases/args.html">args</a></td>
+<td><a href="../Task/Task/Aliases/args.html">args</a></td>
 <td>The arguments the function was called with.  Changes to <code>out</code> and <code>ref</code> arguments will be visible here.</td>
 </tr>
 <tr>
-<td><a href="../Task/Aliases/ReturnType.html">ReturnType</a></td>
+<td><a href="../Task/Task/Aliases/ReturnType.html">ReturnType</a></td>
 <td>The return type of the function called by this <code>Task</code> .  This can be <code>void</code> .</td>
 </tr>
 </tbody>
@@ -159,43 +159,43 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Task/Functions/basePtr.html">basePtr</a></td>
+<td><a href="../Task/Task/Functions/basePtr.html">basePtr</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../Task/Functions/done.html">done</a></td>
+<td><a href="../Task/Task/Functions/done.html">done</a></td>
 <td>Returns <code>true</code> if the <code>Task</code> is finished executing.</td>
 </tr>
 <tr>
-<td><a href="../Task/Functions/enforcePool.html">enforcePool</a></td>
+<td><a href="../Task/Task/Functions/enforcePool.html">enforcePool</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../Task/Functions/executeInNewThread.html">executeInNewThread</a></td>
+<td><a href="../Task/Task/Functions/executeInNewThread.html">executeInNewThread</a></td>
 <td>Create a new thread for executing this <code>Task</code> , execute it in the newly created thread, then terminate the thread.  This can be used for future/promise parallelism.  An explicit priority may be given to the <code>Task</code> .  If one is provided, its value is forwarded to <code>core.thread.Thread.priority</code> . See $(REF task, std,parallelism) for usage example.</td>
 </tr>
 <tr>
-<td><a href="../Task/Functions/fixRef.html">fixRef</a></td>
+<td><a href="../Task/Task/Functions/fixRef.html">fixRef</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../Task/Functions/impl.html">impl</a></td>
+<td><a href="../Task/Task/Functions/impl.html">impl</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../Task/Functions/opAssign.html">opAssign</a></td>
+<td><a href="../Task/Task/Functions/opAssign.html">opAssign</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../Task/Functions/spinForce.html">spinForce</a></td>
+<td><a href="../Task/Task/Functions/spinForce.html">spinForce</a></td>
 <td>If the <code>Task</code> isn't started yet, execute it in the current thread. If it's done, return its return value, if any.  If it's in progress, busy spin until it's done, then return the return value.  If it threw an exception, rethrow that exception.</td>
 </tr>
 <tr>
-<td><a href="../Task/Functions/workForce.html">workForce</a></td>
+<td><a href="../Task/Task/Functions/workForce.html">workForce</a></td>
 <td>If this <code>Task</code> was not started yet, execute it in the current thread.  If it is finished, return its result.  If it is in progress, execute any other <code>Task</code> from the <code>TaskPool</code> instance that this <code>Task</code> was submitted to until this one is finished.  If it threw an exception, rethrow that exception. If no other tasks are available or this <code>Task</code> was executed using <code>executeInNewThread</code> , wait on a condition variable.</td>
 </tr>
 <tr>
-<td><a href="../Task/Functions/yieldForce.html">yieldForce</a></td>
+<td><a href="../Task/Task/Functions/yieldForce.html">yieldForce</a></td>
 <td>If the <code>Task</code> isn't started yet, execute it in the current thread. If it's done, return its return value, if any.  If it's in progress, wait on a condition variable.  If it threw an exception, rethrow that exception.</td>
 </tr>
 </tbody>
@@ -209,23 +209,23 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Task/Variables/base.html">base</a></td>
+<td><a href="../Task/Task/Variables/base.html">base</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../Task/Variables/isPure.html">isPure</a></td>
+<td><a href="../Task/Task/Variables/isPure.html">isPure</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../Task/Variables/isScoped.html">isScoped</a></td>
+<td><a href="../Task/Task/Variables/isScoped.html">isScoped</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../Task/Variables/pool.html">pool</a></td>
+<td><a href="../Task/Task/Variables/pool.html">pool</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../Task/Variables/returnVal.html">returnVal</a></td>
+<td><a href="../Task/Task/Variables/returnVal.html">returnVal</a></td>
 <td></td>
 </tr>
 </tbody>

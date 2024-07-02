@@ -169,7 +169,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../StatsCollector/Aliases/alignment.html">alignment</a></td>
+<td><a href="../StatsCollector/StatsCollector/Aliases/alignment.html">alignment</a></td>
 <td>Alignment offered is equal to <code>Allocator.alignment</code> .</td>
 </tr>
 </tbody>
@@ -183,123 +183,123 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../StatsCollector/Functions/alignedAllocate.html">alignedAllocate</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/alignedAllocate.html">alignedAllocate</a></td>
 <td>Forwards to <code>parent.alignedAllocate</code> . Affects per instance: <code>numAlignedAllocate</code> , <code>bytesUsed</code> , <code>bytesAllocated</code> , <code>bytesSlack</code> , <code>numAlignedAllocateOk</code> , and <code>bytesHighTide</code> . Affects per call: <code>numAlignedAllocate</code> , <code>numAlignedAllocateOk</code> , and <code>bytesAllocated</code> .</td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Functions/allocate.html">allocate</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/allocate.html">allocate</a></td>
 <td>Forwards to <code>parent.allocate</code> . Affects per instance: <code>numAllocate</code> , <code>bytesUsed</code> , <code>bytesAllocated</code> , <code>bytesSlack</code> , <code>numAllocateOK</code> , and <code>bytesHighTide</code> . Affects per call: <code>numAllocate</code> , $(D numAllocateOK), and <code>bytesAllocated</code> .</td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Functions/byFileLine.html">byFileLine</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/byFileLine.html">byFileLine</a></td>
 <td>Defined if <code>perCallFlags</code> is nonzero. Iterates all monitored file/line instances. The order of iteration is not meaningful (items are inserted at the front of a list upon the first call), so preprocessing the statistics after collection might be appropriate.</td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Functions/bytesAllocated.html">bytesAllocated</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/bytesAllocated.html">bytesAllocated</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Functions/bytesContracted.html">bytesContracted</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/bytesContracted.html">bytesContracted</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Functions/bytesExpanded.html">bytesExpanded</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/bytesExpanded.html">bytesExpanded</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Functions/bytesHighTide.html">bytesHighTide</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/bytesHighTide.html">bytesHighTide</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Functions/bytesMoved.html">bytesMoved</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/bytesMoved.html">bytesMoved</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Functions/bytesNotMoved.html">bytesNotMoved</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/bytesNotMoved.html">bytesNotMoved</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Functions/bytesSlack.html">bytesSlack</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/bytesSlack.html">bytesSlack</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Functions/bytesUsed.html">bytesUsed</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/bytesUsed.html">bytesUsed</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Functions/deallocate.html">deallocate</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/deallocate.html">deallocate</a></td>
 <td>Defined whether or not <code>Allocator.deallocate</code> is defined. Affects per instance: <code>numDeallocate</code> , <code>bytesUsed</code> , and <code>bytesSlack</code> . Affects per call: <code>numDeallocate</code> and <code>bytesContracted</code> .</td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Functions/deallocateAll.html">deallocateAll</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/deallocateAll.html">deallocateAll</a></td>
 <td>Defined only if <code>Allocator.deallocateAll</code> is defined. Affects per instance and per call <code>numDeallocateAll</code> .</td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Functions/define.html">define</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/define.html">define</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Functions/empty.html">empty</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/empty.html">empty</a></td>
 <td>Defined only if <code>Options.bytesUsed</code> is defined. Returns $(D bytesUsed == 0).</td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Functions/expand.html">expand</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/expand.html">expand</a></td>
 <td>Defined whether or not <code>Allocator.expand</code> is defined. Affects per instance: <code>numExpand</code> , <code>numExpandOK</code> , <code>bytesExpanded</code> , <code>bytesSlack</code> , <code>bytesAllocated</code> , and <code>bytesUsed</code> . Affects per call: <code>numExpand</code> , <code>numExpandOK</code> , <code>bytesExpanded</code> , and <code>bytesAllocated</code> .</td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Functions/numAlignedAllocate.html">numAlignedAllocate</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/numAlignedAllocate.html">numAlignedAllocate</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Functions/numAlignedAllocateOk.html">numAlignedAllocateOk</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/numAlignedAllocateOk.html">numAlignedAllocateOk</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Functions/numAllocate.html">numAllocate</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/numAllocate.html">numAllocate</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Functions/numAllocateOK.html">numAllocateOK</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/numAllocateOK.html">numAllocateOK</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Functions/numDeallocate.html">numDeallocate</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/numDeallocate.html">numDeallocate</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Functions/numDeallocateAll.html">numDeallocateAll</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/numDeallocateAll.html">numDeallocateAll</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Functions/numExpand.html">numExpand</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/numExpand.html">numExpand</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Functions/numExpandOK.html">numExpandOK</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/numExpandOK.html">numExpandOK</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Functions/numOwns.html">numOwns</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/numOwns.html">numOwns</a></td>
 <td>Read-only properties enabled by the homonym <code>flags</code> chosen by the user.</td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Functions/numReallocate.html">numReallocate</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/numReallocate.html">numReallocate</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Functions/numReallocateInPlace.html">numReallocateInPlace</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/numReallocateInPlace.html">numReallocateInPlace</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Functions/numReallocateOK.html">numReallocateOK</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/numReallocateOK.html">numReallocateOK</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Functions/owns.html">owns</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/owns.html">owns</a></td>
 <td>Increments <code>numOwns</code> (per instance and and per call) and forwards to $(D parent.owns(b)).</td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Functions/reallocate.html">reallocate</a></td>
+<td><a href="../StatsCollector/StatsCollector/Functions/reallocate.html">reallocate</a></td>
 <td>Defined whether or not <code>Allocator.reallocate</code> is defined. Affects per instance: <code>numReallocate</code> , <code>numReallocateOK</code> , $(D numReallocateInPlace), <code>bytesNotMoved</code> , <code>bytesAllocated</code> , $(D bytesSlack), <code>bytesExpanded</code> , and <code>bytesContracted</code> . Affects per call: <code>numReallocate</code> , <code>numReallocateOK</code> , <code>numReallocateInPlace</code> , <code>bytesNotMoved</code> , <code>bytesExpanded</code> , <code>bytesContracted</code> , and <code>bytesMoved</code> .</td>
 </tr>
 </tbody>
@@ -313,11 +313,11 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../StatsCollector/Variables/parent.html">parent</a></td>
+<td><a href="../StatsCollector/StatsCollector/Variables/parent.html">parent</a></td>
 <td>The parent allocator is publicly accessible either as a direct member if it holds state, or as an alias to <code>Allocator.instance</code> otherwise. One may use it for making calls that won't count toward statistics collection.</td>
 </tr>
 <tr>
-<td><a href="../StatsCollector/Variables/root.html">root</a></td>
+<td><a href="../StatsCollector/StatsCollector/Variables/root.html">root</a></td>
 <td></td>
 </tr>
 </tbody>

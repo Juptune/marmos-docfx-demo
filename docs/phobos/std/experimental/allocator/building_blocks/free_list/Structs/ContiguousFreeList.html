@@ -136,15 +136,15 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ContiguousFreeList/Aliases/Impl.html">Impl</a></td>
+<td><a href="../ContiguousFreeList/ContiguousFreeList/Aliases/Impl.html">Impl</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../ContiguousFreeList/Aliases/Node.html">Node</a></td>
+<td><a href="../ContiguousFreeList/ContiguousFreeList/Aliases/Node.html">Node</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../ContiguousFreeList/Aliases/SParent.html">SParent</a></td>
+<td><a href="../ContiguousFreeList/ContiguousFreeList/Aliases/SParent.html">SParent</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -158,31 +158,31 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ContiguousFreeList/Functions/allocate.html">allocate</a></td>
+<td><a href="../ContiguousFreeList/ContiguousFreeList/Functions/allocate.html">allocate</a></td>
 <td>Allocate <code>n</code> bytes of memory. If <code>n</code> is eligible for freelist and the freelist is not empty, pops the memory off the free list. In all other cases, uses the parent allocator.</td>
 </tr>
 <tr>
-<td><a href="../ContiguousFreeList/Functions/deallocate.html">deallocate</a></td>
+<td><a href="../ContiguousFreeList/ContiguousFreeList/Functions/deallocate.html">deallocate</a></td>
 <td>Deallocates <code>b</code> . If it's of eligible size, it's put on the free list. Otherwise, it's returned to <code>parent</code> .</td>
 </tr>
 <tr>
-<td><a href="../ContiguousFreeList/Functions/deallocateAll.html">deallocateAll</a></td>
+<td><a href="../ContiguousFreeList/ContiguousFreeList/Functions/deallocateAll.html">deallocateAll</a></td>
 <td>Deallocates everything from the parent.</td>
 </tr>
 <tr>
-<td><a href="../ContiguousFreeList/Functions/empty.html">empty</a></td>
+<td><a href="../ContiguousFreeList/ContiguousFreeList/Functions/empty.html">empty</a></td>
 <td>Returns <code>Ternary.yes</code> if no memory is currently allocated with this allocator, <code>Ternary.no</code> otherwise. This method never returns <code>Ternary.unknown</code> .</td>
 </tr>
 <tr>
-<td><a href="../ContiguousFreeList/Functions/goodAllocSize.html">goodAllocSize</a></td>
+<td><a href="../ContiguousFreeList/ContiguousFreeList/Functions/goodAllocSize.html">goodAllocSize</a></td>
 <td>If <code>n</code> is eligible for freelisting, returns <code>max</code> . Otherwise, returns <code>parent.goodAllocSize(n)</code> .</td>
 </tr>
 <tr>
-<td><a href="../ContiguousFreeList/Functions/initialize.html">initialize</a></td>
+<td><a href="../ContiguousFreeList/ContiguousFreeList/Functions/initialize.html">initialize</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../ContiguousFreeList/Functions/owns.html">owns</a></td>
+<td><a href="../ContiguousFreeList/ContiguousFreeList/Functions/owns.html">owns</a></td>
 <td>Defined if <code>ParentAllocator</code> defines it. Checks whether the block belongs to this allocator.</td>
 </tr>
 </tbody>
@@ -196,27 +196,27 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ContiguousFreeList/Variables/alignment.html">alignment</a></td>
+<td><a href="../ContiguousFreeList/ContiguousFreeList/Variables/alignment.html">alignment</a></td>
 <td>Alignment offered.</td>
 </tr>
 <tr>
-<td><a href="../ContiguousFreeList/Variables/allocated.html">allocated</a></td>
+<td><a href="../ContiguousFreeList/ContiguousFreeList/Variables/allocated.html">allocated</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../ContiguousFreeList/Variables/fl.html">fl</a></td>
+<td><a href="../ContiguousFreeList/ContiguousFreeList/Variables/fl.html">fl</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../ContiguousFreeList/Variables/parent.html">parent</a></td>
+<td><a href="../ContiguousFreeList/ContiguousFreeList/Variables/parent.html">parent</a></td>
 <td>The parent allocator. Depending on whether <code>ParentAllocator</code> holds state or not, this is a member variable or an alias for <code>ParentAllocator.instance</code> .</td>
 </tr>
 <tr>
-<td><a href="../ContiguousFreeList/Variables/support.html">support</a></td>
+<td><a href="../ContiguousFreeList/ContiguousFreeList/Variables/support.html">support</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../ContiguousFreeList/Variables/unchecked.html">unchecked</a></td>
+<td><a href="../ContiguousFreeList/ContiguousFreeList/Variables/unchecked.html">unchecked</a></td>
 <td></td>
 </tr>
 </tbody>

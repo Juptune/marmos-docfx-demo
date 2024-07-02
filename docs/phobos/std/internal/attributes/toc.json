@@ -1,2 +1,2 @@
 
-{"order":100,"items":[{"name":"Overview","href":"Overview.html","topicHref":"Overview.html"}],"pdf":false}
+{"order":100,"items":[{"name":"Overview","href":"Overview.html","topicHref":"Overview.html"},{"name":"Variables","includedFrom":"~/phobos/std/internal/attributes/Variables/toc.yml","items":[{"name":"betterC","href":"Variables/betterC.html","topicHref":"Variables/betterC.html"}]}],"pdf":false}

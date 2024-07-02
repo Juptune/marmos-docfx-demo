@@ -138,39 +138,39 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../AscendingPageAllocator/Functions/alignedAllocate.html">alignedAllocate</a></td>
+<td><a href="../AscendingPageAllocator/AscendingPageAllocator/Functions/alignedAllocate.html">alignedAllocate</a></td>
 <td>Rounds the allocation size to the next multiple of the page size. The allocation only reserves a range of virtual pages but the actual physical memory is allocated on demand, when accessing the memory.</td>
 </tr>
 <tr>
-<td><a href="../AscendingPageAllocator/Functions/allocate.html">allocate</a></td>
+<td><a href="../AscendingPageAllocator/AscendingPageAllocator/Functions/allocate.html">allocate</a></td>
 <td>Rounds the allocation size to the next multiple of the page size. The allocation only reserves a range of virtual pages but the actual physical memory is allocated on demand, when accessing the memory.</td>
 </tr>
 <tr>
-<td><a href="../AscendingPageAllocator/Functions/deallocate.html">deallocate</a></td>
+<td><a href="../AscendingPageAllocator/AscendingPageAllocator/Functions/deallocate.html">deallocate</a></td>
 <td>Decommit all physical memory associated with the buffer given as parameter, but keep the range of virtual addresses.</td>
 </tr>
 <tr>
-<td><a href="../AscendingPageAllocator/Functions/deallocateAll.html">deallocateAll</a></td>
+<td><a href="../AscendingPageAllocator/AscendingPageAllocator/Functions/deallocateAll.html">deallocateAll</a></td>
 <td>Removes the memory mapping causing all physical memory to be decommited and the virtual address space to be reclaimed.</td>
 </tr>
 <tr>
-<td><a href="../AscendingPageAllocator/Functions/empty.html">empty</a></td>
+<td><a href="../AscendingPageAllocator/AscendingPageAllocator/Functions/empty.html">empty</a></td>
 <td>Returns <code>Ternary.yes</code> if the allocator does not contain any alive objects and <code>Ternary.no</code> otherwise.</td>
 </tr>
 <tr>
-<td><a href="../AscendingPageAllocator/Functions/expand.html">expand</a></td>
+<td><a href="../AscendingPageAllocator/AscendingPageAllocator/Functions/expand.html">expand</a></td>
 <td>If the passed buffer is not the last allocation, then <code>delta</code> can be at most the number of bytes left on the last page. Otherwise, we can expand the last allocation until the end of the virtual address range.</td>
 </tr>
 <tr>
-<td><a href="../AscendingPageAllocator/Functions/getAvailableSize.html">getAvailableSize</a></td>
+<td><a href="../AscendingPageAllocator/AscendingPageAllocator/Functions/getAvailableSize.html">getAvailableSize</a></td>
 <td>Returns the available size for further allocations in bytes.</td>
 </tr>
 <tr>
-<td><a href="../AscendingPageAllocator/Functions/goodAllocSize.html">goodAllocSize</a></td>
+<td><a href="../AscendingPageAllocator/AscendingPageAllocator/Functions/goodAllocSize.html">goodAllocSize</a></td>
 <td>Rounds the requested size to the next multiple of the page size.</td>
 </tr>
 <tr>
-<td><a href="../AscendingPageAllocator/Functions/owns.html">owns</a></td>
+<td><a href="../AscendingPageAllocator/AscendingPageAllocator/Functions/owns.html">owns</a></td>
 <td>Returns <code>Ternary.yes</code> if the passed buffer is inside the range of virtual adresses. Does not guarantee that the passed buffer is still valid.</td>
 </tr>
 </tbody>
@@ -184,35 +184,35 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../AscendingPageAllocator/Variables/alignment.html">alignment</a></td>
+<td><a href="../AscendingPageAllocator/AscendingPageAllocator/Variables/alignment.html">alignment</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../AscendingPageAllocator/Variables/data.html">data</a></td>
+<td><a href="../AscendingPageAllocator/AscendingPageAllocator/Variables/data.html">data</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../AscendingPageAllocator/Variables/extraAllocPages.html">extraAllocPages</a></td>
+<td><a href="../AscendingPageAllocator/AscendingPageAllocator/Variables/extraAllocPages.html">extraAllocPages</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../AscendingPageAllocator/Variables/numPages.html">numPages</a></td>
+<td><a href="../AscendingPageAllocator/AscendingPageAllocator/Variables/numPages.html">numPages</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../AscendingPageAllocator/Variables/offset.html">offset</a></td>
+<td><a href="../AscendingPageAllocator/AscendingPageAllocator/Variables/offset.html">offset</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../AscendingPageAllocator/Variables/pageSize.html">pageSize</a></td>
+<td><a href="../AscendingPageAllocator/AscendingPageAllocator/Variables/pageSize.html">pageSize</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../AscendingPageAllocator/Variables/pagesUsed.html">pagesUsed</a></td>
+<td><a href="../AscendingPageAllocator/AscendingPageAllocator/Variables/pagesUsed.html">pagesUsed</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../AscendingPageAllocator/Variables/readWriteLimit.html">readWriteLimit</a></td>
+<td><a href="../AscendingPageAllocator/AscendingPageAllocator/Variables/readWriteLimit.html">readWriteLimit</a></td>
 <td></td>
 </tr>
 </tbody>

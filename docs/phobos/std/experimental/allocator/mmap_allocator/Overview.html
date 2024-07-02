@@ -86,20 +86,6 @@
 
         <article data-uid="std.experimental.allocator.mmap_allocator.Overview">
 <h1 class='section'>Module - std.experimental.allocator.mmap_allocator</h1><h2 class='section'>About</h2><p>Source: $(PHOBOSSRC std/experimental/allocator/_mmap_allocator.d)</p>
-<h2 class='section'>Structs</h2><table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="Structs/MmapAllocator.html">MmapAllocator</a></td>
-<td>Allocator (currently defined only for Posix and Windows) using $(D $(LINK2 <a href="https://en.wikipedia.org/wiki/Mmap">https://en.wikipedia.org/wiki/Mmap</a>, mmap)) and $(D $(LUCKY munmap)) directly (or their Windows equivalents). There is no additional structure: each call to <code>allocate(s)</code> issues a call to $(D mmap(null, s, PROT_READ <code>|</code> PROT_WRITE, MAP_PRIVATE <code>|</code> MAP_ANONYMOUS, -1, 0)), and each call to <code>deallocate(b)</code> issues $(D munmap(b.ptr, b.length)). So <code>MmapAllocator</code> is usually intended for allocating large chunks to be managed by fine-granular allocators.</td>
-</tr>
-</tbody>
-</table>
 <h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -135,6 +121,20 @@
 <tr>
 <td><a href="Functions/VirtualFree.html">VirtualFree</a></td>
 <td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Structs/MmapAllocator.html">MmapAllocator</a></td>
+<td>Allocator (currently defined only for Posix and Windows) using $(D $(LINK2 <a href="https://en.wikipedia.org/wiki/Mmap">https://en.wikipedia.org/wiki/Mmap</a>, mmap)) and $(D $(LUCKY munmap)) directly (or their Windows equivalents). There is no additional structure: each call to <code>allocate(s)</code> issues a call to $(D mmap(null, s, PROT_READ <code>|</code> PROT_WRITE, MAP_PRIVATE <code>|</code> MAP_ANONYMOUS, -1, 0)), and each call to <code>deallocate(b)</code> issues $(D munmap(b.ptr, b.length)). So <code>MmapAllocator</code> is usually intended for allocating large chunks to be managed by fine-granular allocators.</td>
 </tr>
 </tbody>
 </table>

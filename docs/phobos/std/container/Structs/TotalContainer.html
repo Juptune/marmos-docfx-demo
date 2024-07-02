@@ -179,15 +179,15 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../TotalContainer/Aliases/KeyType.html">KeyType</a></td>
+<td><a href="../TotalContainer/TotalContainer/Aliases/KeyType.html">KeyType</a></td>
 <td>If the container has a notion of key-value mapping, <code>KeyType</code> defines the type of the key of the container.</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Aliases/KeyTypes.html">KeyTypes</a></td>
+<td><a href="../TotalContainer/TotalContainer/Aliases/KeyTypes.html">KeyTypes</a></td>
 <td>If the container has a notion of multikey-value mapping, $(D KeyTypes[k]), where <code>k</code> is a zero-based unsigned number, defines the type of the <code>k</code> th key of the container.</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Aliases/ValueType.html">ValueType</a></td>
+<td><a href="../TotalContainer/TotalContainer/Aliases/ValueType.html">ValueType</a></td>
 <td>If the container has a notion of key-value mapping, <code>ValueType</code> defines the type of the value of the container. Typically, a map-style container mapping values of type <code>K</code> to values of type <code>V</code> defines <code>KeyType</code> to be <code>K</code> and <code>ValueType</code> to be <code>V</code> .</td>
 </tr>
 </tbody>
@@ -201,119 +201,119 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../TotalContainer/Functions/back.html">back</a></td>
+<td><a href="../TotalContainer/TotalContainer/Functions/back.html">back</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Functions/capacity.html">capacity</a></td>
+<td><a href="../TotalContainer/TotalContainer/Functions/capacity.html">capacity</a></td>
 <td>Returns the maximum number of elements the container can store without (a) allocating memory, (b) invalidating iterators upon insertion.</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Functions/clear.html">clear</a></td>
+<td><a href="../TotalContainer/TotalContainer/Functions/clear.html">clear</a></td>
 <td>Removes all contents from the container. The container decides how $(D capacity) is affected.</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Functions/dup.html">dup</a></td>
+<td><a href="../TotalContainer/TotalContainer/Functions/dup.html">dup</a></td>
 <td>Returns a duplicate of the container. The elements themselves are not transitively duplicated.</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Functions/empty.html">empty</a></td>
+<td><a href="../TotalContainer/TotalContainer/Functions/empty.html">empty</a></td>
 <td>Property returning <code>true</code> if and only if the container has no elements.</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Functions/equalRange.html">equalRange</a></td>
+<td><a href="../TotalContainer/TotalContainer/Functions/equalRange.html">equalRange</a></td>
 <td>Returns a range of all elements containing <code>k</code> (could be empty or a singleton range).</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Functions/front.html">front</a></td>
+<td><a href="../TotalContainer/TotalContainer/Functions/front.html">front</a></td>
 <td>Forward to <code>opSlice().front</code> and <code>opSlice().back</code> , respectively.</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Functions/length.html">length</a></td>
+<td><a href="../TotalContainer/TotalContainer/Functions/length.html">length</a></td>
 <td>Returns the number of elements in the container.</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Functions/linearRemove.html">linearRemove</a></td>
+<td><a href="../TotalContainer/TotalContainer/Functions/linearRemove.html">linearRemove</a></td>
 <td>Same as <code>remove</code> above, but has complexity relaxed to linear.</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Functions/lowerBound.html">lowerBound</a></td>
+<td><a href="../TotalContainer/TotalContainer/Functions/lowerBound.html">lowerBound</a></td>
 <td>Returns a range of all elements with keys less than <code>k</code> (could be empty or a singleton range). Only defined by containers that store data sorted at all times.</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Functions/moveAt.html">moveAt</a></td>
+<td><a href="../TotalContainer/TotalContainer/Functions/moveAt.html">moveAt</a></td>
 <td>ditto</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Functions/moveBack.html">moveBack</a></td>
+<td><a href="../TotalContainer/TotalContainer/Functions/moveBack.html">moveBack</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Functions/moveFront.html">moveFront</a></td>
+<td><a href="../TotalContainer/TotalContainer/Functions/moveFront.html">moveFront</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Functions/opIndex.html">opIndex</a></td>
+<td><a href="../TotalContainer/TotalContainer/Functions/opIndex.html">opIndex</a></td>
 <td>Indexing operators yield or modify the value at a specified index.</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Functions/opIndexAssign.html">opIndexAssign</a></td>
+<td><a href="../TotalContainer/TotalContainer/Functions/opIndexAssign.html">opIndexAssign</a></td>
 <td>ditto</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Functions/opSlice.html">opSlice</a></td>
+<td><a href="../TotalContainer/TotalContainer/Functions/opSlice.html">opSlice</a></td>
 <td>Returns a range that iterates over all elements of the container, in a container-defined order. The container should choose the most convenient and fast method of iteration for <code>opSlice()</code> .</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Functions/remove.html">remove</a></td>
+<td><a href="../TotalContainer/TotalContainer/Functions/remove.html">remove</a></td>
 <td>Removes all elements belonging to <code>r</code> , which must be a range obtained originally from this container. The stable version behaves the same, but guarantees that ranges iterating over the container are never invalidated.</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Functions/removeAny.html">removeAny</a></td>
+<td><a href="../TotalContainer/TotalContainer/Functions/removeAny.html">removeAny</a></td>
 <td>Picks one value in an unspecified position in the container, removes it from the container, and returns it. Implementations should pick the value that's the most advantageous for the container. The stable version behaves the same, but guarantees that ranges iterating over the container are never invalidated.</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Functions/removeBack.html">removeBack</a></td>
+<td><a href="../TotalContainer/TotalContainer/Functions/removeBack.html">removeBack</a></td>
 <td>ditto</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Functions/removeFront.html">removeFront</a></td>
+<td><a href="../TotalContainer/TotalContainer/Functions/removeFront.html">removeFront</a></td>
 <td>Removes the value at the front or back of the container. The stable version behaves the same, but guarantees that ranges iterating over the container are never invalidated. The optional parameter $(D howMany) instructs removal of that many elements. If $(D howMany &gt; n), all elements are removed and no exception is thrown.</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Functions/removeKey.html">removeKey</a></td>
+<td><a href="../TotalContainer/TotalContainer/Functions/removeKey.html">removeKey</a></td>
 <td>Removes all values corresponding to key <code>k</code> .</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Functions/reserve.html">reserve</a></td>
+<td><a href="../TotalContainer/TotalContainer/Functions/reserve.html">reserve</a></td>
 <td>Ensures sufficient capacity to accommodate <code>n</code> elements.</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Functions/stableInsertBack.html">stableInsertBack</a></td>
+<td><a href="../TotalContainer/TotalContainer/Functions/stableInsertBack.html">stableInsertBack</a></td>
 <td>ditto</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Functions/stableLinearRemove.html">stableLinearRemove</a></td>
+<td><a href="../TotalContainer/TotalContainer/Functions/stableLinearRemove.html">stableLinearRemove</a></td>
 <td>ditto</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Functions/stableRemove.html">stableRemove</a></td>
+<td><a href="../TotalContainer/TotalContainer/Functions/stableRemove.html">stableRemove</a></td>
 <td>ditto</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Functions/stableRemoveAny.html">stableRemoveAny</a></td>
+<td><a href="../TotalContainer/TotalContainer/Functions/stableRemoveAny.html">stableRemoveAny</a></td>
 <td>ditto</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Functions/stableRemoveBack.html">stableRemoveBack</a></td>
+<td><a href="../TotalContainer/TotalContainer/Functions/stableRemoveBack.html">stableRemoveBack</a></td>
 <td>ditto</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Functions/stableRemoveFront.html">stableRemoveFront</a></td>
+<td><a href="../TotalContainer/TotalContainer/Functions/stableRemoveFront.html">stableRemoveFront</a></td>
 <td>ditto</td>
 </tr>
 <tr>
-<td><a href="../TotalContainer/Functions/upperBound.html">upperBound</a></td>
+<td><a href="../TotalContainer/TotalContainer/Functions/upperBound.html">upperBound</a></td>
 <td>Returns a range of all elements with keys larger than <code>k</code> (could be empty or a singleton range).  Only defined by containers that store data sorted at all times.</td>
 </tr>
 </tbody>

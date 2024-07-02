@@ -113,23 +113,23 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../WrapperDigest/Functions/finish.html">finish</a></td>
+<td><a href="../WrapperDigest/WrapperDigest/Functions/finish.html">finish</a></td>
 <td>The finish function returns the hash value. It takes an optional buffer to copy the data into. If a buffer is passed, it must have a length at least $(LREF length) bytes.</td>
 </tr>
 <tr>
-<td><a href="../WrapperDigest/Functions/length.html">length</a></td>
+<td><a href="../WrapperDigest/WrapperDigest/Functions/length.html">length</a></td>
 <td>This is the length in bytes of the hash value which is returned by $(LREF finish). It's also the required size of a buffer passed to $(LREF finish).</td>
 </tr>
 <tr>
-<td><a href="../WrapperDigest/Functions/peek.html">peek</a></td>
+<td><a href="../WrapperDigest/WrapperDigest/Functions/peek.html">peek</a></td>
 <td>Works like <code>finish</code> but does not reset the internal state, so it's possible to continue putting data into this WrapperDigest after a call to peek.</td>
 </tr>
 <tr>
-<td><a href="../WrapperDigest/Functions/put.html">put</a></td>
+<td><a href="../WrapperDigest/WrapperDigest/Functions/put.html">put</a></td>
 <td>Use this to feed the digest with data. Also implements the $(REF isOutputRange, std,range,primitives) interface for <code>ubyte</code> and <code>const(ubyte)[]</code> .</td>
 </tr>
 <tr>
-<td><a href="../WrapperDigest/Functions/reset.html">reset</a></td>
+<td><a href="../WrapperDigest/WrapperDigest/Functions/reset.html">reset</a></td>
 <td>Resets the internal state of the digest. Note: $(LREF finish) calls this internally, so it's not necessary to call <code>reset</code> manually after a call to $(LREF finish).</td>
 </tr>
 </tbody>

@@ -1,2 +1,0 @@
-
-{"order":100,"items":[{"name":"Overview","href":"Overview.html","topicHref":"Overview.html"},{"name":"Structs","includedFrom":"~/juptune/juptune/data/base/Structs/toc.yml","items":[{"name":"Base64Alphabet","href":"Structs/Base64Alphabet.html","topicHref":"Structs/Base64Alphabet.html"},{"name":"Base64Encoder","href":"Structs/Base64Encoder.html","topicHref":"Structs/Base64Encoder.html"},{"name":"Base64Decoder","href":"Structs/Base64Decoder.html","topicHref":"Structs/Base64Decoder.html"}]}],"pdf":false}

@@ -162,40 +162,6 @@
 </tr>
 </tbody>
 </table>
-<h2 class='section'>Structs</h2><table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="Structs/LinearCongruentialEngine.html">LinearCongruentialEngine</a></td>
-<td>Linear Congruential generator. When m = 0, no modulus is used.</td>
-</tr>
-<tr>
-<td><a href="Structs/MersenneTwisterEngine.html">MersenneTwisterEngine</a></td>
-<td>The $(LINK2 <a href="https://en.wikipedia.org/wiki/Mersenne_Twister">https://en.wikipedia.org/wiki/Mersenne_Twister</a>, Mersenne Twister) generator.</td>
-</tr>
-<tr>
-<td><a href="Structs/RandomCover.html">RandomCover</a></td>
-<td>Covers a given range <code>r</code> in a random manner, i.e. goes through each element of <code>r</code> once and only once, just in a random order. <code>r</code> must be a random-access range with length.</td>
-</tr>
-<tr>
-<td><a href="Structs/RandomCoverChoices.html">RandomCoverChoices</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/RandomSample.html">RandomSample</a></td>
-<td>Selects a random subsample out of <code>r</code> , containing exactly <code>n</code> elements. The order of elements is the same as in the original range. The total length of <code>r</code> must be known. If <code>total</code> is passed in, the total number of sample is considered to be $(D total). Otherwise, <code>RandomSample</code> uses <code>r.length</code> .</td>
-</tr>
-<tr>
-<td><a href="Structs/XorshiftEngine.html">XorshiftEngine</a></td>
-<td>Xorshift generator. Implemented according to $(HTTP <a href="http://www.jstatsoft.org/v08/i14/paper">www.jstatsoft.org/v08/i14/paper</a>, Xorshift RNGs) (Marsaglia, 2003) when the size is small. For larger sizes the generator uses Sebastino Vigna's optimization of using an index to avoid needing to rotate the internal array.</td>
-</tr>
-</tbody>
-</table>
 <h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -263,6 +229,58 @@
 <tr>
 <td><a href="Functions/unpredictableSeed.html">unpredictableSeed</a></td>
 <td>A &quot;good&quot; seed for initializing random number engines. Initializing with $(D_PARAM unpredictableSeed) makes engines generate different random number sequences every run.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Structs/LinearCongruentialEngine.html">LinearCongruentialEngine</a></td>
+<td>Linear Congruential generator. When m = 0, no modulus is used.</td>
+</tr>
+<tr>
+<td><a href="Structs/MersenneTwisterEngine.html">MersenneTwisterEngine</a></td>
+<td>The $(LINK2 <a href="https://en.wikipedia.org/wiki/Mersenne_Twister">https://en.wikipedia.org/wiki/Mersenne_Twister</a>, Mersenne Twister) generator.</td>
+</tr>
+<tr>
+<td><a href="Structs/RandomCover.html">RandomCover</a></td>
+<td>Covers a given range <code>r</code> in a random manner, i.e. goes through each element of <code>r</code> once and only once, just in a random order. <code>r</code> must be a random-access range with length.</td>
+</tr>
+<tr>
+<td><a href="Structs/RandomCoverChoices.html">RandomCoverChoices</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/RandomSample.html">RandomSample</a></td>
+<td>Selects a random subsample out of <code>r</code> , containing exactly <code>n</code> elements. The order of elements is the same as in the original range. The total length of <code>r</code> must be known. If <code>total</code> is passed in, the total number of sample is considered to be $(D total). Otherwise, <code>RandomSample</code> uses <code>r.length</code> .</td>
+</tr>
+<tr>
+<td><a href="Structs/XorshiftEngine.html">XorshiftEngine</a></td>
+<td>Xorshift generator. Implemented according to $(HTTP <a href="http://www.jstatsoft.org/v08/i14/paper">www.jstatsoft.org/v08/i14/paper</a>, Xorshift RNGs) (Marsaglia, 2003) when the size is small. For larger sizes the generator uses Sebastino Vigna's optimization of using an index to avoid needing to rotate the internal array.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Templates</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Templates/unpredictableSeed.html">unpredictableSeed</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="Templates/XorshiftEngine.html">XorshiftEngine</a></td>
+<td>ditto</td>
 </tr>
 </tbody>
 </table>

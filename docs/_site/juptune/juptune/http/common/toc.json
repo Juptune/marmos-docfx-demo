@@ -1,2 +1,0 @@
-
-{"order":100,"items":[{"name":"Overview","href":"Overview.html","topicHref":"Overview.html"},{"name":"Structs","includedFrom":"~/juptune/juptune/http/common/Structs/toc.yml","items":[{"name":"HttpHeader","href":"Structs/HttpHeader.html","topicHref":"Structs/HttpHeader.html"},{"name":"HttpRequest","href":"Structs/HttpRequest.html","topicHref":"Structs/HttpRequest.html"},{"name":"HttpResponse","href":"Structs/HttpResponse.html","topicHref":"Structs/HttpResponse.html"}]}],"pdf":false}

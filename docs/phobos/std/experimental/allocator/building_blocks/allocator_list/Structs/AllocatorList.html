@@ -155,11 +155,11 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../AllocatorList/Aliases/Allocator.html">Allocator</a></td>
+<td><a href="../AllocatorList/AllocatorList/Aliases/Allocator.html">Allocator</a></td>
 <td>Alias for <code>typeof(Factory()(1))</code> , i.e. the type of the individual allocators.</td>
 </tr>
 <tr>
-<td><a href="../AllocatorList/Aliases/SAllocator.html">SAllocator</a></td>
+<td><a href="../AllocatorList/AllocatorList/Aliases/SAllocator.html">SAllocator</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -173,47 +173,47 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../AllocatorList/Functions/addAllocator.html">addAllocator</a></td>
+<td><a href="../AllocatorList/AllocatorList/Functions/addAllocator.html">addAllocator</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../AllocatorList/Functions/alignedAllocate.html">alignedAllocate</a></td>
+<td><a href="../AllocatorList/AllocatorList/Functions/alignedAllocate.html">alignedAllocate</a></td>
 <td>Allocate a block of size <code>s</code> with alignment <code>a</code> . First tries to allocate from the existing list of already-created allocators. If neither can satisfy the request, creates a new allocator by calling <code>make(s + a - 1)</code> and delegates the request to it. However, if the allocation fresh off a newly created allocator fails, subsequent calls to <code>alignedAllocate</code> will not cause more calls to <code>make</code> .</td>
 </tr>
 <tr>
-<td><a href="../AllocatorList/Functions/allocate.html">allocate</a></td>
+<td><a href="../AllocatorList/AllocatorList/Functions/allocate.html">allocate</a></td>
 <td>Allocate a block of size <code>s</code> . First tries to allocate from the existing list of already-created allocators. If neither can satisfy the request, creates a new allocator by calling <code>make(s)</code> and delegates the request to it. However, if the allocation fresh off a newly created allocator fails, subsequent calls to <code>allocate</code> will not cause more calls to $(D make).</td>
 </tr>
 <tr>
-<td><a href="../AllocatorList/Functions/deallocate.html">deallocate</a></td>
+<td><a href="../AllocatorList/AllocatorList/Functions/deallocate.html">deallocate</a></td>
 <td>Defined if <code>Allocator.deallocate</code> and <code>Allocator.owns</code> are defined.</td>
 </tr>
 <tr>
-<td><a href="../AllocatorList/Functions/deallocateAll.html">deallocateAll</a></td>
+<td><a href="../AllocatorList/AllocatorList/Functions/deallocateAll.html">deallocateAll</a></td>
 <td>Defined only if <code>Allocator.owns</code> and <code>Allocator.deallocateAll</code> are defined.</td>
 </tr>
 <tr>
-<td><a href="../AllocatorList/Functions/empty.html">empty</a></td>
+<td><a href="../AllocatorList/AllocatorList/Functions/empty.html">empty</a></td>
 <td>Returns <code>Ternary.yes</code> if no allocators are currently active, <code>Ternary.no</code> otherwise. This methods never returns <code>Ternary.unknown</code> .</td>
 </tr>
 <tr>
-<td><a href="../AllocatorList/Functions/expand.html">expand</a></td>
+<td><a href="../AllocatorList/AllocatorList/Functions/expand.html">expand</a></td>
 <td>Defined only if <code>Allocator.expand</code> is defined. Finds the owner of <code>b</code> and calls <code>expand</code> for it. The owner is not brought to the head of the list.</td>
 </tr>
 <tr>
-<td><a href="../AllocatorList/Functions/make.html">make</a></td>
+<td><a href="../AllocatorList/AllocatorList/Functions/make.html">make</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../AllocatorList/Functions/moveAllocators.html">moveAllocators</a></td>
+<td><a href="../AllocatorList/AllocatorList/Functions/moveAllocators.html">moveAllocators</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../AllocatorList/Functions/owns.html">owns</a></td>
+<td><a href="../AllocatorList/AllocatorList/Functions/owns.html">owns</a></td>
 <td>Defined only if <code>Allocator</code> defines <code>owns</code> . Tries each allocator in turn, in most-recently-used order. If the owner is found, it is moved to the front of the list as a side effect under the assumption it will be used soon.</td>
 </tr>
 <tr>
-<td><a href="../AllocatorList/Functions/reallocate.html">reallocate</a></td>
+<td><a href="../AllocatorList/AllocatorList/Functions/reallocate.html">reallocate</a></td>
 <td>Defined only if <code>Allocator.reallocate</code> is defined. Finds the owner of <code>b</code> and calls <code>reallocate</code> for it. If that fails, calls the global <code>reallocate</code> , which allocates a new block and moves memory.</td>
 </tr>
 </tbody>
@@ -227,27 +227,27 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../AllocatorList/Variables/alignment.html">alignment</a></td>
+<td><a href="../AllocatorList/AllocatorList/Variables/alignment.html">alignment</a></td>
 <td>The alignment offered.</td>
 </tr>
 <tr>
-<td><a href="../AllocatorList/Variables/allocators.html">allocators</a></td>
+<td><a href="../AllocatorList/AllocatorList/Variables/allocators.html">allocators</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../AllocatorList/Variables/bkalloc.html">bkalloc</a></td>
+<td><a href="../AllocatorList/AllocatorList/Variables/bkalloc.html">bkalloc</a></td>
 <td>If <code>BookkeepingAllocator</code> is not <code>NullAllocator</code> , <code>bkalloc</code> is defined and accessible.</td>
 </tr>
 <tr>
-<td><a href="../AllocatorList/Variables/factory.html">factory</a></td>
+<td><a href="../AllocatorList/AllocatorList/Variables/factory.html">factory</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../AllocatorList/Variables/ouroboros.html">ouroboros</a></td>
+<td><a href="../AllocatorList/AllocatorList/Variables/ouroboros.html">ouroboros</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../AllocatorList/Variables/root.html">root</a></td>
+<td><a href="../AllocatorList/AllocatorList/Variables/root.html">root</a></td>
 <td></td>
 </tr>
 </tbody>

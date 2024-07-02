@@ -127,7 +127,7 @@
 </tr>
 </tbody>
 </table>
-<h2 class='section'>Structs</h2><table>
+<h2 class='section'>Enums</h2><table>
 <thead>
 <tr>
 <th>Name</th>
@@ -136,16 +136,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="Structs/CustomFloat.html">CustomFloat</a></td>
-<td>ditto</td>
-</tr>
-<tr>
-<td><a href="Structs/GapWeightedSimilarityIncremental.html">GapWeightedSimilarityIncremental</a></td>
-<td>Similar to <code>gapWeightedSimilarity</code> , just works in an incremental manner by first revealing the matches of length 1, then gapped matches of length 2, and so on. The memory requirement is $(BIGOH s.length t.length). The time complexity is $(BIGOH s.length t.length) time for computing each step. Continuing on the previous example:</td>
-</tr>
-<tr>
-<td><a href="Structs/Stride.html">Stride</a></td>
-<td></td>
+<td><a href="Enums/CustomFloatFlags.html">CustomFloatFlags</a></td>
+<td>Format flags for CustomFloat.</td>
 </tr>
 </tbody>
 </table>
@@ -259,6 +251,60 @@
 </tr>
 <tr>
 <td><a href="Functions/swapRealImag.html">swapRealImag</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Structs/CustomFloat.html">CustomFloat</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="Structs/GapWeightedSimilarityIncremental.html">GapWeightedSimilarityIncremental</a></td>
+<td>Similar to <code>gapWeightedSimilarity</code> , just works in an incremental manner by first revealing the matches of length 1, then gapped matches of length 2, and so on. The memory requirement is $(BIGOH s.length t.length). The time complexity is $(BIGOH s.length t.length) time for computing each step. Continuing on the previous example:</td>
+</tr>
+<tr>
+<td><a href="Structs/Stride.html">Stride</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Templates</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Templates/CustomFloatParams.html">CustomFloatParams</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/FPTemporary.html">FPTemporary</a></td>
+<td>Defines the fastest type to use when storing temporaries of a calculation intended to ultimately yield a result of type <code>F</code> (where <code>F</code> must be one of <code>float</code> , <code>double</code> , or $(D real)). When doing a multi-step computation, you may want to store intermediate results as <code>FPTemporary!F</code> .</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Unions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Unions/ToBinary.html">ToBinary</a></td>
 <td></td>
 </tr>
 </tbody>

@@ -86,20 +86,6 @@
 
         <article data-uid="std.experimental.allocator.building_blocks.fallback_allocator.Overview">
 <h1 class='section'>Module - std.experimental.allocator.building_blocks.fallback_allocator</h1><h2 class='section'>About</h2><p>Source: $(PHOBOSSRC std/experimental/allocator/building_blocks/fallback_allocator.d)</p>
-<h2 class='section'>Structs</h2><table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="Structs/FallbackAllocator.html">FallbackAllocator</a></td>
-<td><code>FallbackAllocator</code> is the allocator equivalent of an &quot;or&quot; operator in algebra. An allocation request is first attempted with the <code>Primary</code> allocator. If that returns <code>null</code> , the request is forwarded to the $(D Fallback) allocator. All other requests are dispatched appropriately to one of the two allocators.</td>
-</tr>
-</tbody>
-</table>
 <h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -115,6 +101,20 @@
 <tr>
 <td><a href="Functions/forward.html">forward</a></td>
 <td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Structs/FallbackAllocator.html">FallbackAllocator</a></td>
+<td><code>FallbackAllocator</code> is the allocator equivalent of an &quot;or&quot; operator in algebra. An allocation request is first attempted with the <code>Primary</code> allocator. If that returns <code>null</code> , the request is forwarded to the $(D Fallback) allocator. All other requests are dispatched appropriately to one of the two allocators.</td>
 </tr>
 </tbody>
 </table>

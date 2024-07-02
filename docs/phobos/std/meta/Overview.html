@@ -171,6 +171,104 @@
 </tr>
 </tbody>
 </table>
+<h2 class='section'>Templates</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Templates/AppendUnique.html">AppendUnique</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/Erase.html">Erase</a></td>
+<td>Returns an <code>AliasSeq</code> created from <code>args[1 .. $]</code> with the first occurrence, if any, of <code>args[0]</code> removed.</td>
+</tr>
+<tr>
+<td><a href="Templates/EraseAll.html">EraseAll</a></td>
+<td>Returns an <code>AliasSeq</code> created from <code>args[1 .. $]</code> with all occurrences, if any, of <code>args[0]</code> removed.</td>
+</tr>
+<tr>
+<td><a href="Templates/Filter.html">Filter</a></td>
+<td>Filters an <code>AliasSeq</code> using a template predicate. Returns an <code>AliasSeq</code> of the elements which satisfy the predicate.</td>
+</tr>
+<tr>
+<td><a href="Templates/GenericReplace.html">GenericReplace</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/isLessEq.html">isLessEq</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/isSame.html">isSame</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/MostDerived.html">MostDerived</a></td>
+<td>Returns the type from <code>TList</code> that is the most derived from type <code>T</code> . If no such type is found, <code>T</code> is returned.</td>
+</tr>
+<tr>
+<td><a href="Templates/NoDuplicates.html">NoDuplicates</a></td>
+<td>Returns an <code>AliasSeq</code> created from <code>args</code> with all duplicate types removed.</td>
+</tr>
+<tr>
+<td><a href="Templates/OldAlias.html">OldAlias</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/Pack.html">Pack</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/Repeat.html">Repeat</a></td>
+<td>Creates an <code>AliasSeq</code> which repeats <code>items</code> exactly <code>n</code> times.</td>
+</tr>
+<tr>
+<td><a href="Templates/ReplaceAll.html">ReplaceAll</a></td>
+<td>Returns an <code>AliasSeq</code> created from <code>args[2 .. $]</code> with all occurrences of <code>args[0]</code> , if any, replaced with <code>args[1]</code> .</td>
+</tr>
+<tr>
+<td><a href="Templates/Reverse.html">Reverse</a></td>
+<td>Returns an <code>AliasSeq</code> created from <code>args</code> with the order reversed.</td>
+</tr>
+<tr>
+<td><a href="Templates/SmartAlias.html">SmartAlias</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/staticMap.html">staticMap</a></td>
+<td>Evaluates to <code>AliasSeq!(fun!(args[0]), fun!(args[1]), ..., fun!(args[$ - 1]))</code> .</td>
+</tr>
+<tr>
+<td><a href="Templates/staticMerge.html">staticMerge</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/staticSort.html">staticSort</a></td>
+<td>Sorts an $(LREF AliasSeq) using <code>cmp</code> .</td>
+</tr>
+<tr>
+<td><a href="Templates/Stride.html">Stride</a></td>
+<td>Selects a subset of <code>Args</code> by stepping with fixed <code>stepSize</code> over the sequence. A negative <code>stepSize</code> starts iteration with the last element.</td>
+</tr>
+<tr>
+<td><a href="Templates/templateAnd.html">templateAnd</a></td>
+<td>Combines several template predicates using logical AND, i.e. constructs a new predicate which evaluates to true for a given input T if and only if all of the passed predicates are true for T.</td>
+</tr>
+<tr>
+<td><a href="Templates/templateOr.html">templateOr</a></td>
+<td>Combines several template predicates using logical OR, i.e. constructs a new predicate which evaluates to true for a given input T if and only at least one of the passed predicates is true for T.</td>
+</tr>
+<tr>
+<td><a href="Templates/testError.html">testError</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 class='section'>Variables</h2><table>
 <thead>
 <tr>

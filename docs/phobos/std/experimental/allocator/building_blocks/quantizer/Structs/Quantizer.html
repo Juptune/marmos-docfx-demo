@@ -121,31 +121,31 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Quantizer/Functions/alignedAllocate.html">alignedAllocate</a></td>
+<td><a href="../Quantizer/Quantizer/Functions/alignedAllocate.html">alignedAllocate</a></td>
 <td>Defined only if <code>parent.alignedAllocate</code> exists and works similarly to <code>allocate</code> by forwarding to $(D parent.alignedAllocate(goodAllocSize(n), a)).</td>
 </tr>
 <tr>
-<td><a href="../Quantizer/Functions/alignedReallocate.html">alignedReallocate</a></td>
+<td><a href="../Quantizer/Quantizer/Functions/alignedReallocate.html">alignedReallocate</a></td>
 <td>Defined only if <code>ParentAllocator.alignedAllocate</code> exists. Expansion occurs in place under the conditions required by <code>expand</code> . Shrinking occurs in place if $(D goodAllocSize(b.length) == goodAllocSize(s)).</td>
 </tr>
 <tr>
-<td><a href="../Quantizer/Functions/allocate.html">allocate</a></td>
+<td><a href="../Quantizer/Quantizer/Functions/allocate.html">allocate</a></td>
 <td>Gets a larger buffer <code>buf</code> by calling <code>parent.allocate(goodAllocSize(n))</code> . If <code>buf</code> is <code>null</code> , returns <code>null</code> . Otherwise, returns $(D buf[0 .. n]).</td>
 </tr>
 <tr>
-<td><a href="../Quantizer/Functions/deallocate.html">deallocate</a></td>
+<td><a href="../Quantizer/Quantizer/Functions/deallocate.html">deallocate</a></td>
 <td>Defined if <code>ParentAllocator.deallocate</code> exists and forwards to $(D parent.deallocate(b.ptr[0 .. goodAllocSize(b.length)])).</td>
 </tr>
 <tr>
-<td><a href="../Quantizer/Functions/expand.html">expand</a></td>
+<td><a href="../Quantizer/Quantizer/Functions/expand.html">expand</a></td>
 <td>First checks whether there's enough slack memory preallocated for <code>b</code> by evaluating $(D b.length + delta &lt;= goodAllocSize(b.length)). If that's the case, expands <code>b</code> in place. Otherwise, attempts to use <code>parent.expand</code> appropriately if present.</td>
 </tr>
 <tr>
-<td><a href="../Quantizer/Functions/goodAllocSize.html">goodAllocSize</a></td>
+<td><a href="../Quantizer/Quantizer/Functions/goodAllocSize.html">goodAllocSize</a></td>
 <td>Returns <code>roundingFunction(n)</code> .</td>
 </tr>
 <tr>
-<td><a href="../Quantizer/Functions/reallocate.html">reallocate</a></td>
+<td><a href="../Quantizer/Quantizer/Functions/reallocate.html">reallocate</a></td>
 <td>Expands or shrinks allocated block to an allocated size of $(D goodAllocSize(s)). Expansion occurs in place under the conditions required by <code>expand</code> . Shrinking occurs in place if $(D goodAllocSize(b.length) == goodAllocSize(s)).</td>
 </tr>
 </tbody>
@@ -159,11 +159,11 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Quantizer/Variables/alignment.html">alignment</a></td>
+<td><a href="../Quantizer/Quantizer/Variables/alignment.html">alignment</a></td>
 <td>Alignment is identical to that of the parent.</td>
 </tr>
 <tr>
-<td><a href="../Quantizer/Variables/parent.html">parent</a></td>
+<td><a href="../Quantizer/Quantizer/Variables/parent.html">parent</a></td>
 <td>The parent allocator. Depending on whether <code>ParentAllocator</code> holds state or not, this is a member variable or an alias for <code>ParentAllocator.instance</code> .</td>
 </tr>
 </tbody>

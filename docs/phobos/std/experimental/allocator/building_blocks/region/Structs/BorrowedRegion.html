@@ -128,7 +128,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../BorrowedRegion/Aliases/alignment.html">alignment</a></td>
+<td><a href="../BorrowedRegion/BorrowedRegion/Aliases/alignment.html">alignment</a></td>
 <td>Alignment offered.</td>
 </tr>
 </tbody>
@@ -142,51 +142,51 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../BorrowedRegion/Functions/alignedAllocate.html">alignedAllocate</a></td>
+<td><a href="../BorrowedRegion/BorrowedRegion/Functions/alignedAllocate.html">alignedAllocate</a></td>
 <td>Allocates <code>n</code> bytes of memory aligned at alignment <code>a</code> .</td>
 </tr>
 <tr>
-<td><a href="../BorrowedRegion/Functions/allocate.html">allocate</a></td>
+<td><a href="../BorrowedRegion/BorrowedRegion/Functions/allocate.html">allocate</a></td>
 <td>Allocates <code>n</code> bytes of memory. The shortest path involves an alignment adjustment (if $(D alignment &gt; 1)), an increment, and a comparison.</td>
 </tr>
 <tr>
-<td><a href="../BorrowedRegion/Functions/allocateAll.html">allocateAll</a></td>
+<td><a href="../BorrowedRegion/BorrowedRegion/Functions/allocateAll.html">allocateAll</a></td>
 <td>Allocates and returns all memory available to this region.</td>
 </tr>
 <tr>
-<td><a href="../BorrowedRegion/Functions/available.html">available</a></td>
+<td><a href="../BorrowedRegion/BorrowedRegion/Functions/available.html">available</a></td>
 <td>Nonstandard property that returns bytes available for allocation.</td>
 </tr>
 <tr>
-<td><a href="../BorrowedRegion/Functions/deallocate.html">deallocate</a></td>
+<td><a href="../BorrowedRegion/BorrowedRegion/Functions/deallocate.html">deallocate</a></td>
 <td>Deallocates <code>b</code> . This works only if <code>b</code> was obtained as the last call to <code>allocate</code> ; otherwise (i.e. another allocation has occurred since) it does nothing.</td>
 </tr>
 <tr>
-<td><a href="../BorrowedRegion/Functions/deallocateAll.html">deallocateAll</a></td>
+<td><a href="../BorrowedRegion/BorrowedRegion/Functions/deallocateAll.html">deallocateAll</a></td>
 <td>Deallocates all memory allocated by this region, which can be subsequently reused for new allocations.</td>
 </tr>
 <tr>
-<td><a href="../BorrowedRegion/Functions/empty.html">empty</a></td>
+<td><a href="../BorrowedRegion/BorrowedRegion/Functions/empty.html">empty</a></td>
 <td>Returns <code>Ternary.yes</code> if no memory has been allocated in this region, <code>Ternary.no</code> otherwise. (Never returns <code>Ternary.unknown</code> .)</td>
 </tr>
 <tr>
-<td><a href="../BorrowedRegion/Functions/expand.html">expand</a></td>
+<td><a href="../BorrowedRegion/BorrowedRegion/Functions/expand.html">expand</a></td>
 <td>Expands an allocated block in place. Expansion will succeed only if the block is the last allocated. Defined only if <code>growDownwards</code> is <code>No.growDownwards</code> .</td>
 </tr>
 <tr>
-<td><a href="../BorrowedRegion/Functions/goodAllocSize.html">goodAllocSize</a></td>
+<td><a href="../BorrowedRegion/BorrowedRegion/Functions/goodAllocSize.html">goodAllocSize</a></td>
 <td>Rounds the given size to a multiple of the <code>alignment</code></td>
 </tr>
 <tr>
-<td><a href="../BorrowedRegion/Functions/owns.html">owns</a></td>
+<td><a href="../BorrowedRegion/BorrowedRegion/Functions/owns.html">owns</a></td>
 <td>Queries whether <code>b</code> has been allocated with this region.</td>
 </tr>
 <tr>
-<td><a href="../BorrowedRegion/Functions/roundedBegin.html">roundedBegin</a></td>
+<td><a href="../BorrowedRegion/BorrowedRegion/Functions/roundedBegin.html">roundedBegin</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../BorrowedRegion/Functions/roundedEnd.html">roundedEnd</a></td>
+<td><a href="../BorrowedRegion/BorrowedRegion/Functions/roundedEnd.html">roundedEnd</a></td>
 <td></td>
 </tr>
 </tbody>

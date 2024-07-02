@@ -118,31 +118,31 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../GCAllocator/Functions/allocate.html">allocate</a></td>
+<td><a href="../GCAllocator/GCAllocator/Functions/allocate.html">allocate</a></td>
 <td>Standard allocator methods per the semantics defined above. The $(D deallocate) and <code>reallocate</code> methods are <code>@system</code> because they may move memory around, leaving dangling pointers in user code.</td>
 </tr>
 <tr>
-<td><a href="../GCAllocator/Functions/collect.html">collect</a></td>
+<td><a href="../GCAllocator/GCAllocator/Functions/collect.html">collect</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../GCAllocator/Functions/deallocate.html">deallocate</a></td>
+<td><a href="../GCAllocator/GCAllocator/Functions/deallocate.html">deallocate</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../GCAllocator/Functions/expand.html">expand</a></td>
+<td><a href="../GCAllocator/GCAllocator/Functions/expand.html">expand</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../GCAllocator/Functions/goodAllocSize.html">goodAllocSize</a></td>
+<td><a href="../GCAllocator/GCAllocator/Functions/goodAllocSize.html">goodAllocSize</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../GCAllocator/Functions/reallocate.html">reallocate</a></td>
+<td><a href="../GCAllocator/GCAllocator/Functions/reallocate.html">reallocate</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../GCAllocator/Functions/resolveInternalPointer.html">resolveInternalPointer</a></td>
+<td><a href="../GCAllocator/GCAllocator/Functions/resolveInternalPointer.html">resolveInternalPointer</a></td>
 <td>Ditto</td>
 </tr>
 </tbody>
@@ -156,11 +156,11 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../GCAllocator/Variables/alignment.html">alignment</a></td>
+<td><a href="../GCAllocator/GCAllocator/Variables/alignment.html">alignment</a></td>
 <td>The alignment is a static constant equal to <code>platformAlignment</code> , which ensures proper alignment for any D data type.</td>
 </tr>
 <tr>
-<td><a href="../GCAllocator/Variables/instance.html">instance</a></td>
+<td><a href="../GCAllocator/GCAllocator/Variables/instance.html">instance</a></td>
 <td>Returns the global instance of this allocator type. The garbage collected allocator is thread-safe, therefore all of its methods and <code>instance</code> itself are <code>shared</code> .</td>
 </tr>
 </tbody>

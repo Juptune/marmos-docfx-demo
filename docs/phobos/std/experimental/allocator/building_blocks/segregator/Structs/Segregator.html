@@ -129,43 +129,43 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Segregator/Functions/alignedAllocate.html">alignedAllocate</a></td>
+<td><a href="../Segregator/Segregator/Functions/alignedAllocate.html">alignedAllocate</a></td>
 <td>This method is defined if both allocators define it, and forwards to <code>SmallAllocator</code> or <code>LargeAllocator</code> appropriately.</td>
 </tr>
 <tr>
-<td><a href="../Segregator/Functions/alignedReallocate.html">alignedReallocate</a></td>
+<td><a href="../Segregator/Segregator/Functions/alignedReallocate.html">alignedReallocate</a></td>
 <td>This method is defined only if at least one of the allocators defines it, and work similarly to <code>reallocate</code> .</td>
 </tr>
 <tr>
-<td><a href="../Segregator/Functions/allocate.html">allocate</a></td>
+<td><a href="../Segregator/Segregator/Functions/allocate.html">allocate</a></td>
 <td>The memory is obtained from <code>SmallAllocator</code> if $(D s &lt;= threshold), or <code>LargeAllocator</code> otherwise.</td>
 </tr>
 <tr>
-<td><a href="../Segregator/Functions/deallocate.html">deallocate</a></td>
+<td><a href="../Segregator/Segregator/Functions/deallocate.html">deallocate</a></td>
 <td>This function is defined only if both allocators define it, and forwards appropriately depending on <code>b.length</code> .</td>
 </tr>
 <tr>
-<td><a href="../Segregator/Functions/deallocateAll.html">deallocateAll</a></td>
+<td><a href="../Segregator/Segregator/Functions/deallocateAll.html">deallocateAll</a></td>
 <td>This function is defined only if both allocators define it, and calls <code>deallocateAll</code> for them in turn.</td>
 </tr>
 <tr>
-<td><a href="../Segregator/Functions/empty.html">empty</a></td>
+<td><a href="../Segregator/Segregator/Functions/empty.html">empty</a></td>
 <td>This function is defined only if both allocators define it, and returns the conjunction of <code>empty</code> calls for the two.</td>
 </tr>
 <tr>
-<td><a href="../Segregator/Functions/expand.html">expand</a></td>
+<td><a href="../Segregator/Segregator/Functions/expand.html">expand</a></td>
 <td>This method is defined only if at least one of the allocators defines it. If <code>SmallAllocator</code> defines <code>expand</code> and $(D b.length + delta &lt;= threshold), the call is forwarded to <code>SmallAllocator</code> . If $(D LargeAllocator) defines <code>expand</code> and $(D b.length &gt; threshold), the call is forwarded to <code>LargeAllocator</code> . Otherwise, the call returns <code>false</code> .</td>
 </tr>
 <tr>
-<td><a href="../Segregator/Functions/goodAllocSize.html">goodAllocSize</a></td>
+<td><a href="../Segregator/Segregator/Functions/goodAllocSize.html">goodAllocSize</a></td>
 <td>This method is defined only if at least one of the allocators defines it. The good allocation size is obtained from <code>SmallAllocator</code> if $(D s &lt;= threshold), or <code>LargeAllocator</code> otherwise. (If one of the allocators does not define <code>goodAllocSize</code> , the default implementation in this module applies.)</td>
 </tr>
 <tr>
-<td><a href="../Segregator/Functions/owns.html">owns</a></td>
+<td><a href="../Segregator/Segregator/Functions/owns.html">owns</a></td>
 <td>This method is defined only if both allocators define it. The call is forwarded to <code>SmallAllocator</code> if $(D b.length &lt;= threshold), or $(D LargeAllocator) otherwise.</td>
 </tr>
 <tr>
-<td><a href="../Segregator/Functions/reallocate.html">reallocate</a></td>
+<td><a href="../Segregator/Segregator/Functions/reallocate.html">reallocate</a></td>
 <td>This method is defined only if at least one of the allocators defines it. If <code>SmallAllocator</code> defines <code>reallocate</code> and $(D b.length &lt;= threshold &amp;&amp; s &lt;= threshold), the call is forwarded to $(D SmallAllocator). If <code>LargeAllocator</code> defines <code>expand</code> and $(D b.length &gt; threshold &amp;&amp; s &gt; threshold), the call is forwarded to $(D LargeAllocator). Otherwise, the call returns <code>false</code> .</td>
 </tr>
 </tbody>
@@ -179,19 +179,19 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Segregator/Variables/alignment.html">alignment</a></td>
+<td><a href="../Segregator/Segregator/Variables/alignment.html">alignment</a></td>
 <td>The alignment offered is the minimum of the two allocators' alignment.</td>
 </tr>
 <tr>
-<td><a href="../Segregator/Variables/alignment.html">alignment</a></td>
+<td><a href="../Segregator/Segregator/Variables/alignment.html">alignment</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../Segregator/Variables/instance.html">instance</a></td>
+<td><a href="../Segregator/Segregator/Variables/instance.html">instance</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../Segregator/Variables/sharedMethods.html">sharedMethods</a></td>
+<td><a href="../Segregator/Segregator/Variables/sharedMethods.html">sharedMethods</a></td>
 <td></td>
 </tr>
 </tbody>

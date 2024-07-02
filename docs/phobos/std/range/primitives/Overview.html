@@ -176,6 +176,36 @@
 </tr>
 </tbody>
 </table>
+<h2 class='section'>Templates</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Templates/ElementEncodingType.html">ElementEncodingType</a></td>
+<td>The encoding element type of <code>R</code> . For narrow strings (<code>char[]</code>, <code>wchar[]</code> and their qualified variants including <code>string</code> and <code>wstring</code> ), <code>ElementEncodingType</code> is the character type of the string. For all other types, <code>ElementEncodingType</code> is the same as <code>ElementType</code> .</td>
+</tr>
+<tr>
+<td><a href="Templates/ElementType.html">ElementType</a></td>
+<td>The element type of <code>R</code> . <code>R</code> does not have to be a range. The element type is determined as the type yielded by <code>r.front</code> for an object <code>r</code> of type <code>R</code> . For example, <code>ElementType!(T[])</code> is <code>T</code> if <code>T[]</code> isn't a narrow string; if it is, the element type is <code>dchar</code> . If <code>R</code> doesn't have <code>front</code> , <code>ElementType!R</code> is <code>void</code> .</td>
+</tr>
+<tr>
+<td><a href="Templates/hasLength.html">hasLength</a></td>
+<td>Yields <code>true</code> if <code>R</code> has a <code>length</code> member that returns a value of <code>size_t</code> type. <code>R</code> does not have to be a range. If <code>R</code> is a range, algorithms in the standard library are only guaranteed to support <code>length</code> with type <code>size_t</code> .</td>
+</tr>
+<tr>
+<td><a href="Templates/ImplementLength.html">ImplementLength</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/isInfinite.html">isInfinite</a></td>
+<td>Returns <code>true</code> if <code>R</code> is an infinite input range. An infinite input range is an input range that has a statically-defined enumerated member called <code>empty</code> that is always <code>false</code> , for example:</td>
+</tr>
+</tbody>
+</table>
 <h2 class='section'>Variables</h2><table>
 <thead>
 <tr>

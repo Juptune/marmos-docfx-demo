@@ -125,7 +125,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../InSituRegion/Aliases/alignment.html">alignment</a></td>
+<td><a href="../InSituRegion/InSituRegion/Aliases/alignment.html">alignment</a></td>
 <td>An alias for <code>minAlign</code> , which must be a valid alignment (nonzero power of 2). The start of the region and all allocation requests will be rounded up to a multiple of the alignment.</td>
 </tr>
 </tbody>
@@ -139,39 +139,39 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../InSituRegion/Functions/alignedAllocate.html">alignedAllocate</a></td>
+<td><a href="../InSituRegion/InSituRegion/Functions/alignedAllocate.html">alignedAllocate</a></td>
 <td>As above, but the memory allocated is aligned at <code>a</code> bytes.</td>
 </tr>
 <tr>
-<td><a href="../InSituRegion/Functions/allocate.html">allocate</a></td>
+<td><a href="../InSituRegion/InSituRegion/Functions/allocate.html">allocate</a></td>
 <td>Allocates <code>bytes</code> and returns them, or <code>null</code> if the region cannot accommodate the request. For efficiency reasons, if $(D bytes == 0) the function returns an empty non-null slice.</td>
 </tr>
 <tr>
-<td><a href="../InSituRegion/Functions/allocateAll.html">allocateAll</a></td>
+<td><a href="../InSituRegion/InSituRegion/Functions/allocateAll.html">allocateAll</a></td>
 <td>Allocates all memory available with this allocator.</td>
 </tr>
 <tr>
-<td><a href="../InSituRegion/Functions/available.html">available</a></td>
+<td><a href="../InSituRegion/InSituRegion/Functions/available.html">available</a></td>
 <td>Nonstandard function that returns the bytes available for allocation.</td>
 </tr>
 <tr>
-<td><a href="../InSituRegion/Functions/deallocate.html">deallocate</a></td>
+<td><a href="../InSituRegion/InSituRegion/Functions/deallocate.html">deallocate</a></td>
 <td>Deallocates <code>b</code> . This works only if <code>b</code> was obtained as the last call to <code>allocate</code> ; otherwise (i.e. another allocation has occurred since) it does nothing. This semantics is tricky and therefore <code>deallocate</code> is defined only if <code>Region</code> is instantiated with <code>Yes.defineDeallocate</code> as the third template argument.</td>
 </tr>
 <tr>
-<td><a href="../InSituRegion/Functions/deallocateAll.html">deallocateAll</a></td>
+<td><a href="../InSituRegion/InSituRegion/Functions/deallocateAll.html">deallocateAll</a></td>
 <td>Deallocates all memory allocated with this allocator.</td>
 </tr>
 <tr>
-<td><a href="../InSituRegion/Functions/expand.html">expand</a></td>
+<td><a href="../InSituRegion/InSituRegion/Functions/expand.html">expand</a></td>
 <td>Expands an allocated block in place. Expansion will succeed only if the block is the last allocated.</td>
 </tr>
 <tr>
-<td><a href="../InSituRegion/Functions/lazyInit.html">lazyInit</a></td>
+<td><a href="../InSituRegion/InSituRegion/Functions/lazyInit.html">lazyInit</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../InSituRegion/Functions/owns.html">owns</a></td>
+<td><a href="../InSituRegion/InSituRegion/Functions/owns.html">owns</a></td>
 <td>Returns <code>Ternary.yes</code> if <code>b</code> is the result of a previous allocation, <code>Ternary.no</code> otherwise.</td>
 </tr>
 </tbody>
@@ -185,7 +185,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../InSituRegion/Variables/growDownwards.html">growDownwards</a></td>
+<td><a href="../InSituRegion/InSituRegion/Variables/growDownwards.html">growDownwards</a></td>
 <td></td>
 </tr>
 </tbody>

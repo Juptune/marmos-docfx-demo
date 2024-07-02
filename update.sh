@@ -4,6 +4,8 @@
 #
 # Example: bash ./update.sh $PWD/../marmos/build/marmos $PWD/../marmos/dogfood/typescript/
 
+rm -rf _marmos-output/models/
+
 mkdir -p _marmos-output/repos
 mkdir -p _marmos-output/models/phobos
 mkdir -p _marmos-output/models/juptune
@@ -39,4 +41,5 @@ popd
 # Build
 pushd src
 docfx build
+rm -rf ../docs
 mv _site ../docs

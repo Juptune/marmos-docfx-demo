@@ -1,0 +1,390 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Enum - CurlInfo | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Enum - CurlInfo | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../../index.html">
+            <img id="logo" class="svg" src="../../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="etc.c.curl.Enums.CurlInfo">
+<h1 class='section'>Enum - CurlInfo</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>etc.c.curl</dd></dl>
+</div><pre><code class='lang-d'>enum CurlInfo
+{
+  // 
+  __enumMember appconnect_time;
+  // 
+  __enumMember certinfo;
+  // 
+  __enumMember condition_unmet;
+  // 
+  __enumMember connect_time;
+  // 
+  __enumMember content_length_download;
+  // 
+  __enumMember content_length_upload;
+  // 
+  __enumMember content_type;
+  // 
+  __enumMember cookielist;
+  // 
+  __enumMember effective_url;
+  // 
+  __enumMember filetime;
+  // 
+  __enumMember ftp_entry_path;
+  // 
+  __enumMember header_size;
+  // 
+  __enumMember http_connectcode;
+  // 
+  __enumMember httpauth_avail;
+  // Fill in new entries below here! 
+  __enumMember lastone;
+  // 
+  __enumMember lastsocket;
+  // 
+  __enumMember local_ip;
+  // 
+  __enumMember local_port;
+  // 
+  __enumMember namelookup_time;
+  // 
+  __enumMember none;
+  // 
+  __enumMember num_connects;
+  // 
+  __enumMember os_errno;
+  // 
+  __enumMember pretransfer_time;
+  // 
+  __enumMember primary_ip;
+  // 
+  __enumMember primary_port;
+  // 
+  __enumMember private_info;
+  // 
+  __enumMember proxyauth_avail;
+  // 
+  __enumMember redirect_count;
+  // 
+  __enumMember redirect_time;
+  // 
+  __enumMember redirect_url;
+  // 
+  __enumMember request_size;
+  // 
+  __enumMember response_code;
+  // 
+  __enumMember rtsp_client_cseq;
+  // 
+  __enumMember rtsp_cseq_recv;
+  // 
+  __enumMember rtsp_server_cseq;
+  // 
+  __enumMember rtsp_session_id;
+  // 
+  __enumMember size_download;
+  // 
+  __enumMember size_upload;
+  // 
+  __enumMember speed_download;
+  // 
+  __enumMember speed_upload;
+  // 
+  __enumMember ssl_engines;
+  // 
+  __enumMember ssl_verifyresult;
+  // 
+  __enumMember starttransfer_time;
+  // 
+  __enumMember total_time;
+}</code></pre><h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/appconnect_time.html">appconnect_time</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/certinfo.html">certinfo</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/condition_unmet.html">condition_unmet</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/connect_time.html">connect_time</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/content_length_download.html">content_length_download</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/content_length_upload.html">content_length_upload</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/content_type.html">content_type</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/cookielist.html">cookielist</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/effective_url.html">effective_url</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/filetime.html">filetime</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/ftp_entry_path.html">ftp_entry_path</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/header_size.html">header_size</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/http_connectcode.html">http_connectcode</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/httpauth_avail.html">httpauth_avail</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/lastone.html">lastone</a></td>
+<td>Fill in new entries below here!</td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/lastsocket.html">lastsocket</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/local_ip.html">local_ip</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/local_port.html">local_port</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/namelookup_time.html">namelookup_time</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/none.html">none</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/num_connects.html">num_connects</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/os_errno.html">os_errno</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/pretransfer_time.html">pretransfer_time</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/primary_ip.html">primary_ip</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/primary_port.html">primary_port</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/private_info.html">private_info</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/proxyauth_avail.html">proxyauth_avail</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/redirect_count.html">redirect_count</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/redirect_time.html">redirect_time</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/redirect_url.html">redirect_url</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/request_size.html">request_size</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/response_code.html">response_code</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/rtsp_client_cseq.html">rtsp_client_cseq</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/rtsp_cseq_recv.html">rtsp_cseq_recv</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/rtsp_server_cseq.html">rtsp_server_cseq</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/rtsp_session_id.html">rtsp_session_id</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/size_download.html">size_download</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/size_upload.html">size_upload</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/speed_download.html">speed_download</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/speed_upload.html">speed_upload</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/ssl_engines.html">ssl_engines</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/ssl_verifyresult.html">ssl_verifyresult</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/starttransfer_time.html">starttransfer_time</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CurlInfo/CurlInfo/Variables/total_time.html">total_time</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

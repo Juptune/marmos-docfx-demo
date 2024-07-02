@@ -184,147 +184,147 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../File/Functions/byChunk.html">byChunk</a></td>
+<td><a href="../File/File/Functions/byChunk.html">byChunk</a></td>
 <td>Returns an $(REF_ALTTEXT input range, isInputRange, std,range,primitives) set up to read from the file handle a chunk at a time.</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/clearerr.html">clearerr</a></td>
+<td><a href="../File/File/Functions/clearerr.html">clearerr</a></td>
 <td>If the file is closed or not yet opened, succeeds vacuously. Otherwise, returns $(CSTDIO clearerr) for the file handle.</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/close.html">close</a></td>
+<td><a href="../File/File/Functions/close.html">close</a></td>
 <td>If the file was closed or not yet opened, succeeds vacuously. Otherwise closes the file (by calling $(CSTDIO fclose)), throwing on error. Even if an exception is thrown, afterwards the $(D File) object is empty. This is different from <code>detach</code> in that it always closes the file; consequently, all other <code>File</code> objects referring to the same handle will see a closed file henceforth.</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/closeHandles.html">closeHandles</a></td>
+<td><a href="../File/File/Functions/closeHandles.html">closeHandles</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../File/Functions/detach.html">detach</a></td>
+<td><a href="../File/File/Functions/detach.html">detach</a></td>
 <td>Detaches from the underlying file. If the sole owner, calls <code>close</code> .</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/eof.html">eof</a></td>
+<td><a href="../File/File/Functions/eof.html">eof</a></td>
 <td>Returns <code>true</code> if the file is at end (see $(CSTDIO feof)).</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/error.html">error</a></td>
+<td><a href="../File/File/Functions/error.html">error</a></td>
 <td>If the file is closed or not yet opened, returns <code>true</code> . Otherwise, returns $(CSTDIO ferror) for the file handle.</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/fdopen.html">fdopen</a></td>
+<td><a href="../File/File/Functions/fdopen.html">fdopen</a></td>
 <td>First calls <code>detach</code> (throwing on failure), then attempts to associate the given file descriptor with the <code>File</code> , and sets the file's name to <code>null</code> .</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/fileno.html">fileno</a></td>
+<td><a href="../File/File/Functions/fileno.html">fileno</a></td>
 <td>Returns the file number corresponding to this object.</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/flush.html">flush</a></td>
+<td><a href="../File/File/Functions/flush.html">flush</a></td>
 <td>Flushes the C <code>FILE</code> buffers.</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/getFP.html">getFP</a></td>
+<td><a href="../File/File/Functions/getFP.html">getFP</a></td>
 <td>Returns the <code>FILE*</code> corresponding to this object.</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/initImpl.html">initImpl</a></td>
+<td><a href="../File/File/Functions/initImpl.html">initImpl</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../File/Functions/isOpen.html">isOpen</a></td>
+<td><a href="../File/File/Functions/isOpen.html">isOpen</a></td>
 <td>Returns <code>true</code> if the file is opened.</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/lock.html">lock</a></td>
+<td><a href="../File/File/Functions/lock.html">lock</a></td>
 <td>Locks the specified file segment. If the file segment is already locked by another process, waits until the existing lock is released. If both <code>start</code> and <code>length</code> are zero, the entire file is locked.</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/lockImpl.html">lockImpl</a></td>
+<td><a href="../File/File/Functions/lockImpl.html">lockImpl</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../File/Functions/lockingBinaryWriter.html">lockingBinaryWriter</a></td>
+<td><a href="../File/File/Functions/lockingBinaryWriter.html">lockingBinaryWriter</a></td>
 <td>Returns an output range that locks the file and allows fast writing to it.</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/lockingTextWriter.html">lockingTextWriter</a></td>
+<td><a href="../File/File/Functions/lockingTextWriter.html">lockingTextWriter</a></td>
 <td>Output range which locks the file when created, and unlocks the file when it goes out of scope.</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/name.html">name</a></td>
+<td><a href="../File/File/Functions/name.html">name</a></td>
 <td>Returns the name last used to initialize this <code>File</code> , if any.</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/opAssign.html">opAssign</a></td>
+<td><a href="../File/File/Functions/opAssign.html">opAssign</a></td>
 <td>Assigns a file to another. The target of the assignment gets detached from whatever file it was attached to, and attaches itself to the new file.</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/open.html">open</a></td>
+<td><a href="../File/File/Functions/open.html">open</a></td>
 <td>Detaches from the current file (throwing on failure), and then attempts to open file <code>name</code> with mode <code>stdioOpenmode</code>. The mode has the same semantics as in the C standard library $(CSTDIO fopen) function.</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/popen.html">popen</a></td>
+<td><a href="../File/File/Functions/popen.html">popen</a></td>
 <td>Detaches from the current file (throwing on failure), and then runs a command by calling the C standard library function $(HTTP opengroup.org/onlinepubs/007908799/xsh/_popen.html, popen).</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/reopen.html">reopen</a></td>
+<td><a href="../File/File/Functions/reopen.html">reopen</a></td>
 <td>Reuses the <code>File</code> object to either open a different file, or change the file mode. If <code>name</code> is <code>null</code> , the mode of the currently open file is changed; otherwise, a new file is opened, reusing the C <code>FILE*</code> . The function has the same semantics as in the C standard library $(CSTDIO freopen) function.</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/resetFile.html">resetFile</a></td>
+<td><a href="../File/File/Functions/resetFile.html">resetFile</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../File/Functions/rewind.html">rewind</a></td>
+<td><a href="../File/File/Functions/rewind.html">rewind</a></td>
 <td>Calls $(CSTDIO rewind) for the file handle.</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/seek.html">seek</a></td>
+<td><a href="../File/File/Functions/seek.html">seek</a></td>
 <td>Calls $(CSTDIO fseek) for the file handle to move its position indicator.</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/setAppendWin.html">setAppendWin</a></td>
+<td><a href="../File/File/Functions/setAppendWin.html">setAppendWin</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../File/Functions/setvbuf.html">setvbuf</a></td>
+<td><a href="../File/File/Functions/setvbuf.html">setvbuf</a></td>
 <td>Calls $(CSTDIO setvbuf) for the file handle.</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/size.html">size</a></td>
+<td><a href="../File/File/Functions/size.html">size</a></td>
 <td>Returns the size of the file in bytes, ulong.max if file is not searchable or throws if the operation fails. Example: --- import std.stdio, std.file;</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/sync.html">sync</a></td>
+<td><a href="../File/File/Functions/sync.html">sync</a></td>
 <td>Forces any data buffered by the OS to be written to disk. Call $(LREF flush) before calling this function to flush the C <code>FILE</code> buffers first.</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/tell.html">tell</a></td>
+<td><a href="../File/File/Functions/tell.html">tell</a></td>
 <td>Calls $(CSTDIO ftell) for the managed file handle, which returns the current value of the position indicator of the file handle.</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/tmpfile.html">tmpfile</a></td>
+<td><a href="../File/File/Functions/tmpfile.html">tmpfile</a></td>
 <td>Returns a temporary file by calling $(CSTDIO tmpfile). Note that the created file has no $(LREF name).</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/tryLock.html">tryLock</a></td>
+<td><a href="../File/File/Functions/tryLock.html">tryLock</a></td>
 <td>Attempts to lock the specified file segment. If both <code>start</code> and <code>length</code> are zero, the entire file is locked. Returns: <code>true</code> if the lock was successful, and <code>false</code> if the specified file segment was already locked.</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/unlock.html">unlock</a></td>
+<td><a href="../File/File/Functions/unlock.html">unlock</a></td>
 <td>Removes the lock over the specified file segment.</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/windowsHandle.html">windowsHandle</a></td>
+<td><a href="../File/File/Functions/windowsHandle.html">windowsHandle</a></td>
 <td>Returns the underlying operating system <code>HANDLE</code> (Windows only).</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/windowsHandleOpen.html">windowsHandleOpen</a></td>
+<td><a href="../File/File/Functions/windowsHandleOpen.html">windowsHandleOpen</a></td>
 <td>First calls <code>detach</code> (throwing on failure), and then attempts to associate the given Windows <code>HANDLE</code> with the <code>File</code> . The mode must be compatible with the access attributes of the handle. Windows only.</td>
 </tr>
 <tr>
-<td><a href="../File/Functions/wrapFile.html">wrapFile</a></td>
+<td><a href="../File/File/Functions/wrapFile.html">wrapFile</a></td>
 <td>Unsafe function that wraps an existing <code>FILE*</code> . The resulting $(D File) never takes the initiative in closing the file. Note that the created file has no $(LREF name)</td>
 </tr>
 </tbody>

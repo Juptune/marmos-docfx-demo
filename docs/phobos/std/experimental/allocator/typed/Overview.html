@@ -88,6 +88,20 @@
 <h1 class='section'>Module - std.experimental.allocator.typed</h1><h2 class='section'>About</h2><p>This module defines <code>TypedAllocator</code> , a statically-typed allocator that aggregates multiple untyped allocators and uses them depending on the static properties of the types allocated. For example, distinct allocators may be used for thread-local vs. thread-shared data, or for fixed-size data (<code>struct</code>, <code>class</code> objects) vs. resizable data (arrays).</p>
 <p>Source: $(PHOBOSSRC std/experimental/allocator/typed.d)</p>
 <h3 class='section'>Macros</h3><p>T2=$(TR <td style="text-align:left"><code>$1</code></td> $(TD $(ARGS $+)))</p>
+<h2 class='section'>Enums</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Enums/AllocFlag.html">AllocFlag</a></td>
+<td>Allocation-related flags dictated by type characteristics. <code>TypedAllocator</code> deduces these flags from the type being allocated and uses the appropriate allocator accordingly.</td>
+</tr>
+</tbody>
+</table>
 <h2 class='section'>Structs</h2><table>
 <thead>
 <tr>

@@ -145,11 +145,11 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../BitmappedBlock/Aliases/alignment.html">alignment</a></td>
+<td><a href="../BitmappedBlock/BitmappedBlock/Aliases/alignment.html">alignment</a></td>
 <td>The alignment offered is user-configurable statically through parameter <code>theAlignment</code> , defaulted to <code>platformAlignment</code> .</td>
 </tr>
 <tr>
-<td><a href="../BitmappedBlock/Aliases/blockSize.html">blockSize</a></td>
+<td><a href="../BitmappedBlock/BitmappedBlock/Aliases/blockSize.html">blockSize</a></td>
 <td>If <code>blockSize == chooseAtRuntime</code> , <code>BitmappedBlock</code> offers a read/write property <code>blockSize</code> . It must be set before any use of the allocator. Otherwise (i.e. <code>theBlockSize</code> is a legit constant), <code>blockSize</code> is an alias for <code>theBlockSize</code> . Whether constant or variable, must also be a multiple of <code>alignment</code> . This constraint is <code>assert</code> ed statically and dynamically.</td>
 </tr>
 </tbody>
@@ -163,51 +163,51 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../BitmappedBlock/Functions/alignedAllocate.html">alignedAllocate</a></td>
+<td><a href="../BitmappedBlock/BitmappedBlock/Functions/alignedAllocate.html">alignedAllocate</a></td>
 <td>Allocates a block with specified alignment <code>a</code> . The alignment must be a power of 2. If <code>a &lt;= alignment</code> , function forwards to <code>allocate</code> . Otherwise, it attempts to overallocate and then adjust the result for proper alignment. In the worst case the slack memory is around two blocks.</td>
 </tr>
 <tr>
-<td><a href="../BitmappedBlock/Functions/alignedReallocate.html">alignedReallocate</a></td>
+<td><a href="../BitmappedBlock/BitmappedBlock/Functions/alignedReallocate.html">alignedReallocate</a></td>
 <td>Reallocates a block previously allocated with <code>alignedAllocate</code> . Contractions do not occur in place.</td>
 </tr>
 <tr>
-<td><a href="../BitmappedBlock/Functions/allocate.html">allocate</a></td>
+<td><a href="../BitmappedBlock/BitmappedBlock/Functions/allocate.html">allocate</a></td>
 <td>Allocates <code>s</code> bytes of memory and returns it, or <code>null</code> if memory could not be allocated.</td>
 </tr>
 <tr>
-<td><a href="../BitmappedBlock/Functions/allocateAll.html">allocateAll</a></td>
+<td><a href="../BitmappedBlock/BitmappedBlock/Functions/allocateAll.html">allocateAll</a></td>
 <td>If the <code>BitmappedBlock</code> object is empty (has no active allocation), allocates all memory within and returns a slice to it. Otherwise, returns <code>null</code> (i.e. no attempt is made to allocate the largest available block).</td>
 </tr>
 <tr>
-<td><a href="../BitmappedBlock/Functions/allocateFresh.html">allocateFresh</a></td>
+<td><a href="../BitmappedBlock/BitmappedBlock/Functions/allocateFresh.html">allocateFresh</a></td>
 <td>Allocates s bytes of memory and returns it, or <code>null</code> if memory could not be allocated. <code>allocateFresh</code> behaves just like allocate, the only difference being that this always returns unused(fresh) memory. Although there may still be available space in the <code>BitmappedBlock</code> , <code>allocateFresh</code> could still return null, because all the available blocks have been previously deallocated.</td>
 </tr>
 <tr>
-<td><a href="../BitmappedBlock/Functions/deallocate.html">deallocate</a></td>
+<td><a href="../BitmappedBlock/BitmappedBlock/Functions/deallocate.html">deallocate</a></td>
 <td>Deallocates a block previously allocated with this allocator.</td>
 </tr>
 <tr>
-<td><a href="../BitmappedBlock/Functions/deallocateAll.html">deallocateAll</a></td>
+<td><a href="../BitmappedBlock/BitmappedBlock/Functions/deallocateAll.html">deallocateAll</a></td>
 <td>Forcibly deallocates all memory allocated by this allocator, making it available for further allocations. Does not return memory to <code>ParentAllocator</code> .</td>
 </tr>
 <tr>
-<td><a href="../BitmappedBlock/Functions/empty.html">empty</a></td>
+<td><a href="../BitmappedBlock/BitmappedBlock/Functions/empty.html">empty</a></td>
 <td>Returns <code>Ternary.yes</code> if no memory is currently allocated with this allocator, otherwise <code>Ternary.no</code> . This method never returns <code>Ternary.unknown</code> .</td>
 </tr>
 <tr>
-<td><a href="../BitmappedBlock/Functions/expand.html">expand</a></td>
+<td><a href="../BitmappedBlock/BitmappedBlock/Functions/expand.html">expand</a></td>
 <td>Expands in place a buffer previously allocated by <code>BitmappedBlock</code> . If instantiated with <code>No.multiblock</code> , the expansion fails if the new length exceeds <code>theBlockSize</code> .</td>
 </tr>
 <tr>
-<td><a href="../BitmappedBlock/Functions/goodAllocSize.html">goodAllocSize</a></td>
+<td><a href="../BitmappedBlock/BitmappedBlock/Functions/goodAllocSize.html">goodAllocSize</a></td>
 <td>Returns the actual bytes allocated when <code>n</code> bytes are requested, i.e. <code>n.roundUpToMultipleOf(blockSize)</code> .</td>
 </tr>
 <tr>
-<td><a href="../BitmappedBlock/Functions/owns.html">owns</a></td>
+<td><a href="../BitmappedBlock/BitmappedBlock/Functions/owns.html">owns</a></td>
 <td>Returns <code>Ternary.yes</code> if <code>b</code> belongs to the <code>BitmappedBlock</code> object, <code>Ternary.no</code> otherwise. Never returns <code>Ternary.unkown</code> . (This method is somewhat tolerant in that accepts an interior slice.)</td>
 </tr>
 <tr>
-<td><a href="../BitmappedBlock/Functions/reallocate.html">reallocate</a></td>
+<td><a href="../BitmappedBlock/BitmappedBlock/Functions/reallocate.html">reallocate</a></td>
 <td>Reallocates a previously-allocated block. Contractions occur in place.</td>
 </tr>
 </tbody>
@@ -221,7 +221,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../BitmappedBlock/Variables/parent.html">parent</a></td>
+<td><a href="../BitmappedBlock/BitmappedBlock/Variables/parent.html">parent</a></td>
 <td>The parent allocator. Depending on whether <code>ParentAllocator</code> holds state or not, this is a member variable or an alias for <code>ParentAllocator.instance</code> .</td>
 </tr>
 </tbody>

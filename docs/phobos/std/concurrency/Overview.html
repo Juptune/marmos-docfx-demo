@@ -140,7 +140,7 @@
 </tr>
 </tbody>
 </table>
-<h2 class='section'>Structs</h2><table>
+<h2 class='section'>Enums</h2><table>
 <thead>
 <tr>
 <th>Name</th>
@@ -149,20 +149,12 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="Structs/List.html">List</a></td>
+<td><a href="Enums/MsgType.html">MsgType</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="Structs/Message.html">Message</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/ThreadInfo.html">ThreadInfo</a></td>
-<td>Encapsulates all implementation-level data needed for scheduling.</td>
-</tr>
-<tr>
-<td><a href="Structs/Tid.html">Tid</a></td>
-<td>An opaque type used to represent a logical thread.</td>
+<td><a href="Enums/OnCrowding.html">OnCrowding</a></td>
+<td>These behaviors may be specified when a mailbox is full.</td>
 </tr>
 </tbody>
 </table>
@@ -273,6 +265,68 @@
 <tr>
 <td><a href="Functions/yield.html">yield</a></td>
 <td>If the caller is a <code>Fiber</code> and is not a $(LREF Generator), this function will call <code>scheduler.yield()</code> or <code>Fiber.yield()</code> , as appropriate.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Interfaces</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Interfaces/IsGenerator.html">IsGenerator</a></td>
+<td>Used to determine whether a Generator is running.</td>
+</tr>
+<tr>
+<td><a href="Interfaces/Scheduler.html">Scheduler</a></td>
+<td>A <code>Scheduler</code> controls how threading is performed by spawn.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Structs/List.html">List</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/Message.html">Message</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/ThreadInfo.html">ThreadInfo</a></td>
+<td>Encapsulates all implementation-level data needed for scheduling.</td>
+</tr>
+<tr>
+<td><a href="Structs/Tid.html">Tid</a></td>
+<td>An opaque type used to represent a logical thread.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Templates</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Templates/isParamsImplicitlyConvertible.html">isParamsImplicitlyConvertible</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/receiveOnlyRet.html">receiveOnlyRet</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>

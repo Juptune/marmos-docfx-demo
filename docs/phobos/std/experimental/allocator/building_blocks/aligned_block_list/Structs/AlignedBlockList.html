@@ -124,15 +124,15 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../AlignedBlockList/Functions/allocate.html">allocate</a></td>
+<td><a href="../AlignedBlockList/AlignedBlockList/Functions/allocate.html">allocate</a></td>
 <td>Returns a chunk of memory of size <code>n</code> It finds the first node in the <code>AlignedBlockNode</code> list which has available memory, and moves it to the front of the list.</td>
 </tr>
 <tr>
-<td><a href="../AlignedBlockList/Functions/deallocate.html">deallocate</a></td>
+<td><a href="../AlignedBlockList/AlignedBlockList/Functions/deallocate.html">deallocate</a></td>
 <td>Deallocates the buffer <code>b</code> given as parameter. Deallocations take place in constant time, regardless of the number of nodes in the list. <code>b.ptr</code> is rounded down to the nearest multiple of the <code>alignment</code> to quickly find the corresponding <code>AlignedBlockNode</code> .</td>
 </tr>
 <tr>
-<td><a href="../AlignedBlockList/Functions/owns.html">owns</a></td>
+<td><a href="../AlignedBlockList/AlignedBlockList/Functions/owns.html">owns</a></td>
 <td>Returns <code>Ternary.yes</code> if the buffer belongs to the parent allocator and <code>Ternary.no</code> otherwise.</td>
 </tr>
 </tbody>

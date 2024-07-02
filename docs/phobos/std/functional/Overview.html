@@ -115,24 +115,6 @@
 </tr>
 </tbody>
 </table>
-<h2 class='section'>Structs</h2><table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="Structs/CurryImpl.html">CurryImpl</a></td>
-<td>Takes a function of (potentially) many arguments, and returns a function taking one argument and returns a callable taking the rest.  f(x, y) == curry(f)(x)(y)</td>
-</tr>
-<tr>
-<td><a href="Structs/DelegateFaker.html">DelegateFaker</a></td>
-<td></td>
-</tr>
-</tbody>
-</table>
 <h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -172,6 +154,62 @@
 <tr>
 <td><a href="Functions/unsafeOp.html">unsafeOp</a></td>
 <td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Structs/CurryImpl.html">CurryImpl</a></td>
+<td>Takes a function of (potentially) many arguments, and returns a function taking one argument and returns a callable taking the rest.  f(x, y) == curry(f)(x)(y)</td>
+</tr>
+<tr>
+<td><a href="Structs/DelegateFaker.html">DelegateFaker</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Templates</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Templates/adjoin.html">adjoin</a></td>
+<td>Takes multiple functions and adjoins them together.</td>
+</tr>
+<tr>
+<td><a href="Templates/binaryFun.html">binaryFun</a></td>
+<td>Transforms a <code>string</code> representing an expression into a binary function. The <code>string</code> must either use symbol names <code>a</code> and <code>b</code> as the parameters or provide the symbols via the <code>parm1Name</code> and <code>parm2Name</code> arguments.</td>
+</tr>
+<tr>
+<td><a href="Templates/compose.html">compose</a></td>
+<td>Composes passed-in functions $(D fun[0], fun[1], ...).</td>
+</tr>
+<tr>
+<td><a href="Templates/Iota.html">Iota</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/needOpCallAlias.html">needOpCallAlias</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/partial.html">partial</a></td>
+<td>$(LINK2 <a href="http://en.wikipedia.org/wiki/Partial_application">http://en.wikipedia.org/wiki/Partial_application</a>, Partially applies) $(D_PARAM fun) by tying its first argument to $(D_PARAM arg).</td>
+</tr>
+<tr>
+<td><a href="Templates/unaryFun.html">unaryFun</a></td>
+<td>Transforms a <code>string</code> representing an expression into a unary function. The <code>string</code> must either use symbol name <code>a</code> as the parameter or provide the symbol via the <code>parmName</code> argument.</td>
 </tr>
 </tbody>
 </table>

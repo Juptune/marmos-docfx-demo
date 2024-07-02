@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface - IAllocator | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface - IAllocator | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../../index.html">
+            <img id="logo" class="svg" src="../../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.experimental.allocator.Interfaces.IAllocator">
+<h1 class='section'>Interface - IAllocator</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.experimental.allocator</dd></dl>
+</div><pre><code class='lang-d'>public interface IAllocator
+{
+  // Allocates `n` bytes of memory with specified alignment `a` . Implementations that do not support this primitive should always return `null` . 
+  &lt;bug: unknown&gt; alignedAllocate( size_t n, uint a ) ;
+  // Reallocates a memory block with specified alignment. 
+  bool alignedReallocate( &lt;bug: unknown&gt; b, size_t size, uint alignment ) ;
+  // Returns the alignment offered. 
+  uint alignment( ) ;
+  // Allocates `n` bytes of memory. 
+  &lt;bug: unknown&gt; allocate( size_t __anonymous, TypeInfo ti ) ;
+  // Allocates and returns all memory available to this allocator. Implementations that do not support this primitive should always return `null` . 
+  &lt;bug: unknown&gt; allocateAll( ) ;
+  // Deallocates a memory block. Implementations that don&#39;t support this primitive should always return `false` . A simple way to check that an allocator supports deallocation is to call `deallocate(null)` . 
+  bool deallocate( &lt;bug: unknown&gt; b ) ;
+  // Deallocates all memory. Implementations that don&#39;t support this primitive should always return `false` . 
+  bool deallocateAll( ) ;
+  // Decreases the reference count of the concrete class that implements this interface. When the reference count is `0` , the object self-destructs. 
+  bool decRef( ) ;
+  // Returns `Ternary.yes` if no memory is currently allocated from this allocator, `Ternary.no` if some allocations are currently active, or `Ternary.unknown` if not supported. 
+  Ternary empty( ) ;
+  // Expands a memory block in place and returns `true` if successful. Implementations that don&#39;t support this primitive should always return `false` . 
+  bool expand( &lt;bug: unknown&gt; __anonymous, size_t __anonymous ) ;
+  // Returns the good allocation size that guarantees zero internal fragmentation. 
+  size_t goodAllocSize( size_t s ) ;
+  // Increases the reference count of the concrete class that implements this interface. 
+  void incRef( ) ;
+  // Returns `Ternary.yes` if the allocator owns `b` , `Ternary.no` if the allocator doesn&#39;t own `b` , and `Ternary.unknown` if ownership cannot be determined. Implementations that don&#39;t support this primitive should always return `Ternary.unknown` . 
+  Ternary owns( &lt;bug: unknown&gt; b ) ;
+  // Reallocates a memory block. 
+  bool reallocate( &lt;bug: unknown&gt; __anonymous, size_t __anonymous ) ;
+  // Resolves an internal pointer to the full block allocated. Implementations that don&#39;t support this primitive should always return `Ternary.unknown` . 
+  Ternary resolveInternalPointer( &lt;bug: unknown&gt; p, &lt;bug: unknown&gt; result ) ;
+}</code></pre><h2 class='section'>About</h2><p>Dynamic allocator interface. Code that defines allocators ultimately implements this interface. This should be used wherever a uniform type is required for encapsulating various allocator implementations.</p>
+<p>Composition of allocators is not recommended at this level due to inflexibility of dynamic interfaces and inefficiencies caused by cascaded multiple calls. Instead, compose allocators using the static interface defined in $(MREF std,experimental,allocator,building_blocks), then adapt the composed allocator to <code>IAllocator</code> (possibly by using $(LREF CAllocatorImpl) below).</p>
+<p>Methods returning <code>Ternary</code> return <code>Ternary.yes</code> upon success, <code>Ternary.no</code> upon failure, and <code>Ternary.unknown</code> if the primitive is not implemented by the allocator instance.</p>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../IAllocator/IAllocator/Functions/alignedAllocate.html">alignedAllocate</a></td>
+<td>Allocates <code>n</code> bytes of memory with specified alignment <code>a</code> . Implementations that do not support this primitive should always return <code>null</code> .</td>
+</tr>
+<tr>
+<td><a href="../IAllocator/IAllocator/Functions/alignedReallocate.html">alignedReallocate</a></td>
+<td>Reallocates a memory block with specified alignment.</td>
+</tr>
+<tr>
+<td><a href="../IAllocator/IAllocator/Functions/alignment.html">alignment</a></td>
+<td>Returns the alignment offered.</td>
+</tr>
+<tr>
+<td><a href="../IAllocator/IAllocator/Functions/allocate.html">allocate</a></td>
+<td>Allocates <code>n</code> bytes of memory.</td>
+</tr>
+<tr>
+<td><a href="../IAllocator/IAllocator/Functions/allocateAll.html">allocateAll</a></td>
+<td>Allocates and returns all memory available to this allocator. Implementations that do not support this primitive should always return <code>null</code> .</td>
+</tr>
+<tr>
+<td><a href="../IAllocator/IAllocator/Functions/deallocate.html">deallocate</a></td>
+<td>Deallocates a memory block. Implementations that don't support this primitive should always return <code>false</code> . A simple way to check that an allocator supports deallocation is to call <code>deallocate(null)</code> .</td>
+</tr>
+<tr>
+<td><a href="../IAllocator/IAllocator/Functions/deallocateAll.html">deallocateAll</a></td>
+<td>Deallocates all memory. Implementations that don't support this primitive should always return <code>false</code> .</td>
+</tr>
+<tr>
+<td><a href="../IAllocator/IAllocator/Functions/decRef.html">decRef</a></td>
+<td>Decreases the reference count of the concrete class that implements this interface. When the reference count is <code>0</code> , the object self-destructs.</td>
+</tr>
+<tr>
+<td><a href="../IAllocator/IAllocator/Functions/empty.html">empty</a></td>
+<td>Returns <code>Ternary.yes</code> if no memory is currently allocated from this allocator, <code>Ternary.no</code> if some allocations are currently active, or <code>Ternary.unknown</code> if not supported.</td>
+</tr>
+<tr>
+<td><a href="../IAllocator/IAllocator/Functions/expand.html">expand</a></td>
+<td>Expands a memory block in place and returns <code>true</code> if successful. Implementations that don't support this primitive should always return <code>false</code> .</td>
+</tr>
+<tr>
+<td><a href="../IAllocator/IAllocator/Functions/goodAllocSize.html">goodAllocSize</a></td>
+<td>Returns the good allocation size that guarantees zero internal fragmentation.</td>
+</tr>
+<tr>
+<td><a href="../IAllocator/IAllocator/Functions/incRef.html">incRef</a></td>
+<td>Increases the reference count of the concrete class that implements this interface.</td>
+</tr>
+<tr>
+<td><a href="../IAllocator/IAllocator/Functions/owns.html">owns</a></td>
+<td>Returns <code>Ternary.yes</code> if the allocator owns <code>b</code> , <code>Ternary.no</code> if the allocator doesn't own <code>b</code> , and <code>Ternary.unknown</code> if ownership cannot be determined. Implementations that don't support this primitive should always return <code>Ternary.unknown</code> .</td>
+</tr>
+<tr>
+<td><a href="../IAllocator/IAllocator/Functions/reallocate.html">reallocate</a></td>
+<td>Reallocates a memory block.</td>
+</tr>
+<tr>
+<td><a href="../IAllocator/IAllocator/Functions/resolveInternalPointer.html">resolveInternalPointer</a></td>
+<td>Resolves an internal pointer to the full block allocated. Implementations that don't support this primitive should always return <code>Ternary.unknown</code> .</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

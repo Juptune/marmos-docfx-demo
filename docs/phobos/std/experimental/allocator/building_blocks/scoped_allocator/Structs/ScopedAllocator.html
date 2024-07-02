@@ -126,7 +126,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ScopedAllocator/Aliases/Allocator.html">Allocator</a></td>
+<td><a href="../ScopedAllocator/ScopedAllocator/Aliases/Allocator.html">Allocator</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -140,35 +140,35 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ScopedAllocator/Functions/allocate.html">allocate</a></td>
+<td><a href="../ScopedAllocator/ScopedAllocator/Functions/allocate.html">allocate</a></td>
 <td>Allocates memory. For management it actually allocates extra memory from the parent.</td>
 </tr>
 <tr>
-<td><a href="../ScopedAllocator/Functions/deallocate.html">deallocate</a></td>
+<td><a href="../ScopedAllocator/ScopedAllocator/Functions/deallocate.html">deallocate</a></td>
 <td>Deallocates <code>b</code> .</td>
 </tr>
 <tr>
-<td><a href="../ScopedAllocator/Functions/deallocateAll.html">deallocateAll</a></td>
+<td><a href="../ScopedAllocator/ScopedAllocator/Functions/deallocateAll.html">deallocateAll</a></td>
 <td>Deallocates all memory allocated.</td>
 </tr>
 <tr>
-<td><a href="../ScopedAllocator/Functions/empty.html">empty</a></td>
+<td><a href="../ScopedAllocator/ScopedAllocator/Functions/empty.html">empty</a></td>
 <td>Returns <code>Ternary.yes</code> if this allocator is not responsible for any memory, <code>Ternary.no</code> otherwise. (Never returns <code>Ternary.unknown</code> .)</td>
 </tr>
 <tr>
-<td><a href="../ScopedAllocator/Functions/expand.html">expand</a></td>
+<td><a href="../ScopedAllocator/ScopedAllocator/Functions/expand.html">expand</a></td>
 <td>Forwards to $(D parent.expand(b, delta)).</td>
 </tr>
 <tr>
-<td><a href="../ScopedAllocator/Functions/goodAllocSize.html">goodAllocSize</a></td>
+<td><a href="../ScopedAllocator/ScopedAllocator/Functions/goodAllocSize.html">goodAllocSize</a></td>
 <td>Forwards to <code>parent.goodAllocSize</code> (which accounts for the management overhead).</td>
 </tr>
 <tr>
-<td><a href="../ScopedAllocator/Functions/owns.html">owns</a></td>
+<td><a href="../ScopedAllocator/ScopedAllocator/Functions/owns.html">owns</a></td>
 <td>Forwards to <code>parent.owns(b)</code> .</td>
 </tr>
 <tr>
-<td><a href="../ScopedAllocator/Functions/reallocate.html">reallocate</a></td>
+<td><a href="../ScopedAllocator/ScopedAllocator/Functions/reallocate.html">reallocate</a></td>
 <td>Reallocates <code>b</code> to new size <code>s</code> .</td>
 </tr>
 </tbody>
@@ -182,15 +182,15 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ScopedAllocator/Variables/alignment.html">alignment</a></td>
+<td><a href="../ScopedAllocator/ScopedAllocator/Variables/alignment.html">alignment</a></td>
 <td>Alignment offered</td>
 </tr>
 <tr>
-<td><a href="../ScopedAllocator/Variables/parent.html">parent</a></td>
+<td><a href="../ScopedAllocator/ScopedAllocator/Variables/parent.html">parent</a></td>
 <td>If <code>ParentAllocator</code> is stateful, <code>parent</code> is a property giving access to an <code>AffixAllocator!ParentAllocator</code> . Otherwise, <code>parent</code> is an alias for <code>AffixAllocator!ParentAllocator.instance</code> .</td>
 </tr>
 <tr>
-<td><a href="../ScopedAllocator/Variables/root.html">root</a></td>
+<td><a href="../ScopedAllocator/ScopedAllocator/Variables/root.html">root</a></td>
 <td></td>
 </tr>
 </tbody>

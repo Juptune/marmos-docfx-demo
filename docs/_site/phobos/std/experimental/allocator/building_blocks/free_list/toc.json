@@ -1,2 +1,0 @@
-
-{"order":100,"items":[{"name":"Overview","href":"Overview.html","topicHref":"Overview.html"},{"name":"Structs","includedFrom":"~/phobos/std/experimental/allocator/building_blocks/free_list/Structs/toc.yml","items":[{"name":"FreeList","href":"Structs/FreeList.html","topicHref":"Structs/FreeList.html"},{"name":"ContiguousFreeList","href":"Structs/ContiguousFreeList.html","topicHref":"Structs/ContiguousFreeList.html"},{"name":"SharedFreeList","href":"Structs/SharedFreeList.html","topicHref":"Structs/SharedFreeList.html"}]}],"pdf":false}

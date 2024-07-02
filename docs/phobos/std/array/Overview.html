@@ -91,24 +91,6 @@
 <p>License:   $(HTTP boost.org/LICENSE_1_0.txt, Boost License 1.0).</p>
 <p>Authors:   $(HTTP erdani.org, Andrei Alexandrescu) and $(HTTP jmdavisprog.com, Jonathan M Davis)</p>
 <p>Source: $(PHOBOSSRC std/array.d)</p>
-<h2 class='section'>Structs</h2><table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="Structs/Appender.html">Appender</a></td>
-<td>Implements an output range that appends data to an array. This is recommended over $(D array ~= data) when appending many elements because it is more efficient. <code>Appender</code> maintains its own array metadata locally, so it can avoid the $(DDSUBLINK spec/arrays, capacity-reserve, performance hit of looking up slice <code>capacity</code> ) for each append.</td>
-</tr>
-<tr>
-<td><a href="Structs/RefAppender.html">RefAppender</a></td>
-<td>A version of $(LREF Appender) that can update an array in-place. It forwards all calls to an underlying appender implementation. Any calls made to the appender also update the pointer to the original array passed in.</td>
-</tr>
-</tbody>
-</table>
 <h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -212,6 +194,42 @@
 <tr>
 <td><a href="Functions/uninitializedArray.html">uninitializedArray</a></td>
 <td>Returns a new array of type <code>T</code> allocated on the garbage collected heap without initializing its elements. This can be a useful optimization if every element will be immediately initialized. <code>T</code> may be a multidimensional array. In this case sizes may be specified for any number of dimensions from 0 to the number in <code>T</code> .</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Structs/Appender.html">Appender</a></td>
+<td>Implements an output range that appends data to an array. This is recommended over $(D array ~= data) when appending many elements because it is more efficient. <code>Appender</code> maintains its own array metadata locally, so it can avoid the $(DDSUBLINK spec/arrays, capacity-reserve, performance hit of looking up slice <code>capacity</code> ) for each append.</td>
+</tr>
+<tr>
+<td><a href="Structs/RefAppender.html">RefAppender</a></td>
+<td>A version of $(LREF Appender) that can update an array in-place. It forwards all calls to an underlying appender implementation. Any calls made to the appender also update the pointer to the original array passed in.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Templates</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Templates/blockAttribute.html">blockAttribute</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/nDimensions.html">nDimensions</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>

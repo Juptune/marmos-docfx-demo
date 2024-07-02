@@ -1,2 +1,2 @@
 
-{"order":100,"items":[{"name":"Overview","href":"Overview.html","topicHref":"Overview.html"},{"name":"Structs","includedFrom":"~/juptune/juptune/core/ds/string/Structs/toc.yml","items":[{"name":"String","href":"Structs/String.html","topicHref":"Structs/String.html"}]}],"pdf":false}
+{"order":100,"items":[{"name":"Overview","href":"Overview.html","topicHref":"Overview.html"},{"name":"Structs","includedFrom":"~/juptune/juptune/core/ds/string/Structs/toc.yml","items":[{"name":"String","href":"Structs/String.html","topicHref":"Structs/String.html"}]},{"name":"Variables","includedFrom":"~/juptune/juptune/core/ds/string/Variables/toc.yml","items":[{"name":"UseSSO","href":"Variables/UseSSO.html","topicHref":"Variables/UseSSO.html"}]}],"pdf":false}

@@ -126,47 +126,47 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../NullAllocator/Functions/alignedAllocate.html">alignedAllocate</a></td>
+<td><a href="../NullAllocator/NullAllocator/Functions/alignedAllocate.html">alignedAllocate</a></td>
 <td>Always returns <code>null</code> .</td>
 </tr>
 <tr>
-<td><a href="../NullAllocator/Functions/alignedReallocate.html">alignedReallocate</a></td>
+<td><a href="../NullAllocator/NullAllocator/Functions/alignedReallocate.html">alignedReallocate</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../NullAllocator/Functions/allocate.html">allocate</a></td>
+<td><a href="../NullAllocator/NullAllocator/Functions/allocate.html">allocate</a></td>
 <td>Always returns <code>null</code> .</td>
 </tr>
 <tr>
-<td><a href="../NullAllocator/Functions/allocateAll.html">allocateAll</a></td>
+<td><a href="../NullAllocator/NullAllocator/Functions/allocateAll.html">allocateAll</a></td>
 <td>Always returns <code>null</code> .</td>
 </tr>
 <tr>
-<td><a href="../NullAllocator/Functions/deallocate.html">deallocate</a></td>
+<td><a href="../NullAllocator/NullAllocator/Functions/deallocate.html">deallocate</a></td>
 <td>No-op. Precondition: $(D b is null)</td>
 </tr>
 <tr>
-<td><a href="../NullAllocator/Functions/deallocateAll.html">deallocateAll</a></td>
+<td><a href="../NullAllocator/NullAllocator/Functions/deallocateAll.html">deallocateAll</a></td>
 <td>No-op.</td>
 </tr>
 <tr>
-<td><a href="../NullAllocator/Functions/empty.html">empty</a></td>
+<td><a href="../NullAllocator/NullAllocator/Functions/empty.html">empty</a></td>
 <td>Returns <code>Ternary.yes</code> .</td>
 </tr>
 <tr>
-<td><a href="../NullAllocator/Functions/expand.html">expand</a></td>
+<td><a href="../NullAllocator/NullAllocator/Functions/expand.html">expand</a></td>
 <td>These methods return <code>false</code> . Precondition: $(D b is null). This is because there is no other possible legitimate input.</td>
 </tr>
 <tr>
-<td><a href="../NullAllocator/Functions/owns.html">owns</a></td>
+<td><a href="../NullAllocator/NullAllocator/Functions/owns.html">owns</a></td>
 <td>Returns <code>Ternary.no</code> .</td>
 </tr>
 <tr>
-<td><a href="../NullAllocator/Functions/reallocate.html">reallocate</a></td>
+<td><a href="../NullAllocator/NullAllocator/Functions/reallocate.html">reallocate</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../NullAllocator/Functions/resolveInternalPointer.html">resolveInternalPointer</a></td>
+<td><a href="../NullAllocator/NullAllocator/Functions/resolveInternalPointer.html">resolveInternalPointer</a></td>
 <td>Returns <code>Ternary.no</code> .</td>
 </tr>
 </tbody>
@@ -180,11 +180,11 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../NullAllocator/Variables/alignment.html">alignment</a></td>
+<td><a href="../NullAllocator/NullAllocator/Variables/alignment.html">alignment</a></td>
 <td><code>NullAllocator</code> advertises a relatively large alignment equal to 64 KB. This is because <code>NullAllocator</code> never actually needs to honor this alignment and because composite allocators using <code>NullAllocator</code> shouldn't be unnecessarily constrained.</td>
 </tr>
 <tr>
-<td><a href="../NullAllocator/Variables/instance.html">instance</a></td>
+<td><a href="../NullAllocator/NullAllocator/Variables/instance.html">instance</a></td>
 <td>Returns the <code>shared</code> global instance of the <code>NullAllocator</code> .</td>
 </tr>
 </tbody>

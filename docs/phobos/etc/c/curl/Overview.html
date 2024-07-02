@@ -350,7 +350,7 @@
 </tr>
 </tbody>
 </table>
-<h2 class='section'>Structs</h2><table>
+<h2 class='section'>Enums</h2><table>
 <thead>
 <tr>
 <th>Name</th>
@@ -359,35 +359,207 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="Structs/curl_certinfo.html">curl_certinfo</a></td>
-<td>info about the certificate chain, only for OpenSSL builds. Asked for with CURLOPT_CERTINFO / CURLINFO_CERTINFO</td>
-</tr>
-<tr>
-<td><a href="Structs/curl_fileinfo.html">curl_fileinfo</a></td>
-<td>Content of this structure depends on information which is known and is achievable (e.g. by FTP LIST parsing). Please see the url_easy_setopt(3) man page for callbacks returning this structure -- some fields are mandatory, some others are optional. The FLAG field has special meaning.</td>
-</tr>
-<tr>
-<td><a href="Structs/curl_forms.html">curl_forms</a></td>
-<td>structure to be used as parameter for CURLFORM_ARRAY</td>
-</tr>
-<tr>
-<td><a href="Structs/curl_httppost.html">curl_httppost</a></td>
+<td><a href="Enums/CurlAuth.html">CurlAuth</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="Structs/curl_khkey.html">curl_khkey</a></td>
+<td><a href="Enums/CurlCallbackInfo.html">CurlCallbackInfo</a></td>
+<td>the kind of data that is passed to information_callback</td>
+</tr>
+<tr>
+<td><a href="Enums/CurlChunkBgnFunc.html">CurlChunkBgnFunc</a></td>
+<td>return codes for CURLOPT_CHUNK_BGN_FUNCTION</td>
+</tr>
+<tr>
+<td><a href="Enums/CurlChunkEndFunc.html">CurlChunkEndFunc</a></td>
+<td>return codes for CURLOPT_CHUNK_END_FUNCTION</td>
+</tr>
+<tr>
+<td><a href="Enums/CurlClosePolicy.html">CurlClosePolicy</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="Structs/curl_slist.html">curl_slist</a></td>
-<td>linked-list structure for the CURLOPT_QUOTE option (and other)</td>
+<td><a href="Enums/CurlCSelect.html">CurlCSelect</a></td>
+<td></td>
 </tr>
 <tr>
-<td><a href="Structs/curl_sockaddr.html">curl_sockaddr</a></td>
-<td>addrlen was a socklen_t type before 7.18.0 but it turned really ugly and painful on the systems that lack this type</td>
+<td><a href="Enums/CurlError.html">CurlError</a></td>
+<td>All possible error codes from all sorts of curl functions. Future versions may return other values, stay prepared.</td>
 </tr>
 <tr>
-<td><a href="Structs/CURLMsg.html">CURLMsg</a></td>
+<td><a href="Enums/CurlFileType.html">CurlFileType</a></td>
+<td>enumeration of file types</td>
+</tr>
+<tr>
+<td><a href="Enums/CurlFInfoFlagKnown.html">CurlFInfoFlagKnown</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Enums/CurlFnMAtchFunc.html">CurlFnMAtchFunc</a></td>
+<td>return codes for FNMATCHFUNCTION</td>
+</tr>
+<tr>
+<td><a href="Enums/CurlForm.html">CurlForm</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Enums/CurlFormAdd.html">CurlFormAdd</a></td>
+<td>Use this for multipart formpost building</td>
+</tr>
+<tr>
+<td><a href="Enums/CurlFtp.html">CurlFtp</a></td>
+<td>parameter for the CURLOPT_FTP_CREATE_MISSING_DIRS option</td>
+</tr>
+<tr>
+<td><a href="Enums/CurlFtpAuth.html">CurlFtpAuth</a></td>
+<td>parameter for the CURLOPT_FTPSSLAUTH option</td>
+</tr>
+<tr>
+<td><a href="Enums/CurlFtpMethod.html">CurlFtpMethod</a></td>
+<td>parameter for the CURLOPT_FTP_FILEMETHOD option</td>
+</tr>
+<tr>
+<td><a href="Enums/CurlFtpSSL.html">CurlFtpSSL</a></td>
+<td>parameter for the CURLOPT_FTP_SSL_CCC option</td>
+</tr>
+<tr>
+<td><a href="Enums/CurlGlobal.html">CurlGlobal</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Enums/CurlHttpVersion.html">CurlHttpVersion</a></td>
+<td>These enums are for use with the CURLOPT_HTTP_VERSION option.</td>
+</tr>
+<tr>
+<td><a href="Enums/CurlInfo.html">CurlInfo</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Enums/CurlIoCmd.html">CurlIoCmd</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Enums/CurlIoError.html">CurlIoError</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Enums/CurlIpResolve.html">CurlIpResolve</a></td>
+<td>Below here follows defines for the CURLOPT_IPRESOLVE option. If a host name resolves addresses using more than one IP protocol version, this option might be handy to force libcurl to use a specific IP version.</td>
+</tr>
+<tr>
+<td><a href="Enums/CurlKHMatch.html">CurlKHMatch</a></td>
+<td>this is the set of status codes pass in to the callback</td>
+</tr>
+<tr>
+<td><a href="Enums/CurlKHStat.html">CurlKHStat</a></td>
+<td>this is the set of return values expected from the curl_sshkeycallback callback</td>
+</tr>
+<tr>
+<td><a href="Enums/CurlKHType.html">CurlKHType</a></td>
+<td>points to a zero-terminated string encoded with base64 if len is zero, otherwise to the &quot;raw&quot; data</td>
+</tr>
+<tr>
+<td><a href="Enums/CurlLockAccess.html">CurlLockAccess</a></td>
+<td>Different lock access types</td>
+</tr>
+<tr>
+<td><a href="Enums/CurlLockData.html">CurlLockData</a></td>
+<td>Setup defines, protos etc for the sharing stuff.</td>
+</tr>
+<tr>
+<td><a href="Enums/CurlM.html">CurlM</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Enums/CurlMOption.html">CurlMOption</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Enums/CurlMsg.html">CurlMsg</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Enums/CurlNetRcOption.html">CurlNetRcOption</a></td>
+<td>These enums are for use with the CURLOPT_NETRC option.</td>
+</tr>
+<tr>
+<td><a href="Enums/CurlOption.html">CurlOption</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Enums/CurlPause.html">CurlPause</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Enums/CurlPoll.html">CurlPoll</a></td>
+<td>Name:    curl_multi_socket() and curl_multi_socket_all()</td>
+</tr>
+<tr>
+<td><a href="Enums/CurlProto.html">CurlProto</a></td>
+<td>CURLPROTO_ defines are for the CURLOPT_*PROTOCOLS options</td>
+</tr>
+<tr>
+<td><a href="Enums/CurlProxy.html">CurlProxy</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Enums/CurlReadFunc.html">CurlReadFunc</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Enums/CurlRedir.html">CurlRedir</a></td>
+<td>symbols to use with CURLOPT_POSTREDIR. CURL_REDIR_POST_301 and CURL_REDIR_POST_302 can be bitwise ORed so that CURL_REDIR_POST_301 <code>|</code> CURL_REDIR_POST_302 == CURL_REDIR_POST_ALL</td>
+</tr>
+<tr>
+<td><a href="Enums/CurlRtspReq.html">CurlRtspReq</a></td>
+<td>Public API enums for RTSP requests</td>
+</tr>
+<tr>
+<td><a href="Enums/CurlSeek.html">CurlSeek</a></td>
+<td>These are the return codes for the seek callbacks</td>
+</tr>
+<tr>
+<td><a href="Enums/CurlSeekPos.html">CurlSeekPos</a></td>
+<td>seek whence...</td>
+</tr>
+<tr>
+<td><a href="Enums/CurlShError.html">CurlShError</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Enums/CurlShOption.html">CurlShOption</a></td>
+<td>pass in a user data pointer used in the lock/unlock callback functions</td>
+</tr>
+<tr>
+<td><a href="Enums/CurlSockType.html">CurlSockType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Enums/CurlSshAuth.html">CurlSshAuth</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Enums/CurlSslVersion.html">CurlSslVersion</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Enums/CurlTimeCond.html">CurlTimeCond</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Enums/CurlTlsAuth.html">CurlTlsAuth</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Enums/CurlUseSSL.html">CurlUseSSL</a></td>
+<td>parameter for the CURLOPT_USE_SSL option</td>
+</tr>
+<tr>
+<td><a href="Enums/CurlVer.html">CurlVer</a></td>
+<td>Structures for querying information about the curl library at runtime.</td>
+</tr>
+<tr>
+<td><a href="Enums/CurlVersion.html">CurlVersion</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -591,6 +763,48 @@
 <tr>
 <td><a href="Functions/curl_version_info.html">curl_version_info</a></td>
 <td>Name: curl_version_info()</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Structs/curl_certinfo.html">curl_certinfo</a></td>
+<td>info about the certificate chain, only for OpenSSL builds. Asked for with CURLOPT_CERTINFO / CURLINFO_CERTINFO</td>
+</tr>
+<tr>
+<td><a href="Structs/curl_fileinfo.html">curl_fileinfo</a></td>
+<td>Content of this structure depends on information which is known and is achievable (e.g. by FTP LIST parsing). Please see the url_easy_setopt(3) man page for callbacks returning this structure -- some fields are mandatory, some others are optional. The FLAG field has special meaning.</td>
+</tr>
+<tr>
+<td><a href="Structs/curl_forms.html">curl_forms</a></td>
+<td>structure to be used as parameter for CURLFORM_ARRAY</td>
+</tr>
+<tr>
+<td><a href="Structs/curl_httppost.html">curl_httppost</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/curl_khkey.html">curl_khkey</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/curl_slist.html">curl_slist</a></td>
+<td>linked-list structure for the CURLOPT_QUOTE option (and other)</td>
+</tr>
+<tr>
+<td><a href="Structs/curl_sockaddr.html">curl_sockaddr</a></td>
+<td>addrlen was a socklen_t type before 7.18.0 but it turned really ugly and painful on the systems that lack this type</td>
+</tr>
+<tr>
+<td><a href="Structs/CURLMsg.html">CURLMsg</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>

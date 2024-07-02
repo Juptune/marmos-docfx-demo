@@ -132,40 +132,6 @@
 </tr>
 </tbody>
 </table>
-<h2 class='section'>Structs</h2><table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="Structs/EmbeddedTree.html">EmbeddedTree</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/ForcedInputRange.html">ForcedInputRange</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/InternalPointersTree.html">InternalPointersTree</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/RCIAllocator.html">RCIAllocator</a></td>
-<td>A reference counted struct that wraps the dynamic allocator interface. This should be used wherever a uniform type is required for encapsulating various allocator implementations.</td>
-</tr>
-<tr>
-<td><a href="Structs/RCISharedAllocator.html">RCISharedAllocator</a></td>
-<td>A reference counted struct that wraps the dynamic shared allocator interface. This should be used wherever a uniform type is required for encapsulating various allocator implementations.</td>
-</tr>
-<tr>
-<td><a href="Structs/ThreadLocal.html">ThreadLocal</a></td>
-<td>Stores an allocator object in thread-local storage (i.e. non-<code>shared</code> D global). <code>ThreadLocal!A</code> is a subtype of <code>A</code> so it appears to implement <code>A</code> 's allocator primitives.</td>
-</tr>
-</tbody>
-</table>
 <h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -229,6 +195,58 @@
 <tr>
 <td><a href="Functions/uninitializedFillDefault.html">uninitializedFillDefault</a></td>
 <td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Interfaces</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Interfaces/IAllocator.html">IAllocator</a></td>
+<td>Dynamic allocator interface. Code that defines allocators ultimately implements this interface. This should be used wherever a uniform type is required for encapsulating various allocator implementations.</td>
+</tr>
+<tr>
+<td><a href="Interfaces/ISharedAllocator.html">ISharedAllocator</a></td>
+<td>Dynamic shared allocator interface. Code that defines allocators shareable across threads ultimately implements this interface. This should be used wherever a uniform type is required for encapsulating various allocator implementations.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Structs/EmbeddedTree.html">EmbeddedTree</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/ForcedInputRange.html">ForcedInputRange</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/InternalPointersTree.html">InternalPointersTree</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/RCIAllocator.html">RCIAllocator</a></td>
+<td>A reference counted struct that wraps the dynamic allocator interface. This should be used wherever a uniform type is required for encapsulating various allocator implementations.</td>
+</tr>
+<tr>
+<td><a href="Structs/RCISharedAllocator.html">RCISharedAllocator</a></td>
+<td>A reference counted struct that wraps the dynamic shared allocator interface. This should be used wherever a uniform type is required for encapsulating various allocator implementations.</td>
+</tr>
+<tr>
+<td><a href="Structs/ThreadLocal.html">ThreadLocal</a></td>
+<td>Stores an allocator object in thread-local storage (i.e. non-<code>shared</code> D global). <code>ThreadLocal!A</code> is a subtype of <code>A</code> so it appears to implement <code>A</code> 's allocator primitives.</td>
 </tr>
 </tbody>
 </table>

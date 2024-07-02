@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Enum - CustomFloatFlags | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Enum - CustomFloatFlags | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../index.html">
+            <img id="logo" class="svg" src="../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.numeric.Enums.CustomFloatFlags">
+<h1 class='section'>Enum - CustomFloatFlags</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.numeric</dd></dl>
+</div><pre><code class='lang-d'>enum CustomFloatFlags
+{
+  // Stores the significand in $(LINK2 https://en.wikipedia.org/wiki/IEEE_754-1985#Denormalized_numbers, IEEE754 denormalized) form when the exponent is 0. Required to express the value 0. 
+  __enumMember allowDenorm;
+  // If set, 0 is the only allowed $(LINK2 https://en.wikipedia.org/wiki/IEEE_754-1985#Denormalized_numbers, IEEE754 denormalized) number. Requires allowDenorm and storeNormalized. 
+  __enumMember allowDenormZeroOnly;
+  // Include *all of the $(LINK2 https://en.wikipedia.org/wiki/IEEE* floating_point, IEEE754) options. 
+  __enumMember ieee;
+  // Allows the storage of $(LINK2 https://en.wikipedia.org/wiki/IEEE_754-1985#Positive_and_negative_infinity, IEEE754 infinity) values. 
+  __enumMember infinity;
+  // Allows the storage of $(LINK2 https://en.wikipedia.org/wiki/NaN, IEEE754 Not a Number) values. 
+  __enumMember nan;
+  // If set, unsigned custom floats are assumed to be negative. 
+  __enumMember negativeUnsigned;
+  // Include none of the above options. 
+  __enumMember none;
+  // If set, select an exponent bias such that max_exp = 1. i.e. so that the maximum value is &gt;= 1.0 and &lt; 2.0. Ignored if the exponent bias is manually specified. 
+  __enumMember probability;
+  // Adds a sign bit to allow for signed numbers. 
+  __enumMember signed;
+  // Store values in normalized form by default. The actual precision of the significand is extended by 1 bit by assuming an implicit leading bit of 1 instead of 0. i.e. `1.nnnn` instead of `0.nnnn` . True for all $(LINK2 https://en.wikipedia.org/wiki/IEEE_floating_point, IEE754) types 
+  __enumMember storeNormalized;
+}</code></pre><h2 class='section'>About</h2><p>Format flags for CustomFloat.</p>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../CustomFloatFlags/CustomFloatFlags/Variables/allowDenorm.html">allowDenorm</a></td>
+<td>Stores the significand in $(LINK2 <a href="https://en.wikipedia.org/wiki/IEEE_754-1985#Denormalized_numbers">https://en.wikipedia.org/wiki/IEEE_754-1985#Denormalized_numbers</a>, IEEE754 denormalized) form when the exponent is 0. Required to express the value 0.</td>
+</tr>
+<tr>
+<td><a href="../CustomFloatFlags/CustomFloatFlags/Variables/allowDenormZeroOnly.html">allowDenormZeroOnly</a></td>
+<td>If set, 0 is the only allowed $(LINK2 <a href="https://en.wikipedia.org/wiki/IEEE_754-1985#Denormalized_numbers">https://en.wikipedia.org/wiki/IEEE_754-1985#Denormalized_numbers</a>, IEEE754 denormalized) number. Requires allowDenorm and storeNormalized.</td>
+</tr>
+<tr>
+<td><a href="../CustomFloatFlags/CustomFloatFlags/Variables/ieee.html">ieee</a></td>
+<td>Include <em>all of the $(LINK2 <a href="https://en.wikipedia.org/wiki/IEEE">https://en.wikipedia.org/wiki/IEEE</a></em> floating_point, IEEE754) options.</td>
+</tr>
+<tr>
+<td><a href="../CustomFloatFlags/CustomFloatFlags/Variables/infinity.html">infinity</a></td>
+<td>Allows the storage of $(LINK2 <a href="https://en.wikipedia.org/wiki/IEEE_754-1985#Positive_and_negative_infinity">https://en.wikipedia.org/wiki/IEEE_754-1985#Positive_and_negative_infinity</a>, IEEE754 infinity) values.</td>
+</tr>
+<tr>
+<td><a href="../CustomFloatFlags/CustomFloatFlags/Variables/nan.html">nan</a></td>
+<td>Allows the storage of $(LINK2 <a href="https://en.wikipedia.org/wiki/NaN">https://en.wikipedia.org/wiki/NaN</a>, IEEE754 Not a Number) values.</td>
+</tr>
+<tr>
+<td><a href="../CustomFloatFlags/CustomFloatFlags/Variables/negativeUnsigned.html">negativeUnsigned</a></td>
+<td>If set, unsigned custom floats are assumed to be negative.</td>
+</tr>
+<tr>
+<td><a href="../CustomFloatFlags/CustomFloatFlags/Variables/none.html">none</a></td>
+<td>Include none of the above options.</td>
+</tr>
+<tr>
+<td><a href="../CustomFloatFlags/CustomFloatFlags/Variables/probability.html">probability</a></td>
+<td>If set, select an exponent bias such that max_exp = 1. i.e. so that the maximum value is &gt;= 1.0 and &lt; 2.0. Ignored if the exponent bias is manually specified.</td>
+</tr>
+<tr>
+<td><a href="../CustomFloatFlags/CustomFloatFlags/Variables/signed.html">signed</a></td>
+<td>Adds a sign bit to allow for signed numbers.</td>
+</tr>
+<tr>
+<td><a href="../CustomFloatFlags/CustomFloatFlags/Variables/storeNormalized.html">storeNormalized</a></td>
+<td>Store values in normalized form by default. The actual precision of the significand is extended by 1 bit by assuming an implicit leading bit of 1 instead of 0. i.e. <code>1.nnnn</code> instead of <code>0.nnnn</code> . True for all $(LINK2 <a href="https://en.wikipedia.org/wiki/IEEE_floating_point">https://en.wikipedia.org/wiki/IEEE_floating_point</a>, IEE754) types</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

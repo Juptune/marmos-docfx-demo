@@ -103,6 +103,62 @@
 </tr>
 </tbody>
 </table>
+<h2 class='section'>Enums</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Enums/Http1Error.html">Http1Error</a></td>
+<td><code>Result</code> error enum</td>
+</tr>
+<tr>
+<td><a href="Enums/Http1Version.html">Http1Version</a></td>
+<td>An enumeration of supported Http1 versions</td>
+</tr>
+<tr>
+<td><a href="Enums/Rfc9110CharType.html">Rfc9110CharType</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Functions/http1CanonicalHeaderNameInPlace.html">http1CanonicalHeaderNameInPlace</a></td>
+<td>Helper functions</td>
+</tr>
+<tr>
+<td><a href="Functions/http1IsPathValidForMethod.html">http1IsPathValidForMethod</a></td>
+<td>Checks whether the given path is valid for the given method, taking into account whether the request is being proxied or not.</td>
+</tr>
+<tr>
+<td><a href="Functions/isHttp1HeaderValue.html">isHttp1HeaderValue</a></td>
+<td>Checks if a string is a valid HTTP header value as defined by RFC 9110.</td>
+</tr>
+<tr>
+<td><a href="Functions/isHttp1Reason.html">isHttp1Reason</a></td>
+<td>Checks if a string is a valid HTTP status line reason as defined by RFC 9110.</td>
+</tr>
+<tr>
+<td><a href="Functions/isHttp1Token.html">isHttp1Token</a></td>
+<td>Checks if a string is a valid HTTP 'token' as defined by RFC 9110.</td>
+</tr>
+<tr>
+<td><a href="Functions/makePath.html">makePath</a></td>
+<td>Unit tests</td>
+</tr>
+</tbody>
+</table>
 <h2 class='section'>Structs</h2><table>
 <thead>
 <tr>
@@ -150,40 +206,6 @@
 <tr>
 <td><a href="Structs/Http1WriterBase.html">Http1WriterBase</a></td>
 <td>A low-level writer for the HTTP/1.0 and HTTP/1.1 protocols.</td>
-</tr>
-</tbody>
-</table>
-<h2 class='section'>Functions</h2><table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="Functions/http1CanonicalHeaderNameInPlace.html">http1CanonicalHeaderNameInPlace</a></td>
-<td>Helper functions</td>
-</tr>
-<tr>
-<td><a href="Functions/http1IsPathValidForMethod.html">http1IsPathValidForMethod</a></td>
-<td>Checks whether the given path is valid for the given method, taking into account whether the request is being proxied or not.</td>
-</tr>
-<tr>
-<td><a href="Functions/isHttp1HeaderValue.html">isHttp1HeaderValue</a></td>
-<td>Checks if a string is a valid HTTP header value as defined by RFC 9110.</td>
-</tr>
-<tr>
-<td><a href="Functions/isHttp1Reason.html">isHttp1Reason</a></td>
-<td>Checks if a string is a valid HTTP status line reason as defined by RFC 9110.</td>
-</tr>
-<tr>
-<td><a href="Functions/isHttp1Token.html">isHttp1Token</a></td>
-<td>Checks if a string is a valid HTTP 'token' as defined by RFC 9110.</td>
-</tr>
-<tr>
-<td><a href="Functions/makePath.html">makePath</a></td>
-<td>Unit tests</td>
 </tr>
 </tbody>
 </table>

@@ -92,6 +92,20 @@
 <p>Authors: $(HTTP erdani.com, Andrei Alexandrescu)</p>
 <p>Source: $(PHOBOSSRC std/algorithm/mutation.d)</p>
 <h3 class='section'>Macros</h3><p>T2=$(TR $(TDNW $(LREF $1)) $(TD $+))</p>
+<h2 class='section'>Enums</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Enums/SwapStrategy.html">SwapStrategy</a></td>
+<td>Defines the swapping strategy for algorithms that need to swap elements in a range (such as partition and sort). The strategy concerns the swapping of elements that are not the core concern of the algorithm. For example, consider an algorithm that sorts $(D [ &quot;abc&quot;, &quot;b&quot;, &quot;aBc&quot; ]) according to <code>toUpper(a) &lt; toUpper(b)</code> . That algorithm might choose to swap the two equivalent strings <code>&quot;abc&quot;</code> and <code>&quot;aBc&quot;</code> . That does not affect the sorting since both <code>[&quot;abc&quot;, &quot;aBc&quot;, &quot;b&quot; ]</code> and <code>[ &quot;aBc&quot;, &quot;abc&quot;, &quot;b&quot; ]</code> are valid outcomes.</td>
+</tr>
+</tbody>
+</table>
 <h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -231,6 +245,20 @@
 <tr>
 <td><a href="Functions/uninitializedFill.html">uninitializedFill</a></td>
 <td>Initializes each element of <code>range</code> with <code>value</code> . Assumes that the elements of the range are uninitialized. This is of interest for structs that define copy constructors (for all other types, $(LREF fill) and uninitializedFill are equivalent).</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Templates</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Templates/isValidIntegralTuple.html">isValidIntegralTuple</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>

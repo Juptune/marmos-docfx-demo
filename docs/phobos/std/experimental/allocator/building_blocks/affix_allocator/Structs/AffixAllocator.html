@@ -125,39 +125,39 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../AffixAllocator/Functions/allocate.html">allocate</a></td>
+<td><a href="../AffixAllocator/AffixAllocator/Functions/allocate.html">allocate</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../AffixAllocator/Functions/deallocate.html">deallocate</a></td>
+<td><a href="../AffixAllocator/AffixAllocator/Functions/deallocate.html">deallocate</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../AffixAllocator/Functions/deallocateAll.html">deallocateAll</a></td>
+<td><a href="../AffixAllocator/AffixAllocator/Functions/deallocateAll.html">deallocateAll</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../AffixAllocator/Functions/empty.html">empty</a></td>
+<td><a href="../AffixAllocator/AffixAllocator/Functions/empty.html">empty</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../AffixAllocator/Functions/expand.html">expand</a></td>
+<td><a href="../AffixAllocator/AffixAllocator/Functions/expand.html">expand</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../AffixAllocator/Functions/goodAllocSize.html">goodAllocSize</a></td>
+<td><a href="../AffixAllocator/AffixAllocator/Functions/goodAllocSize.html">goodAllocSize</a></td>
 <td>Standard allocator methods. Each is defined if and only if the parent allocator defines the homonym method (except for <code>goodAllocSize</code> , which may use the global default). Also, the methods will be $(D shared) if the parent allocator defines them as such.</td>
 </tr>
 <tr>
-<td><a href="../AffixAllocator/Functions/owns.html">owns</a></td>
+<td><a href="../AffixAllocator/AffixAllocator/Functions/owns.html">owns</a></td>
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="../AffixAllocator/Functions/parent.html">parent</a></td>
+<td><a href="../AffixAllocator/AffixAllocator/Functions/parent.html">parent</a></td>
 <td>If the parent allocator <code>Allocator</code> is stateful, an instance of it is stored as a member. Otherwise, <code>AffixAllocator</code> uses <code>Allocator.instance</code> . In either case, the name <code>_parent</code> is uniformly used for accessing the parent allocator.</td>
 </tr>
 <tr>
-<td><a href="../AffixAllocator/Functions/reallocate.html">reallocate</a></td>
+<td><a href="../AffixAllocator/AffixAllocator/Functions/reallocate.html">reallocate</a></td>
 <td>Ditto</td>
 </tr>
 </tbody>
@@ -171,11 +171,11 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../AffixAllocator/Variables/alignment.html">alignment</a></td>
+<td><a href="../AffixAllocator/AffixAllocator/Variables/alignment.html">alignment</a></td>
 <td>If <code>Prefix</code> is <code>void</code> , the alignment is that of the parent. Otherwise, the alignment is the same as the <code>Prefix</code> 's alignment.</td>
 </tr>
 <tr>
-<td><a href="../AffixAllocator/Variables/instance.html">instance</a></td>
+<td><a href="../AffixAllocator/AffixAllocator/Variables/instance.html">instance</a></td>
 <td>The <code>instance</code> singleton is defined if and only if the parent allocator has no state and defines its own <code>it</code> object.</td>
 </tr>
 </tbody>

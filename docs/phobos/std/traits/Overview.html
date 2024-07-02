@@ -339,7 +339,7 @@
 </tr>
 </tbody>
 </table>
-<h2 class='section'>Structs</h2><table>
+<h2 class='section'>Enums</h2><table>
 <thead>
 <tr>
 <th>Name</th>
@@ -348,12 +348,20 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="Structs/QualifiedNameTests.html">QualifiedNameTests</a></td>
+<td><a href="Enums/FunctionAttribute.html">FunctionAttribute</a></td>
+<td>Returns the FunctionAttribute mask for function <code>func</code> .</td>
+</tr>
+<tr>
+<td><a href="Enums/ParameterStorageClass.html">ParameterStorageClass</a></td>
+<td>Get a tuple of the storage classes of a function's parameters. Params: func = function symbol or type of function, delegate, or pointer to function Returns: A tuple of ParameterStorageClass bits</td>
+</tr>
+<tr>
+<td><a href="Enums/QualifiedEnum.html">QualifiedEnum</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="Structs/SubTypeOf.html">SubTypeOf</a></td>
-<td></td>
+<td><a href="Enums/Variadic.html">Variadic</a></td>
+<td>Determines what kind of variadic parameters function has. Params: func = function symbol or type of function, delegate, or pointer to function Returns: enum Variadic</td>
 </tr>
 </tbody>
 </table>
@@ -415,6 +423,302 @@
 </tr>
 <tr>
 <td><a href="Functions/typesafe.html">typesafe</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Structs/QualifiedNameTests.html">QualifiedNameTests</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/SubTypeOf.html">SubTypeOf</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Templates</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Templates/AllImplicitConversionTargets.html">AllImplicitConversionTargets</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/ArrayTypeOf.html">ArrayTypeOf</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/AssocArrayTypeOf.html">AssocArrayTypeOf</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/BaseClassesTuple.html">BaseClassesTuple</a></td>
+<td>Get a $(D_PARAM AliasSeq) of $(I all) base classes of this class, in decreasing order. Interfaces are not included. $(D_PARAM BaseClassesTuple!Object) yields the empty type tuple.</td>
+</tr>
+<tr>
+<td><a href="Templates/BaseTypeTuple.html">BaseTypeTuple</a></td>
+<td>Get a $(D_PARAM AliasSeq) of the base class and base interfaces of this class or interface. $(D_PARAM BaseTypeTuple!Object) returns the empty type tuple.</td>
+</tr>
+<tr>
+<td><a href="Templates/BooleanTypeOf.html">BooleanTypeOf</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/BuiltinTypeOf.html">BuiltinTypeOf</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/CharTypeOf.html">CharTypeOf</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/CommonType.html">CommonType</a></td>
+<td>Get the type that all types can be implicitly converted to. Useful e.g. in figuring out an array type from a bunch of initializing values. Returns $(D_PARAM void) if passed an empty list, or if the types have no common type.</td>
+</tr>
+<tr>
+<td><a href="Templates/convertToString.html">convertToString</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/DeducedParameterType.html">DeducedParameterType</a></td>
+<td>The parameter type deduced by IFTI when an expression of type T is passed as an argument to a template function.</td>
+</tr>
+<tr>
+<td><a href="Templates/EnumMembers.html">EnumMembers</a></td>
+<td>Retrieves the members of an enumerated type <code>enum E</code> .</td>
+</tr>
+<tr>
+<td><a href="Templates/FieldNameTuple.html">FieldNameTuple</a></td>
+<td>Get as an expression tuple the names of the fields of a struct, class, or union. This consists of the fields that take up memory space, excluding the hidden fields like the virtual function table pointer or a context pointer for nested types. Inherited fields (for classes) are not included. If <code>T</code> isn't a struct, class, interface or union, an expression tuple with an empty string is returned.</td>
+</tr>
+<tr>
+<td><a href="Templates/FloatingPointTypeOf.html">FloatingPointTypeOf</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/fqnTuple.html">fqnTuple</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/fqnType.html">fqnType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/FunctionTypeOf.html">FunctionTypeOf</a></td>
+<td>Get the function type from a callable object <code>func</code> , or from a function pointer/delegate type.</td>
+</tr>
+<tr>
+<td><a href="Templates/getSymbolsByUDA.html">getSymbolsByUDA</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/getSymbolsByUDAImpl.html">getSymbolsByUDAImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/hasAliasingImpl.html">hasAliasingImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/hasElaborateAssign.html">hasElaborateAssign</a></td>
+<td>True if <code>S</code> or any type directly embedded in the representation of <code>S</code> defines an elaborate assignment. Elaborate assignments are introduced by defining <code>opAssign(typeof(this))</code> or $(D opAssign(ref typeof(this))) for a <code>struct</code> or when there is a compiler-generated <code>opAssign</code> .</td>
+</tr>
+<tr>
+<td><a href="Templates/hasNested.html">hasNested</a></td>
+<td>Determines whether <code>T</code> or any of its representation types have a context pointer.</td>
+</tr>
+<tr>
+<td><a href="Templates/hasObjects.html">hasObjects</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/hasRawAliasingImpl.html">hasRawAliasingImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/hasRawUnsharedAliasingImpl.html">hasRawUnsharedAliasingImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/hasStaticMember.html">hasStaticMember</a></td>
+<td>Whether the symbol represented by the string, member, exists and is a static member of T.</td>
+</tr>
+<tr>
+<td><a href="Templates/hasUnsharedAliasingImpl.html">hasUnsharedAliasingImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/hasUnsharedObjects.html">hasUnsharedObjects</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/Impl.html">Impl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/Impl.html">Impl</a></td>
+<td>Returns the corresponding signed type for T. T must be a numeric integral type, otherwise a compile-time error occurs.</td>
+</tr>
+<tr>
+<td><a href="Templates/ImplicitConversionTargets.html">ImplicitConversionTargets</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/IntegralTypeOf.html">IntegralTypeOf</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/InterfacesTuple.html">InterfacesTuple</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/isAliasSeq.html">isAliasSeq</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/isBlitAssignable.html">isBlitAssignable</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/isCallable.html">isCallable</a></td>
+<td>Detect whether <code>T</code> is a callable object, which can be called with the function call operator <code>$(LPAREN)...$(RPAREN)</code> .</td>
+</tr>
+<tr>
+<td><a href="Templates/isCovariantWith.html">isCovariantWith</a></td>
+<td>Determines whether the function type <code>F</code> is covariant with <code>G</code> , i.e., functions of the type <code>F</code> can override ones of the type <code>G</code> .</td>
+</tr>
+<tr>
+<td><a href="Templates/isDesiredUDA.html">isDesiredUDA</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/isDynamicArray.html">isDynamicArray</a></td>
+<td>Detect whether type <code>T</code> is a dynamic array.</td>
+</tr>
+<tr>
+<td><a href="Templates/isExpressions.html">isExpressions</a></td>
+<td>Check whether the tuple T is an expression tuple. An expression tuple only contains expressions.</td>
+</tr>
+<tr>
+<td><a href="Templates/isFinal.html">isFinal</a></td>
+<td>Detect whether <code>X</code> is a final method or class.</td>
+</tr>
+<tr>
+<td><a href="Templates/isFunction.html">isFunction</a></td>
+<td>Detect whether symbol or type <code>X</code> is a function. This is different that finding if a symbol is callable or satisfying <code>is(X == function)</code> , it finds specifically if the symbol represents a normal function declaration, i.e. not a delegate or a function pointer.</td>
+</tr>
+<tr>
+<td><a href="Templates/isInnerClass.html">isInnerClass</a></td>
+<td>Determines whether <code>T</code> is a class nested inside another class and that <code>T.outer</code> is the implicit reference to the outer class (i.e. <code>outer</code> has not been used as a field or method name)</td>
+</tr>
+<tr>
+<td><a href="Templates/isIntegral.html">isIntegral</a></td>
+<td>Detect whether <code>T</code> is a built-in integral type. Integral types are <code>byte</code> , <code>ubyte</code> , <code>short</code> , <code>ushort</code> , <code>int</code> , <code>uint</code> , <code>long</code> , <code>ulong</code> , <code>cent</code> , <code>ucent</code> , and enums with an integral type as its base type. Params: T = type to test Returns: <code>true</code> if <code>T</code> is an integral type Note: this is not the same as $(LINK2 <a href="https://dlang.org/spec/traits.html#isIntegral">https://dlang.org/spec/traits.html#isIntegral</a>, <code>__traits(isIntegral)</code> )</td>
+</tr>
+<tr>
+<td><a href="Templates/isNumeric.html">isNumeric</a></td>
+<td>Detect whether <code>T</code> is a built-in numeric type (integral or floating point).</td>
+</tr>
+<tr>
+<td><a href="Templates/isSomeChar.html">isSomeChar</a></td>
+<td>Detect whether <code>T</code> is one of the built-in character types.</td>
+</tr>
+<tr>
+<td><a href="Templates/isUnsigned.html">isUnsigned</a></td>
+<td>Detect whether <code>T</code> is a built-in unsigned numeric type.</td>
+</tr>
+<tr>
+<td><a href="Templates/Largest.html">Largest</a></td>
+<td>Returns the largest type, i.e. T such that T.sizeof is the largest.  If more than one type is of the same size, the leftmost argument of these in will be returned.</td>
+</tr>
+<tr>
+<td><a href="Templates/MemberFunctionsTuple.html">MemberFunctionsTuple</a></td>
+<td>Returns a tuple of non-static functions with the name <code>name</code> declared in the class or interface <code>C</code> .  Covariant duplicates are shrunk into the most derived one.</td>
+</tr>
+<tr>
+<td><a href="Templates/moduleName.html">moduleName</a></td>
+<td>Get the module name (including package) for the given symbol.</td>
+</tr>
+<tr>
+<td><a href="Templates/mostNegative.html">mostNegative</a></td>
+<td>Returns the most negative value of the numeric type T.</td>
+</tr>
+<tr>
+<td><a href="Templates/NumericTypeOf.html">NumericTypeOf</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/packageName.html">packageName</a></td>
+<td>Get the full package name for the given symbol.</td>
+</tr>
+<tr>
+<td><a href="Templates/ParameterDefaults.html">ParameterDefaults</a></td>
+<td>Get, as a tuple, the default values of the parameters to a function symbol. If a parameter doesn't have the default value, <code>void</code> is returned instead.</td>
+</tr>
+<tr>
+<td><a href="Templates/ParameterIdentifierTuple.html">ParameterIdentifierTuple</a></td>
+<td>Get, as a tuple, the identifiers of the parameters to a function symbol.</td>
+</tr>
+<tr>
+<td><a href="Templates/Parameters.html">Parameters</a></td>
+<td>Get, as a tuple, the types of the parameters to a function, a pointer to function, a delegate, a struct with an <code>opCall</code> , a pointer to a struct with an <code>opCall</code> , or a class with an <code>opCall</code> .</td>
+</tr>
+<tr>
+<td><a href="Templates/ParameterStorageClassTuple.html">ParameterStorageClassTuple</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="Templates/QualifierOf.html">QualifierOf</a></td>
+<td>Gives a template that can be used to apply the same attributes that are on the given type <code>T</code> . E.g. passing <code>inout shared int</code> will return <code>SharedInoutOf</code> .</td>
+</tr>
+<tr>
+<td><a href="Templates/RepresentationTypeTuple.html">RepresentationTypeTuple</a></td>
+<td>Get the primitive types of the fields of a struct or class, in topological order.</td>
+</tr>
+<tr>
+<td><a href="Templates/RepresentationTypeTupleImpl.html">RepresentationTypeTupleImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/ReturnType.html">ReturnType</a></td>
+<td>Get the type of the return value from a function, a pointer to function, a delegate, a struct with an opCall, a pointer to a struct with an opCall, or a class with an <code>opCall</code> . Please note that $(D_KEYWORD ref) is not part of a type, but the attribute of the function (see template $(LREF functionAttributes)).</td>
+</tr>
+<tr>
+<td><a href="Templates/SetFunctionAttributes.html">SetFunctionAttributes</a></td>
+<td>Constructs a new function or delegate type with the same basic signature as the given one, but different attributes (including linkage).</td>
+</tr>
+<tr>
+<td><a href="Templates/SignedTypeOf.html">SignedTypeOf</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/StaticArrayTypeOf.html">StaticArrayTypeOf</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/StringTypeOf.html">StringTypeOf</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/Unshared.html">Unshared</a></td>
+<td>Removes <code>shared</code> qualifier, if any, from type <code>T</code> .</td>
+</tr>
+<tr>
+<td><a href="Templates/UnsignedTypeOf.html">UnsignedTypeOf</a></td>
 <td></td>
 </tr>
 </tbody>

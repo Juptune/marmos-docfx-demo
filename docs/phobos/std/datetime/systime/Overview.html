@@ -115,32 +115,6 @@
 </tr>
 </tbody>
 </table>
-<h2 class='section'>Structs</h2><table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="Structs/DayOfYear.html">DayOfYear</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/GregDay.html">GregDay</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/MonthDay.html">MonthDay</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/SysTime.html">SysTime</a></td>
-<td><code>SysTime</code> is the type used to get the current time from the system or doing anything that involves time zones. Unlike $(REF DateTime,std,datetime,date), the time zone is an integral part of <code>SysTime</code> (though for local time applications, time zones can be ignored and it will work, since it defaults to using the local time zone). It holds its internal time in std time (hnsecs since midnight, January 1st, 1 A.D. UTC), so it interfaces well with the system time.</td>
-</tr>
-</tbody>
-</table>
 <h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -252,6 +226,32 @@
 <tr>
 <td><a href="Functions/unixTimeToStdTime.html">unixTimeToStdTime</a></td>
 <td>Converts from unix time (which uses midnight, January 1st, 1970 UTC as its epoch and seconds as its units) to &quot;std time&quot; (which uses midnight, January 1st, 1 A.D. UTC and hnsecs as its units).</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Structs/DayOfYear.html">DayOfYear</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/GregDay.html">GregDay</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/MonthDay.html">MonthDay</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/SysTime.html">SysTime</a></td>
+<td><code>SysTime</code> is the type used to get the current time from the system or doing anything that involves time zones. Unlike $(REF DateTime,std,datetime,date), the time zone is an integral part of <code>SysTime</code> (though for local time applications, time zones can be ignored and it will work, since it defaults to using the local time zone). It holds its internal time in std time (hnsecs since midnight, January 1st, 1 A.D. UTC), so it interfaces well with the system time.</td>
 </tr>
 </tbody>
 </table>

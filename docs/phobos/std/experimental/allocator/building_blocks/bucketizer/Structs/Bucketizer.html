@@ -128,47 +128,47 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Bucketizer/Functions/alignedAllocate.html">alignedAllocate</a></td>
+<td><a href="../Bucketizer/Bucketizer/Functions/alignedAllocate.html">alignedAllocate</a></td>
 <td>Allocates the requested <code>bytes</code> of memory with specified <code>alignment</code> . Directs the call to either one of the <code>buckets</code> allocators. Defined only if <code>Allocator</code> defines <code>alignedAllocate</code> .</td>
 </tr>
 <tr>
-<td><a href="../Bucketizer/Functions/alignedReallocate.html">alignedReallocate</a></td>
+<td><a href="../Bucketizer/Bucketizer/Functions/alignedReallocate.html">alignedReallocate</a></td>
 <td>Similar to <code>reallocate</code> , with alignment. Defined only if <code>Allocator</code> defines <code>alignedReallocate</code> .</td>
 </tr>
 <tr>
-<td><a href="../Bucketizer/Functions/allocate.html">allocate</a></td>
+<td><a href="../Bucketizer/Bucketizer/Functions/allocate.html">allocate</a></td>
 <td>Directs the call to either one of the <code>buckets</code> allocators.</td>
 </tr>
 <tr>
-<td><a href="../Bucketizer/Functions/allocatorFor.html">allocatorFor</a></td>
+<td><a href="../Bucketizer/Bucketizer/Functions/allocatorFor.html">allocatorFor</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../Bucketizer/Functions/deallocate.html">deallocate</a></td>
+<td><a href="../Bucketizer/Bucketizer/Functions/deallocate.html">deallocate</a></td>
 <td>This method is only defined if <code>Allocator</code> defines <code>deallocate</code> .</td>
 </tr>
 <tr>
-<td><a href="../Bucketizer/Functions/deallocateAll.html">deallocateAll</a></td>
+<td><a href="../Bucketizer/Bucketizer/Functions/deallocateAll.html">deallocateAll</a></td>
 <td>This method is only defined if all allocators involved define $(D deallocateAll), and calls it for each bucket in turn. Returns <code>true</code> if all allocators could deallocate all.</td>
 </tr>
 <tr>
-<td><a href="../Bucketizer/Functions/expand.html">expand</a></td>
+<td><a href="../Bucketizer/Bucketizer/Functions/expand.html">expand</a></td>
 <td>This method allows expansion within the respective bucket range. It succeeds if both <code>b.length</code> and $(D b.length + delta) fall in a range of the form $(D [min + k **step, min + (k + 1) ** step - 1]).</td>
 </tr>
 <tr>
-<td><a href="../Bucketizer/Functions/goodAllocSize.html">goodAllocSize</a></td>
+<td><a href="../Bucketizer/Bucketizer/Functions/goodAllocSize.html">goodAllocSize</a></td>
 <td>Rounds up to the maximum size of the bucket in which <code>bytes</code> falls.</td>
 </tr>
 <tr>
-<td><a href="../Bucketizer/Functions/owns.html">owns</a></td>
+<td><a href="../Bucketizer/Bucketizer/Functions/owns.html">owns</a></td>
 <td>Defined only if <code>Allocator</code> defines <code>owns</code> . Finds the owner of <code>b</code> and forwards the call to it.</td>
 </tr>
 <tr>
-<td><a href="../Bucketizer/Functions/reallocate.html">reallocate</a></td>
+<td><a href="../Bucketizer/Bucketizer/Functions/reallocate.html">reallocate</a></td>
 <td>This method allows reallocation within the respective bucket range. If both <code>b.length</code> and <code>size</code> fall in a range of the form $(D [min + k step, min + (k + 1) step - 1]), then reallocation is in place. Otherwise, reallocation with moving is attempted.</td>
 </tr>
 <tr>
-<td><a href="../Bucketizer/Functions/resolveInternalPointer.html">resolveInternalPointer</a></td>
+<td><a href="../Bucketizer/Bucketizer/Functions/resolveInternalPointer.html">resolveInternalPointer</a></td>
 <td>This method is only defined if all allocators involved define $(D resolveInternalPointer), and tries it for each bucket in turn.</td>
 </tr>
 </tbody>
@@ -182,11 +182,11 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Bucketizer/Variables/alignment.html">alignment</a></td>
+<td><a href="../Bucketizer/Bucketizer/Variables/alignment.html">alignment</a></td>
 <td>The alignment offered is the same as <code>Allocator.alignment</code> .</td>
 </tr>
 <tr>
-<td><a href="../Bucketizer/Variables/buckets.html">buckets</a></td>
+<td><a href="../Bucketizer/Bucketizer/Variables/buckets.html">buckets</a></td>
 <td>The array of allocators is publicly available for e.g. initialization and inspection.</td>
 </tr>
 </tbody>

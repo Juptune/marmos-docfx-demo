@@ -86,32 +86,6 @@
 
         <article data-uid="std.experimental.allocator.building_blocks.bitmapped_block.Overview">
 <h1 class='section'>Module - std.experimental.allocator.building_blocks.bitmapped_block</h1><h2 class='section'>About</h2><p>Source: $(PHOBOSSRC std/experimental/allocator/building_blocks/bitmapped_block.d)</p>
-<h2 class='section'>Structs</h2><table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="Structs/BitmappedBlock.html">BitmappedBlock</a></td>
-<td><code>BitmappedBlock</code> implements a simple heap consisting of one contiguous area of memory organized in blocks, each of size <code>theBlockSize</code> . A block is a unit of allocation. A bitmap serves as bookkeeping data, more precisely one bit per block indicating whether that block is currently allocated or not.</td>
-</tr>
-<tr>
-<td><a href="Structs/BitmappedBlockWithInternalPointers.html">BitmappedBlockWithInternalPointers</a></td>
-<td>A <code>BitmappedBlock</code> with additional structure for supporting <code>resolveInternalPointer</code> . To that end, <code>BitmappedBlockWithInternalPointers</code> adds a bitmap (one bit per block) that marks object starts. The bitmap itself has variable size and is allocated together with regular allocations.</td>
-</tr>
-<tr>
-<td><a href="Structs/BitVector.html">BitVector</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/SharedBitmappedBlock.html">SharedBitmappedBlock</a></td>
-<td>The threadsafe version of the $(LREF BitmappedBlock). The semantics of the <code>SharedBitmappedBlock</code> are identical to the regular $(LREF BitmappedBlock).</td>
-</tr>
-</tbody>
-</table>
 <h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -138,6 +112,46 @@
 </tr>
 <tr>
 <td><a href="Functions/setBitsIfZero.html">setBitsIfZero</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Structs/BitmappedBlock.html">BitmappedBlock</a></td>
+<td><code>BitmappedBlock</code> implements a simple heap consisting of one contiguous area of memory organized in blocks, each of size <code>theBlockSize</code> . A block is a unit of allocation. A bitmap serves as bookkeeping data, more precisely one bit per block indicating whether that block is currently allocated or not.</td>
+</tr>
+<tr>
+<td><a href="Structs/BitmappedBlockWithInternalPointers.html">BitmappedBlockWithInternalPointers</a></td>
+<td>A <code>BitmappedBlock</code> with additional structure for supporting <code>resolveInternalPointer</code> . To that end, <code>BitmappedBlockWithInternalPointers</code> adds a bitmap (one bit per block) that marks object starts. The bitmap itself has variable size and is allocated together with regular allocations.</td>
+</tr>
+<tr>
+<td><a href="Structs/BitVector.html">BitVector</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/SharedBitmappedBlock.html">SharedBitmappedBlock</a></td>
+<td>The threadsafe version of the $(LREF BitmappedBlock). The semantics of the <code>SharedBitmappedBlock</code> are identical to the regular $(LREF BitmappedBlock).</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Templates</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Templates/BitmappedBlockImpl.html">BitmappedBlockImpl</a></td>
 <td></td>
 </tr>
 </tbody>

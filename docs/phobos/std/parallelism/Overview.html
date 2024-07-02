@@ -142,7 +142,7 @@
 </tr>
 </tbody>
 </table>
-<h2 class='section'>Structs</h2><table>
+<h2 class='section'>Enums</h2><table>
 <thead>
 <tr>
 <th>Name</th>
@@ -151,20 +151,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="Structs/AbstractTask.html">AbstractTask</a></td>
+<td><a href="Enums/TaskStatus.html">TaskStatus</a></td>
 <td></td>
-</tr>
-<tr>
-<td><a href="Structs/ParallelForeach.html">ParallelForeach</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/RoundRobinBuffer.html">RoundRobinBuffer</a></td>
-<td></td>
-</tr>
-<tr>
-<td><a href="Structs/Task.html">Task</a></td>
-<td><code>Task</code> represents the fundamental unit of work.  A <code>Task</code> may be executed in parallel with any other <code>Task</code> .  Using this struct directly allows future/promise parallelism.  In this paradigm, a function (or delegate or other callable) is executed in a thread other than the one it was called from.  The calling thread does not block while the function is being executed. A call to <code>workForce</code> , <code>yieldForce</code> , or <code>spinForce</code> is used to ensure that the <code>Task</code> has finished executing and to obtain the return value, if any.  These functions and <code>done</code> also act as full memory barriers, meaning that any memory writes made in the thread that executed the <code>Task</code> are guaranteed to be visible in the calling thread after one of these functions returns.</td>
 </tr>
 </tbody>
 </table>
@@ -230,6 +218,54 @@
 </tr>
 <tr>
 <td><a href="Functions/totalCPUsImpl.html">totalCPUsImpl</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Structs/AbstractTask.html">AbstractTask</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/ParallelForeach.html">ParallelForeach</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/RoundRobinBuffer.html">RoundRobinBuffer</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Structs/Task.html">Task</a></td>
+<td><code>Task</code> represents the fundamental unit of work.  A <code>Task</code> may be executed in parallel with any other <code>Task</code> .  Using this struct directly allows future/promise parallelism.  In this paradigm, a function (or delegate or other callable) is executed in a thread other than the one it was called from.  The calling thread does not block while the function is being executed. A call to <code>workForce</code> , <code>yieldForce</code> , or <code>spinForce</code> is used to ensure that the <code>Task</code> has finished executing and to obtain the return value, if any.  These functions and <code>done</code> also act as full memory barriers, meaning that any memory writes made in the thread that executed the <code>Task</code> are guaranteed to be visible in the calling thread after one of these functions returns.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Templates</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="Templates/isSafeReturn.html">isSafeReturn</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/reduceAdjoin.html">reduceAdjoin</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="Templates/reduceFinish.html">reduceFinish</a></td>
 <td></td>
 </tr>
 </tbody>

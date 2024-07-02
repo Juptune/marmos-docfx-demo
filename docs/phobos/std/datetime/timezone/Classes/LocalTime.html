@@ -120,43 +120,43 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../LocalTime/Functions/dstInEffect.html">dstInEffect</a></td>
+<td><a href="../LocalTime/LocalTime/Functions/dstInEffect.html">dstInEffect</a></td>
 <td>Takes the number of hnsecs (100 ns) since midnight, January 1st, 1 A.D. in UTC time (i.e. std time) and returns whether DST is in effect in this time zone at the given point in time.</td>
 </tr>
 <tr>
-<td><a href="../LocalTime/Functions/dstName.html">dstName</a></td>
+<td><a href="../LocalTime/LocalTime/Functions/dstName.html">dstName</a></td>
 <td>Typically, the abbreviation (generally 3 or 4 letters) for the time zone when DST $(I is) in effect (e.g. PDT). It is not necessarily unique.</td>
 </tr>
 <tr>
-<td><a href="../LocalTime/Functions/hasDST.html">hasDST</a></td>
+<td><a href="../LocalTime/LocalTime/Functions/hasDST.html">hasDST</a></td>
 <td>Whether this time zone has Daylight Savings Time at any point in time. Note that for some time zone types it may not have DST for current dates but will still return true for <code>hasDST</code> because the time zone did at some point have DST.</td>
 </tr>
 <tr>
-<td><a href="../LocalTime/Functions/name.html">name</a></td>
+<td><a href="../LocalTime/LocalTime/Functions/name.html">name</a></td>
 <td>In principle, this is the name of the local time zone. However, this always returns the empty string. This is because time zones cannot be uniquely identified by the attributes given by the OS (such as the <code>stdName</code> and <code>dstName</code> ), and neither Posix systems nor Windows systems provide an easy way to get the TZ Database name of the local time zone.</td>
 </tr>
 <tr>
-<td><a href="../LocalTime/Functions/opCall.html">opCall</a></td>
+<td><a href="../LocalTime/LocalTime/Functions/opCall.html">opCall</a></td>
 <td>$(LREF LocalTime) is a singleton class. $(LREF LocalTime) returns its only instance.</td>
 </tr>
 <tr>
-<td><a href="../LocalTime/Functions/singleton.html">singleton</a></td>
+<td><a href="../LocalTime/LocalTime/Functions/singleton.html">singleton</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../LocalTime/Functions/stdName.html">stdName</a></td>
+<td><a href="../LocalTime/LocalTime/Functions/stdName.html">stdName</a></td>
 <td>Typically, the abbreviation (generally 3 or 4 letters) for the time zone when DST is $(I not) in effect (e.g. PST). It is not necessarily unique.</td>
 </tr>
 <tr>
-<td><a href="../LocalTime/Functions/tm_gmtoff.html">tm_gmtoff</a></td>
+<td><a href="../LocalTime/LocalTime/Functions/tm_gmtoff.html">tm_gmtoff</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../LocalTime/Functions/tzToUTC.html">tzToUTC</a></td>
+<td><a href="../LocalTime/LocalTime/Functions/tzToUTC.html">tzToUTC</a></td>
 <td>Returns std time using the standard C function calls on Posix systems and the standard Windows system calls on Windows systems to adjust the time to UTC from the appropriate time zone.</td>
 </tr>
 <tr>
-<td><a href="../LocalTime/Functions/utcToTZ.html">utcToTZ</a></td>
+<td><a href="../LocalTime/LocalTime/Functions/utcToTZ.html">utcToTZ</a></td>
 <td>Returns hnsecs in the local time zone using the standard C function calls on Posix systems and the standard Windows system calls on Windows systems to adjust the time to the appropriate time zone from std time.</td>
 </tr>
 </tbody>

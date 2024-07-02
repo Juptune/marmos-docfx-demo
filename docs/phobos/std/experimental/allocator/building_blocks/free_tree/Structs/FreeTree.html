@@ -136,51 +136,51 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../FreeTree/Functions/allocate.html">allocate</a></td>
+<td><a href="../FreeTree/FreeTree/Functions/allocate.html">allocate</a></td>
 <td>Allocates <code>n</code> bytes of memory. First consults the free tree, and returns from it if a suitably sized block is found. Otherwise, the parent allocator is tried. If allocation from the parent succeeds, the allocated block is returned. Otherwise, the free tree tries an alternate strategy: If $(D ParentAllocator) defines <code>deallocate</code> , <code>FreeTree</code> releases all of its contents and tries again.</td>
 </tr>
 <tr>
-<td><a href="../FreeTree/Functions/assertValid.html">assertValid</a></td>
+<td><a href="../FreeTree/FreeTree/Functions/assertValid.html">assertValid</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../FreeTree/Functions/clear.html">clear</a></td>
+<td><a href="../FreeTree/FreeTree/Functions/clear.html">clear</a></td>
 <td>Defined if <code>ParentAllocator.deallocate</code> exists, and returns to it all memory held in the free tree.</td>
 </tr>
 <tr>
-<td><a href="../FreeTree/Functions/deallocate.html">deallocate</a></td>
+<td><a href="../FreeTree/FreeTree/Functions/deallocate.html">deallocate</a></td>
 <td>Places <code>b</code> into the free tree.</td>
 </tr>
 <tr>
-<td><a href="../FreeTree/Functions/deallocateAll.html">deallocateAll</a></td>
+<td><a href="../FreeTree/FreeTree/Functions/deallocateAll.html">deallocateAll</a></td>
 <td>Defined if <code>ParentAllocator.deallocateAll</code> exists, and forwards to it. Also nullifies the free tree (it's assumed the parent frees all memory stil managed by the free tree).</td>
 </tr>
 <tr>
-<td><a href="../FreeTree/Functions/dump.html">dump</a></td>
+<td><a href="../FreeTree/FreeTree/Functions/dump.html">dump</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../FreeTree/Functions/findAndRemove.html">findAndRemove</a></td>
+<td><a href="../FreeTree/FreeTree/Functions/findAndRemove.html">findAndRemove</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../FreeTree/Functions/formatSizes.html">formatSizes</a></td>
+<td><a href="../FreeTree/FreeTree/Functions/formatSizes.html">formatSizes</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../FreeTree/Functions/goodAllocSize.html">goodAllocSize</a></td>
+<td><a href="../FreeTree/FreeTree/Functions/goodAllocSize.html">goodAllocSize</a></td>
 <td>Returns $(D parent.goodAllocSize(max(Node.sizeof, s))).</td>
 </tr>
 <tr>
-<td><a href="../FreeTree/Functions/insertAsRoot.html">insertAsRoot</a></td>
+<td><a href="../FreeTree/FreeTree/Functions/insertAsRoot.html">insertAsRoot</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../FreeTree/Functions/remove.html">remove</a></td>
+<td><a href="../FreeTree/FreeTree/Functions/remove.html">remove</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../FreeTree/Functions/rotate.html">rotate</a></td>
+<td><a href="../FreeTree/FreeTree/Functions/rotate.html">rotate</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -194,15 +194,15 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../FreeTree/Variables/alignment.html">alignment</a></td>
+<td><a href="../FreeTree/FreeTree/Variables/alignment.html">alignment</a></td>
 <td>The <code>FreeTree</code> is word aligned.</td>
 </tr>
 <tr>
-<td><a href="../FreeTree/Variables/parent.html">parent</a></td>
+<td><a href="../FreeTree/FreeTree/Variables/parent.html">parent</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../FreeTree/Variables/root.html">root</a></td>
+<td><a href="../FreeTree/FreeTree/Variables/root.html">root</a></td>
 <td></td>
 </tr>
 </tbody>

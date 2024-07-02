@@ -128,39 +128,39 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../FallbackAllocator/Functions/alignedAllocate.html">alignedAllocate</a></td>
+<td><a href="../FallbackAllocator/FallbackAllocator/Functions/alignedAllocate.html">alignedAllocate</a></td>
 <td><code>FallbackAllocator</code> offers <code>alignedAllocate</code> iff at least one of the allocators also offers it. It attempts to allocate using either or both.</td>
 </tr>
 <tr>
-<td><a href="../FallbackAllocator/Functions/alignedReallocate.html">alignedReallocate</a></td>
+<td><a href="../FallbackAllocator/FallbackAllocator/Functions/alignedReallocate.html">alignedReallocate</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../FallbackAllocator/Functions/allocate.html">allocate</a></td>
+<td><a href="../FallbackAllocator/FallbackAllocator/Functions/allocate.html">allocate</a></td>
 <td>Allocates memory trying the primary allocator first. If it returns $(D null), the fallback allocator is tried.</td>
 </tr>
 <tr>
-<td><a href="../FallbackAllocator/Functions/deallocate.html">deallocate</a></td>
+<td><a href="../FallbackAllocator/FallbackAllocator/Functions/deallocate.html">deallocate</a></td>
 <td><code>deallocate</code> is defined if and only if at least one of the allocators define    <code>deallocate</code> . It works as follows. If <code>primary.owns(b)</code> , then the request is forwarded to <code>primary.deallocate</code> if it is defined, or is a no-op otherwise. If <code>primary</code> does not own <code>b</code> , then the request is forwarded to <code>fallback.deallocate</code> if it is defined, or is a no-op otherwise.</td>
 </tr>
 <tr>
-<td><a href="../FallbackAllocator/Functions/empty.html">empty</a></td>
+<td><a href="../FallbackAllocator/FallbackAllocator/Functions/empty.html">empty</a></td>
 <td><code>empty</code> is defined if both allocators also define it.</td>
 </tr>
 <tr>
-<td><a href="../FallbackAllocator/Functions/expand.html">expand</a></td>
+<td><a href="../FallbackAllocator/FallbackAllocator/Functions/expand.html">expand</a></td>
 <td><code>expand</code> is defined if and only if at least one of the allocators defines <code>expand</code> . It works as follows. If <code>primary.owns(b)</code> , then the request is forwarded to <code>primary.expand</code> if it is defined, or fails (returning <code>false</code> ) otherwise. If <code>primary</code> does not own <code>b</code> , then the request is forwarded to <code>fallback.expand</code> if it is defined, or fails (returning <code>false</code> ) otherwise.</td>
 </tr>
 <tr>
-<td><a href="../FallbackAllocator/Functions/owns.html">owns</a></td>
+<td><a href="../FallbackAllocator/FallbackAllocator/Functions/owns.html">owns</a></td>
 <td><code>owns</code> is defined if and only if both allocators define <code>owns</code> . Returns $(D primary.owns(b) <code>|</code> fallback.owns(b)).</td>
 </tr>
 <tr>
-<td><a href="../FallbackAllocator/Functions/reallocate.html">reallocate</a></td>
+<td><a href="../FallbackAllocator/FallbackAllocator/Functions/reallocate.html">reallocate</a></td>
 <td><code>reallocate</code> works as follows. If <code>primary.owns(b)</code> , then $(D primary.reallocate(b, newSize)) is attempted. If it fails, an attempt is made to move the allocation from <code>primary</code> to <code>fallback</code> .</td>
 </tr>
 <tr>
-<td><a href="../FallbackAllocator/Functions/resolveInternalPointer.html">resolveInternalPointer</a></td>
+<td><a href="../FallbackAllocator/FallbackAllocator/Functions/resolveInternalPointer.html">resolveInternalPointer</a></td>
 <td><code>resolveInternalPointer</code> is defined if and only if both allocators define it.</td>
 </tr>
 </tbody>
@@ -174,19 +174,19 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../FallbackAllocator/Variables/alignment.html">alignment</a></td>
+<td><a href="../FallbackAllocator/FallbackAllocator/Variables/alignment.html">alignment</a></td>
 <td>The alignment offered is the minimum of the two allocators' alignment.</td>
 </tr>
 <tr>
-<td><a href="../FallbackAllocator/Variables/fallback.html">fallback</a></td>
+<td><a href="../FallbackAllocator/FallbackAllocator/Variables/fallback.html">fallback</a></td>
 <td>The fallback allocator.</td>
 </tr>
 <tr>
-<td><a href="../FallbackAllocator/Variables/instance.html">instance</a></td>
+<td><a href="../FallbackAllocator/FallbackAllocator/Variables/instance.html">instance</a></td>
 <td>If both <code>Primary</code> and <code>Fallback</code> are stateless, <code>FallbackAllocator</code> defines a static instance called <code>instance</code> .</td>
 </tr>
 <tr>
-<td><a href="../FallbackAllocator/Variables/primary.html">primary</a></td>
+<td><a href="../FallbackAllocator/FallbackAllocator/Variables/primary.html">primary</a></td>
 <td>The primary allocator.</td>
 </tr>
 </tbody>

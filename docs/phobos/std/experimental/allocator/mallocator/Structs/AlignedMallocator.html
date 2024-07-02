@@ -116,23 +116,23 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../AlignedMallocator/Functions/alignedAllocate.html">alignedAllocate</a></td>
+<td><a href="../AlignedMallocator/AlignedMallocator/Functions/alignedAllocate.html">alignedAllocate</a></td>
 <td>Uses $(HTTP man7.org/linux/man-pages/man3/posix_memalign.3.html, <code>posix_memalign</code> ) on Posix and $(HTTP msdn.microsoft.com/en-us/library/8z34s9c6(v=vs.80).aspx, <code>__aligned_malloc</code> ) on Windows.</td>
 </tr>
 <tr>
-<td><a href="../AlignedMallocator/Functions/alignedReallocate.html">alignedReallocate</a></td>
+<td><a href="../AlignedMallocator/AlignedMallocator/Functions/alignedReallocate.html">alignedReallocate</a></td>
 <td>On Posix there is no <code>realloc</code> for aligned memory, so <code>alignedReallocate</code> emulates the needed behavior by using <code>alignedAllocate</code> to get a new block. The existing block is copied to the new block and then freed. On Windows, calls $(HTTPS msdn.microsoft.com/en-us/library/y69db7sx.aspx, $(D aligned_realloc(b.ptr, newSize, a))).</td>
 </tr>
 <tr>
-<td><a href="../AlignedMallocator/Functions/allocate.html">allocate</a></td>
+<td><a href="../AlignedMallocator/AlignedMallocator/Functions/allocate.html">allocate</a></td>
 <td>Forwards to $(D alignedAllocate(bytes, platformAlignment)).</td>
 </tr>
 <tr>
-<td><a href="../AlignedMallocator/Functions/deallocate.html">deallocate</a></td>
+<td><a href="../AlignedMallocator/AlignedMallocator/Functions/deallocate.html">deallocate</a></td>
 <td>Calls <code>free(b.ptr)</code> on Posix and $(HTTP msdn.microsoft.com/en-US/library/17b5h8td(v=vs.80).aspx, <code>__aligned_free(b.ptr)</code> ) on Windows.</td>
 </tr>
 <tr>
-<td><a href="../AlignedMallocator/Functions/reallocate.html">reallocate</a></td>
+<td><a href="../AlignedMallocator/AlignedMallocator/Functions/reallocate.html">reallocate</a></td>
 <td>Forwards to $(D alignedReallocate(b, newSize, platformAlignment)). Should be used with blocks obtained with <code>allocate</code> otherwise the custom alignment passed with <code>alignedAllocate</code> can be lost.</td>
 </tr>
 </tbody>
@@ -146,11 +146,11 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../AlignedMallocator/Variables/alignment.html">alignment</a></td>
+<td><a href="../AlignedMallocator/AlignedMallocator/Variables/alignment.html">alignment</a></td>
 <td>The default alignment is <code>platformAlignment</code> .</td>
 </tr>
 <tr>
-<td><a href="../AlignedMallocator/Variables/instance.html">instance</a></td>
+<td><a href="../AlignedMallocator/AlignedMallocator/Variables/instance.html">instance</a></td>
 <td>Returns the global instance of this allocator type. The C heap allocator is thread-safe, therefore all of its methods and <code>instance</code> itself are <code>shared</code> .</td>
 </tr>
 </tbody>

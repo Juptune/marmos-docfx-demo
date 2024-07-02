@@ -148,23 +148,23 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../BinaryHeap/Aliases/buildHeap.html">buildHeap</a></td>
+<td><a href="../BinaryHeap/BinaryHeap/Aliases/buildHeap.html">buildHeap</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../BinaryHeap/Aliases/comp.html">comp</a></td>
+<td><a href="../BinaryHeap/BinaryHeap/Aliases/comp.html">comp</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../BinaryHeap/Aliases/percolate.html">percolate</a></td>
+<td><a href="../BinaryHeap/BinaryHeap/Aliases/percolate.html">percolate</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../BinaryHeap/Aliases/popFront.html">popFront</a></td>
+<td><a href="../BinaryHeap/BinaryHeap/Aliases/popFront.html">popFront</a></td>
 <td>ditto</td>
 </tr>
 <tr>
-<td><a href="../BinaryHeap/Aliases/Range.html">Range</a></td>
+<td><a href="../BinaryHeap/BinaryHeap/Aliases/Range.html">Range</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -178,71 +178,71 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../BinaryHeap/Functions/acquire.html">acquire</a></td>
+<td><a href="../BinaryHeap/BinaryHeap/Functions/acquire.html">acquire</a></td>
 <td>Takes ownership of a store. After this, manipulating <code>s</code> may make the heap work incorrectly.</td>
 </tr>
 <tr>
-<td><a href="../BinaryHeap/Functions/assertValid.html">assertValid</a></td>
+<td><a href="../BinaryHeap/BinaryHeap/Functions/assertValid.html">assertValid</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../BinaryHeap/Functions/assume.html">assume</a></td>
+<td><a href="../BinaryHeap/BinaryHeap/Functions/assume.html">assume</a></td>
 <td>Takes ownership of a store assuming it already was organized as a heap.</td>
 </tr>
 <tr>
-<td><a href="../BinaryHeap/Functions/capacity.html">capacity</a></td>
+<td><a href="../BinaryHeap/BinaryHeap/Functions/capacity.html">capacity</a></td>
 <td>Returns the capacity of the heap, which is the length of the underlying store (if the store is a range) or the capacity of the underlying store (if the store is a container).</td>
 </tr>
 <tr>
-<td><a href="../BinaryHeap/Functions/clear.html">clear</a></td>
+<td><a href="../BinaryHeap/BinaryHeap/Functions/clear.html">clear</a></td>
 <td>Clears the heap by detaching it from the underlying store.</td>
 </tr>
 <tr>
-<td><a href="../BinaryHeap/Functions/conditionalInsert.html">conditionalInsert</a></td>
+<td><a href="../BinaryHeap/BinaryHeap/Functions/conditionalInsert.html">conditionalInsert</a></td>
 <td>If the heap has room to grow, inserts <code>value</code> into the store and returns <code>true</code> . Otherwise, if $(D less(value, front)), calls $(D replaceFront(value)) and returns again <code>true</code> . Otherwise, leaves the heap unaffected and returns <code>false</code> . This method is useful in scenarios where the smallest <code>k</code> elements of a set of candidates must be collected.</td>
 </tr>
 <tr>
-<td><a href="../BinaryHeap/Functions/conditionalSwap.html">conditionalSwap</a></td>
+<td><a href="../BinaryHeap/BinaryHeap/Functions/conditionalSwap.html">conditionalSwap</a></td>
 <td>Swapping is allowed if the heap is full. If $(D less(value, front)), the method exchanges store.front and value and returns <code>true</code> . Otherwise, it leaves the heap unaffected and returns <code>false</code> .</td>
 </tr>
 <tr>
-<td><a href="../BinaryHeap/Functions/dup.html">dup</a></td>
+<td><a href="../BinaryHeap/BinaryHeap/Functions/dup.html">dup</a></td>
 <td>Returns a duplicate of the heap. The <code>dup</code> method is available only if the underlying store supports it.</td>
 </tr>
 <tr>
-<td><a href="../BinaryHeap/Functions/empty.html">empty</a></td>
+<td><a href="../BinaryHeap/BinaryHeap/Functions/empty.html">empty</a></td>
 <td>Returns <code>true</code> if the heap is empty, <code>false</code> otherwise.</td>
 </tr>
 <tr>
-<td><a href="../BinaryHeap/Functions/front.html">front</a></td>
+<td><a href="../BinaryHeap/BinaryHeap/Functions/front.html">front</a></td>
 <td>Returns a copy of the front of the heap, which is the largest element according to <code>less</code> .</td>
 </tr>
 <tr>
-<td><a href="../BinaryHeap/Functions/insert.html">insert</a></td>
+<td><a href="../BinaryHeap/BinaryHeap/Functions/insert.html">insert</a></td>
 <td>Inserts <code>value</code> into the store. If the underlying store is a range and $(D length == capacity), throws an exception.</td>
 </tr>
 <tr>
-<td><a href="../BinaryHeap/Functions/length.html">length</a></td>
+<td><a href="../BinaryHeap/BinaryHeap/Functions/length.html">length</a></td>
 <td>Returns the length of the heap.</td>
 </tr>
 <tr>
-<td><a href="../BinaryHeap/Functions/pop.html">pop</a></td>
+<td><a href="../BinaryHeap/BinaryHeap/Functions/pop.html">pop</a></td>
 <td></td>
 </tr>
 <tr>
-<td><a href="../BinaryHeap/Functions/release.html">release</a></td>
+<td><a href="../BinaryHeap/BinaryHeap/Functions/release.html">release</a></td>
 <td>Clears the heap. Returns the portion of the store from <code>0</code> up to <code>length</code> , which satisfies the $(LINK2 <a href="https://en.wikipedia.org/wiki/Heap_(data_structure)">https://en.wikipedia.org/wiki/Heap_(data_structure)</a>, heap property).</td>
 </tr>
 <tr>
-<td><a href="../BinaryHeap/Functions/removeAny.html">removeAny</a></td>
+<td><a href="../BinaryHeap/BinaryHeap/Functions/removeAny.html">removeAny</a></td>
 <td>Removes the largest element from the heap and returns a copy of it. The element still resides in the heap's store. For performance reasons you may want to use <code>removeFront</code> with heaps of objects that are expensive to copy.</td>
 </tr>
 <tr>
-<td><a href="../BinaryHeap/Functions/removeFront.html">removeFront</a></td>
+<td><a href="../BinaryHeap/BinaryHeap/Functions/removeFront.html">removeFront</a></td>
 <td>Removes the largest element from the heap.</td>
 </tr>
 <tr>
-<td><a href="../BinaryHeap/Functions/replaceFront.html">replaceFront</a></td>
+<td><a href="../BinaryHeap/BinaryHeap/Functions/replaceFront.html">replaceFront</a></td>
 <td>Replaces the largest element in the store with <code>value</code> .</td>
 </tr>
 </tbody>

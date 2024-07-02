@@ -1,2 +1,0 @@
-
-{"order":100,"items":[{"name":"Overview","href":"Overview.html","topicHref":"Overview.html"},{"name":"Functions","includedFrom":"~/phobos/std/internal/windows/advapi32/Functions/toc.yml","items":[{"name":"isWow64","href":"Functions/isWow64.html","topicHref":"Functions/isWow64.html"},{"name":"loadAdvapi32","href":"Functions/loadAdvapi32.html","topicHref":"Functions/loadAdvapi32.html"},{"name":"freeAdvapi32","href":"Functions/freeAdvapi32.html","topicHref":"Functions/freeAdvapi32.html"}]}],"pdf":false}

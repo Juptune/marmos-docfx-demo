@@ -106,15 +106,15 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ExampleDigest/Functions/finish.html">finish</a></td>
+<td><a href="../ExampleDigest/ExampleDigest/Functions/finish.html">finish</a></td>
 <td>The finish function returns the final hash sum and resets the Digest.</td>
 </tr>
 <tr>
-<td><a href="../ExampleDigest/Functions/put.html">put</a></td>
+<td><a href="../ExampleDigest/ExampleDigest/Functions/put.html">put</a></td>
 <td>Use this to feed the digest with data. Also implements the $(REF isOutputRange, std,range,primitives) interface for <code>ubyte</code> and <code>const(ubyte)[]</code> . The following usages of <code>put</code> must work for any type which passes $(LREF isDigest): Example: ---- ExampleDigest dig; dig.put(cast(ubyte) 0); //single ubyte dig.put(cast(ubyte) 0, cast(ubyte) 0); //variadic ubyte[10] buf; dig.put(buf); //buffer ----</td>
 </tr>
 <tr>
-<td><a href="../ExampleDigest/Functions/start.html">start</a></td>
+<td><a href="../ExampleDigest/ExampleDigest/Functions/start.html">start</a></td>
 <td>This function is used to (re)initialize the digest. It must be called before using the digest and it also works as a 'reset' function if the digest has already processed data.</td>
 </tr>
 </tbody>
