@@ -32,6 +32,8 @@ rm __anonymous*.json
 # Convert to docfx
 popd
 cwd=$(pwd)
+mkdir -p src/phobos
+mkdir -p src/juptune
 npx marmos-docfx convert $cwd/_marmos-output/models/phobos/*.json --outputFolder $cwd/src/phobos
 npx marmos-docfx convert $cwd/_marmos-output/models/juptune/*.json --outputFolder $cwd/src/juptune
 
