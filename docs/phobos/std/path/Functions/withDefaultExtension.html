@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,17 +88,14 @@
 <h1 class='section'>Overloads for - withDefaultExtension</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.path</dd></dl>
 </div><h2 class='section api'>withDefaultExtension(path, ext)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; withDefaultExtension(
-  R path,
-  &lt;bug: unknown&gt; ext
-) auto</code></pre><p>Set the extension of <code>path</code> to <code>ext</code> if <code>path</code> doesn't have one.</p>
+ <pre><code class='lang-d'>auto withDefaultExtension( R, C )( R path, C[] ext ) </code></pre><p>Set the extension of <code>path</code> to <code>ext</code> if <code>path</code> doesn't have one.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>path</code> R  </dt>
 <dd>
 
 
 <p>filespec as string or range</p>
 
-</dd><dt><code>ext</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>ext</code> C[]  </dt>
 <dd>
 
 
@@ -106,10 +103,7 @@
 
 </dd></dl><p>ext = extension, may have leading '.' Returns: range with the result</p>
 <h2 class='section api'>withDefaultExtension(path, ext)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; withDefaultExtension(
-  &lt;bug: unknown&gt; path,
-  &lt;bug: unknown&gt; ext
-) auto</code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>auto withDefaultExtension( C1, C2 )( C1[] path, C2[] ext ) </code></pre><p>Ditto</p>
 
 </article>
 

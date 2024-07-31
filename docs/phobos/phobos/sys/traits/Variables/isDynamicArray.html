@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,7 @@
 <h1 class='section'>Variable - isDynamicArray</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>phobos.sys.traits</dd></dl>
 </div><h2 class='section api'>isDynamicArray   </h2>
- <pre><code class='lang-d'>__enumMember isDynamicArray</code></pre><h2 class='section'>About</h2><p>Whether the given type is a dynamic array (or what is sometimes referred to as a slice, since a dynamic array in D is a slice of memory).</p>
+ <pre><code class='lang-d'>&lt;enum or auto&gt; isDynamicArray = is(T == U[], U)</code></pre><h2 class='section'>About</h2><p>Whether the given type is a dynamic array (or what is sometimes referred to as a slice, since a dynamic array in D is a slice of memory).</p>
 <p>Note that this does not include implicit conversions or enum types. The type itself must be a dynamic array.</p>
 <h3 class='section'>Remember that D&#39;s dynamic arrays are essentially</h3><p>--- struct DynamicArray(T) { size_t length; T* ptr; } --- where $(D ptr) points to the first element in the array, and $(D length) is the number of elements in the array.</p>
 <p>A dynamic array is not a pointer (unlike arrays in C/C++), and its elements do not live inside the dynamic array itself. The dynamic array is simply a slice of memory and does not own or manage its own memory. It can be a slice of any piece of memory, including GC-allocated memory, the stack, malloc-ed memory, etc. (with what kind of memory it is of course being determined by how the dynamic array was created in the first place) - though if you do any operations on it which end up requiring allocation (e.g. appending to it if it doesn't have the capacity to expand in-place, which it won't if it isn't a slice of GC-allocated memory), then that reallocation will result in the dynamic array being a slice of newly allocated, GC-backed memory (regardless of what it was a slice of before), since it's the GC that deals with those allocations.</p>

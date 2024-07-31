@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - sync</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.stdio.File</dd></dl><dl><dt>Parent</dt><dd>File</dd></dl>
 </div><h2 class='section api'>sync()   </h2>
- <pre><code class='lang-d'>void sync(
-) </code></pre><p>Forces any data buffered by the OS to be written to disk. Call $(LREF flush) before calling this function to flush the C <code>FILE</code> buffers first.</p>
+ <pre><code class='lang-d'>void sync() @trusted</code></pre><p>Forces any data buffered by the OS to be written to disk. Call $(LREF flush) before calling this function to flush the C <code>FILE</code> buffers first.</p>
 <p>This function calls $(HTTP msdn.microsoft.com/en-us/library/windows/desktop/aa364439%28v=vs.85%29.aspx, <code>FlushFileBuffers</code> ) on Windows, $(HTTP developer.apple.com/library/archive/documentation/System/Conceptual/ManPages_iPhoneOS/man2/fcntl.2.html, <code>F_FULLFSYNC fcntl</code> ) on Darwin and $(HTTP pubs.opengroup.org/onlinepubs/7908799/xsh/fsync.html, <code>fsync</code> ) on POSIX for the file handle.</p>
 <p>Throws: <code>Exception</code> if the file is not opened or if the OS call fails.</p>
 

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,17 +88,8 @@
 <h1 class='section'>Overloads for - writeBest2Level</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.unicode_table_generator</dd></dl>
 </div><h2 class='section api'>writeBest2Level(sink, name, set)   </h2>
- <pre><code class='lang-d'>void writeBest2Level(
-  File sink,
-  string name,
-  Set set
-) </code></pre><h2 class='section api'>writeBest2Level(sink, name, map, defValue)   </h2>
- <pre><code class='lang-d'>void writeBest2Level(
-  File sink,
-  string name,
-  &lt;bug: unknown&gt; map,
-  V defValue
-) </code></pre>
+ <pre><code class='lang-d'>void writeBest2Level( Set )( File sink, string name, Set set ) </code></pre><h2 class='section api'>writeBest2Level(sink, name, map, defValue)   </h2>
+ <pre><code class='lang-d'>void writeBest2Level( V, K )( File sink, string name, V[K] map, V defValue ) </code></pre>
 </article>
 
         <div class="contribution d-print-none">

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,91 +90,172 @@
 </div><pre><code class='lang-d'>public struct File
 {
   // Returns an $(REF_ALTTEXT input range, isInputRange, std,range,primitives) set up to read from the file handle a chunk at a time. 
-  &lt;bug: unknown&gt; byChunk( size_t chunkSize ) auto;
+  auto byChunk( size_t chunkSize ) 
   // Ditto 
-  &lt;bug: unknown&gt; byChunk( &lt;bug: unknown&gt; buffer ) auto;
+  auto byChunk( ubyte[] buffer ) 
+  // Returns an $(REF_ALTTEXT input range, isInputRange, std,range,primitives) set up to read from the file handle one line at a time. 
+  auto byLine(
+    Terminator = char,
+    Char = char
+  )(
+    KeepTerminator keepTerminator,
+    Terminator terminator
+  ) 
+  // ditto 
+  auto byLine(
+    Terminator,
+    Char = char
+  )(
+    KeepTerminator keepTerminator,
+    Terminator terminator
+  ) 
+  // Returns an $(REF_ALTTEXT input range, isInputRange, std,range,primitives) set up to read from the file handle one line at a time. Each line will be newly allocated. `front` will cache its value to allow repeated calls without unnecessary allocations. 
+  auto byLineCopy(
+    Terminator = char,
+    Char = char
+  )(
+    KeepTerminator keepTerminator,
+    Terminator terminator
+  ) 
+  // ditto 
+  auto byLineCopy(
+    Terminator,
+    Char = char
+  )(
+    KeepTerminator keepTerminator,
+    Terminator terminator
+  ) 
+  // Creates an $(REF_ALTTEXT input range, isInputRange, std,range,primitives) set up to parse one line at a time from the file into a tuple. 
+  auto byRecord( Fields... )( string format ) 
   // If the file is closed or not yet opened, succeeds vacuously. Otherwise, returns $(CSTDIO clearerr) for the file handle. 
-  void clearerr( ) ;
+  void clearerr() @safe nothrow pure
   // If the file was closed or not yet opened, succeeds vacuously. Otherwise closes the file (by calling $(CSTDIO fclose)), throwing on error. Even if an exception is thrown, afterwards the $(D File) object is empty. This is different from `detach` in that it always closes the file; consequently, all other `File` objects referring to the same handle will see a closed file henceforth. 
-  void close( ) ;
+  void close() @trusted
   // 
-  void closeHandles( ) ;
+  void closeHandles() @trusted
   // Detaches from the underlying file. If the sole owner, calls `close` . 
-  void detach( ) ;
+  void detach() @trusted
   // Returns `true` if the file is at end (see $(CSTDIO feof)). 
-  bool eof( ) ;
+  bool eof() @property @trusted pure
   // If the file is closed or not yet opened, returns `true` . Otherwise, returns $(CSTDIO ferror) for the file handle. 
-  bool error( ) ;
+  bool error() @property @trusted nothrow pure
   // First calls `detach` (throwing on failure), then attempts to associate the given file descriptor with the `File` , and sets the file&#39;s name to `null` . 
-  void fdopen( int fd, &lt;bug: unknown&gt; stdioOpenmode ) ;
+  void fdopen( int fd, scope char[] stdioOpenmode ) @safe
   // 
-  void fdopen( int fd, &lt;bug: unknown&gt; stdioOpenmode, string name ) ;
+  void fdopen( int fd, scope char[] stdioOpenmode, string name ) @trusted
   // Returns the file number corresponding to this object. 
-  fileno_t fileno( ) ;
+  fileno_t fileno() @property @trusted
   // Flushes the C `FILE` buffers. 
-  void flush( ) ;
+  void flush() @trusted
   // Returns the `FILE*` corresponding to this object. 
-  &lt;bug: unknown&gt; getFP( ) ;
+  FILE* getFP() @safe pure
   // 
-  void initImpl( &lt;bug: unknown&gt; handle, string name, uint refs, bool isPopened ) ;
+  void initImpl(
+    FILE* handle,
+    string name,
+    uint refs,
+    bool isPopened
+  ) @nogc @safe nothrow pure
   // Returns `true` if the file is opened. 
-  bool isOpen( ) ;
+  bool isOpen() @property @safe nothrow pure
   // Locks the specified file segment. If the file segment is already locked by another process, waits until the existing lock is released. If both `start` and `length` are zero, the entire file is locked. 
-  void lock( LockType lockType, ulong start, ulong length ) ;
+  void lock( LockType lockType, ulong start, ulong length ) 
   // 
-  int lockImpl( int operation, short l_type, ulong start, ulong length ) ;
+  int lockImpl( int operation, short l_type, ulong start, ulong length ) 
+  // 
+  BOOL lockImpl( alias F, Flags... )( ulong start, ulong length, Flags flags ) 
   // Returns an output range that locks the file and allows fast writing to it. 
-  &lt;bug: unknown&gt; lockingBinaryWriter( ) auto;
+  auto lockingBinaryWriter() 
   // Output range which locks the file when created, and unlocks the file when it goes out of scope. 
-  &lt;bug: unknown&gt; lockingTextWriter( ) auto;
+  auto lockingTextWriter() @safe
   // Returns the name last used to initialize this `File` , if any. 
-  string name( ) ;
+  ref string name() @property @safe nothrow return pure
   // Assigns a file to another. The target of the assignment gets detached from whatever file it was attached to, and attaches itself to the new file. 
-  File opAssign( File rhs ) ;
+  ref File opAssign( File rhs ) @safe return
   // Detaches from the current file (throwing on failure), and then attempts to open file `name` with mode `stdioOpenmode`. The mode has the same semantics as in the C standard library $(CSTDIO fopen) function. 
-  void open( string name, &lt;bug: unknown&gt; stdioOpenmode ) ;
-  // Detaches from the current file (throwing on failure), and then runs a command by calling the C standard library function $(HTTP opengroup.org/onlinepubs/007908799/xsh/_popen.html, popen). 
-  void popen( string command, &lt;bug: unknown&gt; stdioOpenmode ) ;
+  void open( string name, scope char[] stdioOpenmode ) @trusted
+  // Detaches from the current file (throwing on failure), and then runs a command by calling the C standard library function $(HTTP pubs.opengroup.org/onlinepubs/7908799/xsh/popen.html, popen). 
+  void popen( string command, scope char[] stdioOpenmode ) @safe
+  // Calls $(CSTDIO fread) for the file handle. The number of items to read and the size of each item is inferred from the size and type of the input array, respectively. 
+  T[] rawRead( T )( T[] buffer ) 
+  // Calls $(CSTDIO fwrite) for the file handle. The number of items to write and the size of each item is inferred from the size and type of the input array, respectively. An error is thrown if the buffer could not be written in its entirety. 
+  void rawWrite( T )( in T[] buffer ) 
+  // Reads formatted *data from the file using $(REF formattedRead, std,* format). Params: format = The $(REF_ALTTEXT format string, formattedWrite, std, format). When passed as a compile-time argument, the string will be statically checked against the argument types passed. data = Items to be read. Returns: Same as `formattedRead` : The number of variables filled. If the input range `r` ends early, this number will be less than the number of variables provided. Example: ---- // test.d void main() { import std.stdio; auto f = File(&quot;input&quot;); foreach (_; 0 .. 3) { int a; f.readf!&quot; %d&quot;(a); writeln(++a); } } ---- $(CONSOLE % echo &quot;1 2 3&quot; &gt; input % rdmd test.d 2 3 4 ) 
+  uint readf( alias format, Data... )( auto ref Data data ) 
+  // ditto 
+  uint readf( Data... )( scope char[] format, auto ref Data data ) 
+  // Read line from the file handle and return it as a specified type. 
+  S readln( S = string )( dchar terminator ) @safe
+  // Read line from the file handle and write it to `buf[]` , including terminating character. 
+  size_t readln( C )( ref C[] buf, dchar terminator ) @safe
+  // ditto 
+  size_t readln( C, R )( ref C[] buf, R terminator ) @safe
   // Reuses the `File` object to either open a different file, or change the file mode. If `name` is `null` , the mode of the currently open file is changed; otherwise, a new file is opened, reusing the C `FILE*` . The function has the same semantics as in the C standard library $(CSTDIO freopen) function. 
-  void reopen( string name, &lt;bug: unknown&gt; stdioOpenmode ) ;
+  void reopen( string name, scope char[] stdioOpenmode ) @trusted
   // 
-  void resetFile( string name, &lt;bug: unknown&gt; stdioOpenmode, bool isPopened ) ;
+  void resetFile( string name, scope char[] stdioOpenmode, bool isPopened ) @trusted
   // Calls $(CSTDIO rewind) for the file handle. 
-  void rewind( ) ;
+  void rewind() @safe
   // Calls $(CSTDIO fseek) for the file handle to move its position indicator. 
-  void seek( long offset, int origin ) ;
+  void seek( long offset, int origin ) @trusted
   // 
-  void setAppendWin( &lt;bug: unknown&gt; stdioOpenmode ) ;
+  void setAppendWin( scope char[] stdioOpenmode ) @safe
   // Calls $(CSTDIO setvbuf) for the file handle. 
-  void setvbuf( size_t size, int mode ) ;
+  void setvbuf( size_t size, int mode ) @trusted
   // Calls $(CSTDIO setvbuf) for the file handle. 
-  void setvbuf( &lt;bug: unknown&gt; buf, int mode ) ;
+  void setvbuf( void[] buf, int mode ) @trusted
   // Returns the size of the file in bytes, ulong.max if file is not searchable or throws if the operation fails. Example: --- import std.stdio, std.file; 
-  ulong size( ) ;
+  ulong size() @property @safe
   // Forces any data buffered by the OS to be written to disk. Call $(LREF flush) before calling this function to flush the C `FILE` buffers first. 
-  void sync( ) ;
+  void sync() @trusted
   // Calls $(CSTDIO ftell) for the managed file handle, which returns the current value of the position indicator of the file handle. 
-  ulong tell( ) ;
+  ulong tell() @property @trusted
   // Returns a temporary file by calling $(CSTDIO tmpfile). Note that the created file has no $(LREF name). 
-  File tmpfile( ) static;
+  static File tmpfile() @safe
   // Attempts to lock the specified file segment. If both `start` and `length` are zero, the entire file is locked. Returns: `true` if the lock was successful, and `false` if the specified file segment was already locked. 
-  bool tryLock( LockType lockType, ulong start, ulong length ) ;
+  bool tryLock( LockType lockType, ulong start, ulong length ) 
   // Removes the lock over the specified file segment. 
-  void unlock( ulong start, ulong length ) ;
+  void unlock( ulong start, ulong length ) 
   // Returns the underlying operating system `HANDLE` (Windows only). 
-  HANDLE windowsHandle( ) ;
+  HANDLE windowsHandle() @property
   // 
-  HANDLE windowsHandle( ) ;
+  HANDLE windowsHandle() @property
   // First calls `detach` (throwing on failure), and then attempts to associate the given Windows `HANDLE` with the `File` . The mode must be compatible with the access attributes of the handle. Windows only. 
-  void windowsHandleOpen( HANDLE handle, &lt;bug: unknown&gt; stdioOpenmode ) ;
+  void windowsHandleOpen( HANDLE handle, scope char[] stdioOpenmode ) 
   // 
-  void windowsHandleOpen( HANDLE handle, &lt;bug: unknown&gt; stdioOpenmode ) ;
+  void windowsHandleOpen( HANDLE handle, scope char[] stdioOpenmode ) 
   // Unsafe function that wraps an existing `FILE*` . The resulting $(D File) never takes the initiative in closing the file. Note that the created file has no $(LREF name) 
-  File wrapFile( &lt;bug: unknown&gt; f ) static;
+  static File wrapFile( FILE* f ) @safe
+  // Writes its arguments in text format to the file. 
+  void write( S... )( S args ) 
+  // Writes its arguments in text format to the file, according to the format string fmt. 
+  void writef( alias fmt, A... )( A args ) 
+  // ditto 
+  void writef( Char, A... )( in Char[] fmt, A args ) 
+  // Equivalent to `file.writef(fmt, args, &#39;\n&#39;)` . 
+  void writefln( alias fmt, A... )( A args ) 
+  // ditto 
+  void writefln( Char, A... )( in Char[] fmt, A args ) 
+  // Writes its arguments in text format to the file, followed by a newline. 
+  void writeln( S... )( S args ) 
 }</code></pre><h2 class='section'>About</h2><p>Encapsulates a <code>FILE*</code> . Generally D does not attempt to provide thin wrappers over equivalent functions in the C standard library, but manipulating <code>FILE*</code> values directly is unsafe and error-prone in many ways. The <code>File</code> type ensures safe manipulation, automatic file closing, and a lot of convenience.</p>
 <p>The underlying <code>FILE*</code> handle is maintained in a reference-counted manner, such that as soon as the last <code>File</code> variable bound to a given <code>FILE*</code> goes out of scope, the underlying <code>FILE*</code> is automatically closed.</p>
 <h3 class='section'>Example</h3><p>---- // test.d import std.stdio;</p>
 <p>void main(string[] args) { auto f = File(&quot;test.txt&quot;, &quot;w&quot;); // open for writing f.write(&quot;Hello&quot;); if (args.length &gt; 1) { auto g = f; // now g and f write to the same file // internal reference count is 2 g.write(&quot;, &quot;, args[1]); // g exits scope, reference count decreases to 1 } f.writeln(&quot;!&quot;); // f exits scope, reference count falls to zero, // underlying <code>FILE*</code> is closed. } ---- $(CONSOLE % rdmd test.d Jimmy % cat test.txt Hello, Jimmy! % )</p>
+<h2 class='section'>Enums</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../File/File/Enums/Orientation.html">Orientation</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -186,6 +267,18 @@
 <tr>
 <td><a href="../File/File/Functions/byChunk.html">byChunk</a></td>
 <td>Returns an $(REF_ALTTEXT input range, isInputRange, std,range,primitives) set up to read from the file handle a chunk at a time.</td>
+</tr>
+<tr>
+<td><a href="../File/File/Functions/byLine.html">byLine</a></td>
+<td>Returns an $(REF_ALTTEXT input range, isInputRange, std,range,primitives) set up to read from the file handle one line at a time.</td>
+</tr>
+<tr>
+<td><a href="../File/File/Functions/byLineCopy.html">byLineCopy</a></td>
+<td>Returns an $(REF_ALTTEXT input range, isInputRange, std,range,primitives) set up to read from the file handle one line at a time. Each line will be newly allocated. <code>front</code> will cache its value to allow repeated calls without unnecessary allocations.</td>
+</tr>
+<tr>
+<td><a href="../File/File/Functions/byRecord.html">byRecord</a></td>
+<td>Creates an $(REF_ALTTEXT input range, isInputRange, std,range,primitives) set up to parse one line at a time from the file into a tuple.</td>
 </tr>
 <tr>
 <td><a href="../File/File/Functions/clearerr.html">clearerr</a></td>
@@ -265,7 +358,23 @@
 </tr>
 <tr>
 <td><a href="../File/File/Functions/popen.html">popen</a></td>
-<td>Detaches from the current file (throwing on failure), and then runs a command by calling the C standard library function $(HTTP opengroup.org/onlinepubs/007908799/xsh/_popen.html, popen).</td>
+<td>Detaches from the current file (throwing on failure), and then runs a command by calling the C standard library function $(HTTP pubs.opengroup.org/onlinepubs/7908799/xsh/popen.html, popen).</td>
+</tr>
+<tr>
+<td><a href="../File/File/Functions/rawRead.html">rawRead</a></td>
+<td>Calls $(CSTDIO fread) for the file handle. The number of items to read and the size of each item is inferred from the size and type of the input array, respectively.</td>
+</tr>
+<tr>
+<td><a href="../File/File/Functions/rawWrite.html">rawWrite</a></td>
+<td>Calls $(CSTDIO fwrite) for the file handle. The number of items to write and the size of each item is inferred from the size and type of the input array, respectively. An error is thrown if the buffer could not be written in its entirety.</td>
+</tr>
+<tr>
+<td><a href="../File/File/Functions/readf.html">readf</a></td>
+<td>Reads formatted <em>data from the file using $(REF formattedRead, std,</em> format). Params: format = The $(REF_ALTTEXT format string, formattedWrite, std, format). When passed as a compile-time argument, the string will be statically checked against the argument types passed. data = Items to be read. Returns: Same as <code>formattedRead</code> : The number of variables filled. If the input range <code>r</code> ends early, this number will be less than the number of variables provided. Example: ---- // test.d void main() { import std.stdio; auto f = File(&quot;input&quot;); foreach (_; 0 .. 3) { int a; f.readf!&quot; %d&quot;(a); writeln(++a); } } ---- $(CONSOLE % echo &quot;1 2 3&quot; &gt; input % rdmd test.d 2 3 4 )</td>
+</tr>
+<tr>
+<td><a href="../File/File/Functions/readln.html">readln</a></td>
+<td>Read line from the file handle and return it as a specified type.</td>
 </tr>
 <tr>
 <td><a href="../File/File/Functions/reopen.html">reopen</a></td>
@@ -326,6 +435,60 @@
 <tr>
 <td><a href="../File/File/Functions/wrapFile.html">wrapFile</a></td>
 <td>Unsafe function that wraps an existing <code>FILE*</code> . The resulting $(D File) never takes the initiative in closing the file. Note that the created file has no $(LREF name)</td>
+</tr>
+<tr>
+<td><a href="../File/File/Functions/write.html">write</a></td>
+<td>Writes its arguments in text format to the file.</td>
+</tr>
+<tr>
+<td><a href="../File/File/Functions/writef.html">writef</a></td>
+<td>Writes its arguments in text format to the file, according to the format string fmt.</td>
+</tr>
+<tr>
+<td><a href="../File/File/Functions/writefln.html">writefln</a></td>
+<td>Equivalent to <code>file.writef(fmt, args, '\n')</code> .</td>
+</tr>
+<tr>
+<td><a href="../File/File/Functions/writeln.html">writeln</a></td>
+<td>Writes its arguments in text format to the file, followed by a newline.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../File/File/Structs/BinaryWriterImpl.html">BinaryWriterImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../File/File/Structs/ByChunkImpl.html">ByChunkImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../File/File/Structs/ByLineCopy.html">ByLineCopy</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../File/File/Structs/ByLineCopyImpl.html">ByLineCopyImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../File/File/Structs/ByLineImpl.html">ByLineImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../File/File/Structs/Impl.html">Impl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../File/File/Structs/LockingTextWriter.html">LockingTextWriter</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>

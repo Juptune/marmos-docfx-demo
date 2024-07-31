@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,16 +88,16 @@
 <h1 class='section'>Overloads for - sqlite3_table_column_metadata</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.sqlite3</dd></dl>
 </div><h2 class='section api'>sqlite3_table_column_metadata(db, zDbName, zTableName, zColumnName, pzDataType, pzCollSeq, pNotNull, pPrimaryKey, pAutoinc)   </h2>
- <pre><code class='lang-d'>int sqlite3_table_column_metadata(
-  &lt;bug: unknown&gt; db,
-  &lt;bug: unknown&gt; zDbName,
-  &lt;bug: unknown&gt; zTableName,
-  &lt;bug: unknown&gt; zColumnName,
-  &lt;bug: unknown&gt; pzDataType,
-  &lt;bug: unknown&gt; pzCollSeq,
-  &lt;bug: unknown&gt; pNotNull,
-  &lt;bug: unknown&gt; pPrimaryKey,
-  &lt;bug: unknown&gt; pAutoinc
+ <pre><code class='lang-d'>extern(C) int sqlite3_table_column_metadata(
+  sqlite3* db,
+  char* zDbName,
+  char* zTableName,
+  char* zColumnName,
+  char** pzDataType,
+  char** pzCollSeq,
+  int* pNotNull,
+  int* pPrimaryKey,
+  int* pAutoinc
 ) </code></pre><p>CAPI3REF: Extract Metadata About A Column Of A Table</p>
 
 </article>

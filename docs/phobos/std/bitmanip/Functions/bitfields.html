@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - bitfields</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.bitmanip</dd></dl>
 </div><h2 class='section api'>bitfields()   </h2>
- <pre><code class='lang-d'>string bitfields(
-) </code></pre><p>Allows creating <code>bitfields</code> inside <code>structs</code> , <code>classes</code> and <code>unions</code> .</p>
+ <pre><code class='lang-d'>string bitfields( T... )() </code></pre><p>Allows creating <code>bitfields</code> inside <code>structs</code> , <code>classes</code> and <code>unions</code> .</p>
 <p>A <code>bitfield</code> consists of one or more entries with a fixed number of bits reserved for each of the entries. The types of the entries can be <code>bool</code> s, integral types or enumerated types, arbitrarily mixed. The most efficient type to store in <code>bitfields</code> is <code>bool</code> , followed by unsigned types, followed by signed types.</p>
 <p>Each non-<code>bool</code> entry of the <code>bitfield</code> will be represented by the number of bits specified by the user. The minimum and the maximum numbers that represent this domain can be queried by using the name of the variable followed by <code>_min</code> or <code>_max</code> .</p>
 <p>Limitation: The number of bits in a <code>bitfield</code> is limited to 8, 16, 32 or 64. If padding is needed, an entry should be explicitly allocated with an empty name.</p>

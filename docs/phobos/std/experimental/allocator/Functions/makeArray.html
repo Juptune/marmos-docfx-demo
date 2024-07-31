@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - makeArray</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator</dd></dl>
 </div><h2 class='section api'>makeArray(alloc, length)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; makeArray(
-  Allocator alloc,
-  size_t length
-) </code></pre><p>Create an array of <code>T</code> with <code>length</code> elements using <code>alloc</code> . The array is either default-initialized, filled with copies of <code>init</code> , or initialized with values fetched from <code>range</code> .</p>
+ <pre><code class='lang-d'>T[] makeArray( T, Allocator )( auto ref Allocator alloc, size_t length ) </code></pre><p>Create an array of <code>T</code> with <code>length</code> elements using <code>alloc</code> . The array is either default-initialized, filled with copies of <code>init</code> , or initialized with values fetched from <code>range</code> .</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>T</code> &lt;parameter not found&gt;  </dt>
 <dd>
 
@@ -125,21 +122,17 @@
 </dd></dl><h3 class='section'>Returns</h3><p>The newly-created array, or <code>null</code> if either <code>length</code> was <code>0</code> or allocation failed.</p>
 <h3 class='section'>Throws</h3><p>The first two overloads throw only if <code>alloc</code> 's primitives do. The overloads that involve copy initialization deallocate memory and propagate the exception if the copy operation throws.</p>
 <h2 class='section api'>makeArray(alloc, length, init)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; makeArray(
-  Allocator alloc,
-  size_t length,
-  T init
-) </code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>T[] makeArray( T, Allocator )( auto ref Allocator alloc, size_t length, T init ) </code></pre><p>Ditto</p>
 <h2 class='section api'>makeArray(alloc, range)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; makeArray(
-  Allocator alloc,
+ <pre><code class='lang-d'>Unqual!(ElementEncodingType!R)[] makeArray(
+  Allocator,
+  R
+)(
+  auto ref Allocator alloc,
   R range
 ) </code></pre><p>Ditto</p>
 <h2 class='section api'>makeArray(alloc, range)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; makeArray(
-  Allocator alloc,
-  R range
-) </code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>T[] makeArray( T, Allocator, R )( auto ref Allocator alloc, R range ) </code></pre><p>Ditto</p>
 
 </article>
 

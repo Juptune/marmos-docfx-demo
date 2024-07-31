@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,57 +90,73 @@
 </div><pre><code class='lang-d'>public struct String
 {
   // 
-  void disposeBigStringIfExists( ) ;
+  void disposeBigStringIfExists() @trusted
   // 
-  void growBigStringIfNeeded( size_t newSize ) ;
+  void growBigStringIfNeeded( size_t newSize ) @trusted
   // 
-  bool isCompletelyEmpty( ) ;
+  bool isCompletelyEmpty() @trusted
   // 
-  bool isSmall( ) ;
+  bool isSmall() @safe
   // 
-  size_t length( ) ;
+  size_t length() @property @safe
   // 
-  void length( size_t newLen ) ;
+  void length( size_t newLen ) @property
   // 
-  void moveToBigString( ) ;
+  void moveToBigString() @trusted
   // 
-  void opAssign( &lt;bug: unknown&gt; str ) ;
+  void opAssign( scope char[] str ) @trusted
   // 
-  void opAssign( &lt;bug: unknown&gt; _ ) ;
+  void opAssign( typeof(null) _ ) @trusted
   // 
-  size_t opDollar( ) ;
+  String opBinary( string op )( const auto ref scope String rhs ) @trusted
   // 
-  bool opEquals( &lt;bug: unknown&gt; other ) ;
+  String opBinary( string op )( scope char[] rhs ) @trusted
   // 
-  bool opEquals( &lt;bug: unknown&gt; _ ) ;
+  size_t opDollar() @safe
   // 
-  &lt;bug: unknown&gt; opIndex( ) ;
+  bool opEquals( scope char[] other ) @trusted
   // 
-  char opIndex( size_t index ) ;
+  bool opEquals( typeof(null) _ ) @safe
   // 
-  void opIndexAssign( char v, size_t index ) ;
+  bool opEquals( )( const auto ref scope String other ) @trusted
   // 
-  &lt;bug: unknown&gt; opSlice( size_t start, size_t end ) ;
+  char[] opIndex() @trusted
   // 
-  void opSliceAssign( char v, size_t start, size_t end ) ;
+  char opIndex( size_t index ) @trusted
   // 
-  void opSliceAssign( &lt;bug: unknown&gt; str, size_t start, size_t end ) ;
+  void opIndexAssign( char v, size_t index ) @trusted
   // 
-  &lt;bug: unknown&gt; ptr( ) ;
+  void opOpAssign( string op )( const auto ref scope String rhs ) @trusted
   // 
-  void put( &lt;bug: unknown&gt; chars ) ;
+  void opOpAssign( string op )( scope char[] rhs ) @trusted
   // 
-  void put( char ch ) ;
+  char[] opSlice( size_t start, size_t end ) @trusted
   // 
-  &lt;bug: unknown&gt; range( ) ;
+  void opSliceAssign( char v, size_t start, size_t end ) @trusted
   // 
-  void setBigString( &lt;bug: unknown&gt; chars ) ;
+  void opSliceAssign( char[] str, size_t start, size_t end ) @trusted
   // 
-  void setSmallString( &lt;bug: unknown&gt; chars ) ;
+  ref char* ptr() @property return
   // 
-  &lt;bug: unknown&gt; slice( ) ;
+  void put( scope char[] chars ) @trusted
   // 
-  uint toHash( ) ;
+  void put( char ch ) @trusted
+  // 
+  void put( )( const auto ref scope String str ) @trusted
+  // 
+  void put( Range )( Range r ) 
+  // 
+  void putMany( Params... )( scope Params params ) @trusted
+  // 
+  char[] range() @property
+  // 
+  void setBigString( scope char[] chars ) @trusted
+  // 
+  void setSmallString( scope char[] chars ) @trusted
+  // 
+  ref char[] slice() @property return
+  // 
+  uint toHash() @trusted
 }</code></pre><h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -178,6 +194,10 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="../String/String/Functions/opBinary.html">opBinary</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../String/String/Functions/opDollar.html">opDollar</a></td>
 <td></td>
 </tr>
@@ -194,6 +214,10 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="../String/String/Functions/opOpAssign.html">opOpAssign</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../String/String/Functions/opSlice.html">opSlice</a></td>
 <td></td>
 </tr>
@@ -207,6 +231,10 @@
 </tr>
 <tr>
 <td><a href="../String/String/Functions/put.html">put</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../String/String/Functions/putMany.html">putMany</a></td>
 <td></td>
 </tr>
 <tr>
@@ -227,6 +255,20 @@
 </tr>
 <tr>
 <td><a href="../String/String/Functions/toHash.html">toHash</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Unions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../String/String/Unions/Store.html">Store</a></td>
 <td></td>
 </tr>
 </tbody>

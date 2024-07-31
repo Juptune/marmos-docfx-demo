@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,16 +90,77 @@
 </div><pre><code class='lang-d'>template Proxy
 {
   // 
-  alias ValueType = &lt;todo: marmos support pending&gt;;
+  alias ValueType = &lt;todo: marmos support pending&gt;
 
   // 
-  int opCmp( Object o ) override;
+  ref auto opAssign( X )( auto ref typeof(this) v ) 
   // 
-  &lt;bug: unknown&gt; opDollar( ) auto;
+  ref auto opAssign( X, V )( auto ref V v ) 
   // 
-  bool opEquals( Object o ) override;
+  ref auto opBinary( string op, X, B )( auto ref B b ) 
   // 
-  size_t toHash( ) override;
+  ref auto opBinaryRight( string op, X, B )( auto ref B b ) 
+  // 
+  ref auto opCall( X, Args... )( auto ref Args args ) 
+  // 
+  ref auto opCast( T, X )() 
+  // 
+  int opCmp( Object o ) override
+  // 
+  int opCmp( T )( const auto ref T b ) 
+  // 
+  auto opDollar() 
+  // 
+  bool opEquals( Object o ) override
+  // 
+  bool opEquals( T )( T b ) 
+  // 
+  ref auto opIndex( X, D... )( auto ref D i ) 
+  // 
+  ref auto opIndexAssign( X, V, D... )( auto ref V v, auto ref D i ) 
+  // 
+  ref auto opIndexOpAssign( string op, X, V, D... )( auto ref V v, auto ref D i ) 
+  // 
+  ref auto opIndexUnary( string op, X, D... )( auto ref D i ) 
+  // 
+  ref auto opOpAssign( string op, X, V )( auto ref V v ) 
+  // 
+  ref auto opSlice( X )() 
+  // 
+  ref auto opSlice( X, B, E )( auto ref B b, auto ref E e ) 
+  // 
+  ref auto opSliceAssign( X, V )( auto ref V v ) 
+  // 
+  ref auto opSliceAssign( X, V, B, E )( auto ref V v, auto ref B b, auto ref E e ) 
+  // 
+  ref auto opSliceOpAssign( string op, X, V )( auto ref V v ) 
+  // 
+  ref auto opSliceOpAssign(
+    string op,
+    X,
+    V,
+    B,
+    E
+  )(
+    auto ref V v,
+    auto ref B b,
+    auto ref E e
+  ) 
+  // 
+  ref auto opSliceUnary( string op, X )() 
+  // 
+  ref auto opSliceUnary( string op, X, B, E )( auto ref B b, auto ref E e ) 
+  // 
+  ref auto opUnary( string op, X )() 
+  // 
+  size_t toHash() override @safe nothrow
+
+  // 
+  bool accessibleFrom = is(typeof((T* self)
+  {
+  cast(void)mixin(&quot;(*self).&quot; ~ __traits(identifier, a));
+  }
+  ))
 }</code></pre><h2 class='section'>About</h2><p>Creates a proxy for the value <code>a</code> that will forward all operations while disabling implicit conversions. The aliased item <code>a</code> must be an $(B lvalue). This is useful for creating a new type from the &quot;base&quot; type (though this is $(B not) a subtype-supertype relationship; the new type is not related to the old type in any way, by design).</p>
 <p>The new type supports all operations that the underlying type does, including all operators such as <code>+</code> , <code>--</code> , <code>&lt;</code> , <code>[]</code> , etc.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>a</code>   </dt>
@@ -131,6 +192,26 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../Proxy/Proxy/Functions/opAssign.html">opAssign</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Proxy/Proxy/Functions/opBinary.html">opBinary</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Proxy/Proxy/Functions/opBinaryRight.html">opBinaryRight</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Proxy/Proxy/Functions/opCall.html">opCall</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Proxy/Proxy/Functions/opCast.html">opCast</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../Proxy/Proxy/Functions/opCmp.html">opCmp</a></td>
 <td></td>
 </tr>
@@ -143,7 +224,75 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="../Proxy/Proxy/Functions/opIndex.html">opIndex</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Proxy/Proxy/Functions/opIndexAssign.html">opIndexAssign</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Proxy/Proxy/Functions/opIndexOpAssign.html">opIndexOpAssign</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Proxy/Proxy/Functions/opIndexUnary.html">opIndexUnary</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Proxy/Proxy/Functions/opOpAssign.html">opOpAssign</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Proxy/Proxy/Functions/opSlice.html">opSlice</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Proxy/Proxy/Functions/opSliceAssign.html">opSliceAssign</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Proxy/Proxy/Functions/opSliceOpAssign.html">opSliceOpAssign</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Proxy/Proxy/Functions/opSliceUnary.html">opSliceUnary</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Proxy/Proxy/Functions/opUnary.html">opUnary</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../Proxy/Proxy/Functions/toHash.html">toHash</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Templates</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Proxy/Proxy/Templates/opDispatch.html">opDispatch</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Proxy/Proxy/Variables/accessibleFrom.html">accessibleFrom</a></td>
 <td></td>
 </tr>
 </tbody>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,12 +88,9 @@
 <h1 class='section'>Overloads for - yield</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.concurrency</dd></dl>
 </div><h2 class='section api'>yield()   </h2>
- <pre><code class='lang-d'>void yield(
-) </code></pre><p>If the caller is a <code>Fiber</code> and is not a $(LREF Generator), this function will call <code>scheduler.yield()</code> or <code>Fiber.yield()</code> , as appropriate.</p>
+ <pre><code class='lang-d'>void yield() nothrow</code></pre><p>If the caller is a <code>Fiber</code> and is not a $(LREF Generator), this function will call <code>scheduler.yield()</code> or <code>Fiber.yield()</code> , as appropriate.</p>
 <h2 class='section api'>yield(value)   </h2>
- <pre><code class='lang-d'>void yield(
-  T value
-) </code></pre><p>Yields a value of type T to the caller of the currently executing generator.</p>
+ <pre><code class='lang-d'>void yield( T )( ref T value ) </code></pre><p>Yields a value of type T to the caller of the currently executing generator.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>value</code> T  </dt>
 <dd>
 
@@ -101,9 +98,7 @@
 <p>The value to yield.</p>
 
 </dd></dl><h2 class='section api'>yield(value)   </h2>
- <pre><code class='lang-d'>void yield(
-  T value
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>void yield( T )( T value ) </code></pre><p>ditto</p>
 
 </article>
 

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - toTrie</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.uni</dd></dl>
 </div><h2 class='section api'>toTrie(set)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; toTrie(
-  Set set
-) auto</code></pre><p>Convenience function to construct optimal configurations for packed Trie from any <code>set</code> of $(CODEPOINTS).</p>
+ <pre><code class='lang-d'>auto toTrie( size_t level, Set )( Set set ) </code></pre><p>Convenience function to construct optimal configurations for packed Trie from any <code>set</code> of $(CODEPOINTS).</p>
 <p>The parameter <code>level</code> indicates the number of trie levels to use, allowed values are: 1, 2, 3 or 4. Levels represent different trade-offs speed-size wise.</p>
 <p>$(P Level 1 is fastest and the most memory hungry (a bit array). ) $(P Level 4 is the slowest and has the smallest footprint. )</p>
 <p>See the $(S_LINK Synopsis, Synopsis) section for example.</p>

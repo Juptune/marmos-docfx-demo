@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - curl_multi_timeout</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.curl</dd></dl>
 </div><h2 class='section api'>curl_multi_timeout(multi_handle, milliseconds)   </h2>
- <pre><code class='lang-d'>CURLMcode curl_multi_timeout(
-  &lt;bug: unknown&gt; multi_handle,
-  &lt;bug: unknown&gt; milliseconds
-) </code></pre><p>This macro below was added in 7.16.3 to push users who recompile to use the new curl_multi_socket_action() instead of the old curl_multi_socket()</p>
+ <pre><code class='lang-d'>extern(C) CURLMcode curl_multi_timeout( CURLM* multi_handle, c_long* milliseconds ) </code></pre><p>This macro below was added in 7.16.3 to push users who recompile to use the new curl_multi_socket_action() instead of the old curl_multi_socket()</p>
 <p>Name:    curl_multi_timeout()</p>
 <p>Desc:    Returns the maximum number of milliseconds the app is allowed to wait before curl_multi_socket() or curl_multi_perform() must be called (to allow libcurl's timed events to take place).</p>
 <p>Returns: CURLM error code.</p>

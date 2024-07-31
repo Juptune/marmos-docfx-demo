@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -124,7 +124,7 @@
 <p>$(I Please note, that $(B 'o') and $(B 'x') with $(B '#') flag might produce unexpected results due to special handling of the value 0.)) ) $(TR $(TD $(B 'r')) $(TD <code>\0</code> or <code>\1</code> ) ) $(TR $(MULTIROW_CELL 4, $(I Integral)) $(TD $(B 's'), $(B 'd')) $(TD A signed decimal number. The $(B '#') flag is ignored.) ) $(TR $(TD $(B 'b'), $(B 'o'), $(B 'u'), $(B 'x'), $(B 'X')) $(TD An unsigned binary, decimal, octal or hexadecimal number.</p>
 <p>In case of $(B 'o') and $(B 'x'), the $(B '#') flag denotes that the number must be preceded by <code>0</code> and <code>0x</code> , with the exception of the value 0, where this does not apply. For $(B 'b') and $(B 'u') the $(B '#') flag has no effect.) ) $(TR $(TD $(B 'e'), $(B 'E'), $(B 'f'), $(B 'F'), $(B 'g'), $(B 'G'), $(B 'a'), $(B 'A')) $(TD As a floating point value with the same specifier.</p>
 <p>Default precision is large enough to add all digits of the integral value.</p>
-<p>In case of ($B 'a') and $(B 'A'), the integral digit can be any hexadecimal digit. ) ) $(TR $(TD $(B 'r')) $(TD Characters taken directly from the binary representation.) ) $(TR $(MULTIROW_CELL 5, $(I Floating Point)) $(TD $(B 'e'), $(B 'E')) $(TD Scientific notation: Exactly one integral digit followed by a dot and fractional digits, followed by the exponent. The exponent is formatted as $(B 'e') followed by a $(B '+') or $(B '-') sign, followed by at least two digits.</p>
+<p>In case of $(B 'a') and $(B 'A'), the integral digit can be any hexadecimal digit. ) ) $(TR $(TD $(B 'r')) $(TD Characters taken directly from the binary representation.) ) $(TR $(MULTIROW_CELL 5, $(I Floating Point)) $(TD $(B 'e'), $(B 'E')) $(TD Scientific notation: Exactly one integral digit followed by a dot and fractional digits, followed by the exponent. The exponent is formatted as $(B 'e') followed by a $(B '+') or $(B '-') sign, followed by at least two digits.</p>
 <p>When there are no fractional digits and the $(B '#') flag is $(I not) present, the dot is omitted.) ) $(TR $(TD $(B 'f'), $(B 'F')) $(TD Natural notation: Integral digits followed by a dot and fractional digits.</p>
 <p>When there are no fractional digits and the $(B '#') flag is $(I not) present, the dot is omitted.</p>
 <p>$(I Please note: the difference between $(B 'f') and $(B 'F') is only visible for <code>NaN</code> and <code>Infinity</code> .)) ) $(TR $(TD $(B 's'), $(B 'g'), $(B 'G')) $(TD Short notation: If the absolute value is larger than <code>10 ^^ precision</code> or smaller than <code>0.0001</code> , the scientific notation is used. If not, the natural notation is applied.</p>

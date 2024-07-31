@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,31 +90,31 @@
 </div><pre><code class='lang-d'>public struct JuptuneFiber
 {
   // 
-  alias EntryPointGC = &lt;todo: marmos support pending&gt;;
+  alias EntryPointGC = &lt;todo: marmos support pending&gt;
   // 
-  alias EntryPointNoGC = &lt;todo: marmos support pending&gt;;
+  alias EntryPointNoGC = &lt;todo: marmos support pending&gt;
 
   // 
-  bool isInWaitingState( ) ;
+  bool isInWaitingState() @nogc nothrow
 
   // 
-  &lt;bug: unknown&gt; block;
+  FiberAllocator* block
   // 
-  &lt;bug: unknown&gt; contextDtor;
+  * contextDtor
   // 
-  &lt;bug: unknown&gt; contextPtr;
+  void* contextPtr
   // 
-  TypeInfo contextType;
+  TypeInfo contextType
   // 
-  EntryPointGC entryPointGC;
+  EntryPointGC entryPointGC
   // 
-  EntryPointNoGC entryPointNoGC;
+  EntryPointNoGC entryPointNoGC
   // 
-  Nullable!(IoUringCompletion) lastCqe;
+  Nullable!(IoUringCompletion) lastCqe
   // 
-  JuptuneRawFiber rawFiber;
+  JuptuneRawFiber rawFiber
   // 
-  State state;
+  State state
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>
@@ -129,6 +129,20 @@
 </tr>
 <tr>
 <td><a href="../JuptuneFiber/JuptuneFiber/Aliases/EntryPointNoGC.html">EntryPointNoGC</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Enums</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../JuptuneFiber/JuptuneFiber/Enums/State.html">State</a></td>
 <td></td>
 </tr>
 </tbody>

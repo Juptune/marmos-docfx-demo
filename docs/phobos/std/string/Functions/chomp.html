@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - chomp</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.string</dd></dl>
 </div><h2 class='section api'>chomp(str)   </h2>
- <pre><code class='lang-d'>Range chomp(
-  Range str
-) </code></pre><p>If <code>str</code> ends with <code>delimiter</code> , then <code>str</code> is returned without <code>delimiter</code> on its end. If it <code>str</code> does $(I not) end with <code>delimiter</code> , then it is returned unchanged.</p>
+ <pre><code class='lang-d'>Range chomp( Range )( Range str ) </code></pre><p>If <code>str</code> ends with <code>delimiter</code> , then <code>str</code> is returned without <code>delimiter</code> on its end. If it <code>str</code> does $(I not) end with <code>delimiter</code> , then it is returned unchanged.</p>
 <p>If no <code>delimiter</code> is given, then one trailing  <code>'\r'</code> , <code>'\n'</code> , <code>&quot;\r\n&quot;</code> , <code>'\f'</code> , <code>'\v'</code> , $(REF lineSep, std,uni), $(REF paraSep, std,uni), or $(REF nelSep, std,uni) is removed from the end of <code>str</code> . If <code>str</code> does not end with any of those characters, then it is returned unchanged.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>str</code> Range  </dt>
 <dd>
@@ -106,18 +104,10 @@
 
 </dd></dl><h3 class='section'>Returns</h3><p>slice of str</p>
 <h2 class='section api'>chomp(str, delimiter)   </h2>
- <pre><code class='lang-d'>Range chomp(
-  Range str,
-  &lt;bug: unknown&gt; delimiter
-) </code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>Range chomp( Range, C2 )( Range str, C2[] delimiter ) </code></pre><p>Ditto</p>
 <h2 class='section api'>chomp(str)   </h2>
- <pre><code class='lang-d'>StringTypeOf!(Range) chomp(
-  Range str
-) </code></pre><h2 class='section api'>chomp(str, delimiter)   </h2>
- <pre><code class='lang-d'>StringTypeOf!(Range) chomp(
-  Range str,
-  &lt;bug: unknown&gt; delimiter
-) </code></pre>
+ <pre><code class='lang-d'>StringTypeOf!(Range) chomp( Range )( auto ref Range str ) </code></pre><h2 class='section api'>chomp(str, delimiter)   </h2>
+ <pre><code class='lang-d'>StringTypeOf!(Range) chomp( Range, C2 )( auto ref Range str, C2[] delimiter ) </code></pre>
 </article>
 
         <div class="contribution d-print-none">

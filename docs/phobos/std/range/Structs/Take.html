@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,48 +87,50 @@
         <article data-uid="std.range.Structs.Take">
 <h1 class='section'>Struct - Take</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
-</div><pre><code class='lang-d'>public struct Take
+</div><pre><code class='lang-d'>struct Take( Range )
 {
   // ditto 
-  alias opDollar = &lt;todo: marmos support pending&gt;;
+  alias opDollar = &lt;todo: marmos support pending&gt;
   // 
-  alias R = &lt;todo: marmos support pending&gt;;
+  alias R = &lt;todo: marmos support pending&gt;
   // 
-  alias Source = &lt;todo: marmos support pending&gt;;
+  alias Source = &lt;todo: marmos support pending&gt;
 
   // ditto 
-  &lt;bug: unknown&gt; back( ) auto;
+  ref auto back() @property
   // ditto 
-  void back( ElementType!(R) v ) ;
+  void back( ElementType!(R) v ) @property
   // Range primitives 
-  bool empty( ) ;
+  bool empty() @property
   // ditto 
-  &lt;bug: unknown&gt; front( ) auto;
+  ref auto front() @property
   // ditto 
-  void front( ElementType!(R) v ) ;
+  void front( ElementType!(R) v ) @property
   // ditto 
-  size_t length( ) ;
+  size_t length() @property
   // Access to maximal length of the range. Note: the actual length of the range depends on the underlying range. If it has fewer elements, it will stop before maxLength is reached. 
-  size_t maxLength( ) ;
+  size_t maxLength() @property
   // ditto 
-  &lt;bug: unknown&gt; moveAt( size_t index ) auto;
+  auto moveAt( size_t index ) 
   // ditto 
-  &lt;bug: unknown&gt; moveBack( ) auto;
+  auto moveBack() 
   // ditto 
-  &lt;bug: unknown&gt; moveFront( ) auto;
+  auto moveFront() 
   // ditto 
-  &lt;bug: unknown&gt; opIndex( size_t index ) auto;
+  ref auto opIndex( size_t index ) 
   // ditto 
-  void opIndexAssign( ElementType!(R) v, size_t index ) ;
+  void opIndexAssign( ElementType!(R) v, size_t index ) 
   // ditto 
-  void popBack( ) ;
+  auto opSlice( )( size_t i, size_t j ) 
   // ditto 
-  void popFront( ) ;
+  void popBack() 
   // ditto 
-  Take save( ) ;
+  void popFront() 
+  // ditto 
+  Take save() @property
 
   // User accessible in read and write 
-  R source;
+  R source
 }</code></pre><h2 class='section'>About</h2><p>ditto</p>
 <h2 class='section'>Aliases</h2><table>
 <thead>
@@ -198,6 +200,10 @@
 </tr>
 <tr>
 <td><a href="../Take/Take/Functions/opIndexAssign.html">opIndexAssign</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../Take/Take/Functions/opSlice.html">opSlice</a></td>
 <td>ditto</td>
 </tr>
 <tr>

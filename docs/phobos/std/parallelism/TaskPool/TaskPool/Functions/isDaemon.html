@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,15 +88,12 @@
 <h1 class='section'>Overloads for - isDaemon</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.parallelism.TaskPool</dd></dl><dl><dt>Parent</dt><dd>TaskPool</dd></dl>
 </div><h2 class='section api'>isDaemon()   </h2>
- <pre><code class='lang-d'>bool isDaemon(
-) </code></pre><p>These properties control whether the worker threads are daemon threads. A daemon thread is automatically terminated when all non-daemon threads have terminated.  A non-daemon thread will prevent a program from terminating as long as it has not terminated.</p>
+ <pre><code class='lang-d'>bool isDaemon() @property @trusted</code></pre><p>These properties control whether the worker threads are daemon threads. A daemon thread is automatically terminated when all non-daemon threads have terminated.  A non-daemon thread will prevent a program from terminating as long as it has not terminated.</p>
 <p>If any <code>TaskPool</code> with non-daemon threads is active, either <code>stop</code> or <code>finish</code> must be called on it before the program can terminate.</p>
 <p>The worker treads in the <code>TaskPool</code> instance returned by the <code>taskPool</code> property are daemon by default.  The worker threads of manually instantiated task pools are non-daemon by default.</p>
 <p>Note:  For a size zero pool, the getter arbitrarily returns true and the setter has no effect.</p>
 <h2 class='section api'>isDaemon(newVal)   </h2>
- <pre><code class='lang-d'>void isDaemon(
-  bool newVal
-) </code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>void isDaemon( bool newVal ) @property @trusted</code></pre><p>Ditto</p>
 
 </article>
 

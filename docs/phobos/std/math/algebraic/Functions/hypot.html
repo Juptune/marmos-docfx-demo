@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,19 +88,12 @@
 <h1 class='section'>Overloads for - hypot</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.math.algebraic</dd></dl>
 </div><h2 class='section api'>hypot(x, y)   </h2>
- <pre><code class='lang-d'>T hypot(
-  T x,
-  T y
-) </code></pre><p>Calculates the length of the hypotenuse of a right-angled triangle with sides of length x and y. The hypotenuse is the value of the square root of the sums of the squares of x and y:</p>
+ <pre><code class='lang-d'>T hypot( T )( const T x, const T y ) @nogc @safe nothrow pure</code></pre><p>Calculates the length of the hypotenuse of a right-angled triangle with sides of length x and y. The hypotenuse is the value of the square root of the sums of the squares of x and y:</p>
 <p>sqrt($(POWER x, 2) + $(POWER y, 2))</p>
 <p>Note that hypot(x, y), hypot(y, x) and hypot(x, -y) are equivalent.</p>
 <p>$(TABLE_SV $(TR $(TH x)            $(TH y)            $(TH hypot(x, y)) $(TH invalid?)) $(TR $(TD x)            $(TD $(PLUSMN)0.0) $(TD |x|)         $(TD no)) $(TR $(TD $(PLUSMNINF)) $(TD y)            <span class="math">\((TD +\)</span>(INFIN))   $(TD no)) $(TR $(TD $(PLUSMNINF)) $(TD $(NAN))       <span class="math">\((TD +\)</span>(INFIN))   $(TD no)) )</p>
 <h2 class='section api'>hypot(x, y, z)   </h2>
- <pre><code class='lang-d'>T hypot(
-  T x,
-  T y,
-  T z
-) </code></pre><p>Calculates the distance of the point (x, y, z) from the origin (0, 0, 0) in three-dimensional space. The distance is the value of the square root of the sums of the squares of x, y, and z:</p>
+ <pre><code class='lang-d'>T hypot( T )( const T x, const T y, const T z ) @nogc @safe nothrow pure</code></pre><p>Calculates the distance of the point (x, y, z) from the origin (0, 0, 0) in three-dimensional space. The distance is the value of the square root of the sums of the squares of x, y, and z:</p>
 <p>sqrt($(POWER x, 2) + $(POWER y, 2) + $(POWER z, 2))</p>
 <p>Note that the distance between two points (x1, y1, z1) and (x2, y2, z2) in three-dimensional space can be calculated as hypot(x2-x1, y2-y1, z2-z1).</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>x</code> T  </dt>

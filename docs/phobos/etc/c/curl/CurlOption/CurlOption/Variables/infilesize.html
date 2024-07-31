@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,9 @@
 <h1 class='section'>Variable - infilesize</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.curl.CurlOption</dd></dl><dl><dt>Parent</dt><dd>CurlOption</dd></dl>
 </div><h2 class='section api'>infilesize   </h2>
- <pre><code class='lang-d'>__enumMember infilesize</code></pre><h2 class='section'>About</h2><p>If the CURLOPT_INFILE is used, this can be used to inform libcurl about how large the file being sent really is. That allows better error checking and better verifies that the upload was successful. -1 means unknown size.</p>
+ <pre><code class='lang-d'>&lt;enum or auto&gt; infilesize</code></pre><h2 class='section'>About</h2><p>If the CURLOPT_INFILE is used, this can be used to inform libcurl about how large the file being sent really is. That allows better error checking and better verifies that the upload was successful. -1 means unknown size.</p>
 <p>For large file support, there is also a LARGE version of the key which takes an off_t type, allowing platforms with larger off_t sizes to handle larger files.  See below for INFILESIZE_LARGE.</p>
+<h3 class='section'>(Marmos Notes)</h3><p>Type may be inaccurate as marmos couldn't figure it out - potentially needs semantic analysis.</p>
 
 </article>
 

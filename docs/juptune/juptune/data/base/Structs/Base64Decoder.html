@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,15 +87,19 @@
         <article data-uid="juptune.data.base.Structs.Base64Decoder">
 <h1 class='section'>Struct - Base64Decoder</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.data.base</dd></dl>
-</div><pre><code class='lang-d'>public struct Base64Decoder
+</div><pre><code class='lang-d'>struct Base64Decoder( Alphabet )
 {
   // 
-  alias Machine = &lt;todo: marmos support pending&gt;;
+  alias Machine = &lt;todo: marmos support pending&gt;
   // 
-  alias StateMachine = &lt;todo: marmos support pending&gt;;
+  alias StateMachine = &lt;todo: marmos support pending&gt;
 
   // 
-  Result decodeGroup( &lt;bug: unknown&gt; group ) ;
+  Result decode( OutStreamFunc )( scope char[] input, scope OutStreamFunc outStream ) 
+  // 
+  Result decodeGroup( out scope ubyte[3] group ) @nogc nothrow
+  // 
+  Result finish( OutStreamFunc )( scope OutStreamFunc outStream ) 
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>
@@ -114,6 +118,20 @@
 </tr>
 </tbody>
 </table>
+<h2 class='section'>Enums</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Base64Decoder/Base64Decoder/Enums/State.html">State</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -123,7 +141,15 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../Base64Decoder/Base64Decoder/Functions/decode.html">decode</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../Base64Decoder/Base64Decoder/Functions/decodeGroup.html">decodeGroup</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Base64Decoder/Base64Decoder/Functions/finish.html">finish</a></td>
 <td></td>
 </tr>
 </tbody>

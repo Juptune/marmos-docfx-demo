@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,18 +88,14 @@
 <h1 class='section'>Overloads for - isValidPath</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.path</dd></dl>
 </div><h2 class='section api'>isValidPath(path)   </h2>
- <pre><code class='lang-d'>bool isValidPath(
-  Range path
-) </code></pre><p>Checks whether <code>path</code> is a valid path.</p>
+ <pre><code class='lang-d'>bool isValidPath( Range )( Range path ) </code></pre><p>Checks whether <code>path</code> is a valid path.</p>
 <p>Generally, this function checks that <code>path</code> is not empty, and that each component of the path either satisfies $(LREF isValidFilename) or is equal to <code>&quot;.&quot;</code> or <code>&quot;..&quot;</code> .</p>
 <p>$(B It does $(I not) check whether the path points to an existing file or directory; use $(REF exists, std,file) for this purpose.)</p>
 <p>On Windows, some special rules apply: $(UL $(LI If the second character of <code>path</code> is a colon (<code>':'</code>), the first character is interpreted as a drive letter, and must be in the range A-Z (case insensitive).) $(LI If <code>path</code> is on the form $(D <code>\\$(I server)\$(I share)\...</code> ) (UNC path), $(LREF isValidFilename) is applied to $(I server) and $(I share) as well.) $(LI If <code>path</code> starts with $(D <code>\\?\</code> ) (long UNC path), the only requirement for the rest of the string is that it does not contain the null character.) $(LI If <code>path</code> starts with $(D <code>\\.\</code> ) (Win32 device namespace) this function returns <code>false</code> ; such paths are beyond the scope of this module.) )</p>
 <p>Params: path = string or Range of characters to check</p>
 <p>Returns: true if <code>path</code> is a valid path.</p>
 <h2 class='section api'>isValidPath(path)   </h2>
- <pre><code class='lang-d'>bool isValidPath(
-  Range path
-) </code></pre>
+ <pre><code class='lang-d'>bool isValidPath( Range )( auto ref Range path ) </code></pre>
 </article>
 
         <div class="contribution d-print-none">

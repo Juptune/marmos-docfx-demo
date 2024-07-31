@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,16 +87,44 @@
         <article data-uid="std.typecons.Structs.BitFlags">
 <h1 class='section'>Struct - BitFlags</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.typecons</dd></dl>
-</div><pre><code class='lang-d'>public struct BitFlags
+</div><pre><code class='lang-d'>struct BitFlags( E, Flag!(&quot;unsafe&quot;) unsafe = No.unsafe )
 {
   // 
-  alias Base = &lt;todo: marmos support pending&gt;;
+  alias Base = &lt;todo: marmos support pending&gt;
 
   // 
-  &lt;bug: unknown&gt; opAssign( E flag ) auto;
+  ref auto opAssign( E flag ) 
+  // 
+  ref auto opAssign( T... )( T flags ) 
+  // 
+  auto opBinary( string op )( BitFlags flags ) 
+  // 
+  auto opBinary( string op )( E flag ) 
+  // 
+  auto opBinaryRight( string op )( E flag ) 
+  // 
+  bool opCast( B : bool )() 
+  // 
+  Base opCast( B )() 
+  // 
+  bool opDispatch( string name )() 
+  // 
+  void opDispatch( string name )( bool set ) 
+  // 
+  ref auto opOpAssign( string op )( BitFlags flags ) 
+  // 
+  ref auto opOpAssign( string op )( BitFlags flags ) 
+  // 
+  ref auto opOpAssign( string op )( E flag ) 
+  // 
+  ref auto opOpAssign( string op )( E flag ) 
+  // 
+  auto opUnary( string op )() 
 
   // 
-  Base mValue;
+  &lt;enum or auto&gt; isBaseEnumType = is(E == T)
+  // 
+  Base mValue
 }</code></pre><h2 class='section'>About</h2><p>A typesafe structure for storing combinations of enum values.</p>
 <p>This template defines a simple struct to represent bitwise OR combinations of enum values. It can be used if all the enum values are integral constants with a bit count of at most 1, or if the <code>unsafe</code> parameter is explicitly set to Yes. This is much safer than using the enum itself to store the OR combination, which can produce surprising effects like this: ---- enum E { A = 1 &lt;&lt; 0, B = 1 &lt;&lt; 1 } E e = E.A | E.B; // will throw SwitchError final switch (e) { case E.A: return; case E.B: return; } ----</p>
 <h2 class='section'>Aliases</h2><table>
@@ -125,6 +153,30 @@
 <td><a href="../BitFlags/BitFlags/Functions/opAssign.html">opAssign</a></td>
 <td></td>
 </tr>
+<tr>
+<td><a href="../BitFlags/BitFlags/Functions/opBinary.html">opBinary</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BitFlags/BitFlags/Functions/opBinaryRight.html">opBinaryRight</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BitFlags/BitFlags/Functions/opCast.html">opCast</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BitFlags/BitFlags/Functions/opDispatch.html">opDispatch</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BitFlags/BitFlags/Functions/opOpAssign.html">opOpAssign</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BitFlags/BitFlags/Functions/opUnary.html">opUnary</a></td>
+<td></td>
+</tr>
 </tbody>
 </table>
 <h2 class='section'>Variables</h2><table>
@@ -135,6 +187,10 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="../BitFlags/BitFlags/Variables/isBaseEnumType.html">isBaseEnumType</a></td>
+<td></td>
+</tr>
 <tr>
 <td><a href="../BitFlags/BitFlags/Variables/mValue.html">mValue</a></td>
 <td></td>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - sum</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.iteration</dd></dl>
 </div><h2 class='section api'>sum(r)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; sum(
-  R r
-) auto</code></pre><p>Sums elements of <code>r</code> , which must be a finite $(REF_ALTTEXT input range, isInputRange, std,range,primitives). Although conceptually <code>sum(r)</code> is equivalent to $(LREF fold)!((a, b) =&gt; a + b)(r, 0), <code>sum</code> uses specialized algorithms to maximize accuracy, as follows.</p>
+ <pre><code class='lang-d'>auto sum( R )( R r ) </code></pre><p>Sums elements of <code>r</code> , which must be a finite $(REF_ALTTEXT input range, isInputRange, std,range,primitives). Although conceptually <code>sum(r)</code> is equivalent to $(LREF fold)!((a, b) =&gt; a + b)(r, 0), <code>sum</code> uses specialized algorithms to maximize accuracy, as follows.</p>
 <p>$(UL $(LI If $(REF ElementType, std,range,primitives)!R is a floating-point type and <code>R</code> is a $(REF_ALTTEXT random-access range, isRandomAccessRange, std,range,primitives) with length and slicing, then <code>sum</code> uses the $(HTTP en.wikipedia.org/wiki/Pairwise_summation, pairwise summation) algorithm.) $(LI If <code>ElementType!R</code> is a floating-point type and <code>R</code> is a finite input range (but not a random-access range with slicing), then <code>sum</code> uses the $(HTTP en.wikipedia.org/wiki/Kahan_summation, Kahan summation) algorithm.) $(LI In all other cases, a simple element by element addition is done.) )</p>
 <p>For floating point inputs, calculations are made in $(DDLINK spec/type, Types, <code>real</code> ) precision for <code>real</code> inputs and in <code>double</code> precision otherwise (Note this is a special case that deviates from <code>fold</code> 's behavior, which would have kept <code>float</code> precision for a <code>float</code> range). For all other types, the calculations are done in the same type obtained from from adding two elements of the range, which may be a different type from the elements themselves (for example, in case of $(DDSUBLINK spec/type,integer-promotions, integral promotion)).</p>
 <p>A seed may be passed to <code>sum</code> . Not only will this seed be used as an initial value, but its type will override all the above, and determine the algorithm and precision used for summation. If a seed is not passed, one is created with the value of <code>typeof(r.front + r.front)(0)</code> , or <code>typeof(r.front + r.front).zero</code> if no constructor exists that takes an int.</p>
@@ -109,10 +107,7 @@
 
 </dd></dl><h3 class='section'>Returns</h3><p>The sum of all the elements in the range r.</p>
 <h2 class='section api'>sum(r, seed)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; sum(
-  R r,
-  E seed
-) auto</code></pre><p>ditto</p>
+ <pre><code class='lang-d'>auto sum( R, E )( R r, E seed ) </code></pre><p>ditto</p>
 
 </article>
 

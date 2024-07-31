@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - toUTFz</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.utf</dd></dl>
 </div><h2 class='section api'>toUTFz(str)   </h2>
- <pre><code class='lang-d'>P toUTFz(
-  S str
-) </code></pre><p>Returns a C-style zero-terminated string equivalent to <code>str</code> . <code>str</code> must not contain embedded <code>'\0'</code> 's as any C function will treat the first <code>'\0'</code> that it sees as the end of the string. If <code>str.empty</code> is <code>true</code> , then a string containing only <code>'\0'</code> is returned.</p>
+ <pre><code class='lang-d'>P toUTFz( S )( S str ) @safe pure</code></pre><p>Returns a C-style zero-terminated string equivalent to <code>str</code> . <code>str</code> must not contain embedded <code>'\0'</code> 's as any C function will treat the first <code>'\0'</code> that it sees as the end of the string. If <code>str.empty</code> is <code>true</code> , then a string containing only <code>'\0'</code> is returned.</p>
 <p><code>toUTFz</code> accepts any type of string and is templated on the type of character pointer that you wish to convert to. It will avoid allocating a new string if it can, but there's a decent chance that it will end up having to allocate a new string - particularly when dealing with character types other than <code>char</code> .</p>
 <p>$(RED Warning 1:) If the result of <code>toUTFz</code> equals <code>str.ptr</code> , then if anything alters the character one past the end of <code>str</code> (which is the <code>'\0'</code> character terminating the string), then the string won't be zero-terminated anymore. The most likely scenarios for that are if you append to <code>str</code> and no reallocation takes place or when <code>str</code> is a slice of a larger array, and you alter the character in the larger array which is one character past the end of <code>str</code> . Another case where it could occur would be if you had a mutable character array immediately after <code>str</code> in memory (for example, if they're member variables in a user-defined type with one declared right after the other) and that character array happened to start with <code>'\0'</code> . Such scenarios will never occur if you immediately use the zero-terminated string after calling <code>toUTFz</code> and the C function using it doesn't keep a reference to it. Also, they are unlikely to occur even if you save the zero-terminated string (the cases above would be among the few examples of where it could happen). However, if you save the zero-terminate string and want to be absolutely certain that the string stays zero-terminated, then simply append a <code>'\0'</code> to the string and use its <code>ptr</code> property rather than calling <code>toUTFz</code> .</p>
 <p>$(RED Warning 2:) When passing a character pointer to a C function, and the C function keeps it around for any reason, make sure that you keep a reference to it in your D code. Otherwise, it may go away during a garbage collection cycle and cause a nasty bug when the C code tries to use it.</p>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - dstName</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.timezone.LocalTime</dd></dl><dl><dt>Parent</dt><dd>LocalTime</dd></dl>
 </div><h2 class='section api'>dstName()   </h2>
- <pre><code class='lang-d'>string dstName(
-) override</code></pre><p>Typically, the abbreviation (generally 3 or 4 letters) for the time zone when DST $(I is) in effect (e.g. PDT). It is not necessarily unique.</p>
+ <pre><code class='lang-d'>string dstName() override @property @trusted nothrow scope</code></pre><p>Typically, the abbreviation (generally 3 or 4 letters) for the time zone when DST $(I is) in effect (e.g. PDT). It is not necessarily unique.</p>
 <p>However, on Windows, it may be the unabbreviated name (e.g. Pacific Daylight Time). Regardless, it is not the same as name.</p>
 <p>This property is overridden because the local time of the system could change while the program is running and we need to determine it dynamically rather than it being fixed like it would be with most time zones.</p>
 

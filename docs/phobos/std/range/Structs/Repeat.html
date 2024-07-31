@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,29 +87,29 @@
         <article data-uid="std.range.Structs.Repeat">
 <h1 class='section'>Struct - Repeat</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
-</div><pre><code class='lang-d'>public struct Repeat
+</div><pre><code class='lang-d'>struct Repeat( T )
 {
   // ditto 
-  T back( ) ;
+  T back() @property
   // Range primitives 
-  T front( ) ;
+  T front() @property
   // ditto 
-  T opIndex( size_t __anonymous ) ;
+  T opIndex( size_t __anonymous ) 
   // ditto 
-  &lt;bug: unknown&gt; opSlice( size_t i, size_t j ) auto;
+  auto opSlice( size_t i, size_t j ) 
   // ditto 
-  &lt;bug: unknown&gt; opSlice( size_t __anonymous, DollarToken __anonymous ) auto;
+  auto opSlice( size_t __anonymous, DollarToken __anonymous ) 
   // ditto 
-  void popBack( ) ;
+  void popBack() 
   // ditto 
-  void popFront( ) ;
+  void popFront() 
   // ditto 
-  &lt;bug: unknown&gt; save( ) auto;
+  auto save() @property
 
   // ditto 
-  bool empty;
+  bool empty = false
   // ditto 
-  __enumMember opDollar;
+  &lt;enum or auto&gt; opDollar = DollarToken.init
 }</code></pre><h2 class='section'>About</h2><p>Create a range which repeats one value.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>value</code>   </dt>
 <dd>
@@ -160,6 +160,20 @@
 <tr>
 <td><a href="../Repeat/Repeat/Functions/save.html">save</a></td>
 <td>ditto</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Repeat/Repeat/Structs/DollarToken.html">DollarToken</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>

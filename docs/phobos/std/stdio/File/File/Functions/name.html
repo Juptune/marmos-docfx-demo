@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - name</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.stdio.File</dd></dl><dl><dt>Parent</dt><dd>File</dd></dl>
 </div><h2 class='section api'>name()   </h2>
- <pre><code class='lang-d'>string name(
-) </code></pre><p>Returns the name last used to initialize this <code>File</code> , if any.</p>
+ <pre><code class='lang-d'>ref string name() @property @safe nothrow return pure</code></pre><p>Returns the name last used to initialize this <code>File</code> , if any.</p>
 <p>Some functions that create or initialize the <code>File</code> set the name field to <code>null</code> . Examples include $(LREF tmpfile), $(LREF wrapFile), and $(LREF fdopen). See the documentation of those functions for details.</p>
 <p>Returns: The name last used to initialize this this file, or <code>null</code> otherwise.</p>
 

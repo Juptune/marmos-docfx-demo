@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,7 +90,7 @@
 </div><pre><code class='lang-d'>template isIntegral
 {
   // 
-  __enumMember isIntegral;
+  &lt;enum or auto&gt; isIntegral = false
 }</code></pre><h2 class='section'>About</h2><p>Detect whether <code>T</code> is a built-in integral type. Integral types are <code>byte</code> , <code>ubyte</code> , <code>short</code> , <code>ushort</code> , <code>int</code> , <code>uint</code> , <code>long</code> , <code>ulong</code> , <code>cent</code> , <code>ucent</code> , and enums with an integral type as its base type. Params: T = type to test Returns: <code>true</code> if <code>T</code> is an integral type Note: this is not the same as $(LINK2 <a href="https://dlang.org/spec/traits.html#isIntegral">https://dlang.org/spec/traits.html#isIntegral</a>, <code>__traits(isIntegral)</code> )</p>
 <h2 class='section'>Variables</h2><table>
 <thead>

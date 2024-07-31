@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,23 +88,17 @@
 <h1 class='section'>Overloads for - to</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.conv</dd></dl>
 </div><h2 class='section api'>to(args)   </h2>
- <pre><code class='lang-d'>T to(
-  A args
-) </code></pre><p>The <code>to</code> template converts a value from one type to another. The source type is deduced and the target type must be specified, for example the expression <code>to!int(42.0)</code> converts the number 42 from <code>double</code> to <code>int</code>. The conversion is &quot;safe&quot;, i.e., it checks for overflow; <code>to!int(4.2e10)</code> would throw the <code>ConvOverflowException</code> exception. Overflow checks are only inserted when necessary, e.g., <code>to!double(42)</code> does not do any checking because any <code>int</code> fits in a <code>double</code> .</p>
+ <pre><code class='lang-d'>T to( A... )( A args ) </code></pre><p>The <code>to</code> template converts a value from one type to another. The source type is deduced and the target type must be specified, for example the expression <code>to!int(42.0)</code> converts the number 42 from <code>double</code> to <code>int</code>. The conversion is &quot;safe&quot;, i.e., it checks for overflow; <code>to!int(4.2e10)</code> would throw the <code>ConvOverflowException</code> exception. Overflow checks are only inserted when necessary, e.g., <code>to!double(42)</code> does not do any checking because any <code>int</code> fits in a <code>double</code> .</p>
 <p>Conversions from string to numeric types differ from the C equivalents <code>atoi()</code> and <code>atol()</code> by checking for overflow and not allowing whitespace.</p>
 <h3 class='section'>For conversion of strings _to signed types, the grammar recognized is</h3><h3 class='section'>$(PRE $(I Integer)</h3><p>$(I Sign UnsignedInteger) $(I UnsignedInteger) $(I Sign): $(B +) $(B -))</p>
 <h3 class='section'>For conversion _to unsigned types, the grammar recognized is</h3><h3 class='section'>$(PRE $(I UnsignedInteger)</h3><p>$(I DecimalDigit) $(I DecimalDigit) $(I UnsignedInteger))</p>
 <h2 class='section api'>to(arg)   </h2>
- <pre><code class='lang-d'>T to(
-  S arg
-) </code></pre><p>The <code>to</code> template converts a value from one type to another. The source type is deduced and the target type must be specified, for example the expression <code>to!int(42.0)</code> converts the number 42 from <code>double</code> to <code>int</code>. The conversion is &quot;safe&quot;, i.e., it checks for overflow; <code>to!int(4.2e10)</code> would throw the <code>ConvOverflowException</code> exception. Overflow checks are only inserted when necessary, e.g., <code>to!double(42)</code> does not do any checking because any <code>int</code> fits in a <code>double</code> .</p>
+ <pre><code class='lang-d'>T to( S )( ref S arg ) </code></pre><p>The <code>to</code> template converts a value from one type to another. The source type is deduced and the target type must be specified, for example the expression <code>to!int(42.0)</code> converts the number 42 from <code>double</code> to <code>int</code>. The conversion is &quot;safe&quot;, i.e., it checks for overflow; <code>to!int(4.2e10)</code> would throw the <code>ConvOverflowException</code> exception. Overflow checks are only inserted when necessary, e.g., <code>to!double(42)</code> does not do any checking because any <code>int</code> fits in a <code>double</code> .</p>
 <p>Conversions from string to numeric types differ from the C equivalents <code>atoi()</code> and <code>atol()</code> by checking for overflow and not allowing whitespace.</p>
 <h3 class='section'>For conversion of strings _to signed types, the grammar recognized is</h3><h3 class='section'>$(PRE $(I Integer)</h3><p>$(I Sign UnsignedInteger) $(I UnsignedInteger) $(I Sign): $(B +) $(B -))</p>
 <h3 class='section'>For conversion _to unsigned types, the grammar recognized is</h3><h3 class='section'>$(PRE $(I UnsignedInteger)</h3><p>$(I DecimalDigit) $(I DecimalDigit) $(I UnsignedInteger))</p>
 <h2 class='section api'>to(arg)   </h2>
- <pre><code class='lang-d'>T to(
-  S arg
-) </code></pre><p>The <code>to</code> template converts a value from one type to another. The source type is deduced and the target type must be specified, for example the expression <code>to!int(42.0)</code> converts the number 42 from <code>double</code> to <code>int</code>. The conversion is &quot;safe&quot;, i.e., it checks for overflow; <code>to!int(4.2e10)</code> would throw the <code>ConvOverflowException</code> exception. Overflow checks are only inserted when necessary, e.g., <code>to!double(42)</code> does not do any checking because any <code>int</code> fits in a <code>double</code> .</p>
+ <pre><code class='lang-d'>T to( S )( ref S arg ) </code></pre><p>The <code>to</code> template converts a value from one type to another. The source type is deduced and the target type must be specified, for example the expression <code>to!int(42.0)</code> converts the number 42 from <code>double</code> to <code>int</code>. The conversion is &quot;safe&quot;, i.e., it checks for overflow; <code>to!int(4.2e10)</code> would throw the <code>ConvOverflowException</code> exception. Overflow checks are only inserted when necessary, e.g., <code>to!double(42)</code> does not do any checking because any <code>int</code> fits in a <code>double</code> .</p>
 <p>Conversions from string to numeric types differ from the C equivalents <code>atoi()</code> and <code>atol()</code> by checking for overflow and not allowing whitespace.</p>
 <h3 class='section'>For conversion of strings _to signed types, the grammar recognized is</h3><h3 class='section'>$(PRE $(I Integer)</h3><p>$(I Sign UnsignedInteger) $(I UnsignedInteger) $(I Sign): $(B +) $(B -))</p>
 <h3 class='section'>For conversion _to unsigned types, the grammar recognized is</h3><h3 class='section'>$(PRE $(I UnsignedInteger)</h3><p>$(I DecimalDigit) $(I DecimalDigit) $(I UnsignedInteger))</p>

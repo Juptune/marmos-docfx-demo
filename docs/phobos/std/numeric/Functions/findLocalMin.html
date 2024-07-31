@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,12 +88,15 @@
 <h1 class='section'>Overloads for - findLocalMin</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.numeric</dd></dl>
 </div><h2 class='section api'>findLocalMin(f, ax, bx, relTolerance, absTolerance)   </h2>
- <pre><code class='lang-d'>Tuple!(T&quot;x&quot;Unqual!(ReturnType!DF)&quot;y&quot;T&quot;error&quot;) findLocalMin(
-  DF f,
-  T ax,
-  T bx,
-  T relTolerance,
-  T absTolerance
+ <pre><code class='lang-d'>Tuple!(T,&quot;x&quot;,Unqual!(ReturnType!DF),&quot;y&quot;,T,&quot;error&quot;) findLocalMin(
+  T,
+  DF
+)(
+  scope DF f,
+  const T ax,
+  const T bx,
+  const T relTolerance,
+  const T absTolerance
 ) </code></pre><p>Find a real minimum of a real function <code>f(x)</code> via bracketing. Given a function <code>f</code> and a range <code>(ax .. bx)</code> , returns the value of <code>x</code> in the range which is closest to a minimum of <code>f(x)</code> . <code>f</code> is never evaluted at the endpoints of <code>ax</code> and <code>bx</code> . If <code>f(x)</code> has more than one minimum in the range, one will be chosen arbitrarily. If <code>f(x)</code> returns NaN or -Infinity, <code>(x, f(x), NaN)</code> will be returned; otherwise, this algorithm is guaranteed to succeed.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>f</code> DF  </dt>
 <dd>

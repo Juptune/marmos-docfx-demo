@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - chompPrefix</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.string</dd></dl>
 </div><h2 class='section api'>chompPrefix(str, delimiter)   </h2>
- <pre><code class='lang-d'>Range chompPrefix(
-  Range str,
-  &lt;bug: unknown&gt; delimiter
-) </code></pre><p>If <code>str</code> starts with <code>delimiter</code> , then the part of <code>str</code> following <code>delimiter</code> is returned. If <code>str</code> does $(I not) start with</p>
+ <pre><code class='lang-d'>Range chompPrefix( Range, C2 )( Range str, C2[] delimiter ) </code></pre><p>If <code>str</code> starts with <code>delimiter</code> , then the part of <code>str</code> following <code>delimiter</code> is returned. If <code>str</code> does $(I not) start with</p>
 <p><code>delimiter</code> , then it is returned unchanged.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>str</code> Range  </dt>
 <dd>
@@ -102,10 +99,7 @@
 </dd></dl><p>of characters delimiter = string of characters to be sliced off front of str[]</p>
 <h3 class='section'>Returns</h3><p>slice of str</p>
 <h2 class='section api'>chompPrefix(str, delimiter)   </h2>
- <pre><code class='lang-d'>StringTypeOf!(Range) chompPrefix(
-  Range str,
-  &lt;bug: unknown&gt; delimiter
-) </code></pre>
+ <pre><code class='lang-d'>StringTypeOf!(Range) chompPrefix( Range, C2 )( auto ref Range str, C2[] delimiter ) </code></pre>
 </article>
 
         <div class="contribution d-print-none">

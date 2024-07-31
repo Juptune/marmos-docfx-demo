@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,7 +90,11 @@
 </div><pre><code class='lang-d'>public struct MemoryBlockPoolAllocator
 {
   // This is mainly a wrapper that ties together `MemoryBlockPool.allocate` and `MemoryBlockPool.preallocateBlocks` . So please see those functions for the bulk of information. 
-  Result allocate( size_t powerOfTwo, size_t blockCount, MemoryBlockAllocation allocation ) ;
+  Result allocate(
+    size_t powerOfTwo,
+    size_t blockCount,
+    out scope return ref MemoryBlockAllocation allocation
+  ) @trusted
 }</code></pre><h2 class='section'>About</h2><p>This is a convenience wrapper around <code>MemoryBlockPool</code> that will handle preallocating blocks for you on allocation failure. It's intended as a more configurable, plug-and-play interface to <code>MemoryBlockPool</code> with more wider reaching concerns.</p>
 <p>This struct does not contain any important state itself, so can be copied around freely. Its total lifetime is directly tied to the lifetime of the underlying pool, so please be careful...</p>
 <p>This struct does not contain a destructor, so memory is only freed once the underlying pool is destroyed.</p>

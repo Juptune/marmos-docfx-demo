@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,33 +88,50 @@
 <h1 class='section'>Overloads for - csvReader</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.csv</dd></dl>
 </div><h2 class='section api'>csvReader(input, delimiter, quote, allowInconsistentDelimiterCount)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; csvReader(
+ <pre><code class='lang-d'>auto csvReader(
+  Contents = string,
+  Malformed ErrorLevel = Malformed.throwException,
+  Range,
+  Separator = char
+)(
   Range input,
   Separator delimiter,
   Separator quote,
   bool allowInconsistentDelimiterCount
-) auto</code></pre><p>Returns an $(REF_ALTTEXT input range, isInputRange, std,range,primitives) for iterating over records found in <code>input</code> .</p>
+) </code></pre><p>Returns an $(REF_ALTTEXT input range, isInputRange, std,range,primitives) for iterating over records found in <code>input</code> .</p>
 <p>An optional <code>header</code> can be provided. The first record will be read in as the header. If <code>Contents</code> is a struct then the header provided is expected to correspond to the fields in the struct. When <code>Contents</code> is not a type which can contain the entire record, the <code>header</code> must be provided in the same order as the input or an exception is thrown.</p>
 <h3 class='section'>Returns</h3><p>An input range R as defined by $(REF isInputRange, std,range,primitives). When <code>Contents</code> is a struct, class, or an associative array, the element type of R is <code>Contents</code> , otherwise the element type of R is itself a range with element type <code>Contents</code> .</p>
 <p>If a <code>header</code> argument is provided, the returned range provides a <code>header</code> field for accessing the header from the input in array form.</p>
 <h3 class='section'>Throws</h3><p>$(LREF CSVException) When a quote is found in an unquoted field, data continues after a closing quote, the quoted field was not closed before data was empty, a conversion failed, or when the row's length does not match the previous length.</p>
 <p>$(LREF HeaderMismatchException)  when a header is provided but a matching column is not found or the order did not match that found in the input. Read the exception documentation for specific details of when the exception is thrown for different types of <code>Contents</code> .</p>
 <h2 class='section api'>csvReader(input, header, delimiter, quote, allowInconsistentDelimiterCount)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; csvReader(
+ <pre><code class='lang-d'>auto csvReader(
+  Contents = string,
+  Malformed ErrorLevel = Malformed.throwException,
+  Range,
+  Header,
+  Separator = char
+)(
   Range input,
   Header header,
   Separator delimiter,
   Separator quote,
   bool allowInconsistentDelimiterCount
-) auto</code></pre><p>ditto</p>
+) </code></pre><p>ditto</p>
 <h2 class='section api'>csvReader(input, header, delimiter, quote, allowInconsistentDelimiterCount)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; csvReader(
+ <pre><code class='lang-d'>auto csvReader(
+  Contents = string,
+  Malformed ErrorLevel = Malformed.throwException,
+  Range,
+  Header,
+  Separator = char
+)(
   Range input,
   Header header,
   Separator delimiter,
   Separator quote,
   bool allowInconsistentDelimiterCount
-) auto</code></pre><p>ditto</p>
+) </code></pre><p>ditto</p>
 
 </article>
 

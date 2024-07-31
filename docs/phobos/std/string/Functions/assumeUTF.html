@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - assumeUTF</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.string</dd></dl>
 </div><h2 class='section api'>assumeUTF(arr)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; assumeUTF(
-  &lt;bug: unknown&gt; arr
-) auto</code></pre><p>Assume the given array of integers <code>arr</code> is a well-formed UTF string and return it typed as a UTF string.</p>
+ <pre><code class='lang-d'>auto assumeUTF( T )( T[] arr ) </code></pre><p>Assume the given array of integers <code>arr</code> is a well-formed UTF string and return it typed as a UTF string.</p>
 <p><code>ubyte</code> becomes <code>char</code> , <code>ushort</code> becomes <code>wchar</code> and <code>uint</code> becomes <code>dchar</code> . Type qualifiers are preserved.</p>
 <p>When compiled with debug mode, this function performs an extra check to make sure the return value is a valid Unicode string.</p>
 <p>Params: arr = array of bytes, ubytes, shorts, ushorts, ints, or uints</p>

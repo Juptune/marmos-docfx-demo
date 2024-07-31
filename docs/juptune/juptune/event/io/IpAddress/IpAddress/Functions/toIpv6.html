@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - toIpv6</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.event.io.IpAddress</dd></dl><dl><dt>Parent</dt><dd>IpAddress</dd></dl>
 </div><h2 class='section api'>toIpv6()   </h2>
- <pre><code class='lang-d'>IpAddress toIpv6(
-) </code></pre><p>Converts the current address into an IPv6 address.</p>
+ <pre><code class='lang-d'>IpAddress toIpv6() @trusted pure</code></pre><p>Converts the current address into an IPv6 address.</p>
 <p>For IPv4 addresses: If the address is 127.0.0.1 then it is converted into ::1</p>
 <h3 class='section'>For IPv4 addresses: If the address is 0.0.0.0 then it is converted into :</h3><h3 class='section'>Returns</h3><p>A new <code>IpAddress</code> containing an IPv6 address.</p>
 

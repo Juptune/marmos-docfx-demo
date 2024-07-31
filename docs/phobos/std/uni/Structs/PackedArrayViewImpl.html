@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,35 +87,41 @@
         <article data-uid="std.uni.Structs.PackedArrayViewImpl">
 <h1 class='section'>Struct - PackedArrayViewImpl</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.uni</dd></dl>
-</div><pre><code class='lang-d'>public struct PackedArrayViewImpl
+</div><pre><code class='lang-d'>struct PackedArrayViewImpl( T, size_t bits )
 {
   // 
-  size_t length( ) ;
+  size_t length() @property
   // 
-  T opIndex( size_t idx ) ;
+  bool opEquals( T )( auto ref T arr ) 
   // 
-  void opIndexAssign( T val, size_t idx ) ;
+  T opIndex( size_t idx ) 
   // 
-  void opIndexAssign( TypeOfBitPacked!(T) val, size_t idx ) ;
+  void opIndexAssign( T val, size_t idx ) 
   // 
-  &lt;bug: unknown&gt; opSlice( size_t from, size_t to ) auto;
+  void opIndexAssign( TypeOfBitPacked!(T) val, size_t idx ) 
   // 
-  &lt;bug: unknown&gt; opSlice( ) auto;
+  auto opSlice( size_t from, size_t to ) 
   // 
-  void opSliceAssign( T val, size_t start, size_t end ) ;
+  auto opSlice() 
   // 
-  void opSliceAssign( TypeOfBitPacked!(T) val, size_t start, size_t end ) ;
+  void opSliceAssign( T val, size_t start, size_t end ) 
   // 
-  bool zeros( size_t s, size_t e ) ;
+  void opSliceAssign( TypeOfBitPacked!(T) val, size_t start, size_t end ) 
+  // 
+  auto roundDown( )( size_t val ) 
+  // 
+  auto roundUp( )( size_t val ) 
+  // 
+  bool zeros( size_t s, size_t e ) 
 
   // 
-  __enumMember factor;
+  &lt;enum or auto&gt; factor = size_t.sizeof * 8 / bits
   // 
-  size_t limit;
+  size_t limit
   // 
-  size_t ofs;
+  size_t ofs
   // 
-  PackedPtr!(T) ptr;
+  PackedPtr!(T) ptr
 }</code></pre><h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -126,6 +132,10 @@
 <tbody>
 <tr>
 <td><a href="../PackedArrayViewImpl/PackedArrayViewImpl/Functions/length.html">length</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../PackedArrayViewImpl/PackedArrayViewImpl/Functions/opEquals.html">opEquals</a></td>
 <td></td>
 </tr>
 <tr>
@@ -142,6 +152,14 @@
 </tr>
 <tr>
 <td><a href="../PackedArrayViewImpl/PackedArrayViewImpl/Functions/opSliceAssign.html">opSliceAssign</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../PackedArrayViewImpl/PackedArrayViewImpl/Functions/roundDown.html">roundDown</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../PackedArrayViewImpl/PackedArrayViewImpl/Functions/roundUp.html">roundUp</a></td>
 <td></td>
 </tr>
 <tr>

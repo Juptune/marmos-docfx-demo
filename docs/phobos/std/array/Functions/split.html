@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - split</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.array</dd></dl>
 </div><h2 class='section api'>split(s)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; split(
-  S s
-) </code></pre><p>Eagerly splits <code>range</code> into an array, using <code>sep</code> as the delimiter.</p>
+ <pre><code class='lang-d'>S[] split( S )( S s ) @safe pure</code></pre><p>Eagerly splits <code>range</code> into an array, using <code>sep</code> as the delimiter.</p>
 <p>When no delimiter is provided, strings are split into an array of words, using whitespace as delimiter. Runs of whitespace are merged together (no empty words are produced).</p>
 <p>The <code>range</code> must be a $(REF_ALTTEXT forward range, isForwardRange, std,range,primitives). The separator can be a value of the same type as the elements in <code>range</code> or it can be another forward <code>range</code> .</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>s</code> S  </dt>
@@ -121,14 +119,9 @@
 <h3 class='section'>See_Also</h3><p>$(REF splitter, std,algorithm,iteration) for a lazy version without allocating memory.</p>
 <p>$(REF splitter, std,regex) for a version that splits using a regular expression defined separator.</p>
 <h2 class='section api'>split(range, sep)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; split(
-  Range range,
-  Separator sep
-) auto</code></pre><p>ditto</p>
+ <pre><code class='lang-d'>auto split( Range, Separator )( Range range, Separator sep ) </code></pre><p>ditto</p>
 <h2 class='section api'>split(range)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; split(
-  Range range
-) auto</code></pre><p>ditto</p>
+ <pre><code class='lang-d'>auto split( alias isTerminator, Range )( Range range ) </code></pre><p>ditto</p>
 
 </article>
 

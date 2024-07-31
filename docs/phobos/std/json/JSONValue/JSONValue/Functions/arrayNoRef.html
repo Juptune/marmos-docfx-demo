@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - arrayNoRef</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.json.JSONValue</dd></dl><dl><dt>Parent</dt><dd>JSONValue</dd></dl>
 </div><h2 class='section api'>arrayNoRef()   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; arrayNoRef(
-) </code></pre><p>Value getter for <code>JSONType.array</code> . Unlike <code>array</code> , this retrieves the array by value and can be used in @safe code.</p>
+ <pre><code class='lang-d'>JSONValue[] arrayNoRef() @property @trusted pure</code></pre><p>Value getter for <code>JSONType.array</code> . Unlike <code>array</code> , this retrieves the array by value and can be used in @safe code.</p>
 <p>One possible caveat is that, if you append to the returned array, the new values aren't visible in the <code>JSONValue</code> : --- JSONValue json; json.array = [JSONValue(&quot;hello&quot;)]; json.arrayNoRef ~= JSONValue(&quot;world&quot;); assert(json.array.length == 1); ---</p>
 <p>Throws: <code>JSONException</code> for read access if <code>type</code> is not <code>JSONType.array</code> .</p>
 

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,28 +87,32 @@
         <article data-uid="std.algorithm.iteration.Structs.MapResult">
 <h1 class='section'>Struct - MapResult</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.iteration</dd></dl>
-</div><pre><code class='lang-d'>public struct MapResult
+</div><pre><code class='lang-d'>struct MapResult( alias fun, Range )
 {
   // 
-  alias opIndex_t = &lt;todo: marmos support pending&gt;;
+  alias opIndex_t = &lt;todo: marmos support pending&gt;
   // 
-  alias opSlice_t = &lt;todo: marmos support pending&gt;;
+  alias opSlice_t = &lt;todo: marmos support pending&gt;
   // 
-  alias R = &lt;todo: marmos support pending&gt;;
+  alias R = &lt;todo: marmos support pending&gt;
 
   // 
-  &lt;bug: unknown&gt; front( ) auto;
+  ref auto back( )() @property
   // 
-  &lt;bug: unknown&gt; opIndex( opIndex_t index ) auto;
+  ref auto front() @property
   // 
-  &lt;bug: unknown&gt; opSlice( opSlice_t low, opSlice_t high ) auto;
+  ref auto opIndex( opIndex_t index ) 
   // 
-  void popFront( ) ;
+  auto opSlice( opSlice_t low, opSlice_t high ) 
   // 
-  &lt;bug: unknown&gt; save( ) auto;
+  void popBack( )() 
+  // 
+  void popFront() 
+  // 
+  auto save() @property
 
   // 
-  bool empty;
+  bool empty = false
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>
@@ -140,6 +144,10 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../MapResult/MapResult/Functions/back.html">back</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../MapResult/MapResult/Functions/front.html">front</a></td>
 <td></td>
 </tr>
@@ -149,6 +157,10 @@
 </tr>
 <tr>
 <td><a href="../MapResult/MapResult/Functions/opSlice.html">opSlice</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MapResult/MapResult/Functions/popBack.html">popBack</a></td>
 <td></td>
 </tr>
 <tr>

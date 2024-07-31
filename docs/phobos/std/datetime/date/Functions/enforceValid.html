@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,11 +88,7 @@
 <h1 class='section'>Overloads for - enforceValid</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.date</dd></dl>
 </div><h2 class='section api'>enforceValid(value, file, line)   </h2>
- <pre><code class='lang-d'>void enforceValid(
-  int value,
-  string file,
-  size_t line
-) </code></pre><h3 class='section'>Params</h3><dl class='parameters'><dt><code>units</code> &lt;parameter not found&gt;  </dt>
+ <pre><code class='lang-d'>void enforceValid( string units )( int value, string file, size_t line ) @safe pure</code></pre><h3 class='section'>Params</h3><dl class='parameters'><dt><code>units</code> &lt;parameter not found&gt;  </dt>
 <dd>
 
 
@@ -119,12 +115,14 @@
 </dd></dl><h3 class='section'>Throws</h3><p>$(LREF DateTimeException) if <code>valid!units(value)</code> is false.</p>
 <h2 class='section api'>enforceValid(year, month, day, file, line)   </h2>
  <pre><code class='lang-d'>void enforceValid(
+  string units
+)(
   int year,
   Month month,
   int day,
   string file,
   size_t line
-) </code></pre><p>Because the validity of the day number depends on both on the year and month of which the day is occurring, take all three variables to validate the day.</p>
+) @safe pure</code></pre><p>Because the validity of the day number depends on both on the year and month of which the day is occurring, take all three variables to validate the day.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>units</code> &lt;parameter not found&gt;  </dt>
 <dd>
 

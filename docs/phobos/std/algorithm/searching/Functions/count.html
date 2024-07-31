@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - count</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.searching</dd></dl>
 </div><h2 class='section api'>count(haystack, needle)   </h2>
- <pre><code class='lang-d'>size_t count(
-  Range haystack,
-  E needle
-) </code></pre><p>Counts matches of <code>needle</code> in <code>haystack</code> .</p>
+ <pre><code class='lang-d'>size_t count( alias pred = &quot;a == b&quot;, Range, E )( Range haystack, E needle ) </code></pre><p>Counts matches of <code>needle</code> in <code>haystack</code> .</p>
 <p>The first overload counts each element <code>e</code> in <code>haystack</code> for which <code>pred(e, needle)</code> is <code>true</code> . <code>pred</code> defaults to equality. Performs $(BIGOH haystack.length) evaluations of <code>pred</code> .</p>
 <p>The second overload counts the number of times <code>needle</code> was matched in <code>haystack</code> . <code>pred</code> compares elements in each range. Throws an exception if <code>needle.empty</code> is <code>true</code> , as the count of the empty range in any range would be infinite. Overlapped counts are <strong>not</strong> considered, for example <code>count(&quot;aaa&quot;, &quot;aa&quot;)</code> is <code>1</code> , not <code>2</code> .</p>
 <p>Note: Regardless of the overload, <code>count</code> will not accept infinite ranges for <code>haystack</code> .</p>
@@ -115,14 +112,9 @@
 
 </dd></dl><h3 class='section'>Returns</h3><p>The number of matches in <code>haystack</code> .</p>
 <h2 class='section api'>count(haystack, needle)   </h2>
- <pre><code class='lang-d'>size_t count(
-  R1 haystack,
-  R2 needle
-) </code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>size_t count( alias pred = &quot;a == b&quot;, R1, R2 )( R1 haystack, R2 needle ) </code></pre><p>Ditto</p>
 <h2 class='section api'>count(haystack)   </h2>
- <pre><code class='lang-d'>size_t count(
-  R haystack
-) </code></pre><p>Counts all elements or elements satisfying a predicate in <code>haystack</code> .</p>
+ <pre><code class='lang-d'>size_t count( alias pred, R )( R haystack ) </code></pre><p>Counts all elements or elements satisfying a predicate in <code>haystack</code> .</p>
 <p>The first overload counts each element <code>e</code> in <code>haystack</code> for which <code>pred(e)</code> is $(D true). Performs $(BIGOH haystack.length) evaluations of <code>pred</code> .</p>
 <p>The second overload counts the number of elements in a range. If the given range has the <code>length</code> property, that is returned right away, otherwise performs $(BIGOH haystack.length) to walk the range.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>pred</code> &lt;parameter not found&gt;  </dt>
@@ -139,9 +131,7 @@
 
 </dd></dl><h3 class='section'>Returns</h3><p>The number of elements in <code>haystack</code> (for which <code>pred</code> returned true).</p>
 <h2 class='section api'>count(haystack)   </h2>
- <pre><code class='lang-d'>size_t count(
-  R haystack
-) </code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>size_t count( R )( R haystack ) </code></pre><p>Ditto</p>
 
 </article>
 

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - castSwitch</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.comparison</dd></dl>
 </div><h2 class='section api'>castSwitch(switchObject)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; castSwitch(
-  Object switchObject
-) auto</code></pre><p>Executes and returns one of a collection of handlers based on the type of the switch object.</p>
+ <pre><code class='lang-d'>auto castSwitch( choices... )( Object switchObject ) </code></pre><p>Executes and returns one of a collection of handlers based on the type of the switch object.</p>
 <p>The first choice that <code>switchObject</code> can be casted to the type of argument it accepts will be called with <code>switchObject</code> casted to that type, and the value it'll return will be returned by <code>castSwitch</code> .</p>
 <p>If a choice's return type is void, the choice must throw an exception, unless all the choices are void. In that case, castSwitch itself will return void.</p>
 <p>Throws: If none of the choice matches, a <code>SwitchError</code> will be thrown.  $(D SwitchError) will also be thrown if not all the choices are void and a void choice was executed without throwing anything.</p>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,27 +87,35 @@
         <article data-uid="juptune.data.base.Structs.Base64Alphabet">
 <h1 class='section'>Struct - Base64Alphabet</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.data.base</dd></dl>
-</div><pre><code class='lang-d'>public struct Base64Alphabet
+</div><pre><code class='lang-d'>struct Base64Alphabet(
+  char Char62,
+  char Char63,
+  Base64Padding Padding_,
+  char CharPad,
+  Base64AllowLines AllowLines_,
+  string LineBreak_,
+  uint MaxLineLength_
+)
 {
   // 
-  uint charToSextet( char c ) ;
+  uint charToSextet( char c ) 
   // 
-  char sextetToChar( uint sextet ) ;
+  char sextetToChar( uint sextet ) 
 
   // 
-  __enumMember AllowLines;
+  &lt;enum or auto&gt; AllowLines = AllowLines_
   // 
-  immutable __enumMember LineBreak;
+  immutable &lt;enum or auto&gt; LineBreak = LineBreak_
   // 
-  __enumMember MaxLineLength;
+  &lt;enum or auto&gt; MaxLineLength = MaxLineLength_
   // 
-  __enumMember Pad1;
+  &lt;enum or auto&gt; Pad1 = CharPad
   // 
-  immutable __enumMember Pad2;
+  immutable &lt;enum or auto&gt; Pad2 = &lt;todo: support array literal&gt;
   // 
-  __enumMember Padding;
+  &lt;enum or auto&gt; Padding = Padding_
   // 
-  __enumMember Zero;
+  &lt;enum or auto&gt; Zero = &#39;A&#39;
 }</code></pre><h2 class='section'>About</h2><p>Describes a base64 alphabet. You may want to use the aliases instead of using this directly.</p>
 <p>Pretty much all base64 alphabets are the same beyond the 62nd and 63rd characters, and the padding character, so those are the only ones that are configurable.</p>
 <h2 class='section'>Functions</h2><table>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,40 +87,45 @@
         <article data-uid="std.experimental.allocator.building_blocks.bitmapped_block.Structs.BitmappedBlock">
 <h1 class='section'>Struct - BitmappedBlock</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator.building_blocks.bitmapped_block</dd></dl>
-</div><pre><code class='lang-d'>public struct BitmappedBlock
+</div><pre><code class='lang-d'>struct BitmappedBlock(
+  size_t theBlockSize,
+  uint theAlignment = platformAlignment,
+  ParentAllocator = NullAllocator,
+  Flag!(&quot;multiblock&quot;) f = Yes.multiblock
+)
 {
   // The alignment offered is user-configurable statically through parameter `theAlignment` , defaulted to `platformAlignment` . 
-  alias alignment = &lt;todo: marmos support pending&gt;;
+  alias alignment = &lt;todo: marmos support pending&gt;
   // If `blockSize == chooseAtRuntime` , `BitmappedBlock` offers a read/write property `blockSize` . It must be set before any use of the allocator. Otherwise (i.e. `theBlockSize` is a legit constant), `blockSize` is an alias for `theBlockSize` . Whether constant or variable, must also be a multiple of `alignment` . This constraint is `assert` ed statically and dynamically. 
-  alias blockSize = &lt;todo: marmos support pending&gt;;
+  alias blockSize = &lt;todo: marmos support pending&gt;
 
   // Allocates a block with specified alignment `a` . The alignment must be a power of 2. If `a &lt;= alignment` , function forwards to `allocate` . Otherwise, it attempts to overallocate and then adjust the result for proper alignment. In the worst case the slack memory is around two blocks. 
-  &lt;bug: unknown&gt; alignedAllocate( size_t n, uint a ) ;
+  void[] alignedAllocate( size_t n, uint a ) 
   // Reallocates a block previously allocated with `alignedAllocate` . Contractions do not occur in place. 
-  bool alignedReallocate( &lt;bug: unknown&gt; b, size_t newSize, uint a ) ;
+  bool alignedReallocate( ref void[] b, size_t newSize, uint a ) @system
   // Allocates `s` bytes of memory and returns it, or `null` if memory could not be allocated. 
-  &lt;bug: unknown&gt; allocate( size_t s ) ;
+  void[] allocate( const size_t s ) @nogc @trusted nothrow pure
   // If the `BitmappedBlock` object is empty (has no active allocation), allocates all memory within and returns a slice to it. Otherwise, returns `null` (i.e. no attempt is made to allocate the largest available block). 
-  &lt;bug: unknown&gt; allocateAll( ) ;
+  void[] allocateAll() 
   // Allocates s bytes of memory and returns it, or `null` if memory could not be allocated. `allocateFresh` behaves just like allocate, the only difference being that this always returns unused(fresh) memory. Although there may still be available space in the `BitmappedBlock` , `allocateFresh` could still return null, because all the available blocks have been previously deallocated. 
-  &lt;bug: unknown&gt; allocateFresh( size_t s ) ;
+  void[] allocateFresh( const size_t s ) @trusted
   // Deallocates a block previously allocated with this allocator. 
-  bool deallocate( &lt;bug: unknown&gt; b ) ;
+  bool deallocate( void[] b ) @nogc nothrow
   // Forcibly deallocates all memory allocated by this allocator, making it available for further allocations. Does not return memory to `ParentAllocator` . 
-  bool deallocateAll( ) ;
+  bool deallocateAll() @nogc nothrow pure
   // Returns `Ternary.yes` if no memory is currently allocated with this allocator, otherwise `Ternary.no` . This method never returns `Ternary.unknown` . 
-  Ternary empty( ) ;
+  Ternary empty() @nogc @safe nothrow pure
   // Expands in place a buffer previously allocated by `BitmappedBlock` . If instantiated with `No.multiblock` , the expansion fails if the new length exceeds `theBlockSize` . 
-  bool expand( &lt;bug: unknown&gt; b, size_t delta ) ;
+  bool expand( ref void[] b, immutable size_t delta ) @nogc @trusted nothrow pure
   // Returns the actual bytes allocated when `n` bytes are requested, i.e. `n.roundUpToMultipleOf(blockSize)` . 
-  size_t goodAllocSize( size_t n ) ;
+  size_t goodAllocSize( size_t n ) @nogc @safe nothrow pure
   // Returns `Ternary.yes` if `b` belongs to the `BitmappedBlock` object, `Ternary.no` otherwise. Never returns `Ternary.unkown` . (This method is somewhat tolerant in that accepts an interior slice.) 
-  Ternary owns( &lt;bug: unknown&gt; b ) ;
+  Ternary owns( const void[] b ) @nogc @trusted nothrow pure
   // Reallocates a previously-allocated block. Contractions occur in place. 
-  bool reallocate( &lt;bug: unknown&gt; b, size_t newSize ) ;
+  bool reallocate( ref void[] b, size_t newSize ) @system
 
   // The parent allocator. Depending on whether `ParentAllocator` holds state or not, this is a member variable or an alias for `ParentAllocator.instance` . 
-  ParentAllocator parent;
+  ParentAllocator parent
 }</code></pre><h2 class='section'>About</h2><p><code>BitmappedBlock</code> implements a simple heap consisting of one contiguous area of memory organized in blocks, each of size <code>theBlockSize</code> . A block is a unit of allocation. A bitmap serves as bookkeeping data, more precisely one bit per block indicating whether that block is currently allocated or not.</p>
 <p>Passing <code>NullAllocator</code> as <code>ParentAllocator</code> (the default) means user code manages allocation of the memory block from the outside; in that case <code>BitmappedBlock</code> must be constructed with a <code>ubyte[]</code> preallocated block and has no responsibility regarding the lifetime of its support underlying storage. If another allocator type is passed, <code>BitmappedBlock</code> defines a destructor that uses the parent allocator to release the memory block. That makes the combination of <code>AllocatorList</code> , <code>BitmappedBlock</code> , and a back-end allocator such as <code>MmapAllocator</code> a simple and scalable solution for memory allocation.</p>
 <p>There are advantages to storing bookkeeping data separated from the payload (as opposed to e.g. using <code>AffixAllocator</code> to store metadata together with each allocation). The layout is more compact (overhead is one bit per block), searching for a free block during allocation enjoys better cache locality, and deallocation does not touch memory around the payload being deallocated (which is often cold).</p>

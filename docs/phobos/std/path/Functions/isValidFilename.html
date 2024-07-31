@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,18 +88,14 @@
 <h1 class='section'>Overloads for - isValidFilename</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.path</dd></dl>
 </div><h2 class='section api'>isValidFilename(filename)   </h2>
- <pre><code class='lang-d'>bool isValidFilename(
-  Range filename
-) </code></pre><p>Checks that the given file or directory name is valid.</p>
+ <pre><code class='lang-d'>bool isValidFilename( Range )( Range filename ) </code></pre><p>Checks that the given file or directory name is valid.</p>
 <p>The maximum length of <code>filename</code> is given by the constant <code>core.stdc.stdio.FILENAME_MAX</code> .  (On Windows, this number is defined as the maximum number of UTF-16 code points, and the test will therefore only yield strictly correct results when <code>filename</code> is a string of <code>wchar</code> s.)</p>
 <p>On Windows, the following criteria must be satisfied ($(LINK2 <a href="http://msdn.microsoft.com/en-us/library/aa365247(v=vs.85).aspx,source">http://msdn.microsoft.com/en-us/library/aa365247(v=vs.85).aspx,source</a>)): $(UL $(LI <code>filename</code> must not contain any characters whose integer representation is in the range 0-31.) $(LI <code>filename</code> must not contain any of the following $(I reserved characters): <code>&lt;&gt;:&quot;/\|?*</code> ) <span class="math">\((LI `filename` may not end with a space (\)</span>(D ' ')) or a period (<code>'.'</code>).) )</p>
 <p>On POSIX, <code>filename</code> may not contain a forward slash (<code>'/'</code>) or the null character (<code>'\0'</code>).</p>
 <p>Params: filename = string to check</p>
 <p>Returns: <code>true</code> if and only if <code>filename</code> is not empty, not too long, and does not contain invalid characters.</p>
 <h2 class='section api'>isValidFilename(filename)   </h2>
- <pre><code class='lang-d'>bool isValidFilename(
-  Range filename
-) </code></pre>
+ <pre><code class='lang-d'>bool isValidFilename( Range )( auto ref Range filename ) </code></pre>
 </article>
 
         <div class="contribution d-print-none">

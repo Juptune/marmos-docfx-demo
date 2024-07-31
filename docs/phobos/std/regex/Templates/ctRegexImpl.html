@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,19 +90,19 @@
 </div><pre><code class='lang-d'>template ctRegexImpl
 {
   // 
-  alias Char = &lt;todo: marmos support pending&gt;;
+  alias Char = &lt;todo: marmos support pending&gt;
 
   // 
-  bool func( BacktrackingMatcher!(Char) matcher ) ;
+  bool func( BacktrackingMatcher!(Char) matcher ) @trusted pure
 
   // 
-  static immutable __enumMember r;
+  static immutable &lt;enum or auto&gt; r = cast(immutable)regex(pattern, flags)
   // 
-  __enumMember source;
+  &lt;enum or auto&gt; source = ctGenRegExCode(r)
   // 
-  static immutable __enumMember staticRe;
+  static immutable &lt;enum or auto&gt; staticRe = cast(immutable)r.withFactory(new CtfeFactory!(BacktrackingMatcher, Char, func))
   // 
-  __enumMember wrapper;
+  &lt;enum or auto&gt; wrapper = CTRegexWrapper!Char(&amp;staticRe)
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>

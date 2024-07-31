@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,12 +88,10 @@
 <h1 class='section'>Overloads for - isHttp1HeaderValue</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.http.v1</dd></dl>
 </div><h2 class='section api'>isHttp1HeaderValue(value)   </h2>
- <pre><code class='lang-d'>bool isHttp1HeaderValue(
-  &lt;bug: unknown&gt; value
-) </code></pre><p>Checks if a string is a valid HTTP header value as defined by RFC 9110.</p>
+ <pre><code class='lang-d'>bool isHttp1HeaderValue( const scope char[] value ) @nogc nothrow pure</code></pre><p>Checks if a string is a valid HTTP header value as defined by RFC 9110.</p>
 <p>Not the most useful function for user code, but there's no reason to not have it be public.</p>
 <h3 class='section'>Notes</h3><p>An empty string is not considered a valid header value.</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>value</code> &lt;bug: unknown&gt;  </dt>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>value</code> char[]  </dt>
 <dd>
 
 

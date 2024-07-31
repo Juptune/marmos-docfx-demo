@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,13 +88,13 @@
 <h1 class='section'>Overloads for - sqlite3_get_table</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.sqlite3</dd></dl>
 </div><h2 class='section api'>sqlite3_get_table(db, zSql, pazResult, pnRow, pnColumn, pzErrmsg)   </h2>
- <pre><code class='lang-d'>int sqlite3_get_table(
-  &lt;bug: unknown&gt; db,
-  &lt;bug: unknown&gt; zSql,
-  &lt;bug: unknown&gt; pazResult,
-  &lt;bug: unknown&gt; pnRow,
-  &lt;bug: unknown&gt; pnColumn,
-  &lt;bug: unknown&gt; pzErrmsg
+ <pre><code class='lang-d'>extern(C) int sqlite3_get_table(
+  sqlite3* db,
+  char* zSql,
+  char*** pazResult,
+  int* pnRow,
+  int* pnColumn,
+  char** pzErrmsg
 ) </code></pre><p>CAPI3REF: Convenience Routines For Running Queries</p>
 
 </article>

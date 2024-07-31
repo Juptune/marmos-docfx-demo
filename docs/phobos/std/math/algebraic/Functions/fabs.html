@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,18 +88,12 @@
 <h1 class='section'>Overloads for - fabs</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.math.algebraic</dd></dl>
 </div><h2 class='section api'>fabs(x)   </h2>
- <pre><code class='lang-d'>real fabs(
-  real x
-) </code></pre><p>Returns |x|</p>
+ <pre><code class='lang-d'>real fabs( real x ) @nogc @safe nothrow pure</code></pre><p>Returns |x|</p>
 <p>$(TABLE_SV $(TR $(TH x)                 $(TH fabs(x))) $(TR $(TD $(PLUSMN)0.0)      $(TD +0.0) ) $(TR $(TD <span class="math">\((PLUSMN)\)</span>(INFIN)) <span class="math">\((TD +\)</span>(INFIN)) ) )</p>
 <h2 class='section api'>fabs(x)   </h2>
- <pre><code class='lang-d'>double fabs(
-  double x
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>double fabs( double x ) @nogc @safe nothrow pure</code></pre><p>ditto</p>
 <h2 class='section api'>fabs(x)   </h2>
- <pre><code class='lang-d'>float fabs(
-  float x
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>float fabs( float x ) @nogc @safe nothrow pure</code></pre><p>ditto</p>
 
 </article>
 

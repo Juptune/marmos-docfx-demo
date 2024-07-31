@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,10 +89,26 @@
 <dl><dt>Module</dt><dd>std.concurrency</dd></dl>
 </div><pre><code class='lang-d'>public struct Tid
 {
+  // Generate a convenient string for identifying this `Tid` .  This is only useful to see if `Tid` &#39;s that are currently executing are the same or different, e.g. for logging and debugging.  It is potentially possible that a `Tid` executed in the future will have the same `toString()` output as another `Tid` that has already terminated. 
+  void toString( W )( ref W w ) 
 
   // 
-  MessageBox mbox;
+  MessageBox mbox
 }</code></pre><h2 class='section'>About</h2><p>An opaque type used to represent a logical thread.</p>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Tid/Tid/Functions/toString.html">toString</a></td>
+<td>Generate a convenient string for identifying this <code>Tid</code> .  This is only useful to see if <code>Tid</code> 's that are currently executing are the same or different, e.g. for logging and debugging.  It is potentially possible that a <code>Tid</code> executed in the future will have the same <code>toString()</code> output as another <code>Tid</code> that has already terminated.</td>
+</tr>
+</tbody>
+</table>
 <h2 class='section'>Variables</h2><table>
 <thead>
 <tr>

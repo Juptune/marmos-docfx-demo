@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,33 +87,49 @@
         <article data-uid="juptune.core.ds.hashmap.Structs.RobinHoodHashMapBase">
 <h1 class='section'>Struct - RobinHoodHashMapBase</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.core.ds.hashmap</dd></dl>
-</div><pre><code class='lang-d'>public struct RobinHoodHashMapBase
+</div><pre><code class='lang-d'>struct RobinHoodHashMapBase(
+  alias Alloc,
+  size_t DefaultInitSize,
+  alias GetGrowSize,
+  alias GetLoadFactor,
+  alias Hasher,
+  alias KeyT_,
+  alias ValueT_
+)
 {
   // 
-  alias KeyT = &lt;todo: marmos support pending&gt;;
+  alias KeyT = &lt;todo: marmos support pending&gt;
   // 
-  alias ValueT = &lt;todo: marmos support pending&gt;;
+  alias ValueT = &lt;todo: marmos support pending&gt;
 
   // 
-  &lt;bug: unknown&gt; byKeyValue( ) auto;
+  auto byKeyValue() 
   // 
-  ValueT get( KeyT key, ValueT default_ ) ;
+  ValueT get( KeyT key, ValueT default_ ) 
   // 
-  &lt;bug: unknown&gt; getPtr( KeyT key ) ;
+  uint getHash( alias Hasher )( KeyT key ) 
   // 
-  size_t length( ) ;
+  ValueT* getPtr( KeyT key ) 
   // 
-  bool moveToNewMap( size_t newMapSize ) ;
+  size_t length() @property @safe
   // 
-  ValueT opIndex( KeyT key ) ;
+  bool moveToNewMap( size_t newMapSize ) 
   // 
-  void opIndexAssign( ValueT value, KeyT key ) ;
+  ValueT* opBinaryRight( string op )( KeyT key ) 
   // 
-  ValueT remove( KeyT key, ValueT default_ ) ;
+  ref ValueT opIndex( KeyT key ) 
   // 
-  ValueT tryGet( KeyT key, bool wasFound ) ;
+  void opIndexAssign( ValueT value, KeyT key ) 
   // 
-  ValueT tryRemove( KeyT key, bool wasFound ) ;
+  void opIndexOpAssign( string op, T )( T value, KeyT key ) 
+  // 
+  void put( VT : ValueT )( KeyT key, VT value ) 
+  // 
+  ValueT remove( KeyT key, ValueT default_ ) 
+  // 
+  ValueT tryGet( KeyT key, out bool wasFound ) 
+  // 
+  ValueT tryRemove( KeyT key, out bool wasFound ) 
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>
@@ -149,6 +165,10 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="../RobinHoodHashMapBase/RobinHoodHashMapBase/Functions/getHash.html">getHash</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../RobinHoodHashMapBase/RobinHoodHashMapBase/Functions/getPtr.html">getPtr</a></td>
 <td></td>
 </tr>
@@ -161,11 +181,23 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="../RobinHoodHashMapBase/RobinHoodHashMapBase/Functions/opBinaryRight.html">opBinaryRight</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../RobinHoodHashMapBase/RobinHoodHashMapBase/Functions/opIndex.html">opIndex</a></td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../RobinHoodHashMapBase/RobinHoodHashMapBase/Functions/opIndexAssign.html">opIndexAssign</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../RobinHoodHashMapBase/RobinHoodHashMapBase/Functions/opIndexOpAssign.html">opIndexOpAssign</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../RobinHoodHashMapBase/RobinHoodHashMapBase/Functions/put.html">put</a></td>
 <td></td>
 </tr>
 <tr>
@@ -178,6 +210,24 @@
 </tr>
 <tr>
 <td><a href="../RobinHoodHashMapBase/RobinHoodHashMapBase/Functions/tryRemove.html">tryRemove</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../RobinHoodHashMapBase/RobinHoodHashMapBase/Structs/Kvp.html">Kvp</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../RobinHoodHashMapBase/RobinHoodHashMapBase/Structs/Map.html">Map</a></td>
 <td></td>
 </tr>
 </tbody>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,48 +87,48 @@
         <article data-uid="std.range.Structs.Bitwise">
 <h1 class='section'>Struct - Bitwise</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
-</div><pre><code class='lang-d'>public struct Bitwise
+</div><pre><code class='lang-d'>struct Bitwise( R )
 {
   // 
-  alias ElemType = &lt;todo: marmos support pending&gt;;
+  alias ElemType = &lt;todo: marmos support pending&gt;
   // 
-  alias opDollar = &lt;todo: marmos support pending&gt;;
+  alias opDollar = &lt;todo: marmos support pending&gt;
   // 
-  alias UnsignedElemType = &lt;todo: marmos support pending&gt;;
+  alias UnsignedElemType = &lt;todo: marmos support pending&gt;
 
   // 
-  bool back( ) ;
+  bool back() 
   // 
-  bool front( ) ;
+  bool front() 
   // 
-  size_t length( ) ;
+  size_t length() 
   // 
-  &lt;bug: unknown&gt; mask( size_t maskPos ) auto;
+  auto mask( size_t maskPos ) 
   // Return the `n` th bit within the range 
-  bool opIndex( size_t n ) ;
+  bool opIndex( size_t n ) 
   // Assigns `flag` to the `n` th bit within the range 
-  void opIndexAssign( bool flag, size_t n ) ;
+  void opIndexAssign( bool flag, size_t n ) 
   // 
-  Bitwise!(R) opSlice( ) ;
+  Bitwise!(R) opSlice() 
   // 
-  Bitwise!(R) opSlice( size_t start, size_t end ) ;
+  Bitwise!(R) opSlice( size_t start, size_t end ) 
   // 
-  void popBack( ) ;
+  void popBack() 
   // 
-  void popFront( ) ;
+  void popFront() 
   // 
-  &lt;bug: unknown&gt; save( ) ;
+  typeof(this) save() 
 
   // 
-  size_t backMaskPos;
+  size_t backMaskPos = bitsNum
   // 
-  __enumMember bitsNum;
+  &lt;enum or auto&gt; bitsNum = ElemType.sizeof * 8
   // 
-  __enumMember empty;
+  &lt;enum or auto&gt; empty = false
   // 
-  size_t maskPos;
+  size_t maskPos = 1
   // 
-  R parent;
+  R parent
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>

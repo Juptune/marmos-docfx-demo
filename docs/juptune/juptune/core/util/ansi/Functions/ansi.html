@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,11 +88,9 @@
 <h1 class='section'>Overloads for - ansi</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.core.util.ansi</dd></dl>
 </div><h2 class='section api'>ansi(text)   </h2>
- <pre><code class='lang-d'>AnsiTextLite ansi(
-  &lt;bug: unknown&gt; text
-) </code></pre><p>PUBLIC HELPERS</p>
+ <pre><code class='lang-d'>AnsiTextLite ansi( char[] text ) @nogc @safe nothrow pure</code></pre><p>PUBLIC HELPERS</p>
 <p>Creates an <code>AnsiTextLite</code> from the given <code>text</code> . This function is mostly used when using the fluent UFCS chaining pattern.</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>text</code> &lt;bug: unknown&gt;  </dt>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>text</code> char[]  </dt>
 <dd>
 
 

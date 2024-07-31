@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - reconstruct</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.http.uri.ScopeUri</dd></dl><dl><dt>Parent</dt><dd>ScopeUri</dd></dl>
 </div><h2 class='section api'>reconstruct(result)   </h2>
- <pre><code class='lang-d'>Result reconstruct(
-  Array!(char) result
-) </code></pre><p>Reconstructs the URI from the data it points to, and validates that the reconstructed URI matches the original URI.</p>
+ <pre><code class='lang-d'>Result reconstruct( out scope Array!(char) result ) @nogc @trusted nothrow</code></pre><p>Reconstructs the URI from the data it points to, and validates that the reconstructed URI matches the original URI.</p>
 <h3 class='section'>Notes</h3><p>In debug builds the error returned will contain additional information about the mismatch.</p>
 <p>If an error is thrown, the <code>result</code> parameter will still contain the reconstructed URI, but it is up to the user whether to risk using it or not.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>result</code> Array!(char)  </dt>

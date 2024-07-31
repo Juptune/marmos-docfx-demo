@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,24 +87,24 @@
         <article data-uid="std.digest.crc.Structs.CRC">
 <h1 class='section'>Struct - CRC</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.digest.crc</dd></dl>
-</div><pre><code class='lang-d'>public struct CRC
+</div><pre><code class='lang-d'>struct CRC( uint N, ulong P )
 {
   // Type of the finished CRC hash. ubyte[4] if N is 32, ubyte[8] if N is 64. 
-  alias R = &lt;todo: marmos support pending&gt;;
+  alias R = &lt;todo: marmos support pending&gt;
   // 
-  alias T = &lt;todo: marmos support pending&gt;;
+  alias T = &lt;todo: marmos support pending&gt;
 
   // Returns the finished CRC hash. This also calls $(LREF start) to reset the internal state. 
-  R finish( ) ;
+  R finish() @nogc @safe nothrow pure
   // Works like `finish` but does not reset the internal state, so it&#39;s possible to continue putting data into this CRC after a call to peek. 
-  R peek( ) ;
+  R peek() @nogc @safe nothrow pure
   // Use this to feed the digest with data. Also implements the $(REF isOutputRange, std,range,primitives) interface for `ubyte` and `const(ubyte)[]` . 
-  void put( &lt;bug: unknown&gt; data ) ;
+  void put( scope ubyte[] data ) @nogc @trusted nothrow pure
   // Used to initialize the CRC32 digest. 
-  void start( ) ;
+  void start() @nogc @safe nothrow pure
 
   // 
-  static immutable &lt;bug: unknown&gt; tables;
+  static immutable T[256][8] tables = genTables!T(P)
 }</code></pre><h2 class='section'>About</h2><p>Generic Template API used for CRC32 and CRC64 implementations.</p>
 <p>The N parameter indicate the size of the hash in bits. The parameter P specify the polynomial to be used for reduction.</p>
 <p>You may want to use the CRC32, CRC65ECMA and CRC64ISO aliases for convenience.</p>

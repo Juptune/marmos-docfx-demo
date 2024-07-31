@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,52 +87,54 @@
         <article data-uid="std.experimental.allocator.building_blocks.allocator_list.Structs.AllocatorList">
 <h1 class='section'>Struct - AllocatorList</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator.building_blocks.allocator_list</dd></dl>
-</div><pre><code class='lang-d'>public struct AllocatorList
+</div><pre><code class='lang-d'>struct AllocatorList( Factory, BookkeepingAllocator = GCAllocator )
 {
   // Alias for `typeof(Factory()(1))` , i.e. the type of the individual allocators. 
-  alias Allocator = &lt;todo: marmos support pending&gt;;
+  alias Allocator = &lt;todo: marmos support pending&gt;
   // 
-  alias SAllocator = &lt;todo: marmos support pending&gt;;
+  alias SAllocator = &lt;todo: marmos support pending&gt;
 
   // 
-  &lt;bug: unknown&gt; addAllocator( size_t atLeastBytes ) ;
+  Node* addAllocator( size_t atLeastBytes ) 
   // 
-  &lt;bug: unknown&gt; addAllocator( size_t atLeastBytes ) ;
+  Node* addAllocator( size_t atLeastBytes ) 
   // Allocate a block of size `s` with alignment `a` . First tries to allocate from the existing list of already-created allocators. If neither can satisfy the request, creates a new allocator by calling `make(s + a - 1)` and delegates the request to it. However, if the allocation fresh off a newly created allocator fails, subsequent calls to `alignedAllocate` will not cause more calls to `make` . 
-  &lt;bug: unknown&gt; alignedAllocate( size_t s, uint theAlignment ) ;
+  void[] alignedAllocate( size_t s, uint theAlignment ) 
   // Allocate a block of size `s` . First tries to allocate from the existing list of already-created allocators. If neither can satisfy the request, creates a new allocator by calling `make(s)` and delegates the request to it. However, if the allocation fresh off a newly created allocator fails, subsequent calls to `allocate` will not cause more calls to $(D make). 
-  &lt;bug: unknown&gt; allocate( size_t s ) ;
+  void[] allocate( size_t s ) 
+  // 
+  void[] allocateZeroed( )( size_t s ) 
   // Defined if `Allocator.deallocate` and `Allocator.owns` are defined. 
-  bool deallocate( &lt;bug: unknown&gt; b ) ;
+  bool deallocate( void[] b ) 
   // Defined only if `Allocator.owns` and `Allocator.deallocateAll` are defined. 
-  bool deallocateAll( ) ;
+  bool deallocateAll() 
   // 
-  bool deallocateAll( ) ;
+  bool deallocateAll() 
   // Returns `Ternary.yes` if no allocators are currently active, `Ternary.no` otherwise. This methods never returns `Ternary.unknown` . 
-  Ternary empty( ) ;
+  Ternary empty() @nogc @safe nothrow pure
   // Defined only if `Allocator.expand` is defined. Finds the owner of `b` and calls `expand` for it. The owner is not brought to the head of the list. 
-  bool expand( &lt;bug: unknown&gt; b, size_t delta ) ;
+  bool expand( ref void[] b, size_t delta ) 
   // 
-  &lt;bug: unknown&gt; make( size_t n ) auto;
+  auto make( size_t n ) 
   // 
-  void moveAllocators( &lt;bug: unknown&gt; newPlace ) ;
+  void moveAllocators( void[] newPlace ) 
   // Defined only if `Allocator` defines `owns` . Tries each allocator in turn, in most-recently-used order. If the owner is found, it is moved to the front of the list as a side effect under the assumption it will be used soon. 
-  Ternary owns( &lt;bug: unknown&gt; b ) ;
+  Ternary owns( void[] b ) 
   // Defined only if `Allocator.reallocate` is defined. Finds the owner of `b` and calls `reallocate` for it. If that fails, calls the global `reallocate` , which allocates a new block and moves memory. 
-  bool reallocate( &lt;bug: unknown&gt; b, size_t s ) ;
+  bool reallocate( ref void[] b, size_t s ) 
 
   // The alignment offered. 
-  uint alignment;
+  uint alignment = Allocator.alignment
   // 
-  &lt;bug: unknown&gt; allocators;
+  Node[] allocators
   // If `BookkeepingAllocator` is not `NullAllocator` , `bkalloc` is defined and accessible. 
-  BookkeepingAllocator bkalloc;
+  BookkeepingAllocator bkalloc
   // 
-  Factory factory;
+  Factory factory
   // 
-  __enumMember ouroboros;
+  &lt;enum or auto&gt; ouroboros = is(BookkeepingAllocator == NullAllocator)
   // 
-  &lt;bug: unknown&gt; root;
+  Node* root
 }</code></pre><h2 class='section'>About</h2><p>Given an $(LINK2 <a href="https://en.wikipedia.org/wiki/Factory_(object-oriented_programming)">https://en.wikipedia.org/wiki/Factory_(object-oriented_programming)</a>, object factory) of type <code>Factory</code> or a factory function <code>factoryFunction</code> , and optionally also <code>BookkeepingAllocator</code> as a supplemental allocator for bookkeeping, <code>AllocatorList</code> creates an allocator that lazily creates as many allocators are needed for satisfying client allocation requests.</p>
 <p>An embedded list builds a most-recently-used strategy: the most recent allocators used in calls to either <code>allocate</code> , <code>owns</code> (successful calls only), or <code>deallocate</code> are tried for new allocations in order of their most recent use. Thus, although core operations take in theory $(BIGOH k) time for <code>k</code> allocators in current use, in many workloads the factor is sublinear. Details of the actual strategy may change in future releases.</p>
 <p><code>AllocatorList</code> is primarily intended for coarse-grained handling of allocators, i.e. the number of allocators in the list is expected to be relatively small compared to the number of allocations handled by each allocator. However, the per-allocator overhead is small so using <code>AllocatorList</code> with a large number of allocators should be satisfactory as long as the most-recently-used strategy is fast enough for the application.</p>
@@ -185,6 +187,10 @@
 <td>Allocate a block of size <code>s</code> . First tries to allocate from the existing list of already-created allocators. If neither can satisfy the request, creates a new allocator by calling <code>make(s)</code> and delegates the request to it. However, if the allocation fresh off a newly created allocator fails, subsequent calls to <code>allocate</code> will not cause more calls to $(D make).</td>
 </tr>
 <tr>
+<td><a href="../AllocatorList/AllocatorList/Functions/allocateZeroed.html">allocateZeroed</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../AllocatorList/AllocatorList/Functions/deallocate.html">deallocate</a></td>
 <td>Defined if <code>Allocator.deallocate</code> and <code>Allocator.owns</code> are defined.</td>
 </tr>
@@ -215,6 +221,20 @@
 <tr>
 <td><a href="../AllocatorList/AllocatorList/Functions/reallocate.html">reallocate</a></td>
 <td>Defined only if <code>Allocator.reallocate</code> is defined. Finds the owner of <code>b</code> and calls <code>reallocate</code> for it. If that fails, calls the global <code>reallocate</code> , which allocates a new block and moves memory.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../AllocatorList/AllocatorList/Structs/Node.html">Node</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>

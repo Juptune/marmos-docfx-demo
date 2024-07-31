@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,34 +87,50 @@
         <article data-uid="std.range.Structs.ZipShortest">
 <h1 class='section'>Struct - ZipShortest</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
-</div><pre><code class='lang-d'>public struct ZipShortest
+</div><pre><code class='lang-d'>struct ZipShortest( Flag!(&quot;allKnownSameLength&quot;) allKnownSameLength, Ranges... )
 {
   // 
-  alias ElementType = &lt;todo: marmos support pending&gt;;
+  alias ElementType = &lt;todo: marmos support pending&gt;
   // 
-  alias opDollar = &lt;todo: marmos support pending&gt;;
+  alias opDollar = &lt;todo: marmos support pending&gt;
   // 
-  alias R = &lt;todo: marmos support pending&gt;;
+  alias R = &lt;todo: marmos support pending&gt;
 
   // 
-  ElementType back( ) ;
+  ElementType back() @property
   // 
-  ElementType front( ) ;
+  void back( )( ElementType v ) @property
   // 
-  size_t length( ) ;
+  ElementType front() @property
   // 
-  void popBack( ) ;
+  void front( )( ElementType v ) @property
   // 
-  void popFront( ) ;
+  size_t length() @property
   // 
-  &lt;bug: unknown&gt; save( ) ;
+  ElementType moveAt( )( size_t n ) 
+  // 
+  ElementType moveBack( )() 
+  // 
+  ElementType moveFront( )() 
+  // 
+  ElementType opIndex( )( size_t n ) 
+  // 
+  void opIndexAssign( )( ElementType v, size_t n ) 
+  // 
+  auto opSlice( )( size_t from, size_t to ) 
+  // 
+  void popBack() 
+  // 
+  void popFront() 
+  // 
+  typeof(this) save() @property
 
   // 
-  bool empty;
+  bool empty = false
   // 
-  bool isBackWellDefined;
+  bool isBackWellDefined = allSatisfy!(isBidirectionalRange, Ranges) &amp;&amp; (allKnownSameLength || allSatisfy!(isRandomAccessRange, Ranges))
   // 
-  Ranges ranges;
+  Ranges ranges
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>
@@ -155,6 +171,30 @@
 </tr>
 <tr>
 <td><a href="../ZipShortest/ZipShortest/Functions/length.html">length</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../ZipShortest/ZipShortest/Functions/moveAt.html">moveAt</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../ZipShortest/ZipShortest/Functions/moveBack.html">moveBack</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../ZipShortest/ZipShortest/Functions/moveFront.html">moveFront</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../ZipShortest/ZipShortest/Functions/opIndex.html">opIndex</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../ZipShortest/ZipShortest/Functions/opIndexAssign.html">opIndexAssign</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../ZipShortest/ZipShortest/Functions/opSlice.html">opSlice</a></td>
 <td></td>
 </tr>
 <tr>

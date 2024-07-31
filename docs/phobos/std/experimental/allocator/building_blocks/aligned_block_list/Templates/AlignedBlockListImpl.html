@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,32 +90,32 @@
 </div><pre><code class='lang-d'>template AlignedBlockListImpl
 {
   // 
-  &lt;bug: unknown&gt; allocate( size_t n ) ;
+  void[] allocate( size_t n ) 
   // 
-  bool deallocate( &lt;bug: unknown&gt; b ) ;
+  bool deallocate( void[] b ) 
   // 
-  size_t goodAllocSize( size_t n ) ;
+  size_t goodAllocSize( const size_t n ) 
   // 
-  bool insertNewNode( ) ;
+  bool insertNewNode() 
   // 
-  void moveToFront( &lt;bug: unknown&gt; tmp ) ;
+  void moveToFront( AlignedBlockNode* tmp ) 
   // 
-  Ternary owns( &lt;bug: unknown&gt; b ) ;
+  Ternary owns( void[] b ) 
   // 
-  void removeNode( &lt;bug: unknown&gt; tmp ) ;
+  void removeNode( AlignedBlockNode* tmp ) 
 
   // 
-  ulong alignment;
+  ulong alignment = Allocator.alignment
   // 
-  SpinLock lock;
+  SpinLock lock = SpinLock(SpinLock.Contention.brief)
   // 
-  uint maxNodes;
+  uint maxNodes = 64
   // 
-  uint numNodes;
+  uint numNodes
   // 
-  ParentAllocator parent;
+  ParentAllocator parent
   // 
-  &lt;bug: unknown&gt; root;
+  AlignedBlockNode* root
 }</code></pre><h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -150,6 +150,20 @@
 </tr>
 <tr>
 <td><a href="../AlignedBlockListImpl/AlignedBlockListImpl/Functions/removeNode.html">removeNode</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../AlignedBlockListImpl/AlignedBlockListImpl/Structs/AlignedBlockNode.html">AlignedBlockNode</a></td>
 <td></td>
 </tr>
 </tbody>

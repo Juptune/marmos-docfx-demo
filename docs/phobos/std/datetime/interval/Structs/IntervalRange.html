@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,26 +87,26 @@
         <article data-uid="std.datetime.interval.Structs.IntervalRange">
 <h1 class='section'>Struct - IntervalRange</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.interval</dd></dl>
-</div><pre><code class='lang-d'>public struct IntervalRange
+</div><pre><code class='lang-d'>struct IntervalRange( TP, Direction dir )
 {
   // The `Direction` that this range iterates in. 
-  Direction direction( ) ;
+  Direction direction() @property nothrow pure
   // Whether this `IntervalRange` is empty. 
-  bool empty( ) ;
+  bool empty() @property nothrow pure
   // The first time point in the range. 
-  TP front( ) ;
+  TP front() @property pure
   // The function used to generate the next time point in the range. 
-  &lt;bug: unknown&gt; func( ) ;
+  &lt;bug: unknown&gt; func() @property nothrow pure
   // The interval that this `IntervalRange` currently covers. 
-  Interval!(TP) interval( ) ;
+  Interval!(TP) interval() @property nothrow pure
   // 
-  IntervalRange opAssign( IntervalRange rhs ) ;
+  ref IntervalRange opAssign( ref IntervalRange rhs ) nothrow pure
   // Ditto 
-  IntervalRange opAssign( IntervalRange rhs ) ;
+  ref IntervalRange opAssign( IntervalRange rhs ) nothrow pure
   // Pops `front` from the range, using `func` to generate the next time point in the range. If the generated time point is beyond the edge of the range, then `front` is set to that edge, and the range is then empty. So, if iterating forwards, and the generated time point is greater than the interval&#39;s `end` , then `front` is set to `end` . If iterating backwards, and the generated time point is less than the interval&#39;s `begin` , then `front` is set to `begin` . 
-  void popFront( ) ;
+  void popFront() 
   // Returns a copy of `this` . 
-  IntervalRange save( ) ;
+  IntervalRange save() @property nothrow pure
 }</code></pre><h2 class='section'>About</h2><p>A range over an $(LREF Interval).</p>
 <p><code>IntervalRange</code> is only ever constructed by $(LREF Interval). However, when it is constructed, it is given a function, <code>func</code> , which is used to generate the time points which are iterated over. <code>func</code> takes a time point and returns a time point of the same type. For instance, to iterate over all of the days in the interval <code>Interval!Date</code> , pass a function to $(LREF Interval)'s <code>fwdRange</code> where that function took a $(REF Date,std,datetime,date) and returned a $(REF Date,std,datetime,date) which was one day later. That function would then be used by <code>IntervalRange</code> 's <code>popFront</code> to iterate over the $(REF Date,std,datetime,date)s in the interval.</p>
 <p>If $(D dir == Direction.fwd), then a range iterates forward in time, whereas if $(D dir == Direction.bwd), then it iterates backwards in time. So, if $(D dir == Direction.fwd) then $(D front == interval.begin), whereas if $(D dir == Direction.bwd) then $(D front == interval.end). <code>func</code> must generate a time point going in the proper direction of iteration, or a $(REF DateTimeException,std,datetime,date) will be thrown. So, to iterate forward in time, the time point that <code>func</code> generates must be later in time than the one passed to it. If it's either identical or earlier in time, then a $(REF DateTimeException,std,datetime,date) will be thrown. To iterate backwards, then the generated time point must be before the time point which was passed in.</p>

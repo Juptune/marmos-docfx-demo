@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Overloads for - prefix | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Overloads for - prefix | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../../../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../../../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../../../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../../../../../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../../../../../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../../../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../../../../../../index.html">
+            <img id="logo" class="svg" src="../../../../../../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.experimental.allocator.building_blocks.affix_allocator.AffixAllocator.AffixAllocator.Functions.prefix">
+<h1 class='section'>Overloads for - prefix</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.experimental.allocator.building_blocks.affix_allocator.AffixAllocator</dd></dl><dl><dt>Parent</dt><dd>AffixAllocator</dd></dl>
+</div><h2 class='section api'>prefix(b)   </h2>
+ <pre><code class='lang-d'>ref auto prefix( T )( T[] b ) </code></pre><p>Affix access functions offering references to the affixes of a block <code>b</code> previously allocated with this allocator. <code>b</code> may not be null. They are defined if and only if the corresponding affix is not <code>void</code> .</p>
+<p>The qualifiers of the affix are not always the same as the qualifiers of the argument. This is because the affixes are not part of the data itself, but instead are just $(I associated) with the data and known to the allocator. The table below documents the type of <code>preffix(b)</code> and <code>affix(b)</code> depending on the type of <code>b</code> .</p>
+<p>$(BOOKTABLE Result of <code>prefix</code> /<code>suffix</code> depending on argument (<code>U</code> is any unqualified type, <code>Affix</code> is <code>Prefix</code> or <code>Suffix</code> ), $(TR <span class="math">\((TH Argument\)</span>(NBSP)Type) $(TH Return) $(TH Comments))</p>
+<p>$(TR $(TD <code>shared(U)[]</code> ) $(TD <code>ref shared Affix</code> ) $(TD Data is shared across threads and the affix follows suit.))</p>
+<p>$(TR $(TD <code>immutable(U)[]</code> ) $(TD <code>ref shared Affix</code> ) $(TD Although the data is immutable, the allocator &quot;knows&quot; the underlying memory is mutable, so <code>immutable</code> is elided for the affix which is independent from the data itself. However, the result is <code>shared</code> because <code>immutable</code> is implicitly shareable so multiple threads may access and manipulate the affix for the same data.))</p>
+<p>$(TR $(TD <code>const(shared(U))[]</code> ) $(TD <code>ref shared Affix</code> ) $(TD The data is always shareable across threads. Even if the data is <code>const</code> , the affix is modifiable by the same reasoning as for <code>immutable</code> .))</p>
+<p>$(TR $(TD <code>const(U)[]</code> ) $(TD <code>ref const Affix</code> ) $(TD The input may have originated from <code>U[]</code> or <code>immutable(U)[]</code> , so it may be actually shared or not. Returning an unqualified affix may result in race conditions, whereas returning a <code>shared</code> affix may result in inadvertent sharing of mutable thread-local data across multiple threads. So the returned type is conservatively <code>ref const</code> .))</p>
+<p>$(TR $(TD <code>U[]</code> ) $(TD <code>ref Affix</code> ) $(TD Unqualified data has unqualified affixes.)) )</p>
+<p>Precondition: <code>b !is null</code> and <code>b</code> must have been allocated with this allocator.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

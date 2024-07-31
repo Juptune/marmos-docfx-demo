@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - entabber</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.string</dd></dl>
 </div><h2 class='section api'>entabber(r, tabSize)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; entabber(
-  Range r,
-  size_t tabSize
-) auto</code></pre><p>Replaces spaces in range <code>r</code> with the optimal number of tabs. All spaces and tabs at the end of a line are removed.</p>
+ <pre><code class='lang-d'>auto entabber( Range )( Range r, size_t tabSize ) </code></pre><p>Replaces spaces in range <code>r</code> with the optimal number of tabs. All spaces and tabs at the end of a line are removed.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>r</code> Range  </dt>
 <dd>
 
@@ -107,10 +104,7 @@
 </dd></dl><h3 class='section'>Returns</h3><p>lazy forward range with spaces replaced with tabs</p>
 <h3 class='section'>See_Also</h3><p>$(LREF entab)</p>
 <h2 class='section api'>entabber(r, tabSize)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; entabber(
-  Range r,
-  size_t tabSize
-) auto</code></pre>
+ <pre><code class='lang-d'>auto entabber( Range )( auto ref Range r, size_t tabSize ) </code></pre>
 </article>
 
         <div class="contribution d-print-none">

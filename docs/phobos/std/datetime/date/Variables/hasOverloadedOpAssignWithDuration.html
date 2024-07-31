@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,15 @@
 <h1 class='section'>Variable - hasOverloadedOpAssignWithDuration</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.date</dd></dl>
 </div><h2 class='section api'>hasOverloadedOpAssignWithDuration   </h2>
- <pre><code class='lang-d'>__enumMember hasOverloadedOpAssignWithDuration</code></pre><h2 class='section'>About</h2><p>Whether the given type defines all of the necessary functions for it to function as a time point.</p>
+ <pre><code class='lang-d'>&lt;enum or auto&gt; hasOverloadedOpAssignWithDuration = is(typeof(U.init += Duration.init) == U) &amp;&amp; is(typeof(U.init -= Duration.init) == U) &amp;&amp; is(typeof(()
+{
+alias add = U.opOpAssign!&quot;+&quot;;
+alias sub = U.opOpAssign!&quot;-&quot;;
+alias FA = FunctionAttribute;
+static assert((functionAttributes!add &amp; FA.ref_) != 0);
+static assert((functionAttributes!sub &amp; FA.ref_) != 0);
+}
+))</code></pre><h2 class='section'>About</h2><p>Whether the given type defines all of the necessary functions for it to function as a time point.</p>
 <pre><code>1.1. `T` must define a static property named `min` which is the
 </code></pre>
 <p>smallest value of <code>T</code> as <code>Unqual!T</code> .</p>

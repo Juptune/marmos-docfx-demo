@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - curl_multi_info_read</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.curl</dd></dl>
 </div><h2 class='section api'>curl_multi_info_read(multi_handle, msgs_in_queue)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; curl_multi_info_read(
-  &lt;bug: unknown&gt; multi_handle,
-  &lt;bug: unknown&gt; msgs_in_queue
-) </code></pre><p>Name:    curl_multi_info_read()</p>
+ <pre><code class='lang-d'>extern(C) CURLMsg* curl_multi_info_read( CURLM* multi_handle, int* msgs_in_queue ) </code></pre><p>Name:    curl_multi_info_read()</p>
 <p>Desc:    Ask the multi handle if there's any messages/informationals from the individual transfers. Messages include informationals such as error code from the transfer or just the fact that a transfer is completed. More details on these should be written down as well.</p>
 <p>Repeated calls to this function will return a new struct each time, until a special &quot;end of msgs&quot; struct is returned as a signal that there is no more to get at this point.</p>
 <p>The data the returned pointer points to will not survive calling curl_multi_cleanup().</p>

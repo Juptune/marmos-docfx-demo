@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - unixTimeToStdTime</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.systime</dd></dl>
 </div><h2 class='section api'>unixTimeToStdTime(unixTime)   </h2>
- <pre><code class='lang-d'>long unixTimeToStdTime(
-  long unixTime
-) </code></pre><p>Converts from unix time (which uses midnight, January 1st, 1970 UTC as its epoch and seconds as its units) to &quot;std time&quot; (which uses midnight, January 1st, 1 A.D. UTC and hnsecs as its units).</p>
+ <pre><code class='lang-d'>long unixTimeToStdTime( long unixTime ) @nogc @safe nothrow pure</code></pre><p>Converts from unix time (which uses midnight, January 1st, 1970 UTC as its epoch and seconds as its units) to &quot;std time&quot; (which uses midnight, January 1st, 1 A.D. UTC and hnsecs as its units).</p>
 <p>The C standard does not specify the representation of time_t, so it is implementation defined. On POSIX systems, unix time is equivalent to time_t, but that's not necessarily true on other systems (e.g. it is not true for the Digital Mars C runtime). So, be careful when using unix time with C functions on non-POSIX systems.</p>
 <p>&quot;std time&quot;'s epoch is based on the Proleptic Gregorian Calendar per ISO 8601 and is what $(LREF SysTime) uses internally. However, holding the time as an integer in hnsecs since that epoch technically isn't actually part of the standard, much as it's based on it, so the name &quot;std time&quot; isn't particularly good, but there isn't an official name for it. C# uses &quot;ticks&quot; for the same thing, but they aren't actually clock ticks, and the term &quot;ticks&quot; $(I is) used for actual clock ticks for $(REF MonoTime, core,time), so it didn't make sense to use the term ticks here. So, for better or worse, std.datetime uses the term &quot;std time&quot; for this.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>unixTime</code> long  </dt>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,16 +88,10 @@
 <h1 class='section'>Overloads for - setvbuf</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.stdio.File</dd></dl><dl><dt>Parent</dt><dd>File</dd></dl>
 </div><h2 class='section api'>setvbuf(size, mode)   </h2>
- <pre><code class='lang-d'>void setvbuf(
-  size_t size,
-  int mode
-) </code></pre><p>Calls $(CSTDIO setvbuf) for the file handle.</p>
+ <pre><code class='lang-d'>void setvbuf( size_t size, int mode ) @trusted</code></pre><p>Calls $(CSTDIO setvbuf) for the file handle.</p>
 <p>Throws: <code>Exception</code> if the file is not opened. <code>ErrnoException</code> if the call to <code>setvbuf</code> fails.</p>
 <h2 class='section api'>setvbuf(buf, mode)   </h2>
- <pre><code class='lang-d'>void setvbuf(
-  &lt;bug: unknown&gt; buf,
-  int mode
-) </code></pre><p>Calls $(CSTDIO setvbuf) for the file handle.</p>
+ <pre><code class='lang-d'>void setvbuf( void[] buf, int mode ) @trusted</code></pre><p>Calls $(CSTDIO setvbuf) for the file handle.</p>
 <p>Throws: <code>Exception</code> if the file is not opened. <code>ErrnoException</code> if the call to <code>setvbuf</code> fails.</p>
 
 </article>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - strip</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.string</dd></dl>
 </div><h2 class='section api'>strip(str)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; strip(
-  Range str
-) auto</code></pre><p>Strips both leading and trailing whitespace (as defined by $(REF isWhite, std,uni)) or as specified in the second argument.</p>
+ <pre><code class='lang-d'>auto strip( Range )( Range str ) </code></pre><p>Strips both leading and trailing whitespace (as defined by $(REF isWhite, std,uni)) or as specified in the second argument.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>str</code> Range  </dt>
 <dd>
 
@@ -118,19 +116,10 @@
 </dd></dl><h3 class='section'>Returns</h3><p>slice of <code>str</code> stripped of leading and trailing whitespace or characters as specified in the second argument.</p>
 <h3 class='section'>See_Also</h3><p>Generic stripping on ranges: $(REF strip, std, algorithm, mutation)</p>
 <h2 class='section api'>strip(str)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; strip(
-  Range str
-) auto</code></pre><h2 class='section api'>strip(str, chars)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; strip(
-  Range str,
-  &lt;bug: unknown&gt; chars
-) auto</code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>auto strip( Range )( auto ref Range str ) </code></pre><h2 class='section api'>strip(str, chars)   </h2>
+ <pre><code class='lang-d'>auto strip( Range, Char )( Range str, Char[] chars ) </code></pre><p>Ditto</p>
 <h2 class='section api'>strip(str, leftChars, rightChars)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; strip(
-  Range str,
-  &lt;bug: unknown&gt; leftChars,
-  &lt;bug: unknown&gt; rightChars
-) auto</code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>auto strip( Range, Char )( Range str, Char[] leftChars, Char[] rightChars ) </code></pre><p>Ditto</p>
 
 </article>
 

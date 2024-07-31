@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,12 @@
 <h1 class='section'>Variable - hasPeek</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.digest</dd></dl>
 </div><h2 class='section api'>hasPeek   </h2>
- <pre><code class='lang-d'>bool hasPeek</code></pre><h2 class='section'>About</h2><p>Used to check if a digest supports the <code>peek</code> method. Peek has exactly the same function signatures as finish, but it doesn't reset the digest's internal state.</p>
+ <pre><code class='lang-d'>bool hasPeek = isDigest!T &amp;&amp; is(typeof(()
+{
+T dig = void;
+DigestType!T val = dig.peek();
+}
+))</code></pre><h2 class='section'>About</h2><p>Used to check if a digest supports the <code>peek</code> method. Peek has exactly the same function signatures as finish, but it doesn't reset the digest's internal state.</p>
 <h3 class='section'>Note</h3><p>$(UL $(LI This is very useful as a template constraint (see examples)) $(LI This also checks if T passes $(LREF isDigest)) )</p>
 
 </article>

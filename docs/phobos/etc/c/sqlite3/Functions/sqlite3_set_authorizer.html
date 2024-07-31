@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,11 +88,7 @@
 <h1 class='section'>Overloads for - sqlite3_set_authorizer</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.sqlite3</dd></dl>
 </div><h2 class='section api'>sqlite3_set_authorizer(__anonymous, xAuth, pUserData)   </h2>
- <pre><code class='lang-d'>int sqlite3_set_authorizer(
-  &lt;bug: unknown&gt; __anonymous,
-  &lt;bug: unknown&gt; xAuth,
-  &lt;bug: unknown&gt; pUserData
-) </code></pre><p>CAPI3REF: Compile-Time Authorization Callbacks</p>
+ <pre><code class='lang-d'>extern(C) int sqlite3_set_authorizer( sqlite3* __anonymous, * xAuth, void* pUserData ) </code></pre><p>CAPI3REF: Compile-Time Authorization Callbacks</p>
 
 </article>
 

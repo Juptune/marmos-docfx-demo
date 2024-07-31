@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,32 +87,82 @@
         <article data-uid="std.variant.Structs.VariantN">
 <h1 class='section'>Struct - VariantN</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.variant</dd></dl>
-</div><pre><code class='lang-d'>public struct VariantN
+</div><pre><code class='lang-d'>struct VariantN( size_t maxDataSize, AllowedTypesParam... )
 {
   // The list of allowed types. If empty, any type is allowed. 
-  alias AllowedTypes = &lt;todo: marmos support pending&gt;;
+  alias AllowedTypes = &lt;todo: marmos support pending&gt;
 
+  // Returns the value stored in the `VariantN` object, explicitly converted (coerced) to the requested type $(D T). If `T` is a string type, the value is formatted as a string. If the `VariantN` object is a string, a parse of the string to type `T` is attempted. If a conversion is not possible, throws a $(D VariantException). 
+  T coerce( T )() @property
+  // Returns `true` if and only if the `VariantN` object holds an object implicitly convertible to type `T` . Implicit convertibility is defined as per $(REF_ALTTEXT AllImplicitConversionTargets, AllImplicitConversionTargets, std,traits). 
+  bool convertsTo( T )() @property
+  // Returns the value stored in the `VariantN` object, either by specifying the needed type or the index in the list of allowed types. The latter overload only applies to bounded variants (e.g. $(LREF Algebraic)). 
+  T get( T )() @property
+  // Ditto 
+  auto get( uint index )() @property
+  // 
+  ptrdiff_t handler( A : void )( OpID selector, ubyte[size]* __anonymous, void* parm ) 
+  // 
+  ptrdiff_t handler( A )( OpID selector, ubyte[size]* pStore, void* parm ) 
   // Returns true if and only if the `VariantN` object holds a valid value (has been initialized with, or assigned from, a valid value). 
-  bool hasValue( ) ;
+  bool hasValue() @property nothrow pure
   // If the `VariantN` contains an (associative) array, returns the length of that array. Otherwise, throws an exception. 
-  size_t length( ) ;
+  size_t length() @property
+  // If the `VariantN` contains an array, applies `dg` to each element of the array in turn. Otherwise, throws an exception. 
+  int opApply( Delegate )( scope Delegate dg ) 
   // 
-  int opCmp( VariantN rhs ) ;
+  VariantN opArithmetic( T, string op )( T other ) 
+  // Assigns a `VariantN` from a generic argument. Statically rejects disallowed types. 
+  VariantN opAssign( T )( T rhs ) 
+  // 
+  VariantN opAssign( T : VariantN!(tsize,Types), size_t tsize, Types... )( T rhs ) 
+  // Arithmetic between `VariantN` objects and numeric values. All arithmetic operations return a `VariantN` object typed depending on the types of both values involved. The conversion rules mimic D&#39;s built-in rules for arithmetic conversions. 
+  VariantN opBinary( string op, T )( T rhs ) 
+  // ditto 
+  VariantN opBinary( string op, T )( T rhs ) 
+  // ditto 
+  VariantN opBinary( string op, T )( T rhs ) 
+  // ditto 
+  VariantN opBinaryRight( string op, T )( T lhs ) 
+  // ditto 
+  VariantN opBinaryRight( string op, T )( T lhs ) 
+  // 
+  Variant opCall( P... )( auto ref P params ) 
+  // 
+  int opCmp( const ref VariantN rhs ) 
+  // Ordering comparison used by the &quot;&lt;&quot;, &quot;&lt;=&quot;, &quot;&gt;&quot;, and &quot;&gt;=&quot; operators. In case comparison is not sensible between the held value and `rhs` , an exception is thrown. 
+  int opCmp( T )( T rhs ) 
+  // Comparison for equality used by the &quot;==&quot; and &quot;!=&quot;  operators. 
+  bool opEquals( T )( auto ref T rhs ) 
+  // Array and associative array operations. If a $(D VariantN) contains an (associative) array, it can be indexed into. Otherwise, an exception is thrown. 
+  Variant opIndex( K )( K i ) 
+  // ditto 
+  Variant opIndexAssign( T, N )( T value, N i ) 
+  // ditto 
+  Variant opIndexOpAssign( string op, T, N )( T value, N i ) 
+  // 
+  VariantN opLogic( T, string op )( T other ) 
+  // ditto 
+  VariantN opOpAssign( string op, T )( T rhs ) 
+  // If the `VariantN` object holds a value of the $(I exact) type `T` , returns a pointer to that value. Otherwise, returns `null` . In cases where `T` is statically disallowed, $(D peek) will not compile. 
+  T* peek( T )() @property
   // Computes the hash of the held value. 
-  size_t toHash( ) ;
+  size_t toHash() @safe nothrow
   // Formats the stored value as a string. 
-  string toString( ) ;
+  string toString() 
   // Returns the `typeid` of the currently held value. 
-  TypeInfo type( ) ;
+  TypeInfo type() @property @trusted nothrow
 
+  // Tells whether a type `T` is statically allowed for storage inside a `VariantN` object by looking `T` up in `AllowedTypes` . 
+  bool allowed = is(T == VariantN) || (AllowedTypes.length == 0 || staticIndexOf!(T, AllowedTypes) &gt;= 0)
   // 
-  &lt;bug: unknown&gt; fptr;
+  * fptr = &amp;handler!void
   // 
-  &lt;bug: unknown&gt; p;
+  void*[size / (void*).sizeof] p
   // 
-  __enumMember size;
+  &lt;enum or auto&gt; size = SizeChecker.sizeof - (int function()).sizeof
   // 
-  &lt;bug: unknown&gt; store;
+  ubyte[size] store
 }</code></pre><h2 class='section'>About</h2><p>Back-end type seldom used directly by user code. Two commonly-used types using <code>VariantN</code> are:</p>
 <p>$(OL $(LI $(LREF Algebraic): A closed discriminated union with a limited type universe (e.g., $(D Algebraic!(int, double, string)) only accepts these three types and rejects anything else).) $(LI $(LREF Variant): An open discriminated union allowing an unbounded set of types. If any of the types in the <code>Variant</code> are larger than the largest built-in type, they will automatically be boxed. This means that even large types will only be the size of a pointer within the <code>Variant</code> , but this also implies some overhead. <code>Variant</code> can accommodate all primitive types and all user-defined types.))</p>
 <p>Both <code>Algebraic</code> and <code>Variant</code> share $(D VariantN)'s interface. (See their respective documentations below.)</p>
@@ -131,6 +181,20 @@
 </tr>
 </tbody>
 </table>
+<h2 class='section'>Enums</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../VariantN/VariantN/Enums/OpID.html">OpID</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -140,6 +204,22 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../VariantN/VariantN/Functions/coerce.html">coerce</a></td>
+<td>Returns the value stored in the <code>VariantN</code> object, explicitly converted (coerced) to the requested type $(D T). If <code>T</code> is a string type, the value is formatted as a string. If the <code>VariantN</code> object is a string, a parse of the string to type <code>T</code> is attempted. If a conversion is not possible, throws a $(D VariantException).</td>
+</tr>
+<tr>
+<td><a href="../VariantN/VariantN/Functions/convertsTo.html">convertsTo</a></td>
+<td>Returns <code>true</code> if and only if the <code>VariantN</code> object holds an object implicitly convertible to type <code>T</code> . Implicit convertibility is defined as per $(REF_ALTTEXT AllImplicitConversionTargets, AllImplicitConversionTargets, std,traits).</td>
+</tr>
+<tr>
+<td><a href="../VariantN/VariantN/Functions/get.html">get</a></td>
+<td>Returns the value stored in the <code>VariantN</code> object, either by specifying the needed type or the index in the list of allowed types. The latter overload only applies to bounded variants (e.g. $(LREF Algebraic)).</td>
+</tr>
+<tr>
+<td><a href="../VariantN/VariantN/Functions/handler.html">handler</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../VariantN/VariantN/Functions/hasValue.html">hasValue</a></td>
 <td>Returns true if and only if the <code>VariantN</code> object holds a valid value (has been initialized with, or assigned from, a valid value).</td>
 </tr>
@@ -148,8 +228,60 @@
 <td>If the <code>VariantN</code> contains an (associative) array, returns the length of that array. Otherwise, throws an exception.</td>
 </tr>
 <tr>
+<td><a href="../VariantN/VariantN/Functions/opApply.html">opApply</a></td>
+<td>If the <code>VariantN</code> contains an array, applies <code>dg</code> to each element of the array in turn. Otherwise, throws an exception.</td>
+</tr>
+<tr>
+<td><a href="../VariantN/VariantN/Functions/opArithmetic.html">opArithmetic</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../VariantN/VariantN/Functions/opAssign.html">opAssign</a></td>
+<td>Assigns a <code>VariantN</code> from a generic argument. Statically rejects disallowed types.</td>
+</tr>
+<tr>
+<td><a href="../VariantN/VariantN/Functions/opBinary.html">opBinary</a></td>
+<td>Arithmetic between <code>VariantN</code> objects and numeric values. All arithmetic operations return a <code>VariantN</code> object typed depending on the types of both values involved. The conversion rules mimic D's built-in rules for arithmetic conversions.</td>
+</tr>
+<tr>
+<td><a href="../VariantN/VariantN/Functions/opBinaryRight.html">opBinaryRight</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../VariantN/VariantN/Functions/opCall.html">opCall</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../VariantN/VariantN/Functions/opCmp.html">opCmp</a></td>
 <td></td>
+</tr>
+<tr>
+<td><a href="../VariantN/VariantN/Functions/opEquals.html">opEquals</a></td>
+<td>Comparison for equality used by the &quot;==&quot; and &quot;!=&quot;  operators.</td>
+</tr>
+<tr>
+<td><a href="../VariantN/VariantN/Functions/opIndex.html">opIndex</a></td>
+<td>Array and associative array operations. If a $(D VariantN) contains an (associative) array, it can be indexed into. Otherwise, an exception is thrown.</td>
+</tr>
+<tr>
+<td><a href="../VariantN/VariantN/Functions/opIndexAssign.html">opIndexAssign</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../VariantN/VariantN/Functions/opIndexOpAssign.html">opIndexOpAssign</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../VariantN/VariantN/Functions/opLogic.html">opLogic</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../VariantN/VariantN/Functions/opOpAssign.html">opOpAssign</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../VariantN/VariantN/Functions/peek.html">peek</a></td>
+<td>If the <code>VariantN</code> object holds a value of the $(I exact) type <code>T</code> , returns a pointer to that value. Otherwise, returns <code>null</code> . In cases where <code>T</code> is statically disallowed, $(D peek) will not compile.</td>
 </tr>
 <tr>
 <td><a href="../VariantN/VariantN/Functions/toHash.html">toHash</a></td>
@@ -165,6 +297,20 @@
 </tr>
 </tbody>
 </table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../VariantN/VariantN/Structs/SizeChecker.html">SizeChecker</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 class='section'>Variables</h2><table>
 <thead>
 <tr>
@@ -173,6 +319,10 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="../VariantN/VariantN/Variables/allowed.html">allowed</a></td>
+<td>Tells whether a type <code>T</code> is statically allowed for storage inside a <code>VariantN</code> object by looking <code>T</code> up in <code>AllowedTypes</code> .</td>
+</tr>
 <tr>
 <td><a href="../VariantN/VariantN/Variables/fptr.html">fptr</a></td>
 <td></td>

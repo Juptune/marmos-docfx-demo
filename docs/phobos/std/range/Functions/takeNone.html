@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,12 +88,9 @@
 <h1 class='section'>Overloads for - takeNone</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
 </div><h2 class='section api'>takeNone()   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; takeNone(
-) auto</code></pre><p>Returns an empty range which is statically known to be empty and is guaranteed to have <code>length</code> and be random access regardless of <code>R</code> 's capabilities.</p>
+ <pre><code class='lang-d'>auto takeNone( R )() </code></pre><p>Returns an empty range which is statically known to be empty and is guaranteed to have <code>length</code> and be random access regardless of <code>R</code> 's capabilities.</p>
 <h2 class='section api'>takeNone(range)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; takeNone(
-  R range
-) auto</code></pre><p>Creates an empty range from the given range in $(BIGOH 1). If it can, it will return the same range type. If not, it will return $(D takeExactly(range, 0)).</p>
+ <pre><code class='lang-d'>auto takeNone( R )( R range ) </code></pre><p>Creates an empty range from the given range in $(BIGOH 1). If it can, it will return the same range type. If not, it will return $(D takeExactly(range, 0)).</p>
 
 </article>
 

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,26 +90,33 @@
 </div><pre><code class='lang-d'>public struct MemoryBlockPool
 {
   // 
-  void addFreeBlock( size_t powerOfTwo, &lt;bug: unknown&gt; block ) ;
+  void addFreeBlock( size_t powerOfTwo, MemoryBlock* block ) @safe
   // Allocates a certain amount of blocks from the pool, at a specific power of two size. 
-  Result allocate( size_t powerOfTwo, size_t blockCount, MemoryBlockAllocation allocation ) ;
+  Result allocate(
+    size_t powerOfTwo,
+    size_t blockCount,
+    out scope return ref MemoryBlockAllocation allocation
+  ) @trusted
   // 
-  &lt;bug: unknown&gt; bucketByPower( size_t power ) ;
+  ref Bucket* bucketByPower( size_t power ) @safe return
   // 
-  AllocationOffsets calculateAllocationOffsets( size_t powerOfTwo, size_t blockCount ) static;
+  static AllocationOffsets calculateAllocationOffsets(
+    size_t powerOfTwo,
+    size_t blockCount
+  ) @safe pure
   // Preallocates a certain amount of blocks from the system, at a specific power of two size. 
-  Result preallocateBlocks( size_t powerOfTwo, size_t blockCount ) ;
+  Result preallocateBlocks( size_t powerOfTwo, size_t blockCount ) @trusted
 
   // 
-  __enumMember BLOCK_BUCKETS;
+  &lt;enum or auto&gt; BLOCK_BUCKETS = MAX_BLOCK_POWER - MIN_BLOCK_POWER + 1
   // Maximum block size, in power of two 
-  __enumMember MAX_BLOCK_POWER;
+  &lt;enum or auto&gt; MAX_BLOCK_POWER = bsf(MAX_BLOCK_SIZE)
   // Maximum block size, in bytes 
-  __enumMember MAX_BLOCK_SIZE;
+  &lt;enum or auto&gt; MAX_BLOCK_SIZE = 1024 * 1024 * 4
   // Minimum block size, in power of two 
-  __enumMember MIN_BLOCK_POWER;
+  &lt;enum or auto&gt; MIN_BLOCK_POWER = bsf(MIN_BLOCK_SIZE)
   // Minimum block size, in bytes 
-  __enumMember MIN_BLOCK_SIZE;
+  &lt;enum or auto&gt; MIN_BLOCK_SIZE = 256
 }</code></pre><h2 class='section'>About</h2><p>A pool used to manage blocks of memory of varying sizes.</p>
 <h3 class='section'>Notes</h3><p>This pool is not thread safe.</p>
 <p>It is not safe to move this pool once any memory has been allocated from it.</p>
@@ -130,6 +137,20 @@
 <p>The <code>n*(1 &lt;&lt; powerOfTwo) bytes</code> is the unstructured chunk of memory that is split equally amongst each <code>MemoryBlock</code> . This is where your user data lives.</p>
 <p>Additionally this pool only contains a linked list of free blocks, and does not keep track of allocated blocks.</p>
 <p>Free block lists are stored within a static array of buckets, where each bucket represents a power of two, for easy and fast lookup.</p>
+<h2 class='section'>Enums</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../MemoryBlockPool/MemoryBlockPool/Enums/Errors.html">Errors</a></td>
+<td><code>Result</code> ` error enum</td>
+</tr>
+</tbody>
+</table>
 <h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -157,6 +178,28 @@
 <tr>
 <td><a href="../MemoryBlockPool/MemoryBlockPool/Functions/preallocateBlocks.html">preallocateBlocks</a></td>
 <td>Preallocates a certain amount of blocks from the system, at a specific power of two size.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../MemoryBlockPool/MemoryBlockPool/Structs/AllocationMetadata.html">AllocationMetadata</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MemoryBlockPool/MemoryBlockPool/Structs/AllocationOffsets.html">AllocationOffsets</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MemoryBlockPool/MemoryBlockPool/Structs/Bucket.html">Bucket</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>

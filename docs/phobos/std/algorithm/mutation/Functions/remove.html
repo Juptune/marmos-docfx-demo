@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,6 +89,10 @@
 <dl><dt>Module</dt><dd>std.algorithm.mutation</dd></dl>
 </div><h2 class='section api'>remove(range, offset)   </h2>
  <pre><code class='lang-d'>Range remove(
+  SwapStrategy s = SwapStrategy.stable,
+  Range,
+  Offset...
+)(
   Range range,
   Offset offset
 ) </code></pre><p>Eliminates elements at given offsets from <code>range</code> and returns the shortened range.</p>
@@ -127,13 +131,15 @@
 <h3 class='section'>Returns</h3><p>A range containing elements of <code>range</code> with 1 or more elements removed.</p>
 <h2 class='section api'>remove(range, offset)   </h2>
  <pre><code class='lang-d'>Range remove(
+  SwapStrategy s = SwapStrategy.stable,
+  Range,
+  Offset...
+)(
   Range range,
   Offset offset
 ) </code></pre><p>ditto</p>
 <h2 class='section api'>remove(range)   </h2>
- <pre><code class='lang-d'>Range remove(
-  Range range
-) </code></pre><p>Reduces the length of the $(REF_ALTTEXT bidirectional range, isBidirectionalRange, std,range,primitives) <code>range</code> by removing elements that satisfy <code>pred</code> . If <code>s = SwapStrategy.unstable</code> , elements are moved from the right end of the range over the elements to eliminate. If <code>s = SwapStrategy.stable</code> (the default), elements are moved progressively to front such that their relative order is preserved. Returns the filtered range.</p>
+ <pre><code class='lang-d'>Range remove( alias pred, SwapStrategy s = SwapStrategy.stable, Range )( Range range ) </code></pre><p>Reduces the length of the $(REF_ALTTEXT bidirectional range, isBidirectionalRange, std,range,primitives) <code>range</code> by removing elements that satisfy <code>pred</code> . If <code>s = SwapStrategy.unstable</code> , elements are moved from the right end of the range over the elements to eliminate. If <code>s = SwapStrategy.stable</code> (the default), elements are moved progressively to front such that their relative order is preserved. Returns the filtered range.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>range</code> Range  </dt>
 <dd>
 

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,8 @@
 <h1 class='section'>Variable - binarySearch</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range.SearchPolicy</dd></dl><dl><dt>Parent</dt><dd>SearchPolicy</dd></dl>
 </div><h2 class='section api'>binarySearch   </h2>
- <pre><code class='lang-d'>__enumMember binarySearch</code></pre><h2 class='section'>About</h2><p>Searches using a classic interval halving policy. The search starts in the middle of the range, and each search step cuts the range in half. This policy finds a value in $(BIGOH log(n)) time but is less cache friendly than <code>gallop</code> for large ranges. The <code>binarySearch</code> policy is used as the last step of <code>trot</code> , <code>gallop</code> , <code>trotBackwards</code> , and $(D gallopBackwards) strategies.</p>
+ <pre><code class='lang-d'>&lt;enum or auto&gt; binarySearch</code></pre><h2 class='section'>About</h2><p>Searches using a classic interval halving policy. The search starts in the middle of the range, and each search step cuts the range in half. This policy finds a value in $(BIGOH log(n)) time but is less cache friendly than <code>gallop</code> for large ranges. The <code>binarySearch</code> policy is used as the last step of <code>trot</code> , <code>gallop</code> , <code>trotBackwards</code> , and $(D gallopBackwards) strategies.</p>
+<h3 class='section'>(Marmos Notes)</h3><p>Type may be inaccurate as marmos couldn't figure it out - potentially needs semantic analysis.</p>
 
 </article>
 

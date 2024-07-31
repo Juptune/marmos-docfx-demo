@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,8 +89,11 @@
 <dl><dt>Module</dt><dd>std.datetime.interval</dd></dl>
 </div><h2 class='section api'>everyDayOfWeek(dayOfWeek)   </h2>
  <pre><code class='lang-d'>&lt;bug: unknown&gt; everyDayOfWeek(
+  TP,
+  Direction dir = Direction.fwd
+)(
   DayOfWeek dayOfWeek
-) </code></pre><p>Range-generating function.</p>
+) nothrow</code></pre><p>Range-generating function.</p>
 <p>Returns a delegate which returns the next time point with the given <code>DayOfWeek</code> in a range.</p>
 <p>Using this delegate allows iteration over successive time points which are all the same day of the week. e.g. passing <code>DayOfWeek.mon</code> to <code>everyDayOfWeek</code> would result in a delegate which could be used to iterate over all of the Mondays in a range.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>dir</code> &lt;parameter not found&gt;  </dt>

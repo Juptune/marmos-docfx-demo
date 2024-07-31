@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,32 +88,10 @@
 <h1 class='section'>Overloads for - formatTest</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.format.internal.write</dd></dl>
 </div><h2 class='section api'>formatTest(val, expected, ln, fn)   </h2>
- <pre><code class='lang-d'>void formatTest(
-  T val,
-  string expected,
-  size_t ln,
-  string fn
-) </code></pre><h2 class='section api'>formatTest(fmt, val, expected, ln, fn)   </h2>
- <pre><code class='lang-d'>void formatTest(
-  string fmt,
-  T val,
-  string expected,
-  size_t ln,
-  string fn
-) </code></pre><h2 class='section api'>formatTest(val, expected, ln, fn)   </h2>
- <pre><code class='lang-d'>void formatTest(
-  T val,
-  &lt;bug: unknown&gt; expected,
-  size_t ln,
-  string fn
-) </code></pre><h2 class='section api'>formatTest(fmt, val, expected, ln, fn)   </h2>
- <pre><code class='lang-d'>void formatTest(
-  string fmt,
-  T val,
-  &lt;bug: unknown&gt; expected,
-  size_t ln,
-  string fn
-) </code></pre>
+ <pre><code class='lang-d'>void formatTest( T )( T val, string expected, size_t ln, string fn ) </code></pre><h2 class='section api'>formatTest(fmt, val, expected, ln, fn)   </h2>
+ <pre><code class='lang-d'>void formatTest( T )( string fmt, T val, string expected, size_t ln, string fn ) @safe</code></pre><h2 class='section api'>formatTest(val, expected, ln, fn)   </h2>
+ <pre><code class='lang-d'>void formatTest( T )( T val, string[] expected, size_t ln, string fn ) </code></pre><h2 class='section api'>formatTest(fmt, val, expected, ln, fn)   </h2>
+ <pre><code class='lang-d'>void formatTest( T )( string fmt, T val, string[] expected, size_t ln, string fn ) @safe</code></pre>
 </article>
 
         <div class="contribution d-print-none">

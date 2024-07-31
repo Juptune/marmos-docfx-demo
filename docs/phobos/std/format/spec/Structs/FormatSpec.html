@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,69 +87,75 @@
         <article data-uid="std.format.spec.Structs.FormatSpec">
 <h1 class='section'>Struct - FormatSpec</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.format.spec</dd></dl>
-</div><pre><code class='lang-d'>public struct FormatSpec
+</div><pre><code class='lang-d'>struct FormatSpec( Char )
 {
   // 
-  void fillUp( ) ;
+  void fillUp() scope
   // 
-  string getCurFmtStr( ) ;
+  string getCurFmtStr() 
+  // 
+  bool readUpToNextSpec( R )( ref R r ) scope
   // Set to `DYNAMIC` when the separator character is supplied at runtime. 
-  int separatorCharPos( ) ;
+  int separatorCharPos() 
   // ditto 
-  void separatorCharPos( int value ) ;
+  void separatorCharPos( int value ) 
   // Provides a string representation. 
-  string toString( ) ;
+  string toString() @safe pure
+  // Writes a string representation to an output range. 
+  void toString( OutputRange )( ref OutputRange writer ) 
+  // Writes the format string to an output range until the next format specifier is found and parse that format specifier. 
+  bool writeUpToNextSpec( OutputRange )( ref OutputRange writer ) scope
 
   // 
-  ubyte allFlags;
+  ubyte allFlags
   // Special value for `width` , `precision` and `separators` . 
-  int DYNAMIC;
+  int DYNAMIC = (int).max
   // The separator charactar is supplied at runtime. 
-  bool dynamicSeparatorChar;
+  bool dynamicSeparatorChar = false
   // The format specifier contained a `&#39;-&#39;` . 
-  bool flDash;
+  bool flDash
   // The format specifier contained a `&#39;=&#39;` . 
-  bool flEqual;
+  bool flEqual
   // The format specifier contained a `&#39;#&#39;` . 
-  bool flHash;
+  bool flHash
   // The format specifier contained a `&#39;+&#39;` . 
-  bool flPlus;
+  bool flPlus
   // The format specifier contained a `&#39;,&#39;` . 
-  bool flSeparator;
+  bool flSeparator
   // The format specifier contained a space. 
-  bool flSpace;
+  bool flSpace
   // The format specifier contained a `&#39;0&#39;` . 
-  bool flZero;
+  bool flZero
   // Index of the last argument for positional parameter ranges. 
-  ubyte indexEnd;
+  ubyte indexEnd
   // Index of the argument for positional parameters. 
-  ubyte indexStart;
+  ubyte indexStart
   // Sequence `&quot;:&quot;` inserted between element key and element value of an associative array. 
-  &lt;bug: unknown&gt; keySeparator;
+  Char[] keySeparator = &quot;:&quot;
   // The inner format string of a nested format specifier. 
-  &lt;bug: unknown&gt; nested;
+  Char[] nested
   // Precision. Its semantic depends on the format character. 
-  int precision;
+  int precision = UNSPECIFIED
   // The separator of a nested format specifier. 
-  &lt;bug: unknown&gt; sep;
+  Char[] sep
   // Character to use as separator. 
-  dchar separatorChar;
+  dchar separatorChar = &#39;,&#39;
   // Number of elements between separators. 
-  int separators;
+  int separators = UNSPECIFIED
   // Sequence `&quot;]&quot;` inserted after each range or range like structure. 
-  &lt;bug: unknown&gt; seqAfter;
+  Char[] seqAfter = &quot;]&quot;
   // Sequence `&quot;[&quot;` inserted before each range or range like structure. 
-  &lt;bug: unknown&gt; seqBefore;
+  Char[] seqBefore = &quot;[&quot;
   // Sequence `&quot;, &quot;` inserted between elements of a range, a range like structure or the elements of an associative array. 
-  &lt;bug: unknown&gt; seqSeparator;
+  Char[] seqSeparator = &quot;, &quot;
   // The format character. 
-  char spec;
+  char spec = &#39;s&#39;
   // Contains the part of the format string, that has not yet been parsed. 
-  &lt;bug: unknown&gt; trailing;
+  Char[] trailing
   // Special value for `precision` and `separators` . 
-  int UNSPECIFIED;
+  int UNSPECIFIED = DYNAMIC - 1
   // Minimum width. 
-  int width;
+  int width = 0
 }</code></pre><h2 class='section'>About</h2><p>A general handler for format strings.</p>
 <p>This handler centers around the function $(LREF writeUpToNextSpec), which parses the $(MREF_ALTTEXT format string, std,format) until the next format specifier is found. After the call, it provides information about this format specifier in its numerous variables.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>Char</code>   </dt>
@@ -175,12 +181,20 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="../FormatSpec/FormatSpec/Functions/readUpToNextSpec.html">readUpToNextSpec</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../FormatSpec/FormatSpec/Functions/separatorCharPos.html">separatorCharPos</a></td>
 <td>Set to <code>DYNAMIC</code> when the separator character is supplied at runtime.</td>
 </tr>
 <tr>
 <td><a href="../FormatSpec/FormatSpec/Functions/toString.html">toString</a></td>
 <td>Provides a string representation.</td>
+</tr>
+<tr>
+<td><a href="../FormatSpec/FormatSpec/Functions/writeUpToNextSpec.html">writeUpToNextSpec</a></td>
+<td>Writes the format string to an output range until the next format specifier is found and parse that format specifier.</td>
 </tr>
 </tbody>
 </table>

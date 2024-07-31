@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,10 +90,26 @@
 </div><pre><code class='lang-d'>public class Fft
 {
   // 
-  size_t size( ) ;
+  void butterfly( R )( R buf ) 
+  // 
+  void enforceSize( R )( R range ) 
+  // Compute the Fourier transform of range using the $(BIGOH N log N) Cooley-Tukey Algorithm.  `range` must be a random-access range with slicing and a length equal to `size` as provided at the construction of this object.  The contents of range can be either  numeric types, which will be interpreted as pure real values, or complex types with properties or members `.re` and `.im` that can be read. 
+  Complex!(F)[] fft( F = double, R )( R range ) 
+  // Same as the overload, but allows for the results to be stored in a user- provided buffer.  The buffer must be of the same length as range, must be a random-access range, must have slicing, and must contain elements that are complex-like.  This means that they must have a .re and a .im member or property that can be both read and written and are floating point numbers. 
+  void fft( Ret, R )( R range, Ret buf ) 
+  // 
+  void fftImpl( Ret, R )( Stride!(R) range, Ret buf ) 
+  // 
+  void fftImplPureReal( Ret, R )( R range, Ret buf ) 
+  // Computes the inverse Fourier transform of a range.  The range must be a random access range with slicing, have a length equal to the size provided at construction of this object, and contain elements that are either of type std.complex.Complex or have essentially the same compile-time interface. 
+  Complex!(F)[] inverseFft( F = double, R )( R range ) 
+  // Inverse FFT that allows a user-supplied buffer to be provided.  The buffer must be a random access range with slicing, and its elements must be some complex-like type. 
+  void inverseFft( Ret, R )( R range, Ret buf ) 
+  // 
+  size_t size() @property
 
   // 
-  immutable &lt;bug: unknown&gt; negSinLookup;
+  immutable lookup_t[][] negSinLookup
 }</code></pre><h2 class='section'>About</h2><p>A class for performing fast Fourier transforms of power of two sizes. This class encapsulates a large amount of state that is reusable when performing multiple FFTs of sizes smaller than or equal to that specified in the constructor.  This results in substantial speedups when performing multiple FFTs with a known maximum size.  However, a free function API is provided for convenience if you need to perform a one-off FFT.</p>
 <p>References: $(HTTP en.wikipedia.org/wiki/Cooley%E2%80%93Tukey_FFT_algorithm)</p>
 <h2 class='section'>Functions</h2><table>
@@ -104,6 +120,30 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="../Fft/Fft/Functions/butterfly.html">butterfly</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Fft/Fft/Functions/enforceSize.html">enforceSize</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Fft/Fft/Functions/fft.html">fft</a></td>
+<td>Compute the Fourier transform of range using the $(BIGOH N log N) Cooley-Tukey Algorithm.  <code>range</code> must be a random-access range with slicing and a length equal to <code>size</code> as provided at the construction of this object.  The contents of range can be either  numeric types, which will be interpreted as pure real values, or complex types with properties or members <code>.re</code> and <code>.im</code> that can be read.</td>
+</tr>
+<tr>
+<td><a href="../Fft/Fft/Functions/fftImpl.html">fftImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Fft/Fft/Functions/fftImplPureReal.html">fftImplPureReal</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Fft/Fft/Functions/inverseFft.html">inverseFft</a></td>
+<td>Computes the inverse Fourier transform of a range.  The range must be a random access range with slicing, have a length equal to the size provided at construction of this object, and contain elements that are either of type std.complex.Complex or have essentially the same compile-time interface.</td>
+</tr>
 <tr>
 <td><a href="../Fft/Fft/Functions/size.html">size</a></td>
 <td></td>

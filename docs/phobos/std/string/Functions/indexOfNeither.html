@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,17 +89,20 @@
 <dl><dt>Module</dt><dd>std.string</dd></dl>
 </div><h2 class='section api'>indexOfNeither(haystack, needles, cs)   </h2>
  <pre><code class='lang-d'>ptrdiff_t indexOfNeither(
-  &lt;bug: unknown&gt; haystack,
-  &lt;bug: unknown&gt; needles,
-  CaseSensitive cs
-) </code></pre><p>Returns the index of the first occurrence of any character not an elements in <code>needles</code> in <code>haystack</code> . If all element of <code>haystack</code> are element of <code>needles</code> <code>-1</code> is returned.</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>haystack</code> &lt;bug: unknown&gt;  </dt>
+  Char,
+  Char2
+)(
+  Char[] haystack,
+  Char2[] needles,
+  in CaseSensitive cs
+) @safe pure</code></pre><p>Returns the index of the first occurrence of any character not an elements in <code>needles</code> in <code>haystack</code> . If all element of <code>haystack</code> are element of <code>needles</code> <code>-1</code> is returned.</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>haystack</code> Char[]  </dt>
 <dd>
 
 
 <p>String to search for needles in.</p>
 
-</dd><dt><code>needles</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>needles</code> Char2[]  </dt>
 <dd>
 
 
@@ -119,11 +122,14 @@
 
 </dd></dl><h2 class='section api'>indexOfNeither(haystack, needles, startIdx, cs)   </h2>
  <pre><code class='lang-d'>ptrdiff_t indexOfNeither(
-  &lt;bug: unknown&gt; haystack,
-  &lt;bug: unknown&gt; needles,
-  size_t startIdx,
-  CaseSensitive cs
-) </code></pre><p>Ditto</p>
+  Char,
+  Char2
+)(
+  Char[] haystack,
+  Char2[] needles,
+  in size_t startIdx,
+  in CaseSensitive cs
+) @safe pure</code></pre><p>Ditto</p>
 
 </article>
 

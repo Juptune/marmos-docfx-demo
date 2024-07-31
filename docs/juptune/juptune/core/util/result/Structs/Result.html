@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,26 +90,60 @@
 </div><pre><code class='lang-d'>public struct Result
 {
   // 
-  bool isError( ) ;
+  void changeErrorType( T )( T errorCode ) 
   // 
-  Result noError( ) static;
+  bool isError() 
+  // 
+  bool isError( T )( T value ) 
+  // 
+  bool isErrorType( T )() 
+  // 
+  Result make(
+    T,
+    string FILE = __FILE__,
+    string MODULE = __MODULE__,
+    string FUNCTION = __PRETTY_FUNCTION__,
+    size_t LINE = __LINE__
+  )(
+    T errorCode,
+    string error,
+    String2 context
+  ) 
+  // 
+  Result make(
+    T,
+    string FILE = __FILE__,
+    string MODULE = __MODULE__,
+    string FUNCTION = __PRETTY_FUNCTION__,
+    size_t LINE = __LINE__
+  )(
+    T errorCode,
+    string error,
+    String context
+  ) @trusted
+  // 
+  static Result noError() 
+  // 
+  void opAssign( T )( auto ref T other ) 
+  // 
+  void toString( OutputRange )( auto ref OutputRange range ) @trusted
 
   // 
-  String2 context;
+  String2 context
   // 
-  string error;
+  string error
   // 
-  int errorCode;
+  int errorCode
   // 
-  string errorType;
+  string errorType
   // 
-  string file;
+  string file
   // 
-  string function_;
+  string function_
   // 
-  size_t line;
+  size_t line
   // 
-  string module_;
+  string module_
 }</code></pre><h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -119,11 +153,31 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../Result/Result/Functions/changeErrorType.html">changeErrorType</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../Result/Result/Functions/isError.html">isError</a></td>
 <td></td>
 </tr>
 <tr>
+<td><a href="../Result/Result/Functions/isErrorType.html">isErrorType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Result/Result/Functions/make.html">make</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../Result/Result/Functions/noError.html">noError</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Result/Result/Functions/opAssign.html">opAssign</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Result/Result/Functions/toString.html">toString</a></td>
 <td></td>
 </tr>
 </tbody>

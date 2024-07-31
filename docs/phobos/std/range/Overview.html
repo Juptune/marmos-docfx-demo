@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -244,10 +244,6 @@
 <td>Ditto</td>
 </tr>
 <tr>
-<td><a href="Functions/lockstepMixin.html">lockstepMixin</a></td>
-<td></td>
-</tr>
-<tr>
 <td><a href="Functions/lockstepReverseFailMixin.html">lockstepReverseFailMixin</a></td>
 <td></td>
 </tr>
@@ -388,6 +384,10 @@
 <tr>
 <td><a href="Structs/Lockstep.html">Lockstep</a></td>
 <td>Iterate multiple ranges in lockstep using a <code>foreach</code> loop. In contrast to $(LREF zip) it allows reference access to its elements. If only a single range is passed in, the <code>Lockstep</code> aliases itself away.  If the ranges are of different lengths and <code>s</code> == <code>StoppingPolicy.shortest</code> stop after the shortest range is empty.  If the ranges are of different lengths and <code>s</code> == <code>StoppingPolicy.requireSameLength</code> , throw an exception.  <code>s</code> may not be <code>StoppingPolicy.longest</code> , and passing this will throw an exception.</td>
+</tr>
+<tr>
+<td><a href="Structs/LockstepMixin.html">LockstepMixin</a></td>
+<td></td>
 </tr>
 <tr>
 <td><a href="Structs/NullSink.html">NullSink</a></td>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - moveAt</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range.primitives</dd></dl>
 </div><h2 class='section api'>moveAt(r, i)   </h2>
- <pre><code class='lang-d'>ElementType!(R) moveAt(
-  R r,
-  size_t i
-) </code></pre><p>Moves element at index <code>i</code> of <code>r</code> out and returns it. Leaves $(D r[i]) in a destroyable state that does not allocate any resources (usually equal to its <code>.init</code> value).</p>
+ <pre><code class='lang-d'>ElementType!(R) moveAt( R )( R r, size_t i ) </code></pre><p>Moves element at index <code>i</code> of <code>r</code> out and returns it. Leaves $(D r[i]) in a destroyable state that does not allocate any resources (usually equal to its <code>.init</code> value).</p>
 
 </article>
 

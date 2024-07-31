@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - precalc_16_31</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.internal.digest.sha_SSSE3</dd></dl>
 </div><h2 class='section api'>precalc_16_31(i)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; precalc_16_31(
-  int i
-) </code></pre><p>Done on 4 consequtive W[i] values in a single XMM register W[i  ] = (W[i-3] ^ W[i-8] ^ W[i-14] ^ W[i-16]) rol 1 W[i+1] = (W[i-2] ^ W[i-7] ^ W[i-13] ^ W[i-15]) rol 1 W[i+2] = (W[i-1] ^ W[i-6] ^ W[i-12] ^ W[i-14]) rol 1 W[i+3] = (   0   ^ W[i-5] ^ W[i-11] ^ W[i-13]) rol 1</p>
+ <pre><code class='lang-d'>string[] precalc_16_31( int i ) nothrow pure</code></pre><p>Done on 4 consequtive W[i] values in a single XMM register W[i  ] = (W[i-3] ^ W[i-8] ^ W[i-14] ^ W[i-16]) rol 1 W[i+1] = (W[i-2] ^ W[i-7] ^ W[i-13] ^ W[i-15]) rol 1 W[i+2] = (W[i-1] ^ W[i-6] ^ W[i-12] ^ W[i-14]) rol 1 W[i+3] = (   0   ^ W[i-5] ^ W[i-11] ^ W[i-13]) rol 1</p>
 <p>This additional calculation unfortunately requires many additional operations W[i+3] ^= W[i] rol 1</p>
 <p>Once we have 4 W[i] values in XMM we can also add four K values with one instruction W[i:i+3] += {K,K,K,K}</p>
 

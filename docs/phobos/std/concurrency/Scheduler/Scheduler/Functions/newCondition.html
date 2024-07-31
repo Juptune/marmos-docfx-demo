@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - newCondition</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.concurrency.Scheduler</dd></dl><dl><dt>Parent</dt><dd>Scheduler</dd></dl>
 </div><h2 class='section api'>newCondition(m)   </h2>
- <pre><code class='lang-d'>Condition newCondition(
-  Mutex m
-) </code></pre><p>Creates a <code>Condition</code> variable analog for signaling.</p>
+ <pre><code class='lang-d'>Condition newCondition( Mutex m ) nothrow</code></pre><p>Creates a <code>Condition</code> variable analog for signaling.</p>
 <p>Creates a new <code>Condition</code> variable analog which is used to check for and to signal the addition of messages to a thread's message queue.  Like yield, some schedulers may need to define custom behavior so that calls to <code>Condition.wait()</code> yield to another thread when no new messages are available instead of blocking.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>m</code> Mutex  </dt>
 <dd>

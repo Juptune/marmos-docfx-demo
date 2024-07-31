@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,21 +88,13 @@
 <h1 class='section'>Overloads for - make</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.container.util</dd></dl>
 </div><h2 class='section api'>make(arguments)   </h2>
- <pre><code class='lang-d'>T make(
-  Args arguments
-) </code></pre><p>Returns an initialized object. This function is mainly for eliminating construction differences between structs and classes. It allows code to not worry about whether the type it's constructing is a struct or a class.</p>
+ <pre><code class='lang-d'>T make( Args... )( Args arguments ) </code></pre><p>Returns an initialized object. This function is mainly for eliminating construction differences between structs and classes. It allows code to not worry about whether the type it's constructing is a struct or a class.</p>
 <h2 class='section api'>make(arguments)   </h2>
- <pre><code class='lang-d'>T make(
-  Args arguments
-) </code></pre><p>Returns an initialized object. This function is mainly for eliminating construction differences between structs and classes. It allows code to not worry about whether the type it's constructing is a struct or a class.</p>
+ <pre><code class='lang-d'>T make( Args... )( Args arguments ) </code></pre><p>Returns an initialized object. This function is mainly for eliminating construction differences between structs and classes. It allows code to not worry about whether the type it's constructing is a struct or a class.</p>
 <h2 class='section api'>make(range)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; make(
-  Range range
-) auto</code></pre><p>Convenience function for constructing a generic container.</p>
+ <pre><code class='lang-d'>auto make( Range )( Range range ) </code></pre><p>Convenience function for constructing a generic container.</p>
 <h2 class='section api'>make(items)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; make(
-  &lt;bug: unknown&gt; items
-) auto</code></pre><p>Convenience function for constructing a generic container.</p>
+ <pre><code class='lang-d'>auto make( T )( T[] items ) </code></pre><p>Convenience function for constructing a generic container.</p>
 
 </article>
 

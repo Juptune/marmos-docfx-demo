@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - putResultResponse</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.http.v1.Http1WriterBase</dd></dl><dl><dt>Parent</dt><dd>Http1WriterBase</dd></dl>
 </div><h2 class='section api'>putResultResponse(result)   </h2>
- <pre><code class='lang-d'>Result putResultResponse(
-  Result result
-) </code></pre><p>Writes the HTTP message stored within the provided <code>result</code> to the socket.</p>
+ <pre><code class='lang-d'>Result putResultResponse( Result result ) </code></pre><p>Writes the HTTP message stored within the provided <code>result</code> to the socket.</p>
 <h3 class='section'>State</h3><p>The writer must be in the <code>startLine</code> state. It will still be in the <code>startLine</code> state after this function is called.</p>
 <h3 class='section'>Assertions</h3><p>The provided <code>result</code> must be an <code>Http1Error</code> result.</p>
 <h3 class='section'>Notes</h3><p>This function assumes that the result was created by a <code>Http1Reader</code> or a <code>Http1Writer</code> , as these types ensure that the error response is a valid HTTP message.</p>

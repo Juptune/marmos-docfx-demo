@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,72 +90,72 @@
 </div><pre><code class='lang-d'>public struct CodeGen
 {
   // 
-  void charsetToIr( CodepointSet set ) ;
+  void charsetToIr( CodepointSet set ) @trusted
   // 
-  void endPattern( uint num ) ;
+  void endPattern( uint num ) 
   // 
-  void finishAlternation( uint fix ) ;
+  void finishAlternation( uint fix ) 
   // 
-  void fixAlternation( ) ;
+  void fixAlternation() 
   // 
-  void fixLookaround( uint fix ) ;
+  void fixLookaround( uint fix ) 
   // 
-  void fixRepetition( uint offset ) ;
+  void fixRepetition( uint offset ) 
   // 
-  void fixRepetition( uint offset, uint min, uint max, bool greedy ) ;
+  void fixRepetition( uint offset, uint min, uint max, bool greedy ) 
   // 
-  size_t fixupLength( ) ;
+  size_t fixupLength() @property
   // 
-  void genGroup( ) ;
+  void genGroup() 
   // 
-  void genLogicGroup( ) ;
+  void genLogicGroup() 
   // 
-  void genLookaround( IR opcode ) ;
+  void genLookaround( IR opcode ) 
   // 
-  void genNamedGroup( string name ) ;
+  void genNamedGroup( string name ) 
   // 
-  bool isOpenGroup( uint n ) ;
+  bool isOpenGroup( uint n ) 
   // 
-  uint length( ) ;
+  uint length() @property
   // 
-  void markBackref( uint n ) ;
+  void markBackref( uint n ) 
   // 
-  Tuple!(booluint) onClose( ) ;
+  Tuple!(bool,uint) onClose() 
   // 
-  uint popFixup( ) ;
+  uint popFixup() 
   // 
-  void pushFixup( uint val ) ;
+  void pushFixup( uint val ) 
   // 
-  void put( Bytecode code ) ;
+  void put( Bytecode code ) 
   // 
-  void putRaw( uint number ) ;
+  void putRaw( uint number ) 
   // 
-  void start( uint length ) ;
+  void start( uint length ) 
   // 
-  uint topFixup( ) ;
+  uint topFixup() @property
 
   // 
-  &lt;bug: unknown&gt; backrefed;
+  uint[] backrefed
   // 
-  &lt;bug: unknown&gt; charsets;
+  CodepointSet[] charsets
   // 
-  uint counterDepth;
+  uint counterDepth = 0
   // 
-  &lt;bug: unknown&gt; dict;
+  NamedGroup[] dict
   // 
-  Stack!(uint) fixupStack;
+  Stack!(uint) fixupStack
   // 
-  Stack!(uint) groupStack;
+  Stack!(uint) groupStack
   // 
-  &lt;bug: unknown&gt; ir;
+  Bytecode[] ir
   // 
-  uint lookaroundNest;
+  uint lookaroundNest = 0
   // 
-  &lt;bug: unknown&gt; matchers;
+  CharMatcher[] matchers
   // 
-  uint nesting;
+  uint nesting = 0
   // 
-  uint ngroup;
+  uint ngroup
 }</code></pre><h2 class='section'>Functions</h2><table>
 <thead>
 <tr>

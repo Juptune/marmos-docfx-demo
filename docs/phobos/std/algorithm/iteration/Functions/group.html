@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - group</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.iteration</dd></dl>
 </div><h2 class='section api'>group(r)   </h2>
- <pre><code class='lang-d'>Group!(predRange) group(
-  Range r
-) </code></pre><p>Groups consecutively equivalent elements into a single tuple of the element and the number of its repetitions.</p>
+ <pre><code class='lang-d'>Group!(pred,Range) group( alias pred = &quot;a == b&quot;, Range )( Range r ) </code></pre><p>Groups consecutively equivalent elements into a single tuple of the element and the number of its repetitions.</p>
 <p>Similarly to <code>uniq</code> , <code>group</code> produces a range that iterates over unique consecutive elements of the given range. Each element of this range is a tuple of the element and the number of times it is repeated in the original range. Equivalence of elements is assessed by using the predicate <code>pred</code> , which defaults to <code>&quot;a == b&quot;</code> .  The predicate is passed to $(REF binaryFun, std,functional), and can either accept a string, or any callable that can be executed via <code>pred(element, element)</code> .</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>pred</code> &lt;parameter not found&gt;  </dt>
 <dd>

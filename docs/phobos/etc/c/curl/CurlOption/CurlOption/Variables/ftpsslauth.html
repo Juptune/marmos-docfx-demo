@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,7 @@
 <h1 class='section'>Variable - ftpsslauth</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.curl.CurlOption</dd></dl><dl><dt>Parent</dt><dd>CurlOption</dd></dl>
 </div><h2 class='section api'>ftpsslauth   </h2>
- <pre><code class='lang-d'>__enumMember ftpsslauth</code></pre><h2 class='section'>About</h2><p>When FTP over SSL/TLS is selected (with CURLOPT_USE_SSL), this option can be used to change libcurl's default action which is to first try &quot;AUTH SSL&quot; and then &quot;AUTH TLS&quot; in this order, and proceed when a OK response has been received.</p>
+ <pre><code class='lang-d'>int ftpsslauth = 129</code></pre><h2 class='section'>About</h2><p>When FTP over SSL/TLS is selected (with CURLOPT_USE_SSL), this option can be used to change libcurl's default action which is to first try &quot;AUTH SSL&quot; and then &quot;AUTH TLS&quot; in this order, and proceed when a OK response has been received.</p>
 <p>Available parameters are: CURLFTPAUTH_DEFAULT - let libcurl decide CURLFTPAUTH_SSL     - try &quot;AUTH SSL&quot; first, then TLS CURLFTPAUTH_TLS     - try &quot;AUTH TLS&quot; first, then SSL</p>
 
 </article>

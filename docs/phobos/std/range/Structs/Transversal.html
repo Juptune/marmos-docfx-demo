@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,48 +87,48 @@
         <article data-uid="std.range.Structs.Transversal">
 <h1 class='section'>Struct - Transversal</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
-</div><pre><code class='lang-d'>public struct Transversal
+</div><pre><code class='lang-d'>struct Transversal( Ror, TransverseOptions opt = TransverseOptions.assumeJagged )
 {
   // 
-  alias E = &lt;todo: marmos support pending&gt;;
+  alias E = &lt;todo: marmos support pending&gt;
   // 
-  alias InnerRange = &lt;todo: marmos support pending&gt;;
+  alias InnerRange = &lt;todo: marmos support pending&gt;
   // 
-  alias RangeOfRanges = &lt;todo: marmos support pending&gt;;
+  alias RangeOfRanges = &lt;todo: marmos support pending&gt;
 
   // Bidirectional primitives. They are offered if $(D isBidirectionalRange!RangeOfRanges). 
-  &lt;bug: unknown&gt; back( ) auto;
+  ref auto back() @property
   // Ditto 
-  void back( E val ) ;
+  void back( E val ) @property
   // Ditto 
-  &lt;bug: unknown&gt; front( ) auto;
+  ref auto front() @property
   // Ditto 
-  void front( E val ) ;
+  void front( E val ) @property
   // Ditto 
-  E moveAt( size_t n ) ;
+  E moveAt( size_t n ) 
   // Ditto 
-  E moveBack( ) ;
+  E moveBack() 
   // Ditto 
-  E moveFront( ) ;
+  E moveFront() 
   // Random-access primitive. It is offered if $(D isRandomAccessRange!RangeOfRanges &amp;&amp; (opt == TransverseOptions.assumeNotJagged || opt == TransverseOptions.enforceNotJagged)). 
-  &lt;bug: unknown&gt; opIndex( size_t n ) auto;
+  ref auto opIndex( size_t n ) 
   // Ditto 
-  void opIndexAssign( E val, size_t n ) ;
+  void opIndexAssign( E val, size_t n ) 
   // Slicing if offered if `RangeOfRanges` supports slicing and all the conditions for supporting indexing are met. 
-  &lt;bug: unknown&gt; opSlice( size_t lower, size_t upper ) ;
+  typeof(this) opSlice( size_t lower, size_t upper ) 
   // 
-  &lt;bug: unknown&gt; opSlice( ) auto;
+  auto opSlice() 
   // Ditto 
-  void popBack( ) ;
+  void popBack() 
   // Ditto 
-  void popFront( ) ;
+  void popFront() 
   // 
-  void prime( ) ;
+  void prime() 
   // Ditto 
-  &lt;bug: unknown&gt; save( ) ;
+  typeof(this) save() @property
 
   // Forward range primitives. 
-  bool empty;
+  bool empty = false
 }</code></pre><h2 class='section'>About</h2><p>Given a range of ranges, iterate transversally through the <code>n</code> th element of each of the enclosed ranges. This function is similar to <code>unzip</code> in other languages.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>opt</code>   </dt>
 <dd>

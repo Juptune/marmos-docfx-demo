@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,18 +90,18 @@
 </div><pre><code class='lang-d'>public class Protocol
 {
   // Returns: false on failure 
-  bool getProtocolByName( &lt;bug: unknown&gt; name ) ;
+  bool getProtocolByName( scope char[] name ) @trusted nothrow
   // Returns: false on failure 
-  bool getProtocolByType( ProtocolType type ) ;
+  bool getProtocolByType( ProtocolType type ) @trusted nothrow
   // 
-  void populate( &lt;bug: unknown&gt; proto ) ;
+  void populate( protoent* proto ) @system nothrow pure
 
   // ditto 
-  &lt;bug: unknown&gt; aliases;
+  string[] aliases
   // ditto 
-  string name;
+  string name
   // 
-  ProtocolType type;
+  ProtocolType type
 }</code></pre><h2 class='section'>About</h2><p>Class for retrieving protocol information.</p>
 <h3 class='section'>Example</h3><p>--- auto proto = new Protocol; writeln(&quot;About protocol TCP:&quot;); if (proto.getProtocolByType(ProtocolType.TCP)) { writefln(&quot;  Name: %s&quot;, proto.name); foreach (string s; proto.aliases) writefln(&quot;  Alias: %s&quot;, s); } else writeln(&quot;  No information found&quot;); ---</p>
 <h2 class='section'>Functions</h2><table>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - ordered</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.sorting</dd></dl>
 </div><h2 class='section api'>ordered(values)   </h2>
- <pre><code class='lang-d'>bool ordered(
-  T values
-) </code></pre><p>Like <code>isSorted</code> , returns <code>true</code> if the given <code>values</code> are ordered according to the comparison operation <code>less</code> . Unlike <code>isSorted</code> , takes values directly instead of structured in a range.</p>
+ <pre><code class='lang-d'>bool ordered( alias less = &quot;a &lt; b&quot;, T... )( T values ) </code></pre><p>Like <code>isSorted</code> , returns <code>true</code> if the given <code>values</code> are ordered according to the comparison operation <code>less</code> . Unlike <code>isSorted</code> , takes values directly instead of structured in a range.</p>
 <p><code>ordered</code> allows repeated values, e.g. <code>ordered(1, 1, 2)</code> is <code>true</code> . To verify that the values are ordered strictly monotonically, use <code>strictlyOrdered</code> ; <code>strictlyOrdered(1, 1, 2)</code> is <code>false</code> .</p>
 <p>With either function, the predicate must be a strict ordering. For example, using <code>&quot;a &lt;= b&quot;</code> instead of <code>&quot;a &lt; b&quot;</code> is incorrect and will cause failed assertions.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>values</code> T  </dt>

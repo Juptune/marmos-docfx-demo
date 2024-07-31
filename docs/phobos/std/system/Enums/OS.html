@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,38 +87,38 @@
         <article data-uid="std.system.Enums.OS">
 <h1 class='section'>Enum - OS</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.system</dd></dl>
-</div><pre><code class='lang-d'>enum OS
+</div><pre><code class='lang-d'>enum OS : int
 {
-  // Android 
-  __enumMember android;
-  // DragonFlyBSD 
-  __enumMember dragonFlyBSD;
-  // FreeBSD 
-  __enumMember freeBSD;
-  // iOS 
-  __enumMember iOS;
-  // All Linux Systems, except for Android 
-  __enumMember linux;
-  // NetBSD 
-  __enumMember netBSD;
-  // OpenBSD 
-  __enumMember openBSD;
-  // Mac OS X 
-  __enumMember osx;
-  // Other Posix Systems 
-  __enumMember otherPosix;
-  // Solaris 
-  __enumMember solaris;
-  // tvOS 
-  __enumMember tvOS;
-  // Unknown 
-  __enumMember unknown;
-  // watchOS 
-  __enumMember watchOS;
   // Microsoft 32 bit Windows systems 
-  __enumMember win32;
+  win32 = 1,
   // Microsoft 64 bit Windows systems 
-  __enumMember win64;
+  win64,
+  // All Linux Systems, except for Android 
+  linux,
+  // Mac OS X 
+  osx,
+  // iOS 
+  iOS,
+  // tvOS 
+  tvOS,
+  // watchOS 
+  watchOS,
+  // FreeBSD 
+  freeBSD,
+  // NetBSD 
+  netBSD,
+  // OpenBSD 
+  openBSD,
+  // DragonFlyBSD 
+  dragonFlyBSD,
+  // Solaris 
+  solaris,
+  // Android 
+  android,
+  // Other Posix Systems 
+  otherPosix,
+  // Unknown 
+  unknown,
 }</code></pre><h2 class='section'>About</h2><p>Operating system.</p>
 <h3 class='section'>Note</h3><p>This is for cases where you need a value representing the OS at runtime. If you're doing something which should compile differently on different OSes, then please use <code>version (Windows)</code> , <code>version (linux)</code> , etc.</p>
 <h3 class='section'>See_Also</h3><p>$(DDSUBLINK spec/version,PredefinedVersions, Predefined Versions)</p>

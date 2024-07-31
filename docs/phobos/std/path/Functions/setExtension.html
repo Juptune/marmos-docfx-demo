@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - setExtension</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.path</dd></dl>
 </div><h2 class='section api'>setExtension(path, ext)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; setExtension(
-  &lt;bug: unknown&gt; path,
-  &lt;bug: unknown&gt; ext
-) </code></pre><p>Sets or replaces an extension.</p>
+ <pre><code class='lang-d'>C1[] setExtension( C1, C2 )( in C1[] path, in C2[] ext ) </code></pre><p>Sets or replaces an extension.</p>
 <p>If the filename already has an extension, it is replaced. If not, the extension is simply appended to the filename. Including a leading dot in <code>ext</code> is optional.</p>
 <p>If the extension is empty, this function is equivalent to $(LREF stripExtension).</p>
 <p>This function normally allocates a new string (the possible exception being the case when path is immutable and doesn't already have an extension).</p>
@@ -99,10 +96,7 @@
 <p>Returns: A string containing the path given by <code>path</code> , but where the extension has been set to <code>ext</code> .</p>
 <p>See_Also: $(LREF withExtension) which does not allocate and returns a lazy range.</p>
 <h2 class='section api'>setExtension(path, ext)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; setExtension(
-  &lt;bug: unknown&gt; path,
-  &lt;bug: unknown&gt; ext
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>C1[] setExtension( C1, C2 )( C1[] path, C2[] ext ) </code></pre><p>ditto</p>
 
 </article>
 

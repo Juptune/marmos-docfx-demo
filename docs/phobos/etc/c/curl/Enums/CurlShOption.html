@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,22 +87,22 @@
         <article data-uid="etc.c.curl.Enums.CurlShOption">
 <h1 class='section'>Enum - CurlShOption</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.curl</dd></dl>
-</div><pre><code class='lang-d'>enum CurlShOption
+</div><pre><code class='lang-d'>enum CurlShOption : int
 {
-  // never use 
-  __enumMember last;
-  // pass in a &#39;curl_lock_function&#39; pointer 
-  __enumMember lockfunc;
   // don&#39;t use 
-  __enumMember none;
+  none,
   // specify a data type to share 
-  __enumMember share;
-  // pass in a &#39;curl_unlock_function&#39; pointer 
-  __enumMember unlockfunc;
+  share,
   // specify which data type to stop sharing 
-  __enumMember unshare;
+  unshare,
+  // pass in a &#39;curl_lock_function&#39; pointer 
+  lockfunc,
+  // pass in a &#39;curl_unlock_function&#39; pointer 
+  unlockfunc,
   // pass in a user data pointer used in the lock/unlock callback functions 
-  __enumMember userdata;
+  userdata,
+  // never use 
+  last,
 }</code></pre><h2 class='section'>About</h2><p>pass in a user data pointer used in the lock/unlock callback functions</p>
 <h2 class='section'>Variables</h2><table>
 <thead>

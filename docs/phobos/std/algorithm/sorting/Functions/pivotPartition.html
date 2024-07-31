@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - pivotPartition</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.sorting</dd></dl>
 </div><h2 class='section api'>pivotPartition(r, pivot)   </h2>
- <pre><code class='lang-d'>size_t pivotPartition(
-  Range r,
-  size_t pivot
-) </code></pre><p>Partitions <code>r</code> around <code>pivot</code> using comparison function <code>less</code> , algorithm akin to $(LINK2 <a href="https://en.wikipedia.org/wiki/Quicksort#Hoare_partition_scheme">https://en.wikipedia.org/wiki/Quicksort#Hoare_partition_scheme</a>, Hoare partition).</p>
+ <pre><code class='lang-d'>size_t pivotPartition( alias less = &quot;a &lt; b&quot;, Range )( Range r, size_t pivot ) </code></pre><p>Partitions <code>r</code> around <code>pivot</code> using comparison function <code>less</code> , algorithm akin to $(LINK2 <a href="https://en.wikipedia.org/wiki/Quicksort#Hoare_partition_scheme">https://en.wikipedia.org/wiki/Quicksort#Hoare_partition_scheme</a>, Hoare partition).</p>
 <p>Specifically, permutes elements of <code>r</code> and returns an index <code>k &lt; r.length</code> such that:</p>
 <p>$(UL</p>
 <p>$(LI <code>r[pivot]</code> is swapped to <code>r[k]</code> )</p>

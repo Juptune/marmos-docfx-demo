@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - isRooted</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.path</dd></dl>
 </div><h2 class='section api'>isRooted(path)   </h2>
- <pre><code class='lang-d'>bool isRooted(
-  R path
-) </code></pre><p>Determines whether a path starts at a root directory.</p>
+ <pre><code class='lang-d'>bool isRooted( R )( R path ) </code></pre><p>Determines whether a path starts at a root directory.</p>
 <p>Params: path = A path name. Returns: Whether a path starts at a root directory.</p>
 <p>On POSIX, this function returns true if and only if the path starts with a slash (/).</p>
 <p>On Windows, this function returns true if the path starts at the root directory of the current drive, of some other drive, or of a network drive.</p>

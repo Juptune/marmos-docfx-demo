@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,96 +87,96 @@
         <article data-uid="etc.c.curl.Enums.CurlInfo">
 <h1 class='section'>Enum - CurlInfo</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.curl</dd></dl>
-</div><pre><code class='lang-d'>enum CurlInfo
+</div><pre><code class='lang-d'>enum CurlInfo : int
 {
   // 
-  __enumMember appconnect_time;
+  none,
   // 
-  __enumMember certinfo;
+  effective_url = 1048577,
   // 
-  __enumMember condition_unmet;
+  response_code = 2097154,
   // 
-  __enumMember connect_time;
+  total_time = 3145731,
   // 
-  __enumMember content_length_download;
+  namelookup_time,
   // 
-  __enumMember content_length_upload;
+  connect_time,
   // 
-  __enumMember content_type;
+  pretransfer_time,
   // 
-  __enumMember cookielist;
+  size_upload,
   // 
-  __enumMember effective_url;
+  size_download,
   // 
-  __enumMember filetime;
+  speed_download,
   // 
-  __enumMember ftp_entry_path;
+  speed_upload,
   // 
-  __enumMember header_size;
+  header_size = 2097163,
   // 
-  __enumMember http_connectcode;
+  request_size,
   // 
-  __enumMember httpauth_avail;
+  ssl_verifyresult,
+  // 
+  filetime,
+  // 
+  content_length_download = 3145743,
+  // 
+  content_length_upload,
+  // 
+  starttransfer_time,
+  // 
+  content_type = 1048594,
+  // 
+  redirect_time = 3145747,
+  // 
+  redirect_count = 2097172,
+  // 
+  private_info = 1048597,
+  // 
+  http_connectcode = 2097174,
+  // 
+  httpauth_avail,
+  // 
+  proxyauth_avail,
+  // 
+  os_errno,
+  // 
+  num_connects,
+  // 
+  ssl_engines = 4194331,
+  // 
+  cookielist,
+  // 
+  lastsocket = 2097181,
+  // 
+  ftp_entry_path = 1048606,
+  // 
+  redirect_url,
+  // 
+  primary_ip,
+  // 
+  appconnect_time = 3145761,
+  // 
+  certinfo = 4194338,
+  // 
+  condition_unmet = 2097187,
+  // 
+  rtsp_session_id = 1048612,
+  // 
+  rtsp_client_cseq = 2097189,
+  // 
+  rtsp_server_cseq,
+  // 
+  rtsp_cseq_recv,
+  // 
+  primary_port,
+  // 
+  local_ip = 1048617,
+  // 
+  local_port = 2097194,
   // Fill in new entries below here! 
-  __enumMember lastone;
-  // 
-  __enumMember lastsocket;
-  // 
-  __enumMember local_ip;
-  // 
-  __enumMember local_port;
-  // 
-  __enumMember namelookup_time;
-  // 
-  __enumMember none;
-  // 
-  __enumMember num_connects;
-  // 
-  __enumMember os_errno;
-  // 
-  __enumMember pretransfer_time;
-  // 
-  __enumMember primary_ip;
-  // 
-  __enumMember primary_port;
-  // 
-  __enumMember private_info;
-  // 
-  __enumMember proxyauth_avail;
-  // 
-  __enumMember redirect_count;
-  // 
-  __enumMember redirect_time;
-  // 
-  __enumMember redirect_url;
-  // 
-  __enumMember request_size;
-  // 
-  __enumMember response_code;
-  // 
-  __enumMember rtsp_client_cseq;
-  // 
-  __enumMember rtsp_cseq_recv;
-  // 
-  __enumMember rtsp_server_cseq;
-  // 
-  __enumMember rtsp_session_id;
-  // 
-  __enumMember size_download;
-  // 
-  __enumMember size_upload;
-  // 
-  __enumMember speed_download;
-  // 
-  __enumMember speed_upload;
-  // 
-  __enumMember ssl_engines;
-  // 
-  __enumMember ssl_verifyresult;
-  // 
-  __enumMember starttransfer_time;
-  // 
-  __enumMember total_time;
+  lastone = 42,
 }</code></pre><h2 class='section'>Variables</h2><table>
 <thead>
 <tr>

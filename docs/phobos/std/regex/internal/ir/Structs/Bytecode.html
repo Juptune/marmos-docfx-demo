@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,42 +90,52 @@
 </div><pre><code class='lang-d'>public struct Bytecode
 {
   // 
-  int args( ) ;
+  int args() @property
   // 
-  bool backreference( ) ;
+  bool backreference() @property
   // 
-  Bytecode fromRaw( uint data ) static;
+  IR code( )() @property
   // 
-  bool hotspot( ) ;
+  uint data( )() @property
   // 
-  uint indexOfPair( uint pc ) ;
+  void data( )( uint val ) @property
   // 
-  bool isAtom( ) ;
+  static Bytecode fromRaw( uint data ) 
   // 
-  bool isEnd( ) ;
+  bool hotspot() @property
   // 
-  bool isStart( ) ;
+  uint indexOfPair( uint pc ) 
   // 
-  uint length( ) ;
+  bool isAtom() @property
   // 
-  bool localRef( ) ;
+  bool isEnd() @property
   // 
-  Bytecode paired( ) ;
+  bool isStart() @property
   // 
-  uint pairedLength( ) ;
+  uint length() @property
   // 
-  void setBackrefence( ) ;
+  bool localRef() @property
   // 
-  void setLocalRef( ) ;
+  string mnemonic( )() @property @trusted
+  // 
+  Bytecode paired() @property
+  // 
+  uint pairedLength() @property
+  // 
+  uint sequence( )() @property
+  // 
+  void setBackrefence() 
+  // 
+  void setLocalRef() 
 
   // 
-  __enumMember maxData;
+  &lt;enum or auto&gt; maxData = 1 &lt;&lt; 22
   // 
-  __enumMember maxRaw;
+  &lt;enum or auto&gt; maxRaw = 1 &lt;&lt; 31
   // 
-  __enumMember maxSequence;
+  &lt;enum or auto&gt; maxSequence = 2 + 4
   // 
-  uint raw;
+  uint raw
 }</code></pre><h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -140,6 +150,14 @@
 </tr>
 <tr>
 <td><a href="../Bytecode/Bytecode/Functions/backreference.html">backreference</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Bytecode/Bytecode/Functions/code.html">code</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Bytecode/Bytecode/Functions/data.html">data</a></td>
 <td></td>
 </tr>
 <tr>
@@ -175,11 +193,19 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="../Bytecode/Bytecode/Functions/mnemonic.html">mnemonic</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../Bytecode/Bytecode/Functions/paired.html">paired</a></td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../Bytecode/Bytecode/Functions/pairedLength.html">pairedLength</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Bytecode/Bytecode/Functions/sequence.html">sequence</a></td>
 <td></td>
 </tr>
 <tr>

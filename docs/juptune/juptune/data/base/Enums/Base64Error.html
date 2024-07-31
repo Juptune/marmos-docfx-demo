@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,24 +87,24 @@
         <article data-uid="juptune.data.base.Enums.Base64Error">
 <h1 class='section'>Enum - Base64Error</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.data.base</dd></dl>
-</div><pre><code class='lang-d'>enum Base64Error
+</div><pre><code class='lang-d'>enum Base64Error : int
 {
-  // Produced when the decoder is done and the `decode` function is called again before a call to `finish` . 
-  __enumMember decoderIsDone;
-  // Produced when a character is found that is not part of the alphabet during decoding. 
-  __enumMember invalidCharacter;
-  // Produced when a line break is found that is not valid/incomplete during decoding. 
-  __enumMember invalidNewLine;
-  // Produced when padding is detected during decoding, but not enough padding is present. 
-  __enumMember invalidPadding;
   // 
-  __enumMember none;
-  // Produced when `finish` is called during decoding; there&#39;s data left over in the decode buffer, and the provided Alphabet either doesn&#39;t allow padding, or has padding that is not optional. 
-  __enumMember notEnoughInput;
-  // A message was succesfully decoded, however there was still input left over. 
-  __enumMember tooMuchInput;
+  none,
+  // Produced when padding is detected during decoding, but not enough padding is present. 
+  invalidPadding,
   // Produced when too much padding is found during decoding. 
-  __enumMember tooMuchPadding;
+  tooMuchPadding,
+  // A message was succesfully decoded, however there was still input left over. 
+  tooMuchInput,
+  // Produced when `finish` is called during decoding; there&#39;s data left over in the decode buffer, and the provided Alphabet either doesn&#39;t allow padding, or has padding that is not optional. 
+  notEnoughInput,
+  // Produced when a character is found that is not part of the alphabet during decoding. 
+  invalidCharacter,
+  // Produced when a line break is found that is not valid/incomplete during decoding. 
+  invalidNewLine,
+  // Produced when the decoder is done and the `decode` function is called again before a call to `finish` . 
+  decoderIsDone,
 }</code></pre><h2 class='section'>About</h2><p>A <code>Result</code> error enum.</p>
 <h2 class='section'>Variables</h2><table>
 <thead>

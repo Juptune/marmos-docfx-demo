@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - isSameLength</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.comparison</dd></dl>
 </div><h2 class='section api'>isSameLength(rs)   </h2>
- <pre><code class='lang-d'>bool isSameLength(
-  Ranges rs
-) </code></pre><p>Checks if two or more ranges have the same number of elements. This function is optimized to always take advantage of the <code>length</code> member of either range if it exists.</p>
+ <pre><code class='lang-d'>bool isSameLength( Ranges... )( Ranges rs ) </code></pre><p>Checks if two or more ranges have the same number of elements. This function is optimized to always take advantage of the <code>length</code> member of either range if it exists.</p>
 <p>If all ranges have a <code>length</code> member or at least one is infinite, <code>_isSameLength</code> 's complexity is $(BIGOH 1). Otherwise, complexity is $(BIGOH n), where <code>n</code> is the smallest of the lengths of ranges with unknown length.</p>
 <p>Infinite ranges are considered of the same length. An infinite range has never the same length as a finite range.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>rs</code> Ranges  </dt>

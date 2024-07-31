@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - diffMonths</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.date.Date</dd></dl><dl><dt>Parent</dt><dd>Date</dd></dl>
 </div><h2 class='section api'>diffMonths(rhs)   </h2>
- <pre><code class='lang-d'>int diffMonths(
-  Date rhs
-) </code></pre><p>Returns the difference between the two $(LREF Date)s in months.</p>
+ <pre><code class='lang-d'>int diffMonths( Date rhs ) @nogc @safe nothrow pure</code></pre><p>Returns the difference between the two $(LREF Date)s in months.</p>
 <p>To get the difference in years, subtract the year property of two $(LREF Date)s. To get the difference in days or weeks, subtract the $(LREF Date)s themselves and use the $(REF Duration, core,time) that results. Because converting between months and smaller units requires a specific date (which $(REF Duration, core,time)s don't have), getting the difference in months requires some math using both the year and month properties, so this is a convenience function for getting the difference in months.</p>
 <p>Note that the number of days in the months or how far into the month either $(LREF Date) is is irrelevant. It is the difference in the month property combined with the difference in years 12. So, for instance, December 31st and January 1st are one month apart just as December 1st and January 31st are one month apart.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>rhs</code> Date  </dt>

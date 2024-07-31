@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,19 @@
 <h1 class='section'>Variable - indexOf</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>phobos.sys.meta</dd></dl>
 </div><h2 class='section api'>indexOf   </h2>
- <pre><code class='lang-d'>ptrdiff_t indexOf</code></pre><h2 class='section'>About</h2><p>Evaluates to the index of the first element where $(D Pred!(Args[i])) is $(D true).</p>
+ <pre><code class='lang-d'>ptrdiff_t indexOf = ()
+{
+static foreach (i; 0 .. Args.length)
+{
+static if (Pred!(Args[i]))
+{
+return i;
+}
+
+}
+return -1;
+}
+()</code></pre><h2 class='section'>About</h2><p>Evaluates to the index of the first element where $(D Pred!(Args[i])) is $(D true).</p>
 <p>If $(D Pred!(Args[i])) is not $(D true) for any elements, then the result is $(D -1).</p>
 <p>Evaluation is $(I not) short-circuited if a $(D true) result is encountered; the template predicate must be instantiable with all the elements.</p>
 

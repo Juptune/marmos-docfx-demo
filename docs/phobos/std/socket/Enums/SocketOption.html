@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,56 +87,56 @@
         <article data-uid="std.socket.Enums.SocketOption">
 <h1 class='section'>Enum - SocketOption</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.socket</dd></dl>
-</div><pre><code class='lang-d'>enum SocketOption
+</div><pre><code class='lang-d'>enum SocketOption : int
 {
-  // Listen 
-  __enumMember ACCEPTCONN;
-  // Allow transmission of broadcast messages 
-  __enumMember BROADCAST;
   // Record debugging information 
-  __enumMember DEBUG;
-  // Do not route 
-  __enumMember DONTROUTE;
-  // Retrieve and clear error status 
-  __enumMember ERROR;
-  // Add an IP group membership 
-  __enumMember IPV6_JOIN_GROUP;
-  // Drop an IP group membership 
-  __enumMember IPV6_LEAVE_GROUP;
-  // IP multicast hops 
-  __enumMember IPV6_MULTICAST_HOPS;
-  // IP multicast interface 
-  __enumMember IPV6_MULTICAST_IF;
-  // IP multicast loopback 
-  __enumMember IPV6_MULTICAST_LOOP;
-  // IP unicast hop limit 
-  __enumMember IPV6_UNICAST_HOPS;
-  // Treat wildcard bind as AF_INET6-only 
-  __enumMember IPV6_V6ONLY;
-  // Enable keep-alive packets 
-  __enumMember KEEPALIVE;
-  // Linger on close if unsent data is present 
-  __enumMember LINGER;
-  // Receive out-of-band data in band 
-  __enumMember OOBINLINE;
-  // Receive buffer size 
-  __enumMember RCVBUF;
-  // Minimum number of input bytes to process 
-  __enumMember RCVLOWAT;
-  // Receive timeout 
-  __enumMember RCVTIMEO;
+  DEBUG = SO_DEBUG,
+  // Allow transmission of broadcast messages 
+  BROADCAST = SO_BROADCAST,
   // Allow local reuse of address 
-  __enumMember REUSEADDR;
+  REUSEADDR = SO_REUSEADDR,
+  // Linger on close if unsent data is present 
+  LINGER = SO_LINGER,
+  // Receive out-of-band data in band 
+  OOBINLINE = SO_OOBINLINE,
   // Send buffer size 
-  __enumMember SNDBUF;
-  // Minimum number of output bytes to process 
-  __enumMember SNDLOWAT;
+  SNDBUF = SO_SNDBUF,
+  // Receive buffer size 
+  RCVBUF = SO_RCVBUF,
+  // Do not route 
+  DONTROUTE = SO_DONTROUTE,
   // Send timeout 
-  __enumMember SNDTIMEO;
-  // Disable the Nagle algorithm for send coalescing 
-  __enumMember TCP_NODELAY;
+  SNDTIMEO = SO_SNDTIMEO,
+  // Receive timeout 
+  RCVTIMEO = SO_RCVTIMEO,
+  // Retrieve and clear error status 
+  ERROR = SO_ERROR,
+  // Enable keep-alive packets 
+  KEEPALIVE = SO_KEEPALIVE,
+  // Listen 
+  ACCEPTCONN = SO_ACCEPTCONN,
+  // Minimum number of input bytes to process 
+  RCVLOWAT = SO_RCVLOWAT,
+  // Minimum number of output bytes to process 
+  SNDLOWAT = SO_SNDLOWAT,
   // Socket type 
-  __enumMember TYPE;
+  TYPE = SO_TYPE,
+  // Disable the Nagle algorithm for send coalescing 
+  TCP_NODELAY = .TCP_NODELAY,
+  // IP unicast hop limit 
+  IPV6_UNICAST_HOPS = .IPV6_UNICAST_HOPS,
+  // IP multicast interface 
+  IPV6_MULTICAST_IF = .IPV6_MULTICAST_IF,
+  // IP multicast loopback 
+  IPV6_MULTICAST_LOOP = .IPV6_MULTICAST_LOOP,
+  // IP multicast hops 
+  IPV6_MULTICAST_HOPS = .IPV6_MULTICAST_HOPS,
+  // Add an IP group membership 
+  IPV6_JOIN_GROUP = .IPV6_JOIN_GROUP,
+  // Drop an IP group membership 
+  IPV6_LEAVE_GROUP = .IPV6_LEAVE_GROUP,
+  // Treat wildcard bind as AF_INET6-only 
+  IPV6_V6ONLY = .IPV6_V6ONLY,
 }</code></pre><h2 class='section'>About</h2><h2 class='section'>Variables</h2><table>
 <thead>
 <tr>

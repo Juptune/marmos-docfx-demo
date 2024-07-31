@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,15 +87,19 @@
         <article data-uid="std.typecons.Structs.Unique">
 <h1 class='section'>Struct - Unique</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.typecons</dd></dl>
-</div><pre><code class='lang-d'>public struct Unique
+</div><pre><code class='lang-d'>struct Unique( T )
 {
   // Represents a reference to `T` . Resolves to `T*` if `T` is a value type. 
-  alias RefT = &lt;todo: marmos support pending&gt;;
+  alias RefT = &lt;todo: marmos support pending&gt;
 
+  // Allows safe construction of `Unique` . It creates the resource and guarantees unique ownership of it (unless `T` publishes aliases of `this` ). Note: Nested structs/classes cannot be created. Params: args = Arguments to pass to `T` &#39;s constructor. --- static class C {} auto u = Unique!(C).create(); --- 
+  Unique!(T) create( A... )( auto ref A args ) 
   // Returns whether the resource exists. 
-  bool isEmpty( ) ;
+  bool isEmpty() @property
+  // Transfer ownership from a `Unique` of a type that is convertible to our type. 
+  void opAssign( U )( Unique!(U) u ) 
   // Transfer ownership to a `Unique` rvalue. Nullifies the current contents. Same as calling std.algorithm.move on it. 
-  Unique release( ) ;
+  Unique release() 
 }</code></pre><h2 class='section'>About</h2><p>Encapsulates unique ownership of a resource.</p>
 <p>When a <code>Unique!T</code> goes out of scope it will call <code>destroy</code> on the resource <code>T</code> that it manages, unless it is transferred. One important consequence of <code>destroy</code> is that it will call the destructor of the resource <code>T</code> .  GC-managed references are not guaranteed to be valid during a destructor call, but other members of <code>T</code> , such as file handles or pointers to <code>malloc</code> memory, will still be valid during the destructor call.  This allows the resource <code>T</code> to deallocate or clean up any non-GC resources.</p>
 <p>If it is desirable to persist a <code>Unique!T</code> outside of its original scope, then it can be transferred.  The transfer can be explicit, by calling <code>release</code> , or implicit, when returning Unique from a function. The resource <code>T</code> can be a polymorphic class object or instance of an interface, in which case Unique behaves polymorphically too.</p>
@@ -123,8 +127,16 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../Unique/Unique/Functions/create.html">create</a></td>
+<td>Allows safe construction of <code>Unique</code> . It creates the resource and guarantees unique ownership of it (unless <code>T</code> publishes aliases of <code>this</code> ). Note: Nested structs/classes cannot be created. Params: args = Arguments to pass to <code>T</code> 's constructor. --- static class C {} auto u = Unique!(C).create(); ---</td>
+</tr>
+<tr>
 <td><a href="../Unique/Unique/Functions/isEmpty.html">isEmpty</a></td>
 <td>Returns whether the resource exists.</td>
+</tr>
+<tr>
+<td><a href="../Unique/Unique/Functions/opAssign.html">opAssign</a></td>
+<td>Transfer ownership from a <code>Unique</code> of a type that is convertible to our type.</td>
 </tr>
 <tr>
 <td><a href="../Unique/Unique/Functions/release.html">release</a></td>

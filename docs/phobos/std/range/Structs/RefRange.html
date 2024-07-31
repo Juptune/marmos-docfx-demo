@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,55 +87,63 @@
         <article data-uid="std.range.Structs.RefRange">
 <h1 class='section'>Struct - RefRange</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
-</div><pre><code class='lang-d'>public struct RefRange
+</div><pre><code class='lang-d'>struct RefRange( R )
 {
   // Ditto 
-  alias opDollar = &lt;todo: marmos support pending&gt;;
+  alias opDollar = &lt;todo: marmos support pending&gt;
 
   // Only defined if `isBidirectionalRange!R` is `true` . 
-  &lt;bug: unknown&gt; back( ) auto;
+  auto back() @property
   // Ditto 
-  &lt;bug: unknown&gt; back( ) auto;
+  auto back() @property
   // Ditto 
-  &lt;bug: unknown&gt; back( ElementType!(R) value ) auto;
+  auto back( ElementType!(R) value ) @property
   // 
-  bool empty( ) ;
+  bool empty() @property
   // Ditto 
-  bool empty( ) ;
+  bool empty() @property
   // 
-  &lt;bug: unknown&gt; front( ) auto;
+  auto front() @property
   // Ditto 
-  &lt;bug: unknown&gt; front( ) auto;
+  auto front() @property
   // Ditto 
-  &lt;bug: unknown&gt; front( ElementType!(R) value ) auto;
+  auto front( ElementType!(R) value ) @property
   // Only defined if `hasLength!R` is `true` . 
-  size_t length( ) ;
+  size_t length() @property
   // ditto 
-  size_t length( ) ;
+  size_t length() @property
   // Only defined if `hasMobileElements!R` and `isRandomAccessRange!R` are `true` . 
-  &lt;bug: unknown&gt; moveAt( size_t index ) auto;
+  auto moveAt( size_t index ) 
   // Only defined if `hasMobileElements!R` and `isBidirectionalRange!R` are `true` . 
-  &lt;bug: unknown&gt; moveBack( ) auto;
+  auto moveBack() 
   // Only defined if `hasMobileElements!R` and `isForwardRange!R` are `true` . 
-  &lt;bug: unknown&gt; moveFront( ) auto;
+  auto moveFront() 
   // This does not assign the pointer of `rhs` to this `RefRange` . Rather it assigns the range pointed to by `rhs` to the range pointed to by this `RefRange` . This is because $(I any) operation on a `RefRange` is the same is if it occurred to the original range. The one exception is when a `RefRange` is assigned `null` either directly or because `rhs` is `null` . In that case, `RefRange` no longer refers to the original range but is `null` . 
-  &lt;bug: unknown&gt; opAssign( RefRange rhs ) auto;
+  auto opAssign( RefRange rhs ) 
   // 
-  void opAssign( &lt;bug: unknown&gt; rhs ) ;
+  void opAssign( typeof(null) rhs ) 
+  // Only defined if `isRandomAccessRange!R` is `true` . 
+  ref auto opIndex( IndexType )( IndexType index ) 
   // Ditto 
-  &lt;bug: unknown&gt; opSlice( ) auto;
+  ref auto opIndex( IndexType )( IndexType index ) 
   // Ditto 
-  &lt;bug: unknown&gt; opSlice( ) auto;
+  auto opSlice() 
   // Ditto 
-  void popBack( ) ;
+  auto opSlice() 
+  // Only defined if `hasSlicing!R` is `true` . 
+  auto opSlice( IndexType1, IndexType2 )( IndexType1 begin, IndexType2 end ) 
+  // Ditto 
+  auto opSlice( IndexType1, IndexType2 )( IndexType1 begin, IndexType2 end ) 
+  // Ditto 
+  void popBack() 
   // 
-  void popFront( ) ;
+  void popFront() 
   // A pointer to the wrapped range. 
-  &lt;bug: unknown&gt; ptr( ) ;
+  R* ptr() @property @safe nothrow pure
   // Only defined if `isForwardRange!R` is `true` . 
-  &lt;bug: unknown&gt; save( ) auto;
+  auto save() @property
   // Ditto 
-  &lt;bug: unknown&gt; save( ) auto;
+  auto save() @property
 }</code></pre><h2 class='section'>About</h2><p>Wrapper which effectively makes it possible to pass a range by reference. Both the original range and the RefRange will always have the exact same elements. Any operation done on one will affect the other. So, for instance, if it's passed to a function which would implicitly copy the original range if it were passed to it, the original range is $(I not) copied but is consumed as if it were a reference type.</p>
 <h3 class='section'>Note</h3><p><code>save</code> works as normal and operates on a new range, so if <code>save</code> is ever called on the <code>RefRange</code> , then no operations on the saved range will affect the original.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>range</code>   </dt>
@@ -198,6 +206,10 @@
 <tr>
 <td><a href="../RefRange/RefRange/Functions/opAssign.html">opAssign</a></td>
 <td>This does not assign the pointer of <code>rhs</code> to this <code>RefRange</code> . Rather it assigns the range pointed to by <code>rhs</code> to the range pointed to by this <code>RefRange</code> . This is because $(I any) operation on a <code>RefRange</code> is the same is if it occurred to the original range. The one exception is when a <code>RefRange</code> is assigned <code>null</code> either directly or because <code>rhs</code> is <code>null</code> . In that case, <code>RefRange</code> no longer refers to the original range but is <code>null</code> .</td>
+</tr>
+<tr>
+<td><a href="../RefRange/RefRange/Functions/opIndex.html">opIndex</a></td>
+<td>Only defined if <code>isRandomAccessRange!R</code> is <code>true</code> .</td>
 </tr>
 <tr>
 <td><a href="../RefRange/RefRange/Functions/opSlice.html">opSlice</a></td>

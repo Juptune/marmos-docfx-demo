@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,74 +87,74 @@
         <article data-uid="std.ascii.Enums.ControlChar">
 <h1 class='section'>Enum - ControlChar</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.ascii</dd></dl>
-</div><pre><code class='lang-d'>enum ControlChar
+</div><pre><code class='lang-d'>enum ControlChar : char
 {
-  // Acknowledge 
-  __enumMember ack;
-  // Bell 
-  __enumMember bel;
-  // Backspace 
-  __enumMember bs;
-  // Cancel 
-  __enumMember can;
-  // Carriage return 
-  __enumMember cr;
-  // Device control 1 
-  __enumMember dc1;
-  // Device control 2 
-  __enumMember dc2;
-  // Device control 3 
-  __enumMember dc3;
-  // Device control 4 
-  __enumMember dc4;
-  // Delete 
-  __enumMember del;
-  // Data link escape 
-  __enumMember dle;
-  // End of medium 
-  __enumMember em;
-  // Enquiry 
-  __enumMember enq;
-  // End of transmission 
-  __enumMember eot;
-  // Escape 
-  __enumMember esc;
-  // End of transmission block 
-  __enumMember etb;
-  // End of text 
-  __enumMember etx;
-  // NP form feed, new page 
-  __enumMember ff;
-  // File separator 
-  __enumMember fs;
-  // Group separator 
-  __enumMember gs;
-  // NL line feed, new line 
-  __enumMember lf;
-  // Negative acknowledge 
-  __enumMember nak;
   // Null 
-  __enumMember nul;
-  // Record separator 
-  __enumMember rs;
-  // Shift in 
-  __enumMember si;
-  // Shift out 
-  __enumMember so;
+  nul = &#39;\0&#39;,
   // Start of heading 
-  __enumMember soh;
+  soh = &#39;\x01&#39;,
   // Start of text 
-  __enumMember stx;
-  // Substitute 
-  __enumMember sub;
-  // Synchronous idle 
-  __enumMember syn;
+  stx = &#39;\x02&#39;,
+  // End of text 
+  etx = &#39;\x03&#39;,
+  // End of transmission 
+  eot = &#39;\x04&#39;,
+  // Enquiry 
+  enq = &#39;\x05&#39;,
+  // Acknowledge 
+  ack = &#39;\x06&#39;,
+  // Bell 
+  bel = &#39;\x07&#39;,
+  // Backspace 
+  bs = &#39;\b&#39;,
   // Horizontal tab 
-  __enumMember tab;
-  // Unit separator 
-  __enumMember us;
+  tab = &#39;\t&#39;,
+  // NL line feed, new line 
+  lf = &#39;\n&#39;,
   // Vertical tab 
-  __enumMember vt;
+  vt = &#39;\x0b&#39;,
+  // NP form feed, new page 
+  ff = &#39;\f&#39;,
+  // Carriage return 
+  cr = &#39;\r&#39;,
+  // Shift out 
+  so = &#39;\x0e&#39;,
+  // Shift in 
+  si = &#39;\x0f&#39;,
+  // Data link escape 
+  dle = &#39;\x10&#39;,
+  // Device control 1 
+  dc1 = &#39;\x11&#39;,
+  // Device control 2 
+  dc2 = &#39;\x12&#39;,
+  // Device control 3 
+  dc3 = &#39;\x13&#39;,
+  // Device control 4 
+  dc4 = &#39;\x14&#39;,
+  // Negative acknowledge 
+  nak = &#39;\x15&#39;,
+  // Synchronous idle 
+  syn = &#39;\x16&#39;,
+  // End of transmission block 
+  etb = &#39;\x17&#39;,
+  // Cancel 
+  can = &#39;\x18&#39;,
+  // End of medium 
+  em = &#39;\x19&#39;,
+  // Substitute 
+  sub = &#39;\x1a&#39;,
+  // Escape 
+  esc = &#39;\x1b&#39;,
+  // File separator 
+  fs = &#39;\x1c&#39;,
+  // Group separator 
+  gs = &#39;\x1d&#39;,
+  // Record separator 
+  rs = &#39;\x1e&#39;,
+  // Unit separator 
+  us = &#39;\x1f&#39;,
+  // Delete 
+  del = &#39;\x7f&#39;,
 }</code></pre><h2 class='section'>About</h2><p>All control characters in the ASCII table ($(HTTPS <a href="http://www.asciitable.com">www.asciitable.com</a>, source)).</p>
 <h2 class='section'>Variables</h2><table>
 <thead>

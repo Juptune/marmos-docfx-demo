@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,10 @@
 <h1 class='section'>Overloads for - kullbackLeiblerDivergence</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.numeric</dd></dl>
 </div><h2 class='section api'>kullbackLeiblerDivergence(a, b)   </h2>
- <pre><code class='lang-d'>CommonType!(ElementType!Range1ElementType!Range2) kullbackLeiblerDivergence(
+ <pre><code class='lang-d'>CommonType!(ElementType!Range1,ElementType!Range2) kullbackLeiblerDivergence(
+  Range1,
+  Range2
+)(
   Range1 a,
   Range2 b
 ) </code></pre><p>Computes the $(LINK2 <a href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence">https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence</a>, Kullback-Leibler divergence) between input ranges <code>a</code> and <code>b</code> , which is the sum $(D ai log(ai / bi)). The base of logarithm is 2. The ranges are assumed to contain elements in $(D [0, 1]). Usually the ranges are normalized probability distributions, but this is not required or checked by $(D kullbackLeiblerDivergence). If any element <code>bi</code> is zero and the corresponding element <code>ai</code> nonzero, returns infinity. (Otherwise, if $(D ai == 0 &amp;&amp; bi == 0), the term $(D ai log(ai / bi)) is considered zero.) If the inputs are normalized, the result is positive.</p>

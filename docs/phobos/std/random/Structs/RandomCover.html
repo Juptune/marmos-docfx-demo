@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,18 +87,18 @@
         <article data-uid="std.random.Structs.RandomCover">
 <h1 class='section'>Struct - RandomCover</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.random</dd></dl>
-</div><pre><code class='lang-d'>public struct RandomCover
+</div><pre><code class='lang-d'>struct RandomCover( Range, UniformRNG = void )
 {
   // 
-  bool empty( ) ;
+  bool empty() @property
   // 
-  &lt;bug: unknown&gt; front( ) auto;
+  ref auto front() @property
   // 
-  size_t length( ) ;
+  size_t length() @property
   // 
-  void popFront( ) ;
+  void popFront() 
   // 
-  &lt;bug: unknown&gt; save( ) ;
+  typeof(this) save() @property
 }</code></pre><h2 class='section'>About</h2><p>Covers a given range <code>r</code> in a random manner, i.e. goes through each element of <code>r</code> once and only once, just in a random order. <code>r</code> must be a random-access range with length.</p>
 <p>If no random number generator is passed to <code>randomCover</code> , the thread-global RNG rndGen will be used internally.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>r</code>   </dt>

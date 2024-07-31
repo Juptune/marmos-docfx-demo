@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - isFile</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.file</dd></dl>
 </div><h2 class='section api'>isFile(name)   </h2>
- <pre><code class='lang-d'>bool isFile(
-  R name
-) </code></pre><p>Returns whether the given file (or directory) is a file.</p>
+ <pre><code class='lang-d'>bool isFile( R )( R name ) @property</code></pre><p>Returns whether the given file (or directory) is a file.</p>
 <p>On Windows, if a file is not a directory, then it's a file. So, either <code>isFile</code> or <code>isDir</code> will return true for any given file.</p>
 <p>On POSIX systems, if <code>isFile</code> is <code>true</code> , that indicates that the file is a regular file (e.g. not a block not device). So, on POSIX systems, it's possible for both <code>isFile</code> and <code>isDir</code> to be <code>false</code> for a particular file (in which case, it's a special file). You can use <code>getAttributes</code> to get the attributes to figure out what type of special it is, or you can use <code>DirEntry</code> to get at its <code>statBuf</code> , which is the result from <code>stat</code> . In either case, see the man page for <code>stat</code> for more information.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>name</code> R  </dt>
@@ -102,9 +100,7 @@
 </dd></dl><h3 class='section'>Returns</h3><p>true if name specifies a file</p>
 <h3 class='section'>Throws</h3><p>$(LREF FileException) if the given file does not exist.</p>
 <h2 class='section api'>isFile(name)   </h2>
- <pre><code class='lang-d'>bool isFile(
-  R name
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>bool isFile( R )( auto ref R name ) @property</code></pre><p>ditto</p>
 
 </article>
 

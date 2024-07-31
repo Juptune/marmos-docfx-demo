@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - addGCThread</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.event.loop.EventLoop</dd></dl><dl><dt>Parent</dt><dd>EventLoop</dd></dl>
 </div><h2 class='section api'>addGCThread(initialFiber)   </h2>
- <pre><code class='lang-d'>void addGCThread(
-  JuptuneFiber initialFiber
-) </code></pre><p>Creates a new thread.</p>
+ <pre><code class='lang-d'>void addGCThread( JuptuneFiber initialFiber ) </code></pre><p>Creates a new thread.</p>
 <p>The thread is started immediately.</p>
 <p>The thread is managed by the DRuntime, so it can be paused by the GC.</p>
 <p>However this means you are free to use the GC within this thread, and are not restricted to @nogc fibers.</p>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - popFrontExactly</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range.primitives</dd></dl>
 </div><h2 class='section api'>popFrontExactly(r, n)   </h2>
- <pre><code class='lang-d'>void popFrontExactly(
-  Range r,
-  size_t n
-) </code></pre><p>Eagerly advances <code>r</code> itself (not a copy) exactly <code>n</code> times (by calling <code>r.popFront</code> ). <code>popFrontExactly</code> takes <code>r</code> by <code>ref</code> , so it mutates the original range. Completes in $(BIGOH 1) steps for ranges that support slicing, and have either length or are infinite. Completes in $(BIGOH n) time for all other ranges.</p>
+ <pre><code class='lang-d'>void popFrontExactly( Range )( ref Range r, size_t n ) </code></pre><p>Eagerly advances <code>r</code> itself (not a copy) exactly <code>n</code> times (by calling <code>r.popFront</code> ). <code>popFrontExactly</code> takes <code>r</code> by <code>ref</code> , so it mutates the original range. Completes in $(BIGOH 1) steps for ranges that support slicing, and have either length or are infinite. Completes in $(BIGOH n) time for all other ranges.</p>
 <p>Note: Unlike $(LREF popFrontN), <code>popFrontExactly</code> will assume that the range holds at least <code>n</code> elements. This makes <code>popFrontExactly</code> faster than <code>popFrontN</code> , but it also means that if <code>range</code> does not contain at least <code>n</code> elements, it will attempt to call <code>popFront</code> on an empty range, which is undefined behavior. So, only use <code>popFrontExactly</code> when it is guaranteed that <code>range</code> holds at least <code>n</code> elements.</p>
 <p><code>popBackExactly</code> will behave the same but instead removes elements from the back of the (bidirectional) range instead of the front.</p>
 <p>See_Also: $(REF dropExactly, std, range), $(REF dropBackExactly, std, range)</p>

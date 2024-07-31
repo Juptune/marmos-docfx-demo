@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - attributes</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.file.DirEntry</dd></dl><dl><dt>Parent</dt><dd>DirEntry</dd></dl>
 </div><h2 class='section api'>attributes()   </h2>
- <pre><code class='lang-d'>uint attributes(
-) </code></pre><p>Returns the attributes of the file represented by this <code>DirEntry</code>.</p>
+ <pre><code class='lang-d'>uint attributes() @property scope</code></pre><p>Returns the attributes of the file represented by this <code>DirEntry</code>.</p>
 <p>Note that the file attributes on Windows and POSIX systems are completely different. On, Windows, they're what is returned by <code>GetFileAttributes</code> $(HTTP msdn.microsoft.com/en-us/library/aa364944(v=vs.85).aspx, GetFileAttributes) Whereas, an POSIX systems, they're the <code>st_mode</code> value which is part of the <code>stat</code> struct gotten by calling <code>stat</code> .</p>
 <p>On POSIX systems, if the file represented by this <code>DirEntry</code> is a symbolic link, then *attributes are the * attributes of the file pointed to by the symbolic link.</p>
 

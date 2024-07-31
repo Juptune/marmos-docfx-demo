@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,41 +87,82 @@
         <article data-uid="juptune.core.ds.array.Structs.ArrayBase">
 <h1 class='section'>Struct - ArrayBase</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.core.ds.array</dd></dl>
-</div><pre><code class='lang-d'>public struct ArrayBase
+</div><pre><code class='lang-d'>struct ArrayBase(
+  alias Alloc,
+  size_t DefaultInitSize,
+  alias GetGrowSize,
+  alias ShouldShrink,
+  alias GetShrinkSize,
+  alias ValueT_
+)
 {
   // 
-  alias opDollar = &lt;todo: marmos support pending&gt;;
+  alias opDollar = &lt;todo: marmos support pending&gt;
   // 
-  alias range = &lt;todo: marmos support pending&gt;;
+  alias range = &lt;todo: marmos support pending&gt;
   // 
-  alias ValueT = &lt;todo: marmos support pending&gt;;
+  alias ValueT = &lt;todo: marmos support pending&gt;
 
   // 
-  size_t capacity( ) ;
+  size_t capacity() @property @safe
   // 
-  void dtorValues( size_t start, size_t end ) ;
+  void dtorValues( size_t start, size_t end ) 
   // 
-  size_t length( ) ;
+  size_t length() @property @safe
   // 
-  void length( size_t l ) ;
+  void length( size_t l ) @property
   // 
-  &lt;bug: unknown&gt; opIndex( ) ;
+  void move( string member, T )( size_t index, auto ref T value ) 
   // 
-  ValueT opIndex( size_t index ) ;
+  bool opEquals( )( const ref typeof(this) other ) 
   // 
-  &lt;bug: unknown&gt; opIndex( Slice slice ) ;
+  bool opEquals( T : ValueT )( const T[] other ) 
   // 
-  &lt;bug: unknown&gt; ptr( ) ;
+  ValueT[] opIndex() 
   // 
-  void put( &lt;bug: unknown&gt; array ) ;
+  ref ValueT opIndex( size_t index ) 
   // 
-  ValueT remove( size_t index ) ;
+  ValueT[] opIndex( Slice slice ) 
   // 
-  void reserve( size_t amount ) ;
+  void opIndexAssign( T : ValueT )( auto ref T value ) 
   // 
-  &lt;bug: unknown&gt; slice( ) ;
+  void opIndexAssign( T : ValueT )( auto ref T value, size_t index ) 
   // 
-  uint toHash( ) ;
+  void opIndexAssign( T : ValueT )( auto ref T value, Slice slice ) 
+  // 
+  void opIndexAssign( T : ValueT )( T[] values, Slice slice ) 
+  // 
+  void opIndexOpAssign( string op, T )( T value, size_t index ) 
+  // 
+  void opIndexOpAssign( string op, T )( T value, Slice slice ) 
+  // 
+  ValueT opIndexUnary( string op )( size_t index ) 
+  // 
+  void opIndexUnary( string op )( Slice slice ) 
+  // 
+  void opOpAssign( string op, T )( auto ref T value ) 
+  // 
+  Slice opSlice( size_t _ )( size_t start, size_t end ) 
+  // 
+  ValueT* ptr() @property
+  // 
+  void put( ref scope typeof(this) array ) 
+  // 
+  void put( T : ValueT )( auto ref T value ) 
+  // 
+  void put( T : ValueT )( T[] values ) 
+  // 
+  void put( R )( R range ) 
+  // 
+  void put( Values... )( auto ref Values values ) 
+  // 
+  ValueT remove( size_t index ) 
+  // 
+  void reserve( size_t amount ) 
+  // 
+  ValueT[] slice() @property
+  // 
+  uint toHash() 
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>
@@ -165,7 +206,35 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="../ArrayBase/ArrayBase/Functions/move.html">move</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../ArrayBase/ArrayBase/Functions/opEquals.html">opEquals</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../ArrayBase/ArrayBase/Functions/opIndex.html">opIndex</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../ArrayBase/ArrayBase/Functions/opIndexAssign.html">opIndexAssign</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../ArrayBase/ArrayBase/Functions/opIndexOpAssign.html">opIndexOpAssign</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../ArrayBase/ArrayBase/Functions/opIndexUnary.html">opIndexUnary</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../ArrayBase/ArrayBase/Functions/opOpAssign.html">opOpAssign</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../ArrayBase/ArrayBase/Functions/opSlice.html">opSlice</a></td>
 <td></td>
 </tr>
 <tr>
@@ -190,6 +259,20 @@
 </tr>
 <tr>
 <td><a href="../ArrayBase/ArrayBase/Functions/toHash.html">toHash</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../ArrayBase/ArrayBase/Structs/Slice.html">Slice</a></td>
 <td></td>
 </tr>
 </tbody>

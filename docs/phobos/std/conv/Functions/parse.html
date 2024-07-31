@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - parse</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.conv</dd></dl>
 </div><h2 class='section api'>parse(source)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; parse(
-  Source source
-) auto</code></pre><p>$(PANEL The <code>parse</code> family of functions works quite like the $(LREF to) family, except that: $(OL $(LI It only works with character ranges as input.) $(LI It takes the input by reference. This means that rvalues (such as string literals) are not accepted: use <code>to</code> instead.) $(LI It advances the input to the position following the conversion.) $(LI It does not throw if it could not convert the entire input.)) )</p>
+ <pre><code class='lang-d'>auto parse( Target, Source, Flag!(&quot;doCount&quot;) doCount = No.doCount )( ref Source source ) </code></pre><p>$(PANEL The <code>parse</code> family of functions works quite like the $(LREF to) family, except that: $(OL $(LI It only works with character ranges as input.) $(LI It takes the input by reference. This means that rvalues (such as string literals) are not accepted: use <code>to</code> instead.) $(LI It advances the input to the position following the conversion.) $(LI It does not throw if it could not convert the entire input.)) )</p>
 <p>This overload parses a <code>bool</code> from a character input range.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>Target</code> &lt;parameter not found&gt;  </dt>
 <dd>
@@ -114,9 +112,7 @@
 <h3 class='section'>Throws</h3><p>A $(LREF ConvException) if the range does not represent a <code>bool</code> .</p>
 <h3 class='section'>Note</h3><p>All character input range conversions using $(LREF to) are forwarded to <code>parse</code> and do not require lvalues.</p>
 <h2 class='section api'>parse(s)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; parse(
-  Source s
-) auto</code></pre><p>Parses an integer from a character $(REF_ALTTEXT input range, isInputRange, std,range,primitives).</p>
+ <pre><code class='lang-d'>auto parse( Target, Source, Flag!(&quot;doCount&quot;) doCount = No.doCount )( ref scope Source s ) </code></pre><p>Parses an integer from a character $(REF_ALTTEXT input range, isInputRange, std,range,primitives).</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>Target</code> &lt;parameter not found&gt;  </dt>
 <dd>
 
@@ -138,14 +134,16 @@
 </dd></dl><h3 class='section'>Returns</h3><p>$(UL $(LI A number of type <code>Target</code> if <code>doCount</code> is set to <code>No.doCount</code> ) $(LI A <code>tuple</code> containing a number of type <code>Target</code> and a <code>size_t</code> if <code>doCount</code> is set to <code>Yes.doCount</code> ))</p>
 <h3 class='section'>Throws</h3><p>A $(LREF ConvException) If an overflow occurred during conversion or if no character of the input was meaningfully converted.</p>
 <h2 class='section api'>parse(source, radix)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; parse(
-  Source source,
+ <pre><code class='lang-d'>auto parse(
+  Target,
+  Source,
+  Flag!(&quot;doCount&quot;) doCount = No.doCount
+)(
+  ref Source source,
   uint radix
-) auto</code></pre><p>ditto</p>
+) </code></pre><p>ditto</p>
 <h2 class='section api'>parse(s)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; parse(
-  Source s
-) auto</code></pre><p>Parses an <code>enum</code> type from a string representing an enum member name.</p>
+ <pre><code class='lang-d'>auto parse( Target, Source, Flag!(&quot;doCount&quot;) doCount = No.doCount )( ref Source s ) </code></pre><p>Parses an <code>enum</code> type from a string representing an enum member name.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>Target</code> &lt;parameter not found&gt;  </dt>
 <dd>
 
@@ -167,9 +165,7 @@
 </dd></dl><h3 class='section'>Returns</h3><p>$(UL $(LI An <code>enum</code> of type <code>Target</code> if <code>doCount</code> is set to <code>No.doCount</code> ) $(LI A <code>tuple</code> containing an <code>enum</code> of type <code>Target</code> and a <code>size_t</code> if <code>doCount</code> is set to <code>Yes.doCount</code> ))</p>
 <h3 class='section'>Throws</h3><p>A $(LREF ConvException) if type <code>Target</code> does not have a member represented by <code>s</code> .</p>
 <h2 class='section api'>parse(source)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; parse(
-  Source source
-) auto</code></pre><p>Parses a floating point number from a character range.</p>
+ <pre><code class='lang-d'>auto parse( Target, Source, Flag!(&quot;doCount&quot;) doCount = No.doCount )( ref Source source ) </code></pre><p>Parses a floating point number from a character range.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>Target</code> &lt;parameter not found&gt;  </dt>
 <dd>
 
@@ -191,9 +187,7 @@
 </dd></dl><h3 class='section'>Returns</h3><p>$(UL $(LI A floating point number of type <code>Target</code> if <code>doCount</code> is set to <code>No.doCount</code> ) $(LI A <code>tuple</code> containing a floating point number of·type <code>Target</code> and a <code>size_t</code> if <code>doCount</code> is set to <code>Yes.doCount</code> ))</p>
 <h3 class='section'>Throws</h3><p>A $(LREF ConvException) if <code>source</code> is empty, if no number could be parsed, or if an overflow occurred.</p>
 <h2 class='section api'>parse(s)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; parse(
-  Source s
-) auto</code></pre><p>Parses one character from a character range.</p>
+ <pre><code class='lang-d'>auto parse( Target, Source, Flag!(&quot;doCount&quot;) doCount = No.doCount )( ref Source s ) </code></pre><p>Parses one character from a character range.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>Target</code> &lt;parameter not found&gt;  </dt>
 <dd>
 
@@ -215,13 +209,9 @@
 </dd></dl><h3 class='section'>Returns</h3><p>$(UL $(LI A character of type <code>Target</code> if <code>doCount</code> is set to <code>No.doCount</code> ) $(LI A <code>tuple</code> containing a character of type <code>Target</code> and a <code>size_t</code> if <code>doCount</code> is set to <code>Yes.doCount</code> ))</p>
 <h3 class='section'>Throws</h3><p>A $(LREF ConvException) if the range is empty.</p>
 <h2 class='section api'>parse(s)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; parse(
-  Source s
-) auto</code></pre><p>ditto</p>
+ <pre><code class='lang-d'>auto parse( Target, Source, Flag!(&quot;doCount&quot;) doCount = No.doCount )( ref Source s ) </code></pre><p>ditto</p>
 <h2 class='section api'>parse(s)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; parse(
-  Source s
-) auto</code></pre><p>Parses <code>typeof(null)</code> from a character range if the range spells <code>&quot;null&quot;</code> . This function is case insensitive.</p>
+ <pre><code class='lang-d'>auto parse( Target, Source, Flag!(&quot;doCount&quot;) doCount = No.doCount )( ref Source s ) </code></pre><p>Parses <code>typeof(null)</code> from a character range if the range spells <code>&quot;null&quot;</code> . This function is case insensitive.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>Target</code> &lt;parameter not found&gt;  </dt>
 <dd>
 
@@ -243,12 +233,16 @@
 </dd></dl><h3 class='section'>Returns</h3><p>$(UL $(LI <code>null</code> if <code>doCount</code> is set to <code>No.doCount</code> ) $(LI A <code>tuple</code> containing <code>null</code> and a <code>size_t</code> if <code>doCount</code> is set to <code>Yes.doCount</code> ))</p>
 <h3 class='section'>Throws</h3><p>A $(LREF ConvException) if the range doesn't represent <code>null</code> .</p>
 <h2 class='section api'>parse(s, lbracket, rbracket, comma)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; parse(
-  Source s,
+ <pre><code class='lang-d'>auto parse(
+  Target,
+  Source,
+  Flag!(&quot;doCount&quot;) doCount = No.doCount
+)(
+  ref Source s,
   dchar lbracket,
   dchar rbracket,
   dchar comma
-) auto</code></pre><p>Parses an array from a string given the left bracket (default $(D '[')), right bracket (default <code>']'</code> ), and element separator (by default <code>','</code> ). A trailing separator is allowed.</p>
+) </code></pre><p>Parses an array from a string given the left bracket (default $(D '[')), right bracket (default <code>']'</code> ), and element separator (by default <code>','</code> ). A trailing separator is allowed.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>s</code> Source  </dt>
 <dd>
 
@@ -281,20 +275,28 @@
 
 </dd></dl><h3 class='section'>Returns</h3><p>$(UL $(LI An array of type <code>Target</code> if <code>doCount</code> is set to <code>No.doCount</code> ) $(LI A <code>tuple</code> containing an array of type <code>Target</code> and a <code>size_t</code> if <code>doCount</code> is set to <code>Yes.doCount</code> ))</p>
 <h2 class='section api'>parse(s, lbracket, rbracket, comma)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; parse(
-  Source s,
+ <pre><code class='lang-d'>auto parse(
+  Target,
+  Source,
+  Flag!(&quot;doCount&quot;) doCount = No.doCount
+)(
+  ref Source s,
   dchar lbracket,
   dchar rbracket,
   dchar comma
-) auto</code></pre><p>ditto</p>
+) </code></pre><p>ditto</p>
 <h2 class='section api'>parse(s, lbracket, rbracket, keyval, comma)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; parse(
-  Source s,
+ <pre><code class='lang-d'>auto parse(
+  Target,
+  Source,
+  Flag!(&quot;doCount&quot;) doCount = No.doCount
+)(
+  ref Source s,
   dchar lbracket,
   dchar rbracket,
   dchar keyval,
   dchar comma
-) auto</code></pre><p>Parses an associative array from a string given the left bracket (default $(D '[')), right bracket (default <code>']'</code> ), key-value separator (default $(D ':')), and element seprator (by default <code>','</code> ).</p>
+) </code></pre><p>Parses an associative array from a string given the left bracket (default $(D '[')), right bracket (default <code>']'</code> ), key-value separator (default $(D ':')), and element seprator (by default <code>','</code> ).</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>s</code> Source  </dt>
 <dd>
 

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - isValidCodepoint</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.utf</dd></dl>
 </div><h2 class='section api'>isValidCodepoint(c)   </h2>
- <pre><code class='lang-d'>bool isValidCodepoint(
-  Char c
-) </code></pre><p>Checks if a single character forms a valid code point.</p>
+ <pre><code class='lang-d'>bool isValidCodepoint( Char )( Char c ) </code></pre><p>Checks if a single character forms a valid code point.</p>
 <p>When standing alone, some characters are invalid code points. For example the <code>wchar</code> <code>0xD800</code> is a so called high surrogate, which can only be interpreted together with a low surrogate following it. As a standalone character it is considered invalid.</p>
 <p>See $(LINK2 <a href="http://www.unicode.org/versions/Unicode13.0.0/">http://www.unicode.org/versions/Unicode13.0.0/</a>, Unicode Standard, D90, D91 and D92) for more details.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>c</code> Char  </dt>

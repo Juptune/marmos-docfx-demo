@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,11 +88,7 @@
 <h1 class='section'>Overloads for - tryLock</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.stdio.File</dd></dl><dl><dt>Parent</dt><dd>File</dd></dl>
 </div><h2 class='section api'>tryLock(lockType, start, length)   </h2>
- <pre><code class='lang-d'>bool tryLock(
-  LockType lockType,
-  ulong start,
-  ulong length
-) </code></pre><p>Attempts to lock the specified file segment. If both <code>start</code> and <code>length</code> are zero, the entire file is locked. Returns: <code>true</code> if the lock was successful, and <code>false</code> if the specified file segment was already locked.</p>
+ <pre><code class='lang-d'>bool tryLock( LockType lockType, ulong start, ulong length ) </code></pre><p>Attempts to lock the specified file segment. If both <code>start</code> and <code>length</code> are zero, the entire file is locked. Returns: <code>true</code> if the lock was successful, and <code>false</code> if the specified file segment was already locked.</p>
 
 </article>
 

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - uniform</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.random</dd></dl>
 </div><h2 class='section api'>uniform(a, b)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; uniform(
-  T1 a,
-  T2 b
-) auto</code></pre><p>Generates a number between <code>a</code> and <code>b</code> . The <code>boundaries</code> parameter controls the shape of the interval (open vs. closed on either side). Valid values for <code>boundaries</code> are <code>&quot;[]&quot;</code> , <span class="math">\((D &quot;\)</span>(LPAREN)]&quot;), <code>&quot;[$(RPAREN)&quot;</code> , and <code>&quot;()&quot;</code> . The default interval is closed to the left and open to the right. The version that does not take <code>urng</code> uses the default generator <code>rndGen</code> .</p>
+ <pre><code class='lang-d'>auto uniform( string boundaries = &quot;[)&quot;, T1, T2 )( T1 a, T2 b ) </code></pre><p>Generates a number between <code>a</code> and <code>b</code> . The <code>boundaries</code> parameter controls the shape of the interval (open vs. closed on either side). Valid values for <code>boundaries</code> are <code>&quot;[]&quot;</code> , <span class="math">\((D &quot;\)</span>(LPAREN)]&quot;), <code>&quot;[$(RPAREN)&quot;</code> , and <code>&quot;()&quot;</code> . The default interval is closed to the left and open to the right. The version that does not take <code>urng</code> uses the default generator <code>rndGen</code> .</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>a</code> T1  </dt>
 <dd>
 
@@ -112,20 +109,28 @@
 
 </dd></dl><h3 class='section'>Returns</h3><p>A single random variate drawn from the uniform distribution between <code>a</code> and <code>b</code> , whose type is the common type of these parameters</p>
 <h2 class='section api'>uniform(a, b, urng)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; uniform(
+ <pre><code class='lang-d'>auto uniform(
+  string boundaries = &quot;[)&quot;,
+  T1,
+  T2,
+  UniformRandomNumberGenerator
+)(
   T1 a,
   T2 b,
-  UniformRandomNumberGenerator urng
-) auto</code></pre><p>ditto</p>
+  ref UniformRandomNumberGenerator urng
+) </code></pre><p>ditto</p>
 <h2 class='section api'>uniform(a, b, rng)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; uniform(
+ <pre><code class='lang-d'>auto uniform(
+  string boundaries = &quot;[)&quot;,
+  T1,
+  T2,
+  RandomGen
+)(
   T1 a,
   T2 b,
-  RandomGen rng
-) auto</code></pre><h2 class='section api'>uniform(urng)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; uniform(
-  UniformRandomNumberGenerator urng
-) auto</code></pre><p>Generates a uniformly-distributed number in the range $(D [T.min, T.max]) for any integral or character type <code>T</code> . If no random number generator is passed, uses the default <code>rndGen</code> .</p>
+  ref RandomGen rng
+) </code></pre><h2 class='section api'>uniform(urng)   </h2>
+ <pre><code class='lang-d'>auto uniform( T, UniformRandomNumberGenerator )( ref UniformRandomNumberGenerator urng ) </code></pre><p>Generates a uniformly-distributed number in the range $(D [T.min, T.max]) for any integral or character type <code>T</code> . If no random number generator is passed, uses the default <code>rndGen</code> .</p>
 <p>If an <code>enum</code> is used as type, the random variate is drawn with equal probability from any of the possible values of the enum <code>E</code> .</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>urng</code> UniformRandomNumberGenerator  </dt>
 <dd>
@@ -135,15 +140,11 @@
 
 </dd></dl><h3 class='section'>Returns</h3><p>Random variate drawn from the uniform distribution across all possible values of the integral, character or enum type <code>T</code> .</p>
 <h2 class='section api'>uniform()   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; uniform(
-) auto</code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>auto uniform( T )() </code></pre><p>Ditto</p>
 <h2 class='section api'>uniform(urng)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; uniform(
-  UniformRandomNumberGenerator urng
-) auto</code></pre><p>ditto</p>
+ <pre><code class='lang-d'>auto uniform( E, UniformRandomNumberGenerator )( ref UniformRandomNumberGenerator urng ) </code></pre><p>ditto</p>
 <h2 class='section api'>uniform()   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; uniform(
-) auto</code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>auto uniform( E )() </code></pre><p>Ditto</p>
 
 </article>
 

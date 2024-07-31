@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - bringToFront</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.mutation</dd></dl>
 </div><h2 class='section api'>bringToFront(front, back)   </h2>
- <pre><code class='lang-d'>size_t bringToFront(
-  InputRange front,
-  ForwardRange back
-) </code></pre><p><code>bringToFront</code> takes two ranges <code>front</code> and <code>back</code> , which may be of different types. Considering the concatenation of <code>front</code> and <code>back</code> one unified range, <code>bringToFront</code> rotates that unified range such that all elements in <code>back</code> are brought to the beginning of the unified range. The relative ordering of elements in <code>front</code> and <code>back</code> , respectively, remains unchanged.</p>
+ <pre><code class='lang-d'>size_t bringToFront( InputRange, ForwardRange )( InputRange front, ForwardRange back ) </code></pre><p><code>bringToFront</code> takes two ranges <code>front</code> and <code>back</code> , which may be of different types. Considering the concatenation of <code>front</code> and <code>back</code> one unified range, <code>bringToFront</code> rotates that unified range such that all elements in <code>back</code> are brought to the beginning of the unified range. The relative ordering of elements in <code>front</code> and <code>back</code> , respectively, remains unchanged.</p>
 <p>The <code>bringToFront</code> function treats strings at the code unit level and it is not concerned with Unicode character integrity. <code>bringToFront</code> is designed as a function for moving elements in ranges, not as a string function.</p>
 <p>Performs $(BIGOH max(front.length, back.length)) evaluations of $(D swap).</p>
 <p>The <code>bringToFront</code> function can rotate elements in one buffer left or right, swap buffers of equal length, and even move elements across disjoint buffers of different types and different lengths.</p>

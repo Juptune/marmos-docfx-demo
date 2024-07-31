@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - curl_global_init</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.curl</dd></dl>
 </div><h2 class='section api'>curl_global_init(flags)   </h2>
- <pre><code class='lang-d'>CURLcode curl_global_init(
-  c_long flags
-) </code></pre><p>Name: curl_global_init()</p>
+ <pre><code class='lang-d'>extern(C) CURLcode curl_global_init( c_long flags ) </code></pre><p>Name: curl_global_init()</p>
 <h3 class='section'>Description</h3><p>curl_global_init() should be invoked exactly once for each application that uses libcurl and before any call of other libcurl functions.</p>
 <p>This function is not thread-safe!</p>
 

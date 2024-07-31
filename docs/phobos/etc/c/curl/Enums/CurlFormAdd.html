@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,26 +87,26 @@
         <article data-uid="etc.c.curl.Enums.CurlFormAdd">
 <h1 class='section'>Enum - CurlFormAdd</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.curl</dd></dl>
-</div><pre><code class='lang-d'>enum CurlFormAdd
+</div><pre><code class='lang-d'>enum CurlFormAdd : int
 {
-  // libcurl was built with this disabled 
-  __enumMember disabled;
-  // 
-  __enumMember illegal_array;
-  // 
-  __enumMember incomplete;
-  // 
-  __enumMember last;
-  // 
-  __enumMember memory;
-  // 
-  __enumMember null_ptr;
   // first, no error 
-  __enumMember ok;
+  ok,
   // 
-  __enumMember option_twice;
+  memory,
   // 
-  __enumMember unknown_option;
+  option_twice,
+  // 
+  null_ptr,
+  // 
+  unknown_option,
+  // 
+  incomplete,
+  // 
+  illegal_array,
+  // libcurl was built with this disabled 
+  disabled,
+  // 
+  last,
 }</code></pre><h2 class='section'>About</h2><p>Use this for multipart formpost building</p>
 <p>Returns code for curl_formadd()</p>
 <h3 class='section'>Returns</h3><p>$(UL $(LI CURL_FORMADD_OK             on success ) $(LI CURL_FORMADD_MEMORY         if the FormInfo allocation fails ) $(LI CURL_FORMADD_OPTION_TWICE   if one option is given twice for one Form ) $(LI CURL_FORMADD_NULL           if a null pointer was given for a char ) $(LI CURL_FORMADD_MEMORY         if the allocation of a FormInfo struct failed ) $(LI CURL_FORMADD_UNKNOWN_OPTION if an unknown option was used ) $(LI CURL_FORMADD_INCOMPLETE     if the some FormInfo is not complete (or error) ) $(LI CURL_FORMADD_MEMORY         if a curl_httppost struct cannot be allocated ) $(LI CURL_FORMADD_MEMORY         if some allocation for string copying failed. ) $(LI CURL_FORMADD_ILLEGAL_ARRAY  if an illegal option is used in an array ) )</p>

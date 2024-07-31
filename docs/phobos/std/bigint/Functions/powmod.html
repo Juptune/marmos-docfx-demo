@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,11 +88,7 @@
 <h1 class='section'>Overloads for - powmod</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.bigint</dd></dl>
 </div><h2 class='section api'>powmod(base, exponent, modulus)   </h2>
- <pre><code class='lang-d'>BigInt powmod(
-  BigInt base,
-  BigInt exponent,
-  BigInt modulus
-) </code></pre><p>Fast power modulus calculation for $(LREF BigInt) operands. Params: base = the $(LREF BigInt) is basic operands. exponent = the $(LREF BigInt) is power exponent of base. modulus = the $(LREF BigInt) is modules to be modular of base ^ exponent. Returns: The power modulus value of (base ^ exponent) % modulus.</p>
+ <pre><code class='lang-d'>BigInt powmod( BigInt base, BigInt exponent, BigInt modulus ) @safe nothrow pure</code></pre><p>Fast power modulus calculation for $(LREF BigInt) operands. Params: base = the $(LREF BigInt) is basic operands. exponent = the $(LREF BigInt) is power exponent of base. modulus = the $(LREF BigInt) is modules to be modular of base ^ exponent. Returns: The power modulus value of (base ^ exponent) % modulus.</p>
 
 </article>
 

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,10 +89,10 @@
 <dl><dt>Module</dt><dd>juptune.http.uri</dd></dl>
 </div><h2 class='section api'>uriParseNoCopy(input, uri, rules)   </h2>
  <pre><code class='lang-d'>Result uriParseNoCopy(
-  &lt;bug: unknown&gt; input,
-  ScopeUri uri,
+  char[] input,
+  out scope ScopeUri uri,
   UriParseRules rules
-) </code></pre><p>Higher level Uri parsing functions</p>
+) @nogc @trusted nothrow</code></pre><p>Higher level Uri parsing functions</p>
 <p>Parses a URI from a string into a <code>ScopeUri</code> , which specifically does not contain any copy of the input data, but instead slices from the original <code>input</code> slice.</p>
 <p>This means the returned <code>ScopeUri</code> is only valid for as long as the <code>input</code> slice is valid and unmodified.</p>
 <p>This function is intended to be used when the caller wants to avoid copying the input data, and is willing to accept the limitations and risks of a <code>ScopeUri</code> .</p>
@@ -106,7 +106,7 @@
 <h3 class='section'>Notes</h3><p>The output of all <code>out</code> parameters is undefined if the function returns an error.</p>
 <p>This parser will attempt to heuristically determine whether the start of the URI is a scheme or an authority. Please note that errors in a scheme may manifest as an error in the authority component.</p>
 <p>If it's not clear, you can use <code>uri.hints</code> to determine the exact structure of the URI.</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>input</code> &lt;bug: unknown&gt;  </dt>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>input</code> char[]  </dt>
 <dd>
 
 

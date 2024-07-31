@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,12 +88,7 @@
 <h1 class='section'>Overloads for - approxEqual</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.math.operations</dd></dl>
 </div><h2 class='section api'>approxEqual(value, reference, maxRelDiff, maxAbsDiff)   </h2>
- <pre><code class='lang-d'>bool approxEqual(
-  T value,
-  U reference,
-  V maxRelDiff,
-  V maxAbsDiff
-) </code></pre><p>Computes whether a values is approximately equal to a reference value, admitting a maximum relative difference, and a maximum absolute difference.</p>
+ <pre><code class='lang-d'>bool approxEqual( T, U, V )( T value, U reference, V maxRelDiff, V maxAbsDiff ) </code></pre><p>Computes whether a values is approximately equal to a reference value, admitting a maximum relative difference, and a maximum absolute difference.</p>
 <h3 class='section'>Warning</h3><p>This template is considered out-dated. It will be removed from Phobos in 2.106.0. Please use $(LREF isClose) instead. To achieve a similar behaviour to <code>approxEqual(a, b)</code> use <code>isClose(a, b, 1e-2, 1e-5)</code> . In case of comparing to 0.0, <code>isClose(a, b, 0.0, eps)</code> should be used, where <code>eps</code> represents the accepted deviation from 0.0.&quot;</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>value</code> T  </dt>
 <dd>

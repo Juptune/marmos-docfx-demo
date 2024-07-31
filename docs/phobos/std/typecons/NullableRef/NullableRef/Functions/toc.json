@@ -1,2 +1,2 @@
 
-{"items":[{"name":"bind","href":"bind.html","topicHref":"bind.html"},{"name":"isNull","href":"isNull.html","topicHref":"isNull.html"},{"name":"nullify","href":"nullify.html","topicHref":"nullify.html"},{"name":"get","href":"get.html","topicHref":"get.html"}],"pdf":false}
+{"items":[{"name":"bind","href":"bind.html","topicHref":"bind.html"},{"name":"isNull","href":"isNull.html","topicHref":"isNull.html"},{"name":"nullify","href":"nullify.html","topicHref":"nullify.html"},{"name":"get","href":"get.html","topicHref":"get.html"},{"name":"opAssign","href":"opAssign.html","topicHref":"opAssign.html"},{"name":"toString","href":"toString.html","topicHref":"toString.html"}],"pdf":false}

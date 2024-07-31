@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,40 +87,40 @@
         <article data-uid="std.algorithm.sorting.Structs.Merge">
 <h1 class='section'>Struct - Merge</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.sorting</dd></dl>
-</div><pre><code class='lang-d'>public struct Merge
+</div><pre><code class='lang-d'>struct Merge( alias less = &quot;a &lt; b&quot;, Rs... )
 {
   // 
-  alias comp = &lt;todo: marmos support pending&gt;;
+  alias comp = &lt;todo: marmos support pending&gt;
   // 
-  alias ElementType = &lt;todo: marmos support pending&gt;;
+  alias ElementType = &lt;todo: marmos support pending&gt;
   // 
-  alias opDollar = &lt;todo: marmos support pending&gt;;
+  alias opDollar = &lt;todo: marmos support pending&gt;
 
   // 
-  &lt;bug: unknown&gt; back( ) auto;
+  ref auto back() @property
   // 
-  size_t backIndex( ) ;
+  size_t backIndex() 
   // 
-  &lt;bug: unknown&gt; front( ) auto;
+  ref auto front() @property
   // 
-  size_t frontIndex( ) ;
+  size_t frontIndex() 
   // 
-  size_t length( ) ;
+  size_t length() @property
   // 
-  void popBack( ) ;
+  void popBack() 
   // 
-  void popFront( ) ;
+  void popFront() 
   // 
-  &lt;bug: unknown&gt; save( ) auto;
+  auto save() @property
 
   // 
-  __enumMember canCheckSortedness;
+  &lt;enum or auto&gt; canCheckSortedness = isCopyable!ElementType &amp;&amp; !hasAliasing!ElementType
   // 
-  bool empty;
+  bool empty = false
   // 
-  __enumMember isBidirectional;
+  &lt;enum or auto&gt; isBidirectional = allSatisfy!(isBidirectionalRange, staticMap!(Unqual, Rs))
   // 
-  Rs source;
+  Rs source
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>

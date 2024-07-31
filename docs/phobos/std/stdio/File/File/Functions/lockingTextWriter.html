@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - lockingTextWriter</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.stdio.File</dd></dl><dl><dt>Parent</dt><dd>File</dd></dl>
 </div><h2 class='section api'>lockingTextWriter()   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; lockingTextWriter(
-) auto</code></pre><p>Output range which locks the file when created, and unlocks the file when it goes out of scope.</p>
+ <pre><code class='lang-d'>auto lockingTextWriter() @safe</code></pre><p>Output range which locks the file when created, and unlocks the file when it goes out of scope.</p>
 <p>Returns: An $(REF_ALTTEXT output range, isOutputRange, std, range, primitives) which accepts string types, <code>ubyte[]</code> , individual character types, and individual <code>ubyte</code> s.</p>
 <p>Note: Writing either arrays of <code>char</code> s or <code>ubyte</code> s is faster than writing each character individually from a range. For large amounts of data, writing the contents in chunks using an intermediary array can result in a speed increase.</p>
 <p>Throws: $(REF UTFException, std, utf) if the data given is a <code>char</code> range and it contains malformed UTF data.</p>

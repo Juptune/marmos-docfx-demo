@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,12 +89,12 @@
 <dl><dt>Module</dt><dd>juptune.http.uri</dd></dl>
 </div><h2 class='section api'>uriParseAuthorityHostAsIpv4OrDomain(chars, cursor, host, hostAsIp, hints)   </h2>
  <pre><code class='lang-d'>Result uriParseAuthorityHostAsIpv4OrDomain(
-  &lt;bug: unknown&gt; chars,
-  size_t cursor,
-  &lt;bug: unknown&gt; host,
-  Nullable!(IpAddress) hostAsIp,
-  UriParseHints hints
-) </code></pre><p>Provides parsing logic for <code>uriParseAuthority</code> , not really intended for direct use, but is made available for edge cases users may have.</p>
+  char[] chars,
+  ref scope size_t cursor,
+  out scope char[] host,
+  out scope Nullable!(IpAddress) hostAsIp,
+  ref scope UriParseHints hints
+) @nogc @safe nothrow</code></pre><p>Provides parsing logic for <code>uriParseAuthority</code> , not really intended for direct use, but is made available for edge cases users may have.</p>
 
 </article>
 

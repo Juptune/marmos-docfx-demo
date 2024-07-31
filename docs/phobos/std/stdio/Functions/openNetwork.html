@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - openNetwork</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.stdio</dd></dl>
 </div><h2 class='section api'>openNetwork(host, port)   </h2>
- <pre><code class='lang-d'>File openNetwork(
-  string host,
-  ushort port
-) </code></pre><p>Experimental network access via the File interface</p>
+ <pre><code class='lang-d'>File openNetwork( string host, ushort port ) </code></pre><p>Experimental network access via the File interface</p>
 <p>Opens a TCP connection to the given host and port, then returns a File struct with read and write access through the same interface as any other file (meaning writef and the byLine ranges work!).</p>
 <p>Authors: Adam D. Ruppe</p>
 <p>Bugs: Only works on Linux</p>

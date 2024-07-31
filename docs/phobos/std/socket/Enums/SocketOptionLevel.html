@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,30 +87,30 @@
         <article data-uid="std.socket.Enums.SocketOptionLevel">
 <h1 class='section'>Enum - SocketOptionLevel</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.socket</dd></dl>
-</div><pre><code class='lang-d'>enum SocketOptionLevel
+</div><pre><code class='lang-d'>enum SocketOptionLevel : int
 {
-  // Gateway to Gateway Protocol level 
-  __enumMember GGP;
-  // Internet Control Message Protocol level 
-  __enumMember ICMP;
-  // Xerox NS protocol level 
-  __enumMember IDP;
-  // Internet Group Management Protocol level 
-  __enumMember IGMP;
-  // Internet Protocol version 4 level 
-  __enumMember IP;
-  // Internet Protocol version 6 level 
-  __enumMember IPV6;
-  // PARC Universal Packet Protocol level 
-  __enumMember PUP;
-  // Raw IP packet level 
-  __enumMember RAW;
   // Socket level 
-  __enumMember SOCKET;
+  SOCKET = SOL_SOCKET,
+  // Internet Protocol version 4 level 
+  IP = ProtocolType.IP,
+  // Internet Control Message Protocol level 
+  ICMP = ProtocolType.ICMP,
+  // Internet Group Management Protocol level 
+  IGMP = ProtocolType.IGMP,
+  // Gateway to Gateway Protocol level 
+  GGP = ProtocolType.GGP,
   // Transmission Control Protocol level 
-  __enumMember TCP;
+  TCP = ProtocolType.TCP,
+  // PARC Universal Packet Protocol level 
+  PUP = ProtocolType.PUP,
   // User Datagram Protocol level 
-  __enumMember UDP;
+  UDP = ProtocolType.UDP,
+  // Xerox NS protocol level 
+  IDP = ProtocolType.IDP,
+  // Raw IP packet level 
+  RAW = ProtocolType.RAW,
+  // Internet Protocol version 6 level 
+  IPV6 = ProtocolType.IPV6,
 }</code></pre><h2 class='section'>About</h2><h2 class='section'>Variables</h2><table>
 <thead>
 <tr>

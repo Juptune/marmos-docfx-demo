@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - uniform01</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.random</dd></dl>
 </div><h2 class='section api'>uniform01()   </h2>
- <pre><code class='lang-d'>T uniform01(
-) </code></pre><p>Generates a uniformly-distributed floating point number of type <code>T</code> in the range [0, 1$(RPAREN).  If no random number generator is specified, the default RNG <code>rndGen</code> will be used as the source of randomness.</p>
+ <pre><code class='lang-d'>T uniform01( T = double )() </code></pre><p>Generates a uniformly-distributed floating point number of type <code>T</code> in the range [0, 1$(RPAREN).  If no random number generator is specified, the default RNG <code>rndGen</code> will be used as the source of randomness.</p>
 <p><code>uniform01</code> offers a faster generation of random variates than the equivalent <span class="math">\((D uniform!&quot;[\)</span>(RPAREN)&quot;(0.0, 1.0)) and so may be preferred for some applications.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>rng</code> &lt;parameter not found&gt;  </dt>
 <dd>
@@ -99,9 +98,7 @@
 
 </dd></dl><h3 class='section'>Returns</h3><p>Floating-point random variate of type <code>T</code> drawn from the uniform distribution across the half-open interval [0, 1$(RPAREN).</p>
 <h2 class='section api'>uniform01(rng)   </h2>
- <pre><code class='lang-d'>T uniform01(
-  UniformRNG rng
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>T uniform01( T = double, UniformRNG )( ref UniformRNG rng ) </code></pre><p>ditto</p>
 
 </article>
 

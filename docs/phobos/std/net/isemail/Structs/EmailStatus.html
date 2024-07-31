@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,26 +90,26 @@
 </div><pre><code class='lang-d'>public struct EmailStatus
 {
   // Returns: The domain part of the email address, that is, the part after the @ sign. 
-  string domainPart( ) ;
+  ref string domainPart() @nogc @property @safe nothrow scope return scope pure
   // Returns: The local part of the email address, that is, the part before the @ sign. 
-  string localPart( ) ;
+  ref string localPart() @nogc @property @safe nothrow scope return scope pure
   // Returns: A describing string of the status code 
-  string status( ) ;
+  string status() @nogc @property @safe nothrow scope pure
   // Returns: The email status code 
-  EmailStatusCode statusCode( ) ;
+  EmailStatusCode statusCode() @nogc @property @safe nothrow scope pure
   // Returns: A textual representation of the email status 
-  string toString( ) ;
+  string toString() @safe scope pure
   // Returns: If the email address is valid or not. 
-  bool valid( ) ;
+  bool valid() @nogc @property @safe nothrow scope pure
 
   // 
-  string domainPart_;
+  string domainPart_
   // 
-  string localPart_;
+  string localPart_
   // 
-  EmailStatusCode statusCode_;
+  EmailStatusCode statusCode_
   // 
-  bool valid_;
+  bool valid_
 }</code></pre><h2 class='section'>About</h2><p>Represents the status of an email address</p>
 <h2 class='section'>Functions</h2><table>
 <thead>

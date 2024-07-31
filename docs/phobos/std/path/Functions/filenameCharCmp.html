@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,9 +89,11 @@
 <dl><dt>Module</dt><dd>std.path</dd></dl>
 </div><h2 class='section api'>filenameCharCmp(a, b)   </h2>
  <pre><code class='lang-d'>int filenameCharCmp(
+  CaseSensitive cs = CaseSensitive.osDefault
+)(
   dchar a,
   dchar b
-) </code></pre><p>Compares filename characters.</p>
+) @safe nothrow pure</code></pre><p>Compares filename characters.</p>
 <p>This function can perform a case-sensitive or a case-insensitive comparison.  This is controlled through the <code>cs</code> template parameter which, if not specified, is given by $(LREF CaseSensitive)<code>.osDefault</code>.</p>
 <p>On Windows, the backslash and slash characters ($(D <code>\</code> ) and $(D <code>/</code> )) are considered equal.</p>
 <p>Params: cs = Case-sensitivity of the comparison. a = A filename character. b = A filename character.</p>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,13 +88,9 @@
 <h1 class='section'>Overloads for - opAssign</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range.RefRange</dd></dl><dl><dt>Parent</dt><dd>RefRange</dd></dl>
 </div><h2 class='section api'>opAssign(rhs)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; opAssign(
-  RefRange rhs
-) auto</code></pre><p>This does not assign the pointer of <code>rhs</code> to this <code>RefRange</code> . Rather it assigns the range pointed to by <code>rhs</code> to the range pointed to by this <code>RefRange</code> . This is because $(I any) operation on a <code>RefRange</code> is the same is if it occurred to the original range. The one exception is when a <code>RefRange</code> is assigned <code>null</code> either directly or because <code>rhs</code> is <code>null</code> . In that case, <code>RefRange</code> no longer refers to the original range but is <code>null</code> .</p>
+ <pre><code class='lang-d'>auto opAssign( RefRange rhs ) </code></pre><p>This does not assign the pointer of <code>rhs</code> to this <code>RefRange</code> . Rather it assigns the range pointed to by <code>rhs</code> to the range pointed to by this <code>RefRange</code> . This is because $(I any) operation on a <code>RefRange</code> is the same is if it occurred to the original range. The one exception is when a <code>RefRange</code> is assigned <code>null</code> either directly or because <code>rhs</code> is <code>null</code> . In that case, <code>RefRange</code> no longer refers to the original range but is <code>null</code> .</p>
 <h2 class='section api'>opAssign(rhs)   </h2>
- <pre><code class='lang-d'>void opAssign(
-  &lt;bug: unknown&gt; rhs
-) </code></pre>
+ <pre><code class='lang-d'>void opAssign( typeof(null) rhs ) </code></pre>
 </article>
 
         <div class="contribution d-print-none">

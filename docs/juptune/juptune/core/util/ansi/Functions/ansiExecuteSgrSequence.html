@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,15 +89,15 @@
 <dl><dt>Module</dt><dd>juptune.core.util.ansi</dd></dl>
 </div><h2 class='section api'>ansiExecuteSgrSequence(input, style, charsRead)   </h2>
  <pre><code class='lang-d'>string ansiExecuteSgrSequence(
-  &lt;bug: unknown&gt; input,
-  AnsiStyleSet style,
-  size_t charsRead
-) </code></pre><p>READING/PARSING</p>
+  char[] input,
+  ref AnsiStyleSet style,
+  out size_t charsRead
+) @nogc @safe nothrow</code></pre><p>READING/PARSING</p>
 <p>Executes the SGR sequence found in <code>input</code> , and populates the passed in <code>style</code> based on the command sequence.</p>
 <p>Anything directly provided by this library is supported.</p>
 <p>The previous state of <code>style</code> is preserved unless specifically untoggled/reset via the command sequence (e.g. <code>ESC[0m</code> to reset everything).</p>
 <p>If an error occurs during execution of the sequence, the given <code>style</code> is left completely unmodified.</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>input</code> &lt;bug: unknown&gt;  </dt>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>input</code> char[]  </dt>
 <dd>
 
 

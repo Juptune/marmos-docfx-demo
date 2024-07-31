@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,11 +87,11 @@
         <article data-uid="std.experimental.allocator.Structs.ThreadLocal">
 <h1 class='section'>Struct - ThreadLocal</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator</dd></dl>
-</div><pre><code class='lang-d'>public struct ThreadLocal
+</div><pre><code class='lang-d'>struct ThreadLocal( A )
 {
 
   // The allocator instance. 
-  static A instance;
+  static A instance
 }</code></pre><h2 class='section'>About</h2><p>Stores an allocator object in thread-local storage (i.e. non-<code>shared</code> D global). <code>ThreadLocal!A</code> is a subtype of <code>A</code> so it appears to implement <code>A</code> 's allocator primitives.</p>
 <p><code>A</code> must hold state, otherwise <code>ThreadLocal!A</code> refuses instantiation. This means e.g. <code>ThreadLocal!Mallocator</code> does not work because <code>Mallocator</code> 's state is not stored as members of <code>Mallocator</code> , but instead is hidden in the C library implementation.</p>
 <h2 class='section'>Variables</h2><table>

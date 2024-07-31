@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,18 +87,18 @@
         <article data-uid="std.socket.Enums.SocketType">
 <h1 class='section'>Enum - SocketType</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.socket</dd></dl>
-</div><pre><code class='lang-d'>enum SocketType
+</div><pre><code class='lang-d'>enum SocketType : int
 {
-  // Connectionless, unreliable datagrams with a fixed maximum length; data may be lost or arrive out of order 
-  __enumMember DGRAM;
-  // Raw protocol access 
-  __enumMember RAW;
-  // Reliably-delivered message datagrams 
-  __enumMember RDM;
-  // Sequenced, reliable, two-way connection-based datagrams with a fixed maximum length 
-  __enumMember SEQPACKET;
   // Sequenced, reliable, two-way communication-based byte streams 
-  __enumMember STREAM;
+  STREAM = SOCK_STREAM,
+  // Connectionless, unreliable datagrams with a fixed maximum length; data may be lost or arrive out of order 
+  DGRAM = SOCK_DGRAM,
+  // Raw protocol access 
+  RAW = SOCK_RAW,
+  // Reliably-delivered message datagrams 
+  RDM = SOCK_RDM,
+  // Sequenced, reliable, two-way connection-based datagrams with a fixed maximum length 
+  SEQPACKET = SOCK_SEQPACKET,
 }</code></pre><h2 class='section'>About</h2><p>Communication semantics</p>
 <h2 class='section'>Variables</h2><table>
 <thead>

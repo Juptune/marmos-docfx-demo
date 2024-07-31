@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - toOtherTZ</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.systime.SysTime</dd></dl><dl><dt>Parent</dt><dd>SysTime</dd></dl>
 </div><h2 class='section api'>toOtherTZ(tz)   </h2>
- <pre><code class='lang-d'>SysTime toOtherTZ(
-  TimeZone tz
-) </code></pre><p>Returns a $(LREF SysTime) with the same std time as this one, but with given time zone as its time zone.</p>
+ <pre><code class='lang-d'>SysTime toOtherTZ( immutable TimeZone tz ) @safe nothrow scope pure</code></pre><p>Returns a $(LREF SysTime) with the same std time as this one, but with given time zone as its time zone.</p>
 
 </article>
 

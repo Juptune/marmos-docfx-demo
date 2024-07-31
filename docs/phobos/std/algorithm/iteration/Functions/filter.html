@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - filter</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.iteration</dd></dl>
 </div><h2 class='section api'>filter(range)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; filter(
-  Range range
-) auto</code></pre><p><code>filter!(predicate)(range)</code> returns a new range containing only elements <code>x</code> in <code>range</code> for which <code>predicate(x)</code> returns <code>true</code> .</p>
+ <pre><code class='lang-d'>auto filter( Range )( Range range ) </code></pre><p><code>filter!(predicate)(range)</code> returns a new range containing only elements <code>x</code> in <code>range</code> for which <code>predicate(x)</code> returns <code>true</code> .</p>
 <p>The predicate is passed to $(REF unaryFun, std,functional), and can be either a string, or any callable that can be executed via <code>pred(element)</code> .</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>predicate</code> &lt;parameter not found&gt;  </dt>
 <dd>

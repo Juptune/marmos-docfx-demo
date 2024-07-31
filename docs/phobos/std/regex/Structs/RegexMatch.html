@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,27 +87,29 @@
         <article data-uid="std.regex.Structs.RegexMatch">
 <h1 class='section'>Struct - RegexMatch</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.regex</dd></dl>
-</div><pre><code class='lang-d'>public struct RegexMatch
+</div><pre><code class='lang-d'>struct RegexMatch( R )
 {
   // 
-  alias Char = &lt;todo: marmos support pending&gt;;
+  alias Char = &lt;todo: marmos support pending&gt;
 
   // Same as .front, provided for compatibility with original std.regex. 
-  Captures!(R) captures( ) ;
+  Captures!(R) captures() @property
   // Test if this match object is empty. 
-  bool empty( ) ;
+  bool empty() @property
   // 
-  Captures!(R) front( ) ;
+  Captures!(R) front() @property
   // ditto 
-  R hit( ) ;
+  R hit() @property
+  // Same as !(x.empty), provided for its convenience  in conditional statements. 
+  T opCast( T : bool )() 
   // ditto 
-  void popFront( ) ;
+  void popFront() 
   // ditto 
-  R post( ) ;
+  R post() @property
   // Shorthands for front.pre, front.post, front.hit. 
-  R pre( ) ;
+  R pre() @property
   // ditto 
-  &lt;bug: unknown&gt; save( ) auto;
+  auto save() 
 }</code></pre><h2 class='section'>About</h2><p>A regex engine state, as returned by <code>match</code> family of functions.</p>
 <p>Effectively it's a forward range of Captures!R, produced by lazily searching for matches in a given input.</p>
 <h2 class='section'>Aliases</h2><table>
@@ -147,6 +149,10 @@
 <tr>
 <td><a href="../RegexMatch/RegexMatch/Functions/hit.html">hit</a></td>
 <td>ditto</td>
+</tr>
+<tr>
+<td><a href="../RegexMatch/RegexMatch/Functions/opCast.html">opCast</a></td>
+<td>Same as !(x.empty), provided for its convenience  in conditional statements.</td>
 </tr>
 <tr>
 <td><a href="../RegexMatch/RegexMatch/Functions/popFront.html">popFront</a></td>

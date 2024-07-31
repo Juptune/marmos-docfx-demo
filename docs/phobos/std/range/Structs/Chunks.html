@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,33 +87,33 @@
         <article data-uid="std.range.Structs.Chunks">
 <h1 class='section'>Struct - Chunks</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
-</div><pre><code class='lang-d'>public struct Chunks
+</div><pre><code class='lang-d'>struct Chunks( Source )
 {
   // Bidirectional range primitives. Provided only if both `hasSlicing!Source` and `hasLength!Source` are `true` . 
-  &lt;bug: unknown&gt; back( ) auto;
+  auto back() @property
   // Ditto 
-  bool empty( ) ;
+  bool empty() @property
   // Input range primitives. Always present. 
-  &lt;bug: unknown&gt; front( ) auto;
+  auto front() @property
   // Length. Only if `hasLength!Source` is `true` 
-  size_t length( ) ;
+  size_t length() @property
   // 
-  DollarToken opDollar( ) ;
+  DollarToken opDollar() 
   // Indexing and slicing operations. Provided only if `hasSlicing!Source` is `true` . 
-  &lt;bug: unknown&gt; opIndex( size_t index ) auto;
+  auto opIndex( size_t index ) 
   // Ditto 
-  &lt;bug: unknown&gt; opSlice( size_t lower, size_t upper ) ;
+  typeof(this) opSlice( size_t lower, size_t upper ) 
   // 
-  &lt;bug: unknown&gt; opSlice( size_t lower, DollarToken __anonymous ) ;
+  typeof(this) opSlice( size_t lower, DollarToken __anonymous ) 
   // Ditto 
-  void popBack( ) ;
+  void popBack() 
   // Ditto 
-  void popFront( ) ;
+  void popFront() 
   // Forward range primitives. Only present if `Source` is a forward range. 
-  &lt;bug: unknown&gt; save( ) ;
+  typeof(this) save() @property
 
   // 
-  __enumMember hasSliceToEnd;
+  &lt;enum or auto&gt; hasSliceToEnd = is(typeof(Source.init[_chunkSize..__dollar]) == Source)
 }</code></pre><h2 class='section'>About</h2><p>This range iterates over fixed-sized chunks of size <code>chunkSize</code> of a <code>source</code> range. <code>Source</code> must be an $(REF_ALTTEXT input range, isInputRange, std,range,primitives). <code>chunkSize</code> must be greater than zero.</p>
 <p>If <code>!isInfinite!Source</code> and <code>source.walkLength</code> is not evenly divisible by <code>chunkSize</code> , the back element of this range will contain fewer than <code>chunkSize</code> elements.</p>
 <p>If <code>Source</code> is a forward range, the resulting range will be forward ranges as well. Otherwise, the resulting chunks will be input ranges consuming the same input: iterating over <code>front</code> will shrink the chunk such that subsequent invocations of <code>front</code> will no longer return the full chunk, and calling <code>popFront</code> on the outer range will invalidate any lingering references to previous values of <code>front</code> .</p>
@@ -178,6 +178,20 @@
 <tr>
 <td><a href="../Chunks/Chunks/Functions/save.html">save</a></td>
 <td>Forward range primitives. Only present if <code>Source</code> is a forward range.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Chunks/Chunks/Structs/DollarToken.html">DollarToken</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>

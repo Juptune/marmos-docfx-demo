@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,76 +87,108 @@
         <article data-uid="std.experimental.allocator.building_blocks.stats_collector.Structs.StatsCollector">
 <h1 class='section'>Struct - StatsCollector</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator.building_blocks.stats_collector</dd></dl>
-</div><pre><code class='lang-d'>public struct StatsCollector
+</div><pre><code class='lang-d'>struct StatsCollector( Allocator, ulong flags = Options.all, ulong perCallFlags = 0 )
 {
   // Alignment offered is equal to `Allocator.alignment` . 
-  alias alignment = &lt;todo: marmos support pending&gt;;
+  alias alignment = &lt;todo: marmos support pending&gt;
 
-  // Forwards to `parent.alignedAllocate` . Affects per instance: `numAlignedAllocate` , `bytesUsed` , `bytesAllocated` , `bytesSlack` , `numAlignedAllocateOk` , and `bytesHighTide` . Affects per call: `numAlignedAllocate` , `numAlignedAllocateOk` , and `bytesAllocated` . 
-  &lt;bug: unknown&gt; alignedAllocate( size_t n, uint a ) ;
-  // Forwards to `parent.allocate` . Affects per instance: `numAllocate` , `bytesUsed` , `bytesAllocated` , `bytesSlack` , `numAllocateOK` , and `bytesHighTide` . Affects per call: `numAllocate` , $(D numAllocateOK), and `bytesAllocated` . 
-  &lt;bug: unknown&gt; allocate( size_t n ) ;
-  // Defined if `perCallFlags` is nonzero. Iterates all monitored file/line instances. The order of iteration is not meaningful (items are inserted at the front of a list upon the first call), so preprocessing the statistics after collection might be appropriate. 
-  &lt;bug: unknown&gt; byFileLine( ) static auto;
-  // Ditto 
-  ulong bytesAllocated( ) ;
-  // Ditto 
-  ulong bytesContracted( ) ;
-  // Ditto 
-  ulong bytesExpanded( ) ;
-  // Ditto 
-  ulong bytesHighTide( ) ;
-  // Ditto 
-  ulong bytesMoved( ) ;
-  // Ditto 
-  ulong bytesNotMoved( ) ;
-  // Ditto 
-  ulong bytesSlack( ) ;
-  // Ditto 
-  ulong bytesUsed( ) ;
-  // Defined whether or not `Allocator.deallocate` is defined. Affects per instance: `numDeallocate` , `bytesUsed` , and `bytesSlack` . Affects per call: `numDeallocate` and `bytesContracted` . 
-  bool deallocate( &lt;bug: unknown&gt; b ) ;
-  // Defined only if `Allocator.deallocateAll` is defined. Affects per instance and per call `numDeallocateAll` . 
-  bool deallocateAll( ) ;
   // 
-  string define( string type, &lt;bug: unknown&gt; names ) static;
+  void add( string counter )( Signed!(size_t) n ) 
+  // 
+  void addPerCall( string f, uint n, names... )( ulong[] values ) 
+  // Forwards to `parent.alignedAllocate` . Affects per instance: `numAlignedAllocate` , `bytesUsed` , `bytesAllocated` , `bytesSlack` , `numAlignedAllocateOk` , and `bytesHighTide` . Affects per call: `numAlignedAllocate` , `numAlignedAllocateOk` , and `bytesAllocated` . 
+  void[] alignedAllocate( size_t n, uint a ) 
+  // 
+  void[] alignedAllocateImpl( string f = null, ulong n = 0 )( size_t bytes, uint a ) 
+  // Forwards to `parent.allocate` . Affects per instance: `numAllocate` , `bytesUsed` , `bytesAllocated` , `bytesSlack` , `numAllocateOK` , and `bytesHighTide` . Affects per call: `numAllocate` , $(D numAllocateOK), and `bytesAllocated` . 
+  void[] allocate( size_t n ) 
+  // 
+  void[] allocateImpl( string f = null, ulong n = 0 )( size_t bytes ) 
+  // 
+  void[] allocateZeroed( )( size_t n ) 
+  // 
+  void[] allocateZeroedImpl( string f = null, ulong n = 0 )( size_t bytes ) 
+  // Defined if `perCallFlags` is nonzero. Iterates all monitored file/line instances. The order of iteration is not meaningful (items are inserted at the front of a list upon the first call), so preprocessing the statistics after collection might be appropriate. 
+  static auto byFileLine() 
+  // Ditto 
+  ulong bytesAllocated() @property
+  // Ditto 
+  ulong bytesContracted() @property
+  // Ditto 
+  ulong bytesExpanded() @property
+  // Ditto 
+  ulong bytesHighTide() @property
+  // Ditto 
+  ulong bytesMoved() @property
+  // Ditto 
+  ulong bytesNotMoved() @property
+  // Ditto 
+  ulong bytesSlack() @property
+  // Ditto 
+  ulong bytesUsed() @property
+  // Defined whether or not `Allocator.deallocate` is defined. Affects per instance: `numDeallocate` , `bytesUsed` , and `bytesSlack` . Affects per call: `numDeallocate` and `bytesContracted` . 
+  bool deallocate( void[] b ) 
+  // Defined only if `Allocator.deallocateAll` is defined. Affects per instance and per call `numDeallocateAll` . 
+  bool deallocateAll() 
+  // 
+  bool deallocateAllImpl( string f = null, uint n = 0 )() 
+  // 
+  bool deallocateImpl( string f = null, uint n = 0 )( void[] b ) 
+  // 
+  static string define( string type, string[] names ) 
+  // 
+  void down( string counter )() 
   // Defined only if `Options.bytesUsed` is defined. Returns $(D bytesUsed == 0). 
-  Ternary empty( ) ;
+  Ternary empty() @nogc @safe nothrow pure
   // Defined whether or not `Allocator.expand` is defined. Affects per instance: `numExpand` , `numExpandOK` , `bytesExpanded` , `bytesSlack` , `bytesAllocated` , and `bytesUsed` . Affects per call: `numExpand` , `numExpandOK` , `bytesExpanded` , and `bytesAllocated` . 
-  bool expand( &lt;bug: unknown&gt; b, size_t delta ) ;
+  bool expand( ref void[] b, size_t delta ) 
+  // 
+  bool expandImpl( string f = null, uint n = 0 )( ref void[] b, size_t s ) 
   // Ditto 
-  ulong numAlignedAllocate( ) ;
+  ulong numAlignedAllocate() @property
   // Ditto 
-  ulong numAlignedAllocateOk( ) ;
+  ulong numAlignedAllocateOk() @property
   // Ditto 
-  ulong numAllocate( ) ;
+  ulong numAllocate() @property
   // Ditto 
-  ulong numAllocateOK( ) ;
+  ulong numAllocateOK() @property
   // Ditto 
-  ulong numDeallocate( ) ;
+  ulong numDeallocate() @property
   // Ditto 
-  ulong numDeallocateAll( ) ;
+  ulong numDeallocateAll() @property
   // Ditto 
-  ulong numExpand( ) ;
+  ulong numExpand() @property
   // Ditto 
-  ulong numExpandOK( ) ;
+  ulong numExpandOK() @property
   // Read-only properties enabled by the homonym `flags` chosen by the user. 
-  ulong numOwns( ) ;
+  ulong numOwns() @property
   // Ditto 
-  ulong numReallocate( ) ;
+  ulong numReallocate() @property
   // Ditto 
-  ulong numReallocateInPlace( ) ;
+  ulong numReallocateInPlace() @property
   // Ditto 
-  ulong numReallocateOK( ) ;
+  ulong numReallocateOK() @property
   // Increments `numOwns` (per instance and and per call) and forwards to $(D parent.owns(b)). 
-  Ternary owns( &lt;bug: unknown&gt; b ) ;
+  Ternary owns( void[] b ) 
+  // 
+  Ternary ownsImpl( string f = null, uint n = 0 )( void[] b ) 
   // Defined whether or not `Allocator.reallocate` is defined. Affects per instance: `numReallocate` , `numReallocateOK` , $(D numReallocateInPlace), `bytesNotMoved` , `bytesAllocated` , $(D bytesSlack), `bytesExpanded` , and `bytesContracted` . Affects per call: `numReallocate` , `numReallocateOK` , `numReallocateInPlace` , `bytesNotMoved` , `bytesExpanded` , `bytesContracted` , and `bytesMoved` . 
-  bool reallocate( &lt;bug: unknown&gt; b, size_t s ) ;
+  bool reallocate( ref void[] b, size_t s ) 
+  // 
+  bool reallocateImpl( string f = null, uint n = 0 )( ref void[] b, size_t s ) 
+  // Defined if `perCallFlags` is nonzero. Outputs (e.g. to a `File` ) a simple report of the collected per-call statistics. 
+  void reportPerCallStatistics( R )( auto ref R output ) 
+  // Reports per instance statistics to `output` (e.g. `stdout` ). The format is simple: one kind and value per line, separated by a colon, e.g. `bytesAllocated:7395404` 
+  void reportStatistics( R )( auto ref R output ) 
+  // 
+  PerCallStatistics* statsAt( string f, uint n, opts... )() 
+  // 
+  void up( string counter )() 
 
   // The parent allocator is publicly accessible either as a direct member if it holds state, or as an alias to `Allocator.instance` otherwise. One may use it for making calls that won&#39;t count toward statistics collection. 
-  Allocator parent;
+  Allocator parent
   // 
-  static &lt;bug: unknown&gt; root;
+  static PerCallStatistics* root
 }</code></pre><h2 class='section'>About</h2><p>Allocator that collects extra data about allocations. Since each piece of information adds size and time overhead, statistics can be individually enabled or disabled through compile-time <code>flags</code> .</p>
 <p>All stats of the form <code>numXxx</code> record counts of events occurring, such as calls to functions and specific results. The stats of the form <code>bytesXxx</code> collect cumulative sizes.</p>
 <p>In addition, the data <code>callerSize</code> , <code>callerModule</code> , <code>callerFile</code> , $(D callerLine), and <code>callerTime</code> is associated with each specific allocation. This data prefixes each allocation.</p>
@@ -183,12 +215,36 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../StatsCollector/StatsCollector/Functions/add.html">add</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../StatsCollector/StatsCollector/Functions/addPerCall.html">addPerCall</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../StatsCollector/StatsCollector/Functions/alignedAllocate.html">alignedAllocate</a></td>
 <td>Forwards to <code>parent.alignedAllocate</code> . Affects per instance: <code>numAlignedAllocate</code> , <code>bytesUsed</code> , <code>bytesAllocated</code> , <code>bytesSlack</code> , <code>numAlignedAllocateOk</code> , and <code>bytesHighTide</code> . Affects per call: <code>numAlignedAllocate</code> , <code>numAlignedAllocateOk</code> , and <code>bytesAllocated</code> .</td>
 </tr>
 <tr>
+<td><a href="../StatsCollector/StatsCollector/Functions/alignedAllocateImpl.html">alignedAllocateImpl</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../StatsCollector/StatsCollector/Functions/allocate.html">allocate</a></td>
 <td>Forwards to <code>parent.allocate</code> . Affects per instance: <code>numAllocate</code> , <code>bytesUsed</code> , <code>bytesAllocated</code> , <code>bytesSlack</code> , <code>numAllocateOK</code> , and <code>bytesHighTide</code> . Affects per call: <code>numAllocate</code> , $(D numAllocateOK), and <code>bytesAllocated</code> .</td>
+</tr>
+<tr>
+<td><a href="../StatsCollector/StatsCollector/Functions/allocateImpl.html">allocateImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../StatsCollector/StatsCollector/Functions/allocateZeroed.html">allocateZeroed</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../StatsCollector/StatsCollector/Functions/allocateZeroedImpl.html">allocateZeroedImpl</a></td>
+<td></td>
 </tr>
 <tr>
 <td><a href="../StatsCollector/StatsCollector/Functions/byFileLine.html">byFileLine</a></td>
@@ -235,7 +291,19 @@
 <td>Defined only if <code>Allocator.deallocateAll</code> is defined. Affects per instance and per call <code>numDeallocateAll</code> .</td>
 </tr>
 <tr>
+<td><a href="../StatsCollector/StatsCollector/Functions/deallocateAllImpl.html">deallocateAllImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../StatsCollector/StatsCollector/Functions/deallocateImpl.html">deallocateImpl</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../StatsCollector/StatsCollector/Functions/define.html">define</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../StatsCollector/StatsCollector/Functions/down.html">down</a></td>
 <td></td>
 </tr>
 <tr>
@@ -245,6 +313,10 @@
 <tr>
 <td><a href="../StatsCollector/StatsCollector/Functions/expand.html">expand</a></td>
 <td>Defined whether or not <code>Allocator.expand</code> is defined. Affects per instance: <code>numExpand</code> , <code>numExpandOK</code> , <code>bytesExpanded</code> , <code>bytesSlack</code> , <code>bytesAllocated</code> , and <code>bytesUsed</code> . Affects per call: <code>numExpand</code> , <code>numExpandOK</code> , <code>bytesExpanded</code> , and <code>bytesAllocated</code> .</td>
+</tr>
+<tr>
+<td><a href="../StatsCollector/StatsCollector/Functions/expandImpl.html">expandImpl</a></td>
+<td></td>
 </tr>
 <tr>
 <td><a href="../StatsCollector/StatsCollector/Functions/numAlignedAllocate.html">numAlignedAllocate</a></td>
@@ -299,8 +371,46 @@
 <td>Increments <code>numOwns</code> (per instance and and per call) and forwards to $(D parent.owns(b)).</td>
 </tr>
 <tr>
+<td><a href="../StatsCollector/StatsCollector/Functions/ownsImpl.html">ownsImpl</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../StatsCollector/StatsCollector/Functions/reallocate.html">reallocate</a></td>
 <td>Defined whether or not <code>Allocator.reallocate</code> is defined. Affects per instance: <code>numReallocate</code> , <code>numReallocateOK</code> , $(D numReallocateInPlace), <code>bytesNotMoved</code> , <code>bytesAllocated</code> , $(D bytesSlack), <code>bytesExpanded</code> , and <code>bytesContracted</code> . Affects per call: <code>numReallocate</code> , <code>numReallocateOK</code> , <code>numReallocateInPlace</code> , <code>bytesNotMoved</code> , <code>bytesExpanded</code> , <code>bytesContracted</code> , and <code>bytesMoved</code> .</td>
+</tr>
+<tr>
+<td><a href="../StatsCollector/StatsCollector/Functions/reallocateImpl.html">reallocateImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../StatsCollector/StatsCollector/Functions/reportPerCallStatistics.html">reportPerCallStatistics</a></td>
+<td>Defined if <code>perCallFlags</code> is nonzero. Outputs (e.g. to a <code>File</code> ) a simple report of the collected per-call statistics.</td>
+</tr>
+<tr>
+<td><a href="../StatsCollector/StatsCollector/Functions/reportStatistics.html">reportStatistics</a></td>
+<td>Reports per instance statistics to <code>output</code> (e.g. <code>stdout</code> ). The format is simple: one kind and value per line, separated by a colon, e.g. <code>bytesAllocated:7395404</code></td>
+</tr>
+<tr>
+<td><a href="../StatsCollector/StatsCollector/Functions/statsAt.html">statsAt</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../StatsCollector/StatsCollector/Functions/up.html">up</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../StatsCollector/StatsCollector/Structs/PerCallStatistics.html">PerCallStatistics</a></td>
+<td>Defined if <code>perCallFlags</code> is nonzero.</td>
 </tr>
 </tbody>
 </table>

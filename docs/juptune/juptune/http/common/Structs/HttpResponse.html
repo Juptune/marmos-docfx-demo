@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,11 +90,13 @@
 </div><pre><code class='lang-d'>public struct HttpResponse
 {
   // The status of the response. 
-  String2 reason( ) ;
+  ref String2 reason() @nogc @safe nothrow scope return
   // The reason of the response. 
-  uint status( ) ;
+  uint status() @nogc @safe nothrow
+  // Sets the reason of the response. 
+  void withReason( ReasonT )( scope ReasonT reason ) 
   // Sets the status of the response. 
-  void withStatus( uint status ) ;
+  void withStatus( uint status ) @safe
 }</code></pre><h2 class='section'>About</h2><p>Represents a HTTP response with a status code + reason; headers; a body, and trailers.</p>
 <h2 class='section'>Functions</h2><table>
 <thead>
@@ -111,6 +113,10 @@
 <tr>
 <td><a href="../HttpResponse/HttpResponse/Functions/status.html">status</a></td>
 <td>The reason of the response.</td>
+</tr>
+<tr>
+<td><a href="../HttpResponse/HttpResponse/Functions/withReason.html">withReason</a></td>
+<td>Sets the reason of the response.</td>
 </tr>
 <tr>
 <td><a href="../HttpResponse/HttpResponse/Functions/withStatus.html">withStatus</a></td>

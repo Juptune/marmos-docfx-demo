@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,11 +88,7 @@
 <h1 class='section'>Overloads for - setMaxMailboxSize</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.concurrency</dd></dl>
 </div><h2 class='section api'>setMaxMailboxSize(tid, messages, doThis)   </h2>
- <pre><code class='lang-d'>void setMaxMailboxSize(
-  Tid tid,
-  size_t messages,
-  OnCrowding doThis
-) </code></pre><p>Sets a maximum mailbox size.</p>
+ <pre><code class='lang-d'>void setMaxMailboxSize( Tid tid, size_t messages, OnCrowding doThis ) @safe pure</code></pre><p>Sets a maximum mailbox size.</p>
 <p>Sets a limit on the maximum number of user messages allowed in the mailbox. If this limit is reached, the caller attempting to add a new message will execute the behavior specified by doThis.  If messages is zero, the mailbox is unbounded.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>tid</code> Tid  </dt>
 <dd>
@@ -113,11 +109,7 @@
 <p>The behavior executed when a message is sent to a full mailbox.</p>
 
 </dd></dl><h2 class='section api'>setMaxMailboxSize(tid, messages, onCrowdingDoThis)   </h2>
- <pre><code class='lang-d'>void setMaxMailboxSize(
-  Tid tid,
-  size_t messages,
-  &lt;bug: unknown&gt; onCrowdingDoThis
-) </code></pre><p>Sets a maximum mailbox size.</p>
+ <pre><code class='lang-d'>void setMaxMailboxSize( Tid tid, size_t messages, * onCrowdingDoThis ) </code></pre><p>Sets a maximum mailbox size.</p>
 <p>Sets a limit on the maximum number of user messages allowed in the mailbox. If this limit is reached, the caller attempting to add a new message will execute onCrowdingDoThis.  If messages is zero, the mailbox is unbounded.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>tid</code> Tid  </dt>
 <dd>
@@ -131,7 +123,7 @@
 
 <p>The maximum number of messages or zero if no limit.</p>
 
-</dd><dt><code>onCrowdingDoThis</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>onCrowdingDoThis</code> *  </dt>
 <dd>
 
 

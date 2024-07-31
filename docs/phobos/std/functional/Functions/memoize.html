@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,16 +88,12 @@
 <h1 class='section'>Overloads for - memoize</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.functional</dd></dl>
 </div><h2 class='section api'>memoize(args)   </h2>
- <pre><code class='lang-d'>ReturnType!(fun) memoize(
-  Parameters!(fun) args
-) </code></pre><p>$(LINK2 <a href="https://en.wikipedia.org/wiki/Memoization">https://en.wikipedia.org/wiki/Memoization</a>, Memoizes) a function so as to avoid repeated computation. The memoization structure is a hash table keyed by a tuple of the function's arguments. There is a speed gain if the function is repeatedly called with the same arguments and is more expensive than a hash table lookup. For more information on memoization, refer to $(HTTP docs.google.com/viewer?url=http%3A%2F%2Fhop.perl.plover.com%2Fbook%2Fpdf%2F03CachingAndMemoization.pdf, this book chapter).</p>
+ <pre><code class='lang-d'>ReturnType!(fun) memoize( alias fun )( Parameters!(fun) args ) </code></pre><p>$(LINK2 <a href="https://en.wikipedia.org/wiki/Memoization">https://en.wikipedia.org/wiki/Memoization</a>, Memoizes) a function so as to avoid repeated computation. The memoization structure is a hash table keyed by a tuple of the function's arguments. There is a speed gain if the function is repeatedly called with the same arguments and is more expensive than a hash table lookup. For more information on memoization, refer to $(HTTP docs.google.com/viewer?url=http%3A%2F%2Fhop.perl.plover.com%2Fbook%2Fpdf%2F03CachingAndMemoization.pdf, this book chapter).</p>
 <p>Example: ---- double transmogrify(int a, string b) { ... expensive computation ... } alias fastTransmogrify = memoize!transmogrify; unittest { auto slow = transmogrify(2, &quot;hello&quot;); auto fast = fastTransmogrify(2, &quot;hello&quot;); assert(slow == fast); } ----</p>
 <p>Params: fun = the call-able to memozie maxSize = The maximum size of the GC buffer to hold the return values Returns: A new function which calls <code>fun</code> and caches its return values.</p>
 <p>Note: Technically the memoized function should be pure because <code>memoize</code> assumes it will always return the same result for a given tuple of arguments. However, <code>memoize</code> does not enforce that because sometimes it is useful to memoize an impure function, too.</p>
 <h2 class='section api'>memoize(args)   </h2>
- <pre><code class='lang-d'>ReturnType!(fun) memoize(
-  Parameters!(fun) args
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>ReturnType!(fun) memoize( alias fun, uint maxSize )( Parameters!(fun) args ) </code></pre><p>ditto</p>
 
 </article>
 

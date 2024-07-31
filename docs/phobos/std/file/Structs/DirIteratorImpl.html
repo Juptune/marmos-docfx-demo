@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,29 +90,29 @@
 </div><pre><code class='lang-d'>public struct DirIteratorImpl
 {
   // 
-  bool empty( ) ;
+  bool empty() @property
   // 
-  DirEntry front( ) ;
+  DirEntry front() @property
   // 
-  bool hasExtra( ) ;
+  bool hasExtra() 
   // 
-  bool mayStepIn( ) ;
+  bool mayStepIn() 
   // 
-  bool next( ) ;
+  bool next() 
   // 
-  void popDirStack( ) ;
+  void popDirStack() @trusted
   // 
-  DirEntry popExtra( ) ;
+  DirEntry popExtra() 
   // 
-  void popFront( ) ;
+  void popFront() 
   // 
-  void pushExtra( DirEntry de ) ;
+  void pushExtra( DirEntry de ) 
   // 
-  void releaseDirStack( ) ;
+  void releaseDirStack() @trusted
   // 
-  bool stepIn( string directory ) ;
+  bool stepIn( string directory ) @safe
   // 
-  bool toNext( bool fetch, &lt;bug: unknown&gt; findinfo ) ;
+  bool toNext( bool fetch, scope WIN32_FIND_DATAW* findinfo ) @trusted
 }</code></pre><h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -167,6 +167,20 @@
 </tr>
 <tr>
 <td><a href="../DirIteratorImpl/DirIteratorImpl/Functions/toNext.html">toNext</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../DirIteratorImpl/DirIteratorImpl/Structs/DirHandle.html">DirHandle</a></td>
 <td></td>
 </tr>
 </tbody>

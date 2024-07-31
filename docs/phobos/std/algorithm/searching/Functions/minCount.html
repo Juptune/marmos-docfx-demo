@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - minCount</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.searching</dd></dl>
 </div><h2 class='section api'>minCount(range)   </h2>
- <pre><code class='lang-d'>Tuple!(ElementType!Rangesize_t) minCount(
-  Range range
-) </code></pre><p>Computes the minimum (respectively maximum) of <code>range</code> along with its number of occurrences. Formally, the minimum is a value <code>x</code> in <code>range</code> such that $(D pred(a, x)) is <code>false</code> for all values <code>a</code> in <code>range</code> . Conversely, the maximum is a value <code>x</code> in <code>range</code> such that <code>pred(x, a)</code> is <code>false</code> for all values <code>a</code> in <code>range</code> (note the swapped arguments to <code>pred</code> ).</p>
+ <pre><code class='lang-d'>Tuple!(ElementType!Range,size_t) minCount( alias pred = &quot;a &lt; b&quot;, Range )( Range range ) </code></pre><p>Computes the minimum (respectively maximum) of <code>range</code> along with its number of occurrences. Formally, the minimum is a value <code>x</code> in <code>range</code> such that $(D pred(a, x)) is <code>false</code> for all values <code>a</code> in <code>range</code> . Conversely, the maximum is a value <code>x</code> in <code>range</code> such that <code>pred(x, a)</code> is <code>false</code> for all values <code>a</code> in <code>range</code> (note the swapped arguments to <code>pred</code> ).</p>
 <p>These functions may be used for computing arbitrary extrema by choosing <code>pred</code> appropriately. For corrrect functioning, <code>pred</code> must be a strict partial order, i.e. transitive (if <code>pred(a, b) &amp;&amp; pred(b, c)</code> then <code>pred(a, c)</code> ) and irreflexive (<code>pred(a, a)</code> is <code>false</code> ). The $(LUCKY trichotomy property of inequality) is not required: these algorithms consider elements <code>a</code> and <code>b</code> equal (for the purpose of counting) if <code>pred</code> puts them in the same equivalence class, i.e. <code>!pred(a, b) &amp;&amp; !pred(b, a)</code> .</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>pred</code> &lt;parameter not found&gt;  </dt>
 <dd>

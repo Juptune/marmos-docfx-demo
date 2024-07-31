@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - log</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.complex</dd></dl>
 </div><h2 class='section api'>log(x)   </h2>
- <pre><code class='lang-d'>Complex!(T) log(
-  Complex!(T) x
-) </code></pre><p>Calculate the natural logarithm of x. The branch cut is along the negative axis. Params: x = A complex number Returns: The complex natural logarithm of <code>x</code></p>
+ <pre><code class='lang-d'>Complex!(T) log( T )( Complex!(T) x ) @nogc @safe nothrow pure</code></pre><p>Calculate the natural logarithm of x. The branch cut is along the negative axis. Params: x = A complex number Returns: The complex natural logarithm of <code>x</code></p>
 <p>$(TABLE_SV $(TR $(TH x)                           $(TH log(x))) $(TR $(TD (-0, +0))                    <span class="math">\((TD (-\)</span>(INFIN), $(PI)))) $(TR $(TD (+0, +0))                    <span class="math">\((TD (-\)</span>(INFIN), +0))) $(TR <span class="math">\((TD (any, +\)</span>(INFIN)))            <span class="math">\((TD (+\)</span>(INFIN), $(PI)/2))) $(TR $(TD (any, $(NAN)))               <span class="math">\((TD (\)</span>(NAN), $(NAN)))) $(TR <span class="math">\((TD (-\)</span>(INFIN), any))            <span class="math">\((TD (+\)</span>(INFIN), $(PI)))) $(TR <span class="math">\((TD (+\)</span>(INFIN), any))            <span class="math">\((TD (+\)</span>(INFIN), +0))) $(TR <span class="math">\((TD (-\)</span>(INFIN), +$(INFIN)))      <span class="math">\((TD (+\)</span>(INFIN), 3$(PI)/4))) $(TR <span class="math">\((TD (+\)</span>(INFIN), +$(INFIN)))      <span class="math">\((TD (+\)</span>(INFIN), $(PI)/4))) $(TR <span class="math">\((TD (\)</span>(PLUSMN)$(INFIN), $(NAN))) <span class="math">\((TD (+\)</span>(INFIN), $(NAN)))) $(TR <span class="math">\((TD (\)</span>(NAN), any))               <span class="math">\((TD (\)</span>(NAN), $(NAN)))) $(TR <span class="math">\((TD (\)</span>(NAN), +$(INFIN)))         <span class="math">\((TD (+\)</span>(INFIN), $(NAN)))) $(TR <span class="math">\((TD (\)</span>(NAN), $(NAN)))            <span class="math">\((TD (\)</span>(NAN), $(NAN)))) )</p>
 
 </article>

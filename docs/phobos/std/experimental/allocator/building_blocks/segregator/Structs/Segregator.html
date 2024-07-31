@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,37 +87,39 @@
         <article data-uid="std.experimental.allocator.building_blocks.segregator.Structs.Segregator">
 <h1 class='section'>Struct - Segregator</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator.building_blocks.segregator</dd></dl>
-</div><pre><code class='lang-d'>public struct Segregator
+</div><pre><code class='lang-d'>struct Segregator( size_t threshold, SmallAllocator, LargeAllocator )
 {
   // This method is defined if both allocators define it, and forwards to `SmallAllocator` or `LargeAllocator` appropriately. 
-  &lt;bug: unknown&gt; alignedAllocate( size_t __anonymous, uint __anonymous ) ;
+  void[] alignedAllocate( size_t __anonymous, uint __anonymous ) 
   // This method is defined only if at least one of the allocators defines it, and work similarly to `reallocate` . 
-  bool alignedReallocate( &lt;bug: unknown&gt; b, size_t s, uint a ) ;
+  bool alignedReallocate( ref void[] b, size_t s, uint a ) 
   // The memory is obtained from `SmallAllocator` if $(D s &lt;= threshold), or `LargeAllocator` otherwise. 
-  &lt;bug: unknown&gt; allocate( size_t __anonymous ) ;
+  void[] allocate( size_t __anonymous ) 
+  // Composite allocators involving nested instantiations of `Segregator` make it difficult to access individual sub-allocators stored within. $(D allocatorForSize) simplifies the task by supplying the allocator nested inside a `Segregator` that is responsible for a specific size `s` . 
+  ref auto allocatorForSize( size_t s )() 
   // This function is defined only if both allocators define it, and forwards appropriately depending on `b.length` . 
-  bool deallocate( &lt;bug: unknown&gt; b ) ;
+  bool deallocate( void[] b ) 
   // This function is defined only if both allocators define it, and calls `deallocateAll` for them in turn. 
-  bool deallocateAll( ) ;
+  bool deallocateAll() 
   // This function is defined only if both allocators define it, and returns the conjunction of `empty` calls for the two. 
-  Ternary empty( ) ;
+  Ternary empty() 
   // This method is defined only if at least one of the allocators defines it. If `SmallAllocator` defines `expand` and $(D b.length + delta &lt;= threshold), the call is forwarded to `SmallAllocator` . If $(D LargeAllocator) defines `expand` and $(D b.length &gt; threshold), the call is forwarded to `LargeAllocator` . Otherwise, the call returns `false` . 
-  bool expand( &lt;bug: unknown&gt; b, size_t delta ) ;
+  bool expand( ref void[] b, size_t delta ) 
   // This method is defined only if at least one of the allocators defines it. The good allocation size is obtained from `SmallAllocator` if $(D s &lt;= threshold), or `LargeAllocator` otherwise. (If one of the allocators does not define `goodAllocSize` , the default implementation in this module applies.) 
-  size_t goodAllocSize( size_t s ) static;
+  static size_t goodAllocSize( size_t s ) 
   // This method is defined only if both allocators define it. The call is forwarded to `SmallAllocator` if $(D b.length &lt;= threshold), or $(D LargeAllocator) otherwise. 
-  Ternary owns( &lt;bug: unknown&gt; b ) ;
+  Ternary owns( void[] b ) 
   // This method is defined only if at least one of the allocators defines it. If `SmallAllocator` defines `reallocate` and $(D b.length &lt;= threshold &amp;&amp; s &lt;= threshold), the call is forwarded to $(D SmallAllocator). If `LargeAllocator` defines `expand` and $(D b.length &gt; threshold &amp;&amp; s &gt; threshold), the call is forwarded to $(D LargeAllocator). Otherwise, the call returns `false` . 
-  bool reallocate( &lt;bug: unknown&gt; b, size_t s ) ;
+  bool reallocate( ref void[] b, size_t s ) 
 
   // The alignment offered is the minimum of the two allocators&#39; alignment. 
-  uint alignment;
+  uint alignment
   // 
-  uint alignment;
+  uint alignment = min(SmallAllocator.alignment, LargeAllocator.alignment)
   // 
-  static shared Segregator instance;
+  static shared Segregator instance
   // 
-  __enumMember sharedMethods;
+  &lt;enum or auto&gt; sharedMethods = !stateSize!SmallAllocator &amp;&amp; !stateSize!LargeAllocator &amp;&amp; is(typeof(SmallAllocator.instance) == shared) &amp;&amp; is(typeof(LargeAllocator.instance) == shared)
 }</code></pre><h2 class='section'>About</h2><p>Dispatches allocations (and deallocations) between two allocators ($(D SmallAllocator) and <code>LargeAllocator</code> ) depending on the size allocated, as follows. All allocations smaller than or equal to <code>threshold</code> will be dispatched to <code>SmallAllocator</code> . The others will go to <code>LargeAllocator</code> .</p>
 <p>If both allocators are <code>shared</code> , the <code>Segregator</code> will also offer $(D shared) methods.</p>
 <h2 class='section'>Functions</h2><table>
@@ -139,6 +141,10 @@
 <tr>
 <td><a href="../Segregator/Segregator/Functions/allocate.html">allocate</a></td>
 <td>The memory is obtained from <code>SmallAllocator</code> if $(D s &lt;= threshold), or <code>LargeAllocator</code> otherwise.</td>
+</tr>
+<tr>
+<td><a href="../Segregator/Segregator/Functions/allocatorForSize.html">allocatorForSize</a></td>
+<td>Composite allocators involving nested instantiations of <code>Segregator</code> make it difficult to access individual sub-allocators stored within. $(D allocatorForSize) simplifies the task by supplying the allocator nested inside a <code>Segregator</code> that is responsible for a specific size <code>s</code> .</td>
 </tr>
 <tr>
 <td><a href="../Segregator/Segregator/Functions/deallocate.html">deallocate</a></td>
@@ -167,6 +173,20 @@
 <tr>
 <td><a href="../Segregator/Segregator/Functions/reallocate.html">reallocate</a></td>
 <td>This method is defined only if at least one of the allocators defines it. If <code>SmallAllocator</code> defines <code>reallocate</code> and $(D b.length &lt;= threshold &amp;&amp; s &lt;= threshold), the call is forwarded to $(D SmallAllocator). If <code>LargeAllocator</code> defines <code>expand</code> and $(D b.length &gt; threshold &amp;&amp; s &gt; threshold), the call is forwarded to $(D LargeAllocator). Otherwise, the call returns <code>false</code> .</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Templates</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Segregator/Segregator/Templates/Impl.html">Impl</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,14 +87,14 @@
         <article data-uid="std.experimental.allocator.building_blocks.aligned_block_list.Structs.SharedAlignedBlockList">
 <h1 class='section'>Struct - SharedAlignedBlockList</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator.building_blocks.aligned_block_list</dd></dl>
-</div><pre><code class='lang-d'>public struct SharedAlignedBlockList
+</div><pre><code class='lang-d'>struct SharedAlignedBlockList( Allocator, ParentAllocator, ulong theAlignment = 1 &lt;&lt; 21 )
 {
   // Returns a chunk of memory of size `n` It finds the first node in the `AlignedBlockNode` list which has available memory, and moves it to the front of the list. 
-  &lt;bug: unknown&gt; allocate( size_t n ) ;
+  void[] allocate( size_t n ) 
   // Deallocates the buffer `b` given as parameter. Deallocations take place in constant time, regardless of the number of nodes in the list. `b.ptr` is rounded down to the nearest multiple of the `alignment` to quickly find the corresponding `AlignedBlockNode` . 
-  bool deallocate( &lt;bug: unknown&gt; b ) ;
+  bool deallocate( void[] b ) 
   // Returns `Ternary.yes` if the buffer belongs to the parent allocator and `Ternary.no` otherwise. 
-  Ternary owns( &lt;bug: unknown&gt; b ) ;
+  Ternary owns( void[] b ) 
 }</code></pre><h2 class='section'>About</h2><p><code>SharedAlignedBlockList</code> is the threadsafe version of <code>AlignedBlockList</code> . The <code>Allocator</code> template parameter must refer a shared allocator. Also, <code>ParentAllocator</code> must be a shared allocator, supporting <code>alignedAllocate</code> .</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>Allocator</code>   </dt>
 <dd>

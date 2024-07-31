@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,52 +90,54 @@
 </div><pre><code class='lang-d'>public struct AnsiStyle
 {
   // SETTERS 
-  AnsiStyle bold( bool enable ) ;
+  ref AnsiStyle bold( bool enable ) return
   // GETTERS 
-  bool bold( ) ;
+  bool bold() 
   // SETTERS 
-  AnsiStyle dim( bool enable ) ;
+  ref AnsiStyle dim( bool enable ) return
   // GETTERS 
-  bool dim( ) ;
+  bool dim() 
   // SETTERS 
-  AnsiStyle fastBlink( bool enable ) ;
+  ref AnsiStyle fastBlink( bool enable ) return
   // GETTERS 
-  bool fastBlink( ) ;
+  bool fastBlink() 
   // Get the status of a certain styling option. 
-  bool get( AnsiSgrStyle style ) ;
+  bool get( AnsiSgrStyle style ) 
   // 
-  bool getSgrBit( AnsiSgrStyle style ) ;
+  bool getSgrBit( AnsiSgrStyle style ) @nogc @safe nothrow pure
   // SETTERS 
-  AnsiStyle invert( bool enable ) ;
+  ref AnsiStyle invert( bool enable ) return
   // GETTERS 
-  bool invert( ) ;
+  bool invert() 
   // SETTERS 
-  AnsiStyle italic( bool enable ) ;
+  ref AnsiStyle italic( bool enable ) return
   // GETTERS 
-  bool italic( ) ;
+  bool italic() 
   // Removes all styling from this `AnsiStyle` . 
-  AnsiStyle reset( ) ;
+  ref AnsiStyle reset() return
   // Enables/Disables a certain styling option. 
-  AnsiStyle set( AnsiSgrStyle style, bool enable ) ;
+  ref AnsiStyle set( AnsiSgrStyle style, bool enable ) return
   // 
-  int sgrToBit( AnsiSgrStyle style ) ;
+  void setSgrBit( bool setOrUnset )( AnsiSgrStyle style ) @nogc @safe nothrow pure
+  // 
+  int sgrToBit( AnsiSgrStyle style ) @nogc @safe nothrow pure
   // SETTERS 
-  AnsiStyle slowBlink( bool enable ) ;
+  ref AnsiStyle slowBlink( bool enable ) return
   // GETTERS 
-  bool slowBlink( ) ;
+  bool slowBlink() 
   // SETTERS 
-  AnsiStyle strike( bool enable ) ;
+  ref AnsiStyle strike( bool enable ) return
   // GETTERS 
-  bool strike( ) ;
+  bool strike() 
   // OUTPUT 
-  &lt;bug: unknown&gt; toSequence( &lt;bug: unknown&gt; buffer ) ;
+  char[] toSequence( ref return ref char[MAX_CHARS_NEEDED] buffer ) @nogc @safe nothrow
   // SETTERS 
-  AnsiStyle underline( bool enable ) ;
+  ref AnsiStyle underline( bool enable ) return
   // GETTERS 
-  bool underline( ) ;
+  bool underline() 
 
   // The maximum amount of characters any singular `AnsiStyle` sequence may use. 
-  __enumMember MAX_CHARS_NEEDED;
+  &lt;enum or auto&gt; MAX_CHARS_NEEDED = getMaxSgrStyleCharCount!()
 }</code></pre><h2 class='section'>About</h2><p>Contains any number of styling options from <code>AnsiStyleSgr</code> , and provides the ability to generate an ANSI SGR command to apply all of the selected styling options.</p>
 <p>CONSTANTS</p>
 <h2 class='section'>Functions</h2><table>
@@ -181,6 +183,10 @@
 <tr>
 <td><a href="../AnsiStyle/AnsiStyle/Functions/set.html">set</a></td>
 <td>Enables/Disables a certain styling option.</td>
+</tr>
+<tr>
+<td><a href="../AnsiStyle/AnsiStyle/Functions/setSgrBit.html">setSgrBit</a></td>
+<td></td>
 </tr>
 <tr>
 <td><a href="../AnsiStyle/AnsiStyle/Functions/sgrToBit.html">sgrToBit</a></td>

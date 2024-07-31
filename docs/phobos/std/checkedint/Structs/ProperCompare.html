@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,7 +89,29 @@
 <dl><dt>Module</dt><dd>std.checkedint</dd></dl>
 </div><pre><code class='lang-d'>public struct ProperCompare
 {
+  // Hook for `&lt;` , `&lt;=` , `&gt;` , and `&gt;=` that ensures comparison against integral values has the behavior expected by the usual arithmetic rules. The built-in semantics yield surprising behavior when comparing signed values against unsigned values, for example $(D 0u &lt; -1). The call $(D hookOpCmp(x, y)) returns `-1` if and only if `x` is smaller than `y` in abstract arithmetic sense. 
+  auto hookOpCmp( L, R )( L lhs, R rhs ) 
+  // Hook for `==` and `!=` that ensures comparison against integral values has the behavior expected by the usual arithmetic rules. The built-in semantics yield surprising behavior when comparing signed values against unsigned values for equality, for example $(D uint.max == -1) or $(D -1_294_967_296 == 3_000_000_000u). The call $(D hookOpEquals(x, y)) returns `true` if and only if `x` and `y` represent the same arithmetic number. 
+  bool hookOpEquals( L, R )( L lhs, R rhs ) 
 }</code></pre><h2 class='section'>About</h2><p>Hook that provides arithmetically correct comparisons for equality and ordering. Comparing an object of type $(D Checked!(X, ProperCompare)) against another integral (for equality or ordering) ensures that no surprising conversions from signed to unsigned integral occur before the comparison. Using $(D Checked!(X, ProperCompare)) on either side of a comparison for equality against a floating-point number makes sure the integral can be properly converted to the floating point type, thus making sure equality is transitive.</p>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../ProperCompare/ProperCompare/Functions/hookOpCmp.html">hookOpCmp</a></td>
+<td>Hook for <code>&lt;</code> , <code>&lt;=</code> , <code>&gt;</code> , and <code>&gt;=</code> that ensures comparison against integral values has the behavior expected by the usual arithmetic rules. The built-in semantics yield surprising behavior when comparing signed values against unsigned values, for example $(D 0u &lt; -1). The call $(D hookOpCmp(x, y)) returns <code>-1</code> if and only if <code>x</code> is smaller than <code>y</code> in abstract arithmetic sense.</td>
+</tr>
+<tr>
+<td><a href="../ProperCompare/ProperCompare/Functions/hookOpEquals.html">hookOpEquals</a></td>
+<td>Hook for <code>==</code> and <code>!=</code> that ensures comparison against integral values has the behavior expected by the usual arithmetic rules. The built-in semantics yield surprising behavior when comparing signed values against unsigned values for equality, for example $(D uint.max == -1) or $(D -1_294_967_296 == 3_000_000_000u). The call $(D hookOpEquals(x, y)) returns <code>true</code> if and only if <code>x</code> and <code>y</code> represent the same arithmetic number.</td>
+</tr>
+</tbody>
+</table>
 
 </article>
 

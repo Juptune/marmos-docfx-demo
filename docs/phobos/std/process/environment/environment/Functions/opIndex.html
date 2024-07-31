@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - opIndex</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.process.environment</dd></dl><dl><dt>Parent</dt><dd>environment</dd></dl>
 </div><h2 class='section api'>opIndex(name)   </h2>
- <pre><code class='lang-d'>string opIndex(
-  &lt;bug: unknown&gt; name
-) </code></pre><p>Retrieves the value of the environment variable with the given <code>name</code> . --- auto path = environment[&quot;PATH&quot;]; ---</p>
+ <pre><code class='lang-d'>string opIndex( scope char[] name ) @safe</code></pre><p>Retrieves the value of the environment variable with the given <code>name</code> . --- auto path = environment[&quot;PATH&quot;]; ---</p>
 <h3 class='section'>Throws</h3><p>$(OBJECTREF Exception) if the environment variable does not exist, or $(REF UTFException, std,utf) if the variable contains invalid UTF-16 characters (Windows only).</p>
 <h3 class='section'>See_also</h3><p>$(LREF environment.get), which doesn't throw on failure.</p>
 

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - takeOne</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
 </div><h2 class='section api'>takeOne(source)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; takeOne(
-  R source
-) auto</code></pre><p>Returns a range with at most one element; for example, $(D takeOne([42, 43, 44])) returns a range consisting of the integer $(D 42). Calling <code>popFront()</code> off that range renders it empty.</p>
+ <pre><code class='lang-d'>auto takeOne( R )( R source ) </code></pre><p>Returns a range with at most one element; for example, $(D takeOne([42, 43, 44])) returns a range consisting of the integer $(D 42). Calling <code>popFront()</code> off that range renders it empty.</p>
 <p>In effect <code>takeOne(r)</code> is somewhat equivalent to $(D take(r, 1)) but in certain interfaces it is important to know statically that the range may only have at most one element.</p>
 <p>The type returned by <code>takeOne</code> is a random-access range with length regardless of <code>R</code> 's capabilities, as long as it is a forward range. (another feature that distinguishes <code>takeOne</code> from <code>take</code> ). If (D R) is an input range but not a forward range, return type is an input range with all random-access capabilities except save.</p>
 

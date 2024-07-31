@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,16 +88,11 @@
 <h1 class='section'>Overloads for - parallel</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.parallelism</dd></dl>
 </div><h2 class='section api'>parallel(range)   </h2>
- <pre><code class='lang-d'>ParallelForeach!(R) parallel(
-  R range
-) </code></pre><p>Convenience functions that forwards to <code>taskPool.parallel</code> .  The purpose of these is to make parallel foreach less verbose and more readable.</p>
+ <pre><code class='lang-d'>ParallelForeach!(R) parallel( R )( R range ) </code></pre><p>Convenience functions that forwards to <code>taskPool.parallel</code> .  The purpose of these is to make parallel foreach less verbose and more readable.</p>
 <h3 class='section'>Example</h3><p>--- // Find the logarithm of every number from // 1 to 1_000_000 in parallel, using the // default TaskPool instance. auto logs = new double[1_000_000];</p>
 <p>foreach (i, ref elem; parallel(logs)) { elem = log(i + 1.0); } ---</p>
 <h2 class='section api'>parallel(range, workUnitSize)   </h2>
- <pre><code class='lang-d'>ParallelForeach!(R) parallel(
-  R range,
-  size_t workUnitSize
-) </code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>ParallelForeach!(R) parallel( R )( R range, size_t workUnitSize ) </code></pre><p>Ditto</p>
 
 </article>
 

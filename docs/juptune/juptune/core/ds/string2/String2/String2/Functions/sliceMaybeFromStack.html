@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - sliceMaybeFromStack</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.core.ds.string2.String2</dd></dl><dl><dt>Parent</dt><dd>String2</dd></dl>
 </div><h2 class='section api'>sliceMaybeFromStack()   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; sliceMaybeFromStack(
-) </code></pre><p>Provides access to the raw slice of the string, which may be on the stack or heap, depending on if Small String Optimisation is in use.</p>
+ <pre><code class='lang-d'>ref char[] sliceMaybeFromStack() scope return</code></pre><p>Provides access to the raw slice of the string, which may be on the stack or heap, depending on if Small String Optimisation is in use.</p>
 <h3 class='section'>Notes</h3><p>This function will never return a <code>null</code> slice, you should check if the slice's length is 0 instead.</p>
 <p>This function is best used when you're <strong>certain</strong> that the returned slice will not escape and is short lived, as the underlying payload may be released once the parent <code>String2</code> goes out of scope.</p>
 <p>Please never pass the slice to a native C function, as the risk of stack corruption is too high.</p>

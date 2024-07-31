@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,28 +87,28 @@
         <article data-uid="std.format.internal.write.Enums.HasToStringResult">
 <h1 class='section'>Enum - HasToStringResult</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.format.internal.write</dd></dl>
-</div><pre><code class='lang-d'>enum HasToStringResult
+</div><pre><code class='lang-d'>enum HasToStringResult : int
 {
   // 
-  __enumMember constCharSink;
+  none,
   // 
-  __enumMember constCharSinkFormatSpec;
+  hasSomeToString,
   // 
-  __enumMember constCharSinkFormatString;
+  inCharSink,
   // 
-  __enumMember customPutWriter;
+  inCharSinkFormatString,
   // 
-  __enumMember customPutWriterFormatSpec;
+  inCharSinkFormatSpec,
   // 
-  __enumMember hasSomeToString;
+  constCharSink,
   // 
-  __enumMember inCharSink;
+  constCharSinkFormatString,
   // 
-  __enumMember inCharSinkFormatSpec;
+  constCharSinkFormatSpec,
   // 
-  __enumMember inCharSinkFormatString;
+  customPutWriter,
   // 
-  __enumMember none;
+  customPutWriterFormatSpec,
 }</code></pre><h2 class='section'>Variables</h2><table>
 <thead>
 <tr>

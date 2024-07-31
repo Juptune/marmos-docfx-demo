@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,12 +90,12 @@
 </div><pre><code class='lang-d'>template findCovariantFunction
 {
   // 
-  alias Params = &lt;todo: marmos support pending&gt;;
+  alias Params = &lt;todo: marmos support pending&gt;
 
   // 
-  ptrdiff_t findCovariantFunction;
+  ptrdiff_t findCovariantFunction = is(typeof((Source).init.opDispatch!(finfo.name)(Params.init))) || is(typeof((const(Source)).init.opDispatch!(finfo.name)(Params.init))) || is(typeof((immutable(Source)).init.opDispatch!(finfo.name)(Params.init))) || is(typeof((shared(Source)).init.opDispatch!(finfo.name)(Params.init))) || is(typeof((shared(const(Source))).init.opDispatch!(finfo.name)(Params.init))) ? ptrdiff_t.max : -1
   // 
-  __enumMember x;
+  &lt;enum or auto&gt; x = check!()
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>
@@ -106,6 +106,20 @@
 <tbody>
 <tr>
 <td><a href="../findCovariantFunction/findCovariantFunction/Aliases/Params.html">Params</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Templates</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../findCovariantFunction/findCovariantFunction/Templates/check.html">check</a></td>
 <td></td>
 </tr>
 </tbody>

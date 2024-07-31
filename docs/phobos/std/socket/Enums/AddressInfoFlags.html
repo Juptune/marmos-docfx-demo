@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,14 +87,14 @@
         <article data-uid="std.socket.Enums.AddressInfoFlags">
 <h1 class='section'>Enum - AddressInfoFlags</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.socket</dd></dl>
-</div><pre><code class='lang-d'>enum AddressInfoFlags
+</div><pre><code class='lang-d'>enum AddressInfoFlags : int
 {
-  // The canonical name is returned in `canonicalName` member in the first `AddressInfo` . 
-  __enumMember CANONNAME;
-  // The `node` parameter passed to `getAddressInfo` must be a numeric string. This will suppress any potentially lengthy network host address lookups. 
-  __enumMember NUMERICHOST;
   // The resulting addresses will be used in a call to `Socket.bind` . 
-  __enumMember PASSIVE;
+  PASSIVE = AI_PASSIVE,
+  // The canonical name is returned in `canonicalName` member in the first `AddressInfo` . 
+  CANONNAME = AI_CANONNAME,
+  // The `node` parameter passed to `getAddressInfo` must be a numeric string. This will suppress any potentially lengthy network host address lookups. 
+  NUMERICHOST = AI_NUMERICHOST,
 }</code></pre><h2 class='section'>About</h2><p>A subset of flags supported on all platforms with getaddrinfo. Specifies option flags for <code>getAddressInfo</code> .</p>
 <h2 class='section'>Variables</h2><table>
 <thead>

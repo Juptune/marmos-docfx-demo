@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - multiSort</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.sorting</dd></dl>
 </div><h2 class='section api'>multiSort(r)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; multiSort(
-  Range r
-) auto</code></pre><p>Sorts a range by multiple keys.</p>
+ <pre><code class='lang-d'>auto multiSort( Range )( Range r ) </code></pre><p>Sorts a range by multiple keys.</p>
 <p>The call $(D multiSort!(&quot;a.id &lt; b.id&quot;, &quot;a.date &gt; b.date&quot;)(r)) sorts the range <code>r</code> by <code>id</code> ascending, and sorts elements that have the same <code>id</code> by <code>date</code> descending. Such a call is equivalent to $(D sort!&quot;a.id != b.id ? a.id &lt; b.id : a.date &gt; b.date&quot;(r)), but <code>multiSort</code> is faster because it does fewer comparisons (in addition to being more convenient).</p>
 <h3 class='section'>Returns</h3><p>The initial range wrapped as a <code>SortedRange</code> with its predicates converted to an equivalent single predicate.</p>
 

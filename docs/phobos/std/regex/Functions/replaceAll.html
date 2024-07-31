@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,11 +88,7 @@
 <h1 class='section'>Overloads for - replaceAll</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.regex</dd></dl>
 </div><h2 class='section api'>replaceAll(input, re, format)   </h2>
- <pre><code class='lang-d'>R replaceAll(
-  R input,
-  RegEx re,
-  &lt;bug: unknown&gt; format
-) </code></pre><p>Construct a new string from <code>input</code> by replacing all of the fragments that match a pattern <code>re</code> with a string generated from the match according to the <code>format</code> specifier.</p>
+ <pre><code class='lang-d'>R replaceAll( R, C, RegEx )( R input, RegEx re, C[] format ) @trusted</code></pre><p>Construct a new string from <code>input</code> by replacing all of the fragments that match a pattern <code>re</code> with a string generated from the match according to the <code>format</code> specifier.</p>
 <p>To replace only the first match use $(LREF replaceFirst).</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>input</code> R  </dt>
 <dd>
@@ -106,7 +102,7 @@
 
 <p>compiled regular expression to use</p>
 
-</dd><dt><code>format</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>format</code> C[]  </dt>
 <dd>
 
 
@@ -115,10 +111,7 @@
 </dd></dl><p>re = compiled regular expression to use format = format string to generate replacements from, see $(S_LINK Replace *format string, the * format string).</p>
 <h3 class='section'>Returns</h3><p>A string of the same type as <code>input</code> with the all of the matches (if any) replaced. If no match is found returns the input string itself.</p>
 <h2 class='section api'>replaceAll(input, re)   </h2>
- <pre><code class='lang-d'>R replaceAll(
-  R input,
-  RegEx re
-) </code></pre><p>This is a general replacement tool that construct a new string by replacing matches of pattern <code>re</code> in the <code>input</code> . Unlike the other overload there is no format string instead captures are passed to to a user-defined functor <code>fun</code> that returns a new string to use as replacement.</p>
+ <pre><code class='lang-d'>R replaceAll( alias fun, R, RegEx )( R input, RegEx re ) @trusted</code></pre><p>This is a general replacement tool that construct a new string by replacing matches of pattern <code>re</code> in the <code>input</code> . Unlike the other overload there is no format string instead captures are passed to to a user-defined functor <code>fun</code> that returns a new string to use as replacement.</p>
 <p>This version replaces all of the matches found in <code>input</code> , see $(LREF replaceFirst) to replace the first match only.</p>
 <h3 class='section'>Returns</h3><p>A new string of the same type as <code>input</code> with all matches replaced by return values of <code>fun</code> . If no matches found returns the <code>input</code> itself.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>input</code> R  </dt>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,17 +90,17 @@
 </div><pre><code class='lang-d'>public struct MemoryBlockAllocation
 {
   // 
-  size_t blockCount( ) ;
+  size_t blockCount() @safe pure
   // Frees the memory blocks back to its parent pool. 
-  void free( ) ;
+  void free() @safe
   // 
-  &lt;bug: unknown&gt; head( ) ;
+  MemoryBlock* head() @safe pure
   // 
-  size_t powerOfTwo( ) ;
+  size_t powerOfTwo() @safe pure
   // 
-  &lt;bug: unknown&gt; tail( ) ;
+  MemoryBlock* tail() @safe pure
   // 
-  size_t totalBytes( ) ;
+  size_t totalBytes() @safe pure
 }</code></pre><h2 class='section'>About</h2><p>An allocation of blocks from a <code>MemoryBlockPool</code> . All blocks in the allocation are guaranteed to be same size.</p>
 <h2 class='section'>Functions</h2><table>
 <thead>

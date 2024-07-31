@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,11 +88,7 @@
 <h1 class='section'>Overloads for - gapWeightedSimilarity</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.numeric</dd></dl>
 </div><h2 class='section api'>gapWeightedSimilarity(s, t, lambda)   </h2>
- <pre><code class='lang-d'>F gapWeightedSimilarity(
-  R1 s,
-  R2 t,
-  F lambda
-) </code></pre><p>The so-called &quot;all-lengths gap-weighted string kernel&quot; computes a similarity measure between <code>s</code> and <code>t</code> based on all of their common subsequences of all lengths. Gapped subsequences are also included.</p>
+ <pre><code class='lang-d'>F gapWeightedSimilarity( alias comp = &quot;a == b&quot;, R1, R2, F )( R1 s, R2 t, F lambda ) </code></pre><p>The so-called &quot;all-lengths gap-weighted string kernel&quot; computes a similarity measure between <code>s</code> and <code>t</code> based on all of their common subsequences of all lengths. Gapped subsequences are also included.</p>
 <p>To understand what $(D gapWeightedSimilarity(s, t, lambda)) computes, consider first the case $(D lambda = 1) and the strings $(D s = [&quot;Hello&quot;, &quot;brave&quot;, &quot;new&quot;, &quot;world&quot;]) and $(D t = [&quot;Hello&quot;, &quot;new&quot;, &quot;world&quot;]). In that case, <code>gapWeightedSimilarity</code> counts the following matches:</p>
 <p>$(OL $(LI three matches of length 1, namely <code>&quot;Hello&quot;</code> , <code>&quot;new&quot;</code> , and <code>&quot;world&quot;</code> ;) <span class="math">\((LI three matches of length 2, namely (\)</span>(D &quot;Hello&quot;, &quot;new&quot;)), (<span class="math">\((D &quot;Hello&quot;, &quot;world&quot;)), and (\)</span>(D &quot;new&quot;, &quot;world&quot;));) <span class="math">\((LI one match of length 3, namely (\)</span>(D &quot;Hello&quot;, &quot;new&quot;, &quot;world&quot;)).))</p>
 <p>The call $(D gapWeightedSimilarity(s, t, 1)) simply counts all of these matches and adds them up, returning 7.</p>

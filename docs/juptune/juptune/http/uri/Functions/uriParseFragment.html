@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,30 +89,30 @@
 <dl><dt>Module</dt><dd>juptune.http.uri</dd></dl>
 </div><h2 class='section api'>uriParseFragment(chars, fragment, next, hints)   </h2>
  <pre><code class='lang-d'>Result uriParseFragment(
-  &lt;bug: unknown&gt; chars,
-  &lt;bug: unknown&gt; fragment,
-  &lt;bug: unknown&gt; next,
-  UriParseHints hints
-) </code></pre><p>Parses the fragment of a URI.</p>
+  char[] chars,
+  out scope char[] fragment,
+  out scope char[] next,
+  ref scope UriParseHints hints
+) @nogc @safe nothrow</code></pre><p>Parses the fragment of a URI.</p>
 <h3 class='section'>Valid Formats</h3><p>fragmentIsEmpty -&gt; <empty-input></empty-input></p>
 <p>percentEncodedFragment -&gt; #frag%20ment, e.g. &quot;#some%20fragment&quot;</p>
 <p>!fragmentIsEmpty -&gt; #fragment, e.g. &quot;#some-fragment&quot;</p>
 <h3 class='section'>Notes</h3><p>Given the string &quot;#some-fragment&quot;, the <code>fragment</code> parameter will be set to &quot;some-fragment&quot;, and the <code>next</code> parameter will be set to the empty string.</p>
 <p>The output of all <code>out</code> parameters is undefined if the function returns an error.</p>
 <p>While percent encoding is validated, it is not decoded.</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>chars</code> &lt;bug: unknown&gt;  </dt>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>chars</code> char[]  </dt>
 <dd>
 
 
 <p>The input string to parse</p>
 
-</dd><dt><code>fragment</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>fragment</code> char[]  </dt>
 <dd>
 
 
 <p>The slice of <code>chars</code> that contains the fragment</p>
 
-</dd><dt><code>next</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>next</code> char[]  </dt>
 <dd>
 
 

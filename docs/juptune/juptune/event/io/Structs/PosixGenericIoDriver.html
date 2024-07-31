@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,28 +90,61 @@
 </div><pre><code class='lang-d'>public struct PosixGenericIoDriver
 {
   // 
-  Result close( ) ;
+  Result close() 
   // 
-  bool isOpen( ) ;
+  bool isOpen() 
   // 
-  Result readv( MemoryBlockAllocation buffers, size_t bytesRead, Duration timeout ) ;
+  Result readv(
+    ref scope MemoryBlockAllocation buffers,
+    out size_t bytesRead,
+    Duration timeout
+  ) 
   // 
-  Result readv( &lt;bug: unknown&gt; buffers, size_t bytesRead, Duration timeout ) ;
+  Result readv( scope void[][] buffers, ref size_t bytesRead, Duration timeout ) 
   // 
-  Result recieve( &lt;bug: unknown&gt; buffer, &lt;bug: unknown&gt; sliceWithData, Duration timeout ) ;
+  Result recieve( void[] buffer, out void[] sliceWithData, Duration timeout ) 
   // 
-  Result send( &lt;bug: unknown&gt; buffer, size_t bytesSent, Duration timeout ) ;
+  Result send( void[] buffer, out scope size_t bytesSent, Duration timeout ) 
   // 
-  void wrap( int fd ) ;
+  Result vectorIoImpl(
+    alias OpT
+  )(
+    scope &lt;bug: unknown&gt; setter,
+    size_t bufferCount,
+    ref size_t bytesUsed,
+    Duration timeout
+  ) 
   // 
-  Result writev( MemoryBlockAllocation buffers, size_t bytesRead, Duration timeout ) ;
+  Result vectorMBAImpl(
+    alias OpT
+  )(
+    ref scope MemoryBlockAllocation buffers,
+    ref size_t bytesRead,
+    Duration timeout
+  ) 
   // 
-  Result writev( &lt;bug: unknown&gt; buffers, size_t bytesRead, Duration timeout ) ;
+  Result vectorVoidArrayImpl(
+    alias OpT
+  )(
+    scope void[][] buffers,
+    ref size_t bytesRead,
+    Duration timeout
+  ) 
+  // 
+  void wrap( int fd ) pure
+  // 
+  Result writev(
+    ref scope MemoryBlockAllocation buffers,
+    out size_t bytesRead,
+    Duration timeout
+  ) 
+  // 
+  Result writev( scope void[][] buffers, ref size_t bytesRead, Duration timeout ) 
 
   // 
-  int fd;
+  int fd
   // 
-  __enumMember IOVEC_STATIC_SIZE;
+  &lt;enum or auto&gt; IOVEC_STATIC_SIZE = 32
 }</code></pre><h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -138,6 +171,18 @@
 </tr>
 <tr>
 <td><a href="../PosixGenericIoDriver/PosixGenericIoDriver/Functions/send.html">send</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../PosixGenericIoDriver/PosixGenericIoDriver/Functions/vectorIoImpl.html">vectorIoImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../PosixGenericIoDriver/PosixGenericIoDriver/Functions/vectorMBAImpl.html">vectorMBAImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../PosixGenericIoDriver/PosixGenericIoDriver/Functions/vectorVoidArrayImpl.html">vectorVoidArrayImpl</a></td>
 <td></td>
 </tr>
 <tr>

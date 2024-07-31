@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,14 @@
 <h1 class='section'>Overloads for - tee</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
 </div><h2 class='section api'>tee(inputRange, outputRange)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; tee(
+ <pre><code class='lang-d'>auto tee(
+  Flag!(&quot;pipeOnPop&quot;) pipeOnPop = Yes.pipeOnPop,
+  R1,
+  R2
+)(
   R1 inputRange,
   R2 outputRange
-) auto</code></pre><p>Implements a &quot;tee&quot; style pipe, wrapping an input range so that elements of the range can be passed to a provided function or $(LREF OutputRange) as they are iterated over. This is useful for printing out intermediate values in a long chain of range code, performing some operation with side-effects on each call to <code>front</code> or <code>popFront</code> , or diverting the elements of a range into an auxiliary $(LREF OutputRange).</p>
+) </code></pre><p>Implements a &quot;tee&quot; style pipe, wrapping an input range so that elements of the range can be passed to a provided function or $(LREF OutputRange) as they are iterated over. This is useful for printing out intermediate values in a long chain of range code, performing some operation with side-effects on each call to <code>front</code> or <code>popFront</code> , or diverting the elements of a range into an auxiliary $(LREF OutputRange).</p>
 <p>It is important to note that as the resultant range is evaluated lazily, in the case of the version of <code>tee</code> that takes a function, the function will not actually be executed until the range is &quot;walked&quot; using functions that evaluate ranges, such as $(REF array, std,array) or $(REF fold, std,algorithm,iteration).</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>pipeOnPop</code> &lt;parameter not found&gt;  </dt>
 <dd>
@@ -103,9 +107,7 @@
 <h3 class='section'>Returns</h3><p>An input range that offers the elements of <code>inputRange</code> . Regardless of whether <code>inputRange</code> is a more powerful range (forward, bidirectional etc), the result is always an input range. Reading this causes <code>inputRange</code> to be iterated and returns its elements in turn. In addition, the same elements will be passed to <code>outputRange</code> or <code>fun</code> as well.</p>
 <p>See_Also: $(REF each, std,algorithm,iteration)</p>
 <h2 class='section api'>tee(inputRange)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; tee(
-  R1 inputRange
-) auto</code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>auto tee( alias fun, Flag!(&quot;pipeOnPop&quot;) pipeOnPop = Yes.pipeOnPop, R1 )( R1 inputRange ) </code></pre><p>Ditto</p>
 
 </article>
 

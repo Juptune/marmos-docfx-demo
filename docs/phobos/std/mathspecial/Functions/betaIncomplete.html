@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,11 +88,7 @@
 <h1 class='section'>Overloads for - betaIncomplete</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.mathspecial</dd></dl>
 </div><h2 class='section api'>betaIncomplete(a, b, x)   </h2>
- <pre><code class='lang-d'>real betaIncomplete(
-  real a,
-  real b,
-  real x
-) </code></pre><p>Incomplete beta integral</p>
+ <pre><code class='lang-d'>real betaIncomplete( real a, real b, real x ) </code></pre><p>Incomplete beta integral</p>
 <p>Returns regularized incomplete beta integral of the arguments, evaluated from zero to x. The regularized incomplete beta function is defined as</p>
 <p>betaIncomplete(a, b, x) = $(GAMMA)(a + b) / ( $(GAMMA)(a) $(GAMMA)(b) ) $(INTEGRATE 0, x) <span class="math">\((POWER t, a-1)\)</span>(POWER (1-t), b-1) dt</p>
 <p>and is the same as the cumulative distribution function of the Beta distribution.</p>

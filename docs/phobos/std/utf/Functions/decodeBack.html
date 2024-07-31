@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,8 +89,11 @@
 <dl><dt>Module</dt><dd>std.utf</dd></dl>
 </div><h2 class='section api'>decodeBack(str, numCodeUnits)   </h2>
  <pre><code class='lang-d'>dchar decodeBack(
-  S str,
-  size_t numCodeUnits
+  UseReplacementDchar useReplacementDchar = No.useReplacementDchar,
+  S
+)(
+  ref S str,
+  out size_t numCodeUnits
 ) </code></pre><p><code>decodeBack</code> is a variant of $(LREF decode) which specifically decodes the last code point. Unlike $(LREF decode), <code>decodeBack</code> accepts any bidirectional range of code units (rather than just a string or random access range). It also takes the range by <code>ref</code> and pops off the elements as it decodes them. If <code>numCodeUnits</code> is passed in, it gets set to the number of code units which were in the code point which was decoded.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>useReplacementDchar</code> &lt;parameter not found&gt;  </dt>
 <dd>
@@ -114,12 +117,18 @@
 <h3 class='section'>Throws</h3><p>$(LREF UTFException) if <code>str.back</code> is not the end of a valid UTF sequence. If an exception is thrown, the <code>str</code> itself remains unchanged, but there is no guarantee as to the value of <code>numCodeUnits</code> (when passed).</p>
 <h2 class='section api'>decodeBack(str, numCodeUnits)   </h2>
  <pre><code class='lang-d'>dchar decodeBack(
-  S str,
-  size_t numCodeUnits
+  UseReplacementDchar useReplacementDchar = No.useReplacementDchar,
+  S
+)(
+  ref S str,
+  out size_t numCodeUnits
 ) </code></pre><p>Ditto</p>
 <h2 class='section api'>decodeBack(str)   </h2>
  <pre><code class='lang-d'>dchar decodeBack(
-  S str
+  UseReplacementDchar useReplacementDchar = No.useReplacementDchar,
+  S
+)(
+  ref S str
 ) </code></pre><p>Ditto</p>
 
 </article>

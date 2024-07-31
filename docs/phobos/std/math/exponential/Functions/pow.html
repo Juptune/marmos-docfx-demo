@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,15 +88,9 @@
 <h1 class='section'>Overloads for - pow</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.math.exponential</dd></dl>
 </div><h2 class='section api'>pow(x, n)   </h2>
- <pre><code class='lang-d'>Unqual!(F) pow(
-  F x,
-  G n
-) </code></pre><p>Compute the value of x $(SUPERSCRIPT n), where n is an integer</p>
+ <pre><code class='lang-d'>Unqual!(F) pow( F, G )( F x, G n ) @nogc @trusted nothrow pure</code></pre><p>Compute the value of x $(SUPERSCRIPT n), where n is an integer</p>
 <h2 class='section api'>pow(x, n)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; pow(
-  F x,
-  G n
-) </code></pre><p>Compute the power of two integral numbers.</p>
+ <pre><code class='lang-d'>typeof(Unqual!F.init * Unqual!G.init) pow( F, G )( F x, G n ) @nogc @safe nothrow pure</code></pre><p>Compute the power of two integral numbers.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>x</code> F  </dt>
 <dd>
 
@@ -113,15 +107,9 @@
 <p>If both x and n are 0, the result is 1.</p>
 <h3 class='section'>Throws</h3><p>If x is 0 and n is negative, the result is the same as the result of a division by zero.</p>
 <h2 class='section api'>pow(x, y)   </h2>
- <pre><code class='lang-d'>real pow(
-  I x,
-  F y
-) </code></pre><p>Computes integer to floating point powers.</p>
+ <pre><code class='lang-d'>real pow( I, F )( I x, F y ) @nogc @trusted nothrow pure</code></pre><p>Computes integer to floating point powers.</p>
 <h2 class='section api'>pow(x, y)   </h2>
- <pre><code class='lang-d'>Unqual!(Largest!(F, G)) pow(
-  F x,
-  G y
-) </code></pre><p>Calculates x$(SUPERSCRIPT y).</p>
+ <pre><code class='lang-d'>Unqual!(Largest!(F, G)) pow( F, G )( F x, G y ) @nogc @trusted nothrow pure</code></pre><p>Calculates x$(SUPERSCRIPT y).</p>
 <p>$(TABLE_SV $(TR $(TH x) $(TH y) $(TH pow(x, y)) $(TH div 0) $(TH invalid?)) $(TR $(TD anything)      $(TD $(PLUSMN)0.0)                $(TD 1.0) $(TD no)        $(TD no) ) $(TR $(TD |x| $(GT) 1)    <span class="math">\((TD +\)</span>(INFIN))                  <span class="math">\((TD +\)</span>(INFIN)) $(TD no)        $(TD no) ) $(TR $(TD |x| $(LT) 1)    <span class="math">\((TD +\)</span>(INFIN))                  $(TD +0.0) $(TD no)        $(TD no) ) $(TR $(TD |x| $(GT) 1)    <span class="math">\((TD -\)</span>(INFIN))                  $(TD +0.0) $(TD no)        $(TD no) ) $(TR $(TD |x| $(LT) 1)    <span class="math">\((TD -\)</span>(INFIN))                  <span class="math">\((TD +\)</span>(INFIN)) $(TD no)        $(TD no) ) $(TR <span class="math">\((TD +\)</span>(INFIN))      $(TD $(GT) 0.0)                  <span class="math">\((TD +\)</span>(INFIN)) $(TD no)        $(TD no) ) $(TR <span class="math">\((TD +\)</span>(INFIN))      $(TD $(LT) 0.0)                  $(TD +0.0) $(TD no)        $(TD no) ) $(TR <span class="math">\((TD -\)</span>(INFIN))      $(TD odd integer $(GT) 0.0)      <span class="math">\((TD -\)</span>(INFIN)) $(TD no)        $(TD no) ) $(TR <span class="math">\((TD -\)</span>(INFIN))      $(TD $(GT) 0.0, not odd integer) <span class="math">\((TD +\)</span>(INFIN)) $(TD no)        $(TD no)) $(TR <span class="math">\((TD -\)</span>(INFIN))      $(TD odd integer $(LT) 0.0)      $(TD -0.0) $(TD no)        $(TD no) ) $(TR <span class="math">\((TD -\)</span>(INFIN))      $(TD $(LT) 0.0, not odd integer) $(TD +0.0) $(TD no)        $(TD no) ) $(TR $(TD $(PLUSMN)1.0)   $(TD <span class="math">\((PLUSMN)\)</span>(INFIN))          <span class="math">\((TD -\)</span>(NAN)) $(TD no)        $(TD yes) ) $(TR $(TD $(LT) 0.0)      $(TD finite, nonintegral)        $(TD $(NAN)) $(TD no)        $(TD yes)) $(TR $(TD $(PLUSMN)0.0)   $(TD odd integer $(LT) 0.0)      $(TD $(PLUSMNINF)) $(TD yes)       $(TD no) ) $(TR $(TD $(PLUSMN)0.0)   $(TD $(LT) 0.0, not odd integer) <span class="math">\((TD +\)</span>(INFIN)) $(TD yes)       $(TD no)) $(TR $(TD $(PLUSMN)0.0)   $(TD odd integer $(GT) 0.0)      $(TD $(PLUSMN)0.0) $(TD no)        $(TD no) ) $(TR $(TD $(PLUSMN)0.0)   $(TD $(GT) 0.0, not odd integer) $(TD +0.0) $(TD no)        $(TD no) ) )</p>
 
 </article>

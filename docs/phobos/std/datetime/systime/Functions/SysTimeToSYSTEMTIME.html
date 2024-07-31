@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - SysTimeToSYSTEMTIME</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.systime</dd></dl>
 </div><h2 class='section api'>SysTimeToSYSTEMTIME(sysTime)   </h2>
- <pre><code class='lang-d'>SYSTEMTIME SysTimeToSYSTEMTIME(
-  SysTime sysTime
-) </code></pre><p>$(BLUE This function is Windows-Only.)</p>
+ <pre><code class='lang-d'>SYSTEMTIME SysTimeToSYSTEMTIME( scope SysTime sysTime ) @safe</code></pre><p>$(BLUE This function is Windows-Only.)</p>
 <p>Converts a $(LREF SysTime) to a <code>SYSTEMTIME</code> struct.</p>
 <p>The <code>SYSTEMTIME</code> which is returned will be set using the given $(LREF SysTime)'s time zone, so to get the <code>SYSTEMTIME</code> in UTC, set the $(LREF SysTime)'s time zone to UTC.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>sysTime</code> SysTime  </dt>

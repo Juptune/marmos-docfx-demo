@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - index</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.zip.ArchiveMember</dd></dl><dl><dt>Parent</dt><dd>ArchiveMember</dd></dl>
 </div><h2 class='section api'>index(value)   </h2>
- <pre><code class='lang-d'>uint index(
-  uint value
-) </code></pre><p>The index of this archive member within the archive. Set this to a different value for reordering the members of an archive.</p>
+ <pre><code class='lang-d'>uint index( uint value ) @nogc @property @safe nothrow pure</code></pre><p>The index of this archive member within the archive. Set this to a different value for reordering the members of an archive.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>value</code> uint  </dt>
 <dd>
 
@@ -99,8 +97,7 @@
 
 </dd></dl><p>Returns: The index.</p>
 <h2 class='section api'>index()   </h2>
- <pre><code class='lang-d'>uint index(
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>uint index() @nogc @property @safe nothrow pure</code></pre><p>ditto</p>
 
 </article>
 

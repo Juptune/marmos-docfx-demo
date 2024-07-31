@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,112 +89,193 @@
 <dl><dt>Module</dt><dd>std.datetime.systime</dd></dl>
 </div><pre><code class='lang-d'>public struct SysTime
 {
+  // Adds the given number of years or months to this $(LREF SysTime). A negative number will subtract. 
+  ref SysTime add(
+    string units
+  )(
+    long value,
+    AllowDayOverflow allowOverflow
+  ) @safe nothrow scope
   // 
-  long adjTime( ) ;
+  long adjTime() @property @safe nothrow scope
   // 
-  void adjTime( long adjTime ) ;
+  void adjTime( long adjTime ) @property @safe nothrow scope
   // Day of a Gregorian Month. 
-  ubyte day( ) ;
+  ubyte day() @property @safe nothrow scope
   // Day of a Gregorian Month. 
-  void day( int day ) ;
+  void day( int day ) @property @safe scope
   // The Xth day of the Gregorian Calendar that this $(LREF SysTime) is on. 
-  int dayOfGregorianCal( ) ;
+  int dayOfGregorianCal() @property @safe nothrow scope
   // The Xth day of the Gregorian Calendar that this $(LREF SysTime) is on. Setting this property does not affect the time portion of $(LREF SysTime). 
-  void dayOfGregorianCal( int days ) ;
+  void dayOfGregorianCal( int days ) @property @safe nothrow scope
   // Day of the week this $(LREF SysTime) is on. 
-  DayOfWeek dayOfWeek( ) ;
+  DayOfWeek dayOfWeek() @property @safe nothrow scope
   // Day of the year this $(LREF SysTime) is on. 
-  ushort dayOfYear( ) ;
+  ushort dayOfYear() @property @safe nothrow scope
   // Day of the year. 
-  void dayOfYear( int day ) ;
+  void dayOfYear( int day ) @property @safe scope
   // The last day in the month that this $(LREF SysTime) is in. 
-  ubyte daysInMonth( ) ;
+  ubyte daysInMonth() @property @safe nothrow scope
   // Returns the difference between the two $(LREF SysTime)s in months. 
-  int diffMonths( SysTime rhs ) ;
+  int diffMonths( scope SysTime rhs ) @safe nothrow scope
   // Returns whether DST is in effect for this $(LREF SysTime). 
-  bool dstInEffect( ) ;
+  ref bool dstInEffect() @property @safe nothrow scope return scope
   // $(LREF SysTime) for the last day in the month that this Date is in. The time portion of endOfMonth is always 23:59:59.9999999. 
-  SysTime endOfMonth( ) ;
+  ref SysTime endOfMonth() @property @safe nothrow scope return scope
   // Fractional seconds past the second (i.e. the portion of a $(LREF SysTime) which is less than a second). 
-  Duration fracSecs( ) ;
+  Duration fracSecs() @property @safe nothrow scope
   // Fractional seconds past the second (i.e. the portion of a $(LREF SysTime) which is less than a second). 
-  void fracSecs( Duration fracSecs ) ;
+  void fracSecs( Duration fracSecs ) @property @safe scope
+  // Creates a $(LREF SysTime) from a string with the format YYYY-MM-DDTHH:MM:SS.FFFFFFFTZ (where F is fractional seconds and TZ is the time zone). Whitespace is stripped from the given string. 
+  SysTime fromISOExtString( S )( const scope S isoExtString, immutable TimeZone tz ) @safe
+  // Creates a $(LREF SysTime) from a string with the format YYYYMMDDTHHMMSS.FFFFFFFTZ (where F is fractional seconds and TZ is the time zone). Whitespace is stripped from the given string. 
+  SysTime fromISOString( S )( const scope S isoString, immutable TimeZone tz ) @safe
+  // Creates a $(LREF SysTime) from a string with the format YYYY-Mon-DD HH:MM:SS.FFFFFFFTZ (where F is fractional seconds and TZ is the time zone). Whitespace is stripped from the given string. 
+  SysTime fromSimpleString( S )( const scope S simpleString, immutable TimeZone tz ) @safe
   // Converts from unix time (i.e. seconds from midnight, January 1st, 1970 in UTC) to a $(LREF SysTime). 
-  SysTime fromUnixTime( long unixTime, TimeZone tz ) static;
+  static SysTime fromUnixTime( long unixTime, immutable TimeZone tz ) @safe nothrow pure
   // Hours past midnight. 
-  ubyte hour( ) ;
+  ubyte hour() @property @safe nothrow scope
   // Hours past midnight. 
-  void hour( int hour ) ;
+  void hour( int hour ) @property @safe scope
   // Whether the current year is a date in A.D. 
-  bool isAD( ) ;
+  bool isAD() @property @safe nothrow scope
   // Whether this $(LREF SysTime) is in a leap year. 
-  bool isLeapYear( ) ;
+  bool isLeapYear() @property @safe nothrow scope
   // The ISO 8601 week of the year that this $(LREF SysTime) is in. 
-  ubyte isoWeek( ) ;
+  ubyte isoWeek() @property @safe nothrow scope
   // The $(HTTP en.wikipedia.org/wiki/Julian_day, Julian day) for this $(LREF SysTime) at the given time. For example, prior to noon, 1996-03-31 would be the Julian day number 2_450_173, so this function returns 2_450_173, while from noon onward, the Julian day number would be 2_450_174, so this function returns 2_450_174. 
-  long julianDay( ) ;
+  long julianDay() @property @safe nothrow scope
   // Returns the $(LREF SysTime) farthest in the future which is representable by $(LREF SysTime). 
-  SysTime max( ) static;
+  static SysTime max() @property @safe nothrow pure
   // Returns the $(LREF SysTime) farthest in the past which is representable by $(LREF SysTime). 
-  SysTime min( ) static;
+  static SysTime min() @property @safe nothrow pure
   // Minutes past the current hour. 
-  ubyte minute( ) ;
+  ubyte minute() @property @safe nothrow scope
   // Minutes past the current hour. 
-  void minute( int minute ) ;
+  void minute( int minute ) @property @safe scope
   // The modified $(HTTP en.wikipedia.org/wiki/Julian_day, Julian day) for any time on this date (since, the modified Julian day changes at midnight). 
-  long modJulianDay( ) ;
+  long modJulianDay() @property @safe nothrow scope
   // Month of a Gregorian Year. 
-  Month month( ) ;
+  Month month() @property @safe nothrow scope
   // Month of a Gregorian Year. 
-  void month( Month month ) ;
+  void month( Month month ) @property @safe scope
+  // 
+  ref SysTime opAssign( )( auto ref SysTime rhs ) @safe nothrow scope return pure
+  // Gives the result of adding or subtracting a $(REF Duration, core,time) from this $(LREF SysTime). 
+  ref SysTime opBinary(
+    string op
+  )(
+    Duration duration
+  ) @safe nothrow scope return scope pure
+  // Gives the difference between two $(LREF SysTime)s. 
+  Duration opBinary( string op )( SysTime rhs ) @safe nothrow scope pure
+  // Returns a $(REF Date,std,datetime,date) equivalent to this $(LREF SysTime). 
+  Date opCast( T )() @safe nothrow scope
+  // Returns a $(REF DateTime,std,datetime,date) equivalent to this $(LREF SysTime). 
+  DateTime opCast( T )() @safe nothrow scope
+  // Returns a $(REF TimeOfDay,std,datetime,date) equivalent to this $(LREF SysTime). 
+  TimeOfDay opCast( T )() @safe nothrow scope
+  // 
+  SysTime opCast( T )() @safe nothrow scope pure
+  // Compares this $(LREF SysTime) with the given $(LREF SysTime). 
+  int opCmp( )( auto ref SysTime rhs ) @safe nothrow scope pure
+  // Checks for equality between this $(LREF SysTime) and the given $(LREF SysTime). 
+  bool opEquals( )( auto ref SysTime rhs ) @safe nothrow scope pure
+  // Gives the result of adding or subtracting a $(REF Duration, core,time) from this $(LREF SysTime), as well as assigning the result to this $(LREF SysTime). 
+  ref SysTime opOpAssign( string op )( Duration duration ) @safe nothrow scope pure
+  // Adds the given number of years or months to this $(LREF SysTime). A negative number will subtract. 
+  ref SysTime roll(
+    string units
+  )(
+    long value,
+    AllowDayOverflow allowOverflow
+  ) @safe nothrow scope
+  // 
+  ref SysTime roll(
+    string units
+  )(
+    long value,
+    AllowDayOverflow allowOverflow
+  ) @safe nothrow scope
+  // Adds the given number of units to this $(LREF SysTime). A negative number will subtract. 
+  ref SysTime roll( string units )( long value ) @safe nothrow scope
+  // 
+  ref SysTime roll( string units )( long value ) @safe nothrow scope
+  // 
+  ref SysTime roll( string units )( long value ) @safe nothrow scope
   // Seconds past the current minute. 
-  ubyte second( ) ;
+  ubyte second() @property @safe nothrow scope
   // Seconds past the current minute. 
-  void second( int second ) ;
+  void second( int second ) @property @safe scope
   // The total hnsecs from midnight, January 1st, 1 A.D. UTC. This is the internal representation of $(LREF SysTime). 
-  long stdTime( ) ;
+  long stdTime() @nogc @property @safe nothrow scope pure
   // The total hnsecs from midnight, January 1st, 1 A.D. UTC. This is the internal representation of $(LREF SysTime). 
-  void stdTime( long stdTime ) ;
+  void stdTime( long stdTime ) @property @safe nothrow scope pure
   // The current time zone of this $(LREF SysTime). Its internal time is always kept in UTC, so there are no conversion issues between time zones due to DST. Functions which return all or part of the time - such as hours - adjust the time to this $(LREF SysTime)&#39;s time zone before returning. 
-  TimeZone timezone( ) ;
+  ref TimeZone timezone() @property @safe nothrow scope return scope pure
   // The current time zone of this $(LREF SysTime). It&#39;s internal time is always kept in UTC, so there are no conversion issues between time zones due to DST. Functions which return all or part of the time - such as hours - adjust the time to this $(LREF SysTime)&#39;s time zone before returning. 
-  void timezone( TimeZone timezone ) ;
+  void timezone( immutable TimeZone timezone ) @property @safe nothrow scope pure
   // Returns: A hash of the $(LREF SysTime). 
-  size_t toHash( ) ;
+  size_t toHash() @nogc @safe nothrow scope pure
   // Converts this $(LREF SysTime) to a string with the format YYYY-MM-DDTHH:MM:SS.FFFFFFFTZ (where F is fractional seconds and TZ is the time zone). 
-  string toISOExtString( int prec ) ;
+  string toISOExtString( int prec ) @safe nothrow scope
+  // ditto 
+  void toISOExtString( W )( ref W writer, int prec ) scope
   // Converts this $(LREF SysTime) to a string with the format YYYYMMDDTHHMMSS.FFFFFFFTZ (where F is fractional seconds and TZ is time zone). 
-  string toISOString( ) ;
+  string toISOString() @safe nothrow scope
+  // ditto 
+  void toISOString( W )( ref W writer ) scope
   // Returns a $(LREF SysTime) with the same std time as this one, but with $(REF LocalTime,std,datetime,timezone) as its time zone. 
-  SysTime toLocalTime( ) ;
+  SysTime toLocalTime() @safe nothrow scope pure
   // Returns a $(LREF SysTime) with the same std time as this one, but with given time zone as its time zone. 
-  SysTime toOtherTZ( TimeZone tz ) ;
+  SysTime toOtherTZ( immutable TimeZone tz ) @safe nothrow scope pure
   // Converts this $(LREF SysTime) to a string with the format YYYY-Mon-DD HH:MM:SS.FFFFFFFTZ (where F is fractional seconds and TZ is the time zone). 
-  string toSimpleString( ) ;
+  string toSimpleString() @safe nothrow scope
+  // ditto 
+  void toSimpleString( W )( ref W writer ) scope
   // Converts this $(LREF SysTime) to a string. 
-  string toString( ) ;
+  string toString() @safe nothrow scope
+  // ditto 
+  void toString( W )( ref W writer ) scope
   // Returns a `timespec` which represents this $(LREF SysTime). 
-  timespec toTimeSpec( ) ;
+  timespec toTimeSpec() @safe nothrow scope pure
   // Returns a `timeval` which represents this $(LREF SysTime). 
-  timeval toTimeVal( ) ;
+  timeval toTimeVal() @safe nothrow scope pure
   // Returns a `tm` which represents this $(LREF SysTime). 
-  tm toTM( ) ;
+  tm toTM() @safe nothrow scope
+  // Converts this $(LREF SysTime) to unix time (i.e. seconds from midnight, January 1st, 1970 in UTC). 
+  T toUnixTime( T = time_t )() @safe nothrow scope pure
   // Returns a $(LREF SysTime) with the same std time as this one, but with `UTC` as its time zone. 
-  SysTime toUTC( ) ;
+  SysTime toUTC() @safe nothrow scope pure
   // Returns what the offset from UTC is for this $(LREF SysTime). It includes the DST offset in effect at that time (if any). 
-  Duration utcOffset( ) ;
+  ref Duration utcOffset() @property @safe nothrow scope return scope
   // Year of the Gregorian Calendar. Positive numbers are A.D. Non-positive are B.C. 
-  short year( ) ;
+  short year() @property @safe nothrow scope
   // Year of the Gregorian Calendar. Positive numbers are A.D. Non-positive are B.C. 
-  void year( int year ) ;
+  void year( int year ) @property @safe scope
   // Year B.C. of the Gregorian Calendar counting year 0 as 1 B.C. 
-  ushort yearBC( ) ;
+  ushort yearBC() @property @safe scope
   // Year B.C. of the Gregorian Calendar counting year 0 as 1 B.C. 
-  void yearBC( int year ) ;
+  void yearBC( int year ) @property @safe scope
 }</code></pre><h2 class='section'>About</h2><p><code>SysTime</code> is the type used to get the current time from the system or doing anything that involves time zones. Unlike $(REF DateTime,std,datetime,date), the time zone is an integral part of <code>SysTime</code> (though for local time applications, time zones can be ignored and it will work, since it defaults to using the local time zone). It holds its internal time in std time (hnsecs since midnight, January 1st, 1 A.D. UTC), so it interfaces well with the system time.</p>
 <p>An $(I hnsec) (hecto-nanosecond) is 100 nanoseconds. There are 10,000,000 hnsecs in a second.</p>
 <p>$(PANEL Unlike $(REF_SHORT DateTime,std,datetime,date), <code>SysTime</code> is not optimized for calendar-based operations, and getting individual units from it such as years or days is going to involve conversions and be less efficient.</p>
 <p>For calendar-based operations that don't care about time zones, then $(REF_SHORT DateTime,std,datetime,date) would be the type to use. For system time, use <code>SysTime</code> . ) $(P Casting a <code>SysTime</code> to one of the following types will perform a conversion: ) $(REF Date,std,datetime,date) $(REF_SHORT DateTime,std,datetime,date) $(REF_SHORT TimeOfDay,std,datetime,date) $(P To convert a $(REF_SHORT Date,std,datetime,date) or $(REF_SHORT DateTime,std,datetime,date) to a <code>SysTime</code> , use <code>SysTime</code> 's constructor, and pass in the intended time zone with it (or don't pass in a $(REF TimeZone,std,datetime,timezone), and the local time zone will be used). Be aware, however, that converting from a $(REF_SHORT DateTime,std,datetime,date) to a <code>SysTime</code> will not necessarily be 100% accurate due to DST (one hour of the year doesn't exist and another occurs twice). To not risk any conversion errors, keep times as <code>SysTime</code> s. Aside from DST though, there shouldn't be any conversion problems. ) $(PANEL For using time zones other than local time or UTC, use $(REF PosixTimeZone,std,datetime,timezone) on Posix systems (or on Windows, if providing the TZ Database files), and use $(REF WindowsTimeZone,std,datetime,timezone) on Windows systems. The time in <code>SysTime</code> is kept internally in hnsecs from midnight, January 1st, 1 A.D. UTC. Conversion error cannot happen when changing the time zone of a <code>SysTime</code> . $(REF LocalTime,std,datetime,timezone) is the $(REF_SHORT TimeZone,std,datetime,timezone) class which represents the local time, and <code>UTC</code> is the $(REF_SHORT TimeZone,std,datetime,timezone) class which represents UTC. <code>SysTime</code> uses $(REF_SHORT LocalTime,std,datetime,timezone) if no $(REF_SHORT TimeZone,std,datetime,timezone) is provided. For more details on time zones, see the documentation for $(REF_SHORT TimeZone,std,datetime,timezone), $(REF_SHORT PosixTimeZone,std,datetime,timezone), and $(REF_SHORT WindowsTimeZone,std,datetime,timezone). ) $(P <code>SysTime</code> 's range is from approximately 29,000 B.C. to approximately 29,000 A.D. ) See_Also: $(RELATIVE_LINK2 .Clock.currTime, <code>Clock.currTime</code> ) will return the current time as a <code>SysTime</code> .</p>
+<h2 class='section'>Classes</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../SysTime/SysTime/Classes/InitTimeZone.html">InitTimeZone</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -203,6 +284,10 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="../SysTime/SysTime/Functions/add.html">add</a></td>
+<td>Adds the given number of years or months to this $(LREF SysTime). A negative number will subtract.</td>
+</tr>
 <tr>
 <td><a href="../SysTime/SysTime/Functions/adjTime.html">adjTime</a></td>
 <td></td>
@@ -242,6 +327,18 @@
 <tr>
 <td><a href="../SysTime/SysTime/Functions/fracSecs.html">fracSecs</a></td>
 <td>Fractional seconds past the second (i.e. the portion of a $(LREF SysTime) which is less than a second).</td>
+</tr>
+<tr>
+<td><a href="../SysTime/SysTime/Functions/fromISOExtString.html">fromISOExtString</a></td>
+<td>Creates a $(LREF SysTime) from a string with the format YYYY-MM-DDTHH:MM:SS.FFFFFFFTZ (where F is fractional seconds and TZ is the time zone). Whitespace is stripped from the given string.</td>
+</tr>
+<tr>
+<td><a href="../SysTime/SysTime/Functions/fromISOString.html">fromISOString</a></td>
+<td>Creates a $(LREF SysTime) from a string with the format YYYYMMDDTHHMMSS.FFFFFFFTZ (where F is fractional seconds and TZ is the time zone). Whitespace is stripped from the given string.</td>
+</tr>
+<tr>
+<td><a href="../SysTime/SysTime/Functions/fromSimpleString.html">fromSimpleString</a></td>
+<td>Creates a $(LREF SysTime) from a string with the format YYYY-Mon-DD HH:MM:SS.FFFFFFFTZ (where F is fractional seconds and TZ is the time zone). Whitespace is stripped from the given string.</td>
 </tr>
 <tr>
 <td><a href="../SysTime/SysTime/Functions/fromUnixTime.html">fromUnixTime</a></td>
@@ -286,6 +383,34 @@
 <tr>
 <td><a href="../SysTime/SysTime/Functions/month.html">month</a></td>
 <td>Month of a Gregorian Year.</td>
+</tr>
+<tr>
+<td><a href="../SysTime/SysTime/Functions/opAssign.html">opAssign</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../SysTime/SysTime/Functions/opBinary.html">opBinary</a></td>
+<td>Gives the result of adding or subtracting a $(REF Duration, core,time) from this $(LREF SysTime).</td>
+</tr>
+<tr>
+<td><a href="../SysTime/SysTime/Functions/opCast.html">opCast</a></td>
+<td>Returns a $(REF Date,std,datetime,date) equivalent to this $(LREF SysTime).</td>
+</tr>
+<tr>
+<td><a href="../SysTime/SysTime/Functions/opCmp.html">opCmp</a></td>
+<td>Compares this $(LREF SysTime) with the given $(LREF SysTime).</td>
+</tr>
+<tr>
+<td><a href="../SysTime/SysTime/Functions/opEquals.html">opEquals</a></td>
+<td>Checks for equality between this $(LREF SysTime) and the given $(LREF SysTime).</td>
+</tr>
+<tr>
+<td><a href="../SysTime/SysTime/Functions/opOpAssign.html">opOpAssign</a></td>
+<td>Gives the result of adding or subtracting a $(REF Duration, core,time) from this $(LREF SysTime), as well as assigning the result to this $(LREF SysTime).</td>
+</tr>
+<tr>
+<td><a href="../SysTime/SysTime/Functions/roll.html">roll</a></td>
+<td>Adds the given number of years or months to this $(LREF SysTime). A negative number will subtract.</td>
 </tr>
 <tr>
 <td><a href="../SysTime/SysTime/Functions/second.html">second</a></td>
@@ -340,6 +465,10 @@
 <td>Returns a <code>tm</code> which represents this $(LREF SysTime).</td>
 </tr>
 <tr>
+<td><a href="../SysTime/SysTime/Functions/toUnixTime.html">toUnixTime</a></td>
+<td>Converts this $(LREF SysTime) to unix time (i.e. seconds from midnight, January 1st, 1970 in UTC).</td>
+</tr>
+<tr>
 <td><a href="../SysTime/SysTime/Functions/toUTC.html">toUTC</a></td>
 <td>Returns a $(LREF SysTime) with the same std time as this one, but with <code>UTC</code> as its time zone.</td>
 </tr>
@@ -354,6 +483,20 @@
 <tr>
 <td><a href="../SysTime/SysTime/Functions/yearBC.html">yearBC</a></td>
 <td>Year B.C. of the Gregorian Calendar counting year 0 as 1 B.C.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../SysTime/SysTime/Structs/timespec.html">timespec</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>

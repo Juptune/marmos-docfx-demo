@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,24 +87,24 @@
         <article data-uid="std.range.Structs.Generator">
 <h1 class='section'>Struct - Generator</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
-</div><pre><code class='lang-d'>public struct Generator
+</div><pre><code class='lang-d'>struct Generator( Fun... )
 {
   // 
-  alias RetType = &lt;todo: marmos support pending&gt;;
+  alias RetType = &lt;todo: marmos support pending&gt;
 
   // ditto 
-  &lt;bug: unknown&gt; front( ) ;
+  ref &lt;bug: unknown&gt; front() @property
   // ditto 
-  void popFront( ) ;
+  void popFront() 
 
   // 
-  &lt;bug: unknown&gt; elem_;
+  RetType* elem_
   // Range primitives 
-  __enumMember empty;
+  &lt;enum or auto&gt; empty = false
   // 
-  &lt;bug: unknown&gt; fun;
+  Fun[0] fun
   // 
-  __enumMember returnByRef_;
+  &lt;enum or auto&gt; returnByRef_ = functionAttributes!fun &amp; FunctionAttribute.ref_ ? true : false
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>

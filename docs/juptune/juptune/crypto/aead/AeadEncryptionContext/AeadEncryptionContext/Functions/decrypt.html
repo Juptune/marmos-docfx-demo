@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,21 +89,21 @@
 <dl><dt>Module</dt><dd>juptune.crypto.aead.AeadEncryptionContext</dd></dl><dl><dt>Parent</dt><dd>AeadEncryptionContext</dd></dl>
 </div><h2 class='section api'>decrypt(cipherText, additionalData, outPlainText, outPlainTextSlice)   </h2>
  <pre><code class='lang-d'>Result decrypt(
-  &lt;bug: unknown&gt; cipherText,
-  &lt;bug: unknown&gt; additionalData,
-  SecureMemory outPlainText,
-  SecureMemory outPlainTextSlice
-) </code></pre><p>Decrypts the given <code>cipherText</code> into the <code>outPlainText</code> buffer, using the given <code>additionalData</code> to calculate the authentication tag, and returns a slice <code>outPlainText</code> which contains the final decrypted plaintext.</p>
+  const scope ubyte[] cipherText,
+  const scope ubyte[] additionalData,
+  scope SecureMemory outPlainText,
+  out scope SecureMemory outPlainTextSlice
+) @trusted</code></pre><p>Decrypts the given <code>cipherText</code> into the <code>outPlainText</code> buffer, using the given <code>additionalData</code> to calculate the authentication tag, and returns a slice <code>outPlainText</code> which contains the final decrypted plaintext.</p>
 <h3 class='section'>Assertions</h3><p><code>cipherText</code> must be at least <code>AeadAlgorithmT.ABYTES</code> in length. Where ABYTES is typically the length of the authentication tag.</p>
 <p><code>outPlainText</code> must be at least <code>cipherText.length - AeadAlgorithmT.ABYTES</code> in length.</p>
 <h3 class='section'>Notes</h3><p>This is a &quot;combined&quot; AEAD decryption, where the authentication tag is assumed to be appended to the ciphertext.</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>cipherText</code> &lt;bug: unknown&gt;  </dt>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>cipherText</code> ubyte[]  </dt>
 <dd>
 
 
 <p>The ciphertext to decrypt.</p>
 
-</dd><dt><code>additionalData</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>additionalData</code> ubyte[]  </dt>
 <dd>
 
 

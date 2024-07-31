@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,15 +87,43 @@
         <article data-uid="std.experimental.allocator.typed.Structs.TypedAllocator">
 <h1 class='section'>Struct - TypedAllocator</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator.typed</dd></dl>
-</div><pre><code class='lang-d'>public struct TypedAllocator
+</div><pre><code class='lang-d'>struct TypedAllocator( PrimaryAllocator, Policies... )
 {
+  // Given `flags` as a combination of `AllocFlag` values, or a type `T` , returns the allocator that&#39;s a closest fit in capabilities. 
+  ref auto allocatorFor( uint flags )() 
+  // ditto 
+  ref auto allocatorFor( T )() 
+  // Destroys and then deallocates (using `allocatorFor!T` ) the object pointed to by a pointer, the class object referred to by a `class` or `interface` reference, or an entire array. It is assumed the respective entities had been allocated with the same allocator. 
+  void dispose( T )( T* p ) 
+  // Ditto 
+  void dispose( T )( T p ) 
+  // Ditto 
+  void dispose( T )( T[] array ) 
+  // Grows `array` by appending `delta` more elements. The needed memory is allocated using the same allocator that was used for the array type. The extra elements added are either default-initialized, filled with copies of `init` , or initialized with values fetched from `range` . 
+  bool expandArray( T )( ref T[] array, size_t delta ) 
+  // Ditto 
+  bool expandArray( T )( T[] array, size_t delta, auto ref T init ) 
+  // Ditto 
+  bool expandArray( T, R )( ref T[] array, R range ) 
+  // Dynamically allocates (using the appropriate allocator chosen with `allocatorFor!T` ) and then creates in the memory allocated an object of type `T` , using `args` (if any) for its initialization. Initialization occurs in the memory allocated and is otherwise semantically the same as `T(args)` . (Note that using `make!(T[])` creates a pointer to an (empty) array of `T` s, not an array. To allocate and initialize an array, use `makeArray!T` described below.) 
+  auto make( T, A... )( auto ref A args ) 
+  // Create an array of `T` with `length` elements. The array is either default-initialized, filled with copies of `init` , or initialized with values fetched from `range` . 
+  T[] makeArray( T )( size_t length ) 
+  // Ditto 
+  T[] makeArray( T )( size_t length, auto ref T init ) 
+  // Ditto 
+  T[] makeArray( T, R )( R range ) 
   // 
-  bool match( uint have, uint want ) static;
+  static bool match( uint have, uint want ) 
+  // Shrinks an array by `delta` elements using `allocatorFor!(T[])` . 
+  bool shrinkArray( T )( ref T[] arr, size_t delta ) 
+  // Given a type `T` , returns its allocation-related flags as a combination of `AllocFlag` values. 
+  uint type2flags( T )() 
 
   // 
-  Tuple!(Stride2!(Policies[1 .. __dollar])) extras;
+  Tuple!(Stride2!(Policies[1 .. __dollar])) extras
   // 
-  PrimaryAllocator primary;
+  PrimaryAllocator primary
 }</code></pre><h2 class='section'>About</h2><p><code>TypedAllocator</code> acts like a chassis on which several specialized allocators can be assembled. To let the system make a choice about a particular kind of allocation, use <code>Default</code> for the respective parameters.</p>
 <p>There is a hierarchy of allocation kinds. When an allocator is implemented for a given combination of flags, it is used. Otherwise, the next down the list is chosen.</p>
 <p>$(BOOKTABLE ,</p>
@@ -132,7 +160,49 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../TypedAllocator/TypedAllocator/Functions/allocatorFor.html">allocatorFor</a></td>
+<td>Given <code>flags</code> as a combination of <code>AllocFlag</code> values, or a type <code>T</code> , returns the allocator that's a closest fit in capabilities.</td>
+</tr>
+<tr>
+<td><a href="../TypedAllocator/TypedAllocator/Functions/dispose.html">dispose</a></td>
+<td>Destroys and then deallocates (using <code>allocatorFor!T</code> ) the object pointed to by a pointer, the class object referred to by a <code>class</code> or <code>interface</code> reference, or an entire array. It is assumed the respective entities had been allocated with the same allocator.</td>
+</tr>
+<tr>
+<td><a href="../TypedAllocator/TypedAllocator/Functions/expandArray.html">expandArray</a></td>
+<td>Grows <code>array</code> by appending <code>delta</code> more elements. The needed memory is allocated using the same allocator that was used for the array type. The extra elements added are either default-initialized, filled with copies of <code>init</code> , or initialized with values fetched from <code>range</code> .</td>
+</tr>
+<tr>
+<td><a href="../TypedAllocator/TypedAllocator/Functions/make.html">make</a></td>
+<td>Dynamically allocates (using the appropriate allocator chosen with <code>allocatorFor!T</code> ) and then creates in the memory allocated an object of type <code>T</code> , using <code>args</code> (if any) for its initialization. Initialization occurs in the memory allocated and is otherwise semantically the same as <code>T(args)</code> . (Note that using <code>make!(T[])</code> creates a pointer to an (empty) array of <code>T</code> s, not an array. To allocate and initialize an array, use <code>makeArray!T</code> described below.)</td>
+</tr>
+<tr>
+<td><a href="../TypedAllocator/TypedAllocator/Functions/makeArray.html">makeArray</a></td>
+<td>Create an array of <code>T</code> with <code>length</code> elements. The array is either default-initialized, filled with copies of <code>init</code> , or initialized with values fetched from <code>range</code> .</td>
+</tr>
+<tr>
 <td><a href="../TypedAllocator/TypedAllocator/Functions/match.html">match</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TypedAllocator/TypedAllocator/Functions/shrinkArray.html">shrinkArray</a></td>
+<td>Shrinks an array by <code>delta</code> elements using <code>allocatorFor!(T[])</code> .</td>
+</tr>
+<tr>
+<td><a href="../TypedAllocator/TypedAllocator/Functions/type2flags.html">type2flags</a></td>
+<td>Given a type <code>T</code> , returns its allocation-related flags as a combination of <code>AllocFlag</code> values.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Templates</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../TypedAllocator/TypedAllocator/Templates/Stride2.html">Stride2</a></td>
 <td></td>
 </tr>
 </tbody>

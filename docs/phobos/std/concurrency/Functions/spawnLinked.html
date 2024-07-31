@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - spawnLinked</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.concurrency</dd></dl>
 </div><h2 class='section api'>spawnLinked(fn, args)   </h2>
- <pre><code class='lang-d'>Tid spawnLinked(
-  F fn,
-  T args
-) </code></pre><p>Starts <code>fn(args)</code> in a logical thread and will receive a <code>LinkTerminated</code> message when the operation terminates.</p>
+ <pre><code class='lang-d'>Tid spawnLinked( F, T... )( F fn, T args ) </code></pre><p>Starts <code>fn(args)</code> in a logical thread and will receive a <code>LinkTerminated</code> message when the operation terminates.</p>
 <p>Executes the supplied function in a new logical thread represented by <code>Tid</code> .  This new thread is linked to the calling thread so that if either it or the calling thread terminates a <code>LinkTerminated</code> message will be sent to the other, causing a <code>LinkTerminated</code> exception to be thrown on <code>receive()</code> . The owner relationship from <code>spawn()</code> is preserved as well, so if the link between threads is broken, owner termination will still result in an <code>OwnerTerminated</code> exception to be thrown on <code>receive()</code> .</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>fn</code> F  </dt>
 <dd>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - task</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.parallelism</dd></dl>
 </div><h2 class='section api'>task(args)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; task(
-  Args args
-) auto</code></pre><p>Creates a <code>Task</code> on the GC heap that calls an alias.  This may be executed via <code>Task.executeInNewThread</code> or by submitting to a $(REF TaskPool, std,parallelism).  A globally accessible instance of <code>TaskPool</code> is provided by $(REF taskPool, std,parallelism).</p>
+ <pre><code class='lang-d'>auto task( alias fun, Args... )( Args args ) </code></pre><p>Creates a <code>Task</code> on the GC heap that calls an alias.  This may be executed via <code>Task.executeInNewThread</code> or by submitting to a $(REF TaskPool, std,parallelism).  A globally accessible instance of <code>TaskPool</code> is provided by $(REF taskPool, std,parallelism).</p>
 <p>Returns:  A pointer to the <code>Task</code> .</p>
 <h3 class='section'>Example</h3><p>--- // Read two files into memory at the same time. import std.file;</p>
 <p>void main() { // Create and execute a Task for reading // foo.txt. auto file1Task = task!read(&quot;foo.txt&quot;); file1Task.executeInNewThread();</p>
@@ -102,20 +100,14 @@
 <p>auto less = data[0..$ - greaterEqual.length - 1]; greaterEqual = data[$ - greaterEqual.length..$];</p>
 <p>// Execute both recursion branches in parallel. auto recurseTask = task!parallelSort(greaterEqual); taskPool.put(recurseTask); parallelSort(less); recurseTask.yieldForce; } ---</p>
 <h2 class='section api'>task(delegateOrFp, args)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; task(
-  F delegateOrFp,
-  Args args
-) auto</code></pre><p>Creates a <code>Task</code> on the GC heap that calls a function pointer, delegate, or class/struct with overloaded opCall.</p>
+ <pre><code class='lang-d'>auto task( F, Args... )( F delegateOrFp, Args args ) </code></pre><p>Creates a <code>Task</code> on the GC heap that calls a function pointer, delegate, or class/struct with overloaded opCall.</p>
 <h3 class='section'>Example</h3><p>--- // Read two files in at the same time again, // but this time use a function pointer instead // of an alias to represent std.file.read. import std.file;</p>
 <p>void main() { // Create and execute a Task for reading // foo.txt. auto file1Task = task(&amp;read!string, &quot;foo.txt&quot;, size_t.max); file1Task.executeInNewThread();</p>
 <p>// Read bar.txt in parallel. auto file2Data = read(&quot;bar.txt&quot;);</p>
 <p>// Get the results of reading foo.txt. auto file1Data = file1Task.yieldForce; } ---</p>
 <p>Notes: This function takes a non-scope delegate, meaning it can be used with closures.  If you can't allocate a closure due to objects on the stack that have scoped destruction, see <code>scopedTask</code> , which takes a scope delegate.</p>
 <h2 class='section api'>task(fun, args)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; task(
-  F fun,
-  Args args
-) auto</code></pre><p>Version of <code>task</code> usable from <code>@safe</code> code.  Usage mechanics are identical to the non-@safe case, but safety introduces some restrictions:</p>
+ <pre><code class='lang-d'>auto task( F, Args... )( F fun, Args args ) @trusted</code></pre><p>Version of <code>task</code> usable from <code>@safe</code> code.  Usage mechanics are identical to the non-@safe case, but safety introduces some restrictions:</p>
 <pre><code>1.1. `fun` must be @safe or @trusted. 
 </code></pre>
 <pre><code>1.1. `F` must not have any unshared aliasing as defined by $(REF

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,39 +90,39 @@
 </div><pre><code class='lang-d'>public struct FloatingPointControl
 {
   // 
-  alias ControlState = &lt;todo: marmos support pending&gt;;
+  alias ControlState = &lt;todo: marmos support pending&gt;
   // 
-  alias ExceptionMask = &lt;todo: marmos support pending&gt;;
+  alias ExceptionMask = &lt;todo: marmos support pending&gt;
   // 
-  alias RoundingMode = &lt;todo: marmos support pending&gt;;
+  alias RoundingMode = &lt;todo: marmos support pending&gt;
 
   // 
-  void clearExceptions( ) static;
+  static void clearExceptions() @safe
   // Disable (mask) specific hardware exceptions. Multiple exceptions may be ORed together. 
-  void disableExceptions( ExceptionMask exceptions ) ;
+  void disableExceptions( ExceptionMask exceptions ) @trusted
   // Returns: the exceptions which are currently enabled (unmasked) 
-  ExceptionMask enabledExceptions( ) static;
+  static ExceptionMask enabledExceptions() @property @trusted pure
   // Enable (unmask) specific hardware exceptions. Multiple exceptions may be ORed together. 
-  void enableExceptions( ExceptionMask exceptions ) ;
+  void enableExceptions( ExceptionMask exceptions ) @trusted
   // 
-  ControlState getControlState( ) static;
+  static ControlState getControlState() @trusted pure
   // Returns: true if the current FPU supports exception trapping 
-  bool hasExceptionTraps( ) static;
+  static bool hasExceptionTraps() @property @safe pure
   // 
-  bool hasExceptionTraps_impl( ) static;
+  static bool hasExceptionTraps_impl() @safe
   // 
-  void initialize( ) ;
+  void initialize() @safe
   // Change the floating-point hardware rounding mode 
-  void rounding( RoundingMode newMode ) ;
+  void rounding( RoundingMode newMode ) @property @trusted
   // Returns: the currently active rounding mode 
-  RoundingMode rounding( ) static;
+  static RoundingMode rounding() @property @trusted pure
   // 
-  void setControlState( ControlState newState ) static;
+  static void setControlState( ControlState newState ) @trusted
 
   // 
-  bool initialized;
+  bool initialized = false
   // 
-  ControlState savedState;
+  ControlState savedState
 }</code></pre><h2 class='section'>About</h2><p>Control the Floating point hardware</p>
 <p>Change the IEEE754 floating-point rounding mode and the floating-point hardware exceptions.</p>
 <p>By default, the rounding mode is roundToNearest and all hardware exceptions are disabled. For most applications, debugging is easier if the $(I division by zero), $(I overflow), and $(I invalid operation) exceptions are enabled. These three are combined into a $(I severeExceptions) value for convenience. Note in particular that if $(I invalidException) is enabled, a hardware trap will be generated whenever an uninitialized floating-point variable is used.</p>

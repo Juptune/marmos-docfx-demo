@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,28 +90,28 @@
 </div><pre><code class='lang-d'>public class Value
 {
   // The name of the value. If the value represents a default value of a key, which has no name, the returned string will be of zero length. 
-  string name( ) ;
+  string name() @property @safe nothrow pure
   // The type of value. 
-  REG_VALUE_TYPE type( ) ;
+  REG_VALUE_TYPE type() @property @safe nothrow pure
   // Obtains the value as a binary blob. 
-  &lt;bug: unknown&gt; value_BINARY( ) ;
+  byte[] value_BINARY() @property
   // Obtains the current value as a 32-bit unsigned integer, ordered correctly according to the current architecture. 
-  uint value_DWORD( ) ;
+  uint value_DWORD() @property
   // Obtains the current value as a string, within which any environment variables have undergone expansion. This function works with the same value-types as `value_SZ` . 
-  string value_EXPAND_SZ( ) ;
+  string value_EXPAND_SZ() @property
   // Obtains the current value as an array of strings. 
-  &lt;bug: unknown&gt; value_MULTI_SZ( ) ;
+  string[] value_MULTI_SZ() @property
   // Obtains the value as a 64-bit unsigned integer, ordered correctly according to the current architecture. 
-  ulong value_QWORD( ) ;
+  ulong value_QWORD() @property
   // Obtains the current value of the value as a string. If the value&#39;s type is REG_EXPAND_SZ the returned value is &lt;b&gt;not&lt;/b&gt; expanded; `value_EXPAND_SZ` should be called 
-  string value_SZ( ) ;
+  string value_SZ() @property
 
   // 
-  Key m_key;
+  Key m_key
   // 
-  string m_name;
+  string m_name
   // 
-  REG_VALUE_TYPE m_type;
+  REG_VALUE_TYPE m_type
 }</code></pre><h2 class='section'>About</h2><p>This class represents a value of a registry key.</p>
 <h2 class='section'>Functions</h2><table>
 <thead>

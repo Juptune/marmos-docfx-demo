@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,48 +87,48 @@
         <article data-uid="std.range.Structs.FrontTransversal">
 <h1 class='section'>Struct - FrontTransversal</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
-</div><pre><code class='lang-d'>public struct FrontTransversal
+</div><pre><code class='lang-d'>struct FrontTransversal( Ror, TransverseOptions opt = TransverseOptions.assumeJagged )
 {
   // 
-  alias ElementType = &lt;todo: marmos support pending&gt;;
+  alias ElementType = &lt;todo: marmos support pending&gt;
   // 
-  alias RangeOfRanges = &lt;todo: marmos support pending&gt;;
+  alias RangeOfRanges = &lt;todo: marmos support pending&gt;
   // 
-  alias RangeType = &lt;todo: marmos support pending&gt;;
+  alias RangeType = &lt;todo: marmos support pending&gt;
 
   // Bidirectional primitives. They are offered if $(D isBidirectionalRange!RangeOfRanges). 
-  &lt;bug: unknown&gt; back( ) auto;
+  ref auto back() @property
   // 
-  void back( ElementType val ) ;
+  void back( ElementType val ) @property
   // Ditto 
-  &lt;bug: unknown&gt; front( ) auto;
+  ref auto front() @property
   // 
-  void front( ElementType val ) ;
+  void front( ElementType val ) @property
   // Ditto 
-  ElementType moveAt( size_t n ) ;
+  ElementType moveAt( size_t n ) 
   // Ditto 
-  ElementType moveBack( ) ;
+  ElementType moveBack() 
   // Ditto 
-  ElementType moveFront( ) ;
+  ElementType moveFront() 
   // Random-access primitive. It is offered if $(D isRandomAccessRange!RangeOfRanges &amp;&amp; (opt == TransverseOptions.assumeNotJagged || opt == TransverseOptions.enforceNotJagged)). 
-  &lt;bug: unknown&gt; opIndex( size_t n ) auto;
+  ref auto opIndex( size_t n ) 
   // Ditto 
-  void opIndexAssign( ElementType val, size_t n ) ;
+  void opIndexAssign( ElementType val, size_t n ) 
   // Slicing if offered if `RangeOfRanges` supports slicing and all the conditions for supporting indexing are met. 
-  &lt;bug: unknown&gt; opSlice( size_t lower, size_t upper ) ;
+  typeof(this) opSlice( size_t lower, size_t upper ) 
   // 
-  &lt;bug: unknown&gt; opSlice( ) auto;
+  auto opSlice() 
   // Ditto 
-  void popBack( ) ;
+  void popBack() 
   // Ditto 
-  void popFront( ) ;
+  void popFront() 
   // 
-  void prime( ) ;
+  void prime() 
   // Duplicates this `frontTransversal` . Note that only the encapsulating range of range will be duplicated. Underlying ranges will not be duplicated. 
-  FrontTransversal save( ) ;
+  FrontTransversal save() @property
 
   // Forward range primitives. 
-  bool empty;
+  bool empty = false
 }</code></pre><h2 class='section'>About</h2><p>Given a range of ranges, iterate transversally through the first elements of each of the enclosed ranges.</p>
 <h2 class='section'>Aliases</h2><table>
 <thead>

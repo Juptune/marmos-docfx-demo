@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,11 @@
 <h1 class='section'>Overloads for - levenshteinDistanceAndPath</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.comparison</dd></dl>
 </div><h2 class='section api'>levenshteinDistanceAndPath(s, t)   </h2>
- <pre><code class='lang-d'>Tuple!(size_tEditOp[]) levenshteinDistanceAndPath(
+ <pre><code class='lang-d'>Tuple!(size_t,EditOp[]) levenshteinDistanceAndPath(
+  alias equals,
+  Range1,
+  Range2
+)(
   Range1 s,
   Range2 t
 ) </code></pre><p>Returns the Levenshtein distance and the edit path between <code>s</code> and <code>t</code> .</p>
@@ -113,9 +117,13 @@
 </dd></dl><h3 class='section'>Returns</h3><p>Tuple with the first element being the minimal amount of edits to transform s into t and the second element being the sequence of edits to effect this transformation.</p>
 <p>Allocates GC memory for the returned EditOp[] array.</p>
 <h2 class='section api'>levenshteinDistanceAndPath(s, t)   </h2>
- <pre><code class='lang-d'>Tuple!(size_tEditOp[]) levenshteinDistanceAndPath(
-  Range1 s,
-  Range2 t
+ <pre><code class='lang-d'>Tuple!(size_t,EditOp[]) levenshteinDistanceAndPath(
+  alias equals,
+  Range1,
+  Range2
+)(
+  auto ref Range1 s,
+  auto ref Range2 t
 ) </code></pre><p>ditto</p>
 
 </article>

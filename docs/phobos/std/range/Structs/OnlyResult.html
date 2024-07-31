@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,41 +87,41 @@
         <article data-uid="std.range.Structs.OnlyResult">
 <h1 class='section'>Struct - OnlyResult</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
-</div><pre><code class='lang-d'>public struct OnlyResult
+</div><pre><code class='lang-d'>struct OnlyResult( T )
 {
   // 
-  alias opDollar = &lt;todo: marmos support pending&gt;;
+  alias opDollar = &lt;todo: marmos support pending&gt;
 
   // 
-  void assignFront( T newValue ) ;
+  void assignFront( T newValue ) @trusted
   // 
-  T back( ) ;
+  T back() @property
   // 
-  void back( T value ) ;
+  void back( T value ) @property
   // 
-  bool empty( ) ;
+  bool empty() @property
   // 
-  T fetchFront( ) ;
+  T fetchFront() @trusted
   // 
-  T front( ) ;
+  T front() @property
   // 
-  void front( T value ) ;
+  void front( T value ) @property
   // 
-  size_t length( ) ;
+  size_t length() @property
   // 
-  T opIndex( size_t i ) ;
+  T opIndex( size_t i ) 
   // 
-  void opIndexAssign( T value, size_t i ) ;
+  void opIndexAssign( T value, size_t i ) 
   // 
-  OnlyResult opSlice( ) ;
+  OnlyResult opSlice() 
   // 
-  OnlyResult opSlice( size_t from, size_t to ) ;
+  OnlyResult opSlice( size_t from, size_t to ) 
   // 
-  void popBack( ) ;
+  void popBack() 
   // 
-  void popFront( ) ;
+  void popFront() 
   // 
-  &lt;bug: unknown&gt; save( ) auto;
+  auto save() @property
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>
@@ -190,6 +190,20 @@
 </tr>
 <tr>
 <td><a href="../OnlyResult/OnlyResult/Functions/save.html">save</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../OnlyResult/OnlyResult/Structs/WorkaroundBugzilla24415.html">WorkaroundBugzilla24415</a></td>
 <td></td>
 </tr>
 </tbody>

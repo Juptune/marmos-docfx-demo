@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,23 +89,67 @@
 <dl><dt>Module</dt><dd>std.int128</dd></dl>
 </div><pre><code class='lang-d'>public struct Int128
 {
+  // Support binary arithmetic operators + - / % &amp; | ^ &lt;&lt; &gt;&gt; &gt;&gt;&gt; Params: op = one of the arithmetic binary operators op2 = second operand Returns: value after the operation is applied 
+  Int128 opBinary( string op )( Int128 op2 ) 
+  // ditto 
+  Int128 opBinary( string op, Int )( const Int op2 ) 
+  // ditto 
+  Int128 opBinary( string op, IntLike )( auto ref IntLike op2 ) 
+  // ditto 
+  Int128 opBinary( string op )( long op2 ) 
+  // ditto 
+  Int128 opBinary( string op )( long op2 ) 
+  // ditto 
+  Int128 opBinary( string op )( long op2 ) 
+  // ditto 
+  Int128 opBinaryRight( string op, Int )( const Int op2 ) 
+  // ditto 
+  Int128 opBinaryRight( string op, IntLike )( auto ref IntLike op2 ) 
+  // Support casting to a bool Params: T = bool Returns: true if value is not zero 
+  bool opCast( T : bool )() 
+  // Support casting to an integral type Params: T = integral type Returns: low bits of value reinterpreted as T 
+  T opCast( T : long )() 
+  // Support casting to floating point type Params: T = floating point type Returns: value cast to floating point with environment-dependent rounding if the value is not exactly representable 
+  T opCast( T : real )() 
   // support arithmentic comparison operators &lt; &lt;= &gt; &gt;= Params: op2 = right hand operand Returns: -1 for less than, 0 for equals, 1 for greater than 
-  int opCmp( Int128 op2 ) ;
+  int opCmp( Int128 op2 ) @nogc @safe nothrow pure
+  // ditto 
+  int opCmp( Int )( const Int op2 ) @nogc @safe nothrow pure
+  // ditto 
+  int opCmp( IntLike )( auto ref IntLike op2 ) 
   // Compare for equality Params: lo = signed value to compare with Returns: true if Int128 equals value 
-  bool opEquals( long lo ) ;
+  bool opEquals( long lo ) 
   // Compare for equality Params: lo = unsigned value to compare with Returns: true if Int128 equals value 
-  bool opEquals( ulong lo ) ;
+  bool opEquals( ulong lo ) 
   // Compare for equality Params: op2 = value to compare with Returns: true if Int128 equals value 
-  bool opEquals( Int128 op2 ) ;
+  bool opEquals( Int128 op2 ) 
+  // arithmetic assignment operators += -= = /= %= &amp;= |= ^= &lt;&lt;= &gt;&gt;= &gt;&gt;&gt;= Params: op = one of +, -, etc. op2 = second operand Returns: lvalue of updated left operand 
+  ref Int128 opOpAssign( string op )( Int128 op2 ) 
+  // ditto 
+  ref Int128 opOpAssign( string op, Int )( auto ref Int op2 ) 
+  // Support unary arithmentic operator + Params: op = &quot;+&quot; Returns: lvalue of result 
+  Int128 opUnary( string op )() 
+  // Support unary arithmentic operator - ~ Params: op = &quot;-&quot;, &quot;~&quot; Returns: lvalue of result 
+  Int128 opUnary( string op )() 
+  // Support unary arithmentic operator ++ -- Params: op = &quot;++&quot;, &quot;--&quot; Returns: lvalue of result 
+  Int128 opUnary( string op )() 
   // Returns: hash value for Int128 
-  size_t toHash( ) ;
+  size_t toHash() 
+  // Formats `Int128` with either `%d` , `%x` , `%X` , or `%s` (same as `%d` ). 
+  void toString(
+    Writer,
+    FormatSpec
+  )(
+    ref scope Writer sink,
+    const ref scope FormatSpec fmt
+  ) 
 
   // core.int128.Cent 
-  Cent data;
+  Cent data
   // maximum value 
-  __enumMember max;
+  &lt;enum or auto&gt; max = Int128((long).max, (ulong).max)
   // minimum value 
-  __enumMember min;
+  &lt;enum or auto&gt; min = Int128((long).min, 0)
 }</code></pre><h2 class='section'>About</h2><p>128 bit signed integer type.</p>
 <h2 class='section'>Functions</h2><table>
 <thead>
@@ -116,6 +160,18 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../Int128/Int128/Functions/opBinary.html">opBinary</a></td>
+<td>Support binary arithmetic operators + - / % &amp; <code>|</code> ^ &lt;&lt; &gt;&gt; &gt;&gt;&gt; Params: op = one of the arithmetic binary operators op2 = second operand Returns: value after the operation is applied</td>
+</tr>
+<tr>
+<td><a href="../Int128/Int128/Functions/opBinaryRight.html">opBinaryRight</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../Int128/Int128/Functions/opCast.html">opCast</a></td>
+<td>Support casting to a bool Params: T = bool Returns: true if value is not zero</td>
+</tr>
+<tr>
 <td><a href="../Int128/Int128/Functions/opCmp.html">opCmp</a></td>
 <td>support arithmentic comparison operators &lt; &lt;= &gt; &gt;= Params: op2 = right hand operand Returns: -1 for less than, 0 for equals, 1 for greater than</td>
 </tr>
@@ -124,8 +180,20 @@
 <td>Compare for equality Params: lo = signed value to compare with Returns: true if Int128 equals value</td>
 </tr>
 <tr>
+<td><a href="../Int128/Int128/Functions/opOpAssign.html">opOpAssign</a></td>
+<td>arithmetic assignment operators += -= = /= %= &amp;= <code>|</code>= ^= &lt;&lt;= &gt;&gt;= &gt;&gt;&gt;= Params: op = one of +, -, etc. op2 = second operand Returns: lvalue of updated left operand</td>
+</tr>
+<tr>
+<td><a href="../Int128/Int128/Functions/opUnary.html">opUnary</a></td>
+<td>Support unary arithmentic operator + Params: op = &quot;+&quot; Returns: lvalue of result</td>
+</tr>
+<tr>
 <td><a href="../Int128/Int128/Functions/toHash.html">toHash</a></td>
 <td>Returns: hash value for Int128</td>
+</tr>
+<tr>
+<td><a href="../Int128/Int128/Functions/toString.html">toString</a></td>
+<td>Formats <code>Int128</code> with either <code>%d</code> , <code>%x</code> , <code>%X</code> , or <code>%s</code> (same as <code>%d</code> ).</td>
 </tr>
 </tbody>
 </table>

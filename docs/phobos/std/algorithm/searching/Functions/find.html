@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - find</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.searching</dd></dl>
 </div><h2 class='section api'>find(haystack)   </h2>
- <pre><code class='lang-d'>InputRange find(
-  InputRange haystack
-) </code></pre><p>Finds an element <code>e</code> of an $(REF_ALTTEXT input range, isInputRange, std,range,primitives) where <code>pred(e)</code> is <code>true</code> . $(P $(PANEL $(UL $(LI <code>find</code> behaves similarly to <code>dropWhile</code> in other languages.) $(LI To find the <em>last</em> matching element in a $(REF_ALTTEXT bidirectional, isBidirectionalRange, std,range,primitives) <code>haystack</code> , call <code>find!pred(retro(haystack))</code> . See $(REF retro, std,range).) )))</p>
+ <pre><code class='lang-d'>InputRange find( alias pred, InputRange )( InputRange haystack ) </code></pre><p>Finds an element <code>e</code> of an $(REF_ALTTEXT input range, isInputRange, std,range,primitives) where <code>pred(e)</code> is <code>true</code> . $(P $(PANEL $(UL $(LI <code>find</code> behaves similarly to <code>dropWhile</code> in other languages.) $(LI To find the <em>last</em> matching element in a $(REF_ALTTEXT bidirectional, isBidirectionalRange, std,range,primitives) <code>haystack</code> , call <code>find!pred(retro(haystack))</code> . See $(REF retro, std,range).) )))</p>
 <h3 class='section'>Complexity</h3><p><code>find</code> performs $(BIGOH walkLength(haystack)) evaluations of <code>pred</code> .</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>pred</code> &lt;parameter not found&gt;  </dt>
 <dd>
@@ -107,8 +105,12 @@
 </dd></dl><h3 class='section'>Returns</h3><p><code>haystack</code> advanced such that the front element satisfies <code>pred</code> . If no such element exists, returns an empty <code>haystack</code> .</p>
 <h2 class='section api'>find(haystack, needle)   </h2>
  <pre><code class='lang-d'>InputRange find(
+  alias pred = &quot;a == b&quot;,
+  InputRange,
+  Element
+)(
   InputRange haystack,
-  Element needle
+  scope Element needle
 ) </code></pre><p>Finds an individual element in an $(REF_ALTTEXT input range, isInputRange, std,range,primitives). Elements of <code>haystack</code> are compared with <code>needle</code> by using predicate <code>pred</code> with <code>pred(haystack.front, needle)</code> . The predicate is passed to $(REF binaryFun, std, functional), and can either accept a string, or any callable that can be executed via <code>pred(element, element)</code> .</p>
 <p>If <code>haystack</code> is a $(REF_ALTTEXT forward range, isForwardRange, std,range,primitives), <code>needle</code> can be a $(REF_ALTTEXT forward range, isForwardRange, std,range,primitives) too. In this case <code>startsWith!pred(haystack, needle)</code> is evaluated on each evaluation.</p>
 <p>$(NOTE To find the first element $(I not) matching the needle, use predicate <code>&quot;a != b&quot;</code> .)</p>
@@ -134,12 +136,13 @@
 </dd></dl><h3 class='section'>Returns</h3><p><code>haystack</code> advanced such that the front element is the one searched for; that is, until <code>binaryFun!pred(haystack.front, needle)</code> is <code>true</code> . If no such position exists, returns an empty <code>haystack</code> .</p>
 <p>See_Also: $(LREF findAdjacent), $(LREF findAmong), $(LREF findSkip), $(LREF findSplit), $(LREF startsWith)</p>
 <h2 class='section api'>find(haystack, needle)   </h2>
- <pre><code class='lang-d'>R1 find(
-  R1 haystack,
-  R2 needle
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>R1 find( alias pred = &quot;a == b&quot;, R1, R2 )( R1 haystack, scope R2 needle ) </code></pre><p>ditto</p>
 <h2 class='section api'>find(haystack, needles)   </h2>
- <pre><code class='lang-d'>Tuple!(Rangesize_t) find(
+ <pre><code class='lang-d'>Tuple!(Range,size_t) find(
+  alias pred = &quot;a == b&quot;,
+  Range,
+  Needles...
+)(
   Range haystack,
   Needles needles
 ) </code></pre><p>Finds two or more <code>needles</code> into a <code>haystack</code> . The predicate $(D pred) is used throughout to compare elements. By default, elements are compared for equality.</p>
@@ -156,8 +159,12 @@
 <p>The complexity of the search is $(BIGOH haystack.length max(needles.length)). (For needles that are individual items, length is considered to be 1.) The strategy used in searching several subranges at once maximizes cache usage by moving in <code>haystack</code> as few times as possible.</p>
 <h2 class='section api'>find(haystack, needle)   </h2>
  <pre><code class='lang-d'>RandomAccessRange find(
+  RandomAccessRange,
+  alias pred,
+  InputRange
+)(
   RandomAccessRange haystack,
-  BoyerMooreFinder!(predInputRange) needle
+  scope BoyerMooreFinder!(pred,InputRange) needle
 ) </code></pre><p>Finds <code>needle</code> in <code>haystack</code> efficiently using the $(LINK2 <a href="https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string_search_algorithm">https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string_search_algorithm</a>, Boyer-Moore) method.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>haystack</code> RandomAccessRange  </dt>
 <dd>
@@ -165,7 +172,7 @@
 
 <p>A random-access range with length and slicing.</p>
 
-</dd><dt><code>needle</code> BoyerMooreFinder!(predInputRange)  </dt>
+</dd><dt><code>needle</code> BoyerMooreFinder!(pred,InputRange)  </dt>
 <dd>
 
 

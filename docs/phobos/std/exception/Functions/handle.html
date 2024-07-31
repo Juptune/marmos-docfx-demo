@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,14 @@
 <h1 class='section'>Overloads for - handle</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.exception</dd></dl>
 </div><h2 class='section api'>handle(input)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; handle(
+ <pre><code class='lang-d'>auto handle(
+  E : Throwable,
+  RangePrimitive primitivesToHandle,
+  alias handler,
+  Range
+)(
   Range input
-) auto</code></pre><p>Handle exceptions thrown from range primitives.</p>
+) </code></pre><p>Handle exceptions thrown from range primitives.</p>
 <p>Use the $(LREF RangePrimitive) enum to specify which primitives to handle. Multiple range primitives can be handled at once by using the <code>OR</code> operator or the pseudo-primitives <code>RangePrimitive.access</code> and <code>RangePrimitive.pop</code> . All handled primitives must have return types or values compatible with the user-supplied handler.</p>
 <p>Params: E = The type of <code>Throwable</code> to handle. primitivesToHandle = Set of range primitives to handle. handler = The callable that is called when a handled primitive throws a <code>Throwable</code> of type <code>E</code> . The handler must accept arguments of the form $(D E, ref IRange) and its return value is used as the primitive's return value whenever <code>E</code> is thrown. For <code>opIndex</code> , the handler can optionally recieve a third argument; the index that caused the exception. input = The range to handle.</p>
 <p>Returns: A wrapper <code>struct</code> that preserves the range interface of <code>input</code> .</p>

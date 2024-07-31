@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,52 +90,52 @@
 </div><pre><code class='lang-d'>public class ArchiveMember
 {
   // Data of member in compressed form. 
-  &lt;bug: unknown&gt; compressedData( ) ;
+  ubyte[] compressedData() @nogc @property @safe nothrow pure
   // Size of data of member in compressed form. 
-  uint compressedSize( ) ;
+  uint compressedSize() @nogc @property @safe nothrow pure
   // Get or set compression method used for this member. 
-  CompressionMethod compressionMethod( ) ;
+  CompressionMethod compressionMethod() @nogc @property @safe nothrow pure
   // ditto 
-  void compressionMethod( CompressionMethod cm ) ;
+  void compressionMethod( CompressionMethod cm ) @property @safe pure
   // Cyclic redundancy check (CRC) value. 
-  uint crc32( ) ;
+  uint crc32() @nogc @property @safe nothrow pure
   // Get or set data of member in uncompressed form. When an existing archive is read `ZipArchive.expand` needs to be called before this can be accessed. 
-  &lt;bug: unknown&gt; expandedData( ) ;
+  ubyte[] expandedData() @nogc @property @safe nothrow pure
   // ditto 
-  void expandedData( &lt;bug: unknown&gt; ed ) ;
+  void expandedData( ubyte[] ed ) @property @safe
   // Size of data of member in uncompressed form. 
-  uint expandedSize( ) ;
+  uint expandedSize() @nogc @property @safe nothrow pure
   // The zip file format version needed to extract this member. 
-  ushort extractVersion( ) ;
+  ushort extractVersion() @nogc @property @safe nothrow pure
   // Get or set the OS specific file attributes for this archive member. 
-  void fileAttributes( uint attr ) ;
+  void fileAttributes( uint attr ) @property @safe
   // ditto 
-  uint fileAttributes( ) ;
+  uint fileAttributes() @nogc @property nothrow
   // The index of this archive member within the archive. Set this to a different value for reordering the members of an archive. 
-  uint index( uint value ) ;
+  uint index( uint value ) @nogc @property @safe nothrow pure
   // ditto 
-  uint index( ) ;
+  uint index() @nogc @property @safe nothrow pure
   // 
-  void print( ) ;
+  void print() 
   // Get or set the last modification time for this member. 
-  DosFileTime time( ) ;
+  DosFileTime time() @nogc @property @safe nothrow pure
   // ditto 
-  void time( SysTime time ) ;
+  void time( SysTime time ) @property
   // ditto 
-  void time( DosFileTime time ) ;
+  void time( DosFileTime time ) @nogc @property @safe nothrow pure
 
   // Comment associated with this member. 
-  string comment;
+  string comment
   // The content of the extra data field for this member. See $(LINK2 https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT, original documentation) for a description of the general format of this data. May contain undocumented 3rd-party data. 
-  &lt;bug: unknown&gt; extra;
+  ubyte[] extra
   // Contains some information on how to extract this archive. See $(LINK2 https://pkware.cachefly.net/webdocs/casestudies/APPNOTE.TXT, original documentation) for details. 
-  ushort flags;
+  ushort flags
   // Internal attributes. Bit 1 is set, if the member is apparently in binary format and bit 2 is set, if each record is preceded by the length of the record. 
-  ushort internalAttributes;
+  ushort internalAttributes
   // The name of the archive member; it is used to index the archive directory for the member. Each member must have a unique name. Do not change without removing member from the directory first. 
-  string name;
+  string name
   // 
-  uint offset;
+  uint offset
 }</code></pre><h2 class='section'>About</h2><p>A single file or directory inside the archive.</p>
 <h2 class='section'>Functions</h2><table>
 <thead>

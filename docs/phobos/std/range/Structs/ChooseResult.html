@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,42 +87,54 @@
         <article data-uid="std.range.Structs.ChooseResult">
 <h1 class='section'>Struct - ChooseResult</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
-</div><pre><code class='lang-d'>public struct ChooseResult
+</div><pre><code class='lang-d'>struct ChooseResult( Ranges... )
 {
   // 
-  alias opDollar = &lt;todo: marmos support pending&gt;;
+  alias opDollar = &lt;todo: marmos support pending&gt;
 
   // 
-  &lt;bug: unknown&gt; back( ) auto;
+  ref auto actOnChosen(
+    alias foo,
+    ExtraArgs...
+  )(
+    ref ChooseResult r,
+    auto ref ExtraArgs extraArgs
+  ) 
   // 
-  &lt;bug: unknown&gt; front( ) auto;
+  ref auto back() @property
   // 
-  size_t length( ) ;
+  ref auto front() @property
   // 
-  &lt;bug: unknown&gt; moveAt( size_t index ) auto;
+  size_t length() @property
   // 
-  &lt;bug: unknown&gt; moveBack( ) auto;
+  auto moveAt( size_t index ) 
   // 
-  &lt;bug: unknown&gt; moveFront( ) auto;
+  auto moveBack() 
   // 
-  void opAssign( ChooseResult r ) ;
+  auto moveFront() 
   // 
-  &lt;bug: unknown&gt; opIndex( size_t index ) auto;
+  void opAssign( ChooseResult r ) 
   // 
-  &lt;bug: unknown&gt; opSlice( size_t begin, size_t end ) auto;
+  ref auto opIndex( size_t index ) 
   // 
-  void popBack( ) ;
+  void opIndexAssign( T )( T v, size_t index ) 
   // 
-  void popFront( ) ;
+  auto opSlice( size_t begin, size_t end ) 
   // 
-  &lt;bug: unknown&gt; save( ) auto;
+  void popBack() 
+  // 
+  void popFront() 
+  // 
+  auto save() @property
 
   // 
-  size_t chosenI;
+  size_t chosenI
   // 
-  bool empty;
+  bool empty = false
   // 
-  Ranges rs;
+  &lt;enum or auto&gt; indexAssignable = is(typeof(lvalueOf!R[1] = T.init))
+  // 
+  Ranges rs
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>
@@ -145,6 +157,10 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="../ChooseResult/ChooseResult/Functions/actOnChosen.html">actOnChosen</a></td>
+<td></td>
+</tr>
 <tr>
 <td><a href="../ChooseResult/ChooseResult/Functions/back.html">back</a></td>
 <td></td>
@@ -178,6 +194,10 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="../ChooseResult/ChooseResult/Functions/opIndexAssign.html">opIndexAssign</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../ChooseResult/ChooseResult/Functions/opSlice.html">opSlice</a></td>
 <td></td>
 </tr>
@@ -191,6 +211,24 @@
 </tr>
 <tr>
 <td><a href="../ChooseResult/ChooseResult/Functions/save.html">save</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Templates</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../ChooseResult/ChooseResult/Templates/back.html">back</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../ChooseResult/ChooseResult/Templates/front.html">front</a></td>
 <td></td>
 </tr>
 </tbody>
@@ -209,6 +247,10 @@
 </tr>
 <tr>
 <td><a href="../ChooseResult/ChooseResult/Variables/empty.html">empty</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../ChooseResult/ChooseResult/Variables/indexAssignable.html">indexAssignable</a></td>
 <td></td>
 </tr>
 <tr>

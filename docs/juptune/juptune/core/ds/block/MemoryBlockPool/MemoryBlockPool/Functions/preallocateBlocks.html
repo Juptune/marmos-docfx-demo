@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - preallocateBlocks</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.core.ds.block.MemoryBlockPool</dd></dl><dl><dt>Parent</dt><dd>MemoryBlockPool</dd></dl>
 </div><h2 class='section api'>preallocateBlocks(powerOfTwo, blockCount)   </h2>
- <pre><code class='lang-d'>Result preallocateBlocks(
-  size_t powerOfTwo,
-  size_t blockCount
-) </code></pre><p>Preallocates a certain amount of blocks from the system, at a specific power of two size.</p>
+ <pre><code class='lang-d'>Result preallocateBlocks( size_t powerOfTwo, size_t blockCount ) @trusted</code></pre><p>Preallocates a certain amount of blocks from the system, at a specific power of two size.</p>
 <h3 class='section'>Notes</h3><p>This function does not attempt to clamp the <code>powerOfTwo</code> parameter to the nearest valid value. If this value is out of range, an assert will fail. Please use <code>MIN_BLOCK_POWER</code> and <code>MAX_BLOCK_POWER</code> to clamp the value and handle user input error cases.</p>
 <h3 class='section'>Performance</h3><p>Performance for this function is a little difficult to simplify, but it's roughly O(n) where <code>n</code> is the <code>blockCount</code> parameter.</p>
 <p>The logic within this function scales at O(n), however the underlying <code>calloc</code> call depends on the libc/malloc-subsitute library that gets linked.</p>

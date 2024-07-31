@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,46 +87,46 @@
         <article data-uid="std.parallelism.Structs.Task">
 <h1 class='section'>Struct - Task</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.parallelism</dd></dl>
-</div><pre><code class='lang-d'>public struct Task
+</div><pre><code class='lang-d'>struct Task( alias fun, Args... )
 {
   // The arguments the function was called with.  Changes to `out` and `ref` arguments will be visible here. 
-  alias args = &lt;todo: marmos support pending&gt;;
+  alias args = &lt;todo: marmos support pending&gt;
   // The return type of the function called by this `Task` .  This can be `void` . 
-  alias ReturnType = &lt;todo: marmos support pending&gt;;
+  alias ReturnType = &lt;todo: marmos support pending&gt;
 
   // 
-  &lt;bug: unknown&gt; basePtr( ) ;
+  AbstractTask* basePtr() @property
   // Returns `true` if the `Task` is finished executing. 
-  bool done( ) ;
+  bool done() @property @trusted
   // 
-  void enforcePool( ) ;
+  void enforcePool() 
   // Create a new thread for executing this `Task` , execute it in the newly created thread, then terminate the thread.  This can be used for future/promise parallelism.  An explicit priority may be given to the `Task` .  If one is provided, its value is forwarded to `core.thread.Thread.priority` . See $(REF task, std,parallelism) for usage example. 
-  void executeInNewThread( ) ;
+  void executeInNewThread() @trusted
   // Ditto 
-  void executeInNewThread( int priority ) ;
+  void executeInNewThread( int priority ) @trusted
   // 
-  ReturnType fixRef( &lt;bug: unknown&gt; val ) ;
+  ref ReturnType fixRef( ReturnType* val ) 
   // 
-  void impl( &lt;bug: unknown&gt; myTask ) static;
+  static void impl( void* myTask ) 
   // 
-  &lt;bug: unknown&gt; opAssign( &lt;bug: unknown&gt; rhs ) ;
+  typeof(this) opAssign( typeof(this) rhs ) 
   // If the `Task` isn&#39;t started yet, execute it in the current thread. If it&#39;s done, return its return value, if any.  If it&#39;s in progress, busy spin until it&#39;s done, then return the return value.  If it threw an exception, rethrow that exception. 
-  ReturnType spinForce( ) ;
+  ref ReturnType spinForce() @property @trusted
   // If this `Task` was not started yet, execute it in the current thread.  If it is finished, return its result.  If it is in progress, execute any other `Task` from the `TaskPool` instance that this `Task` was submitted to until this one is finished.  If it threw an exception, rethrow that exception. If no other tasks are available or this `Task` was executed using `executeInNewThread` , wait on a condition variable. 
-  ReturnType workForce( ) ;
+  ref ReturnType workForce() @property @trusted
   // If the `Task` isn&#39;t started yet, execute it in the current thread. If it&#39;s done, return its return value, if any.  If it&#39;s in progress, wait on a condition variable.  If it threw an exception, rethrow that exception. 
-  ReturnType yieldForce( ) ;
+  ref ReturnType yieldForce() @property @trusted
 
   // 
-  AbstractTask base;
+  AbstractTask base = &lt;todo: support struct literal&gt;
   // 
-  bool isPure;
+  bool isPure = (functionAttributes!(Args[0]) &amp; FunctionAttribute.pure_) != 0
   // 
-  bool isScoped;
+  bool isScoped
   // 
-  TaskPool pool;
+  TaskPool pool
   // 
-  &lt;bug: unknown&gt; returnVal;
+  ReturnType* returnVal
 }</code></pre><h2 class='section'>About</h2><p><code>Task</code> represents the fundamental unit of work.  A <code>Task</code> may be executed in parallel with any other <code>Task</code> .  Using this struct directly allows future/promise parallelism.  In this paradigm, a function (or delegate or other callable) is executed in a thread other than the one it was called from.  The calling thread does not block while the function is being executed. A call to <code>workForce</code> , <code>yieldForce</code> , or <code>spinForce</code> is used to ensure that the <code>Task</code> has finished executing and to obtain the return value, if any.  These functions and <code>done</code> also act as full memory barriers, meaning that any memory writes made in the thread that executed the <code>Task</code> are guaranteed to be visible in the calling thread after one of these functions returns.</p>
 <p>The $(REF task, std,parallelism) and $(REF scopedTask, std,parallelism) functions can be used to create an instance of this struct.  See <code>task</code> for usage examples.</p>
 <p>Function results are returned from <code>yieldForce</code> , <code>spinForce</code> and <code>workForce</code> by ref.  If <code>fun</code> returns by ref, the reference will point to the returned reference of <code>fun</code> .  Otherwise it will point to a field in this struct.</p>

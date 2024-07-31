@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Struct - LogEntry | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Struct - LogEntry | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../../../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../../../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../../../../index.html">
+            <img id="logo" class="svg" src="../../../../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.logger.core.Logger.Logger.Structs.LogEntry">
+<h1 class='section'>Struct - LogEntry</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.logger.core.Logger</dd></dl><dl><dt>Parent</dt><dd>Logger</dd></dl>
+</div><pre><code class='lang-d'>public struct LogEntry
+{
+  // the filename the log function was called from 
+  string file
+  // the name of the function the log function was called from 
+  string funcName
+  // the line number the log function was called from 
+  int line
+  // A refernce to the `Logger` used to create this `LogEntry` 
+  Logger logger
+  // the `LogLevel` associated with the log message 
+  LogLevel logLevel
+  // the name of the module the log message is coming from 
+  string moduleName
+  // the message of the log message 
+  string msg
+  // the pretty formatted name of the function the log function was called from 
+  string prettyFuncName
+  // thread id of the log message 
+  Tid threadId
+  // the time the message was logged 
+  SysTime timestamp
+}</code></pre><h2 class='section'>About</h2><p>LogEntry is a aggregation combining all information associated with a log message. This aggregation will be passed to the method writeLogMsg.</p>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../LogEntry/LogEntry/Variables/file.html">file</a></td>
+<td>the filename the log function was called from</td>
+</tr>
+<tr>
+<td><a href="../LogEntry/LogEntry/Variables/funcName.html">funcName</a></td>
+<td>the name of the function the log function was called from</td>
+</tr>
+<tr>
+<td><a href="../LogEntry/LogEntry/Variables/line.html">line</a></td>
+<td>the line number the log function was called from</td>
+</tr>
+<tr>
+<td><a href="../LogEntry/LogEntry/Variables/logger.html">logger</a></td>
+<td>A refernce to the <code>Logger</code> used to create this <code>LogEntry</code></td>
+</tr>
+<tr>
+<td><a href="../LogEntry/LogEntry/Variables/logLevel.html">logLevel</a></td>
+<td>the <code>LogLevel</code> associated with the log message</td>
+</tr>
+<tr>
+<td><a href="../LogEntry/LogEntry/Variables/moduleName.html">moduleName</a></td>
+<td>the name of the module the log message is coming from</td>
+</tr>
+<tr>
+<td><a href="../LogEntry/LogEntry/Variables/msg.html">msg</a></td>
+<td>the message of the log message</td>
+</tr>
+<tr>
+<td><a href="../LogEntry/LogEntry/Variables/prettyFuncName.html">prettyFuncName</a></td>
+<td>the pretty formatted name of the function the log function was called from</td>
+</tr>
+<tr>
+<td><a href="../LogEntry/LogEntry/Variables/threadId.html">threadId</a></td>
+<td>thread id of the log message</td>
+</tr>
+<tr>
+<td><a href="../LogEntry/LogEntry/Variables/timestamp.html">timestamp</a></td>
+<td>the time the message was logged</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

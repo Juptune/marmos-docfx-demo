@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - intersects</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.interval.Interval</dd></dl><dl><dt>Parent</dt><dd>Interval</dd></dl>
 </div><h2 class='section api'>intersects(interval)   </h2>
- <pre><code class='lang-d'>bool intersects(
-  Interval interval
-) </code></pre><p>Whether the given interval overlaps this interval.</p>
+ <pre><code class='lang-d'>bool intersects( const scope Interval interval ) pure</code></pre><p>Whether the given interval overlaps this interval.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>interval</code> Interval  </dt>
 <dd>
 
@@ -102,9 +100,7 @@
 <p>assert(Interval!Date(Date(1996, 1, 2), Date(2012, 3, 1)).intersects( Interval!Date(Date(1999, 1, 12), Date(2011, 9, 17))));</p>
 <p>assert(!Interval!Date(Date(1996, 1, 2), Date(2012, 3, 1)).intersects( Interval!Date(Date(1989, 3, 1), Date(1996, 1, 2)))); --------------------</p>
 <h2 class='section api'>intersects(interval)   </h2>
- <pre><code class='lang-d'>bool intersects(
-  PosInfInterval!(TP) interval
-) </code></pre><p>Whether the given interval overlaps this interval.</p>
+ <pre><code class='lang-d'>bool intersects( const scope PosInfInterval!(TP) interval ) pure</code></pre><p>Whether the given interval overlaps this interval.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>interval</code> PosInfInterval!(TP)  </dt>
 <dd>
 
@@ -115,9 +111,7 @@
 <h3 class='section'>Example</h3><p>-------------------- assert(Interval!Date(Date(1996, 1, 2), Date(2012, 3, 1)).intersects( PosInfInterval!Date(Date(1999, 5, 4))));</p>
 <p>assert(!Interval!Date(Date(1996, 1, 2), Date(2012, 3, 1)).intersects( PosInfInterval!Date(Date(2012, 3, 1)))); --------------------</p>
 <h2 class='section api'>intersects(interval)   </h2>
- <pre><code class='lang-d'>bool intersects(
-  NegInfInterval!(TP) interval
-) </code></pre><p>Whether the given interval overlaps this interval.</p>
+ <pre><code class='lang-d'>bool intersects( const scope NegInfInterval!(TP) interval ) pure</code></pre><p>Whether the given interval overlaps this interval.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>interval</code> NegInfInterval!(TP)  </dt>
 <dd>
 

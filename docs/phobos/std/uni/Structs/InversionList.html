@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,44 +87,72 @@
         <article data-uid="std.uni.Structs.InversionList">
 <h1 class='section'>Struct - InversionList</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.uni</dd></dl>
-</div><pre><code class='lang-d'>public struct InversionList
+</div><pre><code class='lang-d'>struct InversionList( SP = GcPolicy )
 {
   // 
-  alias Marker = &lt;todo: marmos support pending&gt;;
+  alias Marker = &lt;todo: marmos support pending&gt;
   // 
-  alias This = &lt;todo: marmos support pending&gt;;
+  alias This = &lt;todo: marmos support pending&gt;
 
+  // Add an interval [a, b$(RPAREN) to this set. 
+  ref &lt;bug: unknown&gt; add( )( uint a, uint b ) 
   // 
-  Marker addInterval( int a, int b, Marker hint ) ;
+  ref &lt;bug: unknown&gt; add( U )( U rhs ) 
+  // 
+  Marker addInterval( int a, int b, Marker hint ) scope
   // A range that spans each $(CODEPOINT) in this set. 
-  &lt;bug: unknown&gt; byCodepoint( ) auto;
+  auto byCodepoint() @property
   // Get range that spans all of the $(CODEPOINT) intervals in this $(LREF InversionList). 
-  &lt;bug: unknown&gt; byInterval( ) auto;
+  auto byInterval() @property scope
   // 
-  Marker dropUpTo( uint a, Marker pos ) ;
+  Marker dropUpTo( uint a, Marker pos ) 
   // True if this set doesn&#39;t contain any $(CODEPOINTS). 
-  bool empty( ) ;
+  bool empty() @property
   // 
-  &lt;bug: unknown&gt; intervals( ) ;
+  &lt;bug: unknown&gt; fromIntervals( Range )( Range intervals ) pure
+  // 
+  &lt;bug: unknown&gt; fromIntervals( )( uint[] intervals ) pure
+  // 
+  ref &lt;bug: unknown&gt; intersect( U )( U rhs ) 
+  // 
+  ref &lt;bug: unknown&gt; intersect( )( dchar ch ) 
+  // 
+  CodepointInterval[] intervals() @property
   // Obtains a set that is the inversion of this set. 
-  &lt;bug: unknown&gt; inverted( ) auto;
+  auto inverted() @property
   // Number of $(CODEPOINTS) in this set 
-  size_t length( ) ;
+  size_t length() @property
+  // $(P Sets support natural syntax for set algebra, namely: ) $(BOOKTABLE , $(TR $(TH Operator) $(TH Math notation) $(TH Description) ) $(TR $(TD &amp;) $(TD a ∩ b) $(TD intersection) ) $(TR $(TD |) $(TD a ∪ b) $(TD union) ) $(TR $(TD -) $(TD a ∖ b) $(TD subtraction) ) $(TR $(TD ~) $(TD a ~ b) $(TD symmetric set difference i.e. (a ∪ b) \ (a ∩ b)) ) ) 
+  This opBinary( string op, U )( U rhs ) 
+  // Tests the presence of codepoint `ch` in this set, the same as $(LREF opIndex). 
+  bool opBinaryRight( string op, U )( U ch ) 
   // Tests the presence of code point `val` in this set. 
-  bool opIndex( uint val ) ;
+  bool opIndex( uint val ) 
+  // The &#39;op=&#39; versions of the above overloaded operators. 
+  ref This opOpAssign( string op, U )( U rhs ) 
+  // Obtains a set that is the inversion of this set. 
+  auto opUnary( string op )() 
   // 
-  void sanitize( ) ;
+  void sanitize() 
   // 
-  Marker skipUpTo( uint a, Marker pos ) ;
+  auto scanFor( )( dchar ch ) 
   // 
-  &lt;bug: unknown&gt; subChar( dchar ch ) ;
+  Marker skipUpTo( uint a, Marker pos ) 
   // 
-  string toSourceCode( &lt;bug: unknown&gt; range, string funcName ) static;
+  ref &lt;bug: unknown&gt; sub( )( dchar ch ) 
+  // 
+  ref &lt;bug: unknown&gt; sub( U )( U rhs ) 
+  // 
+  ref &lt;bug: unknown&gt; subChar( dchar ch ) 
+  // 
+  static string toSourceCode( CodepointInterval[] range, string funcName ) 
   // Generates string with D source code of unary function with name of `funcName` taking a single `dchar` argument. If `funcName` is empty the code is adjusted to be a lambda function. 
-  string toSourceCode( string funcName ) ;
+  string toSourceCode( string funcName ) 
+  // Obtain a textual representation of this InversionList in form of open-right intervals. 
+  void toString( Writer )( scope Writer sink, const ref scope FormatSpec!(char) fmt ) 
 
   // 
-  CowArray!(SP) data;
+  CowArray!(SP) data
 }</code></pre><h2 class='section'>About</h2><p>$(P <code>InversionList</code> is a set of <span class="math">\((CODEPOINTS) represented as an array of open-right [a, b\)</span>(RPAREN) intervals (see <span class="math">\((LREF CodepointInterval) above). The name comes from the way the representation reads left to right. For instance a set of all values [10, 50\)</span>(RPAREN), [80, 90$(RPAREN), plus a singular value 60 looks like this: ) --- 10, 50, 60, 61, 80, 90 --- $(P The way to read this is: start with negative meaning that all numbers smaller then the next one are not present in this set (and positive - the contrary). Then switch positive/negative after each number passed from left to right. ) $(P This way negative spans until 10, then positive until 50, then negative until 60, then positive until 61, and so on. As seen this provides a space-efficient storage of highly redundant data that comes in long runs. A description which Unicode $(CHARACTER) properties fit nicely. The technique itself could be seen as a variation on $(LINK2 https://en.wikipedia.org/wiki/Run-length_encoding, RLE encoding). )</p>
 <p>$(P Sets are value types (just like <code>int</code> is) thus they are never aliased. ) Example: --- auto a = CodepointSet('a', 'z'+1); auto b = CodepointSet('A', 'Z'+1); auto c = a; a = a | b; assert(a == CodepointSet('A', 'Z'+1, 'a', 'z'+1)); assert(a != c); --- $(P See also $(LREF unicode) for simpler construction of sets from predefined ones. )</p>
 <p>$(P Memory usage is 8 bytes per each contiguous interval in a set. The value semantics are achieved by using the $(HTTP en.wikipedia.org/wiki/Copy-on-write, COW) technique and thus it's $(RED not) safe to cast this type to $(D_KEYWORD shared). )</p>
@@ -156,6 +184,10 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../InversionList/InversionList/Functions/add.html">add</a></td>
+<td>Add an interval [a, b$(RPAREN) to this set.</td>
+</tr>
+<tr>
 <td><a href="../InversionList/InversionList/Functions/addInterval.html">addInterval</a></td>
 <td></td>
 </tr>
@@ -176,6 +208,14 @@
 <td>True if this set doesn't contain any $(CODEPOINTS).</td>
 </tr>
 <tr>
+<td><a href="../InversionList/InversionList/Functions/fromIntervals.html">fromIntervals</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../InversionList/InversionList/Functions/intersect.html">intersect</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../InversionList/InversionList/Functions/intervals.html">intervals</a></td>
 <td></td>
 </tr>
@@ -188,15 +228,39 @@
 <td>Number of $(CODEPOINTS) in this set</td>
 </tr>
 <tr>
+<td><a href="../InversionList/InversionList/Functions/opBinary.html">opBinary</a></td>
+<td>$(P Sets support natural syntax for set algebra, namely: ) $(BOOKTABLE , $(TR $(TH Operator) $(TH Math notation) $(TH Description) ) $(TR $(TD &amp;) $(TD a ∩ b) $(TD intersection) ) $(TR $(TD <code>|</code>) $(TD a ∪ b) $(TD union) ) $(TR $(TD -) $(TD a ∖ b) $(TD subtraction) ) $(TR $(TD ~) $(TD a ~ b) $(TD symmetric set difference i.e. (a ∪ b) \ (a ∩ b)) ) )</td>
+</tr>
+<tr>
+<td><a href="../InversionList/InversionList/Functions/opBinaryRight.html">opBinaryRight</a></td>
+<td>Tests the presence of codepoint <code>ch</code> in this set, the same as $(LREF opIndex).</td>
+</tr>
+<tr>
 <td><a href="../InversionList/InversionList/Functions/opIndex.html">opIndex</a></td>
 <td>Tests the presence of code point <code>val</code> in this set.</td>
+</tr>
+<tr>
+<td><a href="../InversionList/InversionList/Functions/opOpAssign.html">opOpAssign</a></td>
+<td>The 'op=' versions of the above overloaded operators.</td>
+</tr>
+<tr>
+<td><a href="../InversionList/InversionList/Functions/opUnary.html">opUnary</a></td>
+<td>Obtains a set that is the inversion of this set.</td>
 </tr>
 <tr>
 <td><a href="../InversionList/InversionList/Functions/sanitize.html">sanitize</a></td>
 <td></td>
 </tr>
 <tr>
+<td><a href="../InversionList/InversionList/Functions/scanFor.html">scanFor</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../InversionList/InversionList/Functions/skipUpTo.html">skipUpTo</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../InversionList/InversionList/Functions/sub.html">sub</a></td>
 <td></td>
 </tr>
 <tr>
@@ -205,6 +269,24 @@
 </tr>
 <tr>
 <td><a href="../InversionList/InversionList/Functions/toSourceCode.html">toSourceCode</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../InversionList/InversionList/Functions/toString.html">toString</a></td>
+<td>Obtain a textual representation of this InversionList in form of open-right intervals.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../InversionList/InversionList/Structs/Intervals.html">Intervals</a></td>
 <td></td>
 </tr>
 </tbody>

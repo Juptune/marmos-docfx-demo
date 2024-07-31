@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - readBody</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.http.v1.Http1ReaderBase</dd></dl><dl><dt>Parent</dt><dd>Http1ReaderBase</dd></dl>
 </div><h2 class='section api'>readBody(bodyChunk)   </h2>
- <pre><code class='lang-d'>Result readBody(
-  Http1BodyChunk bodyChunk
-) </code></pre><p>Reads a single chunk of body data.</p>
+ <pre><code class='lang-d'>Result readBody( out scope Http1BodyChunk bodyChunk ) </code></pre><p>Reads a single chunk of body data.</p>
 <h3 class='section'>State</h3><p>This function must be called when the reader is in the <code>body</code> state.</p>
 <p>[Requests Only] After this function is called, the reader will be in the <code>body</code> state if there's more data to read, or the <code>finalise</code> state if there's no more data to read.</p>
 <p>[Responses Only] After this function is called, the reader will be in the <code>body</code> state if there's more data to read, or the <code>maybeEndOfTrailers</code> state if there's no more data to read.</p>

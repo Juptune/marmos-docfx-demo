@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,16 +87,16 @@
         <article data-uid="juptune.core.util.ansi.Enums.AnsiColourType">
 <h1 class='section'>Enum - AnsiColourType</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.core.util.ansi</dd></dl>
-</div><pre><code class='lang-d'>enum AnsiColourType
+</div><pre><code class='lang-d'>enum AnsiColourType : int
 {
-  // 8-bit colours. 
-  __enumMember eightBit;
-  // 4-bit colours. 
-  __enumMember fourBit;
   // Default, failsafe. 
-  __enumMember none;
+  none,
+  // 4-bit colours. 
+  fourBit,
+  // 8-bit colours. 
+  eightBit,
   // 24-bit colours. 
-  __enumMember rgb;
+  rgb,
 }</code></pre><h2 class='section'>About</h2><p>COLOUR TYPES</p>
 <p>Defines what type of colour an <code>AnsiColour</code> stores.</p>
 <p>CONSTANTS</p>

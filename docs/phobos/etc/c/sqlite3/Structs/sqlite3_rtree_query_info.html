@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,37 +90,37 @@
 </div><pre><code class='lang-d'>public struct sqlite3_rtree_query_info
 {
   // 
-  &lt;bug: unknown&gt; aCoord;
+  double* aCoord
   // 
-  &lt;bug: unknown&gt; anQueue;
+  uint* anQueue
   // 
-  &lt;bug: unknown&gt; aParam;
+  double* aParam
   // 
-  &lt;bug: unknown&gt; apSqlParam;
+  sqlite3_value** apSqlParam
   // 
-  int eParentWithin;
+  int eParentWithin
   // 
-  int eWithin;
+  int eWithin
   // 
-  int iLevel;
+  int iLevel
   // 
-  sqlite3_int64 iRowid;
+  sqlite3_int64 iRowid
   // 
-  int mxLevel;
+  int mxLevel
   // 
-  int nCoord;
+  int nCoord
   // 
-  int nParam;
+  int nParam
   // 
-  &lt;bug: unknown&gt; pContext;
+  void* pContext
   // 
-  &lt;bug: unknown&gt; pUser;
+  void* pUser
   // 
-  double rParentScore;
+  double rParentScore
   // 
-  double rScore;
+  double rScore
   // 
-  &lt;bug: unknown&gt; xDelUser;
+  * xDelUser
 }</code></pre><h2 class='section'>Variables</h2><table>
 <thead>
 <tr>

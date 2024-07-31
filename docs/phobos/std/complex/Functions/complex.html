@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,17 +88,12 @@
 <h1 class='section'>Overloads for - complex</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.complex</dd></dl>
 </div><h2 class='section api'>complex(re)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; complex(
-  R re
-) auto</code></pre><p>Helper function that returns a complex number with the specified real and imaginary parts.</p>
+ <pre><code class='lang-d'>auto complex( R )( const R re ) @nogc @safe nothrow pure</code></pre><p>Helper function that returns a complex number with the specified real and imaginary parts.</p>
 <p>Params: R = (template parameter) type of real part of complex number I = (template parameter) type of imaginary part of complex number</p>
 <p>re = real part of complex number to be constructed im = (optional) imaginary part of complex number, 0 if omitted.</p>
 <p>Returns: <code>Complex</code> instance with real and imaginary parts set to the values provided as input.  If neither <code>re</code> nor <code>im</code> are floating-point numbers, the return type will be <code>Complex!double</code> .  Otherwise, the return type is deduced using $(D std.traits.CommonType!(R, I)).</p>
 <h2 class='section api'>complex(re, im)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; complex(
-  R re,
-  I im
-) auto</code></pre><p>ditto</p>
+ <pre><code class='lang-d'>auto complex( R, I )( const R re, const I im ) @nogc @safe nothrow pure</code></pre><p>ditto</p>
 
 </article>
 

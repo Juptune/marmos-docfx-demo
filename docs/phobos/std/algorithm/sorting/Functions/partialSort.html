@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,6 +89,10 @@
 <dl><dt>Module</dt><dd>std.algorithm.sorting</dd></dl>
 </div><h2 class='section api'>partialSort(r, n)   </h2>
  <pre><code class='lang-d'>void partialSort(
+  alias less = &quot;a &lt; b&quot;,
+  SwapStrategy ss = SwapStrategy.unstable,
+  Range
+)(
   Range r,
   size_t n
 ) </code></pre><p>Reorders the random-access range <code>r</code> such that the range <code>r[0 .. mid]</code> is the same as if the entire <code>r</code> were sorted, and leaves the range <code>r[mid .. r.length]</code> in no particular order.</p>
@@ -119,6 +123,11 @@
 
 </dd></dl><h2 class='section api'>partialSort(r1, r2)   </h2>
  <pre><code class='lang-d'>void partialSort(
+  alias less = &quot;a &lt; b&quot;,
+  SwapStrategy ss = SwapStrategy.unstable,
+  Range1,
+  Range2
+)(
   Range1 r1,
   Range2 r2
 ) </code></pre><p>Stores the smallest elements of the two ranges in the left-hand range in sorted order.</p>

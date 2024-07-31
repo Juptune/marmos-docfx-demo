@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,11 +90,11 @@
 </div><pre><code class='lang-d'>public struct ExampleDigest
 {
   // The finish function returns the final hash sum and resets the Digest. 
-  &lt;bug: unknown&gt; finish( ) ;
+  ubyte[16] finish() @trusted
   // Use this to feed the digest with data. Also implements the $(REF isOutputRange, std,range,primitives) interface for `ubyte` and `const(ubyte)[]` . The following usages of `put` must work for any type which passes $(LREF isDigest): Example: ---- ExampleDigest dig; dig.put(cast(ubyte) 0); //single ubyte dig.put(cast(ubyte) 0, cast(ubyte) 0); //variadic ubyte[10] buf; dig.put(buf); //buffer ---- 
-  void put( &lt;bug: unknown&gt; data ) ;
+  void put( scope ubyte[] data ) @trusted
   // This function is used to (re)initialize the digest. It must be called before using the digest and it also works as a &#39;reset&#39; function if the digest has already processed data. 
-  void start( ) ;
+  void start() @trusted
 }</code></pre><h2 class='section'>About</h2><p>This documents the general structure of a Digest in the template API. All digest implementations should implement the following members and therefore pass the $(LREF isDigest) test.</p>
 <h3 class='section'>Note</h3><p>$(UL $(LI A digest must be a struct (value type) to pass the $(LREF isDigest) test.) $(LI A digest passing the $(LREF isDigest) test is always an <code>OutputRange</code> ) )</p>
 <h2 class='section'>Functions</h2><table>

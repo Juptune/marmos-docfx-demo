@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,16 +87,16 @@
         <article data-uid="etc.c.curl.Enums.CurlHttpVersion">
 <h1 class='section'>Enum - CurlHttpVersion</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.curl</dd></dl>
-</div><pre><code class='lang-d'>enum CurlHttpVersion
+</div><pre><code class='lang-d'>enum CurlHttpVersion : int
 {
-  // **ILLEGAL** http version 
-  __enumMember last;
   // setting this means we don&#39;t care, and that we&#39;d like the library to choose the best possible for us! 
-  __enumMember none;
+  none,
   // please use HTTP 1.0 in the request 
-  __enumMember v1_0;
+  v1_0,
   // please use HTTP 1.1 in the request 
-  __enumMember v1_1;
+  v1_1,
+  // **ILLEGAL** http version 
+  last,
 }</code></pre><h2 class='section'>About</h2><p>These enums are for use with the CURLOPT_HTTP_VERSION option.</p>
 <h2 class='section'>Variables</h2><table>
 <thead>

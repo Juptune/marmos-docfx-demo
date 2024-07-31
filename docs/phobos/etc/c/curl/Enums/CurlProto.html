@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,62 +87,62 @@
         <article data-uid="etc.c.curl.Enums.CurlProto">
 <h1 class='section'>Enum - CurlProto</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.curl</dd></dl>
-</div><pre><code class='lang-d'>enum CurlProto
+</div><pre><code class='lang-d'>enum CurlProto : int
 {
+  // 
+  http = 1,
+  // 
+  https = 2,
+  // 
+  ftp = 4,
+  // 
+  ftps = 8,
+  // 
+  scp = 16,
+  // 
+  sftp = 32,
+  // 
+  telnet = 64,
+  // 
+  ldap = 128,
+  // 
+  ldaps = 256,
+  // 
+  dict = 512,
+  // 
+  file = 1024,
+  // 
+  tftp = 2048,
+  // 
+  imap = 4096,
+  // 
+  imaps = 8192,
+  // 
+  pop3 = 16384,
+  // 
+  pop3s = 32768,
+  // 
+  smtp = 65536,
+  // 
+  smtps = 131072,
+  // 
+  rtsp = 262144,
+  // 
+  rtmp = 524288,
+  // 
+  rtmpt = 1048576,
+  // 
+  rtmpe = 2097152,
+  // 
+  rtmpte = 4194304,
+  // 
+  rtmps = 8388608,
+  // 
+  rtmpts = 16777216,
+  // 
+  gopher = 33554432,
   // enable everything 
-  __enumMember all;
-  // 
-  __enumMember dict;
-  // 
-  __enumMember file;
-  // 
-  __enumMember ftp;
-  // 
-  __enumMember ftps;
-  // 
-  __enumMember gopher;
-  // 
-  __enumMember http;
-  // 
-  __enumMember https;
-  // 
-  __enumMember imap;
-  // 
-  __enumMember imaps;
-  // 
-  __enumMember ldap;
-  // 
-  __enumMember ldaps;
-  // 
-  __enumMember pop3;
-  // 
-  __enumMember pop3s;
-  // 
-  __enumMember rtmp;
-  // 
-  __enumMember rtmpe;
-  // 
-  __enumMember rtmps;
-  // 
-  __enumMember rtmpt;
-  // 
-  __enumMember rtmpte;
-  // 
-  __enumMember rtmpts;
-  // 
-  __enumMember rtsp;
-  // 
-  __enumMember scp;
-  // 
-  __enumMember sftp;
-  // 
-  __enumMember smtp;
-  // 
-  __enumMember smtps;
-  // 
-  __enumMember telnet;
-  // 
-  __enumMember tftp;
+  all = -1,
 }</code></pre><h2 class='section'>About</h2><p>CURLPROTO_ defines are for the CURLOPT_*PROTOCOLS options</p>
 <h2 class='section'>Variables</h2><table>
 <thead>

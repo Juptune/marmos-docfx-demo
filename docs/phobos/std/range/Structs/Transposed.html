@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,18 +87,18 @@
         <article data-uid="std.range.Structs.Transposed">
 <h1 class='section'>Struct - Transposed</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
-</div><pre><code class='lang-d'>public struct Transposed
+</div><pre><code class='lang-d'>struct Transposed( RangeOfRanges, TransverseOptions opt = TransverseOptions.assumeJagged )
 {
   // 
-  bool empty( ) ;
+  bool empty() @property
   // 
-  &lt;bug: unknown&gt; front( ) auto;
+  auto front() @property
   // 
-  &lt;bug: unknown&gt; opIndex( size_t n ) auto;
+  ref auto opIndex( size_t n ) 
   // 
-  &lt;bug: unknown&gt; opSlice( ) auto;
+  auto opSlice() 
   // 
-  void popFront( ) ;
+  void popFront() 
 }</code></pre><h2 class='section'>Functions</h2><table>
 <thead>
 <tr>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,13 @@
 <h1 class='section'>Overloads for - ifThrown</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.exception</dd></dl>
 </div><h2 class='section api'>ifThrown(expression, errorHandler)   </h2>
- <pre><code class='lang-d'>CommonType!(T1T2) ifThrown(
-  T1 expression,
-  T2 errorHandler
+ <pre><code class='lang-d'>CommonType!(T1,T2) ifThrown(
+  E : Throwable = Exception,
+  T1,
+  T2
+)(
+  lazy scope T1 expression,
+  lazy scope T2 errorHandler
 ) </code></pre><p>ML-style functional exception handling. Runs the supplied expression and returns its result. If the expression throws a <code>Throwable</code> , runs the supplied error handler instead and return its result. The error handler's type must be the same as the expression's type.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>E</code> &lt;parameter not found&gt;  </dt>
 <dd>
@@ -124,14 +128,21 @@
 
 </dd></dl><h3 class='section'>Returns</h3><p>expression, if it does not throw. Otherwise, returns the result of errorHandler.</p>
 <h2 class='section api'>ifThrown(expression, errorHandler)   </h2>
- <pre><code class='lang-d'>CommonType!(T1T2) ifThrown(
-  T1 expression,
-  &lt;bug: unknown&gt; errorHandler
+ <pre><code class='lang-d'>CommonType!(T1,T2) ifThrown(
+  E : Throwable,
+  T1,
+  T2
+)(
+  lazy scope T1 expression,
+  scope &lt;bug: unknown&gt; errorHandler
 ) </code></pre><p>ditto</p>
 <h2 class='section api'>ifThrown(expression, errorHandler)   </h2>
- <pre><code class='lang-d'>CommonType!(T1T2) ifThrown(
-  T1 expression,
-  &lt;bug: unknown&gt; errorHandler
+ <pre><code class='lang-d'>CommonType!(T1,T2) ifThrown(
+  T1,
+  T2
+)(
+  lazy scope T1 expression,
+  scope &lt;bug: unknown&gt; errorHandler
 ) </code></pre><p>ditto</p>
 
 </article>

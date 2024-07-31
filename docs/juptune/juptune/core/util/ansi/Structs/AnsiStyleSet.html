@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,34 +90,34 @@
 </div><pre><code class='lang-d'>public struct AnsiStyleSet
 {
   // SETTERS 
-  AnsiStyleSet bg( AnsiColour colour ) ;
+  ref AnsiStyleSet bg( AnsiColour colour ) return
   // SETTERS 
-  AnsiStyleSet bg( Ansi4BitColour colour ) ;
+  ref AnsiStyleSet bg( Ansi4BitColour colour ) return
   // SETTERS 
-  AnsiStyleSet bg( Ansi8BitColour colour ) ;
+  ref AnsiStyleSet bg( Ansi8BitColour colour ) return
   // SETTERS 
-  AnsiStyleSet bg( AnsiRgbColour colour ) ;
+  ref AnsiStyleSet bg( AnsiRgbColour colour ) return
   // GETTERS 
-  AnsiColour bg( ) ;
+  AnsiColour bg() 
   // SETTERS 
-  AnsiStyleSet fg( AnsiColour colour ) ;
+  ref AnsiStyleSet fg( AnsiColour colour ) return
   // SETTERS 
-  AnsiStyleSet fg( Ansi4BitColour colour ) ;
+  ref AnsiStyleSet fg( Ansi4BitColour colour ) return
   // SETTERS 
-  AnsiStyleSet fg( Ansi8BitColour colour ) ;
+  ref AnsiStyleSet fg( Ansi8BitColour colour ) return
   // SETTERS 
-  AnsiStyleSet fg( AnsiRgbColour colour ) ;
+  ref AnsiStyleSet fg( AnsiRgbColour colour ) return
   // GETTERS 
-  AnsiColour fg( ) ;
+  AnsiColour fg() 
   // SETTERS 
-  AnsiStyleSet style( AnsiStyle style ) ;
+  ref AnsiStyleSet style( AnsiStyle style ) return
   // GETTERS 
-  AnsiStyle style( ) ;
+  AnsiStyle style() 
   // OUTPUT Creates an ANSI SGR command that sets the foreground colour, sets the background colour, and enables all of the desired styling options, while leaving all of the other options unchanged. 
-  &lt;bug: unknown&gt; toSequence( &lt;bug: unknown&gt; buffer ) ;
+  char[] toSequence( ref return ref char[MAX_CHARS_NEEDED] buffer ) @nogc @safe nothrow
 
   // The maximum amount of characters any singular `AnsiStyle` sequence may use. 
-  __enumMember MAX_CHARS_NEEDED;
+  &lt;enum or auto&gt; MAX_CHARS_NEEDED = AnsiColour.MAX_CHARS_NEEDED * 2 + AnsiStyle.MAX_CHARS_NEEDED
 }</code></pre><h2 class='section'>About</h2><p>DATA WITH COLOUR TYPES</p>
 <p>Contains an <code>AnsiColour</code> for the foreground, an <code>AnsiColour</code> for the background, and an <code>AnsiStyle</code> for additional styling, and provides the ability to create an ANSI SGR command to set the foreground, background, and overall styling of the terminal.</p>
 <p>A.k.a This is just a container over two <code>AnsiColour</code> s and an <code>AnsiStyle</code> .</p>

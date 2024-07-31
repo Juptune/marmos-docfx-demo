@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - drop</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
 </div><h2 class='section api'>drop(range, n)   </h2>
- <pre><code class='lang-d'>R drop(
-  R range,
-  size_t n
-) </code></pre><p>Convenience function which calls $(REF popFrontN, std, range, primitives)<code>(range, n)</code> and returns <code>range</code> . <code>drop</code> makes it easier to pop elements from a range and then pass it to another function within a single expression, whereas <code>popFrontN</code> would require multiple statements.</p>
+ <pre><code class='lang-d'>R drop( R )( R range, size_t n ) </code></pre><p>Convenience function which calls $(REF popFrontN, std, range, primitives)<code>(range, n)</code> and returns <code>range</code> . <code>drop</code> makes it easier to pop elements from a range and then pass it to another function within a single expression, whereas <code>popFrontN</code> would require multiple statements.</p>
 <p><code>dropBack</code> provides the same functionality but instead calls $(REF popBackN, std, range, primitives)<code>(range, n)</code></p>
 <p>Note: <code>drop</code> and <code>dropBack</code> will only pop $(I up to) <code>n</code> elements but will stop if the range is empty first. In other languages this is sometimes called <code>skip</code> .</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>range</code> R  </dt>

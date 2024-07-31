@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,14 +87,14 @@
         <article data-uid="std.range.Enums.TransverseOptions">
 <h1 class='section'>Enum - TransverseOptions</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
-</div><pre><code class='lang-d'>enum TransverseOptions
+</div><pre><code class='lang-d'>enum TransverseOptions : int
 {
   // When transversed, the elements of a range of ranges are assumed to have different lengths (e.g. a jagged array). 
-  __enumMember assumeJagged;
-  // The transversal assumes, without verifying, that the elements of a range of ranges have all the same length. This option is useful if checking was already done from the outside of the range. 
-  __enumMember assumeNotJagged;
+  assumeJagged,
   // The transversal enforces that the elements of a range of ranges have all the same length (e.g. an array of arrays, all having the same length). Checking is done once upon construction of the transversal range. 
-  __enumMember enforceNotJagged;
+  enforceNotJagged,
+  // The transversal assumes, without verifying, that the elements of a range of ranges have all the same length. This option is useful if checking was already done from the outside of the range. 
+  assumeNotJagged,
 }</code></pre><h2 class='section'>About</h2><p>Options for the $(LREF FrontTransversal) and $(LREF Transversal) ranges (below).</p>
 <h2 class='section'>Variables</h2><table>
 <thead>

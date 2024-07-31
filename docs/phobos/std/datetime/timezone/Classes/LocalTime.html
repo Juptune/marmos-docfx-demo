@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,25 +90,25 @@
 </div><pre><code class='lang-d'>public class LocalTime
 {
   // Takes the number of hnsecs (100 ns) since midnight, January 1st, 1 A.D. in UTC time (i.e. std time) and returns whether DST is in effect in this time zone at the given point in time. 
-  bool dstInEffect( long stdTime ) override;
+  bool dstInEffect( long stdTime ) override @trusted nothrow scope
   // Typically, the abbreviation (generally 3 or 4 letters) for the time zone when DST $(I is) in effect (e.g. PDT). It is not necessarily unique. 
-  string dstName( ) override;
+  string dstName() override @property @trusted nothrow scope
   // Whether this time zone has Daylight Savings Time at any point in time. Note that for some time zone types it may not have DST for current dates but will still return true for `hasDST` because the time zone did at some point have DST. 
-  bool hasDST( ) override;
+  bool hasDST() override @property @trusted nothrow
   // In principle, this is the name of the local time zone. However, this always returns the empty string. This is because time zones cannot be uniquely identified by the attributes given by the OS (such as the `stdName` and `dstName` ), and neither Posix systems nor Windows systems provide an easy way to get the TZ Database name of the local time zone. 
-  string name( ) override;
+  string name() override @property @safe nothrow
   // $(LREF LocalTime) is a singleton class. $(LREF LocalTime) returns its only instance. 
-  LocalTime opCall( ) static;
+  static LocalTime opCall() @trusted nothrow pure
   // 
-  LocalTime singleton( ) static;
+  static LocalTime singleton() @trusted
   // Typically, the abbreviation (generally 3 or 4 letters) for the time zone when DST is $(I not) in effect (e.g. PST). It is not necessarily unique. 
-  string stdName( ) override;
+  string stdName() override @property @trusted nothrow scope
   // 
-  long tm_gmtoff( long stdTime ) ;
+  long tm_gmtoff( long stdTime ) @trusted nothrow
   // Returns std time using the standard C function calls on Posix systems and the standard Windows system calls on Windows systems to adjust the time to UTC from the appropriate time zone. 
-  long tzToUTC( long adjTime ) override;
+  long tzToUTC( long adjTime ) override @trusted nothrow scope
   // Returns hnsecs in the local time zone using the standard C function calls on Posix systems and the standard Windows system calls on Windows systems to adjust the time to the appropriate time zone from std time. 
-  long utcToTZ( long stdTime ) override;
+  long utcToTZ( long stdTime ) override @trusted nothrow scope
 }</code></pre><h2 class='section'>About</h2><p>A TimeZone which represents the current local time zone on the system running your program.</p>
 <p>This uses the underlying C calls to adjust the time rather than using specific D code based off of system settings to calculate the time such as $(LREF PosixTimeZone) and $(LREF WindowsTimeZone) do. That also means that it will use whatever the current time zone is on the system, even if the system's time zone changes while the program is running.</p>
 <h2 class='section'>Functions</h2><table>

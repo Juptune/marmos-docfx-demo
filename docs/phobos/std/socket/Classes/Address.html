@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,29 +90,29 @@
 </div><pre><code class='lang-d'>public class Address
 {
   // Family of this address. 
-  AddressFamily addressFamily( ) ;
+  AddressFamily addressFamily() @nogc @property nothrow pure
   // Returns pointer to underlying `sockaddr` structure. 
-  &lt;bug: unknown&gt; name( ) abstract;
+  sockaddr* name() abstract @nogc @property nothrow pure
   // ditto 
-  &lt;bug: unknown&gt; name( ) abstract;
+  sockaddr* name() abstract @nogc @property nothrow pure
   // Returns actual size of underlying `sockaddr` structure. 
-  socklen_t nameLen( ) abstract;
+  socklen_t nameLen() abstract @nogc @property nothrow pure
   // 
-  void setNameLen( socklen_t len ) ;
+  void setNameLen( socklen_t len ) 
   // Attempts to retrieve the host address as a human-readable string. 
-  string toAddrString( ) ;
+  string toAddrString() 
   // Attempts to retrieve the host name as a fully qualified domain name. 
-  string toHostNameString( ) ;
+  string toHostNameString() 
   // 
-  string toHostString( bool numeric ) ;
+  string toHostString( bool numeric ) @trusted
   // Attempts to retrieve the numeric port number as a string. 
-  string toPortString( ) ;
+  string toPortString() 
   // Attempts to retrieve the service name as a string. 
-  string toServiceNameString( ) ;
+  string toServiceNameString() 
   // 
-  string toServiceString( bool numeric ) ;
+  string toServiceString( bool numeric ) @trusted
   // Human readable string representing this address. 
-  string toString( ) override;
+  string toString() override
 }</code></pre><h2 class='section'>About</h2><p>Abstract class for representing a socket address.</p>
 <h3 class='section'>Example</h3><p>--- writeln(&quot;About <a href="http://www.google.com">www.google.com</a> port 80:&quot;); try { Address[] addresses = getAddress(&quot;www.google.com&quot;, 80); writefln(&quot;  %d addresses found.&quot;, addresses.length); foreach (int i, Address a; addresses) { writefln(&quot;  Address %d:&quot;, i+1); writefln(&quot;    IP address: %s&quot;, a.toAddrString()); writefln(&quot;    Hostname: %s&quot;, a.toHostNameString()); writefln(&quot;    Port: %s&quot;, a.toPortString()); writefln(&quot;    Service name: %s&quot;, a.toServiceNameString()); } } catch (SocketException e) writefln(&quot;  Lookup error: %s&quot;, e.msg); ---</p>
 <h2 class='section'>Functions</h2><table>

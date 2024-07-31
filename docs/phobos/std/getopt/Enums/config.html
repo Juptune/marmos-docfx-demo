@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,26 +87,26 @@
         <article data-uid="std.getopt.Enums.config">
 <h1 class='section'>Enum - config</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.getopt</dd></dl>
-</div><pre><code class='lang-d'>enum config
+</div><pre><code class='lang-d'>enum config : int
 {
-  // Turn bundling on 
-  __enumMember bundling;
-  // Turn case sensitivity off (default) 
-  __enumMember caseInsensitive;
   // Turn case sensitivity on 
-  __enumMember caseSensitive;
-  // Do not erase the endOfOptions separator from args 
-  __enumMember keepEndOfOptions;
+  caseSensitive,
+  // Turn case sensitivity off (default) 
+  caseInsensitive,
+  // Turn bundling on 
+  bundling,
   // Turn bundling off (default) 
-  __enumMember noBundling;
-  // Signal unrecognized arguments as errors (default) 
-  __enumMember noPassThrough;
+  noBundling,
   // Pass unrecognized arguments through 
-  __enumMember passThrough;
-  // Make the next option a required option 
-  __enumMember required;
+  passThrough,
+  // Signal unrecognized arguments as errors (default) 
+  noPassThrough,
   // Stop at first argument that does not look like an option 
-  __enumMember stopOnFirstNonOption;
+  stopOnFirstNonOption,
+  // Do not erase the endOfOptions separator from args 
+  keepEndOfOptions,
+  // Make the next option a required option 
+  required,
 }</code></pre><h2 class='section'>About</h2><p>Configuration options for <code>getopt</code> .</p>
 <p>You can pass them to <code>getopt</code> in any position, except in between an option string and its bound pointer.</p>
 <h2 class='section'>Variables</h2><table>

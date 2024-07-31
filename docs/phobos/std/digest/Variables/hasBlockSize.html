@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,11 @@
 <h1 class='section'>Variable - hasBlockSize</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.digest</dd></dl>
 </div><h2 class='section api'>hasBlockSize   </h2>
- <pre><code class='lang-d'>bool hasBlockSize</code></pre><h2 class='section'>About</h2><p>Checks whether the digest has a <code>blockSize</code> member, which contains the digest's internal block size in bits. It is primarily used by $(REF HMAC, std,digest,hmac).</p>
+ <pre><code class='lang-d'>bool hasBlockSize = __traits(compiles, ()
+{
+size_t blockSize = T.blockSize;
+}
+)</code></pre><h2 class='section'>About</h2><p>Checks whether the digest has a <code>blockSize</code> member, which contains the digest's internal block size in bits. It is primarily used by $(REF HMAC, std,digest,hmac).</p>
 
 </article>
 

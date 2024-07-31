@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,12 +88,9 @@
 <h1 class='section'>Overloads for - executeInNewThread</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.parallelism.Task</dd></dl><dl><dt>Parent</dt><dd>Task</dd></dl>
 </div><h2 class='section api'>executeInNewThread()   </h2>
- <pre><code class='lang-d'>void executeInNewThread(
-) </code></pre><p>Create a new thread for executing this <code>Task</code> , execute it in the newly created thread, then terminate the thread.  This can be used for future/promise parallelism.  An explicit priority may be given to the <code>Task</code> .  If one is provided, its value is forwarded to <code>core.thread.Thread.priority</code> . See $(REF task, std,parallelism) for usage example.</p>
+ <pre><code class='lang-d'>void executeInNewThread() @trusted</code></pre><p>Create a new thread for executing this <code>Task</code> , execute it in the newly created thread, then terminate the thread.  This can be used for future/promise parallelism.  An explicit priority may be given to the <code>Task</code> .  If one is provided, its value is forwarded to <code>core.thread.Thread.priority</code> . See $(REF task, std,parallelism) for usage example.</p>
 <h2 class='section api'>executeInNewThread(priority)   </h2>
- <pre><code class='lang-d'>void executeInNewThread(
-  int priority
-) </code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>void executeInNewThread( int priority ) @trusted</code></pre><p>Ditto</p>
 
 </article>
 

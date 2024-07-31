@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,12 +87,22 @@
         <article data-uid="juptune.crypto.aead.Structs.AeadEncryptionContext">
 <h1 class='section'>Struct - AeadEncryptionContext</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.crypto.aead</dd></dl>
-</div><pre><code class='lang-d'>public struct AeadEncryptionContext
+</div><pre><code class='lang-d'>struct AeadEncryptionContext( AeadAlgorithmT )
 {
   // Decrypts the given `cipherText` into the `outPlainText` buffer, using the given `additionalData` to calculate the authentication tag, and returns a slice `outPlainText` which contains the final decrypted plaintext. 
-  Result decrypt( &lt;bug: unknown&gt; cipherText, &lt;bug: unknown&gt; additionalData, SecureMemory outPlainText, SecureMemory outPlainTextSlice ) ;
+  Result decrypt(
+    const scope ubyte[] cipherText,
+    const scope ubyte[] additionalData,
+    scope SecureMemory outPlainText,
+    out scope SecureMemory outPlainTextSlice
+  ) @trusted
   // Encrypts the given `plaintext` into the `outCipherText` buffer, using the given `additionalData` to calculate the authentication tag, and returns a slice `outCipherText` which contains the final encrypted ciphertext + authentication tag. 
-  Result encrypt( SecureMemory plaintext, &lt;bug: unknown&gt; additionalData, &lt;bug: unknown&gt; outCipherText, &lt;bug: unknown&gt; outCipherTextSlice ) ;
+  Result encrypt(
+    const scope SecureMemory plaintext,
+    const scope ubyte[] additionalData,
+    scope ubyte[] outCipherText,
+    out scope ubyte[] outCipherTextSlice
+  ) @safe
 }</code></pre><h2 class='section'>About</h2><p>Provides a generic interface for AEAD encryption and decryption.</p>
 <p>To understand what <code>AeadAlgorithmT</code> is, see the <code>AeadIetfChacha20Poly1305</code> struct as an example.</p>
 <p>This struct makes extensive use of the <code>SecureMemory</code> struct to help encourage secure storage of sensitive memory.</p>

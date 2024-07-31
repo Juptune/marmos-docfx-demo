@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,11 +88,7 @@
 <h1 class='section'>Overloads for - sysErrorString</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.windows.syserror</dd></dl>
 </div><h2 class='section api'>sysErrorString(errCode, langId, subLangId)   </h2>
- <pre><code class='lang-d'>string sysErrorString(
-  DWORD errCode,
-  int langId,
-  int subLangId
-) </code></pre><p>Query the text for a Windows error code, as returned by $(LINK2 <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms679360.aspx">http://msdn.microsoft.com/en-us/library/windows/desktop/ms679360.aspx</a>, <code>GetLastError</code> ), as a D string.</p>
+ <pre><code class='lang-d'>string sysErrorString( DWORD errCode, int langId, int subLangId ) @trusted</code></pre><p>Query the text for a Windows error code, as returned by $(LINK2 <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms679360.aspx">http://msdn.microsoft.com/en-us/library/windows/desktop/ms679360.aspx</a>, <code>GetLastError</code> ), as a D string.</p>
 
 </article>
 

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,21 +90,25 @@
 </div><pre><code class='lang-d'>public struct PosixTcpSocket
 {
   // Accepts a client socket from a listening server socket. 
-  Result accept( TcpSocket client ) ;
+  Result accept( out scope TcpSocket client ) 
   // Connects to the target address. 
-  Result connect( &lt;bug: unknown&gt; address, bool lookupWasPerformed, ushort defaultPort ) ;
+  Result connect(
+    const scope char[] address,
+    out bool lookupWasPerformed,
+    ushort defaultPort
+  ) 
   // Connects to the target address. 
-  Result connect( IpAddress address ) ;
+  Result connect( IpAddress address ) 
   // The IP address of this socket. 
-  IpAddress ip( ) ;
+  IpAddress ip() 
   // Binds the socket to an address, and begins listening for connections. 
-  Result listen( &lt;bug: unknown&gt; address, uint backlog, ushort defaultPort ) ;
+  Result listen( const scope char[] address, uint backlog, ushort defaultPort ) 
   // Binds the socket to an address, and begins listening for connections. 
-  Result listen( IpAddress address, uint backlog ) ;
+  Result listen( IpAddress address, uint backlog ) 
   // 
-  Result makePair( &lt;bug: unknown&gt; sockets ) static;
+  static Result makePair( out PosixTcpSocket[2] sockets ) 
   // Creates the underlying socket. 
-  Result open( ) ;
+  Result open() 
 }</code></pre><h2 class='section'>About</h2><p>Implementations</p>
 <p>A <code>TcpSocket</code> implementation that uses the standard POSIX socket functions for when io_uring doesn't provide a native opcode.</p>
 <p>When a function has to use a standard POSIX function instead of io_uring, <strong>it may block</strong> the thread.</p>

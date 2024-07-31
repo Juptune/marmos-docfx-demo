@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,21 +90,29 @@
 </div><pre><code class='lang-d'>public class SimpleTimeZone
 {
   // Always returns false. 
-  bool dstInEffect( long stdTime ) override;
+  bool dstInEffect( long stdTime ) override @safe nothrow scope
+  // 
+  SimpleTimeZone fromISOExtString( S )( scope S isoExtString ) @safe pure
+  // 
+  SimpleTimeZone fromISOString( S )( S isoString ) @safe pure
   // Always returns false. 
-  bool hasDST( ) override;
+  bool hasDST() override @property @safe nothrow
   // 
-  string toISOExtString( Duration utcOffset ) static;
+  static string toISOExtString( Duration utcOffset ) @safe pure
   // 
-  string toISOString( Duration utcOffset ) static;
+  void toISOExtString( W )( ref W writer, Duration utcOffset ) 
+  // 
+  static string toISOString( Duration utcOffset ) @safe pure
+  // 
+  void toISOString( W )( ref W writer, Duration utcOffset ) 
   // Takes the number of hnsecs (100 ns) since midnight, January 1st, 1 A.D. in this time zone&#39;s time and converts it to UTC (i.e. std time). 
-  long tzToUTC( long adjTime ) override;
+  long tzToUTC( long adjTime ) override @safe nothrow scope
   // The amount of time the offset from UTC is (negative is west of UTC, positive is east). 
-  Duration utcOffset( ) ;
+  Duration utcOffset() @property @safe nothrow pure
   // Returns utcOffset as a $(REF Duration, core,time). 
-  Duration utcOffsetAt( long stdTime ) override;
+  Duration utcOffsetAt( long stdTime ) override @safe nothrow scope
   // Takes the number of hnsecs (100 ns) since midnight, January 1st, 1 A.D. in UTC time (i.e. std time) and converts it to this time zone&#39;s time. 
-  long utcToTZ( long stdTime ) override;
+  long utcToTZ( long stdTime ) override @safe nothrow scope
 }</code></pre><h2 class='section'>About</h2><p>Represents a time zone with an offset (in minutes, west is negative) from UTC but no DST.</p>
 <p>It's primarily used as the time zone in the result of $(REF SysTime,std,datetime,systime)'s <code>fromISOString</code> , <code>fromISOExtString</code> , and <code>fromSimpleString</code> .</p>
 <p><code>name</code> and <code>dstName</code> are always the empty string since this time zone has no DST, and while it may be meant to represent a time zone which is in the TZ Database, obviously it's not likely to be following the exact rules of any of the time zones in the TZ Database, so it makes no sense to set it.</p>
@@ -119,6 +127,14 @@
 <tr>
 <td><a href="../SimpleTimeZone/SimpleTimeZone/Functions/dstInEffect.html">dstInEffect</a></td>
 <td>Always returns false.</td>
+</tr>
+<tr>
+<td><a href="../SimpleTimeZone/SimpleTimeZone/Functions/fromISOExtString.html">fromISOExtString</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../SimpleTimeZone/SimpleTimeZone/Functions/fromISOString.html">fromISOString</a></td>
+<td></td>
 </tr>
 <tr>
 <td><a href="../SimpleTimeZone/SimpleTimeZone/Functions/hasDST.html">hasDST</a></td>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,39 +87,39 @@
         <article data-uid="std.experimental.allocator.building_blocks.free_tree.Structs.FreeTree">
 <h1 class='section'>Struct - FreeTree</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator.building_blocks.free_tree</dd></dl>
-</div><pre><code class='lang-d'>public struct FreeTree
+</div><pre><code class='lang-d'>struct FreeTree( ParentAllocator )
 {
   // Allocates `n` bytes of memory. First consults the free tree, and returns from it if a suitably sized block is found. Otherwise, the parent allocator is tried. If allocation from the parent succeeds, the allocated block is returned. Otherwise, the free tree tries an alternate strategy: If $(D ParentAllocator) defines `deallocate` , `FreeTree` releases all of its contents and tries again. 
-  &lt;bug: unknown&gt; allocate( size_t n ) ;
+  void[] allocate( size_t n ) 
   // 
-  void assertValid( ) ;
+  void assertValid() 
   // Defined if `ParentAllocator.deallocate` exists, and returns to it all memory held in the free tree. 
-  void clear( ) ;
+  void clear() 
   // Places `b` into the free tree. 
-  bool deallocate( &lt;bug: unknown&gt; b ) ;
+  bool deallocate( void[] b ) 
   // Defined if `ParentAllocator.deallocateAll` exists, and forwards to it. Also nullifies the free tree (it&#39;s assumed the parent frees all memory stil managed by the free tree). 
-  bool deallocateAll( ) ;
+  bool deallocateAll() 
   // 
-  void dump( ) ;
+  void dump() 
   // 
-  &lt;bug: unknown&gt; findAndRemove( &lt;bug: unknown&gt; n, size_t s ) ;
+  void[] findAndRemove( ref Node* n, size_t s ) 
   // 
-  string formatSizes( ) ;
+  string formatSizes() 
   // Returns $(D parent.goodAllocSize(max(Node.sizeof, s))). 
-  size_t goodAllocSize( size_t s ) ;
+  size_t goodAllocSize( size_t s ) 
   // 
-  void insertAsRoot( &lt;bug: unknown&gt; which ) ;
+  void insertAsRoot( Node* which ) 
   // 
-  &lt;bug: unknown&gt; remove( &lt;bug: unknown&gt; which ) ;
+  void[] remove( ref Node* which ) 
   // 
-  void rotate( &lt;bug: unknown&gt; parent, bool toRight ) static;
+  static void rotate( ref Node* parent, bool toRight ) 
 
   // The `FreeTree` is word aligned. 
-  uint alignment;
+  uint alignment = size_t.alignof
   // 
-  ParentAllocator parent;
+  ParentAllocator parent
   // 
-  &lt;bug: unknown&gt; root;
+  Node* root
 }</code></pre><h2 class='section'>About</h2><p>The Free Tree allocator, stackable on top of any other allocator, bears similarity with the free list allocator. Instead of a singly-linked list of previously freed blocks, it maintains a binary search tree. This allows the Free Tree allocator to manage blocks of arbitrary lengths and search them efficiently.</p>
 <h3 class='section'>Common uses of `FreeTree` include</h3><p>$(UL $(LI Adding <code>deallocate</code> capability to an allocator that lacks it (such as simple regions).) $(LI Getting the benefits of multiple adaptable freelists that do not need to be tuned for one specific size but insted automatically adapts itself to frequently used sizes.) )</p>
 <p>The free tree has special handling of duplicates (a singly-linked list per node) in anticipation of large number of duplicates. Allocation time from the free tree is expected to be $(BIGOH log n) where <code>n</code> is the number of distinct sizes (not total nodes) kept in the free tree.</p>
@@ -181,6 +181,20 @@
 </tr>
 <tr>
 <td><a href="../FreeTree/FreeTree/Functions/rotate.html">rotate</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../FreeTree/FreeTree/Structs/Node.html">Node</a></td>
 <td></td>
 </tr>
 </tbody>

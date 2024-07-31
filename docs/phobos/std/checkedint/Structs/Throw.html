@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,7 +89,69 @@
 <dl><dt>Module</dt><dd>std.checkedint</dd></dl>
 </div><pre><code class='lang-d'>public struct Throw
 {
+  // Called automatically upon a comparison for ordering using one of the operators `&lt;` , `&lt;=` , `&gt;` , or `&gt;=` . In case the comparison is erroneous (i.e. it would make a signed negative value appear greater than or equal to an unsigned positive value), throws a `Throw.CheckFailure` exception. Otherwise, the three-state result is returned (positive if $(D lhs &gt; rhs), negative if $(D lhs &lt; rhs), `0` otherwise). 
+  int hookOpCmp( Lhs, Rhs )( Lhs lhs, Rhs rhs ) 
+  // Called automatically upon a comparison for equality. Throws upon an erroneous comparison (one that would make a signed negative value appear equal to an unsigned positive value). 
+  bool hookOpEquals( L, R )( L lhs, R rhs ) 
+  // Called automatically upon a bad cast (one that loses precision or attempts to convert a negative value to an unsigned type). The source type is `Src` and the destination type is `Dst` . 
+  Dst onBadCast( Dst, Src )( Src src ) 
+  // Called automatically upon a bounds error. 
+  T onLowerBound( Rhs, T )( Rhs rhs, T bound ) 
+  // Called automatically upon an overflow during a unary or binary operation. 
+  typeof(~Lhs()) onOverflow( string x, Lhs )( Lhs lhs ) 
+  // ditto 
+  typeof(Lhs() + Rhs()) onOverflow( string x, Lhs, Rhs )( Lhs lhs, Rhs rhs ) 
+  // ditto 
+  T onUpperBound( Rhs, T )( Rhs rhs, T bound ) 
 }</code></pre><h2 class='section'>About</h2><p>Force all integral errors to fail by throwing an exception of type <code>Throw.CheckFailure</code> . The message coming with the error is similar to the one printed by <code>Warn</code> .</p>
+<h2 class='section'>Classes</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Throw/Throw/Classes/CheckFailure.html">CheckFailure</a></td>
+<td>Exception type thrown upon any failure.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Throw/Throw/Functions/hookOpCmp.html">hookOpCmp</a></td>
+<td>Called automatically upon a comparison for ordering using one of the operators <code>&lt;</code> , <code>&lt;=</code> , <code>&gt;</code> , or <code>&gt;=</code> . In case the comparison is erroneous (i.e. it would make a signed negative value appear greater than or equal to an unsigned positive value), throws a <code>Throw.CheckFailure</code> exception. Otherwise, the three-state result is returned (positive if $(D lhs &gt; rhs), negative if $(D lhs &lt; rhs), <code>0</code> otherwise).</td>
+</tr>
+<tr>
+<td><a href="../Throw/Throw/Functions/hookOpEquals.html">hookOpEquals</a></td>
+<td>Called automatically upon a comparison for equality. Throws upon an erroneous comparison (one that would make a signed negative value appear equal to an unsigned positive value).</td>
+</tr>
+<tr>
+<td><a href="../Throw/Throw/Functions/onBadCast.html">onBadCast</a></td>
+<td>Called automatically upon a bad cast (one that loses precision or attempts to convert a negative value to an unsigned type). The source type is <code>Src</code> and the destination type is <code>Dst</code> .</td>
+</tr>
+<tr>
+<td><a href="../Throw/Throw/Functions/onLowerBound.html">onLowerBound</a></td>
+<td>Called automatically upon a bounds error.</td>
+</tr>
+<tr>
+<td><a href="../Throw/Throw/Functions/onOverflow.html">onOverflow</a></td>
+<td>Called automatically upon an overflow during a unary or binary operation.</td>
+</tr>
+<tr>
+<td><a href="../Throw/Throw/Functions/onUpperBound.html">onUpperBound</a></td>
+<td>ditto</td>
+</tr>
+</tbody>
+</table>
 
 </article>
 

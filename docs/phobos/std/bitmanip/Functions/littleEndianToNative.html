@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - littleEndianToNative</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.bitmanip</dd></dl>
 </div><h2 class='section api'>littleEndianToNative(val)   </h2>
- <pre><code class='lang-d'>T littleEndianToNative(
-  &lt;bug: unknown&gt; val
-) </code></pre><p>Converts the given value from little endian to the native endianness and returns it. The value is given as a <code>ubyte[n]</code> where <code>n</code> is the size of the target type. You must give the target type as a template argument, because there are multiple types with the same size and so the type of the argument is not enough to determine the return type.</p>
+ <pre><code class='lang-d'>T littleEndianToNative( T, size_t n )( ubyte[n] val ) @nogc @safe nothrow pure</code></pre><p>Converts the given value from little endian to the native endianness and returns it. The value is given as a <code>ubyte[n]</code> where <code>n</code> is the size of the target type. You must give the target type as a template argument, because there are multiple types with the same size and so the type of the argument is not enough to determine the return type.</p>
 <p>Taking a <code>ubyte[n]</code> helps prevent accidentally using a swapped value as a regular one (and in the case of floating point values, it's necessary, because the FPU will mess up any swapped floating point values. So, you can't actually have swapped floating point values as floating point values).</p>
 <p><code>real</code> is not supported, because its size is implementation-dependent and therefore could vary from machine to machine (which could make it unusable if you tried to transfer it to another machine).</p>
 

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,8 +89,11 @@
 <dl><dt>Module</dt><dd>std.utf</dd></dl>
 </div><h2 class='section api'>decodeFront(str, numCodeUnits)   </h2>
  <pre><code class='lang-d'>dchar decodeFront(
-  S str,
-  size_t numCodeUnits
+  UseReplacementDchar useReplacementDchar = No.useReplacementDchar,
+  S
+)(
+  ref S str,
+  out size_t numCodeUnits
 ) </code></pre><p><code>decodeFront</code> is a variant of $(LREF decode) which specifically decodes the first code point. Unlike $(LREF decode), <code>decodeFront</code> accepts any $(REF_ALTTEXT input range, isInputRange, std,range,primitives) of code units (rather than just a string or random access range). It also takes the range by <code>ref</code> and pops off the elements as it decodes them. If <code>numCodeUnits</code> is passed in, it gets set to the number of code units which were in the code point which was decoded.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>useReplacementDchar</code> &lt;parameter not found&gt;  </dt>
 <dd>
@@ -114,12 +117,18 @@
 <h3 class='section'>Throws</h3><p>$(LREF UTFException) if <code>str.front</code> is not the start of a valid UTF sequence. If an exception is thrown, then there is no guarantee as to the number of code units which were popped off, as it depends on the type of range being used and how many code units had to be popped off before the code point was determined to be invalid.</p>
 <h2 class='section api'>decodeFront(str, numCodeUnits)   </h2>
  <pre><code class='lang-d'>dchar decodeFront(
-  S str,
-  size_t numCodeUnits
-) </code></pre><p>ditto</p>
+  UseReplacementDchar useReplacementDchar = No.useReplacementDchar,
+  S
+)(
+  ref scope S str,
+  out size_t numCodeUnits
+) @trusted pure</code></pre><p>ditto</p>
 <h2 class='section api'>decodeFront(str)   </h2>
  <pre><code class='lang-d'>dchar decodeFront(
-  S str
+  UseReplacementDchar useReplacementDchar = No.useReplacementDchar,
+  S
+)(
+  ref S str
 ) </code></pre><p>Ditto</p>
 
 </article>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,34 +88,29 @@
 <h1 class='section'>Overloads for - regQueryValue</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.windows.registry</dd></dl>
 </div><h2 class='section api'>regQueryValue(hkey, name, value, reqType)   </h2>
+ <pre><code class='lang-d'>void regQueryValue( in HKEY hkey, string name, out string value, REG_VALUE_TYPE reqType ) </code></pre><h2 class='section api'>regQueryValue(hkey, name, value, reqType)   </h2>
  <pre><code class='lang-d'>void regQueryValue(
-  HKEY hkey,
-  string name,
-  string value,
+  in HKEY hkey,
+  in string name,
+  out string[] value,
   REG_VALUE_TYPE reqType
 ) </code></pre><h2 class='section api'>regQueryValue(hkey, name, value, reqType)   </h2>
  <pre><code class='lang-d'>void regQueryValue(
-  HKEY hkey,
-  string name,
-  &lt;bug: unknown&gt; value,
+  in HKEY hkey,
+  in string name,
+  out uint value,
   REG_VALUE_TYPE reqType
 ) </code></pre><h2 class='section api'>regQueryValue(hkey, name, value, reqType)   </h2>
  <pre><code class='lang-d'>void regQueryValue(
-  HKEY hkey,
-  string name,
-  uint value,
+  in HKEY hkey,
+  in string name,
+  out ulong value,
   REG_VALUE_TYPE reqType
 ) </code></pre><h2 class='section api'>regQueryValue(hkey, name, value, reqType)   </h2>
  <pre><code class='lang-d'>void regQueryValue(
-  HKEY hkey,
-  string name,
-  ulong value,
-  REG_VALUE_TYPE reqType
-) </code></pre><h2 class='section api'>regQueryValue(hkey, name, value, reqType)   </h2>
- <pre><code class='lang-d'>void regQueryValue(
-  HKEY hkey,
-  string name,
-  &lt;bug: unknown&gt; value,
+  in HKEY hkey,
+  in string name,
+  out byte[] value,
   REG_VALUE_TYPE reqType
 ) </code></pre>
 </article>

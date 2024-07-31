@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,26 +87,26 @@
         <article data-uid="std.range.Structs.EvenChunks">
 <h1 class='section'>Struct - EvenChunks</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
-</div><pre><code class='lang-d'>public struct EvenChunks
+</div><pre><code class='lang-d'>struct EvenChunks( Source )
 {
   // Ditto 
-  &lt;bug: unknown&gt; back( ) auto;
+  auto back() @property
   // Ditto 
-  bool empty( ) ;
+  bool empty() @property
   // Forward range primitives. Always present. 
-  &lt;bug: unknown&gt; front( ) auto;
+  auto front() @property
   // Length 
-  size_t length( ) ;
+  size_t length() @property
   // Indexing, slicing and bidirectional operations and range primitives. Provided only if `hasSlicing!Source` is `true` . 
-  &lt;bug: unknown&gt; opIndex( size_t index ) auto;
+  auto opIndex( size_t index ) 
   // Ditto 
-  &lt;bug: unknown&gt; opSlice( size_t lower, size_t upper ) ;
+  typeof(this) opSlice( size_t lower, size_t upper ) 
   // Ditto 
-  void popBack( ) ;
+  void popBack() 
   // Ditto 
-  void popFront( ) ;
+  void popFront() 
   // Ditto 
-  &lt;bug: unknown&gt; save( ) ;
+  typeof(this) save() @property
 }</code></pre><h2 class='section'>About</h2><p>This range splits a <code>source</code> range into <code>chunkCount</code> chunks of approximately equal length. <code>Source</code> must be a forward range with known length.</p>
 <p>Unlike $(LREF chunks), <code>evenChunks</code> takes a chunk count (not size). The returned range will contain zero or more $(D source.length / chunkCount + 1) elements followed by $(D source.length / chunkCount) elements. If $(D source.length &lt; chunkCount), some chunks will be empty.</p>
 <p><code>chunkCount</code> must not be zero, unless <code>source</code> is also empty.</p>

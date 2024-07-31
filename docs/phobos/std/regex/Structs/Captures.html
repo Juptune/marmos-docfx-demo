@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,42 +87,48 @@
         <article data-uid="std.regex.Structs.Captures">
 <h1 class='section'>Struct - Captures</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.regex</dd></dl>
-</div><pre><code class='lang-d'>public struct Captures
+</div><pre><code class='lang-d'>struct Captures( R )
 {
   // 
-  alias DataIndex = &lt;todo: marmos support pending&gt;;
+  alias DataIndex = &lt;todo: marmos support pending&gt;
   // 
-  alias Store = &lt;todo: marmos support pending&gt;;
+  alias Store = &lt;todo: marmos support pending&gt;
   // 
-  alias String = &lt;todo: marmos support pending&gt;;
+  alias String = &lt;todo: marmos support pending&gt;
 
   // ditto 
-  R back( ) ;
+  R back() @property
   // A hook for compatibility with original std.regex. 
-  &lt;bug: unknown&gt; captures( ) ;
+  ref &lt;bug: unknown&gt; captures() @property
   // ditto 
-  bool empty( ) ;
+  bool empty() @property
   // Range interface. 
-  R front( ) ;
+  R front() @property
   // 
-  R getMatch( size_t index ) ;
+  R getMatch( size_t index ) 
   // Slice of matched portion of input. 
-  R hit( ) ;
+  R hit() @property
   // Number of matches in this object. 
-  size_t length( ) ;
+  size_t length() @property
+  // Explicit cast to bool. Useful as a shorthand for !(x.empty) in if and assert statements. 
+  bool opCast( T : bool )() @safe nothrow
   // ditto 
-  void popBack( ) ;
+  R opIndex( )( size_t i ) 
+  // Lookup named submatch. 
+  R opIndex( String )( String i ) 
   // ditto 
-  void popFront( ) ;
+  void popBack() 
+  // ditto 
+  void popFront() 
   // Slice of input immediately after the match. 
-  R post( ) ;
+  R post() @property
   // Slice of input prior to the match. 
-  R pre( ) ;
+  R pre() @property
   // Number of pattern matched counting, where 1 - the first pattern. Returns 0 on no match. 
-  int whichPattern( ) ;
+  int whichPattern() @property @safe nothrow
 
   // 
-  Store matches;
+  Store matches
 }</code></pre><h2 class='section'>About</h2><p><code>Captures</code> object contains submatches captured during a call to <code>match</code> or iteration over <code>RegexMatch</code> range.</p>
 <p>First element of range is the whole match.</p>
 <h2 class='section'>Aliases</h2><table>
@@ -182,6 +188,14 @@
 <tr>
 <td><a href="../Captures/Captures/Functions/length.html">length</a></td>
 <td>Number of matches in this object.</td>
+</tr>
+<tr>
+<td><a href="../Captures/Captures/Functions/opCast.html">opCast</a></td>
+<td>Explicit cast to bool. Useful as a shorthand for !(x.empty) in if and assert statements.</td>
+</tr>
+<tr>
+<td><a href="../Captures/Captures/Functions/opIndex.html">opIndex</a></td>
+<td>ditto</td>
 </tr>
 <tr>
 <td><a href="../Captures/Captures/Functions/popBack.html">popBack</a></td>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,8 +89,11 @@
 <dl><dt>Module</dt><dd>std.utf</dd></dl>
 </div><h2 class='section api'>decode(str, index)   </h2>
  <pre><code class='lang-d'>dchar decode(
-  S str,
-  size_t index
+  UseReplacementDchar useReplacementDchar = No.useReplacementDchar,
+  S
+)(
+  auto ref S str,
+  ref size_t index
 ) </code></pre><p>Decodes and returns the code point starting at <code>str[index]</code> . <code>index</code> is advanced to one past the decoded code point. If the code point is not well-formed, then a <code>UTFException</code> is thrown and <code>index</code> remains unchanged.</p>
 <p>decode will only work with strings and random access ranges of code units with length and slicing, whereas $(LREF decodeFront) will work with any input range of code units.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>useReplacementDchar</code> &lt;parameter not found&gt;  </dt>
@@ -115,9 +118,12 @@
 <h3 class='section'>Throws</h3><p>$(LREF UTFException) if <code>str[index]</code> is not the start of a valid UTF sequence and useReplacementDchar is <code>No.useReplacementDchar</code></p>
 <h2 class='section api'>decode(str, index)   </h2>
  <pre><code class='lang-d'>dchar decode(
-  S str,
-  size_t index
-) </code></pre><p>ditto</p>
+  UseReplacementDchar useReplacementDchar = No.useReplacementDchar,
+  S
+)(
+  auto ref scope S str,
+  ref size_t index
+) @trusted pure</code></pre><p>ditto</p>
 
 </article>
 

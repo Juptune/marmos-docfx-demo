@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,52 +87,52 @@
         <article data-uid="juptune.http.uri.Enums.Rfc3986CharType">
 <h1 class='section'>Enum - Rfc3986CharType</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.http.uri</dd></dl>
-</div><pre><code class='lang-d'>enum Rfc3986CharType
+</div><pre><code class='lang-d'>enum Rfc3986CharType : ulong
 {
   // 
-  __enumMember AUTHORITY_HOST_MASK;
+  RESERVED_NONE = 1 &lt;&lt; 1,
   // 
-  __enumMember AUTHORITY_MASK;
+  RESERVED_GEN_DELIM = 1 &lt;&lt; 2,
   // 
-  __enumMember AUTHORITY_TERMINAL;
+  RESERVED_SUB_DELIM = 1 &lt;&lt; 3,
   // 
-  __enumMember AUTHORITY_USERINFO_ALLOWED;
+  RESERVED_PCT_ENCODE = 1 &lt;&lt; 4,
   // 
-  __enumMember AUTHORITY_USERINFO_MASK;
+  RESERVED_MASK = RESERVED_NONE | RESERVED_GEN_DELIM | RESERVED_SUB_DELIM | RESERVED_PCT_ENCODE,
   // 
-  __enumMember FRAGMENT_ALLOWED;
+  SCHEME_ALPHA = 1 &lt;&lt; 5,
   // 
-  __enumMember FRAGMENT_MASK;
+  SCHEME_NON_ALPHA = 1 &lt;&lt; 6,
   // 
-  __enumMember IS_HEX_DIGIT;
+  SCHEME_MASK = SCHEME_ALPHA | SCHEME_NON_ALPHA,
   // 
-  __enumMember PATH_ALLOWED;
+  AUTHORITY_TERMINAL = 1 &lt;&lt; 7,
   // 
-  __enumMember PATH_MASK;
+  AUTHORITY_MASK = AUTHORITY_TERMINAL,
   // 
-  __enumMember PATH_TERMINAL;
+  AUTHORITY_USERINFO_ALLOWED = 1 &lt;&lt; 8,
   // 
-  __enumMember QUERY_ALLOWED;
+  AUTHORITY_USERINFO_MASK = AUTHORITY_USERINFO_ALLOWED | RESERVED_NONE | RESERVED_SUB_DELIM,
   // 
-  __enumMember QUERY_MASK;
+  AUTHORITY_HOST_MASK = RESERVED_NONE | RESERVED_SUB_DELIM,
   // 
-  __enumMember QUERY_TERMINAL;
+  PATH_ALLOWED = 1 &lt;&lt; 9,
   // 
-  __enumMember RESERVED_GEN_DELIM;
+  PATH_TERMINAL = 1 &lt;&lt; 10,
   // 
-  __enumMember RESERVED_MASK;
+  PATH_MASK = PATH_TERMINAL | PATH_ALLOWED | RESERVED_NONE | RESERVED_SUB_DELIM,
   // 
-  __enumMember RESERVED_NONE;
+  QUERY_ALLOWED = 1 &lt;&lt; 11,
   // 
-  __enumMember RESERVED_PCT_ENCODE;
+  QUERY_TERMINAL = 1 &lt;&lt; 12,
   // 
-  __enumMember RESERVED_SUB_DELIM;
+  QUERY_MASK = QUERY_TERMINAL | QUERY_ALLOWED | RESERVED_NONE | RESERVED_SUB_DELIM,
   // 
-  __enumMember SCHEME_ALPHA;
+  FRAGMENT_ALLOWED = 1 &lt;&lt; 13,
   // 
-  __enumMember SCHEME_MASK;
+  FRAGMENT_MASK = FRAGMENT_ALLOWED | RESERVED_NONE | RESERVED_SUB_DELIM,
   // 
-  __enumMember SCHEME_NON_ALPHA;
+  IS_HEX_DIGIT = 1 &lt;&lt; 14,
 }</code></pre><h2 class='section'>Variables</h2><table>
 <thead>
 <tr>

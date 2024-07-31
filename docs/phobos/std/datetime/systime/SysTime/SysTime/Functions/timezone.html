@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,12 +88,9 @@
 <h1 class='section'>Overloads for - timezone</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.systime.SysTime</dd></dl><dl><dt>Parent</dt><dd>SysTime</dd></dl>
 </div><h2 class='section api'>timezone()   </h2>
- <pre><code class='lang-d'>TimeZone timezone(
-) </code></pre><p>The current time zone of this $(LREF SysTime). Its internal time is always kept in UTC, so there are no conversion issues between time zones due to DST. Functions which return all or part of the time - such as hours - adjust the time to this $(LREF SysTime)'s time zone before returning.</p>
+ <pre><code class='lang-d'>ref TimeZone timezone() @property @safe nothrow scope return scope pure</code></pre><p>The current time zone of this $(LREF SysTime). Its internal time is always kept in UTC, so there are no conversion issues between time zones due to DST. Functions which return all or part of the time - such as hours - adjust the time to this $(LREF SysTime)'s time zone before returning.</p>
 <h2 class='section api'>timezone(timezone)   </h2>
- <pre><code class='lang-d'>void timezone(
-  TimeZone timezone
-) </code></pre><p>The current time zone of this $(LREF SysTime). It's internal time is always kept in UTC, so there are no conversion issues between time zones due to DST. Functions which return all or part of the time - such as hours - adjust the time to this $(LREF SysTime)'s time zone before returning.</p>
+ <pre><code class='lang-d'>void timezone( immutable TimeZone timezone ) @property @safe nothrow scope pure</code></pre><p>The current time zone of this $(LREF SysTime). It's internal time is always kept in UTC, so there are no conversion issues between time zones due to DST. Functions which return all or part of the time - such as hours - adjust the time to this $(LREF SysTime)'s time zone before returning.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>timezone</code> TimeZone  </dt>
 <dd>
 

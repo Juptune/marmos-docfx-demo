@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,12 +90,12 @@
 </div><pre><code class='lang-d'>public class CSVException
 {
   // 
-  string toString( ) override;
+  string toString() override @safe pure
 
   // 
-  size_t col;
+  size_t col
   // 
-  size_t row;
+  size_t row
 }</code></pre><h2 class='section'>About</h2><p>Exception containing the row and column for when an exception was thrown.</p>
 <p>Numbering of both row and col start at one and corresponds to the location in the file rather than any specified header. Special consideration should be made when there is failure to match the header see $(LREF HeaderMismatchException) for details.</p>
 <p>When performing type conversions, $(REF ConvException, std,conv) is stored in the <code>next</code> field.</p>

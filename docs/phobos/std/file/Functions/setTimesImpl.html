@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,11 +89,11 @@
 <dl><dt>Module</dt><dd>std.file</dd></dl>
 </div><h2 class='section api'>setTimesImpl(names, namez, accessTime, modificationTime)   </h2>
  <pre><code class='lang-d'>void setTimesImpl(
-  &lt;bug: unknown&gt; names,
-  &lt;bug: unknown&gt; namez,
+  scope char[] names,
+  scope FSChar* namez,
   SysTime accessTime,
   SysTime modificationTime
-) </code></pre>
+) @trusted</code></pre>
 </article>
 
         <div class="contribution d-print-none">

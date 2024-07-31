@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,49 +90,49 @@
 </div><pre><code class='lang-d'>public struct sqlite3_vfs
 {
   // Structure version number (currently 2) 
-  int iVersion;
+  int iVersion
   // Maximum file pathname length 
-  int mxPathname;
+  int mxPathname
   // Pointer to application-specific data 
-  &lt;bug: unknown&gt; pAppData;
+  void* pAppData
   // Next registered VFS 
-  &lt;bug: unknown&gt; pNext;
+  sqlite3_vfs* pNext
   // Size of subclassed sqlite3_file 
-  int szOsFile;
+  int szOsFile
   // 
-  &lt;bug: unknown&gt; xAccess;
+  * xAccess
   // 
-  &lt;bug: unknown&gt; xCurrentTime;
+  * xCurrentTime
   // 
-  &lt;bug: unknown&gt; xCurrentTimeInt64;
+  * xCurrentTimeInt64
   // 
-  &lt;bug: unknown&gt; xDelete;
+  * xDelete
   // 
-  &lt;bug: unknown&gt; xDlClose;
+  * xDlClose
   // 
-  &lt;bug: unknown&gt; xDlError;
+  * xDlError
   // 
-  &lt;bug: unknown&gt; xDlOpen;
+  * xDlOpen
   // 
-  &lt;bug: unknown&gt; xDlSym;
+  ** xDlSym
   // 
-  &lt;bug: unknown&gt; xFullPathname;
+  * xFullPathname
   // 
-  &lt;bug: unknown&gt; xGetLastError;
+  * xGetLastError
   // 
-  &lt;bug: unknown&gt; xGetSystemCall;
+  * xGetSystemCall
   // 
-  &lt;bug: unknown&gt; xNextSystemCall;
+  * xNextSystemCall
   // 
-  &lt;bug: unknown&gt; xOpen;
+  * xOpen
   // 
-  &lt;bug: unknown&gt; xRandomness;
+  * xRandomness
   // 
-  &lt;bug: unknown&gt; xSetSystemCall;
+  * xSetSystemCall
   // 
-  &lt;bug: unknown&gt; xSleep;
+  * xSleep
   // Name of this virtual file system 
-  &lt;bug: unknown&gt; zName;
+  char* zName
 }</code></pre><h2 class='section'>Variables</h2><table>
 <thead>
 <tr>

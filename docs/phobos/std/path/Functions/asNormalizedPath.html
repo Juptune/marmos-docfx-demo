@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,18 +88,14 @@
 <h1 class='section'>Overloads for - asNormalizedPath</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.path</dd></dl>
 </div><h2 class='section api'>asNormalizedPath(path)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; asNormalizedPath(
-  R path
-) auto</code></pre><p>Normalize a path by resolving current/parent directory symbols (<code>&quot;.&quot;</code> and <code>&quot;..&quot;</code> ) and removing superfluous directory separators. It will return &quot;.&quot; if the path leads to the starting directory. On Windows, slashes are replaced with backslashes.</p>
+ <pre><code class='lang-d'>auto asNormalizedPath( R )( scope return ref return ref scope R path ) </code></pre><p>Normalize a path by resolving current/parent directory symbols (<code>&quot;.&quot;</code> and <code>&quot;..&quot;</code> ) and removing superfluous directory separators. It will return &quot;.&quot; if the path leads to the starting directory. On Windows, slashes are replaced with backslashes.</p>
 <p>Using asNormalizedPath on empty paths will always return an empty path.</p>
 <p>Does not resolve symbolic links.</p>
 <p>This function always allocates memory to hold the resulting path. Use $(LREF buildNormalizedPath) to allocate memory and return a string.</p>
 <p>Params: path = string or random access range representing the path to normalize</p>
 <p>Returns: normalized path as a forward range</p>
 <h2 class='section api'>asNormalizedPath(path)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; asNormalizedPath(
-  R path
-) auto</code></pre>
+ <pre><code class='lang-d'>auto asNormalizedPath( R )( auto ref scope return ref return ref scope R path ) </code></pre>
 </article>
 
         <div class="contribution d-print-none">

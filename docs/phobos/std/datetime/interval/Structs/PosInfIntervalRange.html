@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,25 +87,25 @@
         <article data-uid="std.datetime.interval.Structs.PosInfIntervalRange">
 <h1 class='section'>Struct - PosInfIntervalRange</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.interval</dd></dl>
-</div><pre><code class='lang-d'>public struct PosInfIntervalRange
+</div><pre><code class='lang-d'>struct PosInfIntervalRange( TP )
 {
   // The first time point in the range. 
-  TP front( ) ;
+  TP front() @property nothrow pure
   // The function used to generate the next time point in the range. 
-  &lt;bug: unknown&gt; func( ) ;
+  &lt;bug: unknown&gt; func() @property nothrow pure
   // The interval that this range currently covers. 
-  PosInfInterval!(TP) interval( ) ;
+  PosInfInterval!(TP) interval() @property nothrow pure
   // 
-  PosInfIntervalRange opAssign( PosInfIntervalRange rhs ) ;
+  ref PosInfIntervalRange opAssign( ref PosInfIntervalRange rhs ) nothrow pure
   // Ditto 
-  PosInfIntervalRange opAssign( PosInfIntervalRange rhs ) ;
+  ref PosInfIntervalRange opAssign( PosInfIntervalRange rhs ) nothrow pure
   // Pops `front` from the range, using `func` to generate the next time point in the range. 
-  void popFront( ) ;
+  void popFront() 
   // Returns a copy of `this` . 
-  PosInfIntervalRange save( ) ;
+  PosInfIntervalRange save() @property nothrow pure
 
   // This is an infinite range, so it is never empty. 
-  bool empty;
+  bool empty = false
 }</code></pre><h2 class='section'>About</h2><p>A range over a <code>PosInfInterval</code> . It is an infinite range.</p>
 <p><code>PosInfIntervalRange</code> is only ever constructed by <code>PosInfInterval</code> . However, when it is constructed, it is given a function, <code>func</code> , which is used to generate the time points which are iterated over. <code>func</code> takes a time point and returns a time point of the same type. For instance, to iterate over all of the days in the interval <code>PosInfInterval!Date</code> , pass a function to <code>PosInfInterval</code> 's <code>fwdRange</code> where that function took a $(REF Date,std,datetime,date) and returned a $(REF Date,std,datetime,date) which was one day later. That function would then be used by <code>PosInfIntervalRange</code> 's <code>popFront</code> to iterate over the $(REF Date,std,datetime,date)s in the interval - though obviously, since the range is infinite, use a function such as <code>std.range.take</code> with it rather than iterating over $(I all) of the dates.</p>
 <p>As the interval goes to positive infinity, the range is always iterated over forwards, never backwards. <code>func</code> must generate a time point going in the proper direction of iteration, or a $(REF DateTimeException,std,datetime,date) will be thrown. So, the time points that <code>func</code> generates must be later in time than the one passed to it. If it's either identical or earlier in time, then a $(REF DateTimeException,std,datetime,date) will be thrown.</p>

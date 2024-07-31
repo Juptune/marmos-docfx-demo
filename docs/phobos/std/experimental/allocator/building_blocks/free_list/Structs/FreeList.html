@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,58 +87,67 @@
         <article data-uid="std.experimental.allocator.building_blocks.free_list.Structs.FreeList">
 <h1 class='section'>Struct - FreeList</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator.building_blocks.free_list</dd></dl>
-</div><pre><code class='lang-d'>public struct FreeList
+</div><pre><code class='lang-d'>struct FreeList(
+  ParentAllocator,
+  size_t minSize,
+  size_t maxSize = minSize,
+  Flag!(&quot;adaptive&quot;) adaptive = No.adaptive
+)
 {
   // Alignment offered. 
-  alias alignment = &lt;todo: marmos support pending&gt;;
+  alias alignment = &lt;todo: marmos support pending&gt;
 
   // Allocates memory either off of the free list or from the parent allocator. If `n` is within $(D [min, max]) or if the free list is unchecked ($(D minSize == 0 &amp;&amp; maxSize == size_t.max)), then the free list is consulted first. If not empty (hit), the block at the front of the free list is removed from the list and returned. Otherwise (miss), a new block of `max` bytes is allocated, truncated to `n` bytes, and returned. 
-  &lt;bug: unknown&gt; allocate( size_t n ) ;
+  void[] allocate( size_t n ) 
   // 
-  &lt;bug: unknown&gt; blockFor( &lt;bug: unknown&gt; p ) ;
+  void[] allocateEligible( string fillMode )( size_t bytes ) 
+  // 
+  void[] allocateZeroed( )( size_t n ) 
+  // 
+  void[] blockFor( Node* p ) 
   // If `block.length` is within $(D [min, max]) or if the free list is unchecked ($(D minSize == 0 &amp;&amp; maxSize == size_t.max)), then inserts the block at the front of the free list. For all others, forwards to $(D parent.deallocate) if `Parent.deallocate` is defined. 
-  bool deallocate( &lt;bug: unknown&gt; block ) ;
+  bool deallocate( void[] block ) 
   // Defined only if `ParentAllocator` defines `deallocateAll` . If so, forwards to it and resets the freelist. 
-  bool deallocateAll( ) ;
+  bool deallocateAll() 
   // 
-  bool freeListEligible( size_t n ) ;
+  bool freeListEligible( size_t n ) 
   // If $(D maxSize == unbounded), returns  `parent.goodAllocSize(bytes)` . Otherwise, returns `max` for sizes in the interval $(D [min, max]), and `parent.goodAllocSize(bytes)` otherwise. 
-  size_t goodAllocSize( size_t bytes ) ;
+  size_t goodAllocSize( size_t bytes ) 
   // Returns the largest allocation size eligible for allocation from the freelist. (If $(D maxSize != chooseAtRuntime), this is simply an alias for `maxSize` .) All allocation requests for sizes greater than or equal to `min` and less than or equal to `max` are rounded to $(D max) and forwarded to the parent allocator. When the block fitting the same constraint gets deallocated, it is put in the freelist with the allocated size assumed to be `max` . 
-  size_t max( ) ;
+  size_t max() @property
   // If `FreeList` has been instantiated with $(D maxSize == chooseAtRuntime), then the `max` property is writable. Setting it must precede any allocation. 
-  void max( size_t high ) ;
+  void max( size_t high ) @property
   // Returns the smallest allocation size eligible for allocation from the freelist. (If $(D minSize != chooseAtRuntime), this is simply an alias for `minSize` .) 
-  size_t min( ) ;
+  size_t min() @property
   // If `FreeList` has been instantiated with $(D minSize == chooseAtRuntime), then the `min` property is writable. Setting it must precede any allocation. 
-  void min( size_t low ) ;
+  void min( size_t low ) @property
   // Nonstandard function that minimizes the memory usage of the freelist by freeing each element in turn. Defined only if `ParentAllocator` defines `deallocate` . $(D FreeList!(0, unbounded)) does not have this function. 
-  void minimize( ) ;
+  void minimize() 
   // 
-  bool tooLarge( size_t n ) ;
+  bool tooLarge( size_t n ) 
   // 
-  bool tooSmall( size_t n ) ;
+  bool tooSmall( size_t n ) 
   // 
-  void updateStats( ) ;
+  void updateStats() 
 
   // 
-  uint accumMisses;
+  uint accumMisses
   // 
-  uint accumSamples;
+  uint accumSamples
   // 
-  __enumMember hasTolerance;
+  &lt;enum or auto&gt; hasTolerance = !unchecked &amp;&amp; (minSize != maxSize || maxSize == chooseAtRuntime)
   // The parent allocator. Depending on whether `ParentAllocator` holds state or not, this is a member variable or an alias for `ParentAllocator.instance` . 
-  ParentAllocator parent;
+  ParentAllocator parent
   // 
-  double probMiss;
+  double probMiss = 1.0
   // 
-  &lt;bug: unknown&gt; root;
+  Node* root
   // 
-  double tooFewMisses;
+  double tooFewMisses = 0.01
   // 
-  __enumMember unchecked;
+  &lt;enum or auto&gt; unchecked = minSize == 0 &amp;&amp; (maxSize == unbounded)
   // 
-  double windowLength;
+  double windowLength = 1000.0
 }</code></pre><h2 class='section'>About</h2><p>$(HTTP en.wikipedia.org/wiki/Free_list, Free list allocator), stackable on top of another allocator. Allocation requests between <code>min</code> and <code>max</code> bytes are rounded up to <code>max</code> and served from a singly-linked list of buffers deallocated in the past. All other allocations are directed to $(D ParentAllocator). Due to the simplicity of free list management, allocations from the free list are fast. If <code>adaptive</code> is set to <code>Yes.adaptive</code> , the free list gradually reduces its size if allocations tend to use the parent allocator much more than the lists' available nodes.</p>
 <p>One instantiation is of particular interest: $(D FreeList!(0, unbounded)) puts every deallocation in the freelist, and subsequently serves any allocation from the freelist (if not empty). There is no checking of size matching, which would be incorrect for a freestanding allocator but is both correct and fast when an owning allocator on top of the free list allocator (such as <code>Segregator</code> ) is already in charge of handling size checking.</p>
 <p>The following methods are defined if <code>ParentAllocator</code> defines them, and forward to it: <code>expand</code> , <code>owns</code> , <code>reallocate</code> .</p>
@@ -167,6 +176,14 @@
 <tr>
 <td><a href="../FreeList/FreeList/Functions/allocate.html">allocate</a></td>
 <td>Allocates memory either off of the free list or from the parent allocator. If <code>n</code> is within <span class="math">\((D [min, max]) or if the free list is unchecked (\)</span>(D minSize == 0 &amp;&amp; maxSize == size_t.max)), then the free list is consulted first. If not empty (hit), the block at the front of the free list is removed from the list and returned. Otherwise (miss), a new block of <code>max</code> bytes is allocated, truncated to <code>n</code> bytes, and returned.</td>
+</tr>
+<tr>
+<td><a href="../FreeList/FreeList/Functions/allocateEligible.html">allocateEligible</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../FreeList/FreeList/Functions/allocateZeroed.html">allocateZeroed</a></td>
+<td></td>
 </tr>
 <tr>
 <td><a href="../FreeList/FreeList/Functions/blockFor.html">blockFor</a></td>
@@ -210,6 +227,20 @@
 </tr>
 <tr>
 <td><a href="../FreeList/FreeList/Functions/updateStats.html">updateStats</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../FreeList/FreeList/Structs/Node.html">Node</a></td>
 <td></td>
 </tr>
 </tbody>

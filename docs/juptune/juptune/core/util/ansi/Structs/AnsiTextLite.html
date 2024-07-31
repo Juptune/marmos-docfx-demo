@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,44 +90,46 @@
 </div><pre><code class='lang-d'>public struct AnsiTextLite
 {
   // SETTERS 
-  AnsiTextLite bg( AnsiColour colour ) ;
+  ref AnsiTextLite bg( AnsiColour colour ) return
   // SETTERS 
-  AnsiTextLite bg( Ansi4BitColour colour ) ;
+  ref AnsiTextLite bg( Ansi4BitColour colour ) return
   // SETTERS 
-  AnsiTextLite bg( Ansi8BitColour colour ) ;
+  ref AnsiTextLite bg( Ansi8BitColour colour ) return
   // SETTERS 
-  AnsiTextLite bg( AnsiRgbColour colour ) ;
+  ref AnsiTextLite bg( AnsiRgbColour colour ) return
   // GETTERS 
-  AnsiColour bg( ) ;
+  AnsiColour bg() 
   // SETTERS 
-  AnsiTextLite fg( AnsiColour colour ) ;
+  ref AnsiTextLite fg( AnsiColour colour ) return
   // SETTERS 
-  AnsiTextLite fg( Ansi4BitColour colour ) ;
+  ref AnsiTextLite fg( Ansi4BitColour colour ) return
   // SETTERS 
-  AnsiTextLite fg( Ansi8BitColour colour ) ;
+  ref AnsiTextLite fg( Ansi8BitColour colour ) return
   // SETTERS 
-  AnsiTextLite fg( AnsiRgbColour colour ) ;
+  ref AnsiTextLite fg( AnsiRgbColour colour ) return
   // GETTERS 
-  AnsiColour fg( ) ;
+  AnsiColour fg() 
   // SETTERS 
-  AnsiTextLite style( AnsiStyle style ) ;
+  ref AnsiTextLite style( AnsiStyle style ) return
   // GETTERS 
-  AnsiStyle style( ) ;
+  AnsiStyle style() 
   // 
-  &lt;bug: unknown&gt; toFullEndSequence( ) ;
+  char[ANSI_COLOUR_RESET] toFullEndSequence() 
   // Populates the given buffer with the full ANSI sequence needed to enable the styling defined within this `AnsiTextLite` 
-  &lt;bug: unknown&gt; toFullStartSequence( &lt;bug: unknown&gt; buffer ) ;
+  char[] toFullStartSequence( ref return ref char[MAX_CHARS_NEEDED] buffer ) 
   // Provides a range that returns, in this order: The start sequence (`.toFullStartSequence`); the output text (`.text`), and finally the end sequence (`.toFullEndSequence`). 
-  &lt;bug: unknown&gt; toRange( ) auto;
+  auto toRange() 
+  // Outputs in order: The start sequence (`.toFullStartSequence`), the output text (`.text`), and the end sequence (`.toFullEndSequence`) into the given `sink` . 
+  void toSink( Sink )( ref scope Sink sink ) 
   // The sink-based version of `toString` , which doesn&#39;t allocate by itself unless the `sink` decides to allocate. 
-  void toString( &lt;bug: unknown&gt; sink ) ;
+  void toString( scope &lt;bug: unknown&gt; sink ) 
 
   // The maximum amount of chars required by the start sequence of an `AnsiTextLite` (`toFullStartSequence`). 
-  __enumMember MAX_CHARS_NEEDED;
+  &lt;enum or auto&gt; MAX_CHARS_NEEDED = AnsiStyleSet.MAX_CHARS_NEEDED + ANSI_CSI.length + 1
   // The styling to apply to the text. 
-  AnsiStyleSet styleSet;
+  AnsiStyleSet styleSet
   // The text to output. 
-  &lt;bug: unknown&gt; text;
+  char[] text
 }</code></pre><h2 class='section'>About</h2><p>A lightweight alternative to <code>AnsiText</code> which only supports a singular coloured string, at the cost of removing most of the other complexity &amp; dynamic allocation needs of <code>AnsiText</code> .</p>
 <p>If you only need to style your string in one certain way, or want to avoid <code>AnsiText</code> altogether, then this struct is the way to go.</p>
 <h3 class='section'>Usage_(Manually)</h3><p>First, retrieve and the ANSI styling sequence via <code>AnsiTextLite.toFullStartSequence</code> and output it.</p>
@@ -168,6 +170,10 @@
 <tr>
 <td><a href="../AnsiTextLite/AnsiTextLite/Functions/toRange.html">toRange</a></td>
 <td>Provides a range that returns, in this order: The start sequence (<code>.toFullStartSequence</code>); the output text (<code>.text</code>), and finally the end sequence (<code>.toFullEndSequence</code>).</td>
+</tr>
+<tr>
+<td><a href="../AnsiTextLite/AnsiTextLite/Functions/toSink.html">toSink</a></td>
+<td>Outputs in order: The start sequence (<code>.toFullStartSequence</code>), the output text (<code>.text</code>), and the end sequence (<code>.toFullEndSequence</code>) into the given <code>sink</code> .</td>
 </tr>
 <tr>
 <td><a href="../AnsiTextLite/AnsiTextLite/Functions/toString.html">toString</a></td>

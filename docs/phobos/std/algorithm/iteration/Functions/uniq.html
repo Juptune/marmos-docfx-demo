@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - uniq</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.iteration</dd></dl>
 </div><h2 class='section api'>uniq(r)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; uniq(
-  Range r
-) auto</code></pre><p>Lazily iterates unique consecutive elements of the given range, which is assumed to be sorted (functionality akin to the $(HTTP wikipedia.org/wiki/_Uniq, uniq) system utility). Equivalence of elements is assessed by using the predicate <code>pred</code> , by default <code>&quot;a == b&quot;</code> . The predicate is passed to $(REF binaryFun, std,functional), and can either accept a string, or any callable that can be executed via <code>pred(element, element)</code> . If the given range is bidirectional, <code>uniq</code> also yields a $(REF_ALTTEXT bidirectional range, isBidirectionalRange, std,range,primitives).</p>
+ <pre><code class='lang-d'>auto uniq( alias pred = &quot;a == b&quot;, Range )( Range r ) </code></pre><p>Lazily iterates unique consecutive elements of the given range, which is assumed to be sorted (functionality akin to the $(HTTP wikipedia.org/wiki/_Uniq, uniq) system utility). Equivalence of elements is assessed by using the predicate <code>pred</code> , by default <code>&quot;a == b&quot;</code> . The predicate is passed to $(REF binaryFun, std,functional), and can either accept a string, or any callable that can be executed via <code>pred(element, element)</code> . If the given range is bidirectional, <code>uniq</code> also yields a $(REF_ALTTEXT bidirectional range, isBidirectionalRange, std,range,primitives).</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>pred</code> &lt;parameter not found&gt;  </dt>
 <dd>
 

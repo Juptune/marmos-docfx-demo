@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - extremum</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.searching</dd></dl>
 </div><h2 class='section api'>extremum(r)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; extremum(
-  Range r
-) auto</code></pre><p>Iterates the passed range and selects the extreme element with <code>less</code> . If the extreme element occurs multiple time, the first occurrence will be returned.</p>
+ <pre><code class='lang-d'>auto extremum( alias map, alias selector = &quot;a &lt; b&quot;, Range )( Range r ) </code></pre><p>Iterates the passed range and selects the extreme element with <code>less</code> . If the extreme element occurs multiple time, the first occurrence will be returned.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>map</code> &lt;parameter not found&gt;  </dt>
 <dd>
 
@@ -117,17 +115,24 @@
 
 </dd></dl><h3 class='section'>Returns</h3><p>The extreme value according to <code>map</code> and <code>selector</code> of the passed-in values.</p>
 <h2 class='section api'>extremum(r, seedElement)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; extremum(
+ <pre><code class='lang-d'>auto extremum(
+  alias map,
+  alias selector = &quot;a &lt; b&quot;,
+  Range,
+  RangeElementType = ElementType!(Range)
+)(
   Range r,
   RangeElementType seedElement
-) auto</code></pre><h2 class='section api'>extremum(r)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; extremum(
-  Range r
-) auto</code></pre><h2 class='section api'>extremum(r, seedElement)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; extremum(
+) </code></pre><h2 class='section api'>extremum(r)   </h2>
+ <pre><code class='lang-d'>auto extremum( alias selector = &quot;a &lt; b&quot;, Range )( Range r ) </code></pre><h2 class='section api'>extremum(r, seedElement)   </h2>
+ <pre><code class='lang-d'>auto extremum(
+  alias selector = &quot;a &lt; b&quot;,
+  Range,
+  RangeElementType = ElementType!(Range)
+)(
   Range r,
   RangeElementType seedElement
-) auto</code></pre>
+) </code></pre>
 </article>
 
         <div class="contribution d-print-none">

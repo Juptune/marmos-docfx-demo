@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,41 +90,57 @@
 </div><pre><code class='lang-d'>public struct QualifiedNameTests
 {
   // 
-  void cVarArg( int __anonymous ) ;
+  extern(C) void cVarArg( int __anonymous ) 
   // 
-  void dVarArg( ) ;
+  void dVarArg() 
   // 
-  void dVarArg2( int __anonymous ) ;
+  void dVarArg2( int __anonymous ) 
   // 
-  &lt;bug: unknown&gt; func( Inner var1, string var2 ) ;
+  ref Inner[string] func( ref Inner var1, lazy scope string var2 ) 
   // 
-  Inner inoutFunc( Inner __anonymous ) ;
+  Inner inoutFunc( Inner __anonymous ) 
   // 
-  &lt;bug: unknown&gt; retfunc( Inner var1 ) ;
+  ref Inner[string] retfunc( ref return ref Inner var1 ) 
   // 
-  void typesafeVarArg( &lt;bug: unknown&gt; __anonymous ) ;
+  void tfunc( T... )( T args ) 
+  // 
+  void typesafeVarArg( int[] __anonymous ) 
 
   // 
-  &lt;bug: unknown&gt; aarray;
+  Inner[Inner] aarray
   // 
-  &lt;bug: unknown&gt; array;
+  Inner[] array
   // 
-  &lt;bug: unknown&gt; attrDeleg;
+  &lt;bug: unknown&gt; attrDeleg
   // 
-  &lt;bug: unknown&gt; cFuncPtr;
+  * cFuncPtr
   // 
-  &lt;bug: unknown&gt; data;
+  Inner[string][] data
   // 
-  const &lt;bug: unknown&gt; deleg;
+  const &lt;bug: unknown&gt; deleg
   // 
-  &lt;bug: unknown&gt; funcPtr;
+  * funcPtr
   // 
-  &lt;bug: unknown&gt; inoutDeleg;
+  &lt;bug: unknown&gt; inoutDeleg
   // 
-  &lt;bug: unknown&gt; qualAarray;
+  Inner[Inner] qualAarray
   // 
-  &lt;bug: unknown&gt; sarray;
-}</code></pre><h2 class='section'>Functions</h2><table>
+  Inner[16] sarray
+}</code></pre><h2 class='section'>Classes</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../QualifiedNameTests/QualifiedNameTests/Classes/Test12309.html">Test12309</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
 <th>Name</th>
@@ -157,7 +173,43 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="../QualifiedNameTests/QualifiedNameTests/Functions/tfunc.html">tfunc</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../QualifiedNameTests/QualifiedNameTests/Functions/typesafeVarArg.html">typesafeVarArg</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../QualifiedNameTests/QualifiedNameTests/Structs/Data.html">Data</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../QualifiedNameTests/QualifiedNameTests/Structs/Inner.html">Inner</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Templates</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../QualifiedNameTests/QualifiedNameTests/Templates/Inst.html">Inst</a></td>
 <td></td>
 </tr>
 </tbody>

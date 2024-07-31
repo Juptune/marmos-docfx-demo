@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,23 +87,29 @@
         <article data-uid="std.typecons.Structs.SafeRefCounted">
 <h1 class='section'>Struct - SafeRefCounted</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.typecons</dd></dl>
-</div><pre><code class='lang-d'>public struct SafeRefCounted
+</div><pre><code class='lang-d'>struct SafeRefCounted( T, RefCountedAutoInitialize autoInit = RefCountedAutoInitialize.yes )
 {
-  // Assignment operators. 
-  void opAssign( &lt;bug: unknown&gt; rhs ) ;
-  // Ditto 
-  void opAssign( T rhs ) ;
   // 
-  void pureFree( &lt;bug: unknown&gt; ptr ) ;
+  void checkInit( )() 
+  // 
+  void checkInit( )() 
+  // Assignment operators. 
+  void opAssign( typeof(this) rhs ) 
+  // Ditto 
+  void opAssign( T rhs ) 
+  // 
+  extern(C) void pureFree( void* ptr ) 
   // Returns a reference to the payload. If (autoInit == RefCountedAutoInitialize.yes), calls $(D refCountedStore.ensureInitialized). Otherwise, just issues $(D assert(refCountedStore.isInitialized)). Used with $(D alias refCountedPayload this;), so callers can just use the `SafeRefCounted` object as a `T` . 
-  T refCountedPayload( ) ;
+  ref T refCountedPayload() @property @system return
   // ditto 
-  T refCountedPayload( ) ;
+  ref T refCountedPayload() @nogc @property @system nothrow return pure
   // Returns storage implementation struct. 
-  RefCountedStore refCountedStore( ) ;
+  ref RefCountedStore refCountedStore() @property @safe nothrow
+  // 
+  string toString( This )() 
 
   // 
-  __enumMember enableGCScan;
+  &lt;enum or auto&gt; enableGCScan = false
 }</code></pre><h2 class='section'>About</h2><p>Defines a reference-counted object containing a <code>T</code> value as payload.</p>
 <p>An instance of <code>SafeRefCounted</code> is a reference to a structure, which is referred to as the $(I store), or $(I storage implementation struct) in this documentation.  The store contains a reference count and the <code>T</code> payload.  <code>SafeRefCounted</code> uses <code>malloc</code> to allocate the store.  As instances of <code>SafeRefCounted</code> are copied or go out of scope, they will automatically increment or decrement the reference count.  When the reference count goes down to zero, <code>SafeRefCounted</code> will call <code>destroy</code> against the payload and call <code>free</code> to deallocate the store.  If the <code>T</code> payload contains any references to GC-allocated memory, then <code>SafeRefCounted</code> will add it to the GC memory that is scanned for pointers, and remove it from GC scanning before <code>free</code> is called on the store.</p>
 <p>One important consequence of <code>destroy</code> is that it will call the destructor of the <code>T</code> payload.  GC-managed references are not guaranteed to be valid during a destructor call, but other members of <code>T</code> , such as file handles or pointers to <code>malloc</code> memory, will still be valid during the destructor call.  This allows the <code>T</code> to deallocate or clean up any non-GC resources immediately after the reference count has reached zero.</p>
@@ -121,6 +127,10 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../SafeRefCounted/SafeRefCounted/Functions/checkInit.html">checkInit</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../SafeRefCounted/SafeRefCounted/Functions/opAssign.html">opAssign</a></td>
 <td>Assignment operators.</td>
 </tr>
@@ -135,6 +145,24 @@
 <tr>
 <td><a href="../SafeRefCounted/SafeRefCounted/Functions/refCountedStore.html">refCountedStore</a></td>
 <td>Returns storage implementation struct.</td>
+</tr>
+<tr>
+<td><a href="../SafeRefCounted/SafeRefCounted/Functions/toString.html">toString</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../SafeRefCounted/SafeRefCounted/Structs/RefCountedStore.html">RefCountedStore</a></td>
+<td><code>SafeRefCounted</code> storage implementation.</td>
 </tr>
 </tbody>
 </table>

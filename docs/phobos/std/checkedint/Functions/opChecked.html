@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,14 @@
 <h1 class='section'>Overloads for - opChecked</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.checkedint</dd></dl>
 </div><h2 class='section api'>opChecked(lhs, rhs, overflow)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; opChecked(
-  L lhs,
-  R rhs,
-  bool overflow
+ <pre><code class='lang-d'>typeof(mixin(x == &quot;cmp&quot; ? &quot;0&quot; : &quot;L() &quot; ~ x ~ &quot; R()&quot;)) opChecked(
+  string x,
+  L,
+  R
+)(
+  const L lhs,
+  const R rhs,
+  ref bool overflow
 ) </code></pre><p>Defines binary operations with overflow checking for any two integral types. The result type obeys the language rules (even when they may be counterintuitive), and <code>overflow</code> is set if an overflow occurs (including inadvertent change of signedness, e.g. <code>-1</code> is converted to <code>uint</code> ). Conceptually the behavior is:</p>
 <p>$(OL $(LI Perform the operation in infinite precision) $(LI If the infinite-precision result fits in the result type, return it and do not touch <code>overflow</code> ) $(LI Otherwise, set <code>overflow</code> to <code>true</code> and return an unspecified value) )</p>
 <p>The implementation exploits properties of types and operations to minimize additional work.</p>

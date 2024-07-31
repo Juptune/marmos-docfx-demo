@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - byChunk</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.stdio.File</dd></dl><dl><dt>Parent</dt><dd>File</dd></dl>
 </div><h2 class='section api'>byChunk(chunkSize)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; byChunk(
-  size_t chunkSize
-) auto</code></pre><p>Returns an $(REF_ALTTEXT input range, isInputRange, std,range,primitives) set up to read from the file handle a chunk at a time.</p>
+ <pre><code class='lang-d'>auto byChunk( size_t chunkSize ) </code></pre><p>Returns an $(REF_ALTTEXT input range, isInputRange, std,range,primitives) set up to read from the file handle a chunk at a time.</p>
 <p>The element type for the range will be <code>ubyte[]</code> . Range primitives may throw <code>StdioException</code> on I/O error.</p>
 <h3 class='section'>Example</h3><p>--------- void main() { // Read standard input 4KB at a time foreach (ubyte[] buffer; stdin.byChunk(4096)) { ... use buffer ... } } ---------</p>
 <p>The parameter may be a number (as shown in the example above) dictating the size of each chunk. Alternatively, <code>byChunk</code> accepts a user-provided buffer that it uses directly.</p>
@@ -103,9 +101,7 @@
 <p>Returns: A call to <code>byChunk</code> returns a range initialized with the <code>File</code> object and the appropriate buffer.</p>
 <p>Throws: If the user-provided size is zero or the user-provided buffer is empty, throws an <code>Exception</code> . In case of an I/O error throws <code>StdioException</code> .</p>
 <h2 class='section api'>byChunk(buffer)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; byChunk(
-  &lt;bug: unknown&gt; buffer
-) auto</code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>auto byChunk( ubyte[] buffer ) </code></pre><p>Ditto</p>
 
 </article>
 

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,14 +88,9 @@
 <h1 class='section'>Overloads for - entropy</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.numeric</dd></dl>
 </div><h2 class='section api'>entropy(r)   </h2>
- <pre><code class='lang-d'>ElementType!(Range) entropy(
-  Range r
-) </code></pre><p>Computes $(LINK2 <a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">https://en.wikipedia.org/wiki/Entropy_(information_theory)</a>, entropy) of input range <code>r</code> in bits. This function assumes (without checking) that the values in <code>r</code> are all in $(D [0, 1]). For the entropy to be meaningful, often <code>r</code> should be normalized too (i.e., its values should sum to 1). The two-parameter version stops evaluating as soon as the intermediate result is greater than or equal to <code>max</code> .</p>
+ <pre><code class='lang-d'>ElementType!(Range) entropy( Range )( Range r ) </code></pre><p>Computes $(LINK2 <a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">https://en.wikipedia.org/wiki/Entropy_(information_theory)</a>, entropy) of input range <code>r</code> in bits. This function assumes (without checking) that the values in <code>r</code> are all in $(D [0, 1]). For the entropy to be meaningful, often <code>r</code> should be normalized too (i.e., its values should sum to 1). The two-parameter version stops evaluating as soon as the intermediate result is greater than or equal to <code>max</code> .</p>
 <h2 class='section api'>entropy(r, max)   </h2>
- <pre><code class='lang-d'>ElementType!(Range) entropy(
-  Range r,
-  F max
-) </code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>ElementType!(Range) entropy( Range, F )( Range r, F max ) </code></pre><p>Ditto</p>
 
 </article>
 

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,14 +88,11 @@
 <h1 class='section'>Overloads for - removeFront</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.container.dlist.DList</dd></dl><dl><dt>Parent</dt><dd>DList</dd></dl>
 </div><h2 class='section api'>removeFront()   </h2>
- <pre><code class='lang-d'>void removeFront(
-) </code></pre><p>Removes the value at the front/back of the container. The stable version behaves the same, but guarantees that ranges iterating over the container are never invalidated.</p>
+ <pre><code class='lang-d'>void removeFront() </code></pre><p>Removes the value at the front/back of the container. The stable version behaves the same, but guarantees that ranges iterating over the container are never invalidated.</p>
 <p>Precondition: <code>!empty</code></p>
 <p>Complexity: $(BIGOH 1).</p>
 <h2 class='section api'>removeFront(howMany)   </h2>
- <pre><code class='lang-d'>size_t removeFront(
-  size_t howMany
-) </code></pre><p>Removes <code>howMany</code> values at the front or back of the container. Unlike the unparameterized versions above, these functions do not throw if they could not remove <code>howMany</code> elements. Instead, if $(D howMany &gt; n), all elements are removed. The returned value is the effective number of elements removed. The stable version behaves the same, but guarantees that ranges iterating over the container are never invalidated.</p>
+ <pre><code class='lang-d'>size_t removeFront( size_t howMany ) </code></pre><p>Removes <code>howMany</code> values at the front or back of the container. Unlike the unparameterized versions above, these functions do not throw if they could not remove <code>howMany</code> elements. Instead, if $(D howMany &gt; n), all elements are removed. The returned value is the effective number of elements removed. The stable version behaves the same, but guarantees that ranges iterating over the container are never invalidated.</p>
 <p>Returns: The number of elements removed</p>
 <p>Complexity: $(BIGOH howMany).</p>
 

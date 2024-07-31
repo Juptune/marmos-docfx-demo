@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,50 +87,76 @@
         <article data-uid="std.numeric.Structs.CustomFloat">
 <h1 class='section'>Struct - CustomFloat</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.numeric</dd></dl>
-</div><pre><code class='lang-d'>public struct CustomFloat
+</div><pre><code class='lang-d'>struct CustomFloat( uint precision, uint exponentWidth, CustomFloatFlags flags, uint bias )
 {
   // 
-  alias Flags = &lt;todo: marmos support pending&gt;;
+  alias Flags = &lt;todo: marmos support pending&gt;
   // ditto 
-  alias opCast = &lt;todo: marmos support pending&gt;;
+  alias opCast = &lt;todo: marmos support pending&gt;
   // 
-  alias T_exp = &lt;todo: marmos support pending&gt;;
+  alias T_exp = &lt;todo: marmos support pending&gt;
   // 
-  alias T_sig = &lt;todo: marmos support pending&gt;;
+  alias T_sig = &lt;todo: marmos support pending&gt;
   // 
-  alias T_signed_exp = &lt;todo: marmos support pending&gt;;
+  alias T_signed_exp = &lt;todo: marmos support pending&gt;
 
   // Returns: number of decimal digits of precision 
-  size_t dig( ) static;
+  static size_t dig() @property
   // Returns: smallest increment to the value 1 
-  CustomFloat epsilon( ) static;
+  static CustomFloat epsilon() @property
+  // 
+  void fromNormalized( T, U )( ref T sig, ref U exp ) 
+  // Fetches the stored value either as a `float` , `double` or `real` . 
+  F get( F )() @property
   // Returns: imaginary part 
-  CustomFloat im( ) static;
+  static CustomFloat im() @property
   // Returns: infinity value 
-  CustomFloat infinity( ) static;
+  static CustomFloat infinity() @property
   // Returns: largest representable value that&#39;s not infinity 
-  CustomFloat max( ) static;
+  static CustomFloat max() @property
   // Returns: maximum int value such that 10&lt;sup&gt;max_10_exp&lt;/sup&gt; is representable 
-  int max_10_exp( ) static;
+  static int max_10_exp() @property
   // Returns: minimum int value such that 10&lt;sup&gt;min_10_exp&lt;/sup&gt; is representable 
-  int min_10_exp( ) static;
+  static int min_10_exp() @property
   // Returns: smallest representable normalized value that&#39;s not 0 
-  CustomFloat min_normal( ) static;
+  static CustomFloat min_normal() @property
   // Returns: NaN value 
-  CustomFloat nan( ) static;
+  static CustomFloat nan() @property
+  // Self assignment 
+  void opAssign( F : CustomFloat )( F input ) 
+  // Assigns from any `real` compatible type. 
+  void opAssign( F )( F input ) 
+  // ditto 
+  real opBinary( string op, T )( T b ) 
+  // ditto 
+  real opBinary( string op, T )( T b ) 
+  // ditto 
+  real opBinaryRight( string op, T )( T a ) 
+  // ditto 
+  int opCmp( T )( auto ref T b ) 
+  // ditto 
+  void opOpAssign( string op, T )( auto ref T b ) 
+  // Convert the CustomFloat to a real and perform the relevant operator on the result 
+  real opUnary( string op )() 
   // Returns: real part 
-  CustomFloat re( ) ;
+  CustomFloat re() @property
+  // 
+  void roundedShift( T, U )( ref T sig, U shift ) 
+  // 
+  void toNormalized( T, U )( ref T sig, ref U exp ) 
+  // ditto 
+  void toString( )( scope &lt;bug: unknown&gt; sink, const ref scope FormatSpec!(char) fmt ) 
 
   // the number of bits in mantissa 
-  __enumMember mant_dig;
+  &lt;enum or auto&gt; mant_dig = precision + ((flags &amp; Flags.storeNormalized) != 0)
   // maximum int value such that 2&lt;sup&gt;max_exp-1&lt;/sup&gt; is representable 
-  __enumMember max_exp;
+  &lt;enum or auto&gt; max_exp = exponent_max - bias - ((flags &amp; (Flags.infinity | Flags.nan)) != 0) + 1
   // minimum int value such that 2&lt;sup&gt;min_exp-1&lt;/sup&gt; is representable as a normalized value 
-  __enumMember min_exp;
+  &lt;enum or auto&gt; min_exp = cast(T_signed_exp)-cast(long)bias + 1 + ((flags &amp; Flags.allowDenorm) != 0)
   // 
-  ulong significand;
+  ulong significand
   // 
-  ulong significand_max;
+  ulong significand_max = (ulong).max
 }</code></pre><h2 class='section'>About</h2><p>ditto</p>
 <h2 class='section'>Aliases</h2><table>
 <thead>
@@ -179,6 +205,14 @@
 <td>Returns: smallest increment to the value 1</td>
 </tr>
 <tr>
+<td><a href="../CustomFloat/CustomFloat/Functions/fromNormalized.html">fromNormalized</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CustomFloat/CustomFloat/Functions/get.html">get</a></td>
+<td>Fetches the stored value either as a <code>float</code> , <code>double</code> or <code>real</code> .</td>
+</tr>
+<tr>
 <td><a href="../CustomFloat/CustomFloat/Functions/im.html">im</a></td>
 <td>Returns: imaginary part</td>
 </tr>
@@ -207,8 +241,62 @@
 <td>Returns: NaN value</td>
 </tr>
 <tr>
+<td><a href="../CustomFloat/CustomFloat/Functions/opAssign.html">opAssign</a></td>
+<td>Self assignment</td>
+</tr>
+<tr>
+<td><a href="../CustomFloat/CustomFloat/Functions/opBinary.html">opBinary</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../CustomFloat/CustomFloat/Functions/opBinaryRight.html">opBinaryRight</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../CustomFloat/CustomFloat/Functions/opCmp.html">opCmp</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../CustomFloat/CustomFloat/Functions/opOpAssign.html">opOpAssign</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../CustomFloat/CustomFloat/Functions/opUnary.html">opUnary</a></td>
+<td>Convert the CustomFloat to a real and perform the relevant operator on the result</td>
+</tr>
+<tr>
 <td><a href="../CustomFloat/CustomFloat/Functions/re.html">re</a></td>
 <td>Returns: real part</td>
+</tr>
+<tr>
+<td><a href="../CustomFloat/CustomFloat/Functions/roundedShift.html">roundedShift</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CustomFloat/CustomFloat/Functions/toNormalized.html">toNormalized</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CustomFloat/CustomFloat/Functions/toString.html">toString</a></td>
+<td>ditto</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Templates</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../CustomFloat/CustomFloat/Templates/sType.html">sType</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CustomFloat/CustomFloat/Templates/uType.html">uType</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>

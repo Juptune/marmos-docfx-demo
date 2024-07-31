@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,19 +88,11 @@
 <h1 class='section'>Overloads for - quantize</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.math.rounding</dd></dl>
 </div><h2 class='section api'>quantize(val, unit)   </h2>
- <pre><code class='lang-d'>Unqual!(F) quantize(
-  F val,
-  F unit
-) </code></pre><p>Round <code>val</code> to a multiple of <code>unit</code> . <code>rfunc</code> specifies the rounding function to use; by default this is <code>rint</code> , which uses the current rounding mode.</p>
+ <pre><code class='lang-d'>Unqual!(F) quantize( alias rfunc = rint, F )( const F val, const F unit ) </code></pre><p>Round <code>val</code> to a multiple of <code>unit</code> . <code>rfunc</code> specifies the rounding function to use; by default this is <code>rint</code> , which uses the current rounding mode.</p>
 <h2 class='section api'>quantize(val, exp)   </h2>
- <pre><code class='lang-d'>Unqual!(F) quantize(
-  F val,
-  E exp
-) </code></pre><p>Round <code>val</code> to a multiple of <code>pow(base, exp)</code> . <code>rfunc</code> specifies the rounding function to use; by default this is <code>rint</code> , which uses the current rounding mode.</p>
+ <pre><code class='lang-d'>Unqual!(F) quantize( real base, alias rfunc = rint, F, E )( const F val, const E exp ) </code></pre><p>Round <code>val</code> to a multiple of <code>pow(base, exp)</code> . <code>rfunc</code> specifies the rounding function to use; by default this is <code>rint</code> , which uses the current rounding mode.</p>
 <h2 class='section api'>quantize(val)   </h2>
- <pre><code class='lang-d'>Unqual!(F) quantize(
-  F val
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>Unqual!(F) quantize( real base, long exp = 1, alias rfunc = rint, F )( const F val ) </code></pre><p>ditto</p>
 
 </article>
 

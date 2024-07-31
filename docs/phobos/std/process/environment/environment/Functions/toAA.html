@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - toAA</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.process.environment</dd></dl><dl><dt>Parent</dt><dd>environment</dd></dl>
 </div><h2 class='section api'>toAA()   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; toAA(
-) </code></pre><p>Copies all environment variables into an associative array.</p>
+ <pre><code class='lang-d'>string[string] toAA() @trusted</code></pre><p>Copies all environment variables into an associative array.</p>
 <h3 class='section'>Windows_specific</h3><p>While Windows environment variable names are case insensitive, D's built-in associative arrays are not.  This function will store all variable names in uppercase (e.g. <code>PATH</code> ).</p>
 <h3 class='section'>Throws</h3><p>$(OBJECTREF Exception) if the environment variables could not be retrieved (Windows only).</p>
 

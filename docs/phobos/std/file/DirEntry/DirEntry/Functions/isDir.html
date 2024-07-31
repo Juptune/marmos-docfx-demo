@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - isDir</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.file.DirEntry</dd></dl><dl><dt>Parent</dt><dd>DirEntry</dd></dl>
 </div><h2 class='section api'>isDir()   </h2>
- <pre><code class='lang-d'>bool isDir(
-) </code></pre><p>Returns whether the file represented by this <code>DirEntry</code> is a directory.</p>
+ <pre><code class='lang-d'>bool isDir() @property scope</code></pre><p>Returns whether the file represented by this <code>DirEntry</code> is a directory.</p>
 <p>Example: -------------------- auto de1 = DirEntry(&quot;/etc/fonts/fonts.conf&quot;); assert(!de1.isDir);</p>
 <p>auto de2 = DirEntry(&quot;/usr/share/include&quot;); assert(de2.isDir); --------------------</p>
 

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,8 @@
 <h1 class='section'>Variable - mixedCCEntry</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.unicode_table_generator</dd></dl>
 </div><h2 class='section api'>mixedCCEntry   </h2>
- <pre><code class='lang-d'>__enumMember mixedCCEntry</code></pre>
+ <pre><code class='lang-d'>&lt;enum or auto&gt; mixedCCEntry = &quot;\n/// Simple Case Entry, wrapper around uint to extract bit fields from simpleCaseTable()\nstruct SCE\n{\n    uint x;\n\n    nothrow @nogc pure @safe:\n\n    this(uint x)\n    {\n        this.x = x;\n    }\n\n    this(uint ch, ubyte n, ubyte size)\n    {\n        this.x = ch | n &lt;&lt; 20 | size &lt;&lt; 24;\n    }\n\n    int ch() const { return this.x &amp; 0x1FFFF; }\n    int n() const { return (this.x &gt;&gt; 20) &amp; 0xF; }\n    int size() const { return this.x &gt;&gt; 24; }\n}\n\n/// Bit backed FullCaseEntry\nstruct FCE\n{\n    ulong x; // bit field sizes: 18, 12, 12, 4, 4, 4\n\nnothrow @nogc pure @safe:\n\n    this(ulong x)\n    {\n        this.x = x;\n    }\n\n    this(dchar[3] seq, ubyte n, ubyte size, ubyte entry_len)\n    {\n        this.x = ulong(seq[0]) &lt;&lt; 36 | ulong(seq[1]) &lt;&lt; 24 | seq[2] &lt;&lt; 12 | n &lt;&lt; 8 | size &lt;&lt; 4 | entry_len &lt;&lt; 0;\n    }\n\n    dchar[3] seq() const { return [(x &gt;&gt; 36) &amp; 0x1FFFF, (x &gt;&gt; 24) &amp; 0xFFF, (x &gt;&gt; 12) &amp; 0xFFF]; }\n    ubyte n() const { return (x &gt;&gt; 8) &amp; 0xF; }\n    ubyte size() const { return (x &gt;&gt; 4) &amp; 0xF; }\n    ubyte entry_len() const { return (x &gt;&gt; 0) &amp; 0xF; }\n}\n\nstruct UnicodeProperty\n{\n    string name;\n    ubyte[] compressed;\n}\n\nstruct TrieEntry(T...)\n{\n    immutable(size_t)[] offsets;\n    immutable(size_t)[] sizes;\n    immutable(size_t)[] data;\n}\n\n&quot;</code></pre><h3 class='section'>(Marmos Notes)</h3><p>Type may be inaccurate as marmos couldn't figure it out - potentially needs semantic analysis.</p>
+
 </article>
 
         <div class="contribution d-print-none">

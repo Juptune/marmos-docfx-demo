@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - reallocate</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator.building_blocks.segregator.Segregator</dd></dl><dl><dt>Parent</dt><dd>Segregator</dd></dl>
 </div><h2 class='section api'>reallocate(b, s)   </h2>
- <pre><code class='lang-d'>bool reallocate(
-  &lt;bug: unknown&gt; b,
-  size_t s
-) </code></pre><p>This method is defined only if at least one of the allocators defines it. If <code>SmallAllocator</code> defines <code>reallocate</code> and $(D b.length &lt;= threshold &amp;&amp; s &lt;= threshold), the call is forwarded to $(D SmallAllocator). If <code>LargeAllocator</code> defines <code>expand</code> and $(D b.length &gt; threshold &amp;&amp; s &gt; threshold), the call is forwarded to $(D LargeAllocator). Otherwise, the call returns <code>false</code> .</p>
+ <pre><code class='lang-d'>bool reallocate( ref void[] b, size_t s ) </code></pre><p>This method is defined only if at least one of the allocators defines it. If <code>SmallAllocator</code> defines <code>reallocate</code> and $(D b.length &lt;= threshold &amp;&amp; s &lt;= threshold), the call is forwarded to $(D SmallAllocator). If <code>LargeAllocator</code> defines <code>expand</code> and $(D b.length &gt; threshold &amp;&amp; s &gt; threshold), the call is forwarded to $(D LargeAllocator). Otherwise, the call returns <code>false</code> .</p>
 
 </article>
 

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - redBlackTree</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.container.rbtree</dd></dl>
 </div><h2 class='section api'>redBlackTree(elems)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; redBlackTree(
-  &lt;bug: unknown&gt; elems
-) auto</code></pre><p>Convenience function for creating a <code>RedBlackTree!E</code> from a list of values.</p>
+ <pre><code class='lang-d'>auto redBlackTree( E )( E[] elems ) </code></pre><p>Convenience function for creating a <code>RedBlackTree!E</code> from a list of values.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>allowDuplicates</code> &lt;parameter not found&gt;  </dt>
 <dd>
 
@@ -103,7 +101,7 @@
 
 <p>predicate to sort by (optional)</p>
 
-</dd><dt><code>elems</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>elems</code> E[]  </dt>
 <dd>
 
 
@@ -116,33 +114,19 @@
 <p>range elements to insert into the rbtree (alternative to elems)</p>
 
 </dd></dl><h2 class='section api'>redBlackTree(elems)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; redBlackTree(
-  &lt;bug: unknown&gt; elems
-) auto</code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>auto redBlackTree( bool allowDuplicates, E )( E[] elems ) </code></pre><p>Ditto</p>
 <h2 class='section api'>redBlackTree(elems)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; redBlackTree(
-  &lt;bug: unknown&gt; elems
-) auto</code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>auto redBlackTree( alias less, E )( E[] elems ) </code></pre><p>Ditto</p>
 <h2 class='section api'>redBlackTree(elems)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; redBlackTree(
-  &lt;bug: unknown&gt; elems
-) auto</code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>auto redBlackTree( alias less, bool allowDuplicates, E )( E[] elems ) </code></pre><p>Ditto</p>
 <h2 class='section api'>redBlackTree(range)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; redBlackTree(
-  Stuff range
-) auto</code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>auto redBlackTree( Stuff )( Stuff range ) </code></pre><p>Ditto</p>
 <h2 class='section api'>redBlackTree(range)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; redBlackTree(
-  Stuff range
-) auto</code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>auto redBlackTree( bool allowDuplicates, Stuff )( Stuff range ) </code></pre><p>Ditto</p>
 <h2 class='section api'>redBlackTree(range)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; redBlackTree(
-  Stuff range
-) auto</code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>auto redBlackTree( alias less, Stuff )( Stuff range ) </code></pre><p>Ditto</p>
 <h2 class='section api'>redBlackTree(range)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; redBlackTree(
-  Stuff range
-) auto</code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>auto redBlackTree( alias less, bool allowDuplicates, Stuff )( Stuff range ) </code></pre><p>Ditto</p>
 
 </article>
 

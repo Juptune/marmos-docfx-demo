@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,31 +90,42 @@
 </div><pre><code class='lang-d'>public struct SecureMemory
 {
   // Sets the memory to no access. 
-  alias makeNoAccess = &lt;todo: marmos support pending&gt;;
+  alias makeNoAccess = &lt;todo: marmos support pending&gt;
   // Sets the memory to read-only. 
-  alias makeReadOnly = &lt;todo: marmos support pending&gt;;
+  alias makeReadOnly = &lt;todo: marmos support pending&gt;
   // Sets the memory to read/write. 
-  alias makeReadWrite = &lt;todo: marmos support pending&gt;;
+  alias makeReadWrite = &lt;todo: marmos support pending&gt;
   // Sets the memory to write-only. 
-  alias makeWriteOnly = &lt;todo: marmos support pending&gt;;
+  alias makeWriteOnly = &lt;todo: marmos support pending&gt;
 
   // Provides a safe(ish) way to access the underlying user memory. 
-  void access( &lt;bug: unknown&gt; func ) ;
+  void access( scope &lt;bug: unknown&gt; func ) @nogc @safe nothrow
   // ditto 
-  void access( &lt;bug: unknown&gt; func ) ;
+  void access( scope &lt;bug: unknown&gt; func ) @safe nothrow
   // Allocates a new SecureMemory struct, with the given length. 
-  Result allocate( SecureMemory memory, size_t length ) static;
+  static Result allocate( out scope SecureMemory memory, size_t length ) @trusted
   // Compares this memory to another memory in constant time for the given length of this memory. 
-  bool constantTimeCompare( &lt;bug: unknown&gt; other ) ;
+  bool constantTimeCompare( const scope void[] other ) @trusted
   // ditto. 
-  bool constantTimeCompare( SecureMemory other ) ;
+  bool constantTimeCompare( const ref scope SecureMemory other ) @trusted
+  // Slices the memory into the specified slices, ensuring that the slices do not overlap. 
+  void contigiousSlice(
+    T
+  )(
+    const scope size_t[] lengths,
+    scope Slice!(T)*[] slices
+  ) @trusted
   // 
-  size_t length( ) ;
+  size_t length() 
+  // Creates a `SecureMemory.Slice` from the specified memory range. 
+  ref Slice!(void) opSlice( size_t _ )( size_t start, size_t end ) return
+  // 
+  Result setProtection( int Flags )() @trusted
   // Unless you realllllly need this, just use `access` or `constantTimeCompare` instead. 
-  &lt;bug: unknown&gt; unsafeSlice( ) ;
+  void[] unsafeSlice() 
 
   // 
-  __enumMember CANARY_VALUE;
+  &lt;enum or auto&gt; CANARY_VALUE = 204
 }</code></pre><h2 class='section'>About</h2><p>Memory for sensitive data - hardened using OS memory protection mechanisms, as well as providing constant-time operations to help mitigate timing attacks.</p>
 <h3 class='section'>Performance</h3><p>Please note that this struct has to make a <em>lot</em> of syscalls, and is therefore pretty slow compared to general-purpose memory, especially due to mmap and munmap.</p>
 <p>You should only use this for secret data, and potentially setup something like an object pool to reuse the memory if you need to do a lot of operations on it, as even deallocation is slow.</p>
@@ -176,12 +187,38 @@
 <td>Compares this memory to another memory in constant time for the given length of this memory.</td>
 </tr>
 <tr>
+<td><a href="../SecureMemory/SecureMemory/Functions/contigiousSlice.html">contigiousSlice</a></td>
+<td>Slices the memory into the specified slices, ensuring that the slices do not overlap.</td>
+</tr>
+<tr>
 <td><a href="../SecureMemory/SecureMemory/Functions/length.html">length</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../SecureMemory/SecureMemory/Functions/opSlice.html">opSlice</a></td>
+<td>Creates a <code>SecureMemory.Slice</code> from the specified memory range.</td>
+</tr>
+<tr>
+<td><a href="../SecureMemory/SecureMemory/Functions/setProtection.html">setProtection</a></td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../SecureMemory/SecureMemory/Functions/unsafeSlice.html">unsafeSlice</a></td>
 <td>Unless you realllllly need this, just use <code>access</code> or <code>constantTimeCompare</code> instead.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../SecureMemory/SecureMemory/Structs/Slice.html">Slice</a></td>
+<td>A loose wrapper around a <code>T[]</code> that originates from a <code>SecureMemory</code> struct.</td>
 </tr>
 </tbody>
 </table>

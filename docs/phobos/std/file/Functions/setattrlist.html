@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,13 +88,13 @@
 <h1 class='section'>Overloads for - setattrlist</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.file</dd></dl>
 </div><h2 class='section api'>setattrlist(path, attrs, attrbuf, attrBufSize, options)   </h2>
- <pre><code class='lang-d'>int setattrlist(
-  &lt;bug: unknown&gt; path,
-  attrlist attrs,
-  &lt;bug: unknown&gt; attrbuf,
+ <pre><code class='lang-d'>extern(C) int setattrlist(
+  scope char* path,
+  ref scope attrlist attrs,
+  scope void* attrbuf,
   size_t attrBufSize,
   c_ulong options
-) </code></pre>
+) @nogc @system nothrow</code></pre>
 </article>
 
         <div class="contribution d-print-none">

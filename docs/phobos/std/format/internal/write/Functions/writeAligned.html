@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,25 +89,42 @@
 <dl><dt>Module</dt><dd>std.format.internal.write</dd></dl>
 </div><h2 class='section api'>writeAligned(w, s, f)   </h2>
  <pre><code class='lang-d'>void writeAligned(
-  Writer w,
+  Writer,
+  T,
+  Char
+)(
+  auto ref Writer w,
   T s,
-  FormatSpec!(Char) f
+  const ref scope FormatSpec!(Char) f
 ) </code></pre><h2 class='section api'>writeAligned(w, prefix, grouped, suffix, f, integer_precision)   </h2>
  <pre><code class='lang-d'>void writeAligned(
-  Writer w,
+  Writer,
+  T1,
+  T2,
+  T3,
+  Char
+)(
+  auto ref Writer w,
   T1 prefix,
   T2 grouped,
   T3 suffix,
-  FormatSpec!(Char) f,
+  const ref scope FormatSpec!(Char) f,
   bool integer_precision
 ) </code></pre><h2 class='section api'>writeAligned(w, prefix, grouped, fracts, suffix, f, p)   </h2>
  <pre><code class='lang-d'>void writeAligned(
-  Writer w,
+  Writer,
+  T1,
+  T2,
+  T3,
+  T4,
+  Char
+)(
+  auto ref Writer w,
   T1 prefix,
   T2 grouped,
   T3 fracts,
   T4 suffix,
-  FormatSpec!(Char) f,
+  const ref scope FormatSpec!(Char) f,
   PrecisionType p
 ) </code></pre>
 </article>

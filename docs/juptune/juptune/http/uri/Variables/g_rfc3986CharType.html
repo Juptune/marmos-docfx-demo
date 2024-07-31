@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,114 @@
 <h1 class='section'>Variable - g_rfc3986CharType</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.http.uri</dd></dl>
 </div><h2 class='section api'>g_rfc3986CharType   </h2>
- <pre><code class='lang-d'>immutable __enumMember g_rfc3986CharType</code></pre>
+ <pre><code class='lang-d'>immutable &lt;enum or auto&gt; g_rfc3986CharType = ()
+{
+Rfc3986CharType[256] charType;
+with (Rfc3986CharType)
+{
+foreach (i; 0 .. 256)
+{
+charType[i] = RESERVED_PCT_ENCODE;
+}
+foreach (ch; [&#39;:&#39;, &#39;/&#39;, &#39;?&#39;, &#39;#&#39;, &#39;[&#39;, &#39;]&#39;, &#39;@&#39;])
+{
+charType[ch] = RESERVED_GEN_DELIM;
+}
+foreach (ch; [&#39;!&#39;, &#39;$&#39;, &#39;&amp;&#39;, &#39;\&#39;&#39;, &#39;(&#39;, &#39;)&#39;, &#39;*&#39;, &#39;+&#39;, &#39;,&#39;, &#39;;&#39;, &#39;=&#39;])
+{
+charType[ch] = RESERVED_SUB_DELIM;
+}
+foreach (ch; [&#39;-&#39;, &#39;.&#39;, &#39;_&#39;, &#39;~&#39;])
+{
+charType[ch] = RESERVED_NONE;
+}
+foreach (ch; &#39;a&#39; .. &#39;z&#39; + 1)
+{
+charType[ch] = RESERVED_NONE;
+}
+foreach (ch; &#39;A&#39; .. &#39;Z&#39; + 1)
+{
+charType[ch] = RESERVED_NONE;
+}
+foreach (ch; &#39;0&#39; .. &#39;9&#39; + 1)
+{
+charType[ch] = RESERVED_NONE;
+}
+}
+with (Rfc3986CharType)
+{
+foreach (ch; &#39;a&#39; .. &#39;z&#39; + 1)
+{
+charType[ch] |= SCHEME_ALPHA;
+}
+foreach (ch; &#39;A&#39; .. &#39;Z&#39; + 1)
+{
+charType[ch] |= SCHEME_ALPHA;
+}
+foreach (ch; [&#39;+&#39;, &#39;-&#39;, &#39;.&#39;])
+{
+charType[ch] |= SCHEME_NON_ALPHA;
+}
+foreach (ch; &#39;0&#39; .. &#39;9&#39; + 1)
+{
+charType[ch] |= SCHEME_NON_ALPHA;
+}
+}
+with (Rfc3986CharType)
+{
+foreach (ch; [&#39;/&#39;, &#39;?&#39;, &#39;#&#39;])
+{
+charType[ch] |= AUTHORITY_TERMINAL;
+}
+}
+with (Rfc3986CharType)
+{
+foreach (ch; [&#39;:&#39;])
+{
+charType[ch] |= AUTHORITY_USERINFO_ALLOWED;
+}
+}
+with (Rfc3986CharType)
+{
+foreach (ch; &#39;0&#39; .. &#39;9&#39; + 1)
+{
+charType[ch] |= IS_HEX_DIGIT;
+}
+foreach (ch; &#39;a&#39; .. &#39;f&#39; + 1)
+{
+charType[ch] |= IS_HEX_DIGIT;
+}
+foreach (ch; &#39;A&#39; .. &#39;F&#39; + 1)
+{
+charType[ch] |= IS_HEX_DIGIT;
+}
+}
+with (Rfc3986CharType)
+{
+foreach (ch; [&#39;:&#39;, &#39;@&#39;])
+{
+charType[ch] |= PATH_ALLOWED;
+}
+foreach (ch; [&#39;?&#39;, &#39;#&#39;])
+{
+charType[ch] |= PATH_TERMINAL;
+}
+}
+with (Rfc3986CharType)
+{
+foreach (ch; [&#39;?&#39;, &#39;/&#39;])
+{
+charType[ch] |= QUERY_ALLOWED;
+}
+foreach (ch; [&#39;#&#39;])
+{
+charType[ch] |= QUERY_TERMINAL;
+}
+}
+return charType;
+}
+()</code></pre><h3 class='section'>(Marmos Notes)</h3><p>Type may be inaccurate as marmos couldn't figure it out - potentially needs semantic analysis.</p>
+
 </article>
 
         <div class="contribution d-print-none">

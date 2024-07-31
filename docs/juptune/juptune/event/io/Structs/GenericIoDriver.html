@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,12 +90,24 @@
 </div><pre><code class='lang-d'>public struct GenericIoDriver
 {
   // Continues to read data into a buffer until no bytes are left to read. 
-  alias readAll = &lt;todo: marmos support pending&gt;;
+  alias readAll = &lt;todo: marmos support pending&gt;
   // Continues to read data into a buffer until no bytes are left to read. 
-  alias readAllGC = &lt;todo: marmos support pending&gt;;
+  alias readAllGC = &lt;todo: marmos support pending&gt;
 
   // Writes an entire buffer. 
-  Result put( &lt;bug: unknown&gt; buffer, Duration timeout ) ;
+  Result put( void[] buffer, Duration timeout ) @nogc
+  // Continue to write data from a range until it&#39;s empty. 
+  Result put( RangeT )( scope RangeT range, Duration timeout ) 
+  // 
+  Result readAllImpl(
+    BufferT,
+    GrowFuncT
+  )(
+    ref scope BufferT buffer,
+    size_t cursor,
+    scope GrowFuncT growFunc,
+    Duration timeout
+  ) 
 }</code></pre><h2 class='section'>About</h2><p>Provides generic IO functionality.</p>
 <p>All platform-specific IO drivers will provide an <code>alias this</code> to this struct, so that all drivers have the same facilities for writing and reading.</p>
 <h2 class='section'>Aliases</h2><table>
@@ -127,6 +139,10 @@
 <tr>
 <td><a href="../GenericIoDriver/GenericIoDriver/Functions/put.html">put</a></td>
 <td>Writes an entire buffer.</td>
+</tr>
+<tr>
+<td><a href="../GenericIoDriver/GenericIoDriver/Functions/readAllImpl.html">readAllImpl</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>

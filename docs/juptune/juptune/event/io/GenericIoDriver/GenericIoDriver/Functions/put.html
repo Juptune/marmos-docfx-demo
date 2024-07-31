@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,18 +88,27 @@
 <h1 class='section'>Overloads for - put</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.event.io.GenericIoDriver</dd></dl><dl><dt>Parent</dt><dd>GenericIoDriver</dd></dl>
 </div><h2 class='section api'>put(buffer, timeout)   </h2>
- <pre><code class='lang-d'>Result put(
-  &lt;bug: unknown&gt; buffer,
-  Duration timeout
-) </code></pre><p>Writes an entire buffer.</p>
+ <pre><code class='lang-d'>Result put( void[] buffer, Duration timeout ) @nogc</code></pre><p>Writes an entire buffer.</p>
 <p>This is a high level helper around the <code>send</code> function.</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>buffer</code> &lt;bug: unknown&gt;  </dt>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>buffer</code> void[]  </dt>
 <dd>
 
 
 <p>The buffer to write.</p>
 
 </dd></dl><h3 class='section'>Throws</h3><p>Any error that the platform's underlying <code>send</code> command returns. (e.g. <code>LinuxError</code> on Linux)</p>
+<h3 class='section'>Returns</h3><p>A <code>Result</code></p>
+<h2 class='section api'>put(range, timeout)   </h2>
+ <pre><code class='lang-d'>Result put( RangeT )( scope RangeT range, Duration timeout ) </code></pre><p>Continue to write data from a range until it's empty.</p>
+<p>This is a high level helper around the <code>send</code> function.</p>
+<p>The range's element type must be some sort of slice.</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>range</code> RangeT  </dt>
+<dd>
+
+
+<p>The range to write.</p>
+
+</dd></dl><h3 class='section'>Throws</h3><p>Any error that the <code>void[]</code> overload of <code>put</code> returns.</p>
 <h3 class='section'>Returns</h3><p>A <code>Result</code></p>
 
 </article>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - async</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.event.loop</dd></dl>
 </div><h2 class='section api'>async(func, config)   </h2>
- <pre><code class='lang-d'>Result async(
-  JuptuneFiber func,
-  AsyncConfig config
-) </code></pre><p>Creates an async fiber, and schedules it to run on the next event loop tick.</p>
+ <pre><code class='lang-d'>Result async( JuptuneFiber func, AsyncConfig config ) @nogc nothrow</code></pre><p>Creates an async fiber, and schedules it to run on the next event loop tick.</p>
 <p>Async fibers are fibers that run on the current event loop thread, and so are safe to make use of thread local storage and other thread local techniques.</p>
 <p>This overload doesn't create a user context.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>func</code> JuptuneFiber  </dt>
@@ -109,17 +106,16 @@
 </dd></dl><h3 class='section'>Throws</h3><p>(For the @gc overload) Asserts that this event loop thread is a GC thread.</p>
 <p>Anything that <code>FiberAllocator.allocateFiber</code> throws.</p>
 <h2 class='section api'>async(func, config)   </h2>
- <pre><code class='lang-d'>Result async(
-  JuptuneFiber func,
-  AsyncConfig config
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>Result async( JuptuneFiber func, AsyncConfig config ) @nogc nothrow</code></pre><p>ditto</p>
 <h2 class='section api'>async(func, context, setter, config)   </h2>
  <pre><code class='lang-d'>Result async(
+  ContextT
+)(
   JuptuneFiber func,
-  ContextT context,
-  &lt;bug: unknown&gt; setter,
+  auto ref ContextT context,
+  * setter,
   AsyncConfig config
-) </code></pre><p>Creates an async fiber, and schedules it to run on the next event loop tick.</p>
+) @nogc nothrow</code></pre><p>Creates an async fiber, and schedules it to run on the next event loop tick.</p>
 <p>Async fibers are fibers that run on the current event loop thread, and so are safe to make use of thread local storage and other thread local techniques.</p>
 <p>This overload creates a user context, allowing you to make additional data available to the fiber.</p>
 <p>As a technical side note: the user context is stored at the very top of the fiber's stack which shouldn't cause issues.</p>
@@ -140,7 +136,7 @@
 
 <p>The user context.</p>
 
-</dd><dt><code>setter</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>setter</code> *  </dt>
 <dd>
 
 
@@ -157,11 +153,13 @@
 <h3 class='section'>See_Also</h3><p><code>juptuneEventLoopGetContext</code> , <code>asyncDefaultSetter</code> , <code>asyncMoveSetter</code></p>
 <h2 class='section api'>async(func, context, setter, config)   </h2>
  <pre><code class='lang-d'>Result async(
+  ContextT
+)(
   JuptuneFiber func,
-  ContextT context,
-  &lt;bug: unknown&gt; setter,
+  auto ref ContextT context,
+  * setter,
   AsyncConfig config
-) </code></pre><p>ditto</p>
+) @nogc nothrow</code></pre><p>ditto</p>
 
 </article>
 

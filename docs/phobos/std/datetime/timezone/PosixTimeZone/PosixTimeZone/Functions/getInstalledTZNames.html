@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - getInstalledTZNames</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.timezone.PosixTimeZone</dd></dl><dl><dt>Parent</dt><dd>PosixTimeZone</dd></dl>
 </div><h2 class='section api'>getInstalledTZNames(subName, tzDatabaseDir)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; getInstalledTZNames(
-  string subName,
-  string tzDatabaseDir
-) static</code></pre><p>Returns a list of the names of the time zones installed on the system.</p>
+ <pre><code class='lang-d'>static string[] getInstalledTZNames( string subName, string tzDatabaseDir ) @safe</code></pre><p>Returns a list of the names of the time zones installed on the system.</p>
 <p>Providing a sub-name narrows down the list of time zones (which can number in the thousands). For example, passing in &quot;America&quot; as the sub-name returns only the time zones which begin with &quot;America&quot;.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>subName</code> string  </dt>
 <dd>

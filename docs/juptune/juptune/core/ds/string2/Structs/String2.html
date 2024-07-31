@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,43 +90,63 @@
 </div><pre><code class='lang-d'>public struct String2
 {
   // 
-  alias opDollar = &lt;todo: marmos support pending&gt;;
+  alias opDollar = &lt;todo: marmos support pending&gt;
 
+  // A safer-ish way to access the underlying slice, by forcing it to go through a scoped delegate. 
+  auto access( RetT )( scope &lt;bug: unknown&gt; accessor ) @trusted
+  // ditto. 
+  auto access( RetT )( scope &lt;bug: unknown&gt; accessor ) @nogc @trusted nothrow
+  // A named constructor for `String2` that will convert the given char-based `Array` into a string, and then destroy the array, effectively &quot;moving&quot; the array into a string. 
+  String2 fromDestroyingArray( ArrayT )( ref scope ArrayT arr ) 
   // 
-  bool isBig( ) ;
+  bool isBig() @safe
   // The length of the string. 
-  size_t length( ) ;
+  size_t length() @safe
   // 
-  void markBig( ) ;
+  void markBig() @safe
   // 
-  void moveToBigString( ) ;
+  void moveToBigString() @trusted
+  // Simple assignment operator that forwards to the appropriate ctor. 
+  void opAssign( CtorParam )( scope CtorParam param ) @trusted
+  // Concatenation operator. 
+  String2 opBinary( string op )( scope char[] rhs ) @trusted
+  // Concatenation operator. 
+  String2 opBinary( string op )( const scope String2 rhs ) @trusted
+  // Concatenation operator. 
+  String2 opBinary( string op )( const ref scope String2 rhs ) @trusted
   // Basic equality operator for common string types, including `char[]` , and `String2` . 
-  bool opEquals( &lt;bug: unknown&gt; rhs ) ;
+  bool opEquals( scope char[] rhs ) @trusted
   // ditto. 
-  bool opEquals( String2 rhs ) ;
+  bool opEquals( const scope String2 rhs ) @trusted
   // ditto. 
-  bool opEquals( String2 rhs ) ;
+  bool opEquals( const ref scope String2 rhs ) @trusted
   // 
-  String2 opIndex( OpSlice slice ) ;
+  String2 opIndex( const OpSlice slice ) @trusted
   // Simple [] operator to access the character at the given index. 
-  char opIndex( size_t index ) ;
+  char opIndex( const size_t index ) @trusted
+  // Concatenation assignment operator. 
+  void opOpAssign( string op )( scope char[] rhs ) @trusted
+  // Concatenation assignment operator. 
+  void opOpAssign( string op )( const scope String2 rhs ) @trusted
+  // Concatenation assignment operator. 
+  void opOpAssign( string op )( const ref scope String2 rhs ) @trusted
   // 
-  OpSlice opSlice( size_t start, size_t end ) ;
+  OpSlice opSlice( size_t start, size_t end ) @safe
   // Provides an input range over the string&#39;s characters. 
-  &lt;bug: unknown&gt; range( ) auto;
+  auto range() @trusted
   // 
-  void setupBigString( &lt;bug: unknown&gt; str ) ;
+  void setupBigString( scope char[] str ) @trusted
   // 
-  void setupSmallString( &lt;bug: unknown&gt; str ) ;
+  void setupSmallString( scope char[] str ) @trusted
   // Provides access to the raw slice of the string, which will always be on the heap. 
-  &lt;bug: unknown&gt; slice( ) ;
+  ref char[] slice() scope return
   // Provides access to the raw slice of the string, which may be on the stack or heap, depending on if Small String Optimisation is in use. 
-  &lt;bug: unknown&gt; sliceMaybeFromStack( ) ;
+  ref char[] sliceMaybeFromStack() scope return
   // Hashes the contents of the string using MurmurHash3. 
-  uint toHash( ) ;
+  uint toHash() @trusted
 
   // 
-  __enumMember SSO_OVERHEAD_BYTES;
+  &lt;enum or auto&gt; SSO_OVERHEAD_BYTES = 1
 }</code></pre><h2 class='section'>About</h2><p>An immutable string implemenetation with small string optimization, focused on making it safe and efficient to pass around a string by value by trading off the ability to mutate the string.</p>
 <p>This struct is not** thread safe.</p>
 <h3 class='section'>Design</h3><p>This struct will apply small string optimization (SSO) to store small strings in the struct itself, and will allocate memory for larger strings (or under specific conditions).</p>
@@ -171,6 +191,14 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../String2/String2/Functions/access.html">access</a></td>
+<td>A safer-ish way to access the underlying slice, by forcing it to go through a scoped delegate.</td>
+</tr>
+<tr>
+<td><a href="../String2/String2/Functions/fromDestroyingArray.html">fromDestroyingArray</a></td>
+<td>A named constructor for <code>String2</code> that will convert the given char-based <code>Array</code> into a string, and then destroy the array, effectively &quot;moving&quot; the array into a string.</td>
+</tr>
+<tr>
 <td><a href="../String2/String2/Functions/isBig.html">isBig</a></td>
 <td></td>
 </tr>
@@ -187,12 +215,24 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="../String2/String2/Functions/opAssign.html">opAssign</a></td>
+<td>Simple assignment operator that forwards to the appropriate ctor.</td>
+</tr>
+<tr>
+<td><a href="../String2/String2/Functions/opBinary.html">opBinary</a></td>
+<td>Concatenation operator.</td>
+</tr>
+<tr>
 <td><a href="../String2/String2/Functions/opEquals.html">opEquals</a></td>
 <td>Basic equality operator for common string types, including <code>char[]</code> , and <code>String2</code> .</td>
 </tr>
 <tr>
 <td><a href="../String2/String2/Functions/opIndex.html">opIndex</a></td>
 <td></td>
+</tr>
+<tr>
+<td><a href="../String2/String2/Functions/opOpAssign.html">opOpAssign</a></td>
+<td>Concatenation assignment operator.</td>
 </tr>
 <tr>
 <td><a href="../String2/String2/Functions/opSlice.html">opSlice</a></td>
@@ -221,6 +261,24 @@
 <tr>
 <td><a href="../String2/String2/Functions/toHash.html">toHash</a></td>
 <td>Hashes the contents of the string using MurmurHash3.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../String2/String2/Structs/OpSlice.html">OpSlice</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../String2/String2/Structs/Payload.html">Payload</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>

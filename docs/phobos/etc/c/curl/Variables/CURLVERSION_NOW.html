@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,8 @@
 <h1 class='section'>Variable - CURLVERSION_NOW</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.curl</dd></dl>
 </div><h2 class='section api'>CURLVERSION_NOW   </h2>
- <pre><code class='lang-d'>__enumMember CURLVERSION_NOW</code></pre><h2 class='section'>About</h2><p>The 'CURLVERSION_NOW' is the symbolic name meant to be used by basically all programs ever that want to get version information. It is meant to be a built-in version number for what kind of struct the caller expects. If the struct ever changes, we redefine the NOW to another enum from above.</p>
+ <pre><code class='lang-d'>&lt;enum or auto&gt; CURLVERSION_NOW = CurlVer.fourth</code></pre><h2 class='section'>About</h2><p>The 'CURLVERSION_NOW' is the symbolic name meant to be used by basically all programs ever that want to get version information. It is meant to be a built-in version number for what kind of struct the caller expects. If the struct ever changes, we redefine the NOW to another enum from above.</p>
+<h3 class='section'>(Marmos Notes)</h3><p>Type may be inaccurate as marmos couldn't figure it out - potentially needs semantic analysis.</p>
 
 </article>
 

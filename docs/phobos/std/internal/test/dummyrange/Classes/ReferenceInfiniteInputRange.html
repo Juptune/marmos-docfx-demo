@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,15 +87,15 @@
         <article data-uid="std.internal.test.dummyrange.Classes.ReferenceInfiniteInputRange">
 <h1 class='section'>Class - ReferenceInfiniteInputRange</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.internal.test.dummyrange</dd></dl>
-</div><pre><code class='lang-d'>public class ReferenceInfiniteInputRange
+</div><pre><code class='lang-d'>class ReferenceInfiniteInputRange( T )
 {
   // 
-  T front( ) final;
+  T front() final @property
   // 
-  void popFront( ) final;
+  void popFront() final
 
   // 
-  bool empty;
+  bool empty = false
 }</code></pre><h2 class='section'>About</h2><p>Infinite input range</p>
 <h2 class='section'>Functions</h2><table>
 <thead>

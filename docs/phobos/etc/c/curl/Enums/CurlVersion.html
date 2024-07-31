@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,38 +87,38 @@
         <article data-uid="etc.c.curl.Enums.CurlVersion">
 <h1 class='section'>Enum - CurlVersion</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.curl</dd></dl>
-</div><pre><code class='lang-d'>enum CurlVersion
+</div><pre><code class='lang-d'>enum CurlVersion : int
 {
-  // asynchronous dns resolves 
-  __enumMember asynchdns;
-  // character conversions supported 
-  __enumMember conv;
-  // debug memory tracking supported 
-  __enumMember curldebug;
-  // built with debug capabilities 
-  __enumMember dbg;
-  // Negotiate auth support 
-  __enumMember gssnegotiate;
-  // International Domain Names support 
-  __enumMember idn;
   // IPv6-enabled 
-  __enumMember ipv6;
+  ipv6 = 1,
   // kerberos auth is supported 
-  __enumMember kerberos4;
-  // supports files bigger than 2GB 
-  __enumMember largefile;
-  // libz features are present 
-  __enumMember libz;
-  // NTLM auth is supported 
-  __enumMember ntlm;
-  // SPNEGO auth 
-  __enumMember spnego;
+  kerberos4 = 2,
   // SSL options are present 
-  __enumMember ssl;
+  ssl = 4,
+  // libz features are present 
+  libz = 8,
+  // NTLM auth is supported 
+  ntlm = 16,
+  // Negotiate auth support 
+  gssnegotiate = 32,
+  // built with debug capabilities 
+  dbg = 64,
+  // asynchronous dns resolves 
+  asynchdns = 128,
+  // SPNEGO auth 
+  spnego = 256,
+  // supports files bigger than 2GB 
+  largefile = 512,
+  // International Domain Names support 
+  idn = 1024,
   // SSPI is supported 
-  __enumMember sspi;
+  sspi = 2048,
+  // character conversions supported 
+  conv = 4096,
+  // debug memory tracking supported 
+  curldebug = 8192,
   // TLS-SRP auth is supported 
-  __enumMember tlsauth_srp;
+  tlsauth_srp = 16384,
 }</code></pre><h2 class='section'>Variables</h2><table>
 <thead>
 <tr>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,11 +88,14 @@
 <h1 class='section'>Overloads for - choose</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
 </div><h2 class='section api'>choose(condition, r1, r2)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; choose(
+ <pre><code class='lang-d'>auto choose(
+  R1,
+  R2
+)(
   bool condition,
-  R1 r1,
-  R2 r2
-) auto</code></pre><p>Choose one of two ranges at runtime depending on a Boolean condition.</p>
+  scope return ref return ref scope R1 r1,
+  scope return ref return ref scope R2 r2
+) </code></pre><p>Choose one of two ranges at runtime depending on a Boolean condition.</p>
 <p>The ranges may be different, but they must have compatible element types (i.e. <code>CommonType</code> must exist for the two element types). The result is a range that offers the weakest capabilities of the two (e.g. <code>ForwardRange</code> if $(D R1) is a random-access range and <code>R2</code> is a forward range).</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>condition</code> bool  </dt>
 <dd>

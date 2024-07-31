@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,13 +88,8 @@
 <h1 class='section'>Overloads for - toSourceCode</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.uni.InversionList</dd></dl><dl><dt>Parent</dt><dd>InversionList</dd></dl>
 </div><h2 class='section api'>toSourceCode(range, funcName)   </h2>
- <pre><code class='lang-d'>string toSourceCode(
-  &lt;bug: unknown&gt; range,
-  string funcName
-) static</code></pre><h2 class='section api'>toSourceCode(funcName)   </h2>
- <pre><code class='lang-d'>string toSourceCode(
-  string funcName
-) </code></pre><p>Generates string with D source code of unary function with name of <code>funcName</code> taking a single <code>dchar</code> argument. If <code>funcName</code> is empty the code is adjusted to be a lambda function.</p>
+ <pre><code class='lang-d'>static string toSourceCode( CodepointInterval[] range, string funcName ) </code></pre><h2 class='section api'>toSourceCode(funcName)   </h2>
+ <pre><code class='lang-d'>string toSourceCode( string funcName ) </code></pre><p>Generates string with D source code of unary function with name of <code>funcName</code> taking a single <code>dchar</code> argument. If <code>funcName</code> is empty the code is adjusted to be a lambda function.</p>
 <p>The function generated tests if the $(CODEPOINT) passed belongs to this set or not. The result is to be used with string mixin. The intended usage area is aggressive optimization via meta programming in parser generators and the like.</p>
 <p>Note: Use with care for relatively small or regular sets. It could end up being slower then just using multi-staged tables.</p>
 <h3 class='section'>Example</h3><p>--- import std.stdio;</p>

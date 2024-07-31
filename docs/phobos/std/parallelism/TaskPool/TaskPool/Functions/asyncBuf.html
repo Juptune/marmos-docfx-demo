@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Overloads for - asyncBuf | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Overloads for - asyncBuf | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../../../index.html">
+            <img id="logo" class="svg" src="../../../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.parallelism.TaskPool.TaskPool.Functions.asyncBuf">
+<h1 class='section'>Overloads for - asyncBuf</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.parallelism.TaskPool</dd></dl><dl><dt>Parent</dt><dd>TaskPool</dd></dl>
+</div><h2 class='section api'>asyncBuf(source, bufSize)   </h2>
+ <pre><code class='lang-d'>auto asyncBuf( S )( S source, size_t bufSize ) </code></pre><p>Given a <code>source</code> range that is expensive to iterate over, returns an $(REF_ALTTEXT input range, isInputRange, std,range,primitives) that asynchronously buffers the contents of <code>source</code> into a buffer of <code>bufSize</code> elements in a worker thread, while making previously buffered elements from a second buffer, also of size <code>bufSize</code> , available via the range interface of the returned object.  The returned range has a length iff <code>hasLength!S</code> . <code>asyncBuf</code> is useful, for example, when performing expensive operations on the elements of ranges that represent data on a disk or network.</p>
+<h3 class='section'>Example</h3><p>--- import std.conv, std.stdio;</p>
+<p>void main() { // Fetch lines of a file in a background thread // while processing previously fetched lines, // dealing with byLine's buffer recycling by // eagerly duplicating every line. auto lines = File(&quot;foo.txt&quot;).byLine(); auto duped = std.algorithm.map!&quot;a.idup&quot;(lines);</p>
+<p>// Fetch more lines in the background while we // process the lines already read into memory // into a matrix of doubles. double[][] matrix; auto asyncReader = taskPool.asyncBuf(duped);</p>
+<p>foreach (line; asyncReader) { auto ls = line.split(&quot;\t&quot;); matrix ~= to!(double[])(ls); } } ---</p>
+<h3 class='section'>$(B Exception Handling)</h3><p>Any exceptions thrown while iterating over <code>source</code> are re-thrown on a call to <code>popFront</code> or, if thrown during construction, simply allowed to propagate to the caller.</p>
+<h2 class='section api'>asyncBuf(next, empty, initialBufSize, nBuffers)   </h2>
+ <pre><code class='lang-d'>auto asyncBuf( C1, C2 )( C1 next, C2 empty, size_t initialBufSize, size_t nBuffers ) </code></pre><p>Given a callable object <code>next</code> that writes to a user-provided buffer and a second callable object <code>empty</code> that determines whether more data is available to write via <code>next</code> , returns an input range that asynchronously calls <code>next</code> with a set of size <code>nBuffers</code> of buffers and makes the results available in the order they were obtained via the input range interface of the returned object.  Similarly to the input range overload of <code>asyncBuf</code> , the first half of the buffers are made available via the range interface while the second half are filled and vice-versa.</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>next</code> C1  </dt>
+<dd>
+
+
+<p>A callable object that takes a single argument that must be an array with mutable elements.  When called, <code>next</code> writes data to the array provided by the caller.</p>
+
+</dd></dl><p>empty = A callable object that takes no arguments and returns a type implicitly convertible to <code>bool</code> .  This is used to signify that no more data is available to be obtained by calling <code>next</code> .</p>
+<p>initialBufSize = The initial size of each buffer.  If <code>next</code> takes its array by reference, it may resize the buffers.</p>
+<p>nBuffers = The number of buffers to cycle through when calling <code>next</code> .</p>
+<h3 class='section'>Example</h3><p>--- // Fetch lines of a file in a background // thread while processing previously fetched // lines, without duplicating any lines. auto file = File(&quot;foo.txt&quot;);</p>
+<p>void next(ref char[] buf) { file.readln(buf); }</p>
+<p>// Fetch more lines in the background while we // process the lines already read into memory // into a matrix of doubles. double[][] matrix; auto asyncReader = taskPool.asyncBuf(&amp;next, &amp;file.eof);</p>
+<p>foreach (line; asyncReader) { auto ls = line.split(&quot;\t&quot;); matrix ~= to!(double[])(ls); } ---</p>
+<h3 class='section'>$(B Exception Handling)</h3><p>Any exceptions thrown while iterating over <code>range</code> are re-thrown on a call to <code>popFront</code> .</p>
+<h3 class='section'>Warning</h3><p>Using the range returned by this function in a parallel foreach loop will not work because buffers may be overwritten while the task that processes them is in queue.  This is checked for at compile time and will result in a static assertion failure.</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

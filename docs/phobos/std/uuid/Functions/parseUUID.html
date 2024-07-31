@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,17 +88,13 @@
 <h1 class='section'>Overloads for - parseUUID</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.uuid</dd></dl>
 </div><h2 class='section api'>parseUUID(uuidString)   </h2>
- <pre><code class='lang-d'>UUID parseUUID(
-  T uuidString
-) </code></pre><p>This is a less strict parser compared to the parser used in the UUID constructor. It enforces the following rules:</p>
+ <pre><code class='lang-d'>UUID parseUUID( T )( T uuidString ) </code></pre><p>This is a less strict parser compared to the parser used in the UUID constructor. It enforces the following rules:</p>
 <p>$(UL $(LI hex numbers are always two hexdigits([0-9a-fA-F])) $(LI there must be exactly 16 such pairs in the input, not less, not more) $(LI there can be exactly one dash between two hex-pairs, but not more) $(LI there can be multiple characters enclosing the 16 hex pairs, as long as these characters do not contain [0-9a-fA-F]) )</p>
 <h3 class='section'>Note</h3><h3 class='section'>Like most parsers, it consumes its argument. This means</h3><p>------------------------- string s = &quot;8AB3060E-2CBA-4F23-b74c-B52Db3BDFB46&quot;; parseUUID(s); assert(s == &quot;&quot;); -------------------------</p>
 <h3 class='section'>Throws</h3><p>$(LREF UUIDParsingException) if the input is invalid</p>
 <h3 class='section'>CTFE</h3><p>This function is supported in CTFE code. Note that error messages caused by a malformed UUID parsed at compile time can be cryptic, but errors are detected and reported at compile time.</p>
 <h2 class='section api'>parseUUID(uuidRange)   </h2>
- <pre><code class='lang-d'>UUID parseUUID(
-  Range uuidRange
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>UUID parseUUID( Range )( ref Range uuidRange ) </code></pre><p>ditto</p>
 
 </article>
 

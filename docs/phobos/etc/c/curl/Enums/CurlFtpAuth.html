@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,16 +87,16 @@
         <article data-uid="etc.c.curl.Enums.CurlFtpAuth">
 <h1 class='section'>Enum - CurlFtpAuth</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.curl</dd></dl>
-</div><pre><code class='lang-d'>enum CurlFtpAuth
+</div><pre><code class='lang-d'>enum CurlFtpAuth : int
 {
   // let libcurl decide 
-  __enumMember defaultauth;
-  // not an option, never use 
-  __enumMember last;
+  defaultauth,
   // use &quot;AUTH SSL&quot; 
-  __enumMember ssl;
+  ssl,
   // use &quot;AUTH TLS&quot; 
-  __enumMember tls;
+  tls,
+  // not an option, never use 
+  last,
 }</code></pre><h2 class='section'>About</h2><p>parameter for the CURLOPT_FTPSSLAUTH option</p>
 <h2 class='section'>Variables</h2><table>
 <thead>

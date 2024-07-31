@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - randomShuffle</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.random</dd></dl>
 </div><h2 class='section api'>randomShuffle(r, gen)   </h2>
- <pre><code class='lang-d'>Range randomShuffle(
-  Range r,
-  RandomGen gen
-) </code></pre><p>Shuffles elements of <code>r</code> using <code>gen</code> as a shuffler. <code>r</code> must be a random-access range with length.  If no RNG is specified, <code>rndGen</code> will be used.</p>
+ <pre><code class='lang-d'>Range randomShuffle( Range, RandomGen )( Range r, ref RandomGen gen ) </code></pre><p>Shuffles elements of <code>r</code> using <code>gen</code> as a shuffler. <code>r</code> must be a random-access range with length.  If no RNG is specified, <code>rndGen</code> will be used.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>r</code> Range  </dt>
 <dd>
 
@@ -106,9 +103,7 @@
 
 </dd></dl><p>gen = (optional) random number generator to use; if not specified, defaults to <code>rndGen</code> Returns: The shuffled random-access range.</p>
 <h2 class='section api'>randomShuffle(r)   </h2>
- <pre><code class='lang-d'>Range randomShuffle(
-  Range r
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>Range randomShuffle( Range )( Range r ) </code></pre><p>ditto</p>
 
 </article>
 

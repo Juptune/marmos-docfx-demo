@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - tryVisit</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.variant</dd></dl>
 </div><h2 class='section api'>tryVisit(variant)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; tryVisit(
-  VariantType variant
-) auto</code></pre><p>Behaves as $(LREF visit) but doesn't enforce that all types are handled by the visiting functions.</p>
+ <pre><code class='lang-d'>auto tryVisit( VariantType )( VariantType variant ) </code></pre><p>Behaves as $(LREF visit) but doesn't enforce that all types are handled by the visiting functions.</p>
 <p>If a parameter-less function is specified it is called when either <code>variant</code> doesn't hold a value or holds a type which isn't handled by the visiting functions.</p>
 <p>Returns: The return type of tryVisit is deduced from the visiting functions and must be the same across all overloads. Throws: $(LREF VariantException) if <code>variant</code> doesn't hold a value or <code>variant</code> holds a value which isn't handled by the visiting functions, when no parameter-less fallback function is specified.</p>
 

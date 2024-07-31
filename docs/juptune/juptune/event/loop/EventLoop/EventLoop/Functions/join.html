@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - join</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.event.loop.EventLoop</dd></dl><dl><dt>Parent</dt><dd>EventLoop</dd></dl>
 </div><h2 class='section api'>join()   </h2>
- <pre><code class='lang-d'>void join(
-) </code></pre><p>Blocks the current thread until all threads have finished.</p>
+ <pre><code class='lang-d'>void join() </code></pre><p>Blocks the current thread until all threads have finished.</p>
 <p>It should go without saying since this function isn't <code>shared</code> , but this function is not thread-safe.</p>
 <h3 class='section'>Throws</h3><p>If an @gc thread for some reason throws an uncaught exception, an assert will fail. This <em>shouldn't</em> happen unless you somehow bypass the fact that fibers are <code>nothrow</code> .</p>
 

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,29 +87,32 @@
         <article data-uid="std.experimental.allocator.building_blocks.region.Structs.SharedBorrowedRegion">
 <h1 class='section'>Struct - SharedBorrowedRegion</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator.building_blocks.region</dd></dl>
-</div><pre><code class='lang-d'>public struct SharedBorrowedRegion
+</div><pre><code class='lang-d'>struct SharedBorrowedRegion(
+  uint minAlign = platformAlignment,
+  Flag!(&quot;growDownwards&quot;) growDownwards = No.growDownwards
+)
 {
   // Alignment offered. 
-  alias alignment = &lt;todo: marmos support pending&gt;;
+  alias alignment = &lt;todo: marmos support pending&gt;
 
   // Allocates `n` bytes of memory aligned at alignment `a` . 
-  &lt;bug: unknown&gt; alignedAllocate( size_t n, uint a ) ;
+  void[] alignedAllocate( size_t n, uint a ) @nogc @trusted nothrow pure
   // Allocates `n` bytes of memory. The allocation is served by atomically incrementing a pointer which keeps track of the current used space. 
-  &lt;bug: unknown&gt; allocate( size_t n ) ;
+  void[] allocate( size_t n ) @nogc @trusted nothrow pure
   // Deallocates `b` . This works only if `b` was obtained as the last call to `allocate` ; otherwise (i.e. another allocation has occurred since) it does nothing. 
-  bool deallocate( &lt;bug: unknown&gt; b ) ;
+  bool deallocate( void[] b ) @nogc nothrow pure
   // Deallocates all memory allocated by this region, which can be subsequently reused for new allocations. 
-  bool deallocateAll( ) ;
+  bool deallocateAll() @nogc nothrow pure
   // Returns `Ternary.yes` if no memory has been allocated in this region, `Ternary.no` otherwise. (Never returns `Ternary.unknown` .) 
-  Ternary empty( ) ;
+  Ternary empty() @nogc @safe nothrow pure
   // Rounds the given size to a multiple of the `alignment` 
-  size_t goodAllocSize( size_t n ) ;
+  size_t goodAllocSize( size_t n ) @nogc @safe nothrow pure
   // Queries whether `b` has been allocated with this region. 
-  Ternary owns( &lt;bug: unknown&gt; b ) ;
+  Ternary owns( const void[] b ) @nogc @trusted nothrow pure
   // 
-  &lt;bug: unknown&gt; roundedBegin( ) ;
+  void* roundedBegin() @nogc @trusted nothrow pure
   // 
-  &lt;bug: unknown&gt; roundedEnd( ) ;
+  void* roundedEnd() @nogc @trusted nothrow pure
 }</code></pre><h2 class='section'>About</h2><p>A <code>SharedBorrowedRegion</code> allocates directly from a user-provided block of memory.</p>
 <p>Unlike a <code>SharedRegion</code> , a <code>SharedBorrowedRegion</code> does not own the memory it allocates from and will not deallocate that memory upon destruction. Instead, it is the user's responsibility to ensure that the memory is properly disposed of.</p>
 <p>In all other respects, a <code>SharedBorrowedRegion</code> behaves exactly like a <code>SharedRegion</code> .</p>

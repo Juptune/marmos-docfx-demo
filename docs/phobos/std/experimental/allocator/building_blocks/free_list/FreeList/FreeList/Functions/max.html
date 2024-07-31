@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,12 +88,9 @@
 <h1 class='section'>Overloads for - max</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator.building_blocks.free_list.FreeList</dd></dl><dl><dt>Parent</dt><dd>FreeList</dd></dl>
 </div><h2 class='section api'>max()   </h2>
- <pre><code class='lang-d'>size_t max(
-) </code></pre><p>Returns the largest allocation size eligible for allocation from the freelist. (If $(D maxSize != chooseAtRuntime), this is simply an alias for <code>maxSize</code> .) All allocation requests for sizes greater than or equal to <code>min</code> and less than or equal to <code>max</code> are rounded to $(D max) and forwarded to the parent allocator. When the block fitting the same constraint gets deallocated, it is put in the freelist with the allocated size assumed to be <code>max</code> .</p>
+ <pre><code class='lang-d'>size_t max() @property</code></pre><p>Returns the largest allocation size eligible for allocation from the freelist. (If $(D maxSize != chooseAtRuntime), this is simply an alias for <code>maxSize</code> .) All allocation requests for sizes greater than or equal to <code>min</code> and less than or equal to <code>max</code> are rounded to $(D max) and forwarded to the parent allocator. When the block fitting the same constraint gets deallocated, it is put in the freelist with the allocated size assumed to be <code>max</code> .</p>
 <h2 class='section api'>max(high)   </h2>
- <pre><code class='lang-d'>void max(
-  size_t high
-) </code></pre><p>If <code>FreeList</code> has been instantiated with $(D maxSize == chooseAtRuntime), then the <code>max</code> property is writable. Setting it must precede any allocation.</p>
+ <pre><code class='lang-d'>void max( size_t high ) @property</code></pre><p>If <code>FreeList</code> has been instantiated with $(D maxSize == chooseAtRuntime), then the <code>max</code> property is writable. Setting it must precede any allocation.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>high</code> size_t  </dt>
 <dd>
 

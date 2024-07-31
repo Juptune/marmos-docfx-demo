@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,7 +90,7 @@
 </div><pre><code class='lang-d'>template Unique
 {
   // 
-  alias Unique = &lt;todo: marmos support pending&gt;;
+  alias Unique = &lt;todo: marmos support pending&gt;
 }</code></pre><h2 class='section'>About</h2><p>Evaluates to an $(LREF AliasSeq) which contains no duplicate elements.</p>
 <p>Unique takes a binary template predicate that it uses to compare elements for equality. If the predicate is $(D true) when an element in the given $(LREF AliasSeq) is compared with an element with a lower index, then that element is not included in the result (so if any elements in the $(LREF AliasSeq) are considered equal per the predicate, then only the first one is included in the result).</p>
 <p>Note that the binary predicate must be partially instantiable, e.g. --- alias PartialCmp = Cmp!(Args[0]); enum same = PartialCmp!(Args[1]); --- Otherwise, it won't work.</p>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - isFile</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.file.DirEntry</dd></dl><dl><dt>Parent</dt><dd>DirEntry</dd></dl>
 </div><h2 class='section api'>isFile()   </h2>
- <pre><code class='lang-d'>bool isFile(
-) </code></pre><p>Returns whether the file represented by this <code>DirEntry</code> is a file.</p>
+ <pre><code class='lang-d'>bool isFile() @property scope</code></pre><p>Returns whether the file represented by this <code>DirEntry</code> is a file.</p>
 <p>On Windows, if a file is not a directory, then it's a file. So, either <code>isFile</code> or <code>isDir</code> will return <code>true</code> .</p>
 <p>On POSIX systems, if <code>isFile</code> is <code>true</code> , that indicates that the file is a regular file (e.g. not a block not device). So, on POSIX systems, it's possible for both <code>isFile</code> and <code>isDir</code> to be <code>false</code> for a particular file (in which case, it's a special file). You can use <code>attributes</code> or <code>statBuf</code> to get more information about a special file (see the stat man page for more details).</p>
 <p>Example: -------------------- auto de1 = DirEntry(&quot;/etc/fonts/fonts.conf&quot;); assert(de1.isFile);</p>

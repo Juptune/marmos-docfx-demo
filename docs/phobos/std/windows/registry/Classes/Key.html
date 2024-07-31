@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,50 +90,50 @@
 </div><pre><code class='lang-d'>public class Key
 {
   // Returns the named sub-key of this key. 
-  Key createKey( string name, REGSAM access ) ;
+  Key createKey( string name, REGSAM access ) 
   // Deletes the named key. 
-  void deleteKey( string name, REGSAM access ) ;
+  void deleteKey( string name, REGSAM access ) 
   // Deletes the named value. 
-  void deleteValue( string name ) ;
+  void deleteValue( string name ) 
   // Flushes any changes to the key to disk. 
-  void flush( ) ;
+  void flush() 
   // Returns the named sub-key of this key. 
-  Key getKey( string name, REGSAM access ) ;
+  Key getKey( string name, REGSAM access ) 
   // Returns the named value. If `name` is the empty string, then the default value is returned. 
-  Value getValue( string name ) ;
+  Value getValue( string name ) 
   // The number of sub keys. 
-  size_t keyCount( ) ;
+  size_t keyCount() @property
   // An enumerable sequence of the names of all the sub-keys of this key. 
-  KeyNameSequence keyNames( ) ;
+  KeyNameSequence keyNames() @property @safe pure
   // An enumerable sequence of all the sub-keys of this key. 
-  KeySequence keys( ) ;
+  KeySequence keys() @property @safe pure
   // The name of the key 
-  string name( ) ;
+  string name() @property @safe nothrow pure
   // Sets the named value with the given 32-bit unsigned integer value. 
-  void setValue( string name, uint value ) ;
+  void setValue( string name, uint value ) 
   // Sets the named value with the given 32-bit unsigned integer value, according to the desired byte-ordering. 
-  void setValue( string name, uint value, Endian endian ) ;
+  void setValue( string name, uint value, Endian endian ) 
   // Sets the named value with the given 64-bit unsigned integer value. 
-  void setValue( string name, ulong value ) ;
+  void setValue( string name, ulong value ) 
   // Sets the named value with the given string value. 
-  void setValue( string name, string value ) ;
+  void setValue( string name, string value ) 
   // Sets the named value with the given string value. 
-  void setValue( string name, string value, bool asEXPAND_SZ ) ;
+  void setValue( string name, string value, bool asEXPAND_SZ ) 
   // Sets the named value with the given multiple-strings value. 
-  void setValue( string name, &lt;bug: unknown&gt; value ) ;
+  void setValue( string name, string[] value ) 
   // Sets the named value with the given binary value. 
-  void setValue( string name, &lt;bug: unknown&gt; value ) ;
+  void setValue( string name, byte[] value ) 
   // The number of values. 
-  size_t valueCount( ) ;
+  size_t valueCount() @property
   // An enumerable sequence of the names of all the values of this key. 
-  ValueNameSequence valueNames( ) ;
+  ValueNameSequence valueNames() @property @safe pure
   // An enumerable sequence of all the values of this key. 
-  ValueSequence values( ) ;
+  ValueSequence values() @property @safe pure
 
   // 
-  HKEY m_hkey;
+  HKEY m_hkey
   // 
-  string m_name;
+  string m_name
 }</code></pre><h2 class='section'>About</h2><p>This class represents a registry key.</p>
 <h2 class='section'>Functions</h2><table>
 <thead>

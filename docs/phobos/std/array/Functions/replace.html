@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,12 +88,8 @@
 <h1 class='section'>Overloads for - replace</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.array</dd></dl>
 </div><h2 class='section api'>replace(subject, from, to)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; replace(
-  &lt;bug: unknown&gt; subject,
-  R1 from,
-  R2 to
-) </code></pre><p>Replace occurrences of <code>from</code> with <code>to</code> in <code>subject</code> in a new array.</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>subject</code> &lt;bug: unknown&gt;  </dt>
+ <pre><code class='lang-d'>E[] replace( E, R1, R2 )( E[] subject, R1 from, R2 to ) </code></pre><p>Replace occurrences of <code>from</code> with <code>to</code> in <code>subject</code> in a new array.</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>subject</code> E[]  </dt>
 <dd>
 
 
@@ -114,13 +110,8 @@
 </dd></dl><h3 class='section'>Returns</h3><p>A new array without changing the contents of <code>subject</code> , or the original array if no match is found.</p>
 <h3 class='section'>See_Also</h3><p>$(REF substitute, std,algorithm,iteration) for a lazy replace.</p>
 <h2 class='section api'>replace(subject, from, to, changed)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; replace(
-  &lt;bug: unknown&gt; subject,
-  R1 from,
-  R2 to,
-  size_t changed
-) </code></pre><p>Replace occurrences of <code>from</code> with <code>to</code> in <code>subject</code> in a new array. <code>changed</code> counts how many replacements took place.</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>subject</code> &lt;bug: unknown&gt;  </dt>
+ <pre><code class='lang-d'>E[] replace( E, R1, R2 )( E[] subject, R1 from, R2 to, ref size_t changed ) </code></pre><p>Replace occurrences of <code>from</code> with <code>to</code> in <code>subject</code> in a new array. <code>changed</code> counts how many replacements took place.</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>subject</code> E[]  </dt>
 <dd>
 
 
@@ -146,13 +137,8 @@
 
 </dd></dl><h3 class='section'>Returns</h3><p>A new array without changing the contents of <code>subject</code> , or the original array if no match is found.</p>
 <h2 class='section api'>replace(subject, from, to, stuff)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; replace(
-  &lt;bug: unknown&gt; subject,
-  size_t from,
-  size_t to,
-  Range stuff
-) </code></pre><p>Replaces elements from <code>array</code> with indices ranging from <code>from</code> (inclusive) to <code>to</code> (exclusive) with the range <code>stuff</code> .</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>subject</code> &lt;bug: unknown&gt;  </dt>
+ <pre><code class='lang-d'>T[] replace( T, Range )( T[] subject, size_t from, size_t to, Range stuff ) </code></pre><p>Replaces elements from <code>array</code> with indices ranging from <code>from</code> (inclusive) to <code>to</code> (exclusive) with the range <code>stuff</code> .</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>subject</code> T[]  </dt>
 <dd>
 
 

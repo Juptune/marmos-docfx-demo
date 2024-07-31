@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,16 +87,16 @@
         <article data-uid="etc.c.curl.Enums.CurlKHMatch">
 <h1 class='section'>Enum - CurlKHMatch</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.curl</dd></dl>
-</div><pre><code class='lang-d'>enum CurlKHMatch
+</div><pre><code class='lang-d'>enum CurlKHMatch : int
 {
-  // not for use, only a marker for last-in-list 
-  __enumMember last;
-  // host found, key mismatch! 
-  __enumMember mismatch;
-  // no matching host/key found 
-  __enumMember missing;
   // match 
-  __enumMember ok;
+  ok,
+  // host found, key mismatch! 
+  mismatch,
+  // no matching host/key found 
+  missing,
+  // not for use, only a marker for last-in-list 
+  last,
 }</code></pre><h2 class='section'>About</h2><p>this is the set of status codes pass in to the callback</p>
 <h2 class='section'>Variables</h2><table>
 <thead>

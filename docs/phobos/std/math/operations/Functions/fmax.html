@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - fmax</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.math.operations</dd></dl>
 </div><h2 class='section api'>fmax(x, y)   </h2>
- <pre><code class='lang-d'>F fmax(
-  F x,
-  F y
-) </code></pre><p>Returns the larger of <code>x</code> and <code>y</code> .</p>
+ <pre><code class='lang-d'>F fmax( F )( const F x, const F y ) @nogc @safe nothrow pure</code></pre><p>Returns the larger of <code>x</code> and <code>y</code> .</p>
 <p>If one of the arguments is a <code>NaN</code> , the other is returned.</p>
 <p>See_Also: $(REF max, std,algorithm,comparison) is faster because it does not perform the <code>isNaN</code> test.</p>
 

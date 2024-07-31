@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - peek</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.bitmanip</dd></dl>
 </div><h2 class='section api'>peek(range)   </h2>
- <pre><code class='lang-d'>T peek(
-  R range
-) </code></pre><p>Takes a range of <code>ubyte</code> s and converts the first <code>T.sizeof</code> bytes to <code>T</code> . The value returned is converted from the given endianness to the native endianness. The range is not consumed.</p>
+ <pre><code class='lang-d'>T peek( T, Endian endianness = Endian.bigEndian, R )( R range ) </code></pre><p>Takes a range of <code>ubyte</code> s and converts the first <code>T.sizeof</code> bytes to <code>T</code> . The value returned is converted from the given endianness to the native endianness. The range is not consumed.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>T</code> &lt;parameter not found&gt;  </dt>
 <dd>
 
@@ -116,15 +114,9 @@
 <p>The index to start reading from (instead of starting at the front). If index is a pointer, then it is updated to the index after the bytes read. The overloads with index are only available if <code>hasSlicing!R</code> is <code>true</code> .</p>
 
 </dd></dl><h2 class='section api'>peek(range, index)   </h2>
- <pre><code class='lang-d'>T peek(
-  R range,
-  size_t index
-) </code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>T peek( T, Endian endianness = Endian.bigEndian, R )( R range, size_t index ) </code></pre><p>Ditto</p>
 <h2 class='section api'>peek(range, index)   </h2>
- <pre><code class='lang-d'>T peek(
-  R range,
-  &lt;bug: unknown&gt; index
-) </code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>T peek( T, Endian endianness = Endian.bigEndian, R )( R range, size_t* index ) </code></pre><p>Ditto</p>
 
 </article>
 

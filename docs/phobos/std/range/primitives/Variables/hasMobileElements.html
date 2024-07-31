@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,7 @@
 <h1 class='section'>Variable - hasMobileElements</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range.primitives</dd></dl>
 </div><h2 class='section api'>hasMobileElements   </h2>
- <pre><code class='lang-d'>bool hasMobileElements</code></pre><h2 class='section'>About</h2><p>Returns <code>true</code> iff <code>R</code> is an input range that supports the <code>moveFront</code> primitive, as well as <code>moveBack</code> and <code>moveAt</code> if it's a bidirectional or random access range. These may be explicitly implemented, or may work via the default behavior of the module level functions <code>moveFront</code> and friends. The following code should compile for any range with mobile elements.</p>
+ <pre><code class='lang-d'>bool hasMobileElements = isInputRange!R &amp;&amp; is(typeof(moveFront(lvalueOf!R)) == ElementType!R) &amp;&amp; (!isBidirectionalRange!R || is(typeof(moveBack(lvalueOf!R)) == ElementType!R)) &amp;&amp; (!isRandomAccessRange!R || is(typeof(moveAt(lvalueOf!R, 0)) == ElementType!R))</code></pre><h2 class='section'>About</h2><p>Returns <code>true</code> iff <code>R</code> is an input range that supports the <code>moveFront</code> primitive, as well as <code>moveBack</code> and <code>moveAt</code> if it's a bidirectional or random access range. These may be explicitly implemented, or may work via the default behavior of the module level functions <code>moveFront</code> and friends. The following code should compile for any range with mobile elements.</p>
 <p>---- alias E = ElementType!R; R r; static assert(isInputRange!R); static assert(is(typeof(moveFront(r)) == E)); static if (isBidirectionalRange!R) static assert(is(typeof(moveBack(r)) == E)); static if (isRandomAccessRange!R) static assert(is(typeof(moveAt(r, 0)) == E)); ----</p>
 
 </article>

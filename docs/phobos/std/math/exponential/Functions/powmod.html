@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,11 +88,7 @@
 <h1 class='section'>Overloads for - powmod</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.math.exponential</dd></dl>
 </div><h2 class='section api'>powmod(x, n, m)   </h2>
- <pre><code class='lang-d'>Unqual!(Largest!(F, H)) powmod(
-  F x,
-  G n,
-  H m
-) </code></pre><p>Computes the value of a positive integer <code>x</code> , raised to the power <code>n</code> , modulo <code>m</code> .</p>
+ <pre><code class='lang-d'>Unqual!(Largest!(F, H)) powmod( F, G, H )( F x, G n, H m ) </code></pre><p>Computes the value of a positive integer <code>x</code> , raised to the power <code>n</code> , modulo <code>m</code> .</p>
 <p>Params: x = base n = exponent m = modulus</p>
 <p>Returns: <code>x</code> to the power <code>n</code> , modulo <code>m</code> . The return type is the largest of <code>x</code> 's and <code>m</code> 's type.</p>
 <p>The function requires that all values have unsigned types.</p>

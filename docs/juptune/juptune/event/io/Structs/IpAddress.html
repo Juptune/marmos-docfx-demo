@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,26 +90,55 @@
 </div><pre><code class='lang-d'>public struct IpAddress
 {
   // The raw IPv4 address in network order. 
-  uint asIpv4( ) ;
+  uint asIpv4() @safe pure
   // The raw IPv6 address in network order. 
-  &lt;bug: unknown&gt; asIpv6( ) ;
+  ubyte[16] asIpv6() @safe pure
   // 
-  void asSocketAddr( &lt;bug: unknown&gt; used, size_t usedLength, sockaddr_in ipv4, sockaddr_in6 ipv6 ) ;
+  void asSocketAddr(
+    ref sockaddr* used,
+    ref size_t usedLength,
+    ref sockaddr_in ipv4,
+    ref sockaddr_in6 ipv6
+  ) @trusted
   // 
-  Kind kind( ) ;
+  Kind kind() @safe pure
   // 
-  IpAddress mustParse( &lt;bug: unknown&gt; address, ushort defaultPort ) static;
+  static IpAddress mustParse( const scope char[] address, ushort defaultPort ) 
   // Parses an IPv4 or IPv6 address string into an `IpAddress` object. 
-  Result parse( IpAddress ip, &lt;bug: unknown&gt; address, ushort defaultPort ) static;
+  static Result parse(
+    out scope IpAddress ip,
+    const scope char[] address,
+    ushort defaultPort
+  ) @trusted
   // Converts the current address into an IPv6 address. 
-  IpAddress toIpv6( ) ;
+  IpAddress toIpv6() @trusted pure
+  // 
+  void toString( Sink )( auto ref scope Sink sink, bool withPort ) 
   // Creates a copy of this `IpAddress` with the given port. 
-  IpAddress withPort( ushort port ) ;
+  IpAddress withPort( ushort port ) @safe pure
 
   // The port represented by the IP address. A value of 0 can mean either &quot;explicit 0&quot; or &quot;no port was provided&quot;. 
-  ushort port;
+  ushort port
 }</code></pre><h2 class='section'>About</h2><p>Non-IO helper structs</p>
 <p>Describe and IP address. Supports IPv4 and IPv6.</p>
+<h2 class='section'>Enums</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../IpAddress/IpAddress/Enums/Error.html">Error</a></td>
+<td><code>Result</code> error enum</td>
+</tr>
+<tr>
+<td><a href="../IpAddress/IpAddress/Enums/Kind.html">Kind</a></td>
+<td>Which IP version the address is for.</td>
+</tr>
+</tbody>
+</table>
 <h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -145,6 +174,10 @@
 <tr>
 <td><a href="../IpAddress/IpAddress/Functions/toIpv6.html">toIpv6</a></td>
 <td>Converts the current address into an IPv6 address.</td>
+</tr>
+<tr>
+<td><a href="../IpAddress/IpAddress/Functions/toString.html">toString</a></td>
+<td></td>
 </tr>
 <tr>
 <td><a href="../IpAddress/IpAddress/Functions/withPort.html">withPort</a></td>

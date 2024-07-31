@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,66 +90,100 @@
 </div><pre><code class='lang-d'>public struct JSONValue
 {
   // Value getter/setter for `JSONType.array` . Throws: `JSONException` for read access if `type` is not `JSONType.array` . Note: This is @system because of the following pattern: --- auto a = &amp;(json.array()); json.uinteger = 0;  // overwrite array pointer (*a)[0] = &quot;world&quot;;  // segmentation fault --- 
-  &lt;bug: unknown&gt; array( ) ;
+  ref JSONValue[] array() @property @system scope return pure
   // ditto 
-  &lt;bug: unknown&gt; array( &lt;bug: unknown&gt; v ) ;
+  JSONValue[] array(
+    scope return ref return ref scope JSONValue[] v
+  ) @nogc @property @trusted nothrow scope pure
   // Value getter for `JSONType.array` . Unlike `array` , this retrieves the array by value and can be used in @safe code. 
-  &lt;bug: unknown&gt; arrayNoRef( ) ;
-  // Value getter/setter for boolean stored in JSON. Throws: `JSONException` for read access if `this.type` is not `JSONType.true_` or `JSONType.false_` . 
-  bool boolean( ) ;
-  // ditto 
-  bool boolean( bool v ) ;
-  // Value getter/setter for `JSONType.float_` . Note that despite the name, this is a $(B 64)-bit `double` , not a 32-bit `float` . Throws: `JSONException` for read access if `type` is not `JSONType.float_` . 
-  double floating( ) ;
-  // ditto 
-  double floating( double v ) ;
-  // Value getter/setter for `JSONType.integer` . Throws: `JSONException` for read access if `type` is not `JSONType.integer` . 
-  long integer( ) ;
-  // ditto 
-  long integer( long v ) ;
-  // Test whether the type is `JSONType.null_` 
-  bool isNull( ) ;
-  // Value getter/setter for `JSONType.object` . Throws: `JSONException` for read access if `type` is not `JSONType.object` . Note: This is @system because of the following pattern: --- auto a = &amp;(json.object()); json.uinteger = 0;        // overwrite AA pointer (*a)[&quot;hello&quot;] = &quot;world&quot;;  // segmentation fault --- 
-  &lt;bug: unknown&gt; object( ) ;
-  // ditto 
-  &lt;bug: unknown&gt; object( &lt;bug: unknown&gt; v ) ;
-  // Value getter for `JSONType.object` . Unlike `object` , this retrieves the object by value and can be used in @safe code. 
-  &lt;bug: unknown&gt; objectNoRef( ) ;
-  // Implements the foreach `opApply` interface for json arrays. 
-  int opApply( &lt;bug: unknown&gt; dg ) ;
-  // Implements the foreach `opApply` interface for json objects. 
-  int opApply( &lt;bug: unknown&gt; dg ) ;
+  JSONValue[] arrayNoRef() @property @trusted pure
   // 
-  bool opEquals( JSONValue rhs ) ;
+  void assign( T )( T arg ) 
+  // 
+  void assignRef( T )( ref T arg ) 
+  // Value getter/setter for boolean stored in JSON. Throws: `JSONException` for read access if `this.type` is not `JSONType.true_` or `JSONType.false_` . 
+  bool boolean() @property @safe pure
   // ditto 
-  bool opEquals( JSONValue rhs ) ;
+  bool boolean( bool v ) @nogc @property @safe nothrow pure
+  // Value getter/setter for `JSONType.float_` . Note that despite the name, this is a $(B 64)-bit `double` , not a 32-bit `float` . Throws: `JSONException` for read access if `type` is not `JSONType.float_` . 
+  double floating() @property @safe pure
+  // ditto 
+  double floating( double v ) @nogc @property @safe nothrow pure
+  // A convenience getter that returns this `JSONValue` as the specified D type. Note: Only numeric types, `bool` , `string` , `JSONValue[string]` , and `JSONValue[]` types are accepted Throws: `JSONException` if `T` cannot hold the contents of this `JSONValue` `ConvException` in case of integer overflow when converting to `T` 
+  T get( T )() @property @safe pure
+  // 
+  T get( T : JSONValue[] )() @property @trusted pure
+  // ditto 
+  T get( T : JSONValue[string] )() @property @trusted pure
+  // Value getter/setter for `JSONType.integer` . Throws: `JSONException` for read access if `type` is not `JSONType.integer` . 
+  long integer() @property @safe pure
+  // ditto 
+  long integer( long v ) @nogc @property @safe nothrow pure
+  // Test whether the type is `JSONType.null_` 
+  bool isNull() @nogc @property @safe nothrow pure
+  // Value getter/setter for `JSONType.object` . Throws: `JSONException` for read access if `type` is not `JSONType.object` . Note: This is @system because of the following pattern: --- auto a = &amp;(json.object()); json.uinteger = 0;        // overwrite AA pointer (*a)[&quot;hello&quot;] = &quot;world&quot;;  // segmentation fault --- 
+  ref JSONValue[string] object() @property @system return pure
+  // ditto 
+  JSONValue[string] object(
+    scope return ref return ref scope JSONValue[string] v
+  ) @nogc @property @trusted nothrow pure
+  // Value getter for `JSONType.object` . Unlike `object` , this retrieves the object by value and can be used in @safe code. 
+  JSONValue[string] objectNoRef() @property @trusted pure
+  // Implements the foreach `opApply` interface for json arrays. 
+  int opApply( scope &lt;bug: unknown&gt; dg ) @system
+  // Implements the foreach `opApply` interface for json objects. 
+  int opApply( scope &lt;bug: unknown&gt; dg ) @system
+  // 
+  void opAssign( T )( T arg ) 
+  // 
+  void opAssign( T )( ref T arg ) 
+  // 
+  JSONValue opBinary( string op, T )( T arg ) 
+  // Provides support for the `in` operator. 
+  JSONValue* opBinaryRight( string op )( string k ) @safe
+  // Compare two JSONValues for equality 
+  bool opEquals( const JSONValue rhs ) @nogc @safe nothrow pure
+  // ditto 
+  bool opEquals( const ref JSONValue rhs ) @nogc @trusted nothrow pure
   // Array syntax for JSON arrays. Throws: `JSONException` if `type` is not `JSONType.array` . 
-  JSONValue opIndex( size_t i ) ;
+  ref JSONValue opIndex( size_t i ) @safe pure
   // Hash syntax for JSON objects. Throws: `JSONException` if `type` is not `JSONType.object` . 
-  JSONValue opIndex( string k ) ;
+  ref JSONValue opIndex( scope return ref return ref scope string k ) @safe pure
+  // Provides support for index assignments, which sets the corresponding value of the JSON object&#39;s `key` field to `value` . 
+  void opIndexAssign( T )( auto ref T value, string key ) 
+  // ditto 
+  void opIndexAssign( T )( T arg, size_t i ) 
+  // 
+  void opOpAssign( string op, T )( T arg ) 
   // Value getter/setter for `JSONType.string` . Throws: `JSONException` for read access if `type` is not `JSONType.string` . 
-  string str( ) ;
+  ref string str() @property @trusted scope return scope pure
   // ditto 
-  string str( string v ) ;
+  ref string str(
+    scope return ref return ref scope string v
+  ) @nogc @property @trusted nothrow return pure
   // Implicitly calls `toJSON` on this JSONValue, like `toString` , but also passes $(I true) as $(I pretty) argument. 
-  string toPrettyString( JSONOptions options ) ;
+  string toPrettyString( in JSONOptions options ) @safe
+  // 
+  void toPrettyString( Out )( Out sink, in JSONOptions options ) 
   // Implicitly calls `toJSON` on this JSONValue. 
-  string toString( JSONOptions options ) ;
+  string toString( in JSONOptions options ) @safe
+  // 
+  void toString( Out )( Out sink, in JSONOptions options ) 
   // Returns the JSONType of the value stored in this structure. 
-  JSONType type( ) ;
+  JSONType type() @nogc @property @safe nothrow pure
   // Value getter/setter for `JSONType.uinteger` . Throws: `JSONException` for read access if `type` is not `JSONType.uinteger` . 
-  ulong uinteger( ) ;
+  ulong uinteger() @property @safe pure
   // ditto 
-  ulong uinteger( ulong v ) ;
+  ulong uinteger( ulong v ) @nogc @property @safe nothrow pure
 
   // An enum value that can be used to obtain a `JSONValue` representing an empty JSON array. 
-  __enumMember emptyArray;
+  &lt;enum or auto&gt; emptyArray = JSONValue(JSONValue[].init)
   // An enum value that can be used to obtain a `JSONValue` representing an empty JSON object. 
-  __enumMember emptyObject;
+  &lt;enum or auto&gt; emptyObject = JSONValue(string[string].init)
   // 
-  Store store;
+  Store store
   // 
-  JSONType type_tag;
+  JSONType type_tag
 }</code></pre><h2 class='section'>About</h2><p>JSON value node</p>
 <h2 class='section'>Functions</h2><table>
 <thead>
@@ -168,12 +202,24 @@
 <td>Value getter for <code>JSONType.array</code> . Unlike <code>array</code> , this retrieves the array by value and can be used in @safe code.</td>
 </tr>
 <tr>
+<td><a href="../JSONValue/JSONValue/Functions/assign.html">assign</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../JSONValue/JSONValue/Functions/assignRef.html">assignRef</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../JSONValue/JSONValue/Functions/boolean.html">boolean</a></td>
 <td>Value getter/setter for boolean stored in JSON. Throws: <code>JSONException</code> for read access if <code>this.type</code> is not <code>JSONType.true_</code> or <code>JSONType.false_</code> .</td>
 </tr>
 <tr>
 <td><a href="../JSONValue/JSONValue/Functions/floating.html">floating</a></td>
 <td>Value getter/setter for <code>JSONType.float_</code> . Note that despite the name, this is a $(B 64)-bit <code>double</code> , not a 32-bit <code>float</code> . Throws: <code>JSONException</code> for read access if <code>type</code> is not <code>JSONType.float_</code> .</td>
+</tr>
+<tr>
+<td><a href="../JSONValue/JSONValue/Functions/get.html">get</a></td>
+<td>A convenience getter that returns this <code>JSONValue</code> as the specified D type. Note: Only numeric types, <code>bool</code> , <code>string</code> , <code>JSONValue[string]</code> , and <code>JSONValue[]</code> types are accepted Throws: <code>JSONException</code> if <code>T</code> cannot hold the contents of this <code>JSONValue</code> <code>ConvException</code> in case of integer overflow when converting to <code>T</code></td>
 </tr>
 <tr>
 <td><a href="../JSONValue/JSONValue/Functions/integer.html">integer</a></td>
@@ -196,12 +242,32 @@
 <td>Implements the foreach <code>opApply</code> interface for json arrays.</td>
 </tr>
 <tr>
-<td><a href="../JSONValue/JSONValue/Functions/opEquals.html">opEquals</a></td>
+<td><a href="../JSONValue/JSONValue/Functions/opAssign.html">opAssign</a></td>
 <td></td>
+</tr>
+<tr>
+<td><a href="../JSONValue/JSONValue/Functions/opBinary.html">opBinary</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../JSONValue/JSONValue/Functions/opBinaryRight.html">opBinaryRight</a></td>
+<td>Provides support for the <code>in</code> operator.</td>
+</tr>
+<tr>
+<td><a href="../JSONValue/JSONValue/Functions/opEquals.html">opEquals</a></td>
+<td>Compare two JSONValues for equality</td>
 </tr>
 <tr>
 <td><a href="../JSONValue/JSONValue/Functions/opIndex.html">opIndex</a></td>
 <td>Array syntax for JSON arrays. Throws: <code>JSONException</code> if <code>type</code> is not <code>JSONType.array</code> .</td>
+</tr>
+<tr>
+<td><a href="../JSONValue/JSONValue/Functions/opIndexAssign.html">opIndexAssign</a></td>
+<td>Provides support for index assignments, which sets the corresponding value of the JSON object's <code>key</code> field to <code>value</code> .</td>
+</tr>
+<tr>
+<td><a href="../JSONValue/JSONValue/Functions/opOpAssign.html">opOpAssign</a></td>
+<td></td>
 </tr>
 <tr>
 <td><a href="../JSONValue/JSONValue/Functions/str.html">str</a></td>
@@ -222,6 +288,20 @@
 <tr>
 <td><a href="../JSONValue/JSONValue/Functions/uinteger.html">uinteger</a></td>
 <td>Value getter/setter for <code>JSONType.uinteger</code> . Throws: <code>JSONException</code> for read access if <code>type</code> is not <code>JSONType.uinteger</code> .</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Unions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../JSONValue/JSONValue/Unions/Store.html">Store</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>

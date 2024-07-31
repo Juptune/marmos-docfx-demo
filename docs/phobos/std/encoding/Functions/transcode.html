@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,19 +88,16 @@
 <h1 class='section'>Overloads for - transcode</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.encoding</dd></dl>
 </div><h2 class='section api'>transcode(s, r)   </h2>
- <pre><code class='lang-d'>void transcode(
-  &lt;bug: unknown&gt; s,
-  &lt;bug: unknown&gt; r
-) </code></pre><p>Convert a string from one encoding to another.</p>
+ <pre><code class='lang-d'>void transcode( Src, Dst )( Src[] s, out Dst[] r ) </code></pre><p>Convert a string from one encoding to another.</p>
 <h3 class='section'>Supersedes</h3><p>This function supersedes std.utf.toUTF8(), std.utf.toUTF16() and std.utf.toUTF32() (but note that to!() supersedes it more conveniently).</p>
 <p>Standards: Unicode 5.0, ASCII, ISO-8859-1, ISO-8859-2, WINDOWS-1250, WINDOWS-1251, WINDOWS-1252</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>s</code> &lt;bug: unknown&gt;  </dt>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>s</code> Src[]  </dt>
 <dd>
 
 
 <p>Source string. $(B Must) be validly encoded. This is enforced by the function's in-contract.</p>
 
-</dd><dt><code>r</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>r</code> Dst[]  </dt>
 <dd>
 
 

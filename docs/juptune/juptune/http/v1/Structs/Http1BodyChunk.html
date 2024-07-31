@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,20 +90,20 @@
 </div><pre><code class='lang-d'>public struct Http1BodyChunk
 {
   // Accesses the body chunk data. 
-  void access( &lt;bug: unknown&gt; func ) ;
+  void access( scope &lt;bug: unknown&gt; func ) @safe nothrow
   // ditto. 
-  void access( &lt;bug: unknown&gt; func ) ;
+  void access( scope &lt;bug: unknown&gt; func ) @nogc @safe nothrow
   // Determines if there&#39;s more data left to read from the body. 
-  bool hasDataLeft( ) ;
+  bool hasDataLeft() @nogc @safe nothrow
 
   // 
-  &lt;bug: unknown&gt; data;
+  ubyte[] data
   // 
-  bool dataLeft;
+  bool dataLeft
   // 
-  Http1PinnedSlice entireChunk;
+  Http1PinnedSlice entireChunk
   // 
-  &lt;bug: unknown&gt; extensionLine;
+  char[] extensionLine
 }</code></pre><h2 class='section'>About</h2><p>Contains the contents of a body chunk.</p>
 <h3 class='section'>Notes</h3><p>This struct contains a pinned slice of the Http1Reader's buffer, so after processing the body chunk, the user code must release the slice by destroying the struct (e.g. setting it to <code>.init</code> , letting it go out of scope, etc.)</p>
 <p>In order to make it as clear as possible that data from this struct must not** be escaped, the <code>access</code> method is provided which enforces via the type system that string data is not escaped.</p>

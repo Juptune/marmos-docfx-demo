@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - mapTrieIndex</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.uni</dd></dl>
 </div><h2 class='section api'>mapTrieIndex(key)   </h2>
- <pre><code class='lang-d'>size_t mapTrieIndex(
-  Key key
-) </code></pre><p>Maps <code>Key</code> to a suitable integer index within the range of <code>size_t</code> . The mapping is constructed by applying predicates from <code>Prefix</code> left to right and concatenating the resulting bits.</p>
+ <pre><code class='lang-d'>size_t mapTrieIndex( Key )( Key key ) </code></pre><p>Maps <code>Key</code> to a suitable integer index within the range of <code>size_t</code> . The mapping is constructed by applying predicates from <code>Prefix</code> left to right and concatenating the resulting bits.</p>
 <p>The first (leftmost) predicate defines the most significant bits of the resulting index.</p>
 
 </article>

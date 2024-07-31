@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,62 +87,62 @@
         <article data-uid="phobos.sys.system.Enums.ISA">
 <h1 class='section'>Enum - ISA</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>phobos.sys.system</dd></dl>
-</div><pre><code class='lang-d'>enum ISA
+</div><pre><code class='lang-d'>enum ISA : int
 {
-  // The Advanced RISC Machine architecture (64-bit) 
-  __enumMember aarch64;
-  // The Alpha architecture 
-  __enumMember alpha;
-  // The ARM architecture (32-bit) (AArch32 et al) 
-  __enumMember arm;
-  // The asm.js intermediate programming language 
-  __enumMember asmJS;
-  // 8-bit Atmel AVR Microcontrollers 
-  __enumMember avr;
-  // The Epiphany architecture 
-  __enumMember epiphany;
-  // The HP PA-RISC architecture, 32-bit 
-  __enumMember hppa;
-  // The HP PA-RISC architecture, 64-bit 
-  __enumMember hppa64;
-  // The Itanium architecture (64-bit) 
-  __enumMember ia64;
-  // The MIPS architecture, 32-bit 
-  __enumMember mips32;
-  // The MIPS architecture, 64-bit 
-  __enumMember mips64;
-  // The MSP430 architecture 
-  __enumMember msp430;
-  // The Nvidia Parallel Thread Execution (PTX) architecture, 32-bit 
-  __enumMember nvptx;
-  // The Nvidia Parallel Thread Execution (PTX) architecture, 64-bit 
-  __enumMember nvptx64;
-  // The PowerPC architecture, 32-bit 
-  __enumMember ppc;
-  // The PowerPC architecture, 64-bit 
-  __enumMember ppc64;
-  // The RISC-V architecture, 32-bit 
-  __enumMember riscv32;
-  // The RISC-V architecture, 64-bit 
-  __enumMember riscv64;
-  // The System/390 architecture, 32-bit 
-  __enumMember s390;
-  // The SuperH architecture, 32-bit 
-  __enumMember sh;
-  // The SPARC architecture, 32-bit 
-  __enumMember sparc;
-  // The SPARC architecture, 64-bit 
-  __enumMember sparc64;
-  // The System Z architecture, 64-bit 
-  __enumMember systemZ;
-  // Unknown 
-  __enumMember unknown;
-  // The WebAssembly virtual ISA (instruction set architecture), 32-bit 
-  __enumMember webAssembly;
   // Intel and AMD 32-bit processors 
-  __enumMember x86;
+  x86,
   // Intel and AMD 64-bit processors 
-  __enumMember x86_64;
+  x86_64,
+  // The ARM architecture (32-bit) (AArch32 et al) 
+  arm,
+  // The Advanced RISC Machine architecture (64-bit) 
+  aarch64,
+  // The asm.js intermediate programming language 
+  asmJS,
+  // 8-bit Atmel AVR Microcontrollers 
+  avr,
+  // The Epiphany architecture 
+  epiphany,
+  // The PowerPC architecture, 32-bit 
+  ppc,
+  // The PowerPC architecture, 64-bit 
+  ppc64,
+  // The Itanium architecture (64-bit) 
+  ia64,
+  // The MIPS architecture, 32-bit 
+  mips32,
+  // The MIPS architecture, 64-bit 
+  mips64,
+  // The MSP430 architecture 
+  msp430,
+  // The Nvidia Parallel Thread Execution (PTX) architecture, 32-bit 
+  nvptx,
+  // The Nvidia Parallel Thread Execution (PTX) architecture, 64-bit 
+  nvptx64,
+  // The RISC-V architecture, 32-bit 
+  riscv32,
+  // The RISC-V architecture, 64-bit 
+  riscv64,
+  // The SPARC architecture, 32-bit 
+  sparc,
+  // The SPARC architecture, 64-bit 
+  sparc64,
+  // The System/390 architecture, 32-bit 
+  s390,
+  // The System Z architecture, 64-bit 
+  systemZ,
+  // The HP PA-RISC architecture, 32-bit 
+  hppa,
+  // The HP PA-RISC architecture, 64-bit 
+  hppa64,
+  // The SuperH architecture, 32-bit 
+  sh,
+  // The WebAssembly virtual ISA (instruction set architecture), 32-bit 
+  webAssembly,
+  // The Alpha architecture 
+  alpha,
+  // Unknown 
+  unknown,
 }</code></pre><h2 class='section'>About</h2><p>Instruction Set Architecture.</p>
 <h3 class='section'>Note</h3><p>This is intended for cases where you need a value representing the instruction set architecture at runtime. If you're doing something which should compile differently depending on instruction set architecture, then please use <code>version (X86_64)</code> , <code>version (ARM)</code> , etc.</p>
 <h3 class='section'>See_Also</h3><p>$(DDSUBLINK spec/version,PredefinedVersions, Predefined Versions)</p>

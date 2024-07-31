@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,35 +87,37 @@
         <article data-uid="std.experimental.allocator.building_blocks.bucketizer.Structs.Bucketizer">
 <h1 class='section'>Struct - Bucketizer</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator.building_blocks.bucketizer</dd></dl>
-</div><pre><code class='lang-d'>public struct Bucketizer
+</div><pre><code class='lang-d'>struct Bucketizer( Allocator, size_t min, size_t max, size_t step )
 {
   // Allocates the requested `bytes` of memory with specified `alignment` . Directs the call to either one of the `buckets` allocators. Defined only if `Allocator` defines `alignedAllocate` . 
-  &lt;bug: unknown&gt; alignedAllocate( size_t bytes, uint alignment ) ;
+  void[] alignedAllocate( size_t bytes, uint alignment ) 
   // Similar to `reallocate` , with alignment. Defined only if `Allocator` defines `alignedReallocate` . 
-  bool alignedReallocate( &lt;bug: unknown&gt; b, size_t size, uint a ) ;
+  bool alignedReallocate( ref void[] b, size_t size, uint a ) 
   // Directs the call to either one of the `buckets` allocators. 
-  &lt;bug: unknown&gt; allocate( size_t bytes ) ;
+  void[] allocate( size_t bytes ) 
   // 
-  &lt;bug: unknown&gt; allocatorFor( size_t n ) ;
+  void[] allocateZeroed( )( size_t bytes ) 
+  // 
+  Allocator* allocatorFor( size_t n ) @nogc @safe nothrow pure
   // This method is only defined if `Allocator` defines `deallocate` . 
-  bool deallocate( &lt;bug: unknown&gt; b ) ;
+  bool deallocate( void[] b ) 
   // This method is only defined if all allocators involved define $(D deallocateAll), and calls it for each bucket in turn. Returns `true` if all allocators could deallocate all. 
-  bool deallocateAll( ) ;
+  bool deallocateAll() 
   // This method allows expansion within the respective bucket range. It succeeds if both `b.length` and $(D b.length + delta) fall in a range of the form $(D [min + k **step, min + (k + 1) ** step - 1]). 
-  bool expand( &lt;bug: unknown&gt; b, size_t delta ) ;
+  bool expand( ref void[] b, size_t delta ) 
   // Rounds up to the maximum size of the bucket in which `bytes` falls. 
-  size_t goodAllocSize( size_t bytes ) ;
+  size_t goodAllocSize( size_t bytes ) @nogc @safe nothrow pure
   // Defined only if `Allocator` defines `owns` . Finds the owner of `b` and forwards the call to it. 
-  Ternary owns( &lt;bug: unknown&gt; b ) ;
+  Ternary owns( void[] b ) 
   // This method allows reallocation within the respective bucket range. If both `b.length` and `size` fall in a range of the form $(D [min + k step, min + (k + 1) step - 1]), then reallocation is in place. Otherwise, reallocation with moving is attempted. 
-  bool reallocate( &lt;bug: unknown&gt; b, size_t size ) ;
+  bool reallocate( ref void[] b, size_t size ) 
   // This method is only defined if all allocators involved define $(D resolveInternalPointer), and tries it for each bucket in turn. 
-  Ternary resolveInternalPointer( &lt;bug: unknown&gt; p, &lt;bug: unknown&gt; result ) ;
+  Ternary resolveInternalPointer( const void* p, ref void[] result ) 
 
   // The alignment offered is the same as `Allocator.alignment` . 
-  uint alignment;
+  uint alignment = Allocator.alignment
   // The array of allocators is publicly available for e.g. initialization and inspection. 
-  &lt;bug: unknown&gt; buckets;
+  Allocator[(max + 1 - min) / step] buckets
 }</code></pre><h2 class='section'>About</h2><p>A <code>Bucketizer</code> uses distinct allocators for handling allocations of sizes in the intervals $(D [min, min + step - 1]), $(D [min + step, min + 2 step - 1]), $(D [min + 2 **step, min + 3 ** step - 1]), <code>...</code> , $(D [max - step + 1, max]).</p>
 <p><code>Bucketizer</code> holds a fixed-size array of allocators and dispatches calls to them appropriately. The size of the array is $(D (max + 1 - min) / step), which must be an exact division.</p>
 <p>Allocations for sizes smaller than <code>min</code> or larger than <code>max</code> are illegal for <code>Bucketizer</code> . To handle them separately, <code>Segregator</code> may be of use.</p>
@@ -138,6 +140,10 @@
 <tr>
 <td><a href="../Bucketizer/Bucketizer/Functions/allocate.html">allocate</a></td>
 <td>Directs the call to either one of the <code>buckets</code> allocators.</td>
+</tr>
+<tr>
+<td><a href="../Bucketizer/Bucketizer/Functions/allocateZeroed.html">allocateZeroed</a></td>
+<td></td>
 </tr>
 <tr>
 <td><a href="../Bucketizer/Bucketizer/Functions/allocatorFor.html">allocatorFor</a></td>

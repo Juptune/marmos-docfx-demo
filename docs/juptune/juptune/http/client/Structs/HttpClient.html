@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,34 +90,53 @@
 </div><pre><code class='lang-d'>public struct HttpClient
 {
   // A function provided by `HttpClient` which can be used to push data into the request body. 
-  alias PutBodyFunc = &lt;todo: marmos support pending&gt;;
+  alias PutBodyFunc = &lt;todo: marmos support pending&gt;
   // ditto 
-  alias PutBodyFuncGC = &lt;todo: marmos support pending&gt;;
+  alias PutBodyFuncGC = &lt;todo: marmos support pending&gt;
   // A function provided by the user which is used to stream an entire request body. 
-  alias StreamRequestFunc = &lt;todo: marmos support pending&gt;;
+  alias StreamRequestFunc = &lt;todo: marmos support pending&gt;
   // ditto 
-  alias StreamRequestFuncGC = &lt;todo: marmos support pending&gt;;
+  alias StreamRequestFuncGC = &lt;todo: marmos support pending&gt;
   // A function provided by `HttpClient` which can be used to stream read data from the response body. 
-  alias StreamResponseFunc = &lt;todo: marmos support pending&gt;;
+  alias StreamResponseFunc = &lt;todo: marmos support pending&gt;
   // ditto 
-  alias StreamResponseFuncGC = &lt;todo: marmos support pending&gt;;
+  alias StreamResponseFuncGC = &lt;todo: marmos support pending&gt;
 
   // Closes the connection to the server. 
-  Result close( ) ;
+  Result close() @nogc nothrow
   // Connects this client to the given IP address. 
-  Result connect( IpAddress ip, &lt;bug: unknown&gt; host ) ;
-  // Returns whether this client is connected to a server. 
-  bool isConnected( ) ;
-  // Sends a request to the server and returns the response. 
-  Result request( HttpRequest request, HttpResponse response ) ;
-  // Returns the version of HTTP that this client is using. 
-  HttpClientVersion selectedVersion( ) ;
-  // Streams a request to the server and streams the response. 
-  Result streamRequest( HttpRequest request, HttpResponse response, StreamRequestFunc bodyPutter, StreamResponseFunc bodyReader ) ;
-  // ditto 
-  Result streamRequestGC( HttpRequest request, HttpResponse response, StreamRequestFuncGC bodyPutter, StreamResponseFuncGC bodyReader ) ;
+  Result connect( IpAddress ip, const scope char[] host ) @nogc nothrow
   // 
-  void wrapPairedSocket( HttpClient client, TcpSocket socket, HttpClientConfig config ) static;
+  auto dispatch( string func, Args... )( auto ref Args args ) nothrow
+  // Returns whether this client is connected to a server. 
+  bool isConnected() @nogc nothrow
+  // Sends a request to the server and returns the response. 
+  Result request(
+    const ref scope HttpRequest request,
+    out scope HttpResponse response
+  ) @nogc nothrow
+  // Returns the version of HTTP that this client is using. 
+  HttpClientVersion selectedVersion() @nogc nothrow
+  // Streams a request to the server and streams the response. 
+  Result streamRequest(
+    const ref scope HttpRequest request,
+    out scope HttpResponse response,
+    scope StreamRequestFunc bodyPutter,
+    scope StreamResponseFunc bodyReader
+  ) @nogc nothrow
+  // ditto 
+  Result streamRequestGC(
+    const ref scope HttpRequest request,
+    out scope HttpResponse response,
+    scope StreamRequestFuncGC bodyPutter,
+    scope StreamResponseFuncGC bodyReader
+  ) nothrow
+  // 
+  static void wrapPairedSocket(
+    out HttpClient client,
+    ref TcpSocket socket,
+    HttpClientConfig config
+  ) @nogc nothrow
 }</code></pre><h2 class='section'>About</h2><p>A medium-level HTTP client, designed to be a good balance between ease of use, flexibility, and performance.</p>
 <p>This client attempts to cater to both the @nogc and GC worlds, and as such has a few different named overloads for its functions.</p>
 <p>It has two different ways to send a request currently: A 'Simple' way, and a 'Streamed' way.</p>
@@ -174,6 +193,10 @@
 <tr>
 <td><a href="../HttpClient/HttpClient/Functions/connect.html">connect</a></td>
 <td>Connects this client to the given IP address.</td>
+</tr>
+<tr>
+<td><a href="../HttpClient/HttpClient/Functions/dispatch.html">dispatch</a></td>
+<td></td>
 </tr>
 <tr>
 <td><a href="../HttpClient/HttpClient/Functions/isConnected.html">isConnected</a></td>

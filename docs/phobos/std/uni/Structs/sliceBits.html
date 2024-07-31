@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,11 +87,28 @@
         <article data-uid="std.uni.Structs.sliceBits">
 <h1 class='section'>Struct - sliceBits</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.uni</dd></dl>
-</div><pre><code class='lang-d'>public struct sliceBits
+</div><pre><code class='lang-d'>struct sliceBits( size_t from, size_t to )
 {
   // 
-  __enumMember bitSize;
-}</code></pre><h2 class='section'>Variables</h2><table>
+  auto opCall( T )( T x ) 
+
+  // 
+  &lt;enum or auto&gt; bitSize = to - from
+}</code></pre><h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../sliceBits/sliceBits/Functions/opCall.html">opCall</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
 <thead>
 <tr>
 <th>Name</th>

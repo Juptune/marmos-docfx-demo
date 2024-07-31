@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,43 +90,43 @@
 </div><pre><code class='lang-d'>public struct sqlite3_io_methods
 {
   // 
-  int iVersion;
+  int iVersion
   // 
-  &lt;bug: unknown&gt; xCheckReservedLock;
+  * xCheckReservedLock
   // 
-  &lt;bug: unknown&gt; xClose;
+  * xClose
   // 
-  &lt;bug: unknown&gt; xDeviceCharacteristics;
+  * xDeviceCharacteristics
   // 
-  &lt;bug: unknown&gt; xFetch;
+  * xFetch
   // 
-  &lt;bug: unknown&gt; xFileControl;
+  * xFileControl
   // 
-  &lt;bug: unknown&gt; xFileSize;
+  * xFileSize
   // 
-  &lt;bug: unknown&gt; xLock;
+  * xLock
   // 
-  &lt;bug: unknown&gt; xRead;
+  * xRead
   // 
-  &lt;bug: unknown&gt; xSectorSize;
+  * xSectorSize
   // 
-  &lt;bug: unknown&gt; xShmBarrier;
+  * xShmBarrier
   // 
-  &lt;bug: unknown&gt; xShmLock;
+  * xShmLock
   // 
-  &lt;bug: unknown&gt; xShmMap;
+  * xShmMap
   // 
-  &lt;bug: unknown&gt; xShmUnmap;
+  * xShmUnmap
   // 
-  &lt;bug: unknown&gt; xSync;
+  * xSync
   // 
-  &lt;bug: unknown&gt; xTruncate;
+  * xTruncate
   // 
-  &lt;bug: unknown&gt; xUnfetch;
+  * xUnfetch
   // 
-  &lt;bug: unknown&gt; xUnlock;
+  * xUnlock
   // 
-  &lt;bug: unknown&gt; xWrite;
+  * xWrite
 }</code></pre><h2 class='section'>About</h2><p>CAPI3REF: OS Interface File Virtual Methods Object</p>
 <h2 class='section'>Variables</h2><table>
 <thead>

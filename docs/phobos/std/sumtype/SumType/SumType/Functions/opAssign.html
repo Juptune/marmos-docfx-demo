@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,33 +88,25 @@
 <h1 class='section'>Overloads for - opAssign</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.sumtype.SumType</dd></dl><dl><dt>Parent</dt><dd>SumType</dd></dl>
 </div><h2 class='section api'>opAssign(rhs)   </h2>
- <pre><code class='lang-d'>SumType opAssign(
-  T rhs
-) </code></pre><p>Assigns a value to a <code>SumType</code> .</p>
+ <pre><code class='lang-d'>ref SumType opAssign( T rhs ) </code></pre><p>Assigns a value to a <code>SumType</code> .</p>
 <p>If any of the <code>SumType</code> 's members other than the one being assigned to contain pointers or references, it is possible for the assignment to cause memory corruption (see the <a href="#memory-corruption">&quot;Memory corruption&quot; example</a> below for an illustration of how). Therefore, such assignments are considered <code>@system</code> .</p>
 <p>An individual assignment can be <code>@trusted</code> if the caller can guarantee that there are no outstanding references to any <code>SumType</code> members that contain pointers or references at the time the assignment occurs.</p>
 <h3 class='section'>Examples</h3><p>$(DIVID memory-corruption, $(H3 Memory corruption))</p>
 <p>This example shows how assignment to a <code>SumType</code> can be used to cause memory corruption in <code>@system</code> code. In <code>@safe</code> code, the assignment <code>s = 123</code> would not be allowed.</p>
 <p>--- SumType!(int*, int) s = new int; s.tryMatch!( (ref int* p) { s = 123; // overwrites <code>p</code> return p; // undefined behavior } ); ---</p>
 <h2 class='section api'>opAssign(rhs)   </h2>
- <pre><code class='lang-d'>SumType opAssign(
-  T rhs
-) </code></pre><p>Assigns a value to a <code>SumType</code> .</p>
+ <pre><code class='lang-d'>ref SumType opAssign( T rhs ) </code></pre><p>Assigns a value to a <code>SumType</code> .</p>
 <p>If any of the <code>SumType</code> 's members other than the one being assigned to contain pointers or references, it is possible for the assignment to cause memory corruption (see the <a href="#memory-corruption">&quot;Memory corruption&quot; example</a> below for an illustration of how). Therefore, such assignments are considered <code>@system</code> .</p>
 <p>An individual assignment can be <code>@trusted</code> if the caller can guarantee that there are no outstanding references to any <code>SumType</code> members that contain pointers or references at the time the assignment occurs.</p>
 <h3 class='section'>Examples</h3><p>$(DIVID memory-corruption, $(H3 Memory corruption))</p>
 <p>This example shows how assignment to a <code>SumType</code> can be used to cause memory corruption in <code>@system</code> code. In <code>@safe</code> code, the assignment <code>s = 123</code> would not be allowed.</p>
 <p>--- SumType!(int*, int) s = new int; s.tryMatch!( (ref int* p) { s = 123; // overwrites <code>p</code> return p; // undefined behavior } ); ---</p>
 <h2 class='section api'>opAssign(rhs)   </h2>
- <pre><code class='lang-d'>SumType opAssign(
-  SumType rhs
-) </code></pre><p>Copies the value from another <code>SumType</code> into this one.</p>
+ <pre><code class='lang-d'>ref SumType opAssign( ref SumType rhs ) </code></pre><p>Copies the value from another <code>SumType</code> into this one.</p>
 <p>See the value-assignment overload for details on <code>@safe</code> ty.</p>
 <p>Copy assignment is <code>@disable</code> d if any of <code>Types</code> is non-copyable.</p>
 <h2 class='section api'>opAssign(rhs)   </h2>
- <pre><code class='lang-d'>SumType opAssign(
-  SumType rhs
-) </code></pre><p>Moves the value from another <code>SumType</code> into this one.</p>
+ <pre><code class='lang-d'>ref SumType opAssign( SumType rhs ) </code></pre><p>Moves the value from another <code>SumType</code> into this one.</p>
 <p>See the value-assignment overload for details on <code>@safe</code> ty.</p>
 
 </article>

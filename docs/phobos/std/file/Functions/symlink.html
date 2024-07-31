@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - symlink</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.file</dd></dl>
 </div><h2 class='section api'>symlink(original, link)   </h2>
- <pre><code class='lang-d'>void symlink(
-  RO original,
-  RL link
-) </code></pre><p>$(BLUE This function is POSIX-Only.)</p>
+ <pre><code class='lang-d'>void symlink( RO, RL )( RO original, RL link ) </code></pre><p>$(BLUE This function is POSIX-Only.)</p>
 <p>Creates a symbolic <em>link (</em> symlink).</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>original</code> RO  </dt>
 <dd>

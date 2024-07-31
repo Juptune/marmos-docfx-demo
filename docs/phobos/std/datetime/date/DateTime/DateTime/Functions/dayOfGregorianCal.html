@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,12 +88,9 @@
 <h1 class='section'>Overloads for - dayOfGregorianCal</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.date.DateTime</dd></dl><dl><dt>Parent</dt><dd>DateTime</dd></dl>
 </div><h2 class='section api'>dayOfGregorianCal()   </h2>
- <pre><code class='lang-d'>int dayOfGregorianCal(
-) </code></pre><p>The Xth day of the Gregorian Calendar that this $(LREF DateTime) is on.</p>
+ <pre><code class='lang-d'>int dayOfGregorianCal() @nogc @property @safe nothrow pure</code></pre><p>The Xth day of the Gregorian Calendar that this $(LREF DateTime) is on.</p>
 <h2 class='section api'>dayOfGregorianCal(days)   </h2>
- <pre><code class='lang-d'>void dayOfGregorianCal(
-  int days
-) </code></pre><p>The Xth day of the Gregorian Calendar that this $(LREF DateTime) is on. Setting this property does not affect the time portion of $(LREF DateTime).</p>
+ <pre><code class='lang-d'>void dayOfGregorianCal( int days ) @nogc @property @safe nothrow pure</code></pre><p>The Xth day of the Gregorian Calendar that this $(LREF DateTime) is on. Setting this property does not affect the time portion of $(LREF DateTime).</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>days</code> int  </dt>
 <dd>
 

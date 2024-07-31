@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,9 +89,9 @@
 <dl><dt>Module</dt><dd>juptune.http.client.HttpClient</dd></dl><dl><dt>Parent</dt><dd>HttpClient</dd></dl>
 </div><h2 class='section api'>request(request, response)   </h2>
  <pre><code class='lang-d'>Result request(
-  HttpRequest request,
-  HttpResponse response
-) </code></pre><p>Sends a request to the server and returns the response.</p>
+  const ref scope HttpRequest request,
+  out scope HttpResponse response
+) @nogc nothrow</code></pre><p>Sends a request to the server and returns the response.</p>
 <p>This is the 'Simple' way to send a request, and is the easiest to use.</p>
 <h3 class='section'>Notes</h3><p>This function will automatically add the <code>Host</code> header if it is not already present.</p>
 <p>If the request has a body and does not have a <code>Content-Length</code> or <code>Transfer-Encoding</code> header, then this function will automatically add a <code>Transfer-Encoding: chunked</code> header.</p>

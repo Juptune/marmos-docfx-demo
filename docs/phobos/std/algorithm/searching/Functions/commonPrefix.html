@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - commonPrefix</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.searching</dd></dl>
 </div><h2 class='section api'>commonPrefix(r1, r2)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; commonPrefix(
-  R1 r1,
-  R2 r2
-) auto</code></pre><p>Returns the common prefix of two ranges.</p>
+ <pre><code class='lang-d'>auto commonPrefix( alias pred = &quot;a == b&quot;, R1, R2 )( R1 r1, R2 r2 ) </code></pre><p>Returns the common prefix of two ranges.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>pred</code> &lt;parameter not found&gt;  </dt>
 <dd>
 
@@ -103,20 +100,11 @@
 <h3 class='section'>Returns</h3><p>A slice of <code>r1</code> which contains the characters that both ranges start with, if the first argument is a string; otherwise, the same as the result of <code>takeExactly(r1, n)</code> , where <code>n</code> is the number of elements in the common prefix of both ranges.</p>
 <h3 class='section'>See_Also</h3><p>$(REF takeExactly, std,range)</p>
 <h2 class='section api'>commonPrefix(r1, r2)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; commonPrefix(
-  R1 r1,
-  R2 r2
-) auto</code></pre><p>ditto</p>
+ <pre><code class='lang-d'>auto commonPrefix( alias pred, R1, R2 )( R1 r1, R2 r2 ) </code></pre><p>ditto</p>
 <h2 class='section api'>commonPrefix(r1, r2)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; commonPrefix(
-  R1 r1,
-  R2 r2
-) auto</code></pre><p>ditto</p>
+ <pre><code class='lang-d'>auto commonPrefix( R1, R2 )( R1 r1, R2 r2 ) </code></pre><p>ditto</p>
 <h2 class='section api'>commonPrefix(r1, r2)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; commonPrefix(
-  R1 r1,
-  R2 r2
-) auto</code></pre><p>ditto</p>
+ <pre><code class='lang-d'>auto commonPrefix( R1, R2 )( R1 r1, R2 r2 ) </code></pre><p>ditto</p>
 
 </article>
 

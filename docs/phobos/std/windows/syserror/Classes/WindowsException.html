@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,10 +90,10 @@
 </div><pre><code class='lang-d'>public class WindowsException
 {
   // 
-  alias DWORD = &lt;todo: marmos support pending&gt;;
+  alias DWORD = &lt;todo: marmos support pending&gt;
 
   // `GetLastError` &#39;s return value. 
-  DWORD code( ) final;
+  DWORD code() final @property
 }</code></pre><h2 class='section'>About</h2><p>Thrown if errors that set $(LINK2 <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms679360.aspx">http://msdn.microsoft.com/en-us/library/windows/desktop/ms679360.aspx</a>, <code>GetLastError</code> ) occur.</p>
 <h2 class='section'>Aliases</h2><table>
 <thead>

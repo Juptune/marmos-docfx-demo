@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,7 +90,7 @@
 </div><pre><code class='lang-d'>template hasLength
 {
   // 
-  bool hasLength;
+  bool hasLength = is(Length == size_t) &amp;&amp; !(isAutodecodableString!R &amp;&amp; !isAggregateType!R)
 }</code></pre><h2 class='section'>About</h2><p>Yields <code>true</code> if <code>R</code> has a <code>length</code> member that returns a value of <code>size_t</code> type. <code>R</code> does not have to be a range. If <code>R</code> is a range, algorithms in the standard library are only guaranteed to support <code>length</code> with type <code>size_t</code> .</p>
 <p>Note that <code>length</code> is an optional primitive as no range must implement it. Some ranges do not store their length explicitly, some cannot compute it without actually exhausting the range (e.g. socket streams), and some other ranges may be infinite.</p>
 <p>Although narrow string types (<code>char[]</code>, <code>wchar[]</code> , and their qualified derivatives) do define a <code>length</code> property, <code>hasLength</code> yields <code>false</code> for them. This is because a narrow string's length does not reflect the number of characters, but instead the number of encoding units, and as such is not useful with range-oriented algorithms. To use strings as random-access ranges with length, use $(REF representation, std, string) or $(REF byCodeUnit, std, utf).</p>

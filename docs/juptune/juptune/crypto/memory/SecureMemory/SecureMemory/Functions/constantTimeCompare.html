@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,12 +88,10 @@
 <h1 class='section'>Overloads for - constantTimeCompare</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.crypto.memory.SecureMemory</dd></dl><dl><dt>Parent</dt><dd>SecureMemory</dd></dl>
 </div><h2 class='section api'>constantTimeCompare(other)   </h2>
- <pre><code class='lang-d'>bool constantTimeCompare(
-  &lt;bug: unknown&gt; other
-) </code></pre><p>Compares this memory to another memory in constant time for the given length of this memory.</p>
+ <pre><code class='lang-d'>bool constantTimeCompare( const scope void[] other ) @trusted</code></pre><p>Compares this memory to another memory in constant time for the given length of this memory.</p>
 <h3 class='section'>Assertions</h3><p><code>other</code> must have the same length as this memory. There is no valid usecase for comparing secure memory of different lengths.</p>
 <h3 class='section'>Notes</h3><p>You should always use this function if <code>other</code> contains sensitive data. Failure to do so opens you up to timing attacks.</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>other</code> &lt;bug: unknown&gt;  </dt>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>other</code> void[]  </dt>
 <dd>
 
 
@@ -101,9 +99,7 @@
 
 </dd></dl><h3 class='section'>Returns</h3><p>true if the memory is equal, false otherwise.</p>
 <h2 class='section api'>constantTimeCompare(other)   </h2>
- <pre><code class='lang-d'>bool constantTimeCompare(
-  SecureMemory other
-) </code></pre><p>ditto.</p>
+ <pre><code class='lang-d'>bool constantTimeCompare( const ref scope SecureMemory other ) @trusted</code></pre><p>ditto.</p>
 
 </article>
 

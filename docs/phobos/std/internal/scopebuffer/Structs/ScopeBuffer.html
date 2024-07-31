@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,40 +87,40 @@
         <article data-uid="std.internal.scopebuffer.Structs.ScopeBuffer">
 <h1 class='section'>Struct - ScopeBuffer</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.internal.scopebuffer</dd></dl>
-</div><pre><code class='lang-d'>public struct ScopeBuffer
+</div><pre><code class='lang-d'>struct ScopeBuffer( T, alias realloc = .realloc )
 {
   // Append array s to the buffer. 
-  alias CT = &lt;todo: marmos support pending&gt;;
+  alias CT = &lt;todo: marmos support pending&gt;
   // 
-  alias opDollar = &lt;todo: marmos support pending&gt;;
+  alias opDollar = &lt;todo: marmos support pending&gt;
 
   // Releases any memory used. This will invalidate any references returned by the `[]` operator. A destructor is not used, because that would make it not POD (Plain Old Data) and it could not be placed in registers. 
-  void free( ) ;
+  void free() 
   // 
-  size_t length( ) ;
+  size_t length() @property
   // Used to shrink the length of the buffer, typically to `0` so the buffer can be reused. Cannot be used to extend the length of the buffer. 
-  void length( size_t i ) ;
+  void length( size_t i ) @property
   // 
-  T opIndex( size_t i ) ;
+  ref T opIndex( size_t i ) 
   // 
-  &lt;bug: unknown&gt; opSlice( size_t lower, size_t upper ) ;
+  T[] opSlice( size_t lower, size_t upper ) @system
   // ditto 
-  &lt;bug: unknown&gt; opSlice( ) ;
+  T[] opSlice() @system
   // Append element c to the buffer. This member function makes `ScopeBuffer` an Output Range. 
-  void put( T c ) ;
+  void put( T c ) 
   // ditto 
-  void put( &lt;bug: unknown&gt; s ) ;
+  void put( CT[] s ) 
   // 
-  void resize( size_t newsize ) ;
+  void resize( size_t newsize ) 
 
   // 
-  &lt;bug: unknown&gt; buf;
+  T* buf
   // 
-  uint bufLen;
+  uint bufLen
   // 
-  uint used;
+  uint used
   // 
-  __enumMember wasResized;
+  &lt;enum or auto&gt; wasResized = 1
 }</code></pre><h2 class='section'>About</h2><p>ScopeBuffer encapsulates using a local array as a temporary buffer. It is initialized with a local array that should be large enough for most uses. If the need exceeds that size, ScopeBuffer will reallocate the data using its <code>realloc</code> function.</p>
 <p>ScopeBuffer cannot contain more than <code>(uint.max-16)/2</code> elements.</p>
 <p>ScopeBuffer is an Output Range.</p>

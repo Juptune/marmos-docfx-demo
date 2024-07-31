@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,11 @@
 <h1 class='section'>Overloads for - sort</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.sorting</dd></dl>
 </div><h2 class='section api'>sort(r)   </h2>
- <pre><code class='lang-d'>SortedRange!(Rangeless) sort(
+ <pre><code class='lang-d'>SortedRange!(Range,less) sort(
+  alias less = &quot;a &lt; b&quot;,
+  SwapStrategy ss = SwapStrategy.unstable,
+  Range
+)(
   Range r
 ) </code></pre><p>Sorts a random-access range according to the predicate <code>less</code> .</p>
 <p>Performs $(BIGOH r.length log(r.length)) evaluations of <code>less</code>. If <code>less</code> involves expensive computations on the sort key, it may be worthwhile to use $(LREF schwartzSort) instead.</p>

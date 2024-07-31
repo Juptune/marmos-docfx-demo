@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,31 +90,31 @@
 </div><pre><code class='lang-d'>public struct curl_httppost
 {
   // pointer to allocated buffer contents 
-  &lt;bug: unknown&gt; buffer;
+  char* buffer
   // length of buffer field 
-  c_long bufferlength;
+  c_long bufferlength
   // list of extra headers for this form 
-  &lt;bug: unknown&gt; contentheader;
+  curl_slist* contentheader
   // pointer to allocated data contents 
-  &lt;bug: unknown&gt; contents;
+  char* contents
   // length of contents field 
-  c_long contentslength;
+  c_long contentslength
   // Content-Type 
-  &lt;bug: unknown&gt; contenttype;
+  char* contenttype
   // as defined below 
-  c_long flags;
+  c_long flags
   // if one field name has more than one file, this link should link to following files 
-  &lt;bug: unknown&gt; more;
+  curl_httppost* more
   // pointer to allocated name 
-  &lt;bug: unknown&gt; name;
+  char* name
   // length of name length 
-  c_long namelength;
+  c_long namelength
   // next entry in the list 
-  &lt;bug: unknown&gt; next;
+  curl_httppost* next
   // The file name to show. If not set, the actual file name will be used (if this is a file part) 
-  &lt;bug: unknown&gt; showfilename;
+  char* showfilename
   // custom pointer used for HTTPPOST_CALLBACK posts 
-  &lt;bug: unknown&gt; userp;
+  void* userp
 }</code></pre><h2 class='section'>Variables</h2><table>
 <thead>
 <tr>

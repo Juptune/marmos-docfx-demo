@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - setTZEnvVar</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.timezone</dd></dl>
 </div><h2 class='section api'>setTZEnvVar(tzDatabaseName)   </h2>
- <pre><code class='lang-d'>void setTZEnvVar(
-  string tzDatabaseName
-) </code></pre><p>$(BLUE This function is Posix-Only.)</p>
+ <pre><code class='lang-d'>void setTZEnvVar( string tzDatabaseName ) @safe nothrow</code></pre><p>$(BLUE This function is Posix-Only.)</p>
 <p>Sets the local time zone on Posix systems with the TZ Database name by setting the TZ environment variable.</p>
 <p>Unfortunately, there is no way to do it on Windows using the TZ Database name, so this function only exists on Posix systems.</p>
 

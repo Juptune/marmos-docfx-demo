@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,26 +90,26 @@
 </div><pre><code class='lang-d'>public class UnCompress
 {
   // Returns true if all input data has been decompressed and no further data can be decompressed (inflate() returned Z_STREAM_END) 
-  bool empty( ) ;
+  bool empty() @property
   // 
-  void error( int err ) ;
+  void error( int err ) 
   // Decompress and return any remaining data. The returned data should be appended to that returned by uncompress(). The UnCompress object cannot be used further. 
-  &lt;bug: unknown&gt; flush( ) ;
+  void[] flush() 
   // Decompress the data in buf and return the decompressed data. The buffers returned from successive calls to this should be concatenated together. 
-  &lt;bug: unknown&gt; uncompress( &lt;bug: unknown&gt; buf ) ;
+  void[] uncompress( void[] buf ) 
 
   // 
-  size_t destbufsize;
+  size_t destbufsize
   // 
-  int done;
+  int done
   // 
-  HeaderFormat format;
+  HeaderFormat format
   // 
-  int inited;
+  int inited
   // 
-  bool inputEnded;
+  bool inputEnded
   // 
-  z_stream zs;
+  z_stream zs
 }</code></pre><h2 class='section'>About</h2><p>Used when the data to be decompressed is not all in one buffer.</p>
 <h2 class='section'>Functions</h2><table>
 <thead>

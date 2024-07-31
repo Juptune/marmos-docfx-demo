@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,48 +87,48 @@
         <article data-uid="std.internal.test.dummyrange.Structs.DummyRange">
 <h1 class='section'>Struct - DummyRange</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.internal.test.dummyrange</dd></dl>
-</div><pre><code class='lang-d'>public struct DummyRange
+</div><pre><code class='lang-d'>struct DummyRange( ReturnBy _r, Length _l, RangeType _rt, T = uint[] )
 {
   // 
-  alias opDollar = &lt;todo: marmos support pending&gt;;
+  alias opDollar = &lt;todo: marmos support pending&gt;
   // 
-  alias RetType = &lt;todo: marmos support pending&gt;;
+  alias RetType = &lt;todo: marmos support pending&gt;
   // 
-  alias RetTypeNoAutoDecoding = &lt;todo: marmos support pending&gt;;
+  alias RetTypeNoAutoDecoding = &lt;todo: marmos support pending&gt;
 
   // 
-  RetType back( ) ;
+  ref RetType back() @property
   // 
-  bool empty( ) ;
+  bool empty() @property
   // 
-  RetType front( ) ;
+  ref RetType front() @property
   // 
-  size_t length( ) ;
+  size_t length() @property
   // 
-  RetType opIndex( size_t index ) ;
+  ref RetType opIndex( size_t index ) 
   // 
-  &lt;bug: unknown&gt; opSlice( size_t lower, size_t upper ) ;
+  typeof(this) opSlice( size_t lower, size_t upper ) 
   // 
-  &lt;bug: unknown&gt; opSlice( ) ;
+  typeof(this) opSlice() 
   // 
-  void popBack( ) ;
+  void popBack() 
   // 
-  void popFront( ) ;
+  void popFront() 
   // 
-  void reinit( ) ;
+  void reinit() 
   // 
-  &lt;bug: unknown&gt; save( ) ;
+  typeof(this) save() @property
 
   // 
-  T arr;
+  T arr = uinttestData
   // 
-  __enumMember l;
+  &lt;enum or auto&gt; l = _l
   // 
-  __enumMember r;
+  &lt;enum or auto&gt; r = _r
   // 
-  __enumMember rt;
+  &lt;enum or auto&gt; rt = _rt
   // 
-  static immutable __enumMember uinttestData;
+  static immutable &lt;enum or auto&gt; uinttestData = &lt;todo: support array literal&gt;
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>

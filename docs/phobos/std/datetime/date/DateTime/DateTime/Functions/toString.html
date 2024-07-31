@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,11 +88,12 @@
 <h1 class='section'>Overloads for - toString</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.date.DateTime</dd></dl><dl><dt>Parent</dt><dd>DateTime</dd></dl>
 </div><h2 class='section api'>toString()   </h2>
- <pre><code class='lang-d'>string toString(
-) </code></pre><p>Converts this $(LREF DateTime) to a string.</p>
+ <pre><code class='lang-d'>string toString() @safe nothrow pure</code></pre><p>Converts this $(LREF DateTime) to a string.</p>
 <p>This function exists to make it easy to convert a $(LREF DateTime) to a string for code that does not care what the exact format is - just that it presents the information in a clear manner. It also makes it easy to simply convert a $(LREF DateTime) to a string when using functions such as <code>to!string</code> , <code>format</code> , or <code>writeln</code> which use toString to convert user-defined types. So, it is unlikely that much code will call toString directly.</p>
 <p>The format of the string is purposefully unspecified, and code that cares about the format of the string should use <code>toISOString</code> , <code>toISOExtString</code> , <code>toSimpleString</code> , or some other custom formatting function that explicitly generates the format that the code needs. The reason is that the code is then clear about what format it's using, making it less error-prone to maintain the code and interact with other software that consumes the generated strings. It's for this same reason that $(LREF DateTime) has no <code>fromString</code> function, whereas it does have <code>fromISOString</code> , <code>fromISOExtString</code> , and <code>fromSimpleString</code> .</p>
 <p>The format returned by toString may or may not change in the future.</p>
+<h2 class='section api'>toString(writer)   </h2>
+ <pre><code class='lang-d'>void toString( W )( ref W writer ) </code></pre><p>ditto</p>
 
 </article>
 

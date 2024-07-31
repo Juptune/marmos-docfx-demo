@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,17 +90,17 @@
 </div><pre><code class='lang-d'>public interface Digest
 {
   // This is a convenience function to calculate the hash of a value using the OOP API. 
-  &lt;bug: unknown&gt; digest( &lt;bug: unknown&gt; data ) final;
+  ubyte[] digest( scope void[][] data ) final @trusted nothrow
   // The finish function returns the hash value. It takes an optional buffer to copy the data into. If a buffer is passed, it must be at least $(LREF length) bytes big. 
-  &lt;bug: unknown&gt; finish( ) ;
+  ubyte[] finish() @trusted nothrow
   // ditto 
-  &lt;bug: unknown&gt; finish( &lt;bug: unknown&gt; buf ) ;
+  ubyte[] finish( ubyte[] buf ) nothrow
   // This is the length in bytes of the hash value which is returned by $(LREF finish). It&#39;s also the required size of a buffer passed to $(LREF finish). 
-  size_t length( ) ;
+  size_t length() @property @trusted nothrow
   // Use this to feed the digest with data. Also implements the $(REF isOutputRange, std,range,primitives) interface for `ubyte` and `const(ubyte)[]` . 
-  void put( &lt;bug: unknown&gt; data ) ;
+  void put( scope ubyte[] data ) @trusted nothrow
   // Resets the internal state of the digest. Note: $(LREF finish) calls this internally, so it&#39;s not necessary to call `reset` manually after a call to $(LREF finish). 
-  void reset( ) ;
+  void reset() @trusted nothrow
 }</code></pre><h2 class='section'>About</h2><p>This describes the OOP API. To understand when to use the template API and when to use the OOP API, see the module documentation at the top of this page.</p>
 <p>The Digest interface is the base interface which is implemented by all digests.</p>
 <h3 class='section'>Note</h3><p>A Digest implementation is always an <code>OutputRange</code></p>

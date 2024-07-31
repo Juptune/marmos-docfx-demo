@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - allocate</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator.building_blocks.kernighan_ritchie.KRRegion</dd></dl><dl><dt>Parent</dt><dd>KRRegion</dd></dl>
 </div><h2 class='section api'>allocate(n)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; allocate(
-  size_t n
-) </code></pre><p>Allocates <code>n</code> bytes. Allocation searches the list of available blocks until a free block with <code>n</code> or more bytes is found (first fit strategy). The block is split (if larger) and returned.</p>
+ <pre><code class='lang-d'>void[] allocate( size_t n ) </code></pre><p>Allocates <code>n</code> bytes. Allocation searches the list of available blocks until a free block with <code>n</code> or more bytes is found (first fit strategy). The block is split (if larger) and returned.</p>
 <p>Params: n = number of bytes to allocate</p>
 <p>Returns: A word-aligned buffer of <code>n</code> bytes, or <code>null</code> .</p>
 

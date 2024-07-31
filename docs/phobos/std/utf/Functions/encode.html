@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,36 +89,48 @@
 <dl><dt>Module</dt><dd>std.utf</dd></dl>
 </div><h2 class='section api'>encode(buf, c)   </h2>
  <pre><code class='lang-d'>size_t encode(
-  &lt;bug: unknown&gt; buf,
+  UseReplacementDchar useReplacementDchar = No.useReplacementDchar
+)(
+  out char[4] buf,
   dchar c
-) </code></pre><p>Encodes <code>c</code> into the static array, <code>buf</code> , and returns the actual length of the encoded character (a number between <code>1</code> and <code>4</code> for <code>char[4]</code> buffers and a number between <code>1</code> and <code>2</code> for <code>wchar[2]</code> buffers).</p>
+) @safe pure</code></pre><p>Encodes <code>c</code> into the static array, <code>buf</code> , and returns the actual length of the encoded character (a number between <code>1</code> and <code>4</code> for <code>char[4]</code> buffers and a number between <code>1</code> and <code>2</code> for <code>wchar[2]</code> buffers).</p>
 <h3 class='section'>Throws</h3><p><code>UTFException</code> if <code>c</code> is not a valid UTF code point.</p>
 <h2 class='section api'>encode(buf, c)   </h2>
  <pre><code class='lang-d'>size_t encode(
-  &lt;bug: unknown&gt; buf,
+  UseReplacementDchar useReplacementDchar = No.useReplacementDchar
+)(
+  out wchar[2] buf,
   dchar c
-) </code></pre><p>Ditto</p>
+) @safe pure</code></pre><p>Ditto</p>
 <h2 class='section api'>encode(buf, c)   </h2>
  <pre><code class='lang-d'>size_t encode(
-  &lt;bug: unknown&gt; buf,
+  UseReplacementDchar useReplacementDchar = No.useReplacementDchar
+)(
+  out dchar[1] buf,
   dchar c
-) </code></pre><p>Ditto</p>
+) @safe pure</code></pre><p>Ditto</p>
 <h2 class='section api'>encode(str, c)   </h2>
  <pre><code class='lang-d'>void encode(
-  &lt;bug: unknown&gt; str,
+  UseReplacementDchar useReplacementDchar = No.useReplacementDchar
+)(
+  ref scope char[] str,
   dchar c
-) </code></pre><p>Encodes <code>c</code> in <code>str</code> 's encoding and appends it to <code>str</code> .</p>
+) @safe pure</code></pre><p>Encodes <code>c</code> in <code>str</code> 's encoding and appends it to <code>str</code> .</p>
 <h3 class='section'>Throws</h3><p><code>UTFException</code> if <code>c</code> is not a valid UTF code point.</p>
 <h2 class='section api'>encode(str, c)   </h2>
  <pre><code class='lang-d'>void encode(
-  &lt;bug: unknown&gt; str,
+  UseReplacementDchar useReplacementDchar = No.useReplacementDchar
+)(
+  ref scope wchar[] str,
   dchar c
-) </code></pre><p>ditto</p>
+) @safe pure</code></pre><p>ditto</p>
 <h2 class='section api'>encode(str, c)   </h2>
  <pre><code class='lang-d'>void encode(
-  &lt;bug: unknown&gt; str,
+  UseReplacementDchar useReplacementDchar = No.useReplacementDchar
+)(
+  ref scope dchar[] str,
   dchar c
-) </code></pre><p>ditto</p>
+) @safe pure</code></pre><p>ditto</p>
 
 </article>
 

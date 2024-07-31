@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - accepting</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.socket.Socket</dd></dl><dl><dt>Parent</dt><dd>Socket</dd></dl>
 </div><h2 class='section api'>accepting()   </h2>
- <pre><code class='lang-d'>Socket accepting(
-) </code></pre><p>Called by <code>accept</code> when a new <code>Socket</code> must be created for a new connection. To use a derived class, override this method and return an instance of your class. The returned <code>Socket</code> 's handle must not be set; <code>Socket</code> has a protected constructor <code>this()</code> to use in this situation.</p>
+ <pre><code class='lang-d'>Socket accepting() nothrow pure</code></pre><p>Called by <code>accept</code> when a new <code>Socket</code> must be created for a new connection. To use a derived class, override this method and return an instance of your class. The returned <code>Socket</code> 's handle must not be set; <code>Socket</code> has a protected constructor <code>this()</code> to use in this situation.</p>
 <p>Override to use a derived class. The returned socket's handle must not be set.</p>
 
 </article>

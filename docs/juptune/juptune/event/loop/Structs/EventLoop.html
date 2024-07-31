@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,16 +90,16 @@
 </div><pre><code class='lang-d'>public struct EventLoop
 {
   // Creates a new thread. 
-  void addGCThread( JuptuneFiber initialFiber ) ;
+  void addGCThread( JuptuneFiber initialFiber ) 
   // Creates a new thread that is specifically for @nogc code. 
-  void addNoGCThread( JuptuneFiber initialFiber ) ;
+  void addNoGCThread( JuptuneFiber initialFiber ) 
   // Cancels all active threads. 
-  void cancelAllThreads( ) ;
+  void cancelAllThreads() @nogc
   // Blocks the current thread until all threads have finished. 
-  void join( ) ;
+  void join() 
 
   // 
-  __gshared bool g_sigtermLock;
+  __gshared bool g_sigtermLock
 }</code></pre><h2 class='section'>About</h2><p>Event loop</p>
 <p>Provides an EventLoop.</p>
 <p>Please see the repo's documentation for more information about the event loop and how it works.</p>

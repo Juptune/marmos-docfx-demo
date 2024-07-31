@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,30 @@
 <h1 class='section'>Variable - uri_flags</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.uri</dd></dl>
 </div><h2 class='section api'>uri_flags   </h2>
- <pre><code class='lang-d'>immutable &lt;bug: unknown&gt; uri_flags</code></pre>
+ <pre><code class='lang-d'>immutable ubyte[128] uri_flags = ()
+{
+ubyte[128] uflags;
+uflags[&#39;#&#39;] |= URI_Hash;
+foreach (c; &#39;A&#39; .. &#39;Z&#39; + 1)
+{
+uflags[c] |= URI_Alpha;
+uflags[c + 32] |= URI_Alpha;
+}
+foreach (c; &#39;0&#39; .. &#39;9&#39; + 1)
+{
+uflags[c] |= URI_Digit;
+}
+foreach (c; &quot;;/?:@&amp;=+$,&quot;)
+{
+uflags[c] |= URI_Reserved;
+}
+foreach (c; &quot;-_.!~*&#39;()&quot;)
+{
+uflags[c] |= URI_Mark;
+}
+return uflags;
+}
+()</code></pre>
 </article>
 
         <div class="contribution d-print-none">

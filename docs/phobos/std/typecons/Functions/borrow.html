@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - borrow</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.typecons</dd></dl>
 </div><h2 class='section api'>borrow(refCount)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; borrow(
-  RC refCount
-) auto</code></pre><p>Borrows the payload of $(LREF SafeRefCounted) for use in <code>fun</code> . Inferred as <code>@safe</code> if <code>fun</code> is <code>@safe</code> and does not escape a reference to the payload. The reference count will be incremented for the duration of the operation, so destroying the last reference will not leave dangling references in <code>fun</code> .</p>
+ <pre><code class='lang-d'>ref auto borrow( RC )( RC refCount ) </code></pre><p>Borrows the payload of $(LREF SafeRefCounted) for use in <code>fun</code> . Inferred as <code>@safe</code> if <code>fun</code> is <code>@safe</code> and does not escape a reference to the payload. The reference count will be incremented for the duration of the operation, so destroying the last reference will not leave dangling references in <code>fun</code> .</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>fun</code> &lt;parameter not found&gt;  </dt>
 <dd>
 

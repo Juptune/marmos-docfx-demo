@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,17 +87,27 @@
         <article data-uid="std.range.Structs.Lockstep">
 <h1 class='section'>Struct - Lockstep</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
-</div><pre><code class='lang-d'>public struct Lockstep
+</div><pre><code class='lang-d'>struct Lockstep( Ranges... )
 {
+
   // 
-  alias R = &lt;todo: marmos support pending&gt;;
+  &lt;enum or auto&gt; lockstepMixinFF = LockstepMixin!Ranges(withIndex: false, reverse: false)
+  // 
+  &lt;enum or auto&gt; lockstepMixinFT = LockstepMixin!Ranges(withIndex: false, reverse: true)
+  // 
+  &lt;enum or auto&gt; lockstepMixinTF = LockstepMixin!Ranges(withIndex: true, reverse: false)
+  // 
+  &lt;enum or auto&gt; lockstepMixinTT = LockstepMixin!Ranges(withIndex: true, reverse: true)
+  // 
+  Ranges ranges
+  // 
+  StoppingPolicy stoppingPolicy
 }</code></pre><h2 class='section'>About</h2><p>Iterate multiple ranges in lockstep using a <code>foreach</code> loop. In contrast to $(LREF zip) it allows reference access to its elements. If only a single range is passed in, the <code>Lockstep</code> aliases itself away.  If the ranges are of different lengths and <code>s</code> == <code>StoppingPolicy.shortest</code> stop after the shortest range is empty.  If the ranges are of different lengths and <code>s</code> == <code>StoppingPolicy.requireSameLength</code> , throw an exception.  <code>s</code> may not be <code>StoppingPolicy.longest</code> , and passing this will throw an exception.</p>
 <p>Iterating over <code>Lockstep</code> in reverse and with an index is only possible when <code>s</code> == <code>StoppingPolicy.requireSameLength</code> , in order to preserve indexes. If an attempt is made at iterating in reverse when <code>s</code> == <code>StoppingPolicy.shortest</code> , an exception will be thrown.</p>
 <p>By default <code>StoppingPolicy</code> is set to <code>StoppingPolicy.shortest</code> .</p>
-<p>Limitations: The <code>pure</code> , <code>@safe</code> , <code>@nogc</code> , or <code>nothrow</code> attributes cannot be inferred for <code>lockstep</code> iteration. $(LREF zip) can infer the first two due to a different implementation.</p>
 <p>See_Also: $(LREF zip)</p>
 <p><code>lockstep</code> is similar to $(LREF zip), but <code>zip</code> bundles its elements and returns a range. <code>lockstep</code> also supports reference access. Use <code>zip</code> if you want to pass the result to a range function.</p>
-<h2 class='section'>Aliases</h2><table>
+<h2 class='section'>Variables</h2><table>
 <thead>
 <tr>
 <th>Name</th>
@@ -106,7 +116,27 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Lockstep/Lockstep/Aliases/R.html">R</a></td>
+<td><a href="../Lockstep/Lockstep/Variables/lockstepMixinFF.html">lockstepMixinFF</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Lockstep/Lockstep/Variables/lockstepMixinFT.html">lockstepMixinFT</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Lockstep/Lockstep/Variables/lockstepMixinTF.html">lockstepMixinTF</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Lockstep/Lockstep/Variables/lockstepMixinTT.html">lockstepMixinTT</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Lockstep/Lockstep/Variables/ranges.html">ranges</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Lockstep/Lockstep/Variables/stoppingPolicy.html">stoppingPolicy</a></td>
 <td></td>
 </tr>
 </tbody>

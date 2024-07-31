@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,18 +89,19 @@
 <dl><dt>Module</dt><dd>std.regex</dd></dl>
 </div><h2 class='section api'>replaceAllInto(sink, input, re, format)   </h2>
  <pre><code class='lang-d'>void replaceAllInto(
+  Sink,
+  R,
+  C,
+  RegEx
+)(
   Sink sink,
   R input,
   RegEx re,
-  &lt;bug: unknown&gt; format
-) </code></pre><p>A variation on $(LREF replaceAll) that instead of allocating a new string on each call outputs the result piece-wise to the <code>sink</code> . In particular this enables efficient construction of a final output incrementally.</p>
+  C[] format
+) @trusted</code></pre><p>A variation on $(LREF replaceAll) that instead of allocating a new string on each call outputs the result piece-wise to the <code>sink</code> . In particular this enables efficient construction of a final output incrementally.</p>
 <p>As with $(LREF replaceAll) there are 2 overloads - one with a format string, the other one with a user defined functor.</p>
 <h2 class='section api'>replaceAllInto(sink, input, re)   </h2>
- <pre><code class='lang-d'>void replaceAllInto(
-  Sink sink,
-  R input,
-  RegEx re
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>void replaceAllInto( alias fun, Sink, R, RegEx )( Sink sink, R input, RegEx re ) @trusted</code></pre><p>ditto</p>
 
 </article>
 

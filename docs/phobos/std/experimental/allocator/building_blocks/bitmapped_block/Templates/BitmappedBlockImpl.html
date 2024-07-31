@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,77 +90,84 @@
 </div><pre><code class='lang-d'>template BitmappedBlockImpl
 {
   // 
-  alias alignment = &lt;todo: marmos support pending&gt;;
+  alias alignment = &lt;todo: marmos support pending&gt;
   // 
-  alias blockSize = &lt;todo: marmos support pending&gt;;
+  alias blockSize = &lt;todo: marmos support pending&gt;
 
   // 
-  void adjustFreshBit( ulong newBit ) ;
+  void adjustFreshBit( const ulong newBit ) @nogc @safe nothrow pure
   // 
-  void adjustStartIdx( ) ;
+  void adjustStartIdx() 
   // 
-  &lt;bug: unknown&gt; alignedAllocate( size_t n, uint a ) ;
+  void[] alignedAllocate( size_t n, uint a ) 
   // 
-  &lt;bug: unknown&gt; alignedAllocateImpl( size_t n, uint a ) ;
+  void[] alignedAllocateImpl( size_t n, uint a ) 
   // 
-  bool alignedReallocate( &lt;bug: unknown&gt; b, size_t newSize, uint a ) ;
+  bool alignedReallocate( ref void[] b, size_t newSize, uint a ) @system
   // 
-  bool alignedReallocateImpl( &lt;bug: unknown&gt; b, size_t newSize, uint a ) ;
+  bool alignedReallocateImpl( ref void[] b, size_t newSize, uint a ) @system
   // 
-  &lt;bug: unknown&gt; allocate( size_t s ) ;
+  void[] allocate( const size_t s ) @nogc @safe nothrow
   // 
-  &lt;bug: unknown&gt; allocate( size_t s ) ;
+  void[] allocate( const size_t s ) @nogc @safe nothrow pure
   // 
-  &lt;bug: unknown&gt; allocateAll( ) ;
+  ref void[] allocateAll() scope return scope
   // 
-  Tuple!(size_tuint) allocateAt( size_t wordIdx, uint msbIdx, size_t blocks, &lt;bug: unknown&gt; result ) ;
+  Tuple!(size_t,uint) allocateAt(
+    size_t wordIdx,
+    uint msbIdx,
+    size_t blocks,
+    ref void[] result
+  ) 
   // 
-  bool allocateAtFront( size_t wordIdx, uint blocks ) ;
+  bool allocateAtFront( size_t wordIdx, uint blocks ) 
   // 
-  uint allocateAtTail( size_t wordIdx ) ;
+  uint allocateAtTail( size_t wordIdx ) 
   // 
-  &lt;bug: unknown&gt; allocateFresh( size_t s ) ;
+  void[] allocateFresh( const size_t s ) @trusted
   // 
-  &lt;bug: unknown&gt; allocateImpl( size_t s ) ;
+  void[] allocateImpl( const size_t s ) @nogc @trusted nothrow pure
   // 
-  size_t bytes2blocks( size_t sizeInBytes ) ;
+  void[] blocksFor( _ )( size_t wordIdx, uint msbIdx, size_t howManyBlocks ) @trusted
   // 
-  bool deallocate( &lt;bug: unknown&gt; b ) ;
+  size_t bytes2blocks( size_t sizeInBytes ) 
   // 
-  bool deallocateAll( ) ;
+  bool deallocate( void[] b ) @nogc nothrow
   // 
-  bool deallocateImpl( &lt;bug: unknown&gt; b ) ;
+  bool deallocateAll() @nogc nothrow
   // 
-  void dump( ) ;
+  bool deallocateImpl( void[] b ) @nogc nothrow
   // 
-  Ternary empty( ) ;
+  void dump() 
   // 
-  Ternary emptyImpl( ) ;
+  Ternary empty() @nogc @safe nothrow
   // 
-  bool expand( &lt;bug: unknown&gt; b, size_t delta ) ;
+  Ternary emptyImpl() @nogc @trusted nothrow pure
   // 
-  bool expandImpl( &lt;bug: unknown&gt; b, size_t delta ) ;
+  bool expand( ref void[] b, immutable size_t delta ) @nogc @trusted nothrow
   // 
-  size_t goodAllocSize( size_t n ) ;
+  bool expandImpl( ref void[] b, immutable size_t delta ) @nogc @trusted nothrow pure
   // 
-  &lt;bug: unknown&gt; hugeAlloc( size_t blocks ) ;
+  size_t goodAllocSize( size_t n ) @nogc @safe nothrow pure
   // 
-  Ternary owns( &lt;bug: unknown&gt; b ) ;
+  ref void[] hugeAlloc( size_t blocks ) @nogc @trusted nothrow scope return scope pure
   // 
-  bool reallocate( &lt;bug: unknown&gt; b, size_t newSize ) ;
+  Ternary owns( const void[] b ) @nogc @trusted nothrow pure
   // 
-  bool reallocateImpl( &lt;bug: unknown&gt; b, size_t newSize ) ;
+  bool reallocate( ref void[] b, size_t newSize ) @system
   // 
-  &lt;bug: unknown&gt; smallAlloc( uint blocks ) ;
+  bool reallocateImpl( ref void[] b, size_t newSize ) @system
   // 
-  size_t totalAllocation( size_t capacity ) ;
+  ref void[] smallAlloc( uint blocks ) @nogc @safe nothrow scope return scope pure
+  // 
+  size_t totalAllocation( size_t capacity ) @nogc @safe nothrow pure
 
   // 
-  SpinLock lock;
+  SpinLock lock = SpinLock(SpinLock.Contention.brief)
   // 
-  ParentAllocator parent;
+  ParentAllocator parent
   // 
-  __enumMember parentAlignment;
+  &lt;enum or auto&gt; parentAlignment = platformAlignment
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>
@@ -237,6 +244,10 @@
 </tr>
 <tr>
 <td><a href="../BitmappedBlockImpl/BitmappedBlockImpl/Functions/allocateImpl.html">allocateImpl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BitmappedBlockImpl/BitmappedBlockImpl/Functions/blocksFor.html">blocksFor</a></td>
 <td></td>
 </tr>
 <tr>

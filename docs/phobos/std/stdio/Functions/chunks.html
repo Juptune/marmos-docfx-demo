@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - chunks</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.stdio</dd></dl>
 </div><h2 class='section api'>chunks(f, size)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; chunks(
-  File f,
-  size_t size
-) auto</code></pre><p>Iterates through a file a chunk at a time by using <code>foreach</code> .</p>
+ <pre><code class='lang-d'>auto chunks( File f, size_t size ) </code></pre><p>Iterates through a file a chunk at a time by using <code>foreach</code> .</p>
 <h3 class='section'>Example</h3><p>--------- void main() { foreach (ubyte[] buffer; chunks(stdin, 4096)) { ... use buffer ... } } ---------</p>
 <p>The content of <code>buffer</code> is reused across calls. In the example above, <code>buffer.length</code> is 4096 for all iterations, except for the last one, in which case <code>buffer.length</code> may be less than 4096 (but always greater than zero).</p>
 <p>In case of an I/O error, an <code>StdioException</code> is thrown.</p>

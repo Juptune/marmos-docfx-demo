@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,84 +89,122 @@
 <dl><dt>Module</dt><dd>std.datetime.date</dd></dl>
 </div><pre><code class='lang-d'>public struct DateTime
 {
+  // Adds the given number of years or months to this $(LREF DateTime), mutating it. A negative number will subtract. 
+  ref DateTime add(
+    string units
+  )(
+    long value,
+    AllowDayOverflow allowOverflow
+  ) @nogc @safe nothrow pure
   // The date portion of $(LREF DateTime). 
-  Date date( ) ;
+  Date date() @nogc @property @safe nothrow pure
   // The date portion of $(LREF DateTime). 
-  void date( Date date ) ;
+  void date( Date date ) @nogc @property @safe nothrow pure
   // Day of a Gregorian Month. 
-  ubyte day( ) ;
+  ubyte day() @nogc @property @safe nothrow pure
   // Day of a Gregorian Month. 
-  void day( int day ) ;
+  void day( int day ) @property @safe pure
   // The Xth day of the Gregorian Calendar that this $(LREF DateTime) is on. 
-  int dayOfGregorianCal( ) ;
+  int dayOfGregorianCal() @nogc @property @safe nothrow pure
   // The Xth day of the Gregorian Calendar that this $(LREF DateTime) is on. Setting this property does not affect the time portion of $(LREF DateTime). 
-  void dayOfGregorianCal( int days ) ;
+  void dayOfGregorianCal( int days ) @nogc @property @safe nothrow pure
   // Day of the week this $(LREF DateTime) is on. 
-  DayOfWeek dayOfWeek( ) ;
+  DayOfWeek dayOfWeek() @nogc @property @safe nothrow pure
   // Day of the year this $(LREF DateTime) is on. 
-  ushort dayOfYear( ) ;
+  ushort dayOfYear() @nogc @property @safe nothrow pure
   // Day of the year. 
-  void dayOfYear( int day ) ;
+  void dayOfYear( int day ) @property @safe pure
   // The last day in the month that this $(LREF DateTime) is in. 
-  ubyte daysInMonth( ) ;
+  ubyte daysInMonth() @nogc @property @safe nothrow pure
   // Returns the difference between the two $(LREF DateTime)s in months. 
-  int diffMonths( DateTime rhs ) ;
+  int diffMonths( DateTime rhs ) @nogc @safe nothrow pure
   // $(LREF DateTime) for the last day in the month that this $(LREF DateTime) is in. The time portion of endOfMonth is always 23:59:59. 
-  DateTime endOfMonth( ) ;
+  DateTime endOfMonth() @property @safe nothrow pure
+  // Creates a $(LREF DateTime) from a string with the format YYYY-MM-DDTHH:MM:SS. Whitespace is stripped from the given string. 
+  DateTime fromISOExtString( S )( const scope S isoExtString ) @safe pure
+  // Creates a $(LREF DateTime) from a string with the format YYYYMMDDTHHMMSS. Whitespace is stripped from the given string. 
+  DateTime fromISOString( S )( const scope S isoString ) @safe pure
+  // Creates a $(LREF DateTime) from a string with the format YYYY-Mon-DD HH:MM:SS. Whitespace is stripped from the given string. 
+  DateTime fromSimpleString( S )( const scope S simpleString ) @safe pure
   // Hours past midnight. 
-  ubyte hour( ) ;
+  ubyte hour() @nogc @property @safe nothrow pure
   // Hours past midnight. 
-  void hour( int hour ) ;
+  void hour( int hour ) @property @safe pure
   // Whether the current year is a date in A.D. 
-  bool isAD( ) ;
+  bool isAD() @nogc @property @safe nothrow pure
   // Whether this $(LREF DateTime) is in a leap year. 
-  bool isLeapYear( ) ;
+  bool isLeapYear() @nogc @property @safe nothrow pure
   // The ISO 8601 week of the year that this $(LREF DateTime) is in. 
-  ubyte isoWeek( ) ;
+  ubyte isoWeek() @property @safe nothrow pure
   // The year of the ISO 8601 week calendar that this $(LREF DateTime) is in. 
-  short isoWeekYear( ) ;
+  short isoWeekYear() @property @safe nothrow pure
   // The $(HTTP en.wikipedia.org/wiki/Julian_day, Julian day) for this $(LREF DateTime) at the given time. For example, prior to noon, 1996-03-31 would be the Julian day number 2_450_173, so this function returns 2_450_173, while from noon onward, the julian day number would be 2_450_174, so this function returns 2_450_174. 
-  long julianDay( ) ;
+  long julianDay() @nogc @property @safe nothrow pure
   // Returns the $(LREF DateTime) farthest in the future which is representable by $(LREF DateTime). 
-  DateTime max( ) static;
+  static DateTime max() @nogc @property @safe nothrow pure
   // Returns the $(LREF DateTime) farthest in the past which is representable by $(LREF DateTime). 
-  DateTime min( ) static;
+  static DateTime min() @nogc @property @safe nothrow pure
   // Minutes past the hour. 
-  ubyte minute( ) ;
+  ubyte minute() @nogc @property @safe nothrow pure
   // Minutes past the hour. 
-  void minute( int minute ) ;
+  void minute( int minute ) @property @safe pure
   // The modified $(HTTP en.wikipedia.org/wiki/Julian_day, Julian day) for any time on this date (since, the modified Julian day changes at midnight). 
-  long modJulianDay( ) ;
+  long modJulianDay() @nogc @property @safe nothrow pure
   // Month of a Gregorian Year. 
-  Month month( ) ;
+  Month month() @nogc @property @safe nothrow pure
   // Month of a Gregorian Year. 
-  void month( Month month ) ;
+  void month( Month month ) @property @safe pure
+  // Gives the result of adding or subtracting a $(REF Duration, core,time) from this $(LREF DateTime). 
+  DateTime opBinary( string op )( Duration duration ) @nogc @safe nothrow pure
+  // Gives the difference between two $(LREF DateTime)s. 
+  Duration opBinary( string op )( DateTime rhs ) @nogc @safe nothrow pure
   // Compares this $(LREF DateTime) with the given `DateTime.` . 
-  int opCmp( DateTime rhs ) ;
+  int opCmp( DateTime rhs ) @nogc @safe nothrow pure
+  // Gives the result of adding or subtracting a duration from this $(LREF DateTime), as well as assigning the result to this $(LREF DateTime). 
+  ref DateTime opOpAssign( string op )( Duration duration ) @nogc @safe nothrow pure
+  // Adds the given number of years or months to this $(LREF DateTime), mutating it. A negative number will subtract. 
+  ref DateTime roll(
+    string units
+  )(
+    long value,
+    AllowDayOverflow allowOverflow
+  ) @nogc @safe nothrow pure
+  // Adds the given number of units to this $(LREF DateTime), mutating it. A negative number will subtract. 
+  ref DateTime roll( string units )( long value ) @nogc @safe nothrow pure
+  // ditto 
+  ref DateTime roll( string units )( long value ) @nogc @safe nothrow pure
   // Seconds past the minute. 
-  ubyte second( ) ;
+  ubyte second() @nogc @property @safe nothrow pure
   // Seconds past the minute. 
-  void second( int second ) ;
+  void second( int second ) @property @safe pure
   // The time portion of $(LREF DateTime). 
-  TimeOfDay timeOfDay( ) ;
+  TimeOfDay timeOfDay() @nogc @property @safe nothrow pure
   // The time portion of $(LREF DateTime). 
-  void timeOfDay( TimeOfDay tod ) ;
+  void timeOfDay( TimeOfDay tod ) @nogc @property @safe nothrow pure
   // Converts this $(LREF DateTime) to a string with the format `YYYY-MM-DDTHH:MM:SS` . If `writer` is set, the resulting string will be written directly to it. 
-  string toISOExtString( ) ;
+  string toISOExtString() @safe nothrow pure
+  // ditto 
+  void toISOExtString( W )( ref W writer ) 
   // Converts this $(LREF DateTime) to a string with the format `YYYYMMDDTHHMMSS` . If `writer` is set, the resulting string will be written directly to it. 
-  string toISOString( ) ;
+  string toISOString() @safe nothrow pure
+  // ditto 
+  void toISOString( W )( ref W writer ) 
   // Converts this $(LREF DateTime) to a string with the format `YYYY-Mon-DD HH:MM:SS` . If `writer` is set, the resulting string will be written directly to it. 
-  string toSimpleString( ) ;
+  string toSimpleString() @safe nothrow pure
+  // ditto 
+  void toSimpleString( W )( ref W writer ) 
   // Converts this $(LREF DateTime) to a string. 
-  string toString( ) ;
+  string toString() @safe nothrow pure
+  // ditto 
+  void toString( W )( ref W writer ) 
   // Year of the Gregorian Calendar. Positive numbers are A.D. Non-positive are B.C. 
-  short year( ) ;
+  short year() @nogc @property @safe nothrow pure
   // Year of the Gregorian Calendar. Positive numbers are A.D. Non-positive are B.C. 
-  void year( int year ) ;
+  void year( int year ) @property @safe pure
   // Year B.C. of the Gregorian Calendar counting year 0 as 1 B.C. 
-  short yearBC( ) ;
+  short yearBC() @property @safe pure
   // Year B.C. of the Gregorian Calendar counting year 0 as 1 B.C. 
-  void yearBC( int year ) ;
+  void yearBC( int year ) @property @safe pure
 }</code></pre><h2 class='section'>About</h2><p>Combines the $(REF Date,std,datetime,date) and $(REF TimeOfDay,std,datetime,date) structs to give an object which holds both the date and the time. It is optimized for calendar-based operations and has no concept of time zone. For an object which is optimized for time operations based on the system time, use $(REF SysTime,std,datetime,systime). $(REF SysTime,std,datetime,systime) has a concept of time zone and has much higher precision (hnsecs). <code>DateTime</code> is intended primarily for calendar-based uses rather than precise time operations.</p>
 <h2 class='section'>Functions</h2><table>
 <thead>
@@ -176,6 +214,10 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="../DateTime/DateTime/Functions/add.html">add</a></td>
+<td>Adds the given number of years or months to this $(LREF DateTime), mutating it. A negative number will subtract.</td>
+</tr>
 <tr>
 <td><a href="../DateTime/DateTime/Functions/date.html">date</a></td>
 <td>The date portion of $(LREF DateTime).</td>
@@ -207,6 +249,18 @@
 <tr>
 <td><a href="../DateTime/DateTime/Functions/endOfMonth.html">endOfMonth</a></td>
 <td>$(LREF DateTime) for the last day in the month that this $(LREF DateTime) is in. The time portion of endOfMonth is always 23:59:59.</td>
+</tr>
+<tr>
+<td><a href="../DateTime/DateTime/Functions/fromISOExtString.html">fromISOExtString</a></td>
+<td>Creates a $(LREF DateTime) from a string with the format YYYY-MM-DDTHH:MM:SS. Whitespace is stripped from the given string.</td>
+</tr>
+<tr>
+<td><a href="../DateTime/DateTime/Functions/fromISOString.html">fromISOString</a></td>
+<td>Creates a $(LREF DateTime) from a string with the format YYYYMMDDTHHMMSS. Whitespace is stripped from the given string.</td>
+</tr>
+<tr>
+<td><a href="../DateTime/DateTime/Functions/fromSimpleString.html">fromSimpleString</a></td>
+<td>Creates a $(LREF DateTime) from a string with the format YYYY-Mon-DD HH:MM:SS. Whitespace is stripped from the given string.</td>
 </tr>
 <tr>
 <td><a href="../DateTime/DateTime/Functions/hour.html">hour</a></td>
@@ -253,8 +307,20 @@
 <td>Month of a Gregorian Year.</td>
 </tr>
 <tr>
+<td><a href="../DateTime/DateTime/Functions/opBinary.html">opBinary</a></td>
+<td>Gives the result of adding or subtracting a $(REF Duration, core,time) from this $(LREF DateTime).</td>
+</tr>
+<tr>
 <td><a href="../DateTime/DateTime/Functions/opCmp.html">opCmp</a></td>
 <td>Compares this $(LREF DateTime) with the given <code>DateTime.</code> .</td>
+</tr>
+<tr>
+<td><a href="../DateTime/DateTime/Functions/opOpAssign.html">opOpAssign</a></td>
+<td>Gives the result of adding or subtracting a duration from this $(LREF DateTime), as well as assigning the result to this $(LREF DateTime).</td>
+</tr>
+<tr>
+<td><a href="../DateTime/DateTime/Functions/roll.html">roll</a></td>
+<td>Adds the given number of years or months to this $(LREF DateTime), mutating it. A negative number will subtract.</td>
 </tr>
 <tr>
 <td><a href="../DateTime/DateTime/Functions/second.html">second</a></td>

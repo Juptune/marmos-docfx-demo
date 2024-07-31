@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,12 +87,12 @@
         <article data-uid="juptune.event.iouring.Enums.JuptuneUringUserDataTag">
 <h1 class='section'>Enum - JuptuneUringUserDataTag</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.event.iouring</dd></dl>
-</div><pre><code class='lang-d'>enum JuptuneUringUserDataTag
+</div><pre><code class='lang-d'>enum JuptuneUringUserDataTag : ubyte
 {
   // 
-  __enumMember FAILSAFE;
+  FAILSAFE,
   // 
-  __enumMember JuptuneFiber;
+  JuptuneFiber,
 }</code></pre><h2 class='section'>About</h2><p>In order to (slightly) more safely determine what type the user data of a CQE is, we need the very first byte** of each user data to be a <code>JuptuneUringUserDataTag</code> value.</p>
 <p>Small note: the naming scheme is sligtly different since we use the full name of the type, including the original casing.</p>
 <h2 class='section'>Variables</h2><table>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - rvalueOf</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>phobos.sys.traits</dd></dl>
 </div><h2 class='section api'>rvalueOf(__anonymous)   </h2>
- <pre><code class='lang-d'>T rvalueOf(
-  __InoutWorkaroundStruct __anonymous
-) </code></pre><p>Creates an lvalue or rvalue of type T to be used in conjunction with $(D is(typeof(...))) or $(DDSUBLINK spec/traits, compiles, $(D traits(compiles, ...))).</p>
+ <pre><code class='lang-d'>T rvalueOf( T )( __InoutWorkaroundStruct __anonymous ) @property</code></pre><p>Creates an lvalue or rvalue of type T to be used in conjunction with $(D is(typeof(...))) or $(DDSUBLINK spec/traits, compiles, $(D traits(compiles, ...))).</p>
 <p>The idea is that some traits or other forms of conditional compilation need to verify that a particular piece of code compiles with an rvalue or an lvalue of a specific type, and these $(D @property) functions allow you to get an rvalue or lvalue of a specific type to use within an expression that is then tested to see whether it compiles.</p>
 <p>They're $(D @property) functions so that using $(D typeof) on them gives the return type rather than the type of the function.</p>
 <p>Note that these functions are $(I not) defined, so if they're actually used outside of type introspection, they'll result in linker errors. They're entirely for testing that a particular piece of code compiles with an rvalue or lvalue of the given type.</p>

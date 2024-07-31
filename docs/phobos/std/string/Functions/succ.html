@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - succ</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.string</dd></dl>
 </div><h2 class='section api'>succ(s)   </h2>
- <pre><code class='lang-d'>S succ(
-  S s
-) </code></pre><p>Return string that is the 'successor' to s[]. If the rightmost character is a-zA-Z0-9, it is incremented within its case or digits. If it generates a carry, the process is repeated with the one to its immediate left.</p>
+ <pre><code class='lang-d'>S succ( S )( S s ) @safe pure</code></pre><p>Return string that is the 'successor' to s[]. If the rightmost character is a-zA-Z0-9, it is incremented within its case or digits. If it generates a carry, the process is repeated with the one to its immediate left.</p>
 
 </article>
 

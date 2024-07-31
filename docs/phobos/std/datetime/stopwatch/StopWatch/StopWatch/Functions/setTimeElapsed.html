@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - setTimeElapsed</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.stopwatch.StopWatch</dd></dl><dl><dt>Parent</dt><dd>StopWatch</dd></dl>
 </div><h2 class='section api'>setTimeElapsed(timeElapsed)   </h2>
- <pre><code class='lang-d'>void setTimeElapsed(
-  Duration timeElapsed
-) </code></pre><p>Sets the total time which the StopWatch has been running (i.e. what peek returns).</p>
+ <pre><code class='lang-d'>void setTimeElapsed( Duration timeElapsed ) @nogc @safe nothrow</code></pre><p>Sets the total time which the StopWatch has been running (i.e. what peek returns).</p>
 <p>The StopWatch does not have to be stopped for setTimeElapsed to be called, nor will calling it cause the StopWatch to stop.</p>
 
 </article>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,11 +88,7 @@
 <h1 class='section'>Overloads for - padRight</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
 </div><h2 class='section api'>padRight(r, e, n)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; padRight(
-  R r,
-  E e,
-  size_t n
-) auto</code></pre><p>Extend the length of the input range <code>r</code> by padding out the end of the range with the element <code>e</code> . The element <code>e</code> must be of a common type with the element type of the range <code>r</code> as defined by $(REF CommonType, std, traits). If <code>n</code> is less than the length of of <code>r</code> , then the contents of <code>r</code> are returned.</p>
+ <pre><code class='lang-d'>auto padRight( R, E )( R r, E e, size_t n ) </code></pre><p>Extend the length of the input range <code>r</code> by padding out the end of the range with the element <code>e</code> . The element <code>e</code> must be of a common type with the element type of the range <code>r</code> as defined by $(REF CommonType, std, traits). If <code>n</code> is less than the length of of <code>r</code> , then the contents of <code>r</code> are returned.</p>
 <p>The range primitives that the resulting range provides depends whether or not <code>r</code> provides them. Except the functions <code>back</code> and <code>popBack</code> , which also require the range to have a length as well as <code>back</code> and <code>popBack</code></p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>r</code> R  </dt>
 <dd>

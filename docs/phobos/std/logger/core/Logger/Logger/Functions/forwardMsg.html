@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - forwardMsg</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.logger.core.Logger</dd></dl><dl><dt>Parent</dt><dd>Logger</dd></dl>
 </div><h2 class='section api'>forwardMsg(payload)   </h2>
- <pre><code class='lang-d'>void forwardMsg(
-  LogEntry payload
-) </code></pre><p>This method allows forwarding log entries from one logger to another.</p>
+ <pre><code class='lang-d'>void forwardMsg( ref LogEntry payload ) @trusted</code></pre><p>This method allows forwarding log entries from one logger to another.</p>
 <p><code>forwardMsg</code> will ensure proper synchronization and then call <code>writeLogMsg</code> . This is an API for implementing your own loggers and should not be called by normal user code. A notable difference from other logging functions is that the <code>globalLogLevel</code> wont be evaluated again since it is assumed that the caller already checked that.</p>
 
 </article>

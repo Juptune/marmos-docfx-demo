@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,17 +88,11 @@
 <h1 class='section'>Overloads for - opSliceAssign</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.container.array.Array</dd></dl><dl><dt>Parent</dt><dd>Array</dd></dl>
 </div><h2 class='section api'>opSliceAssign(value)   </h2>
- <pre><code class='lang-d'>void opSliceAssign(
-  T value
-) </code></pre><p>Slicing operators executing the specified operation on the entire slice.</p>
+ <pre><code class='lang-d'>void opSliceAssign( T value ) </code></pre><p>Slicing operators executing the specified operation on the entire slice.</p>
 <p>Precondition: <code>i &lt; j &amp;&amp; j &lt; length</code></p>
 <p>Complexity: $(BIGOH slice.length)</p>
 <h2 class='section api'>opSliceAssign(value, i, j)   </h2>
- <pre><code class='lang-d'>void opSliceAssign(
-  T value,
-  size_t i,
-  size_t j
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>void opSliceAssign( T value, size_t i, size_t j ) </code></pre><p>ditto</p>
 
 </article>
 

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - cache</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.iteration</dd></dl>
 </div><h2 class='section api'>cache(range)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; cache(
-  Range range
-) auto</code></pre><p><code>cache</code> eagerly evaluates $(REF_ALTTEXT front, front, std,range,primitives) of <code>range</code> on each construction or call to $(REF_ALTTEXT popFront, popFront, std,range,primitives), to store the result in a cache. The result is then directly returned when $(REF_ALTTEXT front, front, std,range,primitives) is called, rather than re-evaluated.</p>
+ <pre><code class='lang-d'>auto cache( Range )( Range range ) </code></pre><p><code>cache</code> eagerly evaluates $(REF_ALTTEXT front, front, std,range,primitives) of <code>range</code> on each construction or call to $(REF_ALTTEXT popFront, popFront, std,range,primitives), to store the result in a cache. The result is then directly returned when $(REF_ALTTEXT front, front, std,range,primitives) is called, rather than re-evaluated.</p>
 <p>This can be a useful function to place in a chain, after functions that have expensive evaluation, as a lazy alternative to $(REF array, std,array). In particular, it can be placed after a call to $(LREF map), or before a call $(REF filter, std,range) or $(REF tee, std,range)</p>
 <p><code>cache</code> may provide $(REF_ALTTEXT bidirectional range, isBidirectionalRange, std,range,primitives) iteration if needed, but since this comes at an increased cost, it must be explicitly requested via the call to <code>cacheBidirectional</code> . Furthermore, a bidirectional cache will evaluate the &quot;center&quot; element twice, when there is only one element left in the range.</p>
 <p><code>cache</code> does not provide random access primitives, as <code>cache</code> would be unable to cache the random accesses. If <code>Range</code> provides slicing primitives, then <code>cache</code> will provide the same slicing primitives, but <code>hasSlicing!Cache</code> will not yield true (as the $(REF hasSlicing, std,range,primitives) trait also checks for random access).</p>

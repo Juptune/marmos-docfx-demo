@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,16 +88,10 @@
 <h1 class='section'>Overloads for - windowsHandleOpen</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.stdio.File</dd></dl><dl><dt>Parent</dt><dd>File</dd></dl>
 </div><h2 class='section api'>windowsHandleOpen(handle, stdioOpenmode)   </h2>
- <pre><code class='lang-d'>void windowsHandleOpen(
-  HANDLE handle,
-  &lt;bug: unknown&gt; stdioOpenmode
-) </code></pre><p>First calls <code>detach</code> (throwing on failure), and then attempts to associate the given Windows <code>HANDLE</code> with the <code>File</code> . The mode must be compatible with the access attributes of the handle. Windows only.</p>
+ <pre><code class='lang-d'>void windowsHandleOpen( HANDLE handle, scope char[] stdioOpenmode ) </code></pre><p>First calls <code>detach</code> (throwing on failure), and then attempts to associate the given Windows <code>HANDLE</code> with the <code>File</code> . The mode must be compatible with the access attributes of the handle. Windows only.</p>
 <p>Throws: <code>ErrnoException</code> in case of error.</p>
 <h2 class='section api'>windowsHandleOpen(handle, stdioOpenmode)   </h2>
- <pre><code class='lang-d'>void windowsHandleOpen(
-  HANDLE handle,
-  &lt;bug: unknown&gt; stdioOpenmode
-) </code></pre>
+ <pre><code class='lang-d'>void windowsHandleOpen( HANDLE handle, scope char[] stdioOpenmode ) </code></pre>
 </article>
 
         <div class="contribution d-print-none">

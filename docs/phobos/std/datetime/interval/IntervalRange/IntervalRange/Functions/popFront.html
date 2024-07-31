@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - popFront</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.interval.IntervalRange</dd></dl><dl><dt>Parent</dt><dd>IntervalRange</dd></dl>
 </div><h2 class='section api'>popFront()   </h2>
- <pre><code class='lang-d'>void popFront(
-) </code></pre><p>Pops <code>front</code> from the range, using <code>func</code> to generate the next time point in the range. If the generated time point is beyond the edge of the range, then <code>front</code> is set to that edge, and the range is then empty. So, if iterating forwards, and the generated time point is greater than the interval's <code>end</code> , then <code>front</code> is set to <code>end</code> . If iterating backwards, and the generated time point is less than the interval's <code>begin</code> , then <code>front</code> is set to <code>begin</code> .</p>
+ <pre><code class='lang-d'>void popFront() </code></pre><p>Pops <code>front</code> from the range, using <code>func</code> to generate the next time point in the range. If the generated time point is beyond the edge of the range, then <code>front</code> is set to that edge, and the range is then empty. So, if iterating forwards, and the generated time point is greater than the interval's <code>end</code> , then <code>front</code> is set to <code>end</code> . If iterating backwards, and the generated time point is less than the interval's <code>begin</code> , then <code>front</code> is set to <code>begin</code> .</p>
 <h3 class='section'>Throws</h3><p>$(REF DateTimeException,std,datetime,date) if the range is empty or if the generated time point is in the wrong direction (i.e. if iterating forward and the generated time point is before <code>front</code> , or if iterating backwards and the generated time point is after <code>front</code> ).</p>
 
 </article>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - chain</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
 </div><h2 class='section api'>chain(rs)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; chain(
-  Ranges rs
-) auto</code></pre><p>Spans multiple ranges in sequence. The function <code>chain</code> takes any number of ranges and returns a $(D Chain!(R1, R2,...)) object. The ranges may be different, but they must have the same element type. The result is a range that offers the <code>front</code> , <code>popFront</code> , and $(D empty) primitives. If all input ranges offer random access and $(D length), <code>Chain</code> offers them as well.</p>
+ <pre><code class='lang-d'>auto chain( Ranges... )( Ranges rs ) </code></pre><p>Spans multiple ranges in sequence. The function <code>chain</code> takes any number of ranges and returns a $(D Chain!(R1, R2,...)) object. The ranges may be different, but they must have the same element type. The result is a range that offers the <code>front</code> , <code>popFront</code> , and $(D empty) primitives. If all input ranges offer random access and $(D length), <code>Chain</code> offers them as well.</p>
 <p>Note that repeated random access of the resulting range is likely to perform somewhat badly since lengths of the ranges in the chain have to be added up for each random access operation. Random access to elements of the first remaining range is still efficient.</p>
 <p>If only one range is offered to <code>Chain</code> or <code>chain</code> , the $(D Chain) type exits the picture by aliasing itself directly to that range's type.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>rs</code> Ranges  </dt>

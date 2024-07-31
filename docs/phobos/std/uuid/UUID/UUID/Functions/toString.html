@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,9 @@
 <h1 class='section'>Overloads for - toString</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.uuid.UUID</dd></dl><dl><dt>Parent</dt><dd>UUID</dd></dl>
 </div><h2 class='section api'>toString()   </h2>
- <pre><code class='lang-d'>string toString(
-) </code></pre><p>Return the UUID as a string in the canonical form.</p>
+ <pre><code class='lang-d'>string toString() @trusted nothrow pure</code></pre><p>Return the UUID as a string in the canonical form.</p>
+<h2 class='section api'>toString(sink)   </h2>
+ <pre><code class='lang-d'>void toString( Writer )( scope Writer sink ) </code></pre><p>Write the UUID into <code>sink</code> as an ASCII string in the canonical form, which is 36 characters in the form &quot;xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx&quot; Params: sink = OutputRange or writeable array at least 36 entries long</p>
 
 </article>
 

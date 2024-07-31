@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,18 +90,28 @@
 </div><pre><code class='lang-d'>public struct Ternary
 {
   // 
-  Ternary make( ubyte b ) static;
+  static Ternary make( ubyte b ) 
   // ditto 
-  void opAssign( bool b ) ;
+  void opAssign( bool b ) 
+  // ditto 
+  Ternary opBinary( string s )( Ternary rhs ) 
+  // ditto 
+  Ternary opBinary( string s )( Ternary rhs ) 
+  // ditto 
+  Ternary opBinary( string s )( Ternary rhs ) 
+  // ditto 
+  Ternary opBinary( string s )( bool rhs ) 
+  // $(TABLE Truth table for logical operations, $(TR $(TH `a` ) $(TH `b` ) $(TH `$(TILDE)a` ) $(TH `a | b` ) $(TH `a &amp; b` ) $(TH `a ^ b` )) $(TR $(TD `no` ) $(TD `no` ) $(TD `yes` ) $(TD `no` ) $(TD `no` ) $(TD `no` )) $(TR $(TD `no` ) $(TD `yes` ) $(TD) $(TD `yes` ) $(TD `no` ) $(TD `yes` )) $(TR $(TD `no` ) $(TD `unknown` ) $(TD) $(TD `unknown` ) $(TD `no` ) $(TD `unknown` )) $(TR $(TD `yes` ) $(TD `no` ) $(TD `no` ) $(TD `yes` ) $(TD `no` ) $(TD `yes` )) $(TR $(TD `yes` ) $(TD `yes` ) $(TD) $(TD `yes` ) $(TD `yes` ) $(TD `no` )) $(TR $(TD `yes` ) $(TD `unknown` ) $(TD) $(TD `yes` ) $(TD `unknown` ) $(TD `unknown` )) $(TR $(TD `unknown` ) $(TD `no` ) $(TD `unknown` ) $(TD `unknown` ) $(TD `no` ) $(TD `unknown` )) $(TR $(TD `unknown` ) $(TD `yes` ) $(TD) $(TD `yes` ) $(TD `unknown` ) $(TD `unknown` )) $(TR $(TD `unknown` ) $(TD `unknown` ) $(TD) $(TD `unknown` ) $(TD `unknown` ) $(TD `unknown` )) ) 
+  Ternary opUnary( string s )() 
 
   // The possible states of the `Ternary` 
-  __enumMember no;
+  &lt;enum or auto&gt; no = make(0)
   // ditto 
-  __enumMember unknown;
+  &lt;enum or auto&gt; unknown = make(6)
   // 
-  ubyte value;
+  ubyte value = 6
   // ditto 
-  __enumMember yes;
+  &lt;enum or auto&gt; yes = make(2)
 }</code></pre><h2 class='section'>About</h2><h3 class='section'>Ternary type with three truth values</h3><p>$(UL $(LI <code>Ternary.yes</code> for <code>true</code> ) $(LI <code>Ternary.no</code> for <code>false</code> ) $(LI <code>Ternary.unknown</code> as an unknown state) )</p>
 <p>Also known as trinary, trivalent, or trilean.</p>
 <h3 class='section'>See_Also</h3><p>$(HTTP en.wikipedia.org/wiki/Three-valued_logic, Three Valued Logic on Wikipedia)</p>
@@ -120,6 +130,14 @@
 <tr>
 <td><a href="../Ternary/Ternary/Functions/opAssign.html">opAssign</a></td>
 <td>ditto</td>
+</tr>
+<tr>
+<td><a href="../Ternary/Ternary/Functions/opBinary.html">opBinary</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../Ternary/Ternary/Functions/opUnary.html">opUnary</a></td>
+<td>$(TABLE Truth table for logical operations, $(TR $(TH <code>a</code> ) $(TH <code>b</code> ) <span class="math">\((TH `\)</span>(TILDE)a<code>) $(TH</code>a <code>|</code> b<code>) $(TH</code>a &amp; b<code>) $(TH</code>a ^ b<code>)) $(TR $(TD</code>no<code>) $(TD</code>no<code>) $(TD</code>yes<code>) $(TD</code>no<code>) $(TD</code>no<code>) $(TD</code>no<code>)) $(TR $(TD</code>no<code>) $(TD</code>yes<code>) $(TD) $(TD</code>yes<code>) $(TD</code>no<code>) $(TD</code>yes<code>)) $(TR $(TD</code>no<code>) $(TD</code>unknown<code>) $(TD) $(TD</code>unknown<code>) $(TD</code>no<code>) $(TD</code>unknown<code>)) $(TR $(TD</code>yes<code>) $(TD</code>no<code>) $(TD</code>no<code>) $(TD</code>yes<code>) $(TD</code>no<code>) $(TD</code>yes<code>)) $(TR $(TD</code>yes<code>) $(TD</code>yes<code>) $(TD) $(TD</code>yes<code>) $(TD</code>yes<code>) $(TD</code>no<code>)) $(TR $(TD</code>yes<code>) $(TD</code>unknown<code>) $(TD) $(TD</code>yes<code>) $(TD</code>unknown<code>) $(TD</code>unknown<code>)) $(TR $(TD</code>unknown<code>) $(TD</code>no<code>) $(TD</code>unknown<code>) $(TD</code>unknown<code>) $(TD</code>no<code>) $(TD</code>unknown<code>)) $(TR $(TD</code>unknown<code>) $(TD</code>yes<code>) $(TD) $(TD</code>yes<code>) $(TD</code>unknown<code>) $(TD</code>unknown<code>)) $(TR $(TD</code>unknown<code>) $(TD</code>unknown<code>) $(TD) $(TD</code>unknown<code>) $(TD</code>unknown<code>) $(TD</code>unknown` )) )</td>
 </tr>
 </tbody>
 </table>

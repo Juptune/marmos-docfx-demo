@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,24 +87,26 @@
         <article data-uid="std.algorithm.searching.Structs.BoyerMooreFinder">
 <h1 class='section'>Struct - BoyerMooreFinder</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.searching</dd></dl>
-</div><pre><code class='lang-d'>public struct BoyerMooreFinder
+</div><pre><code class='lang-d'>struct BoyerMooreFinder( alias pred, Range )
 {
   // 
-  alias opDollar = &lt;todo: marmos support pending&gt;;
+  alias opDollar = &lt;todo: marmos support pending&gt;
 
   // 
-  Range beFound( Range haystack ) ;
+  Range beFound( Range haystack ) scope
   // 
-  size_t length( ) ;
+  size_t length() @property
   // 
-  ptrdiff_t occurrence( ElementType!(Range) c ) ;
+  bool needlematch( R )( R needle, size_t portion, size_t offset ) 
+  // 
+  ptrdiff_t occurrence( ElementType!(Range) c ) scope
 
   // 
-  Range needle;
+  Range needle
   // 
-  &lt;bug: unknown&gt; occ;
+  ptrdiff_t[ElementType!(Range)] occ
   // 
-  &lt;bug: unknown&gt; skip;
+  size_t[] skip
 }</code></pre><h2 class='section'>About</h2><p>Sets up Boyer-Moore matching for use with <code>find</code> below. By default, elements are compared for equality.</p>
 <p><code>BoyerMooreFinder</code> allocates GC memory.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>pred</code>   </dt>
@@ -148,6 +150,10 @@
 </tr>
 <tr>
 <td><a href="../BoyerMooreFinder/BoyerMooreFinder/Functions/length.html">length</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BoyerMooreFinder/BoyerMooreFinder/Functions/needlematch.html">needlematch</a></td>
 <td></td>
 </tr>
 <tr>

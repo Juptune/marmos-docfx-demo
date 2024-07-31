@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,12 +88,8 @@
 <h1 class='section'>Overloads for - insertInPlace</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.array</dd></dl>
 </div><h2 class='section api'>insertInPlace(array, pos, stuff)   </h2>
- <pre><code class='lang-d'>void insertInPlace(
-  &lt;bug: unknown&gt; array,
-  size_t pos,
-  U stuff
-) </code></pre><p>Inserts <code>stuff</code> (which must be an input range or any number of implicitly convertible items) in <code>array</code> at position <code>pos</code> .</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>array</code> &lt;bug: unknown&gt;  </dt>
+ <pre><code class='lang-d'>void insertInPlace( T, U... )( ref T[] array, size_t pos, U stuff ) </code></pre><p>Inserts <code>stuff</code> (which must be an input range or any number of implicitly convertible items) in <code>array</code> at position <code>pos</code> .</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>array</code> T[]  </dt>
 <dd>
 
 
@@ -113,11 +109,7 @@
 
 </dd></dl><p>pos   = The position in <code>array</code> to insert the <code>stuff</code> . stuff = An $(REF_ALTTEXT input range, isInputRange, std,range,primitives), or any number of implicitly convertible items to insert into <code>array</code> .</p>
 <h2 class='section api'>insertInPlace(array, pos, stuff)   </h2>
- <pre><code class='lang-d'>void insertInPlace(
-  &lt;bug: unknown&gt; array,
-  size_t pos,
-  U stuff
-) </code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>void insertInPlace( T, U... )( ref T[] array, size_t pos, U stuff ) </code></pre><p>Ditto</p>
 
 </article>
 

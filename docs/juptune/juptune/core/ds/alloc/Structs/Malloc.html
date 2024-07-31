@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,10 +90,10 @@
 </div><pre><code class='lang-d'>public struct Malloc
 {
   // 
-  alias CtorParams = &lt;todo: marmos support pending&gt;;
+  alias CtorParams = &lt;todo: marmos support pending&gt;
 
   // 
-  __enumMember IsCopyable;
+  &lt;enum or auto&gt; IsCopyable = true
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>
@@ -104,6 +104,20 @@
 <tbody>
 <tr>
 <td><a href="../Malloc/Malloc/Aliases/CtorParams.html">CtorParams</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Templates</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Malloc/Malloc/Templates/InjectState.html">InjectState</a></td>
 <td></td>
 </tr>
 </tbody>

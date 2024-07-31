@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,11 +88,14 @@
 <h1 class='section'>Overloads for - slide</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
 </div><h2 class='section api'>slide(source, windowSize, stepSize)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; slide(
+ <pre><code class='lang-d'>auto slide(
+  Flag!(&quot;withPartial&quot;) f = Yes.withPartial,
+  Source
+)(
   Source source,
   size_t windowSize,
   size_t stepSize
-) auto</code></pre><p>A fixed-sized sliding window iteration of size <code>windowSize</code> over a <code>source</code> range by a custom <code>stepSize</code> .</p>
+) </code></pre><p>A fixed-sized sliding window iteration of size <code>windowSize</code> over a <code>source</code> range by a custom <code>stepSize</code> .</p>
 <p>The <code>Source</code> range must be at least a $(REF_ALTTEXT ForwardRange, isForwardRange, std,range,primitives) and the <code>windowSize</code> must be greater than zero.</p>
 <p>For <code>windowSize = 1</code> it splits the range into single element groups (aka <code>unflatten</code> ) For <code>windowSize = 2</code> it is similar to <code>zip(source, source.save.dropOne)</code> .</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>f</code> &lt;parameter not found&gt;  </dt>

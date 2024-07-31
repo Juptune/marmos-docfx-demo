@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - access</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.crypto.memory.SecureMemory</dd></dl><dl><dt>Parent</dt><dd>SecureMemory</dd></dl>
 </div><h2 class='section api'>access(func)   </h2>
- <pre><code class='lang-d'>void access(
-  &lt;bug: unknown&gt; func
-) </code></pre><p>Provides a safe(ish) way to access the underlying user memory.</p>
+ <pre><code class='lang-d'>void access( scope &lt;bug: unknown&gt; func ) @nogc @safe nothrow</code></pre><p>Provides a safe(ish) way to access the underlying user memory.</p>
 <h3 class='section'>Notes</h3><p>This wrapper function is used to help enforce the <code>scope</code> attribute.</p>
 <p>You'll probably have to mark your delegate <code>@trusted</code> , just be wary this prevents <code>scope</code> from being checked by the compiler.</p>
 <p>D's compiler is god awful when it comes to error messages, so you may want to store <code>func</code> inside a variable first to see what's going wrong with it.</p>
@@ -101,9 +99,7 @@
 <p>The delegate to call.</p>
 
 </dd></dl><h2 class='section api'>access(func)   </h2>
- <pre><code class='lang-d'>void access(
-  &lt;bug: unknown&gt; func
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>void access( scope &lt;bug: unknown&gt; func ) @safe nothrow</code></pre><p>ditto</p>
 
 </article>
 

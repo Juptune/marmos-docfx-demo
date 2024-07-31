@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,40 +90,40 @@
 </div><pre><code class='lang-d'>public struct SharedAscendingPageAllocator
 {
   // Rounds the allocation size to the next multiple of the page size. The allocation only reserves a range of virtual pages but the actual physical memory is allocated on demand, when accessing the memory. 
-  &lt;bug: unknown&gt; alignedAllocate( size_t n, uint a ) ;
+  void[] alignedAllocate( size_t n, uint a ) @nogc nothrow
   // Rounds the allocation size to the next multiple of the page size. The allocation only reserves a range of virtual pages but the actual physical memory is allocated on demand, when accessing the memory. 
-  &lt;bug: unknown&gt; allocate( size_t n ) ;
+  void[] allocate( size_t n ) @nogc nothrow
   // 
-  &lt;bug: unknown&gt; allocateImpl( size_t n, uint a ) ;
+  void[] allocateImpl( size_t n, uint a ) @nogc nothrow
   // Decommit all physical memory associated with the buffer given as parameter, but keep the range of virtual addresses. 
-  void deallocate( &lt;bug: unknown&gt; b ) ;
+  void deallocate( void[] b ) @nogc nothrow
   // Removes the memory mapping causing all physical memory to be decommited and the virtual address space to be reclaimed. 
-  bool deallocateAll( ) ;
+  bool deallocateAll() @nogc nothrow
   // If the passed buffer is not the last allocation, then `delta` can be at most the number of bytes left on the last page. Otherwise, we can expand the last allocation until the end of the virtual address range. 
-  bool expand( &lt;bug: unknown&gt; b, size_t delta ) ;
+  bool expand( ref void[] b, size_t delta ) @nogc nothrow
   // Returns the available size for further allocations in bytes. 
-  size_t getAvailableSize( ) ;
+  size_t getAvailableSize() @nogc nothrow
   // Rounds the requested size to the next multiple of the page size. 
-  size_t goodAllocSize( size_t n ) ;
+  size_t goodAllocSize( size_t n ) @nogc nothrow
   // Returns `Ternary.yes` if the passed buffer is inside the range of virtual adresses. Does not guarantee that the passed buffer is still valid. 
-  Ternary owns( &lt;bug: unknown&gt; buf ) ;
+  Ternary owns( void[] buf ) @nogc nothrow
 
   // 
-  uint alignment;
+  uint alignment = 4096
   // 
-  shared &lt;bug: unknown&gt; data;
+  shared void* data
   // 
-  __enumMember extraAllocPages;
+  &lt;enum or auto&gt; extraAllocPages = 1000
   // 
-  SpinLock lock;
+  SpinLock lock
   // 
-  size_t numPages;
+  size_t numPages
   // 
-  shared &lt;bug: unknown&gt; offset;
+  shared void* offset
   // 
-  size_t pageSize;
+  size_t pageSize
   // 
-  shared &lt;bug: unknown&gt; readWriteLimit;
+  shared void* readWriteLimit
 }</code></pre><h2 class='section'>About</h2><p><code>SharedAscendingPageAllocator</code> is the threadsafe version of <code>AscendingPageAllocator</code> .</p>
 <h2 class='section'>Functions</h2><table>
 <thead>

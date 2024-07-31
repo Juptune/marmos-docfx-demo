@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,21 +87,21 @@
         <article data-uid="std.range.interfaces.Interfaces.RandomAccessFinite">
 <h1 class='section'>Interface - RandomAccessFinite</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range.interfaces</dd></dl>
-</div><pre><code class='lang-d'>public interface RandomAccessFinite
+</div><pre><code class='lang-d'>interface RandomAccessFinite( E )
 {
   // 
-  alias opDollar = &lt;todo: marmos support pending&gt;;
+  alias opDollar = &lt;todo: marmos support pending&gt;
 
   // 
-  size_t length( ) ;
+  size_t length() @property
   // 
-  E moveAt( size_t __anonymous ) ;
+  E moveAt( size_t __anonymous ) 
   // 
-  E opIndex( size_t __anonymous ) ;
+  E opIndex( size_t __anonymous ) 
   // 
-  RandomAccessFinite!(E) opSlice( size_t __anonymous, size_t __anonymous ) ;
+  RandomAccessFinite!(E) opSlice( size_t __anonymous, size_t __anonymous ) 
   // 
-  RandomAccessFinite!(E) save( ) ;
+  RandomAccessFinite!(E) save() @property
 }</code></pre><h2 class='section'>About</h2><p>Interface for a finite random access range of type <code>E</code> .</p>
 <h2 class='section'>Aliases</h2><table>
 <thead>

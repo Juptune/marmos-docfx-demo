@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,17 +90,22 @@
 </div><pre><code class='lang-d'>public interface IHttpClient
 {
   // 
-  Result close( ) ;
+  Result close() 
   // 
-  Result connect( IpAddress ip ) ;
+  Result connect( IpAddress ip ) 
   // 
-  bool isConnected( ) ;
+  bool isConnected() 
   // 
-  Result request( HttpRequest request, HttpResponse response ) ;
+  Result request( const ref scope HttpRequest request, out scope HttpResponse response ) 
   // 
-  HttpClientVersion selectedVersion( ) ;
+  HttpClientVersion selectedVersion() 
   // 
-  Result streamRequest( HttpRequest request, HttpResponse response, HttpClient bodyPutter, HttpClient bodyReader ) ;
+  Result streamRequest(
+    const ref scope HttpRequest request,
+    out scope HttpResponse response,
+    scope HttpClient bodyPutter,
+    scope HttpClient bodyReader
+  ) 
 }</code></pre><h2 class='section'>About</h2><p>An interface for a HTTP client.</p>
 <p>While Juptune is an @nogc-first library, it's silly to pretend that there's no place for GC-oriented code. Such code is likely to make use of OOP, so this interface is provided as a standard way to use a HTTP client.</p>
 <p>Please use the documentation from <code>HttpClient</code> as it in almost all cases applies to this interface.</p>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,7 @@
 <h1 class='section'>Variable - isPredComparable</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.searching</dd></dl>
 </div><h2 class='section api'>isPredComparable   </h2>
- <pre><code class='lang-d'>bool isPredComparable</code></pre><h2 class='section'>About</h2><p>Skip over the initial portion of the first given range (<code>haystack</code>) that matches any of the additionally given ranges (<code>needles</code>) fully, or if no second range is given skip over the elements that fulfill pred. Do nothing if there is no match.</p>
+ <pre><code class='lang-d'>bool isPredComparable = ifTestable!(T, binaryFun!pred)</code></pre><h2 class='section'>About</h2><p>Skip over the initial portion of the first given range (<code>haystack</code>) that matches any of the additionally given ranges (<code>needles</code>) fully, or if no second range is given skip over the elements that fulfill pred. Do nothing if there is no match.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>pred</code>   </dt>
 <dd>
 

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,35 +90,87 @@
 </div><pre><code class='lang-d'>public struct BigInt
 {
   // 
-  alias isNegative = &lt;todo: marmos support pending&gt;;
+  alias isNegative = &lt;todo: marmos support pending&gt;
 
   // 
-  void checkDivByZero( ) ;
+  void checkDivByZero() @safe nothrow scope pure
+  // Gets the nth number in the underlying representation that makes up the whole `BigInt` . 
+  T getDigit( T = ulong )( size_t n ) 
   // 
-  bool isZero( ) ;
+  bool isZero() @nogc @safe nothrow scope pure
   // 
-  void negate( ) ;
+  void negate() @nogc @safe nothrow scope pure
+  // Assignment from built-in integer types. 
+  BigInt opAssign( T )( T x ) @safe nothrow pure
+  // Assignment from another BigInt. 
+  BigInt opAssign( T : BigInt )( T x ) @nogc @safe pure
+  // Implements binary operators between `BigInt` s. 
+  ref BigInt opBinary( string op, T )( T y ) @safe nothrow scope return scope pure
+  // Implements binary operators between `BigInt` &#39;s and built-in integers. 
+  ref BigInt opBinary( string op, T )( T y ) @safe nothrow scope return scope pure
+  // Implements a narrowing remainder operation with built-in integer types. 
+  auto opBinary( string op, T )( T y ) @safe nothrow pure
+  // Implements operators with built-in integers on the left-hand side and `BigInt` on the right-hand side. 
+  BigInt opBinaryRight( string op, T )( T y ) @safe nothrow pure
+  // ditto 
+  BigInt opBinaryRight( string op, T )( T y ) @safe nothrow pure
+  // ditto 
+  T opBinaryRight( string op, T )( T x ) @safe nothrow pure
+  // Implements casting to `bool` . 
+  T opCast( T : bool )() @nogc @safe nothrow pure
+  // Implements casting to integer types. 
+  T opCast( T : ulong )() @safe pure
+  // Implements casting to floating point types. 
+  T opCast( T )() @nogc @safe nothrow
+  // Implements casting to/from qualified `BigInt` &#39;s. 
+  T opCast( T )() @nogc nothrow pure
   // Implements 3-way comparisons of `BigInt` with `BigInt` or `BigInt` with built-in numeric types. 
-  int opCmp( BigInt y ) ;
+  int opCmp( const ref BigInt y ) @nogc @safe nothrow pure
+  // ditto 
+  int opCmp( T )( const T y ) @nogc @safe nothrow pure
+  // ditto 
+  int opCmp( T )( const T y ) @nogc @safe nothrow
+  // ditto 
+  int opCmp( T : BigInt )( const T y ) @nogc @safe nothrow pure
+  // Implements `BigInt` equality test with other `BigInt` &#39;s and built-in numeric types. 
+  bool opEquals( )( const auto ref BigInt y ) @nogc @safe pure
+  // ditto 
+  bool opEquals( T )( const T y ) @nogc @safe nothrow pure
+  // ditto 
+  bool opEquals( T )( const T y ) @nogc nothrow pure
+  // Implements assignment operators from built-in integers of the form `BigInt op= integer` . 
+  ref BigInt opOpAssign( string op, T )( T y ) @safe nothrow scope return scope pure
+  // Implements assignment operators of the form `BigInt op= BigInt` . 
+  ref BigInt opOpAssign( string op, T )( T y ) @safe nothrow scope return scope pure
+  // Implements `BigInt` unary operators. 
+  BigInt opUnary( string op )() @safe nothrow pure
+  // ditto 
+  BigInt opUnary( string op )() @safe nothrow pure
+  // 
+  T toFloat( T, string roundingMode )() @nogc @safe nothrow
   // Returns: A unique hash of the `BigInt` &#39;s value suitable for use in a hash table. 
-  size_t toHash( ) ;
+  size_t toHash() @nogc @safe nothrow pure
   // Returns: The value of this `BigInt` as an `int` , or `int.max` /`int.min` if outside the representable range. 
-  int toInt( ) ;
+  int toInt() @nogc @safe nothrow pure
   // Returns: The value of this `BigInt` as a `long` , or `long.max` /`long.min` if outside the representable range. 
-  long toLong( ) ;
+  long toLong() @nogc @safe nothrow pure
   // ditto 
-  void toString( &lt;bug: unknown&gt; sink, string formatString ) ;
+  void toString( scope &lt;bug: unknown&gt; sink, string formatString ) 
   // ditto 
-  void toString( &lt;bug: unknown&gt; sink, FormatSpec!(char) f ) ;
+  void toString( scope &lt;bug: unknown&gt; sink, const ref scope FormatSpec!(char) f ) 
+  // Convert the `BigInt` to `string` , passing it to the given sink. 
+  void toString( Writer )( ref scope Writer sink, string formatString ) 
+  // ditto 
+  void toString( Writer )( ref scope Writer sink, const ref scope FormatSpec!(char) f ) 
   // Number of significant `uint` s which are used in storing this number. The absolute value of this `BigInt` is always &amp;lt; 2$(SUPERSCRIPT 32*uintLength) 
-  size_t uintLength( ) ;
+  size_t uintLength() @nogc @property @safe nothrow pure
   // Number of significant `ulong` s which are used in storing this number. The absolute value of this `BigInt` is always &amp;lt; 2$(SUPERSCRIPT 64*ulongLength) 
-  size_t ulongLength( ) ;
+  size_t ulongLength() @nogc @property @safe nothrow pure
 
   // 
-  BigUint data;
+  BigUint data
   // 
-  bool sign;
+  bool sign = false
 }</code></pre><h2 class='section'>About</h2><p>A struct representing an arbitrary precision integer.</p>
 <p>All arithmetic operations are supported, except unsigned shift right (<code>&gt;&gt;&gt;</code>). Bitwise operations (<code>|</code>, <code>&amp;</code> , <code>^</code> , <code>~</code> ) are supported, and behave as if BigInt was an infinite length 2's complement number.</p>
 <p>BigInt implements value semantics using copy-on-write. This means that assignment is cheap, but operations such as x++ will cause heap allocation. (But note that for most bigint operations, heap allocation is inevitable anyway.)</p>
@@ -149,6 +201,10 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="../BigInt/BigInt/Functions/getDigit.html">getDigit</a></td>
+<td>Gets the nth number in the underlying representation that makes up the whole <code>BigInt</code> .</td>
+</tr>
+<tr>
 <td><a href="../BigInt/BigInt/Functions/isZero.html">isZero</a></td>
 <td></td>
 </tr>
@@ -157,8 +213,40 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="../BigInt/BigInt/Functions/opAssign.html">opAssign</a></td>
+<td>Assignment from built-in integer types.</td>
+</tr>
+<tr>
+<td><a href="../BigInt/BigInt/Functions/opBinary.html">opBinary</a></td>
+<td>Implements binary operators between <code>BigInt</code> s.</td>
+</tr>
+<tr>
+<td><a href="../BigInt/BigInt/Functions/opBinaryRight.html">opBinaryRight</a></td>
+<td>Implements operators with built-in integers on the left-hand side and <code>BigInt</code> on the right-hand side.</td>
+</tr>
+<tr>
+<td><a href="../BigInt/BigInt/Functions/opCast.html">opCast</a></td>
+<td>Implements casting to <code>bool</code> .</td>
+</tr>
+<tr>
 <td><a href="../BigInt/BigInt/Functions/opCmp.html">opCmp</a></td>
 <td>Implements 3-way comparisons of <code>BigInt</code> with <code>BigInt</code> or <code>BigInt</code> with built-in numeric types.</td>
+</tr>
+<tr>
+<td><a href="../BigInt/BigInt/Functions/opEquals.html">opEquals</a></td>
+<td>Implements <code>BigInt</code> equality test with other <code>BigInt</code> 's and built-in numeric types.</td>
+</tr>
+<tr>
+<td><a href="../BigInt/BigInt/Functions/opOpAssign.html">opOpAssign</a></td>
+<td>Implements assignment operators from built-in integers of the form <code>BigInt op= integer</code> .</td>
+</tr>
+<tr>
+<td><a href="../BigInt/BigInt/Functions/opUnary.html">opUnary</a></td>
+<td>Implements <code>BigInt</code> unary operators.</td>
+</tr>
+<tr>
+<td><a href="../BigInt/BigInt/Functions/toFloat.html">toFloat</a></td>
+<td></td>
 </tr>
 <tr>
 <td><a href="../BigInt/BigInt/Functions/toHash.html">toHash</a></td>

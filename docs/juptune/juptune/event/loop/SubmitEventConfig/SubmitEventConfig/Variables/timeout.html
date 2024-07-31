@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,7 @@
 <h1 class='section'>Variable - timeout</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.event.loop.SubmitEventConfig</dd></dl><dl><dt>Parent</dt><dd>SubmitEventConfig</dd></dl>
 </div><h2 class='section api'>timeout   </h2>
- <pre><code class='lang-d'>Duration timeout</code></pre><h2 class='section'>About</h2><p>The timeout for the event.</p>
+ <pre><code class='lang-d'>Duration timeout = Duration.zero</code></pre><h2 class='section'>About</h2><p>The timeout for the event.</p>
 <p>If this is exceeded then the underlying operation will attempt to be canceled, likely causing a canceled error to be thrown.</p>
 <p>If this is set to <code>Duration.zero</code> then no timeout will be used.</p>
 <p>Please note that currently a very minor side effect of using a timeout is that the ignored CQE count will be incremented by 1 due to an implementation detail.</p>

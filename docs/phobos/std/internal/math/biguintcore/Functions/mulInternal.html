@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,11 +88,7 @@
 <h1 class='section'>Overloads for - mulInternal</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.internal.math.biguintcore</dd></dl>
 </div><h2 class='section api'>mulInternal(result, x, y)   </h2>
- <pre><code class='lang-d'>void mulInternal(
-  &lt;bug: unknown&gt; result,
-  &lt;bug: unknown&gt; x,
-  &lt;bug: unknown&gt; y
-) </code></pre><p>General unsigned multiply routine for bigints. Sets result = x y.</p>
+ <pre><code class='lang-d'>void mulInternal( BigDigit[] result, BigDigit[] x, BigDigit[] y ) @safe nothrow pure</code></pre><p>General unsigned multiply routine for bigints. Sets result = x y.</p>
 <p>The length of y must not be larger than the length of x. Different algorithms are used, depending on the lengths of x and y. TODO: &quot;Modern Computer Arithmetic&quot; suggests the OddEvenKaratsuba algorithm for the unbalanced case. (But I doubt it would be faster in practice).</p>
 
 </article>

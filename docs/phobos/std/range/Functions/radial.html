@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - radial</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
 </div><h2 class='section api'>radial(r, startingIndex)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; radial(
-  Range r,
-  I startingIndex
-) auto</code></pre><p>Iterates a random-access range starting from a given point and progressively extending left and right from that point. If no initial point is given, iteration starts from the middle of the range. Iteration spans the entire range.</p>
+ <pre><code class='lang-d'>auto radial( Range, I )( Range r, I startingIndex ) </code></pre><p>Iterates a random-access range starting from a given point and progressively extending left and right from that point. If no initial point is given, iteration starts from the middle of the range. Iteration spans the entire range.</p>
 <p>When <code>startingIndex</code> is 0 the range will be fully iterated in order and in reverse order when <code>r.length</code> is given.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>r</code> Range  </dt>
 <dd>
@@ -107,9 +104,7 @@
 
 </dd></dl><h3 class='section'>Returns</h3><p>A forward range with length</p>
 <h2 class='section api'>radial(r)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; radial(
-  R r
-) auto</code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>auto radial( R )( R r ) </code></pre><p>Ditto</p>
 
 </article>
 

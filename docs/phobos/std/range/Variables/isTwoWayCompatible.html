@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,12 @@
 <h1 class='section'>Variable - isTwoWayCompatible</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
 </div><h2 class='section api'>isTwoWayCompatible   </h2>
- <pre><code class='lang-d'>__enumMember isTwoWayCompatible</code></pre><h2 class='section'>About</h2><p>Returns true if <code>fn</code> accepts variables of type T1 and T2 in any order. The following code should compile: --- (ref T1 a, ref T2 b) { fn(a, b); fn(b, a); } ---</p>
+ <pre><code class='lang-d'>&lt;enum or auto&gt; isTwoWayCompatible = is(typeof((ref T1 a, ref T2 b)
+{
+cast(void)fn(a, b);
+cast(void)fn(b, a);
+}
+))</code></pre><h2 class='section'>About</h2><p>Returns true if <code>fn</code> accepts variables of type T1 and T2 in any order. The following code should compile: --- (ref T1 a, ref T2 b) { fn(a, b); fn(b, a); } ---</p>
 
 </article>
 

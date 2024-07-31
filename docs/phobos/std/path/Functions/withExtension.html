@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,17 +88,14 @@
 <h1 class='section'>Overloads for - withExtension</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.path</dd></dl>
 </div><h2 class='section api'>withExtension(path, ext)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; withExtension(
-  R path,
-  &lt;bug: unknown&gt; ext
-) auto</code></pre><p>Replace existing extension on filespec with new one.</p>
+ <pre><code class='lang-d'>auto withExtension( R, C )( R path, C[] ext ) </code></pre><p>Replace existing extension on filespec with new one.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>path</code> R  </dt>
 <dd>
 
 
 <p>string or random access range representing a filespec</p>
 
-</dd><dt><code>ext</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>ext</code> C[]  </dt>
 <dd>
 
 
@@ -106,10 +103,7 @@
 
 </dd></dl><p>ext = the new extension Returns: Range with <code>path</code> 's extension (if any) replaced with <code>ext</code> . The element encoding type of the returned range will be the same as <code>path</code> 's. See_Also: $(LREF setExtension)</p>
 <h2 class='section api'>withExtension(path, ext)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; withExtension(
-  &lt;bug: unknown&gt; path,
-  &lt;bug: unknown&gt; ext
-) auto</code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>auto withExtension( C1, C2 )( C1[] path, C2[] ext ) </code></pre><p>Ditto</p>
 
 </article>
 

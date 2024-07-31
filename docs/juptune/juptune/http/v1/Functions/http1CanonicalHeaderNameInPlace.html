@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,12 +88,10 @@
 <h1 class='section'>Overloads for - http1CanonicalHeaderNameInPlace</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.http.v1</dd></dl>
 </div><h2 class='section api'>http1CanonicalHeaderNameInPlace(headerName)   </h2>
- <pre><code class='lang-d'>bool http1CanonicalHeaderNameInPlace(
-  &lt;bug: unknown&gt; headerName
-) </code></pre><p>Helper functions</p>
+ <pre><code class='lang-d'>bool http1CanonicalHeaderNameInPlace( ref scope ubyte[] headerName ) @nogc nothrow pure</code></pre><p>Helper functions</p>
 <p>Normalises a header name in-place. More specifically this converts the header name to lowercase, while also checking that the header name is valid.</p>
 <h3 class='section'>Notes</h3><p>If normalisation fails, the header name will be left in a half-modified state.</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>headerName</code> &lt;bug: unknown&gt;  </dt>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>headerName</code> ubyte[]  </dt>
 <dd>
 
 

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,7 @@
 <h1 class='section'>Variable - taggedPointer</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.bitmanip</dd></dl>
 </div><h2 class='section api'>taggedPointer   </h2>
- <pre><code class='lang-d'>__enumMember taggedPointer</code></pre><h2 class='section'>About</h2><p>This string mixin generator allows one to create tagged pointers inside $(D_PARAM struct)s and $(D_PARAM class)es.</p>
+ <pre><code class='lang-d'>&lt;enum or auto&gt; taggedPointer = createTaggedReference!(T*, T.alignof, name, Ts)</code></pre><h2 class='section'>About</h2><p>This string mixin generator allows one to create tagged pointers inside $(D_PARAM struct)s and $(D_PARAM class)es.</p>
 <p>A tagged pointer uses the bits known to be zero in a normal pointer or class reference to store extra information. For example, a pointer to an integer must be 4-byte aligned, so there are 2 bits that are always known to be zero. One can store a 2-bit integer there.</p>
 <p>The example above creates a tagged pointer in the struct A. The pointer is of type <code>uint*</code> as specified by the first argument, and is named x, as specified by the second argument.</p>
 <p>Following arguments works the same way as <code>bitfield</code> 's. The bitfield must fit into the bits known to be zero because of the pointer alignment.</p>

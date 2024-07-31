@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,29 +88,25 @@
 <h1 class='section'>Overloads for - findRoot</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.numeric</dd></dl>
 </div><h2 class='section api'>findRoot(f, a, b, tolerance)   </h2>
- <pre><code class='lang-d'>T findRoot(
-  DF f,
-  T a,
-  T b,
-  DT tolerance
-) </code></pre><p>Find a real root of a real function f(x) via bracketing.</p>
+ <pre><code class='lang-d'>T findRoot( T, DF, DT )( scope DF f, const T a, const T b, scope DT tolerance ) </code></pre><p>Find a real root of a real function f(x) via bracketing.</p>
 <p>Given a function <code>f</code> and a range <code>[a .. b]</code> such that <code>f(a)</code> and <code>f(b)</code> have opposite signs or at least one of them equals ±0, returns the value of <code>x</code> in the range which is closest to a root of <code>f(x)</code> .  If <code>f(x)</code> has more than one root in the range, one will be chosen arbitrarily.  If <code>f(x)</code> returns NaN, NaN will be returned; otherwise, this algorithm is guaranteed to succeed.</p>
 <p>Uses an algorithm based on TOMS748, which uses inverse cubic interpolation whenever possible, otherwise reverting to parabolic or secant interpolation. Compared to TOMS748, this implementation improves worst-case performance by a factor of more than 100, and typical performance by a factor of 2. For 80-bit reals, most problems require 8 to 15 calls to <code>f(x)</code> to achieve full machine precision. The worst-case performance (pathological cases) is approximately twice the number of bits.</p>
 <p>References: &quot;On Enclosing Simple Roots of Nonlinear Equations&quot;, G. Alefeld, F.A. Potra, Yixun Shi, Mathematics of Computation 61, pp733-744 (1993).  Fortran code available from $(HTTP www.netlib.org,www.netlib.org) as algorithm TOMS478.</p>
 <h2 class='section api'>findRoot(f, a, b)   </h2>
- <pre><code class='lang-d'>T findRoot(
-  DF f,
-  T a,
-  T b
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>T findRoot( T, DF )( scope DF f, const T a, const T b ) </code></pre><p>ditto</p>
 <h2 class='section api'>findRoot(f, ax, bx, fax, fbx, tolerance)   </h2>
- <pre><code class='lang-d'>Tuple!(TTRR) findRoot(
-  DF f,
-  T ax,
-  T bx,
-  R fax,
-  R fbx,
-  DT tolerance
+ <pre><code class='lang-d'>Tuple!(T,T,R,R) findRoot(
+  T,
+  R,
+  DF,
+  DT
+)(
+  scope DF f,
+  const T ax,
+  const T bx,
+  const R fax,
+  const R fbx,
+  scope DT tolerance
 ) </code></pre><p>Find root of a real function f(x) by bracketing, allowing the termination condition to be specified.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>f</code> DF  </dt>
 <dd>
@@ -125,19 +121,26 @@
 <p>tolerance = Defines an early termination condition. Receives the current upper and lower bounds on the root. The delegate must return <code>true</code> when these bounds are acceptable. If this function always returns <code>false</code> , full machine precision will be achieved.</p>
 <h3 class='section'>Returns</h3><p>A tuple consisting of two ranges. The first two elements are the range (in <code>x</code> ) of the root, while the second pair of elements are the corresponding function values at those points. If an exact root was found, both of the first two elements will contain the root, and the second pair of elements will be 0.</p>
 <h2 class='section api'>findRoot(f, ax, bx, fax, fbx)   </h2>
- <pre><code class='lang-d'>Tuple!(TTRR) findRoot(
-  DF f,
-  T ax,
-  T bx,
-  R fax,
-  R fbx
+ <pre><code class='lang-d'>Tuple!(T,T,R,R) findRoot(
+  T,
+  R,
+  DF
+)(
+  scope DF f,
+  const T ax,
+  const T bx,
+  const R fax,
+  const R fbx
 ) </code></pre><p>ditto</p>
 <h2 class='section api'>findRoot(f, a, b, tolerance)   </h2>
  <pre><code class='lang-d'>T findRoot(
-  &lt;bug: unknown&gt; f,
-  T a,
-  T b,
-  &lt;bug: unknown&gt; tolerance
+  T,
+  R
+)(
+  scope &lt;bug: unknown&gt; f,
+  const T a,
+  const T b,
+  scope &lt;bug: unknown&gt; tolerance
 ) </code></pre><p>ditto</p>
 
 </article>

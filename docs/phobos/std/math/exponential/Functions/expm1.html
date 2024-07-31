@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,19 +88,13 @@
 <h1 class='section'>Overloads for - expm1</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.math.exponential</dd></dl>
 </div><h2 class='section api'>expm1(x)   </h2>
- <pre><code class='lang-d'>real expm1(
-  real x
-) </code></pre><p>Calculates the value of the natural logarithm base (e) raised to the power of x, minus 1.</p>
+ <pre><code class='lang-d'>real expm1( real x ) @nogc @trusted nothrow pure</code></pre><p>Calculates the value of the natural logarithm base (e) raised to the power of x, minus 1.</p>
 <p>For very small x, expm1(x) is more accurate than exp(x)-1.</p>
 <p>$(TABLE_SV $(TR $(TH x)             <span class="math">\((TH e\)</span>(SUPERSCRIPT x)-1)  ) $(TR $(TD $(PLUSMN)0.0)  $(TD $(PLUSMN)0.0) ) $(TR <span class="math">\((TD +\)</span>(INFIN))     <span class="math">\((TD +\)</span>(INFIN))    ) $(TR <span class="math">\((TD -\)</span>(INFIN))     $(TD -1.0)         ) $(TR $(TD $(NAN))        $(TD $(NAN))       ) )</p>
 <h2 class='section api'>expm1(x)   </h2>
- <pre><code class='lang-d'>double expm1(
-  double x
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>double expm1( double x ) @nogc @safe nothrow pure</code></pre><p>ditto</p>
 <h2 class='section api'>expm1(x)   </h2>
- <pre><code class='lang-d'>float expm1(
-  float x
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>float expm1( float x ) @nogc @safe nothrow pure</code></pre><p>ditto</p>
 
 </article>
 

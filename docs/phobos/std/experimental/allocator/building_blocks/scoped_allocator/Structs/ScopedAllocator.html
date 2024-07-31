@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,34 +87,36 @@
         <article data-uid="std.experimental.allocator.building_blocks.scoped_allocator.Structs.ScopedAllocator">
 <h1 class='section'>Struct - ScopedAllocator</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator.building_blocks.scoped_allocator</dd></dl>
-</div><pre><code class='lang-d'>public struct ScopedAllocator
+</div><pre><code class='lang-d'>struct ScopedAllocator( ParentAllocator )
 {
   // 
-  alias Allocator = &lt;todo: marmos support pending&gt;;
+  alias Allocator = &lt;todo: marmos support pending&gt;
 
   // Allocates memory. For management it actually allocates extra memory from the parent. 
-  &lt;bug: unknown&gt; allocate( size_t n ) ;
+  void[] allocate( size_t n ) 
+  // 
+  void[] allocateZeroed( )( size_t n ) 
   // Deallocates `b` . 
-  bool deallocate( &lt;bug: unknown&gt; b ) ;
+  bool deallocate( void[] b ) 
   // Deallocates all memory allocated. 
-  bool deallocateAll( ) ;
+  bool deallocateAll() 
   // Returns `Ternary.yes` if this allocator is not responsible for any memory, `Ternary.no` otherwise. (Never returns `Ternary.unknown` .) 
-  Ternary empty( ) ;
+  Ternary empty() @nogc @safe nothrow pure
   // Forwards to $(D parent.expand(b, delta)). 
-  bool expand( &lt;bug: unknown&gt; b, size_t delta ) ;
+  bool expand( ref void[] b, size_t delta ) 
   // Forwards to `parent.goodAllocSize` (which accounts for the management overhead). 
-  size_t goodAllocSize( size_t n ) ;
+  size_t goodAllocSize( size_t n ) 
   // Forwards to `parent.owns(b)` . 
-  Ternary owns( &lt;bug: unknown&gt; b ) ;
+  Ternary owns( void[] b ) 
   // Reallocates `b` to new size `s` . 
-  bool reallocate( &lt;bug: unknown&gt; b, size_t s ) ;
+  bool reallocate( ref void[] b, size_t s ) 
 
   // Alignment offered 
-  __enumMember alignment;
+  &lt;enum or auto&gt; alignment = Allocator.alignment
   // If `ParentAllocator` is stateful, `parent` is a property giving access to an `AffixAllocator!ParentAllocator` . Otherwise, `parent` is an alias for `AffixAllocator!ParentAllocator.instance` . 
-  Allocator parent;
+  Allocator parent
   // 
-  &lt;bug: unknown&gt; root;
+  Node* root
 }</code></pre><h2 class='section'>About</h2><p><code>ScopedAllocator</code> delegates all allocation requests to <code>ParentAllocator</code> . When destroyed, the <code>ScopedAllocator</code> object automatically calls $(D deallocate) for all memory allocated through its lifetime. (The $(D deallocateAll) function is also implemented with the same semantics.)</p>
 <p><code>deallocate</code> is also supported, which is where most implementation effort and overhead of <code>ScopedAllocator</code> go. If <code>deallocate</code> is not needed, a simpler design combining <code>AllocatorList</code> with <code>Region</code> is recommended.</p>
 <h2 class='section'>Aliases</h2><table>
@@ -144,6 +146,10 @@
 <td>Allocates memory. For management it actually allocates extra memory from the parent.</td>
 </tr>
 <tr>
+<td><a href="../ScopedAllocator/ScopedAllocator/Functions/allocateZeroed.html">allocateZeroed</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../ScopedAllocator/ScopedAllocator/Functions/deallocate.html">deallocate</a></td>
 <td>Deallocates <code>b</code> .</td>
 </tr>
@@ -170,6 +176,20 @@
 <tr>
 <td><a href="../ScopedAllocator/ScopedAllocator/Functions/reallocate.html">reallocate</a></td>
 <td>Reallocates <code>b</code> to new size <code>s</code> .</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../ScopedAllocator/ScopedAllocator/Structs/Node.html">Node</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - initOnce</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.concurrency</dd></dl>
 </div><h2 class='section api'>initOnce(init)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; initOnce(
-  &lt;bug: unknown&gt; init
-) auto</code></pre><p>Initializes $(D_PARAM var) with the lazy $(D_PARAM init) value in a thread-safe manner.</p>
+ <pre><code class='lang-d'>ref auto initOnce( alias var )( lazy typeof(var) init ) </code></pre><p>Initializes $(D_PARAM var) with the lazy $(D_PARAM init) value in a thread-safe manner.</p>
 <p>The implementation guarantees that all threads simultaneously calling initOnce with the same $(D_PARAM var) argument block until $(D_PARAM var) is fully initialized. All side-effects of $(D_PARAM init) are globally visible afterwards.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>var</code> &lt;parameter not found&gt;  </dt>
 <dd>
@@ -98,7 +96,7 @@
 
 <p>The variable to initialize</p>
 
-</dd><dt><code>init</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>init</code> typeof(var)  </dt>
 <dd>
 
 
@@ -106,10 +104,7 @@
 
 </dd></dl><h3 class='section'>Returns</h3><p>A reference to the initialized variable</p>
 <h2 class='section api'>initOnce(init, mutex)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; initOnce(
-  &lt;bug: unknown&gt; init,
-  Mutex mutex
-) auto</code></pre><p>Same as above, but takes a separate mutex instead of sharing one among all initOnce instances.</p>
+ <pre><code class='lang-d'>ref auto initOnce( alias var )( lazy typeof(var) init, shared Mutex mutex ) </code></pre><p>Same as above, but takes a separate mutex instead of sharing one among all initOnce instances.</p>
 <p>This should be used to avoid dead-locks when the $(D_PARAM init) expression waits for the result of another thread that might also call initOnce. Use with care.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>var</code> &lt;parameter not found&gt;  </dt>
 <dd>
@@ -117,7 +112,7 @@
 
 <p>The variable to initialize</p>
 
-</dd><dt><code>init</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>init</code> typeof(var)  </dt>
 <dd>
 
 
@@ -131,10 +126,7 @@
 
 </dd></dl><h3 class='section'>Returns</h3><p>A reference to the initialized variable</p>
 <h2 class='section api'>initOnce(init, mutex)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; initOnce(
-  &lt;bug: unknown&gt; init,
-  Mutex mutex
-) auto</code></pre><p>ditto</p>
+ <pre><code class='lang-d'>ref auto initOnce( alias var )( lazy typeof(var) init, Mutex mutex ) </code></pre><p>ditto</p>
 
 </article>
 

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,48 +87,58 @@
         <article data-uid="std.uni.Structs.TrieBuilder">
 <h1 class='section'>Struct - TrieBuilder</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.uni</dd></dl>
-</div><pre><code class='lang-d'>public struct TrieBuilder
+</div><pre><code class='lang-d'>struct TrieBuilder( Value, Key, Args... )
 {
   // 
-  alias getIndex = &lt;todo: marmos support pending&gt;;
+  alias getIndex = &lt;todo: marmos support pending&gt;
   // 
-  alias Prefix = &lt;todo: marmos support pending&gt;;
+  alias Prefix = &lt;todo: marmos support pending&gt;
   // 
-  alias V = &lt;todo: marmos support pending&gt;;
+  alias V = &lt;todo: marmos support pending&gt;
 
+  // 
+  void addValue( size_t level, T )( T val, size_t numVals ) 
   // Finishes construction of Trie, yielding an immutable Trie instance. 
-  &lt;bug: unknown&gt; build( ) auto;
+  auto build() 
   // 
-  void putAt( size_t idx, Value v ) ;
+  auto deduceMaxIndex( Preds... )() 
+  // 
+  ref &lt;bug: unknown&gt; idx( size_t level )() @property
+  // 
+  void putAt( size_t idx, Value v ) 
   // Put a value `v` into interval as mapped by keys from `a` to `b` . All slots prior to `a` are filled with the default filler. 
-  void putRange( Key a, Key b, Value v ) ;
+  void putRange( Key a, Key b, Value v ) 
   // 
-  void putRangeAt( size_t idxA, size_t idxB, Value v ) ;
+  void putRangeAt( size_t idxA, size_t idxB, Value v ) 
   // Put a value `v` into slot mapped by `key` . All slots prior to `key` are filled with the default filler. 
-  void putValue( Key key, Value v ) ;
+  void putValue( Key key, Value v ) 
+  // 
+  void spillToNextPage( size_t level, Slice )( ref Slice ptr ) 
+  // 
+  void spillToNextPageImpl( size_t level, Slice )( ref Slice ptr ) 
 
   // 
-  size_t curIndex;
+  size_t curIndex
   // 
-  Value defValue;
+  Value defValue
   // 
-  __enumMember errMsg;
+  &lt;enum or auto&gt; errMsg = &quot;non-monotonic prefix function(s), an unsorted range or &quot; ~ &quot;duplicate key-&gt;value mapping&quot;
   // 
-  &lt;bug: unknown&gt; indices;
+  size_t[Prefix] indices
   // 
-  __enumMember lastLevel;
+  &lt;enum or auto&gt; lastLevel = Prefix.length - 1
   // 
-  __enumMember lastPageSize;
+  &lt;enum or auto&gt; lastPageSize = 2 ^^ Prefix[__dollar - 1].bitSize
   // 
-  __enumMember maxIndex;
+  &lt;enum or auto&gt; maxIndex = roughedMaxIndex &lt; translatedMaxIndex ? deduceMaxIndex!Prefix() : roughedMaxIndex
   // 
-  __enumMember roughedMaxIndex;
+  &lt;enum or auto&gt; roughedMaxIndex = (translatedMaxIndex + lastPageSize - 1) / lastPageSize * lastPageSize
   // 
-  &lt;bug: unknown&gt; state;
+  ConstructState[Prefix] state
   // 
-  MultiArray!(idxTypes!(Key, fullBitSize!Prefix, Prefix[0 .. __dollar])V) table;
+  MultiArray!(idxTypes!(Key, fullBitSize!Prefix, Prefix[0 .. __dollar]),V) table
   // 
-  __enumMember translatedMaxIndex;
+  &lt;enum or auto&gt; translatedMaxIndex = mapTrieIndex!Prefix(Args[0])
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>
@@ -160,8 +170,20 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../TrieBuilder/TrieBuilder/Functions/addValue.html">addValue</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../TrieBuilder/TrieBuilder/Functions/build.html">build</a></td>
 <td>Finishes construction of Trie, yielding an immutable Trie instance.</td>
+</tr>
+<tr>
+<td><a href="../TrieBuilder/TrieBuilder/Functions/deduceMaxIndex.html">deduceMaxIndex</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TrieBuilder/TrieBuilder/Functions/idx.html">idx</a></td>
+<td></td>
 </tr>
 <tr>
 <td><a href="../TrieBuilder/TrieBuilder/Functions/putAt.html">putAt</a></td>
@@ -178,6 +200,28 @@
 <tr>
 <td><a href="../TrieBuilder/TrieBuilder/Functions/putValue.html">putValue</a></td>
 <td>Put a value <code>v</code> into slot mapped by <code>key</code> . All slots prior to <code>key</code> are filled with the default filler.</td>
+</tr>
+<tr>
+<td><a href="../TrieBuilder/TrieBuilder/Functions/spillToNextPage.html">spillToNextPage</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../TrieBuilder/TrieBuilder/Functions/spillToNextPageImpl.html">spillToNextPageImpl</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../TrieBuilder/TrieBuilder/Structs/ConstructState.html">ConstructState</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>

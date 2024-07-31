@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,57 @@
 <h1 class='section'>Variable - extractParameterStorageClassFlags</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.traits</dd></dl>
 </div><h2 class='section api'>extractParameterStorageClassFlags   </h2>
- <pre><code class='lang-d'>ParameterStorageClass extractParameterStorageClassFlags</code></pre><h2 class='section'>About</h2><p>Convert the result of $(DDSUBLINK spec/traits, getParameterStorageClasses, <code>__traits(getParameterStorageClasses)</code> ) to $(LREF ParameterStorageClass) <code>enum</code> s.</p>
+ <pre><code class='lang-d'>ParameterStorageClass extractParameterStorageClassFlags = ()
+{
+auto result = ParameterStorageClass.none;
+static if (Attribs.length &gt; 0)
+{
+static foreach (attrib; Attribs)
+{
+final switch (attrib)
+{
+with (ParameterStorageClass)
+{
+case &quot;scope&quot;:
+{
+result |= scope_;
+break;
+}
+case &quot;in&quot;:
+{
+result |= in_;
+break;
+}
+case &quot;out&quot;:
+{
+result |= out_;
+break;
+}
+case &quot;ref&quot;:
+{
+result |= ref_;
+break;
+}
+case &quot;lazy&quot;:
+{
+result |= lazy_;
+break;
+}
+case &quot;return&quot;:
+{
+result |= return_;
+break;
+}
+}
+}
+}
+if (result == (ParameterStorageClass.ref_ | ParameterStorageClass.return_))
+result = ParameterStorageClass.return_;
+}
+
+return result;
+}
+()</code></pre><h2 class='section'>About</h2><p>Convert the result of $(DDSUBLINK spec/traits, getParameterStorageClasses, <code>__traits(getParameterStorageClasses)</code> ) to $(LREF ParameterStorageClass) <code>enum</code> s.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>Attribs</code>   </dt>
 <dd>
 

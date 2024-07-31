@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - decimalToFactorial</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.numeric</dd></dl>
 </div><h2 class='section api'>decimalToFactorial(decimal, fac)   </h2>
- <pre><code class='lang-d'>size_t decimalToFactorial(
-  ulong decimal,
-  &lt;bug: unknown&gt; fac
-) </code></pre><p>This function transforms <code>decimal</code> value into a value in the factorial number system stored in <code>fac</code> .</p>
+ <pre><code class='lang-d'>size_t decimalToFactorial( ulong decimal, ref ubyte[21] fac ) @nogc @safe nothrow pure</code></pre><p>This function transforms <code>decimal</code> value into a value in the factorial number system stored in <code>fac</code> .</p>
 <p>A factorial number is constructed as: $(D fac[0] **0! + fac[1] ** 1! + ... fac[20] 20!)</p>
 <p>Params: decimal = The decimal value to convert into the factorial number system. fac = The array to store the factorial number. The array is of size 21 as <code>ulong.max</code> requires 21 digits in the factorial number system. Returns: A variable storing the number of digits of the factorial number stored in <code>fac</code> .</p>
 

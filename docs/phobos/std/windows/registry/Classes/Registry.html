@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,19 +90,19 @@
 </div><pre><code class='lang-d'>public class Registry
 {
   // Returns the root key for the HKEY_CLASSES_ROOT hive 
-  Key classesRoot( ) static;
+  static Key classesRoot() @property
   // Returns the root key for the HKEY_CURRENT_CONFIG hive 
-  Key currentConfig( ) static;
+  static Key currentConfig() @property
   // Returns the root key for the HKEY_CURRENT_USER hive 
-  Key currentUser( ) static;
+  static Key currentUser() @property
   // Returns the root key for the HKEY_DYN_DATA hive 
-  Key dynData( ) static;
+  static Key dynData() @property
   // Returns the root key for the HKEY_LOCAL_MACHINE hive 
-  Key localMachine( ) static;
+  static Key localMachine() @property
   // Returns the root key for the HKEY_PERFORMANCE_DATA hive 
-  Key performanceData( ) static;
+  static Key performanceData() @property
   // Returns the root key for the HKEY_USERS hive 
-  Key users( ) static;
+  static Key users() @property
 }</code></pre><h2 class='section'>About</h2><p>Represents the local system registry.</p>
 <h2 class='section'>Functions</h2><table>
 <thead>

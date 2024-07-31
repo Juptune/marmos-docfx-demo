@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,18 +88,12 @@
 <h1 class='section'>Overloads for - tanh</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.math.trigonometry</dd></dl>
 </div><h2 class='section api'>tanh(x)   </h2>
- <pre><code class='lang-d'>real tanh(
-  real x
-) </code></pre><p>Calculates the hyperbolic tangent of x.</p>
+ <pre><code class='lang-d'>real tanh( real x ) @nogc @safe nothrow pure</code></pre><p>Calculates the hyperbolic tangent of x.</p>
 <p>$(TABLE_SV $(TR $(TH x)                 $(TH tanh(x))      $(TH invalid?)) $(TR $(TD $(PLUSMN)0.0)      $(TD $(PLUSMN)0.0) $(TD no) ) $(TR $(TD <span class="math">\((PLUSMN)\)</span>(INFIN)) $(TD $(PLUSMN)1.0) $(TD no)) )</p>
 <h2 class='section api'>tanh(x)   </h2>
- <pre><code class='lang-d'>double tanh(
-  double x
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>double tanh( double x ) @nogc @safe nothrow pure</code></pre><p>ditto</p>
 <h2 class='section api'>tanh(x)   </h2>
- <pre><code class='lang-d'>float tanh(
-  float x
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>float tanh( float x ) @nogc @safe nothrow pure</code></pre><p>ditto</p>
 
 </article>
 

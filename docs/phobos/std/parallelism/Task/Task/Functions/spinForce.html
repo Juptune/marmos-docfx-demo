@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - spinForce</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.parallelism.Task</dd></dl><dl><dt>Parent</dt><dd>Task</dd></dl>
 </div><h2 class='section api'>spinForce()   </h2>
- <pre><code class='lang-d'>ReturnType spinForce(
-) </code></pre><p>If the <code>Task</code> isn't started yet, execute it in the current thread. If it's done, return its return value, if any.  If it's in progress, busy spin until it's done, then return the return value.  If it threw an exception, rethrow that exception.</p>
+ <pre><code class='lang-d'>ref ReturnType spinForce() @property @trusted</code></pre><p>If the <code>Task</code> isn't started yet, execute it in the current thread. If it's done, return its return value, if any.  If it's in progress, busy spin until it's done, then return the return value.  If it threw an exception, rethrow that exception.</p>
 <p>This function should be used when you expect the result of the <code>Task</code> to be available on a timescale shorter than that of an OS context switch.</p>
 
 </article>

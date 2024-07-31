@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,46 +88,27 @@
 <h1 class='section'>Overloads for - buildTrie</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.uni</dd></dl>
 </div><h2 class='section api'>buildTrie(range, filler)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; buildTrie(
-  Range range,
-  Value filler
-) auto</code></pre><p>The most general utility for construction of <code>Trie</code> s short of using <code>TrieBuilder</code> directly.</p>
+ <pre><code class='lang-d'>auto buildTrie( Range )( Range range, Value filler ) </code></pre><p>The most general utility for construction of <code>Trie</code> s short of using <code>TrieBuilder</code> directly.</p>
 <p>Provides a number of convenience overloads. <code>Args</code> is tuple of maximum key value followed by predicates to construct index from key.</p>
 <p>Alternatively if the first argument is not a value convertible to <code>Key</code> then the whole tuple of <code>Args</code> is treated as predicates and the maximum Key is deduced from predicates.</p>
 <h2 class='section api'>buildTrie(range, filler)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; buildTrie(
-  Range range,
-  Value filler
-) auto</code></pre><p>The most general utility for construction of <code>Trie</code> s short of using <code>TrieBuilder</code> directly.</p>
+ <pre><code class='lang-d'>auto buildTrie( Range )( Range range, Value filler ) </code></pre><p>The most general utility for construction of <code>Trie</code> s short of using <code>TrieBuilder</code> directly.</p>
 <p>Provides a number of convenience overloads. <code>Args</code> is tuple of maximum key value followed by predicates to construct index from key.</p>
 <p>Alternatively if the first argument is not a value convertible to <code>Key</code> then the whole tuple of <code>Args</code> is treated as predicates and the maximum Key is deduced from predicates.</p>
 <h2 class='section api'>buildTrie(range, filler, unsorted)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; buildTrie(
-  Range range,
-  Value filler,
-  bool unsorted
-) auto</code></pre><p>The most general utility for construction of <code>Trie</code> s short of using <code>TrieBuilder</code> directly.</p>
+ <pre><code class='lang-d'>auto buildTrie( Range )( Range range, Value filler, bool unsorted ) </code></pre><p>The most general utility for construction of <code>Trie</code> s short of using <code>TrieBuilder</code> directly.</p>
 <p>Provides a number of convenience overloads. <code>Args</code> is tuple of maximum key value followed by predicates to construct index from key.</p>
 <p>Alternatively if the first argument is not a value convertible to <code>Key</code> then the whole tuple of <code>Args</code> is treated as predicates and the maximum Key is deduced from predicates.</p>
 <h2 class='section api'>buildTrie(range, filler)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; buildTrie(
-  Range range,
-  Value filler
-) auto</code></pre><p>The most general utility for construction of <code>Trie</code> s short of using <code>TrieBuilder</code> directly.</p>
+ <pre><code class='lang-d'>auto buildTrie( Range )( Range range, Value filler ) </code></pre><p>The most general utility for construction of <code>Trie</code> s short of using <code>TrieBuilder</code> directly.</p>
 <p>Provides a number of convenience overloads. <code>Args</code> is tuple of maximum key value followed by predicates to construct index from key.</p>
 <p>Alternatively if the first argument is not a value convertible to <code>Key</code> then the whole tuple of <code>Args</code> is treated as predicates and the maximum Key is deduced from predicates.</p>
 <h2 class='section api'>buildTrie(array, filler)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; buildTrie(
-  &lt;bug: unknown&gt; array,
-  Value filler
-) auto</code></pre><p>The most general utility for construction of <code>Trie</code> s short of using <code>TrieBuilder</code> directly.</p>
+ <pre><code class='lang-d'>auto buildTrie( )( Value[] array, Value filler ) </code></pre><p>The most general utility for construction of <code>Trie</code> s short of using <code>TrieBuilder</code> directly.</p>
 <p>Provides a number of convenience overloads. <code>Args</code> is tuple of maximum key value followed by predicates to construct index from key.</p>
 <p>Alternatively if the first argument is not a value convertible to <code>Key</code> then the whole tuple of <code>Args</code> is treated as predicates and the maximum Key is deduced from predicates.</p>
 <h2 class='section api'>buildTrie(map, filler)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; buildTrie(
-  &lt;bug: unknown&gt; map,
-  Value filler
-) auto</code></pre><p>The most general utility for construction of <code>Trie</code> s short of using <code>TrieBuilder</code> directly.</p>
+ <pre><code class='lang-d'>auto buildTrie( Key, Value )( Value[Key] map, Value filler ) </code></pre><p>The most general utility for construction of <code>Trie</code> s short of using <code>TrieBuilder</code> directly.</p>
 <p>Provides a number of convenience overloads. <code>Args</code> is tuple of maximum key value followed by predicates to construct index from key.</p>
 <p>Alternatively if the first argument is not a value convertible to <code>Key</code> then the whole tuple of <code>Args</code> is treated as predicates and the maximum Key is deduced from predicates.</p>
 

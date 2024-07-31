@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - wouldHaveBlocked</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.socket</dd></dl>
 </div><h2 class='section api'>wouldHaveBlocked()   </h2>
- <pre><code class='lang-d'>bool wouldHaveBlocked(
-) </code></pre><h3 class='section'>Returns</h3><p><code>true</code> if the last socket operation failed because the socket was in non-blocking mode and the operation would have blocked, or if the socket is in blocking mode and set a <code>SNDTIMEO</code> or <code>RCVTIMEO</code> , and the operation timed out.</p>
+ <pre><code class='lang-d'>bool wouldHaveBlocked() @nogc nothrow</code></pre><h3 class='section'>Returns</h3><p><code>true</code> if the last socket operation failed because the socket was in non-blocking mode and the operation would have blocked, or if the socket is in blocking mode and set a <code>SNDTIMEO</code> or <code>RCVTIMEO</code> , and the operation timed out.</p>
 
 </article>
 

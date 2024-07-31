@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - curl_getenv</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.curl</dd></dl>
 </div><h2 class='section api'>curl_getenv(variable)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; curl_getenv(
-  &lt;bug: unknown&gt; variable
-) </code></pre><p>Name: curl_getenv()</p>
+ <pre><code class='lang-d'>extern(C) char* curl_getenv( scope char* variable ) </code></pre><p>Name: curl_getenv()</p>
 <h3 class='section'>Description</h3><p>Returns a malloc()'ed string that MUST be curl_free()ed after usage is complete. DEPRECATED - see lib/README.curlx</p>
 
 </article>

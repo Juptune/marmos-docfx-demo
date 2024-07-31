@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - merge</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.sorting</dd></dl>
 </div><h2 class='section api'>merge(rs)   </h2>
- <pre><code class='lang-d'>Merge!(lessRs) merge(
-  Rs rs
-) </code></pre><p>Merge multiple sorted ranges <code>rs</code> with less-than predicate function <code>pred</code> into one single sorted output range containing the sorted union of the elements of inputs.</p>
+ <pre><code class='lang-d'>Merge!(less,Rs) merge( alias less = &quot;a &lt; b&quot;, Rs... )( Rs rs ) </code></pre><p>Merge multiple sorted ranges <code>rs</code> with less-than predicate function <code>pred</code> into one single sorted output range containing the sorted union of the elements of inputs.</p>
 <p>Duplicates are not eliminated, meaning that the total number of elements in the output is the sum of all elements in the ranges passed to it; the <code>length</code> member is offered if all inputs also have <code>length</code> . The element types of all the inputs must have a common type <code>CommonType</code> .</p>
 <p>Params: less = Predicate the given ranges are sorted by. rs = The ranges to compute the union for.</p>
 <p>Returns: A range containing the union of the given ranges.</p>

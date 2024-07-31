@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,7 +90,18 @@
 </div><pre><code class='lang-d'>template HeapOps
 {
   // 
-  alias lessFun = &lt;todo: marmos support pending&gt;;
+  alias lessFun = &lt;todo: marmos support pending&gt;
+
+  // 
+  void buildHeap( )( Range r ) 
+  // 
+  void heapSort( )( Range r ) 
+  // 
+  bool isHeap( )( Range r ) 
+  // 
+  void percolate( )( Range r, size_t parent, immutable size_t end ) 
+  // 
+  void siftDown( )( Range r, size_t parent, immutable size_t end ) 
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>
@@ -101,6 +112,36 @@
 <tbody>
 <tr>
 <td><a href="../HeapOps/HeapOps/Aliases/lessFun.html">lessFun</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../HeapOps/HeapOps/Functions/buildHeap.html">buildHeap</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../HeapOps/HeapOps/Functions/heapSort.html">heapSort</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../HeapOps/HeapOps/Functions/isHeap.html">isHeap</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../HeapOps/HeapOps/Functions/percolate.html">percolate</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../HeapOps/HeapOps/Functions/siftDown.html">siftDown</a></td>
 <td></td>
 </tr>
 </tbody>

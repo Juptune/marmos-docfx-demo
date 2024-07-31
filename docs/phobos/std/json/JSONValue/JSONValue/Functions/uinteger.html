@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,12 +88,9 @@
 <h1 class='section'>Overloads for - uinteger</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.json.JSONValue</dd></dl><dl><dt>Parent</dt><dd>JSONValue</dd></dl>
 </div><h2 class='section api'>uinteger()   </h2>
- <pre><code class='lang-d'>ulong uinteger(
-) </code></pre><p>Value getter/setter for <code>JSONType.uinteger</code> . Throws: <code>JSONException</code> for read access if <code>type</code> is not <code>JSONType.uinteger</code> .</p>
+ <pre><code class='lang-d'>ulong uinteger() @property @safe pure</code></pre><p>Value getter/setter for <code>JSONType.uinteger</code> . Throws: <code>JSONException</code> for read access if <code>type</code> is not <code>JSONType.uinteger</code> .</p>
 <h2 class='section api'>uinteger(v)   </h2>
- <pre><code class='lang-d'>ulong uinteger(
-  ulong v
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>ulong uinteger( ulong v ) @nogc @property @safe nothrow pure</code></pre><p>ditto</p>
 
 </article>
 

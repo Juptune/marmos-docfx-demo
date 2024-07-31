@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,11 +88,13 @@
 <h1 class='section'>Overloads for - dirEntries</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.file</dd></dl>
 </div><h2 class='section api'>dirEntries(path, mode, followSymlink)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; dirEntries(
+ <pre><code class='lang-d'>auto dirEntries(
+  bool useDIP1000 = dip1000Enabled
+)(
   string path,
   SpanMode mode,
   bool followSymlink
-) auto</code></pre><p>Returns an $(REF_ALTTEXT input range, isInputRange, std,range,primitives) of <code>DirEntry</code> that lazily iterates a given directory, also provides two ways of foreach iteration. The iteration variable can be of type <code>string</code> if only the name is needed, or <code>DirEntry</code> if additional details are needed. The span mode dictates how the directory is traversed. The name of each iterated directory entry contains the absolute or relative *path (depending on * pathname).</p>
+) </code></pre><p>Returns an $(REF_ALTTEXT input range, isInputRange, std,range,primitives) of <code>DirEntry</code> that lazily iterates a given directory, also provides two ways of foreach iteration. The iteration variable can be of type <code>string</code> if only the name is needed, or <code>DirEntry</code> if additional details are needed. The span mode dictates how the directory is traversed. The name of each iterated directory entry contains the absolute or relative *path (depending on * pathname).</p>
 <p>Note: The order of returned directory entries is as it is provided by the operating system / filesystem, and may not follow any particular sorting.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>useDIP1000</code> &lt;parameter not found&gt;  </dt>
 <dd>
@@ -114,12 +116,14 @@
 <p>// Iterate over all D source files in current directory and all its // subdirectories auto dFiles = dirEntries(&quot;&quot;,&quot;*.{d,di}&quot;,SpanMode.depth); foreach (d; dFiles) writeln(d.name); -------------------- To handle subdirectories with denied read permission, use <code>SpanMode.shallow</code> : --- void scan(string path) { foreach (DirEntry entry; dirEntries(path, SpanMode.shallow)) { try { writeln(entry.name); if (entry.isDir) scan(entry.name); } catch (FileException fe) { continue; } // ignore } }</p>
 <p>scan(&quot;&quot;); ---</p>
 <h2 class='section api'>dirEntries(path, pattern, mode, followSymlink)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; dirEntries(
+ <pre><code class='lang-d'>auto dirEntries(
+  bool useDIP1000 = dip1000Enabled
+)(
   string path,
   string pattern,
   SpanMode mode,
   bool followSymlink
-) auto</code></pre><p>Ditto</p>
+) </code></pre><p>Ditto</p>
 
 </article>
 

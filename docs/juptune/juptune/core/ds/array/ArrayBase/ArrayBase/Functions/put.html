@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,11 @@
 <h1 class='section'>Overloads for - put</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.core.ds.array.ArrayBase</dd></dl><dl><dt>Parent</dt><dd>ArrayBase</dd></dl>
 </div><h2 class='section api'>put(array)   </h2>
- <pre><code class='lang-d'>void put(
-  &lt;bug: unknown&gt; array
-) </code></pre>
+ <pre><code class='lang-d'>void put( ref scope typeof(this) array ) </code></pre><h2 class='section api'>put(value)   </h2>
+ <pre><code class='lang-d'>void put( T : ValueT )( auto ref T value ) </code></pre><h2 class='section api'>put(values)   </h2>
+ <pre><code class='lang-d'>void put( T : ValueT )( T[] values ) </code></pre><h2 class='section api'>put(range)   </h2>
+ <pre><code class='lang-d'>void put( R )( R range ) </code></pre><h2 class='section api'>put(values)   </h2>
+ <pre><code class='lang-d'>void put( Values... )( auto ref Values values ) </code></pre>
 </article>
 
         <div class="contribution d-print-none">

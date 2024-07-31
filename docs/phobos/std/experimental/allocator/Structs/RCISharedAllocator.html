@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,31 +90,35 @@
 </div><pre><code class='lang-d'>public struct RCISharedAllocator
 {
   // 
-  &lt;bug: unknown&gt; alignedAllocate( size_t n, uint a ) ;
+  void[] alignedAllocate( size_t n, uint a ) 
   // 
-  bool alignedReallocate( &lt;bug: unknown&gt; b, size_t size, uint alignment ) ;
+  bool alignedReallocate( ref void[] b, size_t size, uint alignment ) 
   // 
-  uint alignment( ) ;
+  uint alignment() @property
   // 
-  &lt;bug: unknown&gt; allocate( size_t n, TypeInfo ti ) ;
+  void[] allocate( size_t n, TypeInfo ti ) 
   // 
-  &lt;bug: unknown&gt; allocateAll( ) ;
+  void[] allocateAll() 
   // 
-  bool deallocate( &lt;bug: unknown&gt; b ) ;
+  bool deallocate( void[] b ) 
   // 
-  bool deallocateAll( ) ;
+  bool deallocateAll() 
   // 
-  Ternary empty( ) ;
+  Ternary empty() 
   // 
-  bool expand( &lt;bug: unknown&gt; b, size_t size ) ;
+  bool expand( ref void[] b, size_t size ) 
   // 
-  size_t goodAllocSize( size_t s ) ;
+  size_t goodAllocSize( size_t s ) 
   // 
-  Ternary owns( &lt;bug: unknown&gt; b ) ;
+  bool isNull( _ )() @nogc @safe pure
   // 
-  bool reallocate( &lt;bug: unknown&gt; b, size_t size ) ;
+  ref auto opAssign( )( RCISharedAllocator rhs ) @nogc @safe pure
   // 
-  Ternary resolveInternalPointer( &lt;bug: unknown&gt; p, &lt;bug: unknown&gt; result ) ;
+  Ternary owns( void[] b ) 
+  // 
+  bool reallocate( ref void[] b, size_t size ) 
+  // 
+  Ternary resolveInternalPointer( const void* p, ref void[] result ) 
 }</code></pre><h2 class='section'>About</h2><p>A reference counted struct that wraps the dynamic shared allocator interface. This should be used wherever a uniform type is required for encapsulating various allocator implementations.</p>
 <p>Code that defines allocators shareable across threads ultimately implements the $(LREF ISharedAllocator) interface, possibly by using $(LREF CSharedAllocatorImpl) below, and then build a <code>RCISharedAllocator</code> out of this.</p>
 <p>Composition of allocators is not recommended at this level due to inflexibility of dynamic interfaces and inefficiencies caused by cascaded multiple calls. Instead, compose allocators using the static interface defined in $(A std_experimental_allocator_building_blocks.html, <code>std.experimental.allocator.building_blocks</code> ), then adapt the composed allocator to <code>RCISharedAllocator</code> (possibly by using $(LREF sharedAllocatorObject) below).</p>
@@ -164,6 +168,14 @@
 </tr>
 <tr>
 <td><a href="../RCISharedAllocator/RCISharedAllocator/Functions/goodAllocSize.html">goodAllocSize</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../RCISharedAllocator/RCISharedAllocator/Functions/isNull.html">isNull</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../RCISharedAllocator/RCISharedAllocator/Functions/opAssign.html">opAssign</a></td>
 <td></td>
 </tr>
 <tr>

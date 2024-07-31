@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,31 +87,31 @@
         <article data-uid="std.numeric.Structs.GapWeightedSimilarityIncremental">
 <h1 class='section'>Struct - GapWeightedSimilarityIncremental</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.numeric</dd></dl>
-</div><pre><code class='lang-d'>public struct GapWeightedSimilarityIncremental
+</div><pre><code class='lang-d'>struct GapWeightedSimilarityIncremental( Range, F = double )
 {
   // Returns: Whether there are more matches. 
-  bool empty( ) ;
+  bool empty() @property
   // Returns: The gapped similarity at the current match length (initially 1, grows with each call to `popFront` ). 
-  F front( ) ;
+  F front() @property
   // Returns: `this` . 
-  GapWeightedSimilarityIncremental opSlice( ) ;
+  ref GapWeightedSimilarityIncremental opSlice() 
   // Computes the match of the popFront length. Completes in $(BIGOH s.length t.length) time. 
-  void popFront( ) ;
+  void popFront() 
 
   // 
-  F currentValue;
+  F currentValue = 0
   // 
-  size_t gram;
+  size_t gram = void
   // 
-  &lt;bug: unknown&gt; kl;
+  F* kl
   // 
-  F lambda;
+  F lambda = void
   // 
-  F lambda2;
+  F lambda2 = void
   // 
-  Range s;
+  Range s
   // 
-  Range t;
+  Range t
 }</code></pre><h2 class='section'>About</h2><p>Similar to <code>gapWeightedSimilarity</code> , just works in an incremental manner by first revealing the matches of length 1, then gapped matches of length 2, and so on. The memory requirement is $(BIGOH s.length t.length). The time complexity is $(BIGOH s.length t.length) time for computing each step. Continuing on the previous example:</p>
 <p>The implementation is based on the pseudocode in Fig. 4 of the paper $(HTTP jmlr.csail.mit.edu/papers/volume6/rousu05a/rousu05a.pdf, &quot;Efﬁcient Computation of Gapped Substring Kernels on Large Alphabets&quot;) by Rousu et al., with additional algorithmic and systems-level optimizations.</p>
 <h2 class='section'>Functions</h2><table>

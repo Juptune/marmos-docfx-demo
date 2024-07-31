@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,27 +87,29 @@
         <article data-uid="std.experimental.allocator.building_blocks.quantizer.Structs.Quantizer">
 <h1 class='section'>Struct - Quantizer</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator.building_blocks.quantizer</dd></dl>
-</div><pre><code class='lang-d'>public struct Quantizer
+</div><pre><code class='lang-d'>struct Quantizer( ParentAllocator, alias roundingFunction )
 {
   // Defined only if `parent.alignedAllocate` exists and works similarly to `allocate` by forwarding to $(D parent.alignedAllocate(goodAllocSize(n), a)). 
-  &lt;bug: unknown&gt; alignedAllocate( size_t n, uint a ) ;
+  void[] alignedAllocate( size_t n, uint a ) 
   // Defined only if `ParentAllocator.alignedAllocate` exists. Expansion occurs in place under the conditions required by `expand` . Shrinking occurs in place if $(D goodAllocSize(b.length) == goodAllocSize(s)). 
-  bool alignedReallocate( &lt;bug: unknown&gt; b, size_t s, uint a ) ;
+  bool alignedReallocate( ref void[] b, size_t s, uint a ) 
   // Gets a larger buffer `buf` by calling `parent.allocate(goodAllocSize(n))` . If `buf` is `null` , returns `null` . Otherwise, returns $(D buf[0 .. n]). 
-  &lt;bug: unknown&gt; allocate( size_t n ) ;
+  void[] allocate( size_t n ) 
+  // 
+  void[] allocateZeroed( )( size_t n ) 
   // Defined if `ParentAllocator.deallocate` exists and forwards to $(D parent.deallocate(b.ptr[0 .. goodAllocSize(b.length)])). 
-  bool deallocate( &lt;bug: unknown&gt; b ) ;
+  bool deallocate( void[] b ) 
   // First checks whether there&#39;s enough slack memory preallocated for `b` by evaluating $(D b.length + delta &lt;= goodAllocSize(b.length)). If that&#39;s the case, expands `b` in place. Otherwise, attempts to use `parent.expand` appropriately if present. 
-  bool expand( &lt;bug: unknown&gt; b, size_t delta ) ;
+  bool expand( ref void[] b, size_t delta ) 
   // Returns `roundingFunction(n)` . 
-  size_t goodAllocSize( size_t n ) ;
+  size_t goodAllocSize( size_t n ) 
   // Expands or shrinks allocated block to an allocated size of $(D goodAllocSize(s)). Expansion occurs in place under the conditions required by `expand` . Shrinking occurs in place if $(D goodAllocSize(b.length) == goodAllocSize(s)). 
-  bool reallocate( &lt;bug: unknown&gt; b, size_t s ) ;
+  bool reallocate( ref void[] b, size_t s ) 
 
   // Alignment is identical to that of the parent. 
-  __enumMember alignment;
+  &lt;enum or auto&gt; alignment = ParentAllocator.alignment
   // The parent allocator. Depending on whether `ParentAllocator` holds state or not, this is a member variable or an alias for `ParentAllocator.instance` . 
-  ParentAllocator parent;
+  ParentAllocator parent
 }</code></pre><h2 class='section'>About</h2><p>This allocator sits on top of <code>ParentAllocator</code> and quantizes allocation sizes, usually from arbitrary positive numbers to a small set of round numbers (e.g. powers of two, page sizes etc). This technique is commonly used to:</p>
 <p>$(UL $(LI Preallocate more memory than requested such that later on, when reallocation is needed (e.g. to grow an array), expansion can be done quickly in place. Reallocation to smaller sizes is also fast (in-place) when the new size requested is within the same quantum as the existing size. Code that's reallocation-heavy can therefore benefit from fronting a generic allocator with a <code>Quantizer</code> . These advantages are present even if <code>ParentAllocator</code> does not support reallocation at all.) $(LI Improve behavior of allocators sensitive to allocation sizes, such as <code>FreeList</code> and <code>FreeTree</code> . Rounding allocation requests up makes for smaller free lists/trees at the cost of slack memory (internal fragmentation).) )</p>
 <h3 class='section'>The following methods are forwarded to the parent allocator if present</h3><p><code>allocateAll</code> , <code>owns</code> , <code>deallocateAll</code> , <code>empty</code> .</p>
@@ -131,6 +133,10 @@
 <tr>
 <td><a href="../Quantizer/Quantizer/Functions/allocate.html">allocate</a></td>
 <td>Gets a larger buffer <code>buf</code> by calling <code>parent.allocate(goodAllocSize(n))</code> . If <code>buf</code> is <code>null</code> , returns <code>null</code> . Otherwise, returns $(D buf[0 .. n]).</td>
+</tr>
+<tr>
+<td><a href="../Quantizer/Quantizer/Functions/allocateZeroed.html">allocateZeroed</a></td>
+<td></td>
 </tr>
 <tr>
 <td><a href="../Quantizer/Quantizer/Functions/deallocate.html">deallocate</a></td>

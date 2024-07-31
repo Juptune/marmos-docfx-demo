@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,28 +87,28 @@
         <article data-uid="std.numeric.Enums.CustomFloatFlags">
 <h1 class='section'>Enum - CustomFloatFlags</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.numeric</dd></dl>
-</div><pre><code class='lang-d'>enum CustomFloatFlags
+</div><pre><code class='lang-d'>enum CustomFloatFlags : int
 {
-  // Stores the significand in $(LINK2 https://en.wikipedia.org/wiki/IEEE_754-1985#Denormalized_numbers, IEEE754 denormalized) form when the exponent is 0. Required to express the value 0. 
-  __enumMember allowDenorm;
-  // If set, 0 is the only allowed $(LINK2 https://en.wikipedia.org/wiki/IEEE_754-1985#Denormalized_numbers, IEEE754 denormalized) number. Requires allowDenorm and storeNormalized. 
-  __enumMember allowDenormZeroOnly;
-  // Include *all of the $(LINK2 https://en.wikipedia.org/wiki/IEEE* floating_point, IEEE754) options. 
-  __enumMember ieee;
-  // Allows the storage of $(LINK2 https://en.wikipedia.org/wiki/IEEE_754-1985#Positive_and_negative_infinity, IEEE754 infinity) values. 
-  __enumMember infinity;
-  // Allows the storage of $(LINK2 https://en.wikipedia.org/wiki/NaN, IEEE754 Not a Number) values. 
-  __enumMember nan;
-  // If set, unsigned custom floats are assumed to be negative. 
-  __enumMember negativeUnsigned;
-  // Include none of the above options. 
-  __enumMember none;
-  // If set, select an exponent bias such that max_exp = 1. i.e. so that the maximum value is &gt;= 1.0 and &lt; 2.0. Ignored if the exponent bias is manually specified. 
-  __enumMember probability;
   // Adds a sign bit to allow for signed numbers. 
-  __enumMember signed;
+  signed = 1,
   // Store values in normalized form by default. The actual precision of the significand is extended by 1 bit by assuming an implicit leading bit of 1 instead of 0. i.e. `1.nnnn` instead of `0.nnnn` . True for all $(LINK2 https://en.wikipedia.org/wiki/IEEE_floating_point, IEE754) types 
-  __enumMember storeNormalized;
+  storeNormalized = 2,
+  // Stores the significand in $(LINK2 https://en.wikipedia.org/wiki/IEEE_754-1985#Denormalized_numbers, IEEE754 denormalized) form when the exponent is 0. Required to express the value 0. 
+  allowDenorm = 4,
+  // Allows the storage of $(LINK2 https://en.wikipedia.org/wiki/IEEE_754-1985#Positive_and_negative_infinity, IEEE754 infinity) values. 
+  infinity = 8,
+  // Allows the storage of $(LINK2 https://en.wikipedia.org/wiki/NaN, IEEE754 Not a Number) values. 
+  nan = 16,
+  // If set, select an exponent bias such that max_exp = 1. i.e. so that the maximum value is &gt;= 1.0 and &lt; 2.0. Ignored if the exponent bias is manually specified. 
+  probability = 32,
+  // If set, unsigned custom floats are assumed to be negative. 
+  negativeUnsigned = 64,
+  // If set, 0 is the only allowed $(LINK2 https://en.wikipedia.org/wiki/IEEE_754-1985#Denormalized_numbers, IEEE754 denormalized) number. Requires allowDenorm and storeNormalized. 
+  allowDenormZeroOnly = 128 | allowDenorm | storeNormalized,
+  // Include *all of the $(LINK2 https://en.wikipedia.org/wiki/IEEE* floating_point, IEEE754) options. 
+  ieee = signed | storeNormalized | allowDenorm | infinity | nan,
+  // Include none of the above options. 
+  none = 0,
 }</code></pre><h2 class='section'>About</h2><p>Format flags for CustomFloat.</p>
 <h2 class='section'>Variables</h2><table>
 <thead>

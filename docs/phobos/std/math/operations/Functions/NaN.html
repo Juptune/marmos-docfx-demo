@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - NaN</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.math.operations</dd></dl>
 </div><h2 class='section api'>NaN(payload)   </h2>
- <pre><code class='lang-d'>real NaN(
-  ulong payload
-) </code></pre><p>Create a quiet $(NAN), storing an integer inside the payload.</p>
+ <pre><code class='lang-d'>real NaN( ulong payload ) @nogc @trusted nothrow pure</code></pre><p>Create a quiet $(NAN), storing an integer inside the payload.</p>
 <p>For floats, the largest possible payload is 0x3F_FFFF. For doubles, it is 0x3_FFFF_FFFF_FFFF. For 80-bit or 128-bit reals, it is 0x3FFF_FFFF_FFFF_FFFF.</p>
 
 </article>

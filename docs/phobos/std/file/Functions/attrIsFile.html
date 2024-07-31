@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - attrIsFile</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.file</dd></dl>
 </div><h2 class='section api'>attrIsFile(attributes)   </h2>
- <pre><code class='lang-d'>bool attrIsFile(
-  uint attributes
-) </code></pre><p>Returns whether the given file attributes are for a file.</p>
+ <pre><code class='lang-d'>bool attrIsFile( uint attributes ) @nogc @safe nothrow pure</code></pre><p>Returns whether the given file attributes are for a file.</p>
 <p>On Windows, if a file is not a directory, it's a file. So, either <code>attrIsFile</code> or <code>attrIsDir</code> will return <code>true</code> for the attributes of any given file.</p>
 <p>On POSIX systems, if <code>attrIsFile</code> is <code>true</code> , that indicates that the file is a regular file (e.g. not a block not device). So, on POSIX systems, it's possible for both <code>attrIsFile</code> and <code>attrIsDir</code> to be <code>false</code> for a particular file (in which case, it's a special file). If a file is a special file, you can use the attributes to check what type of special file it is (see the man page for <code>stat</code> for more information).</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>attributes</code> uint  </dt>

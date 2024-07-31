@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,14 +88,12 @@
 <h1 class='section'>Overloads for - codePoints</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.encoding</dd></dl>
 </div><h2 class='section api'>codePoints(s)   </h2>
- <pre><code class='lang-d'>CodePoints!(E) codePoints(
-  &lt;bug: unknown&gt; s
-) </code></pre><p>Returns a foreachable struct which can bidirectionally iterate over all code points in a string.</p>
+ <pre><code class='lang-d'>CodePoints!(E) codePoints( E )( E[] s ) </code></pre><p>Returns a foreachable struct which can bidirectionally iterate over all code points in a string.</p>
 <p>The input to this function MUST be validly encoded. This is enforced by the function's in-contract.</p>
 <p>You can foreach either with or without an index. If an index is specified, it will be initialized at each iteration with the offset into the string at which the code point begins.</p>
 <h3 class='section'>Supersedes</h3><p>This function supersedes std.utf.decode().</p>
 <p>Standards: Unicode 5.0, ASCII, ISO-8859-1, ISO-8859-2, WINDOWS-1250, WINDOWS-1251, WINDOWS-1252</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>s</code> &lt;bug: unknown&gt;  </dt>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>s</code> E[]  </dt>
 <dd>
 
 

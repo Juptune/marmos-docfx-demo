@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - byCodeUnit</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.utf</dd></dl>
 </div><h2 class='section api'>byCodeUnit(r)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; byCodeUnit(
-  R r
-) auto</code></pre><p>Iterate a range of char, wchar, or dchars by code unit.</p>
+ <pre><code class='lang-d'>auto byCodeUnit( R )( R r ) </code></pre><p>Iterate a range of char, wchar, or dchars by code unit.</p>
 <p>The purpose is to bypass the special case decoding that $(REF front, std,range,primitives) does to character arrays. As a result, using ranges with <code>byCodeUnit</code> can be <code>nothrow</code> while $(REF front, std,range,primitives) throws when it encounters invalid Unicode sequences.</p>
 <p>A code unit is a building block of the UTF encodings. Generally, an individual code unit does not represent what's perceived as a full character (a.k.a. a grapheme cluster in Unicode terminology). Many characters are encoded with multiple code units. For example, the UTF-8 code units for <code>ø</code> are <code>0xC3 0xB8</code> . That means, an individual element of <code>byCodeUnit</code> often does not form a character on its own. Attempting to treat it as one while iterating over the resulting range will give nonsensical results.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>r</code> R  </dt>

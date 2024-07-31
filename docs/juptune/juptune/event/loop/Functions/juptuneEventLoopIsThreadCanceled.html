@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - juptuneEventLoopIsThreadCanceled</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.event.loop</dd></dl>
 </div><h2 class='section api'>juptuneEventLoopIsThreadCanceled()   </h2>
- <pre><code class='lang-d'>bool juptuneEventLoopIsThreadCanceled(
-) </code></pre><p>Determines if the current thread has been canceled.</p>
+ <pre><code class='lang-d'>bool juptuneEventLoopIsThreadCanceled() @nogc nothrow</code></pre><p>Determines if the current thread has been canceled.</p>
 <p>It's best practice to write your code in a way that supports gracefully exiting, especially when explicitly requested from a thread being canceled.</p>
 <p>There's some mechanisms in place to encourage this, such as <code>yield</code> -like functions returning an error-containing <code>Result</code> when a thread is canceled, however sometimes manually checking the state of the thread's cancel status is desirable.</p>
 <h3 class='section'>Returns</h3><p><code>true</code> if the thread has been canceled, <code>false</code> otherwise.</p>

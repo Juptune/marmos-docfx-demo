@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,28 +87,30 @@
         <article data-uid="std.regex.internal.ir.Structs.Input">
 <h1 class='section'>Struct - Input</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.regex.internal.ir</dd></dl>
-</div><pre><code class='lang-d'>public struct Input
+</div><pre><code class='lang-d'>struct Input( Char )
 {
   // 
-  alias DataIndex = &lt;todo: marmos support pending&gt;;
+  alias DataIndex = &lt;todo: marmos support pending&gt;
   // 
-  alias String = &lt;todo: marmos support pending&gt;;
+  alias String = &lt;todo: marmos support pending&gt;
 
   // 
-  bool atEnd( ) ;
+  bool atEnd() @property
   // 
-  size_t lastIndex( ) ;
+  size_t lastIndex() @property
   // 
-  &lt;bug: unknown&gt; loopBack( size_t index ) auto;
+  auto loopBack( size_t index ) 
   // 
-  bool nextChar( dchar res, size_t pos ) ;
+  bool nextChar( ref dchar res, ref size_t pos ) 
   // 
-  String opSlice( size_t start, size_t end ) ;
+  String opSlice( size_t start, size_t end ) 
   // 
-  void reset( size_t index ) ;
+  void reset( size_t index ) 
+  // 
+  bool search( Kickstart )( const ref Kickstart kick, ref dchar res, ref size_t pos ) 
 
   // 
-  bool isLoopback;
+  bool isLoopback = false
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>
@@ -157,6 +159,10 @@
 </tr>
 <tr>
 <td><a href="../Input/Input/Functions/reset.html">reset</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Input/Input/Functions/search.html">search</a></td>
 <td></td>
 </tr>
 </tbody>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,7 @@
 <h1 class='section'>Variable - parallelApplyMixinRandomAccess</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.parallelism</dd></dl>
 </div><h2 class='section api'>parallelApplyMixinRandomAccess   </h2>
- <pre><code class='lang-d'>string parallelApplyMixinRandomAccess</code></pre>
+ <pre><code class='lang-d'>string parallelApplyMixinRandomAccess = &quot;\n    // Handle empty thread pool as special case.\n    if (pool.size == 0)\n    {\n        return doSizeZeroCase(this, dg);\n    }\n\n    // Whether iteration is with or without an index variable.\n    enum withIndex = Parameters!(typeof(dg)).length == 2;\n\n    shared size_t workUnitIndex = size_t.max;  // Effectively -1:  chunkIndex + 1 == 0\n    immutable len = range.length;\n    if (!len) return 0;\n\n    shared bool shouldContinue = true;\n\n    void doIt()\n    {\n        import std.algorithm.comparison : min;\n\n        scope(failure)\n        {\n            // If an exception is thrown, all threads should bail.\n            atomicStore(shouldContinue, false);\n        }\n\n        while (atomicLoad(shouldContinue))\n        {\n            immutable myUnitIndex = atomicOp!\&quot;+=\&quot;(workUnitIndex, 1);\n            immutable start = workUnitSize * myUnitIndex;\n            if (start &gt;= len)\n            {\n                atomicStore(shouldContinue, false);\n                break;\n            }\n\n            immutable end = min(len, start + workUnitSize);\n\n            foreach (i; start .. end)\n            {\n                static if (withIndex)\n                {\n                    if (dg(i, range[i])) foreachErr();\n                }\n                else\n                {\n                    if (dg(range[i])) foreachErr();\n                }\n            }\n        }\n    }\n\n    submitAndExecute(pool, &amp;doIt);\n\n    return 0;\n&quot;</code></pre>
 </article>
 
         <div class="contribution d-print-none">

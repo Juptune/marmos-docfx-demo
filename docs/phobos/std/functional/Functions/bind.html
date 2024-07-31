@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - bind</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.functional</dd></dl>
 </div><h2 class='section api'>bind(args)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; bind(
-  T args
-) auto</code></pre><p>Passes the fields of a struct as arguments to a function.</p>
+ <pre><code class='lang-d'>ref auto bind( T )( auto ref T args ) </code></pre><p>Passes the fields of a struct as arguments to a function.</p>
 <p>Can be used with a $(LINK2 <a href="https://dlang.org/spec/expression.html#function_literals">https://dlang.org/spec/expression.html#function_literals</a>, function literal) to give temporary names to the fields of a struct or tuple.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>fun</code> &lt;parameter not found&gt;  </dt>
 <dd>

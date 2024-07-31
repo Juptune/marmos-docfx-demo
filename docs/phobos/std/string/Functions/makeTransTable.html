@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,17 +88,14 @@
 <h1 class='section'>Overloads for - makeTransTable</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.string</dd></dl>
 </div><h2 class='section api'>makeTransTable(from, to)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; makeTransTable(
-  &lt;bug: unknown&gt; from,
-  &lt;bug: unknown&gt; to
-) </code></pre><p>Construct 256 character translation table, where characters in from[] are replaced by corresponding characters in to[].</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>from</code> &lt;bug: unknown&gt;  </dt>
+ <pre><code class='lang-d'>char[256] makeTransTable( scope char[] from, scope char[] to ) @nogc @safe nothrow pure</code></pre><p>Construct 256 character translation table, where characters in from[] are replaced by corresponding characters in to[].</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>from</code> char[]  </dt>
 <dd>
 
 
 <p>array of chars, less than or equal to 256 in length</p>
 
-</dd><dt><code>to</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>to</code> char[]  </dt>
 <dd>
 
 

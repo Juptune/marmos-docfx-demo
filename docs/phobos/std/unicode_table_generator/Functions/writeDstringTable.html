@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,11 +88,7 @@
 <h1 class='section'>Overloads for - writeDstringTable</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.unicode_table_generator</dd></dl>
 </div><h2 class='section api'>writeDstringTable(sink, name, table)   </h2>
- <pre><code class='lang-d'>void writeDstringTable(
-  File sink,
-  string name,
-  &lt;bug: unknown&gt; table
-) </code></pre><p>Write a function that returns a dchar[] with data stored in <code>table</code></p>
+ <pre><code class='lang-d'>void writeDstringTable( File sink, string name, const dchar[] table ) </code></pre><p>Write a function that returns a dchar[] with data stored in <code>table</code></p>
 
 </article>
 

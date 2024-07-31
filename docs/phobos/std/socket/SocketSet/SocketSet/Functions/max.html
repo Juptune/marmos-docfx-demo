@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - max</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.socket.SocketSet</dd></dl><dl><dt>Parent</dt><dd>SocketSet</dd></dl>
 </div><h2 class='section api'>max()   </h2>
- <pre><code class='lang-d'>uint max(
-) </code></pre><h3 class='section'>Returns</h3><p>The current capacity of this <code>SocketSet</code> . The exact meaning of the return value varies from platform to platform.</p>
+ <pre><code class='lang-d'>uint max() @nogc @property nothrow pure</code></pre><h3 class='section'>Returns</h3><p>The current capacity of this <code>SocketSet</code> . The exact meaning of the return value varies from platform to platform.</p>
 <h3 class='section'>Note</h3><p>Since D 2.065, this value does not indicate a restriction, and <code>SocketSet</code> will grow its capacity as needed automatically.</p>
 
 </article>

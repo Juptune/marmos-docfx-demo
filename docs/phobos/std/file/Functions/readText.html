@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - readText</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.file</dd></dl>
 </div><h2 class='section api'>readText(name)   </h2>
- <pre><code class='lang-d'>S readText(
-  R name
-) </code></pre><p>Reads and validates (using $(REF validate, std, utf)) a text file. S can be an array of any character type. However, no width or endian conversions are performed. So, if the width or endianness of the characters in the given file differ from the width or endianness of the element type of S, then validation will fail.</p>
+ <pre><code class='lang-d'>S readText( S = string, R )( auto ref R name ) </code></pre><p>Reads and validates (using $(REF validate, std, utf)) a text file. S can be an array of any character type. However, no width or endian conversions are performed. So, if the width or endianness of the characters in the given file differ from the width or endianness of the element type of S, then validation will fail.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>S</code> &lt;parameter not found&gt;  </dt>
 <dd>
 

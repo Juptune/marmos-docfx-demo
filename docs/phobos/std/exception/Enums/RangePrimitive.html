@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,32 +87,32 @@
         <article data-uid="std.exception.Enums.RangePrimitive">
 <h1 class='section'>Enum - RangePrimitive</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.exception</dd></dl>
-</div><pre><code class='lang-d'>enum RangePrimitive
+</div><pre><code class='lang-d'>enum RangePrimitive : int
 {
-  // Ditto 
-  __enumMember access;
-  // Ditto 
-  __enumMember back;
-  // Ditto 
-  __enumMember empty;
   // 
-  __enumMember front;
+  front = 1,
   // Ditto 
-  __enumMember length;
+  back = 2,
   // Ditto 
-  __enumMember opDollar;
+  popFront = 4,
   // Ditto 
-  __enumMember opIndex;
+  popBack = 8,
   // Ditto 
-  __enumMember opSlice;
+  empty = 16,
   // Ditto 
-  __enumMember pop;
+  save = 32,
   // Ditto 
-  __enumMember popBack;
+  length = 64,
   // Ditto 
-  __enumMember popFront;
+  opDollar = 128,
   // Ditto 
-  __enumMember save;
+  opIndex = 256,
+  // Ditto 
+  opSlice = 512,
+  // Ditto 
+  access = front | back | opIndex,
+  // Ditto 
+  pop = popFront | popBack,
 }</code></pre><h2 class='section'>About</h2><p>This <code>enum</code> is used to select the primitives of the range to handle by the $(LREF handle) range wrapper. The values of the <code>enum</code> can be <code>OR</code> 'd to select multiple primitives to be handled.</p>
 <p><code>RangePrimitive.access</code> is a shortcut for the access primitives; <code>front</code> , <code>back</code> and <code>opIndex</code> .</p>
 <p><code>RangePrimitive.pop</code> is a shortcut for the mutating primitives; <code>popFront</code> and <code>popBack</code> .</p>

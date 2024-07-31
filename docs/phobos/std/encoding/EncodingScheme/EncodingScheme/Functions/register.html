@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,17 @@
 <h1 class='section'>Overloads for - register</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.encoding.EncodingScheme</dd></dl><dl><dt>Parent</dt><dd>EncodingScheme</dd></dl>
 </div><h2 class='section api'>register(className)   </h2>
- <pre><code class='lang-d'>void register(
-  string className
-) static</code></pre>
+ <pre><code class='lang-d'>static void register( string className ) </code></pre><h2 class='section api'>register()   </h2>
+ <pre><code class='lang-d'>void register( Klass : EncodingScheme )() </code></pre><p>Registers a subclass of EncodingScheme.</p>
+<p>This function allows user-defined subclasses of EncodingScheme to be declared in other modules.</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>Klass</code> &lt;parameter not found&gt;  </dt>
+<dd>
+
+
+<p>The subclass of EncodingScheme to register.</p>
+
+</dd></dl><h3 class='section'>Example</h3><p>---------------------------------------------- class Amiga1251 : EncodingScheme { shared static this() { EncodingScheme.register!Amiga1251; } } ----------------------------------------------</p>
+
 </article>
 
         <div class="contribution d-print-none">

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - modf</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.math.remainder</dd></dl>
 </div><h2 class='section api'>modf(x, i)   </h2>
- <pre><code class='lang-d'>real modf(
-  real x,
-  real i
-) </code></pre><p>Breaks x into an integral part and a fractional part, each of which has the same sign as x. The integral part is stored in i. Returns: The fractional part of x.</p>
+ <pre><code class='lang-d'>real modf( real x, ref real i ) @nogc @trusted nothrow</code></pre><p>Breaks x into an integral part and a fractional part, each of which has the same sign as x. The integral part is stored in i. Returns: The fractional part of x.</p>
 <p>$(TABLE_SV $(TR $(TH x)              $(TH i (on input))  $(TH modf(x, i))   $(TH i (on return))) $(TR $(TD $(PLUSMNINF))   $(TD anything)      $(TD $(PLUSMN)0.0) $(TD $(PLUSMNINF))) )</p>
 
 </article>

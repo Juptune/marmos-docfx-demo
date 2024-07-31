@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,23 +87,23 @@
         <article data-uid="std.regex.internal.thompson.Structs.ThreadList">
 <h1 class='section'>Struct - ThreadList</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.regex.internal.thompson</dd></dl>
-</div><pre><code class='lang-d'>public struct ThreadList
+</div><pre><code class='lang-d'>struct ThreadList( DataIndex )
 {
   // 
-  bool empty( ) ;
+  bool empty() @property
   // 
-  &lt;bug: unknown&gt; fetch( ) ;
+  Thread!(DataIndex)* fetch() 
   // 
-  void insertBack( &lt;bug: unknown&gt; t ) ;
+  void insertBack( Thread!(DataIndex)* t ) 
   // 
-  void insertFront( &lt;bug: unknown&gt; t ) ;
+  void insertFront( Thread!(DataIndex)* t ) 
   // 
-  ThreadRange opSlice( ) ;
+  ThreadRange opSlice() 
 
   // 
-  &lt;bug: unknown&gt; tip;
+  Thread!(DataIndex)* tip = null
   // 
-  &lt;bug: unknown&gt; toe;
+  Thread!(DataIndex)* toe = null
 }</code></pre><h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -130,6 +130,20 @@
 </tr>
 <tr>
 <td><a href="../ThreadList/ThreadList/Functions/opSlice.html">opSlice</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../ThreadList/ThreadList/Structs/ThreadRange.html">ThreadRange</a></td>
 <td></td>
 </tr>
 </tbody>

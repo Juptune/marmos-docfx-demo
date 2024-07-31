@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,15 @@
 <h1 class='section'>Variable - hasSlicing</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range.primitives</dd></dl>
 </div><h2 class='section api'>hasSlicing   </h2>
- <pre><code class='lang-d'>bool hasSlicing</code></pre><h2 class='section'>About</h2><p>Returns <code>true</code> if <code>R</code> offers a slicing operator with integral boundaries that returns a forward range type.</p>
+ <pre><code class='lang-d'>bool hasSlicing = isForwardRange!R &amp;&amp; !(isAutodecodableString!R &amp;&amp; !isAggregateType!R) &amp;&amp; is(typeof((R r)
+{
+return r[1..1].length;
+}
+(R.init)) == size_t) &amp;&amp; (is(typeof(lvalueOf!R[1..1]) == R) || isInfinite!R) &amp;&amp; (!is(typeof(lvalueOf!R[0..__dollar])) || is(typeof(lvalueOf!R[0..__dollar]) == R)) &amp;&amp; (!is(typeof(lvalueOf!R[0..__dollar])) || isInfinite!R || is(typeof(lvalueOf!R[0..__dollar - 1]) == R)) &amp;&amp; is(typeof((ref R r)
+{
+static assert(isForwardRange!(typeof(r[1..2])));
+}
+))</code></pre><h2 class='section'>About</h2><p>Returns <code>true</code> if <code>R</code> offers a slicing operator with integral boundaries that returns a forward range type.</p>
 <p>For finite ranges, the result of <code>opSlice</code> must be of the same type as the original range type. If the range defines <code>opDollar</code> , then it must support subtraction.</p>
 <p>For infinite ranges, when $(I not) using <code>opDollar</code> , the result of <code>opSlice</code> may be a forward range of any type. However, when using <code>opDollar</code> , the result of <code>opSlice</code> must be of the same type as the original range type.</p>
 <h3 class='section'>The following expression must be true for `hasSlicing` to be `true`</h3><p>---- isForwardRange!R &amp;&amp; !(isAutodecodableString!R &amp;&amp; !isAggregateType!R) &amp;&amp; is(typeof((R r) { return r[1 .. 1].length; } (R.init)) == size_t) &amp;&amp; (is(typeof(lvalueOf!R[1 .. 1]) == R) || isInfinite!R) &amp;&amp; (!is(typeof(lvalueOf!R[0 .. $])) || is(typeof(lvalueOf!R[0 .. $]) == R)) &amp;&amp; (!is(typeof(lvalueOf!R[0 .. $])) || isInfinite!R || is(typeof(lvalueOf!R[0 .. $ - 1]) == R)) &amp;&amp; is(typeof((ref R r) { static assert(isForwardRange!(typeof(r[1 .. 2]))); })); ----</p>

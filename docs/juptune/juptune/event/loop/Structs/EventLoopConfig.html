@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,18 +90,18 @@
 </div><pre><code class='lang-d'>public struct EventLoopConfig
 {
   // 
-  EventLoopConfig withFiberAllocatorConfig( FiberAllocatorConfig conf ) ;
+  ref EventLoopConfig withFiberAllocatorConfig( FiberAllocatorConfig conf ) return
   // 
-  EventLoopConfig withIoUringConfig( IoUringConfig conf ) ;
+  ref EventLoopConfig withIoUringConfig( IoUringConfig conf ) return
   // 
-  EventLoopConfig withSigtermHandler( bool value ) ;
+  ref EventLoopConfig withSigtermHandler( bool value ) return
 
   // Configuration for the EventLoop&#39;s fiber allocator. 
-  FiberAllocatorConfig fiberAllocator;
+  FiberAllocatorConfig fiberAllocator
   // 
-  bool handleSigterm;
+  bool handleSigterm = false
   // Configuration for the EventLoop&#39;s io_uring driver. 
-  IoUringConfig ioUring;
+  IoUringConfig ioUring
 }</code></pre><h2 class='section'>About</h2><p>Configuration for an <code>EventLoop</code></p>
 <h2 class='section'>Functions</h2><table>
 <thead>

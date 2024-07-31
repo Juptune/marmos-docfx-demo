@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,50 +87,52 @@
         <article data-uid="std.range.Structs.Zip">
 <h1 class='section'>Struct - Zip</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
-</div><pre><code class='lang-d'>public struct Zip
+</div><pre><code class='lang-d'>struct Zip( Ranges... )
 {
   // 
-  alias ElementType = &lt;todo: marmos support pending&gt;;
+  alias ElementType = &lt;todo: marmos support pending&gt;
   // Returns the length of this range. Defined only if all ranges define `length` . 
-  alias opDollar = &lt;todo: marmos support pending&gt;;
+  alias opDollar = &lt;todo: marmos support pending&gt;
   // 
-  alias R = &lt;todo: marmos support pending&gt;;
+  alias R = &lt;todo: marmos support pending&gt;
 
   // Returns the rightmost element. 
-  ElementType back( ) ;
+  ElementType back() @property
   // Returns the current iterated element. 
-  void back( ElementType v ) ;
+  void back( ElementType v ) @property
   // Returns the current iterated element. 
-  ElementType front( ) ;
+  ElementType front() @property
   // Sets the front of all iterated ranges. 
-  void front( ElementType v ) ;
+  void front( ElementType v ) @property
   // Returns the length of this range. Defined only if all ranges define `length` . 
-  &lt;bug: unknown&gt; length( ) auto;
+  auto length() @property
   // Destructively reads the `n` th element in the composite range. Defined if all ranges offer random access. 
-  ElementType moveAt( size_t n ) ;
+  ElementType moveAt( size_t n ) 
   // Moves out the back. 
-  ElementType moveBack( ) ;
+  ElementType moveBack() 
   // Moves out the front. 
-  ElementType moveFront( ) ;
+  ElementType moveFront() 
   // Returns the `n` th element in the composite range. Defined if all ranges offer random access. 
-  ElementType opIndex( size_t n ) ;
+  ElementType opIndex( size_t n ) 
   // Assigns to the `n` th element in the composite range. Defined if all ranges offer random access. 
-  void opIndexAssign( ElementType v, size_t n ) ;
+  void opIndexAssign( ElementType v, size_t n ) 
   // Returns a slice of the range. Defined only if all range define slicing. 
-  &lt;bug: unknown&gt; opSlice( size_t from, size_t to ) auto;
+  auto opSlice( size_t from, size_t to ) 
   // Calls `popBack` for all controlled ranges. 
-  void popBack( ) ;
+  void popBack() 
   // Advances to the next element in all controlled ranges. 
-  void popFront( ) ;
+  void popFront() 
   // 
-  Zip save( ) ;
+  Zip save() @property
+  // 
+   tryGetInit( size_t i )() 
 
   // Returns `true` if the range is at end. The test depends on the stopping policy. 
-  bool empty;
+  bool empty = false
   // 
-  R ranges;
+  R ranges
   // 
-  StoppingPolicy stoppingPolicy;
+  StoppingPolicy stoppingPolicy = StoppingPolicy.shortest
 }</code></pre><h2 class='section'>About</h2><p>Iterate several ranges in lockstep. The element type is a proxy tuple that allows accessing the current element in the <code>n</code> th range by using <code>e[n]</code> .</p>
 <p><code>zip</code> is similar to $(LREF lockstep), but <code>lockstep</code> doesn't bundle its elements and uses the <code>opApply</code> protocol. <code>lockstep</code> allows reference access to the elements in <code>foreach</code> iterations.</p>
 <p>Params: sp = controls what <code>zip</code> will do if the ranges are different lengths ranges = the ranges to zip together Returns: At minimum, an input range. <code>Zip</code> offers the lowest range facilities of all components, e.g. it offers random access iff all ranges offer random access, and also offers mutation and swapping if all ranges offer it. Due to this, <code>Zip</code> is extremely powerful because it allows manipulating several ranges in lockstep. Throws: An <code>Exception</code> if all of the ranges are not the same length and <code>sp</code> is set to <code>StoppingPolicy.requireSameLength</code> .</p>
@@ -211,6 +213,10 @@
 </tr>
 <tr>
 <td><a href="../Zip/Zip/Functions/save.html">save</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Zip/Zip/Functions/tryGetInit.html">tryGetInit</a></td>
 <td></td>
 </tr>
 </tbody>

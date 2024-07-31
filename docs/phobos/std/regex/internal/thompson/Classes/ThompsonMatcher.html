@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,100 +87,112 @@
         <article data-uid="std.regex.internal.thompson.Classes.ThompsonMatcher">
 <h1 class='section'>Class - ThompsonMatcher</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.regex.internal.thompson</dd></dl>
-</div><pre><code class='lang-d'>public class ThompsonMatcher
+</div><pre><code class='lang-d'>class ThompsonMatcher( Char, StreamType = Input!(Char) )
 {
   // 
-  alias BackMatcher = &lt;todo: marmos support pending&gt;;
+  alias BackMatcher = &lt;todo: marmos support pending&gt;
   // 
-  alias DataIndex = &lt;todo: marmos support pending&gt;;
+  alias BackOps = &lt;todo: marmos support pending&gt;
   // 
-  alias OpBackFunc = &lt;todo: marmos support pending&gt;;
+  alias DataIndex = &lt;todo: marmos support pending&gt;
   // 
-  alias OpFunc = &lt;todo: marmos support pending&gt;;
+  alias OpBackFunc = &lt;todo: marmos support pending&gt;
   // 
-  alias Stream = &lt;todo: marmos support pending&gt;;
+  alias OpFunc = &lt;todo: marmos support pending&gt;
+  // 
+  alias Ops = &lt;todo: marmos support pending&gt;
+  // 
+  alias Stream = &lt;todo: marmos support pending&gt;
 
   // 
-  &lt;bug: unknown&gt; allocate( ) ;
+  Thread!(DataIndex)* allocate() 
   // 
-  bool atEnd( ) ;
+  bool atEnd() @property
   // 
-  bool atStart( ) ;
+  bool atStart() @property
   // 
-  &lt;bug: unknown&gt; createStart( DataIndex index, uint pc ) ;
+  auto bwdMatcher( )( size_t lo, size_t hi, uint nGroup, size_t counter ) 
   // 
-  void dupTo( Matcher!(Char) engine, &lt;bug: unknown&gt; memory ) override;
+  Thread!(DataIndex)* createStart( DataIndex index, uint pc ) 
   // 
-  void finish( &lt;bug: unknown&gt; t, &lt;bug: unknown&gt; matches, int code ) ;
+  void dupTo( Matcher!(Char) engine, void[] memory ) override
   // 
-  &lt;bug: unknown&gt; fork( &lt;bug: unknown&gt; master, uint pc, uint counter ) ;
+  void eval( bool withInput )( State* state ) 
   // 
-  size_t getThreadSize( Regex!(Char) re ) static;
+  void finish( Thread!(DataIndex)* t, Group!(DataIndex)[] matches, int code ) 
   // 
-  void initExternalMemory( &lt;bug: unknown&gt; memory ) ;
+  Thread!(DataIndex)* fork( Thread!(DataIndex)* master, uint pc, uint counter ) 
   // 
-  size_t initialMemory( Regex!(Char) re ) static;
+  auto fwdMatcher( )( size_t lo, size_t hi, uint nGroup, size_t counter ) 
   // 
-  int match( &lt;bug: unknown&gt; matches ) override;
+  static size_t getThreadSize( const ref Regex!(Char) re ) 
   // 
-  int matchOneShot( &lt;bug: unknown&gt; matches, uint startPc ) ;
+  void initExternalMemory( void[] memory ) 
   // 
-  bool next( ) ;
+  static size_t initialMemory( const ref Regex!(Char) re ) 
   // 
-  Regex!(Char) pattern( ) override;
+  int match( Group!(DataIndex)[] matches ) override
   // 
-  void prepareFreeList( size_t size, &lt;bug: unknown&gt; memory ) ;
+  int matchImpl( bool withSearch )( Group!(DataIndex)[] matches ) 
   // 
-  Matcher!(Char) rearm( &lt;bug: unknown&gt; data ) override;
+  int matchOneShot( Group!(DataIndex)[] matches, uint startPc ) 
   // 
-  void recycle( &lt;bug: unknown&gt; t ) ;
+  bool next() 
   // 
-  void recycle( ThreadList!(DataIndex) list ) ;
+  ref Regex!(Char) pattern() override @property @safe
   // 
-  size_t refCount( ) override;
+  void prepareFreeList( size_t size, ref void[] memory ) 
   // 
-  bool search( ) ;
+  Matcher!(Char) rearm( in Char[] data ) override
+  // 
+  void recycle( Thread!(DataIndex)* t ) 
+  // 
+  void recycle( ref ThreadList!(DataIndex) list ) 
+  // 
+  ref size_t refCount() override @property @safe
+  // 
+  bool search() 
 
   // 
-  &lt;bug: unknown&gt; backrefed;
+  Group!(DataIndex)[] backrefed
   // 
-  ThreadList!(DataIndex) clist;
+  ThreadList!(DataIndex) clist
   // 
-  bool exhausted;
+  bool exhausted
   // 
-  &lt;bug: unknown&gt; freelist;
+  Thread!(DataIndex)* freelist
   // 
-  dchar front;
+  dchar front
   // 
-  DataIndex genCounter;
+  DataIndex genCounter
   // 
-  DataIndex index;
+  DataIndex index
   // 
-  __enumMember kicked;
+  &lt;enum or auto&gt; kicked = __traits(hasMember, Stream, &quot;search&quot;)
   // 
-  int matched;
+  int matched
   // 
-  &lt;bug: unknown&gt; merge;
+  DataIndex[] merge
   // 
-  ThreadList!(DataIndex) nlist;
+  ThreadList!(DataIndex) nlist
   // 
-  &lt;bug: unknown&gt; opCacheBackFalse;
+  OpBackFunc[] opCacheBackFalse
   // 
-  &lt;bug: unknown&gt; opCacheBackTrue;
+  OpBackFunc[] opCacheBackTrue
   // 
-  &lt;bug: unknown&gt; opCacheFalse;
+  OpFunc[] opCacheFalse
   // 
-  &lt;bug: unknown&gt; opCacheTrue;
+  OpFunc[] opCacheTrue
   // 
-  const Regex!(Char) re;
+  const Regex!(Char) re
   // 
-  uint RestartPc;
+  uint RestartPc = (uint).max
   // 
-  Stream s;
+  Stream s
   // 
-  &lt;bug: unknown&gt; subCounters;
+  size_t[size_t] subCounters
   // 
-  size_t threadSize;
+  size_t threadSize
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>
@@ -194,6 +206,10 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="../ThompsonMatcher/ThompsonMatcher/Aliases/BackOps.html">BackOps</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../ThompsonMatcher/ThompsonMatcher/Aliases/DataIndex.html">DataIndex</a></td>
 <td></td>
 </tr>
@@ -203,6 +219,10 @@
 </tr>
 <tr>
 <td><a href="../ThompsonMatcher/ThompsonMatcher/Aliases/OpFunc.html">OpFunc</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../ThompsonMatcher/ThompsonMatcher/Aliases/Ops.html">Ops</a></td>
 <td></td>
 </tr>
 <tr>
@@ -232,6 +252,10 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="../ThompsonMatcher/ThompsonMatcher/Functions/bwdMatcher.html">bwdMatcher</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../ThompsonMatcher/ThompsonMatcher/Functions/createStart.html">createStart</a></td>
 <td></td>
 </tr>
@@ -240,11 +264,19 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="../ThompsonMatcher/ThompsonMatcher/Functions/eval.html">eval</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../ThompsonMatcher/ThompsonMatcher/Functions/finish.html">finish</a></td>
 <td></td>
 </tr>
 <tr>
 <td><a href="../ThompsonMatcher/ThompsonMatcher/Functions/fork.html">fork</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../ThompsonMatcher/ThompsonMatcher/Functions/fwdMatcher.html">fwdMatcher</a></td>
 <td></td>
 </tr>
 <tr>
@@ -261,6 +293,10 @@
 </tr>
 <tr>
 <td><a href="../ThompsonMatcher/ThompsonMatcher/Functions/match.html">match</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../ThompsonMatcher/ThompsonMatcher/Functions/matchImpl.html">matchImpl</a></td>
 <td></td>
 </tr>
 <tr>
@@ -293,6 +329,20 @@
 </tr>
 <tr>
 <td><a href="../ThompsonMatcher/ThompsonMatcher/Functions/search.html">search</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../ThompsonMatcher/ThompsonMatcher/Structs/State.html">State</a></td>
 <td></td>
 </tr>
 </tbody>

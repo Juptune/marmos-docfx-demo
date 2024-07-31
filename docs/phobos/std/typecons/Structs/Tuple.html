@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,20 +87,48 @@
         <article data-uid="std.typecons.Structs.Tuple">
 <h1 class='section'>Struct - Tuple</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.typecons</dd></dl>
-</div><pre><code class='lang-d'>public struct Tuple
+</div><pre><code class='lang-d'>struct Tuple( Specs... )
 {
   // 
-  alias field = &lt;todo: marmos support pending&gt;;
+  alias field = &lt;todo: marmos support pending&gt;
   // The names of the `Tuple` &#39;s components. Unnamed fields have empty names. 
-  alias fieldNames = &lt;todo: marmos support pending&gt;;
+  alias fieldNames = &lt;todo: marmos support pending&gt;
   // The types of the `Tuple` &#39;s components. 
-  alias Types = &lt;todo: marmos support pending&gt;;
+  alias Types = &lt;todo: marmos support pending&gt;
 
+  // Assignment from another `Tuple` . 
+  ref Tuple opAssign( R )( auto ref R rhs ) 
+  // Concatenate Tuples. Tuple concatenation is only allowed if all named fields are distinct (no named field of this tuple occurs in `t` and no named field of `t` occurs in this tuple). 
+  auto opBinary( string op, T )( auto ref T t ) 
+  // ditto 
+  auto opBinaryRight( string op, T )( auto ref T t ) 
+  // Comparison for ordering. 
+  auto opCmp( R )( R rhs ) 
+  // ditto 
+  auto opCmp( R )( R rhs ) 
+  // Comparison for equality. Two `Tuple` s are considered equal $(B iff) they fulfill the following criteria: 
+  bool opEquals( R )( R rhs ) 
+  // ditto 
+  bool opEquals( R )( R rhs ) 
+  // ditto 
+  bool opEquals( R... )( auto ref R rhs ) 
+  // Renames the elements of a $(LREF Tuple). 
+  ref &lt;bug: unknown&gt; rename( names... )() return
+  // Overload of $(LREF rename) that takes an associative array `translate` as a template parameter, where the keys are either the names or indices of the members to be changed and the new names are the corresponding values. Every key in `translate` must be the name of a member of the $(LREF tuple). The same rules for empty strings apply as for the variadic template overload of $(LREF rename). 
+  ref &lt;bug: unknown&gt; rename( alias translate )() 
+  // Takes a slice by-reference of this `Tuple` . 
+  ref Tuple!(sliceSpecs!(from, to)) slice( size_t from, size_t to )() @property @trusted
   // Creates a hash of this `Tuple` . 
-  size_t toHash( ) ;
+  size_t toHash() @safe nothrow
+  // Converts to string. 
+  string toString( )() 
+  // Formats `Tuple` with either `%s` , `%(inner%)` or `%(inner%|sep%)` . 
+  void toString( DG )( scope DG sink ) 
+  // ditto 
+  void toString( DG, Char )( scope DG sink, const ref scope FormatSpec!(Char) fmt ) 
 
   // Use `t.expand` for a `Tuple` `t` to expand it into its components. The result of `expand` acts as if the `Tuple` &#39;s components were listed as a list of values. (Ordinarily, a `Tuple` acts as a single value.) 
-  Types expand;
+  Types expand
 }</code></pre><h2 class='section'>About</h2><p>Tuple of values, for example $(D Tuple!(int, string)) is a record that stores an <code>int</code> and a <code>string</code> . <code>Tuple</code> can be used to bundle values together, notably when returning multiple values from a function. If <code>obj</code> is a <code>Tuple</code> , the individual members are accessible with the syntax <code>obj[0]</code> for the first field, <code>obj[1]</code> for the second, and so on.</p>
 <p>See_Also: $(LREF tuple).</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>Specs</code>   </dt>
@@ -144,8 +172,40 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../Tuple/Tuple/Functions/opAssign.html">opAssign</a></td>
+<td>Assignment from another <code>Tuple</code> .</td>
+</tr>
+<tr>
+<td><a href="../Tuple/Tuple/Functions/opBinary.html">opBinary</a></td>
+<td>Concatenate Tuples. Tuple concatenation is only allowed if all named fields are distinct (no named field of this tuple occurs in <code>t</code> and no named field of <code>t</code> occurs in this tuple).</td>
+</tr>
+<tr>
+<td><a href="../Tuple/Tuple/Functions/opBinaryRight.html">opBinaryRight</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../Tuple/Tuple/Functions/opCmp.html">opCmp</a></td>
+<td>Comparison for ordering.</td>
+</tr>
+<tr>
+<td><a href="../Tuple/Tuple/Functions/opEquals.html">opEquals</a></td>
+<td>Comparison for equality. Two <code>Tuple</code> s are considered equal $(B iff) they fulfill the following criteria:</td>
+</tr>
+<tr>
+<td><a href="../Tuple/Tuple/Functions/rename.html">rename</a></td>
+<td>Renames the elements of a $(LREF Tuple).</td>
+</tr>
+<tr>
+<td><a href="../Tuple/Tuple/Functions/slice.html">slice</a></td>
+<td>Takes a slice by-reference of this <code>Tuple</code> .</td>
+</tr>
+<tr>
 <td><a href="../Tuple/Tuple/Functions/toHash.html">toHash</a></td>
 <td>Creates a hash of this <code>Tuple</code> .</td>
+</tr>
+<tr>
+<td><a href="../Tuple/Tuple/Functions/toString.html">toString</a></td>
+<td>Converts to string.</td>
 </tr>
 </tbody>
 </table>

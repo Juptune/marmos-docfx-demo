@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,45 +87,62 @@
         <article data-uid="juptune.http.v1.Structs.Http1WriterBase">
 <h1 class='section'>Struct - Http1WriterBase</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.http.v1</dd></dl>
-</div><pre><code class='lang-d'>public struct Http1WriterBase
+</div><pre><code class='lang-d'>struct Http1WriterBase( SocketT )
 {
   // Finishes the headers. 
-  alias finishHeaders = &lt;todo: marmos support pending&gt;;
+  alias finishHeaders = &lt;todo: marmos support pending&gt;
   // Ditto. 
-  alias finishTrailers = &lt;todo: marmos support pending&gt;;
+  alias finishTrailers = &lt;todo: marmos support pending&gt;
   // 
-  alias Machine = &lt;todo: marmos support pending&gt;;
+  alias Machine = &lt;todo: marmos support pending&gt;
   // Writes a single header. 
-  alias putHeader = &lt;todo: marmos support pending&gt;;
+  alias putHeader = &lt;todo: marmos support pending&gt;
   // Ditto. 
-  alias putTrailer = &lt;todo: marmos support pending&gt;;
+  alias putTrailer = &lt;todo: marmos support pending&gt;
   // 
-  alias StateMachine = &lt;todo: marmos support pending&gt;;
+  alias StateMachine = &lt;todo: marmos support pending&gt;
 
   // 
-  Result bufferedWrite( &lt;bug: unknown&gt; data ) ;
+  Result bufferedWrite( const scope void[] data ) 
   // 
-  Result bufferHeaderName( &lt;bug: unknown&gt; name, &lt;bug: unknown&gt; buffered ) ;
+  Result bufferHeaderName( const scope char[] name, out scope char[] buffered ) 
   // Finishes the body. 
-  Result finishBody( ) ;
+  Result finishBody() 
+  // 
+  Result finishHeadersImpl( bool trailers )() 
   // Acknowledges that the entire HTTP message has been written, and returns a summary 
-  Result finishMessage( Http1MessageSummary summary ) ;
+  Result finishMessage( out scope Http1MessageSummary summary ) 
   // 
-  Result flush( ) ;
+  Result flush() 
   // 
-  Result processHeader( &lt;bug: unknown&gt; name, &lt;bug: unknown&gt; value ) ;
+  Result processHeader( const scope char[] name, const scope char[] value ) 
   // Writes body data. 
-  Result putBody( &lt;bug: unknown&gt; data ) ;
+  Result putBody( const scope void[] data ) 
   // 
-  Result putBodyChunked( &lt;bug: unknown&gt; data ) ;
+  Result putBodyChunked( const scope void[] data ) 
   // 
-  Result putBodyContentLength( &lt;bug: unknown&gt; data ) ;
+  Result putBodyContentLength( const scope void[] data ) 
+  // 
+  Result putHeaderImpl(
+    bool trailers
+  )(
+    const scope char[] name,
+    const scope char[] value
+  ) 
   // Writes an entire request line. This will configure this writer to be a request writer for the remainder of the message, until `finishMessage` is called. 
-  Result putRequestLine( &lt;bug: unknown&gt; method, &lt;bug: unknown&gt; path, Http1Version httpVersion ) ;
+  Result putRequestLine(
+    const scope char[] method,
+    const scope char[] path,
+    Http1Version httpVersion
+  ) 
   // Writes an entire response line. This will configure this writer to be a response writer for the remainder of the message, until `finishMessage` is called. 
-  Result putResponseLine( Http1Version httpVersion, uint statusCode, &lt;bug: unknown&gt; reason ) ;
+  Result putResponseLine(
+    Http1Version httpVersion,
+    uint statusCode,
+    const scope char[] reason
+  ) 
   // Writes the HTTP message stored within the provided `result` to the socket. 
-  Result putResultResponse( Result result ) ;
+  Result putResultResponse( Result result ) 
 }</code></pre><h2 class='section'>About</h2><p>A low-level writer for the HTTP/1.0 and HTTP/1.1 protocols.</p>
 <h3 class='section'>Performance</h3><p>No explicit effort has been made to optimise this writer for performance, but it should be reasonably fast.</p>
 <p>Memory wise the writer does not directly allocate heap memory as it uses the user-provided buffer, however the I/O calls can of course do whatever they want.</p>
@@ -208,6 +225,24 @@
 </tr>
 </tbody>
 </table>
+<h2 class='section'>Enums</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Http1WriterBase/Http1WriterBase/Enums/BodyEncoding.html">BodyEncoding</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Http1WriterBase/Http1WriterBase/Enums/State.html">State</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -227,6 +262,10 @@
 <tr>
 <td><a href="../Http1WriterBase/Http1WriterBase/Functions/finishBody.html">finishBody</a></td>
 <td>Finishes the body.</td>
+</tr>
+<tr>
+<td><a href="../Http1WriterBase/Http1WriterBase/Functions/finishHeadersImpl.html">finishHeadersImpl</a></td>
+<td></td>
 </tr>
 <tr>
 <td><a href="../Http1WriterBase/Http1WriterBase/Functions/finishMessage.html">finishMessage</a></td>
@@ -253,6 +292,10 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="../Http1WriterBase/Http1WriterBase/Functions/putHeaderImpl.html">putHeaderImpl</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../Http1WriterBase/Http1WriterBase/Functions/putRequestLine.html">putRequestLine</a></td>
 <td>Writes an entire request line. This will configure this writer to be a request writer for the remainder of the message, until <code>finishMessage</code> is called.</td>
 </tr>
@@ -263,6 +306,20 @@
 <tr>
 <td><a href="../Http1WriterBase/Http1WriterBase/Functions/putResultResponse.html">putResultResponse</a></td>
 <td>Writes the HTTP message stored within the provided <code>result</code> to the socket.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Http1WriterBase/Http1WriterBase/Structs/MessageState.html">MessageState</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>

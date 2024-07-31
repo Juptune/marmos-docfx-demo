@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,12 +88,9 @@
 <h1 class='section'>Overloads for - length</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.bitmanip.BitArray</dd></dl><dl><dt>Parent</dt><dd>BitArray</dd></dl>
 </div><h2 class='section api'>length()   </h2>
- <pre><code class='lang-d'>size_t length(
-) </code></pre><p>Returns: Number of bits in the <code>BitArray</code> .</p>
+ <pre><code class='lang-d'>size_t length() @nogc @property @safe nothrow pure</code></pre><p>Returns: Number of bits in the <code>BitArray</code> .</p>
 <h2 class='section api'>length(newlen)   </h2>
- <pre><code class='lang-d'>size_t length(
-  size_t newlen
-) </code></pre><p>Sets the amount of bits in the <code>BitArray</code> . $(RED Warning: increasing length may overwrite bits in the final word of the current underlying data regardless of whether it is shared between BitArray objects. i.e. D dynamic array extension semantics are not followed.)</p>
+ <pre><code class='lang-d'>size_t length( size_t newlen ) @property @system nothrow pure</code></pre><p>Sets the amount of bits in the <code>BitArray</code> . $(RED Warning: increasing length may overwrite bits in the final word of the current underlying data regardless of whether it is shared between BitArray objects. i.e. D dynamic array extension semantics are not followed.)</p>
 
 </article>
 

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,12 +88,9 @@
 <h1 class='section'>Overloads for - left</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.container.rbtree.RBNode</dd></dl><dl><dt>Parent</dt><dd>RBNode</dd></dl>
 </div><h2 class='section api'>left()   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; left(
-) </code></pre><p>Get the left child</p>
+ <pre><code class='lang-d'>ref RBNode* left() @property scope return scope</code></pre><p>Get the left child</p>
 <h2 class='section api'>left(newNode)   </h2>
- <pre><code class='lang-d'>Node left(
-  Node newNode
-) </code></pre><p>Set the left child.  Also updates the new child's parent node.  This does not update the previous child.</p>
+ <pre><code class='lang-d'>Node left( scope return ref return ref scope Node newNode ) @property @trusted</code></pre><p>Set the left child.  Also updates the new child's parent node.  This does not update the previous child.</p>
 <p>$(RED Warning: If the node this is called on is a local variable, a stack pointer can be escaped through <code>newNode.parent</code> . It's marked <code>@trusted</code> only for backwards compatibility.)</p>
 <p>Returns newNode</p>
 

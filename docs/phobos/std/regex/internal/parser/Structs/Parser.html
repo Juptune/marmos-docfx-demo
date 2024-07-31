@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,46 +87,48 @@
         <article data-uid="std.regex.internal.parser.Structs.Parser">
 <h1 class='section'>Struct - Parser</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.regex.internal.parser</dd></dl>
-</div><pre><code class='lang-d'>public struct Parser
+</div><pre><code class='lang-d'>struct Parser( R, Generator )
 {
   // 
-  alias Char = &lt;todo: marmos support pending&gt;;
+  alias Char = &lt;todo: marmos support pending&gt;
 
   // 
-  void error( string msg ) ;
+  void error( string msg ) @trusted
   // 
-  void parseAtom( ) ;
+  void parseAtom() 
   // 
-  void parseCharset( ) ;
+  void parseCharset() 
   // 
-  uint parseDecimal( ) ;
+  uint parseDecimal() 
   // 
-  void parseEscape( ) ;
+  void parseEscape() @trusted
   // 
-  void parseQuantifier( uint offset ) ;
+  void parseFlags( S )( S flags ) @trusted
   // 
-  void parseRegex( ) ;
+  void parseQuantifier( uint offset ) @trusted
   // 
-  void popFront( ) ;
+  void parseRegex() @trusted
   // 
-  &lt;bug: unknown&gt; program( ) ;
+  void popFront() 
   // 
-  &lt;bug: unknown&gt; save( ) auto;
+  &lt;bug: unknown&gt; program() @property
   // 
-  void skipSpace( ) ;
+  auto save() 
+  // 
+  void skipSpace() 
 
   // 
-  bool empty;
+  bool empty
   // 
-  dchar front;
+  dchar front
   // 
-  Generator g;
+  Generator g
   // 
-  R origin;
+  R origin
   // 
-  R pat;
+  R pat
   // 
-  uint re_flags;
+  uint re_flags = 0
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>
@@ -167,6 +169,10 @@
 </tr>
 <tr>
 <td><a href="../Parser/Parser/Functions/parseEscape.html">parseEscape</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Parser/Parser/Functions/parseFlags.html">parseFlags</a></td>
 <td></td>
 </tr>
 <tr>

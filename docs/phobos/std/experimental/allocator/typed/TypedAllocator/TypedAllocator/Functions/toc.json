@@ -1,2 +1,2 @@
 
-{"items":[{"name":"match","href":"match.html","topicHref":"match.html"}],"pdf":false}
+{"items":[{"name":"match","href":"match.html","topicHref":"match.html"},{"name":"allocatorFor","href":"allocatorFor.html","topicHref":"allocatorFor.html"},{"name":"type2flags","href":"type2flags.html","topicHref":"type2flags.html"},{"name":"make","href":"make.html","topicHref":"make.html"},{"name":"makeArray","href":"makeArray.html","topicHref":"makeArray.html"},{"name":"expandArray","href":"expandArray.html","topicHref":"expandArray.html"},{"name":"shrinkArray","href":"shrinkArray.html","topicHref":"shrinkArray.html"},{"name":"dispose","href":"dispose.html","topicHref":"dispose.html"}],"pdf":false}

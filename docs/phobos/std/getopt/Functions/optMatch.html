@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,10 +90,10 @@
 </div><h2 class='section api'>optMatch(arg, optPattern, value, cfg)   </h2>
  <pre><code class='lang-d'>bool optMatch(
   string arg,
-  string optPattern,
-  string value,
+  scope string optPattern,
+  ref string value,
   configuration cfg
-) </code></pre>
+) @safe</code></pre>
 </article>
 
         <div class="contribution d-print-none">

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,20 +90,20 @@
 </div><pre><code class='lang-d'>public class Compress
 {
   // Compress the data in buf and return the compressed data. Params: buf = data to compress 
-  &lt;bug: unknown&gt; compress( &lt;bug: unknown&gt; buf ) ;
+  void[] compress( void[] buf ) 
   // 
-  void error( int err ) ;
+  void error( int err ) 
   // Compress and return any remaining data. The returned data should be appended to that returned by compress(). Params: mode = one of the following: $(DL $(DT Z_SYNC_FLUSH ) $(DD Syncs up flushing to the next byte boundary. Used when more data is to be compressed later on.) $(DT Z_FULL_FLUSH ) $(DD Syncs up flushing to the next byte boundary. Used when more data is to be compressed later on, and the decompressor needs to be restartable at this point.) $(DT Z_FINISH) $(DD (default) Used when finished compressing the data. ) ) 
-  &lt;bug: unknown&gt; flush( int mode ) ;
+  void[] flush( int mode ) 
 
   // 
-  immutable bool gzip;
+  immutable bool gzip
   // 
-  int inited;
+  int inited
   // 
-  int level;
+  int level = Z_DEFAULT_COMPRESSION
   // 
-  z_stream zs;
+  z_stream zs
 }</code></pre><h2 class='section'>About</h2><p>Used when the data to be compressed is not all in one buffer.</p>
 <h2 class='section'>Functions</h2><table>
 <thead>

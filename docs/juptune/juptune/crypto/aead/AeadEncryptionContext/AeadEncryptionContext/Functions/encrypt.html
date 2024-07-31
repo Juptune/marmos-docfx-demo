@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,11 +89,11 @@
 <dl><dt>Module</dt><dd>juptune.crypto.aead.AeadEncryptionContext</dd></dl><dl><dt>Parent</dt><dd>AeadEncryptionContext</dd></dl>
 </div><h2 class='section api'>encrypt(plaintext, additionalData, outCipherText, outCipherTextSlice)   </h2>
  <pre><code class='lang-d'>Result encrypt(
-  SecureMemory plaintext,
-  &lt;bug: unknown&gt; additionalData,
-  &lt;bug: unknown&gt; outCipherText,
-  &lt;bug: unknown&gt; outCipherTextSlice
-) </code></pre><p>Encrypts the given <code>plaintext</code> into the <code>outCipherText</code> buffer, using the given <code>additionalData</code> to calculate the authentication tag, and returns a slice <code>outCipherText</code> which contains the final encrypted ciphertext + authentication tag.</p>
+  const scope SecureMemory plaintext,
+  const scope ubyte[] additionalData,
+  scope ubyte[] outCipherText,
+  out scope ubyte[] outCipherTextSlice
+) @safe</code></pre><p>Encrypts the given <code>plaintext</code> into the <code>outCipherText</code> buffer, using the given <code>additionalData</code> to calculate the authentication tag, and returns a slice <code>outCipherText</code> which contains the final encrypted ciphertext + authentication tag.</p>
 <h3 class='section'>Assertions</h3><p><code>plaintext</code> must not be empty, it makes no sense to encrypt an empty buffer.</p>
 <p><code>outCipherText</code> must be at least <code>plaintext.length + AeadAlgorithmT.ABYTES</code> in length. Where ABYTES is typically the length of the authentication tag.</p>
 <h3 class='section'>Notes</h3><p>This is a &quot;combined&quot; AEAD encryption, where the authentication tag is appended to the ciphertext. You can retrieve the tag by taking the last <code>AeadAlgorithmT.ABYTES</code> bytes of <code>outCipherTextSlice</code> .</p>
@@ -103,19 +103,19 @@
 
 <p>The plaintext to encrypt.</p>
 
-</dd><dt><code>additionalData</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>additionalData</code> ubyte[]  </dt>
 <dd>
 
 
 <p>The additional data to use when calculating the authentication tag.</p>
 
-</dd><dt><code>outCipherText</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>outCipherText</code> ubyte[]  </dt>
 <dd>
 
 
 <p>The buffer to store the encrypted ciphertext + authentication tag in.</p>
 
-</dd><dt><code>outCipherTextSlice</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>outCipherTextSlice</code> ubyte[]  </dt>
 <dd>
 
 

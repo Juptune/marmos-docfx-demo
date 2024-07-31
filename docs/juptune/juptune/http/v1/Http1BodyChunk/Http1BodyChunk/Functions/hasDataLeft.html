@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - hasDataLeft</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.http.v1.Http1BodyChunk</dd></dl><dl><dt>Parent</dt><dd>Http1BodyChunk</dd></dl>
 </div><h2 class='section api'>hasDataLeft()   </h2>
- <pre><code class='lang-d'>bool hasDataLeft(
-) </code></pre><p>Determines if there's more data left to read from the body.</p>
+ <pre><code class='lang-d'>bool hasDataLeft() @nogc @safe nothrow</code></pre><p>Determines if there's more data left to read from the body.</p>
 <h3 class='section'>Notes</h3><p>Due to how the reader is implemented, if the body uses chunked transfer-encoding this will return <code>true</code> and an empty data slice will be provided which marks the end of the chunked data body, and only the next read will produce a <code>false</code> result.</p>
 <h3 class='section'>Returns</h3><p><code>true</code> if there's more data left to read, <code>false</code> otherwise.</p>
 

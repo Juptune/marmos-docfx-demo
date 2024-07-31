@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,38 +87,38 @@
         <article data-uid="std.windows.registry.Enums.REG_VALUE_TYPE">
 <h1 class='section'>Enum - REG_VALUE_TYPE</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.windows.registry</dd></dl>
-</div><pre><code class='lang-d'>enum REG_VALUE_TYPE
+</div><pre><code class='lang-d'>enum REG_VALUE_TYPE : DWORD
 {
-  // A binary blob 
-  __enumMember REG_BINARY;
-  // A 32-bit unsigned integer 
-  __enumMember REG_DWORD;
-  // A 32-bit unsigned integer, stored in big-endian byte order 
-  __enumMember REG_DWORD_BIG_ENDIAN;
-  // A 32-bit unsigned integer, stored in little-endian byte order 
-  __enumMember REG_DWORD_LITTLE_ENDIAN;
-  // A zero-terminated string containing expandable environment variable references 
-  __enumMember REG_EXPAND_SZ;
-  // A hardware resource descriptor 
-  __enumMember REG_FULL_RESOURCE_DESCRIPTOR;
-  // A registry link 
-  __enumMember REG_LINK;
-  // A set of zero-terminated strings 
-  __enumMember REG_MULTI_SZ;
-  // The null value type. (In practise this is treated as a zero-length binary array by the Win32 registry) 
-  __enumMember REG_NONE;
-  // A 64-bit unsigned integer 
-  __enumMember REG_QWORD;
-  // A 64-bit unsigned integer, stored in little-endian byte order 
-  __enumMember REG_QWORD_LITTLE_ENDIAN;
-  // A hardware resource list 
-  __enumMember REG_RESOURCE_LIST;
-  // A hardware resource requirements list 
-  __enumMember REG_RESOURCE_REQUIREMENTS_LIST;
-  // A zero-terminated string 
-  __enumMember REG_SZ;
   // 
-  __enumMember REG_UNKNOWN;
+  REG_UNKNOWN = -1,
+  // The null value type. (In practise this is treated as a zero-length binary array by the Win32 registry) 
+  REG_NONE = 0,
+  // A zero-terminated string 
+  REG_SZ = 1,
+  // A zero-terminated string containing expandable environment variable references 
+  REG_EXPAND_SZ = 2,
+  // A binary blob 
+  REG_BINARY = 3,
+  // A 32-bit unsigned integer 
+  REG_DWORD = 4,
+  // A 32-bit unsigned integer, stored in little-endian byte order 
+  REG_DWORD_LITTLE_ENDIAN = 4,
+  // A 32-bit unsigned integer, stored in big-endian byte order 
+  REG_DWORD_BIG_ENDIAN = 5,
+  // A registry link 
+  REG_LINK = 6,
+  // A set of zero-terminated strings 
+  REG_MULTI_SZ = 7,
+  // A hardware resource list 
+  REG_RESOURCE_LIST = 8,
+  // A hardware resource descriptor 
+  REG_FULL_RESOURCE_DESCRIPTOR = 9,
+  // A hardware resource requirements list 
+  REG_RESOURCE_REQUIREMENTS_LIST = 10,
+  // A 64-bit unsigned integer 
+  REG_QWORD = 11,
+  // A 64-bit unsigned integer, stored in little-endian byte order 
+  REG_QWORD_LITTLE_ENDIAN = 11,
 }</code></pre><h2 class='section'>About</h2><p>Enumeration of the recognised registry value types.</p>
 <h2 class='section'>Variables</h2><table>
 <thead>

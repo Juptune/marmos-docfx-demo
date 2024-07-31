@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - getAttributes</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.file</dd></dl>
 </div><h2 class='section api'>getAttributes(name)   </h2>
- <pre><code class='lang-d'>uint getAttributes(
-  R name
-) </code></pre><p>Returns the attributes of the given file.</p>
+ <pre><code class='lang-d'>uint getAttributes( R )( R name ) </code></pre><p>Returns the attributes of the given file.</p>
 <p>Note that the file attributes on Windows and POSIX systems are completely different. On Windows, they're what is returned by $(HTTP msdn.microsoft.com/en-us/library/aa364944(v=vs.85).aspx, GetFileAttributes), whereas on POSIX systems, they're the <code>st_mode</code> value which is part of the $(D stat struct) gotten by calling the $(HTTP en.wikipedia.org/wiki/Stat_%28Unix%29, <code>stat</code> ) function.</p>
 <p>On POSIX systems, if the given file is a symbolic link, then attributes are the attributes of the file pointed to by the symbolic link.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>name</code> R  </dt>
@@ -101,9 +99,7 @@
 
 </dd></dl><h3 class='section'>Returns</h3><p>The attributes of the file as a <code>uint</code> . Throws: $(LREF FileException) on error.</p>
 <h2 class='section api'>getAttributes(name)   </h2>
- <pre><code class='lang-d'>uint getAttributes(
-  R name
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>uint getAttributes( R )( auto ref R name ) </code></pre><p>ditto</p>
 
 </article>
 

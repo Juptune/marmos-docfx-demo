@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,48 +87,48 @@
         <article data-uid="juptune.http.uri.Enums.UriParseHints">
 <h1 class='section'>Enum - UriParseHints</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.http.uri</dd></dl>
-</div><pre><code class='lang-d'>enum UriParseHints
+</div><pre><code class='lang-d'>enum UriParseHints : int
 {
-  // e.g. &quot;host:port&quot; 
-  __enumMember authorityHasPort;
-  // e.g. &quot;user:info@host&quot; 
-  __enumMember authorityHasUserInfo;
-  // e.g. &quot;localhost&quot; 
-  __enumMember authorityHostIsDomain;
-  // e.g. &quot;127.0.0.1&quot; 
-  __enumMember authorityHostIsIpv4;
-  // e.g. &quot;[::1]&quot; 
-  __enumMember authorityHostIsIpv6;
-  // e.g. &quot;&quot; 
-  __enumMember fragmentIsEmpty;
-  // e.g. &quot;scheme://authority/path?query#fragment&quot; 
-  __enumMember isAbsolute;
-  // e.g. &quot;//authority/path?query#fragment&quot; 
-  __enumMember isNetworkReference;
-  // e.g. &quot;authority/path?query#fragment&quot;, see `UriParseRules.allowUriSuffix` 
-  __enumMember isUriSuffix;
   // 
-  __enumMember none;
-  // e.g. &quot;abc:123/abd&quot; 
-  __enumMember pathHasStartColon;
+  none = 0,
+  // e.g. &quot;scheme://authority/path?query#fragment&quot; 
+  isAbsolute = 1 &lt;&lt; 0,
+  // e.g. &quot;//authority/path?query#fragment&quot; 
+  isNetworkReference = 1 &lt;&lt; 1,
+  // e.g. &quot;authority/path?query#fragment&quot;, see `UriParseRules.allowUriSuffix` 
+  isUriSuffix = 1 &lt;&lt; 2,
+  // e.g. &quot;host:port&quot; 
+  authorityHasPort = 1 &lt;&lt; 3,
+  // e.g. &quot;user:info@host&quot; 
+  authorityHasUserInfo = 1 &lt;&lt; 4,
+  // e.g. &quot;[::1]&quot; 
+  authorityHostIsIpv6 = 1 &lt;&lt; 5,
+  // e.g. &quot;127.0.0.1&quot; 
+  authorityHostIsIpv4 = 1 &lt;&lt; 6,
+  // e.g. &quot;localhost&quot; 
+  authorityHostIsDomain = 1 &lt;&lt; 7,
   // e.g. &quot;/some/path&quot; 
-  __enumMember pathIsAbsolute;
-  // e.g. &quot;&quot; 
-  __enumMember pathIsEmpty;
+  pathIsAbsolute = 1 &lt;&lt; 8,
   // e.g. &quot;some/path&quot; 
-  __enumMember pathIsRootless;
-  // e.g. &quot;#some%23fragment&quot; 
-  __enumMember percentEncodedFragment;
-  // e.g. &quot;[::1%25%3a%3a1]&quot; 
-  __enumMember percentEncodedHost;
-  // e.g. &quot;/some%2fpath&quot; 
-  __enumMember percentEncodedPath;
-  // e.g. &quot;?some%3fquery&quot; 
-  __enumMember percentEncodedQuery;
-  // e.g. &quot;user%40info@host&quot; 
-  __enumMember percentEncodedUserInfo;
+  pathIsRootless = 1 &lt;&lt; 9,
   // e.g. &quot;&quot; 
-  __enumMember queryIsEmpty;
+  pathIsEmpty = 1 &lt;&lt; 10,
+  // e.g. &quot;abc:123/abd&quot; 
+  pathHasStartColon = 1 &lt;&lt; 11,
+  // e.g. &quot;&quot; 
+  queryIsEmpty = 1 &lt;&lt; 12,
+  // e.g. &quot;&quot; 
+  fragmentIsEmpty = 1 &lt;&lt; 13,
+  // e.g. &quot;user%40info@host&quot; 
+  percentEncodedUserInfo = 1 &lt;&lt; 14,
+  // e.g. &quot;[::1%25%3a%3a1]&quot; 
+  percentEncodedHost = 1 &lt;&lt; 15,
+  // e.g. &quot;/some%2fpath&quot; 
+  percentEncodedPath = 1 &lt;&lt; 16,
+  // e.g. &quot;?some%3fquery&quot; 
+  percentEncodedQuery = 1 &lt;&lt; 17,
+  // e.g. &quot;#some%23fragment&quot; 
+  percentEncodedFragment = 1 &lt;&lt; 18,
 }</code></pre><h2 class='section'>About</h2><p>A bitmask of hints that can be used to determine the structure of a URI.</p>
 <p>Users should not set these values themselves as it may cause incorrect behaviour during parsing. Only parsing functions should set these values.</p>
 <p>Since the end result of a URI is essentially a set of strings, certain aspects of the URI are lost or ambiguous, so the parser returns these hints to help the caller determine the exact nature of the URI.</p>

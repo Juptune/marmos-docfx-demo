@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,9 +90,11 @@
 </div><pre><code class='lang-d'>public struct CodepointInterval
 {
   // 
-  uint a( ) ;
+  ref uint a() @property return
   // 
-  uint b( ) ;
+  ref uint b() @property return
+  // 
+  bool opEquals( T )( T val ) 
 }</code></pre><h2 class='section'>About</h2><p>The recommended type of <span class="math">\((REF Tuple, std,_typecons) to represent [a, b\)</span>(RPAREN) intervals of $(CODEPOINTS). As used in $(LREF InversionList). Any interval type should pass $(LREF isIntegralPair) trait.</p>
 <h2 class='section'>Functions</h2><table>
 <thead>
@@ -108,6 +110,10 @@
 </tr>
 <tr>
 <td><a href="../CodepointInterval/CodepointInterval/Functions/b.html">b</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CodepointInterval/CodepointInterval/Functions/opEquals.html">opEquals</a></td>
 <td></td>
 </tr>
 </tbody>

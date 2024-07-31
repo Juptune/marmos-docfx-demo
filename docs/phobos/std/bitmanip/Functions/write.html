@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,8 +89,12 @@
 <dl><dt>Module</dt><dd>std.bitmanip</dd></dl>
 </div><h2 class='section api'>write(range, value, index)   </h2>
  <pre><code class='lang-d'>void write(
+  T,
+  Endian endianness = Endian.bigEndian,
+  R
+)(
   R range,
-  T value,
+  const T value,
   size_t index
 ) </code></pre><p>Takes an integral value, converts it to the given endianness, and writes it to the given range of <code>ubyte</code> s as a sequence of <code>T.sizeof</code> <code>ubyte</code> s starting at index. <code>hasSlicing!R</code> must be <code>true</code> .</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>T</code> &lt;parameter not found&gt;  </dt>
@@ -125,9 +129,13 @@
 
 </dd></dl><h2 class='section api'>write(range, value, index)   </h2>
  <pre><code class='lang-d'>void write(
+  T,
+  Endian endianness = Endian.bigEndian,
+  R
+)(
   R range,
-  T value,
-  &lt;bug: unknown&gt; index
+  const T value,
+  size_t* index
 ) </code></pre><p>Ditto</p>
 
 </article>

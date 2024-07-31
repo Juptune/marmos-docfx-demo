@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,13 +88,10 @@
 <h1 class='section'>Overloads for - yearBC</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.date.Date</dd></dl><dl><dt>Parent</dt><dd>Date</dd></dl>
 </div><h2 class='section api'>yearBC()   </h2>
- <pre><code class='lang-d'>ushort yearBC(
-) </code></pre><p>Year B.C. of the Gregorian Calendar counting year 0 as 1 B.C.</p>
+ <pre><code class='lang-d'>ushort yearBC() @property @safe pure</code></pre><p>Year B.C. of the Gregorian Calendar counting year 0 as 1 B.C.</p>
 <h3 class='section'>Throws</h3><p>$(REF DateTimeException,std,datetime,date) if <code>isAD</code> is true.</p>
 <h2 class='section api'>yearBC(year)   </h2>
- <pre><code class='lang-d'>void yearBC(
-  int year
-) </code></pre><p>Year B.C. of the Gregorian Calendar counting year 0 as 1 B.C.</p>
+ <pre><code class='lang-d'>void yearBC( int year ) @property @safe pure</code></pre><p>Year B.C. of the Gregorian Calendar counting year 0 as 1 B.C.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>year</code> int  </dt>
 <dd>
 

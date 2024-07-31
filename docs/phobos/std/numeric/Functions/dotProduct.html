@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,20 +88,17 @@
 <h1 class='section'>Overloads for - dotProduct</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.numeric</dd></dl>
 </div><h2 class='section api'>dotProduct(a, b)   </h2>
- <pre><code class='lang-d'>CommonType!(ElementType!Range1ElementType!Range2) dotProduct(
+ <pre><code class='lang-d'>CommonType!(ElementType!Range1,ElementType!Range2) dotProduct(
+  Range1,
+  Range2
+)(
   Range1 a,
   Range2 b
 ) </code></pre><p>Computes the $(LINK2 <a href="https://en.wikipedia.org/wiki/Dot_product">https://en.wikipedia.org/wiki/Dot_product</a>, dot product) of input ranges <code>a</code> and $(D b). The two ranges must have the same length. If both ranges define length, the check is done once; otherwise, it is done at each iteration.</p>
 <h2 class='section api'>dotProduct(avector, bvector)   </h2>
- <pre><code class='lang-d'>CommonType!(F1F2) dotProduct(
-  &lt;bug: unknown&gt; avector,
-  &lt;bug: unknown&gt; bvector
-) </code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>CommonType!(F1,F2) dotProduct( F1, F2 )( in F1[] avector, in F2[] bvector ) </code></pre><p>Ditto</p>
 <h2 class='section api'>dotProduct(a, b)   </h2>
- <pre><code class='lang-d'>F dotProduct(
-  &lt;bug: unknown&gt; a,
-  &lt;bug: unknown&gt; b
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>F dotProduct( F, uint N )( const ref scope F[N] a, const ref scope F[N] b ) </code></pre><p>ditto</p>
 
 </article>
 

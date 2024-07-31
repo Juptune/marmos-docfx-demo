@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,8 +89,97 @@
 <dl><dt>Module</dt><dd>std.checkedint</dd></dl>
 </div><pre><code class='lang-d'>public struct WithNaN
 {
+  // Defines hooks for binary operators `+` , `-` , `*` , `/` , `%` , `^^` , `&amp;` , `|` , `^` , `&lt;&lt;` , `&gt;&gt;` , and `&gt;&gt;&gt;` for cases where a `Checked` object is the left-hand side operand. If $(D lhs == WithNaN.defaultValue!Lhs), returns $(D WithNaN.defaultValue!(typeof(lhs + rhs))) without evaluating the operand. Otherwise, evaluates the operand. If evaluation does not overflow, returns the result. Otherwise, returns $(D WithNaN.defaultValue!(typeof(lhs + rhs))). 
+  auto hookOpBinary( string x, L, R )( L lhs, R rhs ) 
+  // Defines hooks for binary operators `+` , `-` , `*` , `/` , `%` , `^^` , `&amp;` , `|` , `^` , `&lt;&lt;` , `&gt;&gt;` , and `&gt;&gt;&gt;` for cases where a `Checked` object is the right-hand side operand. If $(D rhs == WithNaN.defaultValue!Rhs), returns $(D WithNaN.defaultValue!(typeof(lhs + rhs))) without evaluating the operand. Otherwise, evaluates the operand. If evaluation does not overflow, returns the result. Otherwise, returns $(D WithNaN.defaultValue!(typeof(lhs + rhs))). 
+  auto hookOpBinaryRight( string x, L, R )( L lhs, R rhs ) 
+  // If `rhs` is `WithNaN.defaultValue!Rhs` , returns `WithNaN.defaultValue!Lhs` . Otherwise, returns $(D cast(Lhs) rhs). 
+  Lhs hookOpCast( Lhs, Rhs )( Rhs rhs ) 
+  // If $(D lhs == WithNaN.defaultValue!Lhs), returns `double.init` . Otherwise, has the same semantics as the default comparison. 
+  double hookOpCmp( Lhs, Rhs )( Lhs lhs, Rhs rhs ) 
+  // Returns `false` if $(D lhs == WithNaN.defaultValue!Lhs), $(D lhs == rhs) otherwise. 
+  bool hookOpEquals( Lhs, Rhs )( Lhs lhs, Rhs rhs ) 
+  // Defines hooks for binary operators `+=` , `-=` , `*=` , `/=` , `%=` , `^^=` , `&amp;=` , `|=` , `^=` , `&lt;&lt;=` , `&gt;&gt;=` , and `&gt;&gt;&gt;=` for cases where a `Checked` object is the left-hand side operand. If $(D lhs == WithNaN.defaultValue!Lhs), no action is carried. Otherwise, evaluates the operand. If evaluation does not overflow and fits in `Lhs` without loss of information or change of sign, sets `lhs` to the result. Otherwise, sets `lhs` to `WithNaN.defaultValue!Lhs` . 
+  void hookOpOpAssign( string x, L, R )( ref L lhs, R rhs ) 
+  // Defines hooks for unary operators `-` , `~` , `++` , and `--` . 
+  auto hookOpUnary( string x, T )( ref T v ) 
+
+  // The default value used for values not explicitly initialized. It is the NaN value, i.e. `T.min` for signed integrals and `T.max` for unsigned integrals. 
+  T defaultValue = T.min == 0 ? T.max : T.min
+  // The maximum value representable is `T.max` for signed integrals, $(D T.max - 1) for unsigned integrals. The minimum value representable is $(D T.min + 1) for signed integrals, `0` for unsigned integrals. 
+  T max = cast(T)(T.min == 0 ? T.max - 1 : T.max)
+  // ditto 
+  T min = cast(T)(T.min == 0 ? T(0) : T.min + 1)
 }</code></pre><h2 class='section'>About</h2><p>Hook that reserves a special value as a &quot;Not a Number&quot; representative. For signed integrals, the reserved value is <code>T.min</code> . For signed integrals, the reserved value is <code>T.max</code> .</p>
 <p>The default value of a $(D Checked!(X, WithNaN)) is its NaN value, so care must be taken that all variables are explicitly initialized. Any arithmetic and logic operation involving at least on NaN becomes NaN itself. All of $(D a == b), $(D a &lt; b), $(D a &gt; b), $(D a &lt;= b), $(D a &gt;= b) yield <code>false</code> if at least one of <code>a</code> and <code>b</code> is NaN.</p>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../WithNaN/WithNaN/Functions/hookOpBinary.html">hookOpBinary</a></td>
+<td>Defines hooks for binary operators <code>+</code> , <code>-</code> , <code>*</code> , <code>/</code> , <code>%</code> , <code>^^</code> , <code>&amp;</code> , <code>|</code> , <code>^</code> , <code>&lt;&lt;</code> , <code>&gt;&gt;</code> , and <code>&gt;&gt;&gt;</code> for cases where a <code>Checked</code> object is the left-hand side operand. If $(D lhs == WithNaN.defaultValue!Lhs), returns $(D WithNaN.defaultValue!(typeof(lhs + rhs))) without evaluating the operand. Otherwise, evaluates the operand. If evaluation does not overflow, returns the result. Otherwise, returns $(D WithNaN.defaultValue!(typeof(lhs + rhs))).</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../WithNaN/WithNaN/Functions/hookOpBinaryRight.html">hookOpBinaryRight</a></td>
+<td>Defines hooks for binary operators <code>+</code> , <code>-</code> , <code>*</code> , <code>/</code> , <code>%</code> , <code>^^</code> , <code>&amp;</code> , <code>|</code> , <code>^</code> , <code>&lt;&lt;</code> , <code>&gt;&gt;</code> , and <code>&gt;&gt;&gt;</code> for cases where a <code>Checked</code> object is the right-hand side operand. If $(D rhs == WithNaN.defaultValue!Rhs), returns $(D WithNaN.defaultValue!(typeof(lhs + rhs))) without evaluating the operand. Otherwise, evaluates the operand. If evaluation does not overflow, returns the result. Otherwise, returns $(D WithNaN.defaultValue!(typeof(lhs + rhs))).</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../WithNaN/WithNaN/Functions/hookOpCast.html">hookOpCast</a></td>
+<td>If <code>rhs</code> is <code>WithNaN.defaultValue!Rhs</code> , returns <code>WithNaN.defaultValue!Lhs</code> . Otherwise, returns $(D cast(Lhs) rhs).</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../WithNaN/WithNaN/Functions/hookOpCmp.html">hookOpCmp</a></td>
+<td>If $(D lhs == WithNaN.defaultValue!Lhs), returns <code>double.init</code> . Otherwise, has the same semantics as the default comparison.</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../WithNaN/WithNaN/Functions/hookOpEquals.html">hookOpEquals</a></td>
+<td>Returns <code>false</code> if $(D lhs == WithNaN.defaultValue!Lhs), $(D lhs == rhs) otherwise.</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../WithNaN/WithNaN/Functions/hookOpOpAssign.html">hookOpOpAssign</a></td>
+<td>Defines hooks for binary operators <code>+=</code> , <code>-=</code> , <code>*=</code> , <code>/=</code> , <code>%=</code> , <code>^^=</code> , <code>&amp;=</code> , ``</td>
+<td><code>=</code> , <code>^=</code> , <code>&lt;&lt;=</code> , <code>&gt;&gt;=</code> , and <code>&gt;&gt;&gt;=</code> for cases where a <code>Checked</code> object is the left-hand side operand. If $(D lhs == WithNaN.defaultValue!Lhs), no action is carried. Otherwise, evaluates the operand. If evaluation does not overflow and fits in <code>Lhs</code> without loss of information or change of sign, sets <code>lhs</code> to the result. Otherwise, sets <code>lhs</code> to <code>WithNaN.defaultValue!Lhs</code> .</td>
+</tr>
+<tr>
+<td><a href="../WithNaN/WithNaN/Functions/hookOpUnary.html">hookOpUnary</a></td>
+<td>Defines hooks for unary operators <code>-</code> , <code>~</code> , <code>++</code> , and <code>--</code> .</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../WithNaN/WithNaN/Variables/defaultValue.html">defaultValue</a></td>
+<td>The default value used for values not explicitly initialized. It is the NaN value, i.e. <code>T.min</code> for signed integrals and <code>T.max</code> for unsigned integrals.</td>
+</tr>
+<tr>
+<td><a href="../WithNaN/WithNaN/Variables/max.html">max</a></td>
+<td>The maximum value representable is <code>T.max</code> for signed integrals, $(D T.max - 1) for unsigned integrals. The minimum value representable is $(D T.min + 1) for signed integrals, <code>0</code> for unsigned integrals.</td>
+</tr>
+<tr>
+<td><a href="../WithNaN/WithNaN/Variables/min.html">min</a></td>
+<td>ditto</td>
+</tr>
+</tbody>
+</table>
 
 </article>
 

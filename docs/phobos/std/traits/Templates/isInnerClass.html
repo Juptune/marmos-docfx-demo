@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,10 +90,10 @@
 </div><pre><code class='lang-d'>template isInnerClass
 {
   // 
-  bool hasOuterMember( &lt;bug: unknown&gt; members ) ;
+  bool hasOuterMember( string[] members ) 
 
   // 
-  __enumMember isInnerClass;
+  &lt;enum or auto&gt; isInnerClass = __traits(isSame, typeof(T.outer), __traits(parent, T)) &amp;&amp; !hasOuterMember(__traits(allMembers, T))
 }</code></pre><h2 class='section'>About</h2><p>Determines whether <code>T</code> is a class nested inside another class and that <code>T.outer</code> is the implicit reference to the outer class (i.e. <code>outer</code> has not been used as a field or method name)</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>T</code>   </dt>
 <dd>

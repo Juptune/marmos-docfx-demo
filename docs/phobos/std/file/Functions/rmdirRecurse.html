@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,8 @@
 <h1 class='section'>Overloads for - rmdirRecurse</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.file</dd></dl>
 </div><h2 class='section api'>rmdirRecurse(pathname)   </h2>
- <pre><code class='lang-d'>void rmdirRecurse(
-  &lt;bug: unknown&gt; pathname
-) </code></pre><p>Remove directory and all of its content and subdirectories, recursively.</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>pathname</code> &lt;bug: unknown&gt;  </dt>
+ <pre><code class='lang-d'>void rmdirRecurse( scope char[] pathname ) @safe</code></pre><p>Remove directory and all of its content and subdirectories, recursively.</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>pathname</code> char[]  </dt>
 <dd>
 
 
@@ -105,13 +103,9 @@
 
 </dd></dl><h3 class='section'>Throws</h3><p>$(LREF FileException) if there is an error (including if the given file is not a directory).</p>
 <h2 class='section api'>rmdirRecurse(de)   </h2>
- <pre><code class='lang-d'>void rmdirRecurse(
-  DirEntry de
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>void rmdirRecurse( ref scope DirEntry de ) @safe</code></pre><p>ditto</p>
 <h2 class='section api'>rmdirRecurse(de)   </h2>
- <pre><code class='lang-d'>void rmdirRecurse(
-  DirEntry de
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>void rmdirRecurse( scope DirEntry de ) @safe</code></pre><p>ditto</p>
 
 </article>
 

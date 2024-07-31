@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,28 +87,28 @@
         <article data-uid="std.range.Structs.Cycle">
 <h1 class='section'>Struct - Cycle</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
-</div><pre><code class='lang-d'>public struct Cycle
+</div><pre><code class='lang-d'>struct Cycle( R )
 {
   // 
-  alias ElementType = &lt;todo: marmos support pending&gt;;
+  alias ElementType = &lt;todo: marmos support pending&gt;
 
   // ditto 
-  ElementType front( ) ;
+  ref ElementType front() @property @safe
   // ditto 
-  ElementType opIndex( size_t n ) ;
+  ref ElementType opIndex( size_t n ) @safe
   // ditto 
-  &lt;bug: unknown&gt; opSlice( size_t i, size_t j ) auto;
+  auto opSlice( size_t i, size_t j ) @safe
   // ditto 
-  &lt;bug: unknown&gt; opSlice( size_t i, DollarToken __anonymous ) ;
+  typeof(this) opSlice( size_t i, DollarToken __anonymous ) @safe
   // ditto 
-  void popFront( ) ;
+  void popFront() @safe
   // ditto 
-  Cycle save( ) ;
+  Cycle save() @property @safe
 
   // ditto 
-  bool empty;
+  bool empty = false
   // ditto 
-  __enumMember opDollar;
+  &lt;enum or auto&gt; opDollar = DollarToken.init
 }</code></pre><h2 class='section'>About</h2><p>ditto</p>
 <h2 class='section'>Aliases</h2><table>
 <thead>
@@ -151,6 +151,20 @@
 <tr>
 <td><a href="../Cycle/Cycle/Functions/save.html">save</a></td>
 <td>ditto</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Cycle/Cycle/Structs/DollarToken.html">DollarToken</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>

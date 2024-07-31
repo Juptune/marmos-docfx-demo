@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,7 +90,7 @@
 </div><pre><code class='lang-d'>template hasElaborateAssign
 {
   // 
-  bool hasElaborateAssign;
+  bool hasElaborateAssign = hasElaborateAssign!(typeof(S.init[0]))
 }</code></pre><h2 class='section'>About</h2><p>True if <code>S</code> or any type directly embedded in the representation of <code>S</code> defines an elaborate assignment. Elaborate assignments are introduced by defining <code>opAssign(typeof(this))</code> or $(D opAssign(ref typeof(this))) for a <code>struct</code> or when there is a compiler-generated <code>opAssign</code> .</p>
 <p>A type <code>S</code> gets compiler-generated <code>opAssign</code> if it has an elaborate destructor.</p>
 <p>Classes and unions never have elaborate assignments.</p>

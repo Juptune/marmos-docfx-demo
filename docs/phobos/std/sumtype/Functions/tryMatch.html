@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - tryMatch</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.sumtype</dd></dl>
 </div><h2 class='section api'>tryMatch(args)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; tryMatch(
-  SumTypes args
-) auto</code></pre><p>Attempts to call a type-appropriate function with the value held in a [SumType], and throws on failure.</p>
+ <pre><code class='lang-d'>ref auto tryMatch( SumTypes... )( auto ref SumTypes args ) </code></pre><p>Attempts to call a type-appropriate function with the value held in a [SumType], and throws on failure.</p>
 <p>Matches are chosen using the same rules as [match], but are not required to be exhaustive—in other words, a type (or combination of types) is allowed to have no matching handler. If a type without a handler is encountered at runtime, a [MatchException] is thrown.</p>
 <p>Not available when compiled with <code>-betterC</code> .</p>
 <h3 class='section'>Returns</h3><p>The value returned from the handler that matches the currently-held type, if a handler was given for that type.</p>

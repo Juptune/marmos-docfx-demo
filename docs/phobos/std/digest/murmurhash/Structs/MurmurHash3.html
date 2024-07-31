@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,48 +87,54 @@
         <article data-uid="std.digest.murmurhash.Structs.MurmurHash3">
 <h1 class='section'>Struct - MurmurHash3</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.digest.murmurhash</dd></dl>
-</div><pre><code class='lang-d'>public struct MurmurHash3
+</div><pre><code class='lang-d'>struct MurmurHash3( uint size, uint opt = size_t.sizeof == 8 ? 64 : 32 )
 {
   // The element type for 32-bit implementation. 
-  alias Element = &lt;todo: marmos support pending&gt;;
+  alias Element = &lt;todo: marmos support pending&gt;
 
   // Incorporate `element_count` and finalizes the hash. 
-  void finalize( ) ;
+  void finalize() @nogc nothrow pure
   // Finalizes the computation of the hash and returns the computed value. Note that `finish` can be called only once and that no subsequent calls to `put` is allowed. 
-  &lt;bug: unknown&gt; finish( ) ;
+  ubyte[Element] finish() nothrow pure
   // 
-  uint fmix( uint h ) ;
+  uint fmix( uint h ) @nogc nothrow pure
   // 
-  ulong fmix( ulong k ) ;
+  ulong fmix( ulong k ) @nogc nothrow pure
   // Returns the hash as an uint value. 
-  Element get( ) ;
+  Element get() @nogc nothrow pure
   // Returns the current hashed value as an ubyte array. 
-  &lt;bug: unknown&gt; getBytes( ) ;
+  ubyte[4] getBytes() @nogc nothrow pure
   // Adds data to the digester. This function can be called many times in a row after start but before finish. 
-  void put( &lt;bug: unknown&gt; data ) ;
+  void put( scope ubyte[] data ) nothrow pure
   // Adds a single Element of data without increasing `element_count` . Make sure to increase `element_count` by `Element.sizeof` for each call to `putElement` . 
-  void putElement( uint block ) ;
+  void putElement( uint block ) @nogc nothrow pure
   // Pushes an array of elements at once. It is more efficient to push as much data as possible in a single call. On platforms that do not support unaligned reads (MIPS or old ARM chips), the compiler may produce slower code to ensure correctness. 
-  void putElements( &lt;bug: unknown&gt; elements ) ;
+  void putElements( scope Element[] elements ) @nogc nothrow pure
   // Put remainder bytes. This must be called only once after `putElement` and before `finalize` . 
-  void putRemainder( &lt;bug: unknown&gt; data ) ;
+  void putRemainder( scope ubyte[] data ) @nogc nothrow pure
   // 
-  void start( ) ;
+  T rotl( T )( T x, uint y ) 
+  // 
+  T shuffle( T )( T k, T c1, T c2, ubyte r1 ) 
+  // 
+  void start() 
+  // 
+  T update( T )( ref T h, T k, T mixWith, T c1, T c2, ubyte r1, ubyte r2, T n ) 
 
   // 
-  __enumMember blockSize;
+  &lt;enum or auto&gt; blockSize = size
   // 
-  BufferUnion buffer;
+  BufferUnion buffer
   // 
-  size_t bufferSize;
+  size_t bufferSize
   // 
-  uint c1;
+  uint c1 = 3432918353u
   // 
-  uint c2;
+  uint c2 = 461845907
   // 
-  size_t element_count;
+  size_t element_count
   // 
-  uint h1;
+  uint h1
 }</code></pre><h2 class='section'>About</h2><p>Implements the MurmurHash3 functions. You can specify the <code>size</code> of the hash in bit. For 128 bit hashes you can specify whether to optimize for 32 or 64 bit architectures. If you don't specify the <code>opt</code> value it will select the fastest version of the host platform.</p>
 <h3 class='section'>This hasher is compatible with the `Digest` API</h3><p>$(UL $(LI <code>void start()</code> ) $(LI <code>void put(scope const(ubyte)[] data...)</code> ) $(LI <code>ubyte[Element.sizeof] finish()</code> ) )</p>
 <p>It also provides a faster, low level API working with data of size <code>Element.sizeof</code> : $(UL $(LI <code>void putElements(scope const(Element[]) elements...)</code> ) $(LI <code>void putRemainder(scope const(ubyte[]) data...)</code> ) $(LI <code>void finalize()</code> ) $(LI <code>Element get()</code> ) $(LI <code>ubyte[Element.sizeof] getBytes()</code> ) )</p>
@@ -191,7 +197,33 @@
 <td>Put remainder bytes. This must be called only once after <code>putElement</code> and before <code>finalize</code> .</td>
 </tr>
 <tr>
+<td><a href="../MurmurHash3/MurmurHash3/Functions/rotl.html">rotl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MurmurHash3/MurmurHash3/Functions/shuffle.html">shuffle</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../MurmurHash3/MurmurHash3/Functions/start.html">start</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MurmurHash3/MurmurHash3/Functions/update.html">update</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Unions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../MurmurHash3/MurmurHash3/Unions/BufferUnion.html">BufferUnion</a></td>
 <td></td>
 </tr>
 </tbody>

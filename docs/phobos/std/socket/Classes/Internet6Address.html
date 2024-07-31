@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,24 +90,24 @@
 </div><pre><code class='lang-d'>public class Internet6Address
 {
   // Returns the IPv6 address. 
-  &lt;bug: unknown&gt; addr( ) ;
+  ubyte[16] addr() @nogc @property nothrow pure
   // Any IPv6 host address. 
-  &lt;bug: unknown&gt; ADDR_ANY( ) static;
+  static ref ubyte[16] ADDR_ANY() @nogc @property nothrow pure
   // 
-  &lt;bug: unknown&gt; name( ) override;
+  ref sockaddr* name() override @property return
   // 
-  &lt;bug: unknown&gt; name( ) override;
+  ref sockaddr* name() override @property return
   // 
-  socklen_t nameLen( ) override;
+  socklen_t nameLen() override @property
   // Parse an IPv6 host address string as described in RFC 2373, and return the address. Throws: `SocketException` on error. 
-  &lt;bug: unknown&gt; parse( &lt;bug: unknown&gt; addr ) static;
+  static ubyte[16] parse( scope char[] addr ) @trusted
   // Returns the IPv6 port number. 
-  ushort port( ) ;
+  ushort port() @nogc @property nothrow pure
 
   // Any IPv6 port number. 
-  ushort PORT_ANY;
+  ushort PORT_ANY = 0
   // 
-  sockaddr_in6 sin6;
+  sockaddr_in6 sin6
 }</code></pre><h2 class='section'>About</h2><p>Encapsulates an IPv6 (Internet Protocol version 6) socket address.</p>
 <p>Consider using <code>getAddress</code> , <code>parseAddress</code> and <code>Address</code> methods instead of using this class directly.</p>
 <h2 class='section'>Functions</h2><table>

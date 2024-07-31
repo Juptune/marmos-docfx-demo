@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,40 @@
 <h1 class='section'>Variable - g_rfc9110CharType</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.http.v1</dd></dl>
 </div><h2 class='section api'>g_rfc9110CharType   </h2>
- <pre><code class='lang-d'>immutable __enumMember g_rfc9110CharType</code></pre>
+ <pre><code class='lang-d'>immutable &lt;enum or auto&gt; g_rfc9110CharType = ()
+{
+Rfc9110CharType[256] table;
+with (Rfc9110CharType)
+{
+foreach (ch; &#39;a&#39; .. &#39;z&#39; + 1)
+{
+table[ch] = VCHAR | TCHAR;
+}
+foreach (ch; &#39;A&#39; .. &#39;Z&#39; + 1)
+{
+table[ch] = VCHAR | TCHAR;
+}
+foreach (ch; &#39;0&#39; .. &#39;9&#39; + 1)
+{
+table[ch] = VCHAR | TCHAR;
+}
+foreach (ch; [&#39;!&#39;, &#39;#&#39;, &#39;$&#39;, &#39;%&#39;, &#39;&amp;&#39;, &#39;\&#39;&#39;, &#39;*&#39;, &#39;+&#39;, &#39;-&#39;, &#39;.&#39;, &#39;^&#39;, &#39;_&#39;, &#39;`&#39;, &#39;|&#39;, &#39;~&#39;])
+{
+table[ch] = VCHAR | TCHAR;
+}
+foreach (ch; [&#39;&quot;&#39;, &#39;(&#39;, &#39;)&#39;, &#39;[&#39;, &#39;]&#39;, &#39;{&#39;, &#39;}&#39;, &#39;,&#39;, &#39;/&#39;, &#39;:&#39;, &#39;;&#39;, &#39;&lt;&#39;, &#39;=&#39;, &#39;&gt;&#39;, &#39;?&#39;, &#39;@&#39;, &#39;\\&#39;])
+{
+table[ch] = VCHAR;
+}
+foreach (ch; [&#39; &#39;, &#39;\t&#39;])
+{
+table[ch] = MIDDLE_OF_HEADER_VALUE;
+}
+}
+return table;
+}
+()</code></pre><h3 class='section'>(Marmos Notes)</h3><p>Type may be inaccurate as marmos couldn't figure it out - potentially needs semantic analysis.</p>
+
 </article>
 
         <div class="contribution d-print-none">

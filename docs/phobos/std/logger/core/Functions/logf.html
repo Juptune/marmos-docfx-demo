@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,36 +89,64 @@
 <dl><dt>Module</dt><dd>std.logger.core</dd></dl>
 </div><h2 class='section api'>logf(ll, condition, msg, args)   </h2>
  <pre><code class='lang-d'>void logf(
-  LogLevel ll,
-  bool condition,
-  string msg,
-  A args
+  int line = __LINE__,
+  string file = __FILE__,
+  string funcName = __FUNCTION__,
+  string prettyFuncName = __PRETTY_FUNCTION__,
+  string moduleName = __MODULE__,
+  A...
+)(
+  const LogLevel ll,
+  lazy bool condition,
+  lazy string msg,
+  lazy A args
 ) </code></pre><p>This function logs data in a <code>printf</code> -style manner.</p>
 <p>In order for the data to be processed the <code>LogLevel</code> of the log call must be greater or equal to the <code>LogLevel</code> of the <code>sharedLog</code> and the <code>defaultLogLevel</code> additionally the condition passed must be <code>true</code> .</p>
 <p>Params: ll = The <code>LogLevel</code> used by this log call. condition = The condition must be <code>true</code> for the data to be logged. msg = The <code>printf</code> -style string. args = The data that should be logged.</p>
 <p>Example: -------------------- logf(LogLevel.warning, true, &quot;Hello World %f&quot;, 3.1415); --------------------</p>
 <h2 class='section api'>logf(ll, msg, args)   </h2>
  <pre><code class='lang-d'>void logf(
-  LogLevel ll,
-  string msg,
-  A args
+  int line = __LINE__,
+  string file = __FILE__,
+  string funcName = __FUNCTION__,
+  string prettyFuncName = __PRETTY_FUNCTION__,
+  string moduleName = __MODULE__,
+  A...
+)(
+  const LogLevel ll,
+  lazy string msg,
+  lazy A args
 ) </code></pre><p>This function logs data in a <code>printf</code> -style manner.</p>
 <p>In order for the data to be processed the <code>LogLevel</code> of the log call must be greater or equal to the <code>LogLevel</code> of the <code>sharedLog</code> and the <code>defaultLogLevel</code> .</p>
 <p>Params: ll = The <code>LogLevel</code> used by this log call. msg = The <code>printf</code> -style string. args = The data that should be logged.</p>
 <p>Example: -------------------- logf(LogLevel.warning, &quot;Hello World %f&quot;, 3.1415); --------------------</p>
 <h2 class='section api'>logf(condition, msg, args)   </h2>
  <pre><code class='lang-d'>void logf(
-  bool condition,
-  string msg,
-  A args
+  int line = __LINE__,
+  string file = __FILE__,
+  string funcName = __FUNCTION__,
+  string prettyFuncName = __PRETTY_FUNCTION__,
+  string moduleName = __MODULE__,
+  A...
+)(
+  lazy bool condition,
+  lazy string msg,
+  lazy A args
 ) </code></pre><p>This function logs data in a <code>printf</code> -style manner.</p>
 <p>In order for the data to be processed the <code>LogLevel</code> of the log call must be greater or equal to the <code>defaultLogLevel</code> additionally the condition passed must be <code>true</code> .</p>
 <p>Params: condition = The condition must be <code>true</code> for the data to be logged. msg = The <code>printf</code> -style string. args = The data that should be logged.</p>
 <p>Example: -------------------- logf(true, &quot;Hello World %f&quot;, 3.1415); --------------------</p>
 <h2 class='section api'>logf(msg, args)   </h2>
  <pre><code class='lang-d'>void logf(
-  string msg,
-  A args
+  int line = __LINE__,
+  string file = __FILE__,
+  string funcName = __FUNCTION__,
+  string prettyFuncName = __PRETTY_FUNCTION__,
+  string moduleName = __MODULE__,
+  A...
+)(
+  lazy string msg,
+  lazy A args
 ) </code></pre><p>This function logs data in a <code>printf</code> -style manner.</p>
 <p>In order for the data to be processed the <code>LogLevel</code> of the log call must be greater or equal to the <code>defaultLogLevel</code> .</p>
 <p>Params: msg = The <code>printf</code> -style string. args = The data that should be logged.</p>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - nextafter</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.math.operations</dd></dl>
 </div><h2 class='section api'>nextafter(x, y)   </h2>
- <pre><code class='lang-d'>T nextafter(
-  T x,
-  T y
-) </code></pre><p>Calculates the next representable value after x in the direction of y.</p>
+ <pre><code class='lang-d'>T nextafter( T )( const T x, const T y ) @nogc @safe nothrow pure</code></pre><p>Calculates the next representable value after x in the direction of y.</p>
 <p>If y &gt; x, the result will be the next largest floating-point value; if y &lt; x, the result will be the next smallest value. If x == y, the result is y. If x or y is a NaN, the result is a NaN.</p>
 <h3 class='section'>Remarks</h3><p>This function is not generally very useful; it's almost always better to use the faster functions nextUp() or nextDown() instead.</p>
 <p>The FE_INEXACT and FE_OVERFLOW exceptions will be raised if x is finite and the function result is infinite. The FE_INEXACT and FE_UNDERFLOW exceptions will be raised if the function value is subnormal, and x is not equal to y.</p>

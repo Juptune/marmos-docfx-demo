@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - take</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
 </div><h2 class='section api'>take(input, n)   </h2>
- <pre><code class='lang-d'>Take!(R) take(
-  R input,
-  size_t n
-) </code></pre><p>Lazily takes only up to <code>n</code> elements of a range. This is particularly useful when using with infinite ranges.</p>
+ <pre><code class='lang-d'>Take!(R) take( R )( R input, size_t n ) </code></pre><p>Lazily takes only up to <code>n</code> elements of a range. This is particularly useful when using with infinite ranges.</p>
 <p>Unlike $(LREF takeExactly), <code>take</code> does not require that there are <code>n</code> or more elements in <code>input</code> . As a consequence, length information is not applied to the result unless <code>input</code> also has length information.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>input</code> R  </dt>
 <dd>

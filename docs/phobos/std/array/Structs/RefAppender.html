@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,22 +87,26 @@
         <article data-uid="std.array.Structs.RefAppender">
 <h1 class='section'>Struct - RefAppender</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.array</dd></dl>
-</div><pre><code class='lang-d'>public struct RefAppender
+</div><pre><code class='lang-d'>struct RefAppender( A )
 {
   // 
-  alias T = &lt;todo: marmos support pending&gt;;
+  alias T = &lt;todo: marmos support pending&gt;
 
   // Returns the capacity of the array (the maximum number of elements the managed array can accommodate before triggering a reallocation).  If any appending will reallocate, `capacity` returns `0` . 
-  size_t capacity( ) ;
+  size_t capacity() @property
   // 
-  &lt;bug: unknown&gt; data( ) ;
+  T[] data() @property
+  // Wraps remaining `Appender` methods such as $(LREF put). Params: fn = Method name to call. args = Arguments to pass to the method. 
+  void opDispatch( string fn, Args... )( Args args ) 
+  // Appends `rhs` to the managed array. Params: rhs = Element or range. 
+  void opOpAssign( string op, U )( U rhs ) 
   // Returns: the managed array. 
-  &lt;bug: unknown&gt; opSlice( ) ;
+  ElementEncodingType!(A)[] opSlice() @property
 
   // 
-  &lt;bug: unknown&gt; arr;
+  A* arr
   // 
-  Appender!(A) impl;
+  Appender!(A) impl
 }</code></pre><h2 class='section'>About</h2><p>A version of $(LREF Appender) that can update an array in-place. It forwards all calls to an underlying appender implementation. Any calls made to the appender also update the pointer to the original array passed in.</p>
 <p>Tip: Use the <code>arrayPtr</code> overload of $(LREF appender) for construction with type-inference.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>A</code>   </dt>
@@ -140,6 +144,14 @@
 <tr>
 <td><a href="../RefAppender/RefAppender/Functions/data.html">data</a></td>
 <td></td>
+</tr>
+<tr>
+<td><a href="../RefAppender/RefAppender/Functions/opDispatch.html">opDispatch</a></td>
+<td>Wraps remaining <code>Appender</code> methods such as $(LREF put). Params: fn = Method name to call. args = Arguments to pass to the method.</td>
+</tr>
+<tr>
+<td><a href="../RefAppender/RefAppender/Functions/opOpAssign.html">opOpAssign</a></td>
+<td>Appends <code>rhs</code> to the managed array. Params: rhs = Element or range.</td>
 </tr>
 <tr>
 <td><a href="../RefAppender/RefAppender/Functions/opSlice.html">opSlice</a></td>

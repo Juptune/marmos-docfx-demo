@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,15 @@
 <h1 class='section'>Overloads for - partition3</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.sorting</dd></dl>
 </div><h2 class='section api'>partition3(r, pivot)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; partition3(
+ <pre><code class='lang-d'>auto partition3(
+  alias less = &quot;a &lt; b&quot;,
+  SwapStrategy ss = SwapStrategy.unstable,
+  Range,
+  E
+)(
   Range r,
   E pivot
-) auto</code></pre><p>Rearranges elements in <code>r</code> in three adjacent ranges and returns them.</p>
+) </code></pre><p>Rearranges elements in <code>r</code> in three adjacent ranges and returns them.</p>
 <p>The first and leftmost range only contains elements in <code>r</code> less than <code>pivot</code> . The second and middle range only contains elements in <code>r</code> that are equal to <code>pivot</code> . Finally, the third and rightmost range only contains elements in <code>r</code> that are greater than <code>pivot</code> . The less-than test is defined by the binary function <code>less</code> .</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>less</code> &lt;parameter not found&gt;  </dt>
 <dd>

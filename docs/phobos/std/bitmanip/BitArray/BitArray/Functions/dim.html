@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - dim</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.bitmanip.BitArray</dd></dl><dl><dt>Parent</dt><dd>BitArray</dd></dl>
 </div><h2 class='section api'>dim()   </h2>
- <pre><code class='lang-d'>size_t dim(
-) </code></pre><p>Returns: Dimension i.e. the number of native words backing this <code>BitArray</code> .</p>
+ <pre><code class='lang-d'>size_t dim() @nogc @property @safe nothrow pure</code></pre><p>Returns: Dimension i.e. the number of native words backing this <code>BitArray</code> .</p>
 <p>Technically, this is the length of the underlying array storing bits, which is equal to <code>ceil(length / (size_t.sizeof * 8))</code> , as bits are packed into <code>size_t</code> units.</p>
 
 </article>

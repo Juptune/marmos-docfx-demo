@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - compress</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.zlib.Compress</dd></dl><dl><dt>Parent</dt><dd>Compress</dd></dl>
 </div><h2 class='section api'>compress(buf)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; compress(
-  &lt;bug: unknown&gt; buf
-) </code></pre><p>Compress the data in buf and return the compressed data. Params: buf = data to compress</p>
+ <pre><code class='lang-d'>void[] compress( void[] buf ) </code></pre><p>Compress the data in buf and return the compressed data. Params: buf = data to compress</p>
 <h3 class='section'>Returns</h3><p>the compressed data. The buffers returned from successive calls to this should be concatenated together.</p>
 
 </article>

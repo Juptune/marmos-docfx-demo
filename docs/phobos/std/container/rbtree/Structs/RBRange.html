@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,25 +87,25 @@
         <article data-uid="std.container.rbtree.Structs.RBRange">
 <h1 class='section'>Struct - RBRange</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.container.rbtree</dd></dl>
-</div><pre><code class='lang-d'>public struct RBRange
+</div><pre><code class='lang-d'>struct RBRange( N )
 {
   // 
-  alias Elem = &lt;todo: marmos support pending&gt;;
+  alias Elem = &lt;todo: marmos support pending&gt;
   // 
-  alias Node = &lt;todo: marmos support pending&gt;;
+  alias Node = &lt;todo: marmos support pending&gt;
 
   // Returns the last element in the range 
-  Elem back( ) ;
+  Elem back() @property
   // Returns `true` if the range is empty 
-  bool empty( ) ;
+  bool empty() @property
   // Returns the first element in the range 
-  Elem front( ) ;
+  Elem front() @property
   // pop the back element from the range 
-  void popBack( ) ;
+  void popBack() 
   // pop the front element from the range 
-  void popFront( ) ;
+  void popFront() 
   // Trivial save implementation, needed for `isForwardRange`. 
-  RBRange save( ) ;
+  RBRange save() @property
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>

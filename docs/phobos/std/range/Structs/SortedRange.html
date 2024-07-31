@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,33 +87,57 @@
         <article data-uid="std.range.Structs.SortedRange">
 <h1 class='section'>Struct - SortedRange</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
-</div><pre><code class='lang-d'>public struct SortedRange
+</div><pre><code class='lang-d'>struct SortedRange( Range, alias pred = &quot;a &lt; b&quot;, SortedRangeOptions opt = SortedRangeOptions.assumeSorted )
 {
   // 
-  alias predFun = &lt;todo: marmos support pending&gt;;
+  alias predFun = &lt;todo: marmos support pending&gt;
 
   // Ditto 
-  &lt;bug: unknown&gt; back( ) auto;
+  ref auto back() @property
+  // Returns `true` if and only if `value` can be found in $(D range), which is assumed to be sorted. Performs $(BIGOH log(r.length)) evaluations of `pred` . 
+  bool contains( V )( V value ) 
   // Range primitives. 
-  bool empty( ) ;
+  bool empty() @property
+  // Returns the subrange containing all elements `e` for which both $(D pred(e, value)) and $(D pred(value, e)) evaluate to `false` (e.g., if `pred` is &quot;less than&quot;, returns the portion of the range with elements equal to `value` ). Uses a classic binary search with interval halving until it finds a value that satisfies the condition, then uses `SearchPolicy.gallopBackwards` to find the left boundary and `SearchPolicy.gallop` to find the right boundary. These policies are justified by the fact that the two boundaries are likely to be near the first found value (i.e., equal ranges are relatively small). Completes the entire search in $(BIGOH log(n)) time. 
+  auto equalRange( V )( V value ) 
   // Ditto 
-  &lt;bug: unknown&gt; front( ) auto;
+  ref auto front() @property
+  // 
+  bool geq( L, R )( L lhs, R rhs ) 
+  // 
+  size_t getTransitionIndex( SearchPolicy sp, alias test, V )( V v ) 
+  // 
+  size_t getTransitionIndex( SearchPolicy sp, alias test, V )( V v ) 
+  // 
+  size_t getTransitionIndex( SearchPolicy sp, alias test, V )( V v ) 
+  // Returns a range of subranges of elements that are equivalent according to the sorting relation. 
+  auto groupBy( )() 
+  // 
+  bool gt( L, R )( L lhs, R rhs ) 
+  // This function uses a search with policy `sp` to find the largest left subrange on which $(D pred(x, value)) is `true` for all `x` (e.g., if `pred` is &quot;less than&quot;, returns the portion of the range with elements strictly smaller than `value` ). The search schedule and its complexity are documented in $(LREF SearchPolicy). 
+  auto lowerBound( SearchPolicy sp = SearchPolicy.binarySearch, V )( V value ) 
+  // Like `contains` , but the value is specified before the range. 
+  bool opBinaryRight( string op, V )( V value ) 
   // Ditto 
-  &lt;bug: unknown&gt; opIndex( size_t i ) auto;
+  ref auto opIndex( size_t i ) 
   // Ditto 
-  &lt;bug: unknown&gt; opSlice( size_t a, size_t b ) auto;
+  ref auto opSlice( size_t a, size_t b ) scope return scope
   // Ditto 
-  void popBack( ) ;
+  void popBack() 
   // Ditto 
-  void popFront( ) ;
+  void popFront() 
   // Releases the controlled range and returns it. 
-  &lt;bug: unknown&gt; release( ) auto;
+  ref auto release() scope return scope
   // 
-  void roughlyVerifySorted( Range r ) ;
+  void roughlyVerifySorted( Range r ) 
   // Ditto 
-  &lt;bug: unknown&gt; save( ) auto;
+  auto save() @property
   // 
-  void strictlyVerifySorted( Range r ) ;
+  void strictlyVerifySorted( Range r ) 
+  // Returns a tuple `r` such that `r[0]` is the same as the result of `lowerBound(value)` , `r[1]` is the same as the result of $(D equalRange(value)), and `r[2]` is the same as the result of $(D upperBound(value)). The call is faster than computing all three separately. Uses a search schedule similar to $(D equalRange). Completes the entire search in $(BIGOH log(n)) time. 
+  auto trisect( V )( V value ) 
+  // This function searches with policy `sp` to find the largest right subrange on which $(D pred(value, x)) is `true` for all `x` (e.g., if `pred` is &quot;less than&quot;, returns the portion of the range with elements strictly greater than `value` ). The search schedule and its complexity are documented in $(LREF SearchPolicy). 
+  auto upperBound( SearchPolicy sp = SearchPolicy.binarySearch, V )( V value ) 
 }</code></pre><h2 class='section'>About</h2><p>Represents a sorted range. In addition to the regular range primitives, supports additional operations that take advantage of the ordering, such as merge and binary search. To obtain a $(D SortedRange) from an unsorted range <code>r</code> , use $(REF sort, std,algorithm,sorting) which sorts <code>r</code> in place and returns the corresponding <code>SortedRange</code> . To construct a <code>SortedRange</code> from a range <code>r</code> that is known to be already sorted, use $(LREF assumeSorted).</p>
 <h3 class='section'>Params</h3><p>pred: The predicate used to define the sortedness opt: Controls how strongly the range is checked for sortedness. Will only be used for <code>RandomAccessRanges</code> . Will not be used in CTFE.</p>
 <h2 class='section'>Aliases</h2><table>
@@ -143,12 +167,44 @@
 <td>Ditto</td>
 </tr>
 <tr>
+<td><a href="../SortedRange/SortedRange/Functions/contains.html">contains</a></td>
+<td>Returns <code>true</code> if and only if <code>value</code> can be found in $(D range), which is assumed to be sorted. Performs $(BIGOH log(r.length)) evaluations of <code>pred</code> .</td>
+</tr>
+<tr>
 <td><a href="../SortedRange/SortedRange/Functions/empty.html">empty</a></td>
 <td>Range primitives.</td>
 </tr>
 <tr>
+<td><a href="../SortedRange/SortedRange/Functions/equalRange.html">equalRange</a></td>
+<td>Returns the subrange containing all elements <code>e</code> for which both $(D pred(e, value)) and $(D pred(value, e)) evaluate to <code>false</code> (e.g., if <code>pred</code> is &quot;less than&quot;, returns the portion of the range with elements equal to <code>value</code> ). Uses a classic binary search with interval halving until it finds a value that satisfies the condition, then uses <code>SearchPolicy.gallopBackwards</code> to find the left boundary and <code>SearchPolicy.gallop</code> to find the right boundary. These policies are justified by the fact that the two boundaries are likely to be near the first found value (i.e., equal ranges are relatively small). Completes the entire search in $(BIGOH log(n)) time.</td>
+</tr>
+<tr>
 <td><a href="../SortedRange/SortedRange/Functions/front.html">front</a></td>
 <td>Ditto</td>
+</tr>
+<tr>
+<td><a href="../SortedRange/SortedRange/Functions/geq.html">geq</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../SortedRange/SortedRange/Functions/getTransitionIndex.html">getTransitionIndex</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../SortedRange/SortedRange/Functions/groupBy.html">groupBy</a></td>
+<td>Returns a range of subranges of elements that are equivalent according to the sorting relation.</td>
+</tr>
+<tr>
+<td><a href="../SortedRange/SortedRange/Functions/gt.html">gt</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../SortedRange/SortedRange/Functions/lowerBound.html">lowerBound</a></td>
+<td>This function uses a search with policy <code>sp</code> to find the largest left subrange on which $(D pred(x, value)) is <code>true</code> for all <code>x</code> (e.g., if <code>pred</code> is &quot;less than&quot;, returns the portion of the range with elements strictly smaller than <code>value</code> ). The search schedule and its complexity are documented in $(LREF SearchPolicy).</td>
+</tr>
+<tr>
+<td><a href="../SortedRange/SortedRange/Functions/opBinaryRight.html">opBinaryRight</a></td>
+<td>Like <code>contains</code> , but the value is specified before the range.</td>
 </tr>
 <tr>
 <td><a href="../SortedRange/SortedRange/Functions/opIndex.html">opIndex</a></td>
@@ -181,6 +237,14 @@
 <tr>
 <td><a href="../SortedRange/SortedRange/Functions/strictlyVerifySorted.html">strictlyVerifySorted</a></td>
 <td></td>
+</tr>
+<tr>
+<td><a href="../SortedRange/SortedRange/Functions/trisect.html">trisect</a></td>
+<td>Returns a tuple <code>r</code> such that <code>r[0]</code> is the same as the result of <code>lowerBound(value)</code> , <code>r[1]</code> is the same as the result of $(D equalRange(value)), and <code>r[2]</code> is the same as the result of $(D upperBound(value)). The call is faster than computing all three separately. Uses a search schedule similar to $(D equalRange). Completes the entire search in $(BIGOH log(n)) time.</td>
+</tr>
+<tr>
+<td><a href="../SortedRange/SortedRange/Functions/upperBound.html">upperBound</a></td>
+<td>This function searches with policy <code>sp</code> to find the largest right subrange on which $(D pred(value, x)) is <code>true</code> for all <code>x</code> (e.g., if <code>pred</code> is &quot;less than&quot;, returns the portion of the range with elements strictly greater than <code>value</code> ). The search schedule and its complexity are documented in $(LREF SearchPolicy).</td>
 </tr>
 </tbody>
 </table>

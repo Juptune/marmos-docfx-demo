@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,75 +90,83 @@
 </div><pre><code class='lang-d'>public class OutBuffer
 {
   // put enables OutBuffer to be used as an OutputRange. 
-  alias put = &lt;todo: marmos support pending&gt;;
+  alias put = &lt;todo: marmos support pending&gt;
 
   // Optimize common special case alignSize(2) Params: val = Value to fill, defaults to 0. 
-  void align2( ubyte val ) ;
+  void align2( ubyte val ) 
   // Optimize common special case alignSize(4) Params: val = Value to fill, defaults to 0. 
-  void align4( ubyte val ) ;
+  void align4( ubyte val ) 
   // Append bytes until the buffer aligns on a power of 2 boundary. 
-  void alignSize( size_t alignsize, ubyte val ) ;
+  void alignSize( size_t alignsize, ubyte val ) 
   // Clear the data in the buffer 
-  void clear( ) ;
+  void clear() 
   // Append nbytes of val to the internal buffer. Params: nbytes = Number of bytes to fill. val = Value to fill, defaults to 0. 
-  void fill( size_t nbytes, ubyte val ) ;
+  void fill( size_t nbytes, ubyte val ) 
   // Append nbytes of 0 to the internal buffer. Param: nbytes - number of bytes to fill. 
-  void fill0( size_t nbytes ) ;
+  void fill0( size_t nbytes ) 
   // Append output of C&#39;s printf() to internal buffer. 
-  void printf( string format ) ;
+  void printf( scope string format ) @trusted
   // Preallocate nbytes more to the size of the internal buffer. 
-  void reserve( size_t nbytes ) ;
+  void reserve( size_t nbytes ) @trusted
   // At offset index into buffer, create nbytes of space by shifting upwards all data past index. 
-  void spread( size_t index, size_t nbytes ) ;
+  void spread( size_t index, size_t nbytes ) @safe nothrow pure
   // Convert to array of bytes. 
-  &lt;bug: unknown&gt; toBytes( ) ;
+  ubyte[] toBytes() scope
   // Convert internal buffer to array of chars. 
-  string toString( ) override;
+  string toString() override
   // Append output of C&#39;s vprintf() to internal buffer. 
-  void vprintf( string format, va_list args ) ;
+  void vprintf( scope string format, va_list args ) @trusted nothrow
   // Append data to the internal buffer. 
-  void write( &lt;bug: unknown&gt; bytes ) ;
+  void write( scope ubyte[] bytes ) 
   // 
-  void write( &lt;bug: unknown&gt; chars ) ;
+  void write( scope wchar[] chars ) @trusted
   // 
-  void write( &lt;bug: unknown&gt; chars ) ;
+  void write( scope dchar[] chars ) @trusted
   // 
-  void write( ubyte b ) ;
+  void write( ubyte b ) 
   // ditto 
-  void write( byte b ) ;
+  void write( byte b ) 
   // ditto 
-  void write( char c ) ;
+  void write( char c ) 
   // ditto 
-  void write( dchar c ) ;
+  void write( dchar c ) 
   // 
-  void write( ushort w ) ;
+  void write( ushort w ) @trusted
   // ditto 
-  void write( short s ) ;
+  void write( short s ) 
   // 
-  void write( wchar c ) ;
+  void write( wchar c ) @trusted
   // 
-  void write( uint w ) ;
+  void write( uint w ) @trusted
   // ditto 
-  void write( int i ) ;
+  void write( int i ) 
   // 
-  void write( ulong l ) ;
+  void write( ulong l ) @trusted
   // ditto 
-  void write( long l ) ;
+  void write( long l ) 
   // 
-  void write( float f ) ;
+  void write( float f ) @trusted
   // 
-  void write( double f ) ;
+  void write( double f ) @trusted
   // 
-  void write( real f ) ;
+  void write( real f ) @trusted
   // 
-  void write( &lt;bug: unknown&gt; s ) ;
+  void write( scope char[] s ) @trusted
   // 
-  void write( OutBuffer buf ) ;
+  void write( const scope OutBuffer buf ) 
+  // Formats and writes its arguments in text format to the OutBuffer. 
+  void writef( Char, A... )( scope Char[] fmt, A args ) 
+  // ditto 
+  void writef( alias fmt, A... )( A args ) 
+  // Formats and writes its arguments in text format to the OutBuffer, followed by a newline. 
+  void writefln( Char, A... )( scope Char[] fmt, A args ) 
+  // ditto 
+  void writefln( alias fmt, A... )( A args ) 
 
   // 
-  &lt;bug: unknown&gt; data;
+  ubyte[] data
   // 
-  size_t offset;
+  size_t offset
 }</code></pre><h2 class='section'>About</h2><p>OutBuffer provides a way to build up an array of bytes out of raw data. It is useful for things like preparing an array of bytes to write out to a file. OutBuffer's byte order is the format native to the computer. To control the byte order (endianness), use a class derived from OutBuffer. OutBuffer's internal buffer is allocated with the GC. Pointers stored into the buffer are scanned by the GC, but you have to ensure proper alignment, e.g. by using alignSize((void*).sizeof).</p>
 <h2 class='section'>Aliases</h2><table>
 <thead>
@@ -233,6 +241,14 @@
 <tr>
 <td><a href="../OutBuffer/OutBuffer/Functions/write.html">write</a></td>
 <td>Append data to the internal buffer.</td>
+</tr>
+<tr>
+<td><a href="../OutBuffer/OutBuffer/Functions/writef.html">writef</a></td>
+<td>Formats and writes its arguments in text format to the OutBuffer.</td>
+</tr>
+<tr>
+<td><a href="../OutBuffer/OutBuffer/Functions/writefln.html">writefln</a></td>
+<td>Formats and writes its arguments in text format to the OutBuffer, followed by a newline.</td>
 </tr>
 </tbody>
 </table>

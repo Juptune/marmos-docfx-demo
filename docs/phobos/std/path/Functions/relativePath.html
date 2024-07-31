@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,8 +89,10 @@
 <dl><dt>Module</dt><dd>std.path</dd></dl>
 </div><h2 class='section api'>relativePath(path, base)   </h2>
  <pre><code class='lang-d'>string relativePath(
+  CaseSensitive cs = CaseSensitive.osDefault
+)(
   string path,
-  string base
+  lazy string base
 ) </code></pre><p>Translates <code>path</code> into a relative path.</p>
 <p>The returned path is relative to <code>base</code> , which is by default taken to be the current working directory.  If specified, <code>base</code> must be an absolute path, and it is always assumed to refer to a directory.  If <code>path</code> and <code>base</code> refer to the same directory, the function returns $(D <code>.</code> ).</p>
 <p>The following algorithm is used: $(OL $(LI If <code>path</code> is a relative directory, return it unaltered.) $(LI Find a common root between <code>path</code> and <code>base</code> . If there is no common root, return <code>path</code> unaltered.) $(LI Prepare a string with as many $(D <code>../</code> ) or $(D <code>..\</code> ) as necessary to reach the common root from base path.) $(LI Append the remaining segments of <code>path</code> to the string and return.) )</p>

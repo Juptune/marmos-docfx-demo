@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,58 +90,96 @@
 </div><pre><code class='lang-d'>public struct BitArray
 {
   // Return a lazy range of the indices of set bits. 
-  &lt;bug: unknown&gt; bitsSet( ) auto;
+  auto bitsSet() @property nothrow
   // Counts all the set bits in the `BitArray` 
-  size_t count( ) ;
+  size_t count() @nogc @safe nothrow scope pure
   // Returns: Dimension i.e. the number of native words backing this `BitArray` . 
-  size_t dim( ) ;
+  size_t dim() @nogc @property @safe nothrow pure
   // Duplicates the `BitArray` and its contents. 
-  BitArray dup( ) ;
+  BitArray dup() @property nothrow pure
   // 
-  size_t endBits( ) ;
+  size_t endBits() @nogc @property @safe nothrow scope pure
   // 
-  size_t endMask( ) ;
+  size_t endMask() @nogc @property @safe nothrow scope pure
   // Flips all the bits in the `BitArray` 
-  void flip( ) ;
+  void flip() @nogc nothrow pure
   // Flips a single bit, specified by `pos` 
-  void flip( size_t pos ) ;
+  void flip( size_t pos ) @nogc nothrow pure
   // 
-  size_t fullWords( ) ;
+  void formatBitArray( Writer )( auto ref Writer sink ) 
+  // 
+  void formatBitString( Writer )( auto ref Writer sink ) 
+  // 
+  size_t fullWords() @nogc @property @safe nothrow scope pure
   // Returns: Number of bits in the `BitArray` . 
-  size_t length( ) ;
+  size_t length() @nogc @property @safe nothrow pure
   // Sets the amount of bits in the `BitArray` . $(RED Warning: increasing length may overwrite bits in the final word of the current underlying data regardless of whether it is shared between BitArray objects. i.e. D dynamic array extension semantics are not followed.) 
-  size_t length( size_t newlen ) ;
+  size_t length( size_t newlen ) @property @system nothrow pure
   // 
-  size_t lenToDim( size_t len ) static;
+  static size_t lenToDim( size_t len ) @nogc @safe nothrow pure
   // Support for `foreach` loops for `BitArray` . 
-  int opApply( &lt;bug: unknown&gt; dg ) ;
+  int opApply( scope &lt;bug: unknown&gt; dg ) 
   // ditto 
-  int opApply( &lt;bug: unknown&gt; dg ) ;
+  int opApply( scope &lt;bug: unknown&gt; dg ) 
   // ditto 
-  int opApply( &lt;bug: unknown&gt; dg ) ;
+  int opApply( scope &lt;bug: unknown&gt; dg ) 
   // ditto 
-  int opApply( &lt;bug: unknown&gt; dg ) ;
+  int opApply( scope &lt;bug: unknown&gt; dg ) 
+  // Support for binary bitwise operators for `BitArray` . 
+  BitArray opBinary( string op )( const BitArray e2 ) nothrow pure
+  // Support for binary operator ~ for `BitArray` . 
+  BitArray opBinary( string op )( bool b ) nothrow pure
+  // ditto 
+  BitArray opBinary( string op )( BitArray b ) nothrow pure
+  // ditto 
+  BitArray opBinaryRight( string op )( bool b ) nothrow pure
+  // Convert to `void[]` . 
+  void[] opCast( T : void[] )() @nogc nothrow pure
+  // Convert to `size_t[]` . 
+  size_t[] opCast( T : size_t[] )() @nogc nothrow pure
   // Supports comparison operators for `BitArray` . 
-  int opCmp( BitArray a2 ) ;
+  int opCmp( BitArray a2 ) @nogc nothrow pure
   // Support for operators == and != for `BitArray` . 
-  bool opEquals( BitArray a2 ) ;
+  bool opEquals( const ref BitArray a2 ) @nogc nothrow pure
   // Gets the `i` &#39;th bit in the `BitArray` . 
-  bool opIndex( size_t i ) ;
+  bool opIndex( size_t i ) @nogc nothrow pure
   // Sets the `i` &#39;th bit in the `BitArray` . 
-  bool opIndexAssign( bool b, size_t i ) ;
+  bool opIndexAssign( bool b, size_t i ) @nogc nothrow pure
+  // Support for operator op= for `BitArray` . 
+  ref BitArray opOpAssign(
+    string op
+  )(
+    const BitArray e2
+  ) @nogc nothrow scope return scope pure
+  // Support for operator ~= for `BitArray` . $(RED Warning: This will overwrite a bit in the final word of the current underlying data regardless of whether it is shared between BitArray objects. i.e. D dynamic array concatenation semantics are not followed) 
+  ref BitArray opOpAssign( string op )( bool b ) nothrow scope return scope pure
+  // ditto 
+  ref BitArray opOpAssign( string op )( BitArray b ) nothrow scope return scope pure
+  // Operator `&lt;&lt;=` support. 
+  void opOpAssign( string op )( size_t nbits ) @nogc nothrow pure
+  // Operator `&gt;&gt;=` support. 
+  void opOpAssign( string op )( size_t nbits ) @nogc nothrow pure
   // Sets all the values in the `BitArray` to the value specified by `val` . 
-  void opSliceAssign( bool val ) ;
-  // Sets the bits of a slice of `BitArray` starting at index `start` and ends at index ($D end - 1) with the values specified by `val` . 
-  void opSliceAssign( bool val, size_t start, size_t end ) ;
+  void opSliceAssign( bool val ) @nogc nothrow pure
+  // Sets the bits of a slice of `BitArray` starting at index `start` and ends at index $(D end - 1) with the values specified by `val` . 
+  void opSliceAssign( bool val, size_t start, size_t end ) @nogc nothrow pure
+  // Support for unary operator ~ for `BitArray` . 
+  BitArray opUnary( string op )() nothrow pure
   // Reverses the bits of the `BitArray` . 
-  BitArray reverse( ) ;
+  ref BitArray reverse() @nogc @property nothrow return pure
+  // 
+  size_t rollLeft( )( size_t upper, size_t lower, size_t nbits ) @nogc @safe nothrow pure
+  // 
+  size_t rollRight( )( size_t upper, size_t lower, size_t nbits ) @nogc @safe nothrow pure
   // Sorts the `BitArray` &#39;s elements. 
-  BitArray sort( ) ;
+  ref BitArray sort() @nogc @property nothrow return pure
   // Support for hashing for `BitArray` . 
-  size_t toHash( ) ;
+  size_t toHash() @nogc nothrow pure
+  // Return a string representation of this BitArray. 
+  void toString( W )( ref W sink, const ref scope FormatSpec!(char) fmt ) 
 
   // 
-  __enumMember bitsPerSizeT;
+  &lt;enum or auto&gt; bitsPerSizeT = size_t.sizeof * 8
 }</code></pre><h2 class='section'>About</h2><p>A dynamic array of bits. Each bit in a <code>BitArray</code> can be manipulated individually or by the standard bitwise operators <code>&amp;</code> , <code>|</code> , <code>^</code> , <code>~</code> , <code>&gt;&gt;</code> , <code>&lt;&lt;</code> and also by other effective member functions; most of them work relative to the <code>BitArray</code> 's dimension (see $(LREF dim)), instead of its $(LREF length).</p>
 <h2 class='section'>Functions</h2><table>
 <thead>
@@ -180,6 +218,14 @@
 <td>Flips all the bits in the <code>BitArray</code></td>
 </tr>
 <tr>
+<td><a href="../BitArray/BitArray/Functions/formatBitArray.html">formatBitArray</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BitArray/BitArray/Functions/formatBitString.html">formatBitString</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../BitArray/BitArray/Functions/fullWords.html">fullWords</a></td>
 <td></td>
 </tr>
@@ -194,6 +240,18 @@
 <tr>
 <td><a href="../BitArray/BitArray/Functions/opApply.html">opApply</a></td>
 <td>Support for <code>foreach</code> loops for <code>BitArray</code> .</td>
+</tr>
+<tr>
+<td><a href="../BitArray/BitArray/Functions/opBinary.html">opBinary</a></td>
+<td>Support for binary bitwise operators for <code>BitArray</code> .</td>
+</tr>
+<tr>
+<td><a href="../BitArray/BitArray/Functions/opBinaryRight.html">opBinaryRight</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../BitArray/BitArray/Functions/opCast.html">opCast</a></td>
+<td>Convert to <code>void[]</code> .</td>
 </tr>
 <tr>
 <td><a href="../BitArray/BitArray/Functions/opCmp.html">opCmp</a></td>
@@ -212,12 +270,28 @@
 <td>Sets the <code>i</code> 'th bit in the <code>BitArray</code> .</td>
 </tr>
 <tr>
+<td><a href="../BitArray/BitArray/Functions/opOpAssign.html">opOpAssign</a></td>
+<td>Support for operator op= for <code>BitArray</code> .</td>
+</tr>
+<tr>
 <td><a href="../BitArray/BitArray/Functions/opSliceAssign.html">opSliceAssign</a></td>
 <td>Sets all the values in the <code>BitArray</code> to the value specified by <code>val</code> .</td>
 </tr>
 <tr>
+<td><a href="../BitArray/BitArray/Functions/opUnary.html">opUnary</a></td>
+<td>Support for unary operator ~ for <code>BitArray</code> .</td>
+</tr>
+<tr>
 <td><a href="../BitArray/BitArray/Functions/reverse.html">reverse</a></td>
 <td>Reverses the bits of the <code>BitArray</code> .</td>
+</tr>
+<tr>
+<td><a href="../BitArray/BitArray/Functions/rollLeft.html">rollLeft</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BitArray/BitArray/Functions/rollRight.html">rollRight</a></td>
+<td></td>
 </tr>
 <tr>
 <td><a href="../BitArray/BitArray/Functions/sort.html">sort</a></td>
@@ -226,6 +300,10 @@
 <tr>
 <td><a href="../BitArray/BitArray/Functions/toHash.html">toHash</a></td>
 <td>Support for hashing for <code>BitArray</code> .</td>
+</tr>
+<tr>
+<td><a href="../BitArray/BitArray/Functions/toString.html">toString</a></td>
+<td>Return a string representation of this BitArray.</td>
 </tr>
 </tbody>
 </table>

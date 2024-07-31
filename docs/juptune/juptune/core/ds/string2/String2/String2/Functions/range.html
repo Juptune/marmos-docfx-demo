@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - range</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.core.ds.string2.String2</dd></dl><dl><dt>Parent</dt><dd>String2</dd></dl>
 </div><h2 class='section api'>range()   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; range(
-) auto</code></pre><p>Provides an input range over the string's characters.</p>
+ <pre><code class='lang-d'>auto range() @trusted</code></pre><p>Provides an input range over the string's characters.</p>
 <h3 class='section'>Notes</h3><p>This is a lot safer to use than <code>.slice</code> when using range algorithms, as this range will keep the payload alive until the range is destroyed.</p>
 <p>This function will promote the string to become a &quot;Big&quot; string if it wasn't already.</p>
 <h3 class='section'>Returns</h3><p>An input range over the string's characters.</p>

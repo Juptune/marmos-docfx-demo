@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - strip</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.mutation</dd></dl>
 </div><h2 class='section api'>strip(range, element)   </h2>
- <pre><code class='lang-d'>Range strip(
-  Range range,
-  E element
-) </code></pre><p>The strip group of functions allow stripping of either leading, trailing, or both leading and trailing elements.</p>
+ <pre><code class='lang-d'>Range strip( Range, E )( Range range, E element ) </code></pre><p>The strip group of functions allow stripping of either leading, trailing, or both leading and trailing elements.</p>
 <p>The <code>stripLeft</code> function will strip the <code>front</code> of the range, the <code>stripRight</code> function will strip the <code>back</code> of the range, while the <code>strip</code> function will strip both the <code>front</code> and <code>back</code> of the range.</p>
 <p>Note that the <code>strip</code> and <code>stripRight</code> functions require the range to be a $(LREF BidirectionalRange) range.</p>
 <p>All of these functions come in two varieties: one takes a target element, where the range will be stripped as long as this element can be found. The other takes a lambda predicate, where the range will be stripped as long as the predicate returns true.</p>
@@ -104,9 +101,7 @@
 </dd></dl><p>or $(REF_ALTTEXT input range, isInputRange, std,range,primitives) element = the elements to remove</p>
 <h3 class='section'>Returns</h3><p>a Range with all of range except element at the start and end</p>
 <h2 class='section api'>strip(range)   </h2>
- <pre><code class='lang-d'>Range strip(
-  Range range
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>Range strip( alias pred, Range )( Range range ) </code></pre><p>ditto</p>
 
 </article>
 

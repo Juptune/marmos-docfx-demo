@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,20 +87,20 @@
         <article data-uid="std.range.Enums.SearchPolicy">
 <h1 class='section'>Enum - SearchPolicy</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
-</div><pre><code class='lang-d'>enum SearchPolicy
+</div><pre><code class='lang-d'>enum SearchPolicy : int
 {
-  // Searches using a classic interval halving policy. The search starts in the middle of the range, and each search step cuts the range in half. This policy finds a value in $(BIGOH log(n)) time but is less cache friendly than `gallop` for large ranges. The `binarySearch` policy is used as the last step of `trot` , `gallop` , `trotBackwards` , and $(D gallopBackwards) strategies. 
-  __enumMember binarySearch;
-  // Performs a $(LINK2 https://en.wikipedia.org/wiki/Exponential_search, galloping search algorithm), i.e. searches with a step that doubles every time, (1, 2, 4, 8, ...)  leading to an exponential search schedule (indexes tried are 0, 1, 3, 7, 15, 31, 63,...) Once the search overshoots its target, the remaining interval is searched using binary search. A value is found in $(BIGOH log(n)) time. 
-  __enumMember gallop;
-  // Similar to `gallop` but starts backwards. Use it when confident that the value is around the end of the range. 
-  __enumMember gallopBackwards;
   // Searches in a linear fashion. 
-  __enumMember linear;
+  linear,
   // Searches with a step that is grows linearly (1, 2, 3,...) leading to a quadratic search schedule (indexes tried are 0, 1, 3, 6, 10, 15, 21, 28,...) Once the search overshoots its target, the remaining interval is searched using binary search. The search is completed in $(BIGOH sqrt(n)) time. Use it when you are reasonably confident that the value is around the beginning of the range. 
-  __enumMember trot;
+  trot,
+  // Performs a $(LINK2 https://en.wikipedia.org/wiki/Exponential_search, galloping search algorithm), i.e. searches with a step that doubles every time, (1, 2, 4, 8, ...)  leading to an exponential search schedule (indexes tried are 0, 1, 3, 7, 15, 31, 63,...) Once the search overshoots its target, the remaining interval is searched using binary search. A value is found in $(BIGOH log(n)) time. 
+  gallop,
+  // Searches using a classic interval halving policy. The search starts in the middle of the range, and each search step cuts the range in half. This policy finds a value in $(BIGOH log(n)) time but is less cache friendly than `gallop` for large ranges. The `binarySearch` policy is used as the last step of `trot` , `gallop` , `trotBackwards` , and $(D gallopBackwards) strategies. 
+  binarySearch,
   // Similar to `trot` but starts backwards. Use it when confident that the value is around the end of the range. 
-  __enumMember trotBackwards;
+  trotBackwards,
+  // Similar to `gallop` but starts backwards. Use it when confident that the value is around the end of the range. 
+  gallopBackwards,
 }</code></pre><h2 class='section'>About</h2><p>Policy used with the searching primitives <code>lowerBound</code> , $(D upperBound), and <code>equalRange</code> of $(LREF SortedRange) below.</p>
 <h2 class='section'>Variables</h2><table>
 <thead>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,11 +88,7 @@
 <h1 class='section'>Overloads for - shrinkArray</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator</dd></dl>
 </div><h2 class='section api'>shrinkArray(alloc, array, delta)   </h2>
- <pre><code class='lang-d'>bool shrinkArray(
-  Allocator alloc,
-  &lt;bug: unknown&gt; array,
-  size_t delta
-) </code></pre><p>Shrinks an array by <code>delta</code> elements.</p>
+ <pre><code class='lang-d'>bool shrinkArray( T, Allocator )( auto ref Allocator alloc, ref T[] array, size_t delta ) </code></pre><p>Shrinks an array by <code>delta</code> elements.</p>
 <p>If $(D array.length &lt; delta), does nothing and returns <code>false</code> . Otherwise, destroys the last $(D array.length - delta) elements in the array and then reallocates the array's buffer. If reallocation fails, fills the array with default-initialized data.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>T</code> &lt;parameter not found&gt;  </dt>
 <dd>
@@ -106,7 +102,7 @@
 
 <p>the allocator used for getting memory</p>
 
-</dd><dt><code>array</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>array</code> T[]  </dt>
 <dd>
 
 

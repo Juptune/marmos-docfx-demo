@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,48 +87,48 @@
         <article data-uid="std.container.rbtree.Structs.RBNode">
 <h1 class='section'>Struct - RBNode</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.container.rbtree</dd></dl>
-</div><pre><code class='lang-d'>public struct RBNode
+</div><pre><code class='lang-d'>struct RBNode( V )
 {
   // 
-  alias Node = &lt;todo: marmos support pending&gt;;
+  alias Node = &lt;todo: marmos support pending&gt;
 
   // 
-  Node dup( &lt;bug: unknown&gt; alloc ) ;
+  Node dup( scope &lt;bug: unknown&gt; alloc ) 
   // 
-  Node dup( ) ;
+  Node dup() 
   // Returns true if this node is a left child. 
-  bool isLeftNode( ) ;
+  bool isLeftNode() @property
   // Get the left child 
-  &lt;bug: unknown&gt; left( ) ;
+  ref RBNode* left() @property scope return scope
   // Set the left child.  Also updates the new child&#39;s parent node.  This does not update the previous child. 
-  Node left( Node newNode ) ;
+  Node left( scope return ref return ref scope Node newNode ) @property @trusted
   // Return the leftmost descendant of this node. 
-  &lt;bug: unknown&gt; leftmost( ) ;
+  ref RBNode* leftmost() @property return
   // Returns the next valued node in the tree. 
-  &lt;bug: unknown&gt; next( ) ;
+  ref RBNode* next() @property return
   // Get the parent 
-  &lt;bug: unknown&gt; parent( ) ;
+  ref RBNode* parent() @property scope return scope
   // Returns the previous valued node in the tree. 
-  &lt;bug: unknown&gt; prev( ) ;
+  ref RBNode* prev() @property return
   // Remove this node from the tree.  The &#39;end&#39; node is used as the marker which is root&#39;s parent.  Note that this cannot be null! 
-  Node remove( Node end ) ;
+  ref Node remove( Node end ) return
   // Get the right child 
-  &lt;bug: unknown&gt; right( ) ;
+  ref RBNode* right() @property scope return scope
   // Set the right child.  Also updates the new child&#39;s parent node.  This does not update the previous child. 
-  Node right( Node newNode ) ;
+  Node right( scope return ref return ref scope Node newNode ) @property @trusted
   // Return the rightmost descendant of this node 
-  &lt;bug: unknown&gt; rightmost( ) ;
+  ref RBNode* rightmost() @property return
   // 
-  Node rotateL( ) ;
+  Node rotateL() 
   // 
-  Node rotateR( ) ;
+  Node rotateR() 
   // Set the color of the node after it is inserted.  This performs an update to the whole tree, possibly rotating nodes to keep the Red-Black properties correct.  This is an O(lg(n)) operation, where n is the number of nodes in the tree. 
-  void setColor( Node end ) ;
+  void setColor( Node end ) 
 
   // The color of the node. 
-  Color color;
+  Color color
   // The value held by this node 
-  V value;
+  V value
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>
@@ -140,6 +140,20 @@
 <tr>
 <td><a href="../RBNode/RBNode/Aliases/Node.html">Node</a></td>
 <td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Enums</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../RBNode/RBNode/Enums/Color.html">Color</a></td>
+<td>Enumeration determining what color the node is.  Null nodes are assumed to be black.</td>
 </tr>
 </tbody>
 </table>

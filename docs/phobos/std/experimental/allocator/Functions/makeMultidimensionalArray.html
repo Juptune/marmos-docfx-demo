@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,14 @@
 <h1 class='section'>Overloads for - makeMultidimensionalArray</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator</dd></dl>
 </div><h2 class='section api'>makeMultidimensionalArray(alloc, lengths)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; makeMultidimensionalArray(
-  Allocator alloc,
-  &lt;bug: unknown&gt; lengths
-) auto</code></pre><p>Allocates a multidimensional array of elements of type T.</p>
+ <pre><code class='lang-d'>auto makeMultidimensionalArray(
+  T,
+  Allocator,
+  size_t N
+)(
+  auto ref Allocator alloc,
+  size_t[N] lengths
+) </code></pre><p>Allocates a multidimensional array of elements of type T.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>N</code> &lt;parameter not found&gt;  </dt>
 <dd>
 
@@ -110,7 +114,7 @@
 
 <p>the allocator used for getting memory</p>
 
-</dd><dt><code>lengths</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>lengths</code> size_t[N]  </dt>
 <dd>
 
 

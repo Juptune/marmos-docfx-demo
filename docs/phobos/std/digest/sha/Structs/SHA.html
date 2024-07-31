@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,59 +87,149 @@
         <article data-uid="std.digest.sha.Structs.SHA">
 <h1 class='section'>Struct - SHA</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.digest.sha</dd></dl>
-</div><pre><code class='lang-d'>public struct SHA
+</div><pre><code class='lang-d'>struct SHA( uint hashBlockSize, uint digestSize )
 {
   // 
-  uint BigSigma0( uint x ) ;
+  uint BigSigma0( uint x ) 
   // 
-  ulong BigSigma0( ulong x ) ;
+  ulong BigSigma0( ulong x ) 
   // 
-  uint BigSigma1( uint x ) ;
+  uint BigSigma1( uint x ) 
   // 
-  ulong BigSigma1( ulong x ) ;
+  ulong BigSigma1( ulong x ) 
+  // 
+  T Ch( T )( T x, T y, T z ) 
   // Returns the finished SHA hash. This also calls $(LREF start) to reset the internal state. 
-  &lt;bug: unknown&gt; finish( ) ;
+  ubyte[digestSize / 8] finish() @nogc @trusted nothrow pure
   // 
-  uint Parity( uint x, uint y, uint z ) ;
+  T Maj( T )( T x, T y, T z ) 
+  // 
+  uint Parity( uint x, uint y, uint z ) 
   // Use this to feed the digest with data. Also implements the $(REF isOutputRange, std,range,primitives) interface for `ubyte` and `const(ubyte)[]` . 
-  void put( &lt;bug: unknown&gt; input ) ;
+  void put( scope ubyte[] input ) @nogc @trusted nothrow pure
   // 
-  uint SmSigma0( uint x ) ;
+  uint SmSigma0( uint x ) 
   // 
-  ulong SmSigma0( ulong x ) ;
+  ulong SmSigma0( ulong x ) 
   // 
-  uint SmSigma1( uint x ) ;
+  uint SmSigma1( uint x ) 
   // 
-  ulong SmSigma1( ulong x ) ;
+  ulong SmSigma1( ulong x ) 
   // SHA initialization. Begins an SHA1/SHA2 operation. 
-  void start( ) ;
+  void start() @nogc @safe nothrow pure
   // 
-  void T_0_15( int i, &lt;bug: unknown&gt; input, &lt;bug: unknown&gt; W, uint A, uint B, uint C, uint D, uint E, uint T ) static;
+  static void T_0_15(
+    int i,
+    ubyte[64]* input,
+    ref uint[16] W,
+    uint A,
+    ref uint B,
+    uint C,
+    uint D,
+    uint E,
+    ref uint T
+  ) @nogc nothrow pure
   // 
-  void T_16_19( int i, &lt;bug: unknown&gt; W, uint A, uint B, uint C, uint D, uint E, uint T ) static;
+  static void T_16_19(
+    int i,
+    ref uint[16] W,
+    uint A,
+    ref uint B,
+    uint C,
+    uint D,
+    uint E,
+    ref uint T
+  ) @nogc nothrow pure
   // 
-  void T_20_39( int i, &lt;bug: unknown&gt; W, uint A, uint B, uint C, uint D, uint E, uint T ) static;
+  static void T_20_39(
+    int i,
+    ref uint[16] W,
+    uint A,
+    ref uint B,
+    uint C,
+    uint D,
+    uint E,
+    ref uint T
+  ) @nogc nothrow pure
   // 
-  void T_40_59( int i, &lt;bug: unknown&gt; W, uint A, uint B, uint C, uint D, uint E, uint T ) static;
+  static void T_40_59(
+    int i,
+    ref uint[16] W,
+    uint A,
+    ref uint B,
+    uint C,
+    uint D,
+    uint E,
+    ref uint T
+  ) @nogc nothrow pure
   // 
-  void T_60_79( int i, &lt;bug: unknown&gt; W, uint A, uint B, uint C, uint D, uint E, uint T ) static;
+  static void T_60_79(
+    int i,
+    ref uint[16] W,
+    uint A,
+    ref uint B,
+    uint C,
+    uint D,
+    uint E,
+    ref uint T
+  ) @nogc nothrow pure
   // 
-  void transform( &lt;bug: unknown&gt; state, &lt;bug: unknown&gt; block ) static;
+  void T_SHA2_0_15(
+    Word
+  )(
+    int i,
+    ubyte[blockSize / 8]* input,
+    ref Word[16] W,
+    Word A,
+    Word B,
+    Word C,
+    ref Word D,
+    Word E,
+    Word F,
+    Word G,
+    ref Word H,
+    Word K
+  ) @nogc nothrow pure
   // 
-  void transformX86( &lt;bug: unknown&gt; state, &lt;bug: unknown&gt; block ) static;
+  void T_SHA2_16_79(
+    Word
+  )(
+    int i,
+    ref Word[16] W,
+    Word A,
+    Word B,
+    Word C,
+    ref Word D,
+    Word E,
+    Word F,
+    Word G,
+    ref Word H,
+    Word K
+  ) @nogc nothrow pure
+  // 
+  static void transform( uint[5]* state, ubyte[64]* block ) @nogc nothrow pure
+  // 
+  void transformSHA2(
+    Word
+  )(
+    Word[8]* state,
+    ubyte[blockSize / 8]* block
+  ) @nogc nothrow pure
+  // 
+  static void transformX86( uint[5]* state, ubyte[64]* block ) @nogc nothrow pure
 
   // 
-  __enumMember blockSize;
+  &lt;enum or auto&gt; blockSize = hashBlockSize
   // 
-  &lt;bug: unknown&gt; buffer;
+  ubyte[blockSize / 8] buffer
   // 
-  static immutable &lt;bug: unknown&gt; constants;
+  static immutable uint[64] constants = &lt;todo: support array literal&gt;
   // 
-  &lt;bug: unknown&gt; count;
+  ulong[blockSize / 512] count
   // 
-  static immutable &lt;bug: unknown&gt; padding;
+  static immutable ubyte[128] padding = &lt;todo: support array literal&gt;
   // 
-  &lt;bug: unknown&gt; state;
+  uint[5] state = &lt;todo: support array literal&gt;
 }</code></pre><h2 class='section'>About</h2><p>Template API SHA1/SHA2 implementation. Supports: SHA-1, SHA-224, SHA-256, SHA-384, SHA-512, SHA-512/224 and SHA-512/256.</p>
 <p>The hashBlockSize and digestSize are in bits. However, it's likely easier to simply use the convenience aliases: SHA1, SHA224, SHA256, SHA384, SHA512, SHA512_224 and SHA512_256.</p>
 <p>See <code>std.digest</code> for differences between template and OOP API.</p>
@@ -160,8 +250,16 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="../SHA/SHA/Functions/Ch.html">Ch</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../SHA/SHA/Functions/finish.html">finish</a></td>
 <td>Returns the finished SHA hash. This also calls $(LREF start) to reset the internal state.</td>
+</tr>
+<tr>
+<td><a href="../SHA/SHA/Functions/Maj.html">Maj</a></td>
+<td></td>
 </tr>
 <tr>
 <td><a href="../SHA/SHA/Functions/Parity.html">Parity</a></td>
@@ -204,7 +302,19 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="../SHA/SHA/Functions/T_SHA2_0_15.html">T_SHA2_0_15</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../SHA/SHA/Functions/T_SHA2_16_79.html">T_SHA2_16_79</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../SHA/SHA/Functions/transform.html">transform</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../SHA/SHA/Functions/transformSHA2.html">transformSHA2</a></td>
 <td></td>
 </tr>
 <tr>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,15 +90,15 @@
 </div><pre><code class='lang-d'>public struct sqlite3_rtree_geometry
 {
   // Parameters passed to SQL geom function 
-  &lt;bug: unknown&gt; aParam;
+  double* aParam
   // Size of array aParam[] 
-  int nParam;
+  int nParam
   // Copy of pContext passed to s_r_g_c() 
-  &lt;bug: unknown&gt; pContext;
+  void* pContext
   // Callback implementation user data 
-  &lt;bug: unknown&gt; pUser;
+  void* pUser
   // Called by SQLite to clean up pUser 
-  &lt;bug: unknown&gt; xDelUser;
+  * xDelUser
 }</code></pre><h2 class='section'>About</h2><p>A pointer to a structure of the following type is passed as the first argument to callbacks registered using rtree_geometry_callback().</p>
 <h2 class='section'>Variables</h2><table>
 <thead>

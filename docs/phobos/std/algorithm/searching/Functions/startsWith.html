@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,6 +89,10 @@
 <dl><dt>Module</dt><dd>std.algorithm.searching</dd></dl>
 </div><h2 class='section api'>startsWith(doesThisStart, withOneOfThese)   </h2>
  <pre><code class='lang-d'>uint startsWith(
+  alias pred,
+  Range,
+  Needles...
+)(
   Range doesThisStart,
   Needles withOneOfThese
 ) </code></pre><p>Checks whether the given $(REF_ALTTEXT input range, isInputRange, std,range,primitives) starts with (one of) the given needle(s) or, if no needles are given, if its front element fulfils predicate <code>pred</code> .</p>
@@ -106,19 +110,11 @@
 <p>In the case where <code>doesThisStart</code> starts with multiple of the ranges or elements in <code>withOneOfThese</code> , then the shortest one matches (if there are two which match which are of the same length (e.g. <code>&quot;a&quot;</code> and <code>'a'</code> ), then the left-most of them in the argument list matches).</p>
 <p>In the case when no needle parameters are given, return <code>true</code> iff front of <code>doesThisStart</code> fulfils predicate <code>pred</code> .</p>
 <h2 class='section api'>startsWith(doesThisStart, withThis)   </h2>
- <pre><code class='lang-d'>bool startsWith(
-  R1 doesThisStart,
-  R2 withThis
-) </code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>bool startsWith( alias pred = &quot;a == b&quot;, R1, R2 )( R1 doesThisStart, R2 withThis ) </code></pre><p>Ditto</p>
 <h2 class='section api'>startsWith(doesThisStart, withThis)   </h2>
- <pre><code class='lang-d'>bool startsWith(
-  R doesThisStart,
-  E withThis
-) </code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>bool startsWith( alias pred = &quot;a == b&quot;, R, E )( R doesThisStart, E withThis ) </code></pre><p>Ditto</p>
 <h2 class='section api'>startsWith(doesThisStart)   </h2>
- <pre><code class='lang-d'>bool startsWith(
-  R doesThisStart
-) </code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>bool startsWith( alias pred, R )( R doesThisStart ) </code></pre><p>Ditto</p>
 
 </article>
 

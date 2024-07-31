@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,8 +89,8 @@
 <dl><dt>Module</dt><dd>std.path</dd></dl>
 </div><h2 class='section api'>expandTilde(inputPath)   </h2>
  <pre><code class='lang-d'>string expandTilde(
-  string inputPath
-) </code></pre><p>Performs tilde expansion in paths on POSIX systems. On Windows, this function does nothing.</p>
+  const scope return ref return ref scope string inputPath
+) @safe nothrow</code></pre><p>Performs tilde expansion in paths on POSIX systems. On Windows, this function does nothing.</p>
 <p>There are two ways of using tilde expansion in a path. One involves using the tilde alone or followed by a path separator. In this case, the tilde will be expanded with the value of the environment variable <code>HOME</code> .  The second way is putting a username after the tilde (i.e. <code>~john/Mail</code> ). Here, the username will be searched for in the user database (i.e. <code>/etc/passwd</code> on Unix systems) and will expand to whatever path is stored there.  The username is considered the string after the tilde ending at the first instance of a path separator.</p>
 <p>Note that using the <code>~user</code> syntax may give different values from just <code>~</code> if the environment variable doesn't match the value stored in the user database.</p>
 <p>When the environment variable version is used, the path won't be modified if the environment variable doesn't exist or it is empty. When the database version is used, the path won't be modified if the user doesn't exist in the database or there is not enough memory to perform the query.</p>

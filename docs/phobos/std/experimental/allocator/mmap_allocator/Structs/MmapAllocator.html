@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,17 +90,17 @@
 </div><pre><code class='lang-d'>public struct MmapAllocator
 {
   // 
-  alias allocateZeroed = &lt;todo: marmos support pending&gt;;
+  alias allocateZeroed = &lt;todo: marmos support pending&gt;
 
   // Allocator API. 
-  &lt;bug: unknown&gt; allocate( size_t bytes ) ;
+  void[] allocate( size_t bytes ) @nogc @safe nothrow pure
   // Ditto 
-  bool deallocate( &lt;bug: unknown&gt; b ) ;
+  bool deallocate( void[] b ) @nogc nothrow pure
 
   // Alignment is page-size and hardcoded to 4096 (even though on certain systems it could be larger). 
-  size_t alignment;
+  size_t alignment = 4096
   // The one shared instance. 
-  static const shared MmapAllocator instance;
+  static const shared MmapAllocator instance
 }</code></pre><h2 class='section'>About</h2><p>Allocator (currently defined only for Posix and Windows) using $(D $(LINK2 <a href="https://en.wikipedia.org/wiki/Mmap">https://en.wikipedia.org/wiki/Mmap</a>, mmap)) and $(D $(LUCKY munmap)) directly (or their Windows equivalents). There is no additional structure: each call to <code>allocate(s)</code> issues a call to $(D mmap(null, s, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0)), and each call to <code>deallocate(b)</code> issues $(D munmap(b.ptr, b.length)). So <code>MmapAllocator</code> is usually intended for allocating large chunks to be managed by fine-granular allocators.</p>
 <h2 class='section'>Aliases</h2><table>
 <thead>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,16 +87,16 @@
         <article data-uid="std.traits.Enums.Variadic">
 <h1 class='section'>Enum - Variadic</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.traits</dd></dl>
-</div><pre><code class='lang-d'>enum Variadic
+</div><pre><code class='lang-d'>enum Variadic : int
 {
-  // Function is a C-style variadic function, which uses `core.stdc.stdarg` 
-  __enumMember c;
-  // Function is a D-style variadic function, which uses `__argptr` and `__arguments` . 
-  __enumMember d;
   // Function is not variadic. 
-  __enumMember no;
+  no,
+  // Function is a C-style variadic function, which uses `core.stdc.stdarg` 
+  c,
+  // Function is a D-style variadic function, which uses `__argptr` and `__arguments` . 
+  d,
   // Function is a typesafe variadic function. 
-  __enumMember typesafe;
+  typesafe,
 }</code></pre><h2 class='section'>About</h2><p>Determines what kind of variadic parameters function has. Params: func = function symbol or type of function, delegate, or pointer to function Returns: enum Variadic</p>
 <h2 class='section'>Variables</h2><table>
 <thead>

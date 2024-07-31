@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - curl_multi_perform</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.curl</dd></dl>
 </div><h2 class='section api'>curl_multi_perform(multi_handle, running_handles)   </h2>
- <pre><code class='lang-d'>CURLMcode curl_multi_perform(
-  &lt;bug: unknown&gt; multi_handle,
-  &lt;bug: unknown&gt; running_handles
-) </code></pre><p>Name:    curl_multi_perform()</p>
+ <pre><code class='lang-d'>extern(C) CURLMcode curl_multi_perform( CURLM* multi_handle, int* running_handles ) </code></pre><p>Name:    curl_multi_perform()</p>
 <p>Desc:    When the app thinks there's data available for curl it calls this function to read/write whatever there is right now. This returns as soon as the reads and writes are done. This function does not require that there actually is data available for reading or that data can be written, it can be called just in case. It returns the number of handles that still transfer data in the second argument's integer-pointer.</p>
 <p>Returns: CURLMcode type, general multi error code. <strong>NOTE</strong> that this only returns errors etc regarding the whole multi stack. There might still have occurred problems on invidual transfers even when this returns OK.</p>
 

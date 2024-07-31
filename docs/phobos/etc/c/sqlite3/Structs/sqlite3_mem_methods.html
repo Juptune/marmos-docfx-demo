@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,21 +90,21 @@
 </div><pre><code class='lang-d'>public struct sqlite3_mem_methods
 {
   // Argument to xInit() and xShutdown() 
-  &lt;bug: unknown&gt; pAppData;
+  void* pAppData
   // Free a prior allocation 
-  &lt;bug: unknown&gt; xFree;
+  * xFree
   // Initialize the memory allocator 
-  &lt;bug: unknown&gt; xInit;
+  * xInit
   // Memory allocation function 
-  &lt;bug: unknown&gt; xMalloc;
+  * xMalloc
   // Resize an allocation 
-  &lt;bug: unknown&gt; xRealloc;
+  * xRealloc
   // Round up request size to allocation size 
-  &lt;bug: unknown&gt; xRoundup;
+  * xRoundup
   // Deinitialize the memory allocator 
-  &lt;bug: unknown&gt; xShutdown;
+  * xShutdown
   // Return the size of an allocation 
-  &lt;bug: unknown&gt; xSize;
+  * xSize
 }</code></pre><h2 class='section'>About</h2><p>CAPI3REF: Memory Allocation Routines</p>
 <h2 class='section'>Variables</h2><table>
 <thead>

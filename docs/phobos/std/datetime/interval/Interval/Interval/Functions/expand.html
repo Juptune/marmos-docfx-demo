@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Overloads for - expand | Marmos Demo </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Overloads for - expand | Marmos Demo ">
+      
+      
+      <link rel="icon" href="../../../../../../../favicon.ico">
+      <link rel="stylesheet" href="../../../../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../../../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../../../../../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../../../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ApiPage">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../../../../index.html">
+            <img id="logo" class="svg" src="../../../../../../../logo.svg" alt="Marmos Demo">
+            Marmos Demo
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="std.datetime.interval.Interval.Interval.Functions.expand">
+<h1 class='section'>Overloads for - expand</h1><div class="facts text-secondary">
+<dl><dt>Module</dt><dd>std.datetime.interval.Interval</dd></dl><dl><dt>Parent</dt><dd>Interval</dd></dl>
+</div><h2 class='section api'>expand(duration, dir)   </h2>
+ <pre><code class='lang-d'>void expand( D )( D duration, Direction dir ) pure</code></pre><p>Expands the interval forwards and/or backwards in time. Effectively, it does $(D begin -= duration) and/or $(D end += duration). Whether it expands forwards and/or backwards in time is determined by $(D_PARAM dir).</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>duration</code> D  </dt>
+<dd>
+
+
+<p>The duration to expand the interval by.</p>
+
+</dd><dt><code>dir</code> Direction  </dt>
+<dd>
+
+
+<p>The direction in time to expand the interval.</p>
+
+</dd></dl><h3 class='section'>Throws</h3><p>$(REF DateTimeException,std,datetime,date) this interval is empty or if the resulting interval would be invalid.</p>
+<h3 class='section'>Example</h3><p>-------------------- auto interval1 = Interval!Date(Date(1996, 1, 2), Date(2012, 3, 1)); auto interval2 = Interval!Date(Date(1996, 1, 2), Date(2012, 3, 1));</p>
+<p>interval1.expand(2); assert(interval1 == Interval!Date(Date(1994, 1, 2), Date(2014, 3, 1)));</p>
+<p>interval2.expand(-2); assert(interval2 == Interval!Date(Date(1998, 1, 2), Date(2010, 3, 1))); --------------------</p>
+<h2 class='section api'>expand(years, months, allowOverflow, dir)   </h2>
+ <pre><code class='lang-d'>void expand( T )( T years, T months, AllowDayOverflow allowOverflow, Direction dir ) </code></pre><p>Expands the interval forwards and/or backwards in time. Effectively, it subtracts the given number of months/years from <code>begin</code> and adds them to <code>end</code> . Whether it expands forwards and/or backwards in time is determined by $(D_PARAM dir).</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>years</code> T  </dt>
+<dd>
+
+
+<p>The number of years to expand the interval by.</p>
+
+</dd><dt><code>months</code> T  </dt>
+<dd>
+
+
+<p>The number of months to expand the interval by.</p>
+
+</dd><dt><code>allowOverflow</code> AllowDayOverflow  </dt>
+<dd>
+
+
+<p>Whether the days should be allowed to overflow on <code>begin</code> and <code>end</code> , causing their month to increment.</p>
+
+</dd><dt><code>dir</code> Direction  </dt>
+<dd>
+
+
+<p>The direction in time to expand the interval.</p>
+
+</dd></dl><h3 class='section'>Throws</h3><p>$(REF DateTimeException,std,datetime,date) if this interval is empty or if the resulting interval would be invalid.</p>
+<h3 class='section'>Example</h3><p>-------------------- auto interval1 = Interval!Date(Date(1996, 1, 2), Date(2012, 3, 1)); auto interval2 = Interval!Date(Date(1996, 1, 2), Date(2012, 3, 1));</p>
+<p>interval1.expand(2); assert(interval1 == Interval!Date(Date(1994, 1, 2), Date(2014, 3, 1)));</p>
+<p>interval2.expand(-2); assert(interval2 == Interval!Date(Date(1998, 1, 2), Date(2010, 3, 1))); --------------------</p>
+
+</article>
+
+        <div class="contribution d-print-none">
+        </div>
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span>Made with <a href="https://dotnet.github.io/docfx">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

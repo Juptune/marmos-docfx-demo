@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,16 +88,13 @@
 <h1 class='section'>Overloads for - sharedLog</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.logger.core</dd></dl>
 </div><h2 class='section api'>sharedLog()   </h2>
- <pre><code class='lang-d'>Logger sharedLog(
-) </code></pre><p>This property sets and gets the default <code>Logger</code> . Unless set to another logger by the user, the default logger's log level is LogLevel.info.</p>
+ <pre><code class='lang-d'>Logger sharedLog() @property @safe</code></pre><p>This property sets and gets the default <code>Logger</code> . Unless set to another logger by the user, the default logger's log level is LogLevel.info.</p>
 <p>Example: ------------- sharedLog = new FileLogger(yourFile); ------------- The example sets a new <code>FileLogger</code> as new <code>sharedLog</code> .</p>
 <p>If at some point you want to use the original default logger again, you can use $(D sharedLog = null;). This will put back the original.</p>
 <p>Note: While getting and setting <code>sharedLog</code> is thread-safe, it has to be considered that the returned reference is only a current snapshot and in the following code, you must make sure no other thread reassigns to it between reading and writing <code>sharedLog</code> .</p>
 <p><code>sharedLog</code> is only thread-safe if the used <code>Logger</code> is thread-safe. The default <code>Logger</code> is thread-safe. ------------- if (sharedLog !is myLogger) sharedLog = new myLogger; -------------</p>
 <h2 class='section api'>sharedLog(logger)   </h2>
- <pre><code class='lang-d'>void sharedLog(
-  Logger logger
-) </code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>void sharedLog( Logger logger ) @property @safe</code></pre><p>Ditto</p>
 
 </article>
 

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -91,26 +91,14 @@
  <pre><code class='lang-d'>void setOption(
   SocketOptionLevel level,
   SocketOption option,
-  &lt;bug: unknown&gt; value
-) </code></pre><p>Set a socket option.</p>
+  scope void[] value
+) @trusted</code></pre><p>Set a socket option.</p>
 <h2 class='section api'>setOption(level, option, value)   </h2>
- <pre><code class='lang-d'>void setOption(
-  SocketOptionLevel level,
-  SocketOption option,
-  int32_t value
-) </code></pre><p>Common case for setting integer and boolean options.</p>
+ <pre><code class='lang-d'>void setOption( SocketOptionLevel level, SocketOption option, int32_t value ) @trusted</code></pre><p>Common case for setting integer and boolean options.</p>
 <h2 class='section api'>setOption(level, option, value)   </h2>
- <pre><code class='lang-d'>void setOption(
-  SocketOptionLevel level,
-  SocketOption option,
-  Linger value
-) </code></pre><p>Set the linger option.</p>
+ <pre><code class='lang-d'>void setOption( SocketOptionLevel level, SocketOption option, Linger value ) @trusted</code></pre><p>Set the linger option.</p>
 <h2 class='section api'>setOption(level, option, value)   </h2>
- <pre><code class='lang-d'>void setOption(
-  SocketOptionLevel level,
-  SocketOption option,
-  Duration value
-) </code></pre><p>Sets a timeout (duration) option, i.e. <code>SocketOption.SNDTIMEO</code> or <code>RCVTIMEO</code> . Zero indicates no timeout.</p>
+ <pre><code class='lang-d'>void setOption( SocketOptionLevel level, SocketOption option, Duration value ) @trusted</code></pre><p>Sets a timeout (duration) option, i.e. <code>SocketOption.SNDTIMEO</code> or <code>RCVTIMEO</code> . Zero indicates no timeout.</p>
 <p>In a typical application, you might also want to consider using a non-blocking socket instead of setting a timeout on a blocking one.</p>
 <p>Note: While the receive timeout setting is generally quite accurate on nix systems even for smaller durations, there are two issues to be aware of on Windows: First, although undocumented, the effective timeout duration seems to be the one set on the socket plus half a second. <code>setOption()</code> tries to compensate for that, but still, timeouts under 500ms are not possible on Windows. Second, be aware that the actual amount of time spent until a blocking call returns randomly varies on the order of 10ms.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>level</code> SocketOptionLevel  </dt>

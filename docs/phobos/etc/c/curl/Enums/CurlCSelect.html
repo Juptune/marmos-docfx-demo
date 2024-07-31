@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,14 +87,14 @@
         <article data-uid="etc.c.curl.Enums.CurlCSelect">
 <h1 class='section'>Enum - CurlCSelect</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.curl</dd></dl>
-</div><pre><code class='lang-d'>enum CurlCSelect
+</div><pre><code class='lang-d'>enum CurlCSelect : int
 {
-  // 
-  __enumMember err_;
   // jdrewsen - underscored in order not to clash with reserved D symbols 
-  __enumMember in_;
+  in_ = 1,
   // 
-  __enumMember out_;
+  out_ = 2,
+  // 
+  err_ = 4,
 }</code></pre><h2 class='section'>Variables</h2><table>
 <thead>
 <tr>

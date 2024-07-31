@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,89 +87,127 @@
         <article data-uid="std.container.Structs.TotalContainer">
 <h1 class='section'>Struct - TotalContainer</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.container</dd></dl>
-</div><pre><code class='lang-d'>public struct TotalContainer
+</div><pre><code class='lang-d'>struct TotalContainer( T )
 {
   // If the container has a notion of key-value mapping, `KeyType` defines the type of the key of the container. 
-  alias KeyType = &lt;todo: marmos support pending&gt;;
+  alias KeyType = &lt;todo: marmos support pending&gt;
   // If the container has a notion of multikey-value mapping, $(D KeyTypes[k]), where `k` is a zero-based unsigned number, defines the type of the `k` th key of the container. 
-  alias KeyTypes = &lt;todo: marmos support pending&gt;;
+  alias KeyTypes = &lt;todo: marmos support pending&gt;
   // If the container has a notion of key-value mapping, `ValueType` defines the type of the value of the container. Typically, a map-style container mapping values of type `K` to values of type `V` defines `KeyType` to be `K` and `ValueType` to be `V` . 
-  alias ValueType = &lt;todo: marmos support pending&gt;;
+  alias ValueType = &lt;todo: marmos support pending&gt;
 
   // Ditto 
-  T back( ) ;
+  ref T back() @property
   // Ditto 
-  void back( T value ) ;
+  void back( T value ) @property
   // Returns the maximum number of elements the container can store without (a) allocating memory, (b) invalidating iterators upon insertion. 
-  size_t capacity( ) ;
+  size_t capacity() @property
   // Removes all contents from the container. The container decides how $(D capacity) is affected. 
-  void clear( ) ;
+  void clear() 
   // Returns a duplicate of the container. The elements themselves are not transitively duplicated. 
-  TotalContainer dup( ) ;
+  TotalContainer dup() @property
   // Property returning `true` if and only if the container has no elements. 
-  bool empty( ) ;
+  bool empty() @property
   // Returns a range of all elements containing `k` (could be empty or a singleton range). 
-  Range equalRange( KeyType k ) ;
+  Range equalRange( KeyType k ) 
   // Forward to `opSlice().front` and `opSlice().back` , respectively. 
-  T front( ) ;
+  ref T front() @property
   // Ditto 
-  void front( T value ) ;
+  void front( T value ) @property
+  // Inserts `stuff` in an unspecified position in the container. Implementations should choose whichever insertion means is the most advantageous for the container, but document the exact behavior. `stuff` can be a value convertible to the element type of the container, or a range of values convertible to it. 
+  size_t insert( Stuff )( Stuff stuff ) 
+  // ditto 
+  size_t insertAfter( Stuff )( Range r, Stuff stuff ) 
+  // ditto 
+  size_t insertBack( Stuff )( Stuff stuff ) 
+  // Inserts `stuff` before, after, or instead range `r` , which must be a valid range previously extracted from this container. `stuff` can be a value convertible to the container&#39;s element type or a range of objects convertible to it. The stable version behaves the same, but guarantees that ranges iterating over the container are never invalidated. 
+  size_t insertBefore( Stuff )( Range r, Stuff stuff ) 
+  // Inserts `value` to the front or back of the container. `stuff` can be a value convertible to the container&#39;s element type or a range of values convertible to it. The stable version behaves the same, but guarantees that ranges iterating over the container are never invalidated. 
+  size_t insertFront( Stuff )( Stuff stuff ) 
   // Returns the number of elements in the container. 
-  size_t length( ) ;
+  size_t length() @property
   // Sets the number of elements in the container to `newSize` . If $(D newSize) is greater than `length` , the added elements are added to unspecified positions in the container and initialized with $(D .init). 
-  void length( size_t newLength ) ;
+  void length( size_t newLength ) @property
+  // Same as `insert(stuff)` and `stableInsert(stuff)` respectively, but relax the complexity constraint to linear. 
+  size_t linearInsert( Stuff )( Stuff stuff ) 
   // Same as `remove` above, but has complexity relaxed to linear. 
-  Range linearRemove( Range r ) ;
+  Range linearRemove( Range r ) 
   // Returns a range of all elements with keys less than `k` (could be empty or a singleton range). Only defined by containers that store data sorted at all times. 
-  Range lowerBound( KeyType k ) ;
+  Range lowerBound( KeyType k ) 
   // ditto 
-  T moveAt( KeyType i ) ;
+  T moveAt( KeyType i ) 
   // Ditto 
-  T moveBack( ) ;
+  T moveBack() 
   // Ditto 
-  T moveFront( ) ;
+  T moveFront() 
+  // Returns a new container that&#39;s the concatenation of `this` and its argument. `opBinaryRight` is only defined if `Stuff` does not define `opBinary` . 
+  TotalContainer opBinary( string op )( Stuff rhs ) 
+  // $(D k in container) returns true if the given key is in the container. 
+  bool opBinaryRight( string op )( KeyType k ) 
+  // ditto 
+  TotalContainer opBinaryRight( string op )( Stuff lhs ) 
   // Indexing operators yield or modify the value at a specified index. 
-  T opIndex( KeyType __anonymous ) ;
+  ref T opIndex( KeyType __anonymous ) 
   // ditto 
-  void opIndexAssign( KeyType i, T value ) ;
+  void opIndexAssign( KeyType i, T value ) 
+  // ditto 
+  void opIndexOpAssign( string op )( KeyType i, T value ) 
+  // ditto 
+  T opIndexUnary( string op )( KeyType i ) 
+  // Forwards to $(D insertAfter(this[], stuff)). 
+  void opOpAssign( string op )( Stuff stuff ) 
   // Returns a range that iterates over all elements of the container, in a container-defined order. The container should choose the most convenient and fast method of iteration for `opSlice()` . 
-  Range opSlice( ) ;
+  Range opSlice() 
   // Returns a range that iterates the container between two specified positions. 
-  Range opSlice( size_t a, size_t b ) ;
+  Range opSlice( size_t a, size_t b ) 
   // Removes all elements belonging to `r` , which must be a range obtained originally from this container. The stable version behaves the same, but guarantees that ranges iterating over the container are never invalidated. 
-  Range remove( Range r ) ;
+  Range remove( Range r ) 
   // Picks one value in an unspecified position in the container, removes it from the container, and returns it. Implementations should pick the value that&#39;s the most advantageous for the container. The stable version behaves the same, but guarantees that ranges iterating over the container are never invalidated. 
-  T removeAny( ) ;
+  T removeAny() 
   // ditto 
-  void removeBack( ) ;
+  void removeBack() 
   // ditto 
-  size_t removeBack( size_t howMany ) ;
+  size_t removeBack( size_t howMany ) 
   // Removes the value at the front or back of the container. The stable version behaves the same, but guarantees that ranges iterating over the container are never invalidated. The optional parameter $(D howMany) instructs removal of that many elements. If $(D howMany &gt; n), all elements are removed and no exception is thrown. 
-  void removeFront( ) ;
+  void removeFront() 
   // Removes `howMany` values at the front or back of the container. Unlike the unparameterized versions above, these functions do not throw if they could not remove `howMany` elements. Instead, if $(D howMany &gt; n), all elements are removed. The returned value is the effective number of elements removed. The stable version behaves the same, but guarantees that ranges iterating over the container are never invalidated. 
-  size_t removeFront( size_t howMany ) ;
+  size_t removeFront( size_t howMany ) 
   // Removes all values corresponding to key `k` . 
-  size_t removeKey( KeyType k ) ;
+  size_t removeKey( KeyType k ) 
+  // ditto 
+  size_t replace( Stuff )( Range r, Stuff stuff ) 
   // Ensures sufficient capacity to accommodate `n` elements. 
-  void reserve( size_t e ) ;
+  void reserve( size_t e ) 
   // ditto 
-  size_t stableInsertBack( T value ) ;
+  size_t stableInsert( Stuff )( Stuff stuff ) 
   // ditto 
-  Range stableLinearRemove( Range r ) ;
+  size_t stableInsertAfter( Stuff )( Range r, Stuff stuff ) 
   // ditto 
-  Range stableRemove( Range r ) ;
+  size_t stableInsertBack( T value ) 
   // ditto 
-  T stableRemoveAny( ) ;
+  size_t stableInsertBefore( Stuff )( Range r, Stuff stuff ) 
   // ditto 
-  void stableRemoveBack( ) ;
+  size_t stableInsertFront( Stuff )( Stuff stuff ) 
   // ditto 
-  size_t stableRemoveBack( size_t howMany ) ;
+  size_t stableLinearInsert( Stuff )( Stuff stuff ) 
   // ditto 
-  void stableRemoveFront( ) ;
+  Range stableLinearRemove( Range r ) 
   // ditto 
-  size_t stableRemoveFront( size_t howMany ) ;
+  Range stableRemove( Range r ) 
+  // ditto 
+  T stableRemoveAny() 
+  // ditto 
+  void stableRemoveBack() 
+  // ditto 
+  size_t stableRemoveBack( size_t howMany ) 
+  // ditto 
+  void stableRemoveFront() 
+  // ditto 
+  size_t stableRemoveFront( size_t howMany ) 
+  // ditto 
+  size_t stableReplace( Stuff )( Range r, Stuff stuff ) 
   // Returns a range of all elements with keys larger than `k` (could be empty or a singleton range).  Only defined by containers that store data sorted at all times. 
-  Range upperBound( KeyType k ) ;
+  Range upperBound( KeyType k ) 
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>
@@ -229,8 +267,32 @@
 <td>Forward to <code>opSlice().front</code> and <code>opSlice().back</code> , respectively.</td>
 </tr>
 <tr>
+<td><a href="../TotalContainer/TotalContainer/Functions/insert.html">insert</a></td>
+<td>Inserts <code>stuff</code> in an unspecified position in the container. Implementations should choose whichever insertion means is the most advantageous for the container, but document the exact behavior. <code>stuff</code> can be a value convertible to the element type of the container, or a range of values convertible to it.</td>
+</tr>
+<tr>
+<td><a href="../TotalContainer/TotalContainer/Functions/insertAfter.html">insertAfter</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../TotalContainer/TotalContainer/Functions/insertBack.html">insertBack</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../TotalContainer/TotalContainer/Functions/insertBefore.html">insertBefore</a></td>
+<td>Inserts <code>stuff</code> before, after, or instead range <code>r</code> , which must be a valid range previously extracted from this container. <code>stuff</code> can be a value convertible to the container's element type or a range of objects convertible to it. The stable version behaves the same, but guarantees that ranges iterating over the container are never invalidated.</td>
+</tr>
+<tr>
+<td><a href="../TotalContainer/TotalContainer/Functions/insertFront.html">insertFront</a></td>
+<td>Inserts <code>value</code> to the front or back of the container. <code>stuff</code> can be a value convertible to the container's element type or a range of values convertible to it. The stable version behaves the same, but guarantees that ranges iterating over the container are never invalidated.</td>
+</tr>
+<tr>
 <td><a href="../TotalContainer/TotalContainer/Functions/length.html">length</a></td>
 <td>Returns the number of elements in the container.</td>
+</tr>
+<tr>
+<td><a href="../TotalContainer/TotalContainer/Functions/linearInsert.html">linearInsert</a></td>
+<td>Same as <code>insert(stuff)</code> and <code>stableInsert(stuff)</code> respectively, but relax the complexity constraint to linear.</td>
 </tr>
 <tr>
 <td><a href="../TotalContainer/TotalContainer/Functions/linearRemove.html">linearRemove</a></td>
@@ -253,12 +315,32 @@
 <td>Ditto</td>
 </tr>
 <tr>
+<td><a href="../TotalContainer/TotalContainer/Functions/opBinary.html">opBinary</a></td>
+<td>Returns a new container that's the concatenation of <code>this</code> and its argument. <code>opBinaryRight</code> is only defined if <code>Stuff</code> does not define <code>opBinary</code> .</td>
+</tr>
+<tr>
+<td><a href="../TotalContainer/TotalContainer/Functions/opBinaryRight.html">opBinaryRight</a></td>
+<td>$(D k in container) returns true if the given key is in the container.</td>
+</tr>
+<tr>
 <td><a href="../TotalContainer/TotalContainer/Functions/opIndex.html">opIndex</a></td>
 <td>Indexing operators yield or modify the value at a specified index.</td>
 </tr>
 <tr>
 <td><a href="../TotalContainer/TotalContainer/Functions/opIndexAssign.html">opIndexAssign</a></td>
 <td>ditto</td>
+</tr>
+<tr>
+<td><a href="../TotalContainer/TotalContainer/Functions/opIndexOpAssign.html">opIndexOpAssign</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../TotalContainer/TotalContainer/Functions/opIndexUnary.html">opIndexUnary</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../TotalContainer/TotalContainer/Functions/opOpAssign.html">opOpAssign</a></td>
+<td>Forwards to $(D insertAfter(this[], stuff)).</td>
 </tr>
 <tr>
 <td><a href="../TotalContainer/TotalContainer/Functions/opSlice.html">opSlice</a></td>
@@ -285,11 +367,35 @@
 <td>Removes all values corresponding to key <code>k</code> .</td>
 </tr>
 <tr>
+<td><a href="../TotalContainer/TotalContainer/Functions/replace.html">replace</a></td>
+<td>ditto</td>
+</tr>
+<tr>
 <td><a href="../TotalContainer/TotalContainer/Functions/reserve.html">reserve</a></td>
 <td>Ensures sufficient capacity to accommodate <code>n</code> elements.</td>
 </tr>
 <tr>
+<td><a href="../TotalContainer/TotalContainer/Functions/stableInsert.html">stableInsert</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../TotalContainer/TotalContainer/Functions/stableInsertAfter.html">stableInsertAfter</a></td>
+<td>ditto</td>
+</tr>
+<tr>
 <td><a href="../TotalContainer/TotalContainer/Functions/stableInsertBack.html">stableInsertBack</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../TotalContainer/TotalContainer/Functions/stableInsertBefore.html">stableInsertBefore</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../TotalContainer/TotalContainer/Functions/stableInsertFront.html">stableInsertFront</a></td>
+<td>ditto</td>
+</tr>
+<tr>
+<td><a href="../TotalContainer/TotalContainer/Functions/stableLinearInsert.html">stableLinearInsert</a></td>
 <td>ditto</td>
 </tr>
 <tr>
@@ -313,8 +419,26 @@
 <td>ditto</td>
 </tr>
 <tr>
+<td><a href="../TotalContainer/TotalContainer/Functions/stableReplace.html">stableReplace</a></td>
+<td>ditto</td>
+</tr>
+<tr>
 <td><a href="../TotalContainer/TotalContainer/Functions/upperBound.html">upperBound</a></td>
 <td>Returns a range of all elements with keys larger than <code>k</code> (could be empty or a singleton range).  Only defined by containers that store data sorted at all times.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../TotalContainer/TotalContainer/Structs/Range.html">Range</a></td>
+<td>Defines the container's primary range, which embodies one of the ranges defined in $(MREF std,range).</td>
 </tr>
 </tbody>
 </table>

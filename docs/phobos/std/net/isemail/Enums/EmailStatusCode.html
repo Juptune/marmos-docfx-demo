@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,132 +87,132 @@
         <article data-uid="std.net.isemail.Enums.EmailStatusCode">
 <h1 class='section'>Enum - EmailStatusCode</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.net.isemail</dd></dl>
-</div><pre><code class='lang-d'>enum EmailStatusCode
+</div><pre><code class='lang-d'>enum EmailStatusCode : int
 {
-  // All finer grained error checking is turned on. Address containing errors or warnings is considered invalid. A specific email status code will be returned indicating the error/warning of the address. 
-  __enumMember any;
-  // Address is valid within the message but cannot be used unmodified for the envelope 
-  __enumMember cFoldingWhitespace;
-  // Address contains comments 
-  __enumMember comment;
-  // Address contains deprecated elements but may still be valid in restricted contexts 
-  __enumMember deprecated_;
-  // Address contains a comment in a position that is deprecated 
-  __enumMember deprecatedComment;
-  // Address contains a comment or Folding White Space around the @ sign 
-  __enumMember deprecatedCommentFoldingWhitespaceNearAt;
-  // A comment contains a deprecated character 
-  __enumMember deprecatedCommentText;
-  // Address contains an obsolete form of Folding White Space 
-  __enumMember deprecatedFoldingWhitespace;
-  // The local part is in a deprecated form 
-  __enumMember deprecatedLocalPart;
-  // A quoted pair contains a deprecated character 
-  __enumMember deprecatedQuotedPair;
-  // A quoted string contains a deprecated character 
-  __enumMember deprecatedQuotedText;
+  // Address is valid 
+  validCategory = 1,
   // Address is valid but a DNS check was not successful 
-  __enumMember dnsWarning;
-  // Could not find an MX record for this domain but an A-record does exist 
-  __enumMember dnsWarningNoMXRecord;
-  // Could not find an MX record or an A-record for this domain 
-  __enumMember dnsWarningNoRecord;
-  // Address is invalid for any purpose 
-  __enumMember error;
-  // The address cannot end with a backslash 
-  __enumMember errorBackslashEnd;
-  // The address may not contain consecutive dots 
-  __enumMember errorConsecutiveDots;
-  // Address contains a carriage return that is not followed by a line feed 
-  __enumMember errorCrNoLf;
-  // A domain or subdomain cannot end with a hyphen 
-  __enumMember errorDomainHyphenEnd;
-  // A domain or subdomain cannot begin with a hyphen 
-  __enumMember errorDomainHyphenStart;
-  // Neither part of the address may end with a dot 
-  __enumMember errorDotEnd;
-  // Neither part of the address may begin with a dot 
-  __enumMember errorDotStart;
-  // A comment contains a character that is not allowed 
-  __enumMember errorExpectingCommentText;
-  // A domain literal contains a character that is not allowed 
-  __enumMember errorExpectingDomainText;
-  // The address contains a character that is not allowed in a quoted pair 
-  __enumMember errorExpectingQuotedPair;
-  // A quoted string contains a character that is not allowed 
-  __enumMember errorExpectingQuotedText;
-  // Address contains a character that is not allowed 
-  __enumMember errorExpectingText;
-  // Folding White Space contains consecutive CRLF sequences 
-  __enumMember errorFoldingWhitespaceCrflX2;
-  // Folding White Space ends with a CRLF sequence 
-  __enumMember errorFoldingWhitespaceCrLfEnd;
-  // Address has no domain part 
-  __enumMember errorNoDomain;
-  // Address has no local part 
-  __enumMember errorNoLocalPart;
-  // Address contains text after a comment or Folding White Space 
-  __enumMember errorTextAfterCommentFoldingWhitespace;
-  // Extra characters were found after the end of the domain literal 
-  __enumMember errorTextAfterDomainLiteral;
-  // Address contains text after a quoted string 
-  __enumMember errorTextAfterQuotedString;
-  // Unclosed comment 
-  __enumMember errorUnclosedComment;
-  // Domain literal is missing its closing bracket 
-  __enumMember errorUnclosedDomainLiteral;
-  // Unclosed quoted string 
-  __enumMember errorUnclosedQuotedString;
-  // Address contains Folding White Space 
-  __enumMember foldingWhitespace;
-  // Address is either considered valid or not, no finer grained error checking is performed. Returned email status code will be either Error or Valid. 
-  __enumMember none;
+  dnsWarning = 7,
   // Address is valid for SMTP but has unusual elements 
-  __enumMember rfc5321;
-  // Address is valid but at a literal address not a domain 
-  __enumMember rfc5321AddressLiteral;
-  // Address is valid but contains a :: that only elides one zero group 
-  __enumMember rfc5321IpV6Deprecated;
-  // Address is valid but contains a quoted string 
-  __enumMember rfc5321QuotedString;
-  // Address is valid but at a Top Level Domain 
-  __enumMember rfc5321TopLevelDomain;
-  // Address is valid but the Top Level Domain begins with a number 
-  __enumMember rfc5321TopLevelDomainNumeric;
+  rfc5321 = 15,
+  // Address is valid within the message but cannot be used unmodified for the envelope 
+  cFoldingWhitespace = 31,
+  // Address contains deprecated elements but may still be valid in restricted contexts 
+  deprecated_ = 63,
   // The address is only valid according to the broad definition of RFC 5322. It is otherwise invalid 
-  __enumMember rfc5322;
-  // Address is RFC 5322 compliant but contains domain characters that are not allowed by DNS 
-  __enumMember rfc5322Domain;
-  // The domain literal is not a valid RFC 5321 address literal 
-  __enumMember rfc5322DomainLiteral;
-  // The domain literal is not a valid RFC 5321 address literal and it contains obsolete characters 
-  __enumMember rfc5322DomainLiteralObsoleteText;
-  // The domain part is too long 
-  __enumMember rfc5322DomainTooLong;
-  // The IPv6 address contains an illegal group of characters 
-  __enumMember rfc5322IpV6BadChar;
-  // IPv6 address ends with a single colon 
-  __enumMember rfc5322IpV6ColonEnd;
-  // IPv6 address starts with a single colon 
-  __enumMember rfc5322IpV6ColonStart;
-  // The IPv6 literal address contains the wrong number of groups 
-  __enumMember rfc5322IpV6GroupCount;
-  // The IPv6 address has too many groups 
-  __enumMember rfc5322IpV6MaxGroups;
-  // The IPv6 literal address contains too many :: sequences 
-  __enumMember rfc5322IpV6TooManyDoubleColons;
-  // The domain part contains an element that is too long 
-  __enumMember rfc5322LabelTooLong;
-  // The local part of the address is too long 
-  __enumMember rfc5322LocalTooLong;
-  // Address is too long 
-  __enumMember rfc5322TooLong;
-  // Address is valid 
-  __enumMember valid;
-  // Address is valid 
-  __enumMember validCategory;
+  rfc5322 = 127,
+  // All finer grained error checking is turned on. Address containing errors or warnings is considered invalid. A specific email status code will be returned indicating the error/warning of the address. 
+  any = 252,
+  // Address is either considered valid or not, no finer grained error checking is performed. Returned email status code will be either Error or Valid. 
+  none = 253,
   // Address containing warnings is considered valid, that is, any status code below 16 is considered valid. 
-  __enumMember warning;
+  warning = 254,
+  // Address is invalid for any purpose 
+  error = 255,
+  // Address is valid 
+  valid = 0,
+  // Could not find an MX record for this domain but an A-record does exist 
+  dnsWarningNoMXRecord = 5,
+  // Could not find an MX record or an A-record for this domain 
+  dnsWarningNoRecord = 6,
+  // Address is valid but at a Top Level Domain 
+  rfc5321TopLevelDomain = 9,
+  // Address is valid but the Top Level Domain begins with a number 
+  rfc5321TopLevelDomainNumeric = 10,
+  // Address is valid but contains a quoted string 
+  rfc5321QuotedString = 11,
+  // Address is valid but at a literal address not a domain 
+  rfc5321AddressLiteral = 12,
+  // Address is valid but contains a :: that only elides one zero group 
+  rfc5321IpV6Deprecated = 13,
+  // Address contains comments 
+  comment = 17,
+  // Address contains Folding White Space 
+  foldingWhitespace = 18,
+  // The local part is in a deprecated form 
+  deprecatedLocalPart = 33,
+  // Address contains an obsolete form of Folding White Space 
+  deprecatedFoldingWhitespace = 34,
+  // A quoted string contains a deprecated character 
+  deprecatedQuotedText = 35,
+  // A quoted pair contains a deprecated character 
+  deprecatedQuotedPair = 36,
+  // Address contains a comment in a position that is deprecated 
+  deprecatedComment = 37,
+  // A comment contains a deprecated character 
+  deprecatedCommentText = 38,
+  // Address contains a comment or Folding White Space around the @ sign 
+  deprecatedCommentFoldingWhitespaceNearAt = 49,
+  // Address is RFC 5322 compliant but contains domain characters that are not allowed by DNS 
+  rfc5322Domain = 65,
+  // Address is too long 
+  rfc5322TooLong = 66,
+  // The local part of the address is too long 
+  rfc5322LocalTooLong = 67,
+  // The domain part is too long 
+  rfc5322DomainTooLong = 68,
+  // The domain part contains an element that is too long 
+  rfc5322LabelTooLong = 69,
+  // The domain literal is not a valid RFC 5321 address literal 
+  rfc5322DomainLiteral = 70,
+  // The domain literal is not a valid RFC 5321 address literal and it contains obsolete characters 
+  rfc5322DomainLiteralObsoleteText = 71,
+  // The IPv6 literal address contains the wrong number of groups 
+  rfc5322IpV6GroupCount = 72,
+  // The IPv6 literal address contains too many :: sequences 
+  rfc5322IpV6TooManyDoubleColons = 73,
+  // The IPv6 address contains an illegal group of characters 
+  rfc5322IpV6BadChar = 74,
+  // The IPv6 address has too many groups 
+  rfc5322IpV6MaxGroups = 75,
+  // IPv6 address starts with a single colon 
+  rfc5322IpV6ColonStart = 76,
+  // IPv6 address ends with a single colon 
+  rfc5322IpV6ColonEnd = 77,
+  // A domain literal contains a character that is not allowed 
+  errorExpectingDomainText = 129,
+  // Address has no local part 
+  errorNoLocalPart = 130,
+  // Address has no domain part 
+  errorNoDomain = 131,
+  // The address may not contain consecutive dots 
+  errorConsecutiveDots = 132,
+  // Address contains text after a comment or Folding White Space 
+  errorTextAfterCommentFoldingWhitespace = 133,
+  // Address contains text after a quoted string 
+  errorTextAfterQuotedString = 134,
+  // Extra characters were found after the end of the domain literal 
+  errorTextAfterDomainLiteral = 135,
+  // The address contains a character that is not allowed in a quoted pair 
+  errorExpectingQuotedPair = 136,
+  // Address contains a character that is not allowed 
+  errorExpectingText = 137,
+  // A quoted string contains a character that is not allowed 
+  errorExpectingQuotedText = 138,
+  // A comment contains a character that is not allowed 
+  errorExpectingCommentText = 139,
+  // The address cannot end with a backslash 
+  errorBackslashEnd = 140,
+  // Neither part of the address may begin with a dot 
+  errorDotStart = 141,
+  // Neither part of the address may end with a dot 
+  errorDotEnd = 142,
+  // A domain or subdomain cannot begin with a hyphen 
+  errorDomainHyphenStart = 143,
+  // A domain or subdomain cannot end with a hyphen 
+  errorDomainHyphenEnd = 144,
+  // Unclosed quoted string 
+  errorUnclosedQuotedString = 145,
+  // Unclosed comment 
+  errorUnclosedComment = 146,
+  // Domain literal is missing its closing bracket 
+  errorUnclosedDomainLiteral = 147,
+  // Folding White Space contains consecutive CRLF sequences 
+  errorFoldingWhitespaceCrflX2 = 148,
+  // Folding White Space ends with a CRLF sequence 
+  errorFoldingWhitespaceCrLfEnd = 149,
+  // Address contains a carriage return that is not followed by a line feed 
+  errorCrNoLf = 150,
 }</code></pre><h2 class='section'>About</h2><p>An email status code, indicating if an email address is valid or not. If it is invalid it also indicates why.</p>
 <h2 class='section'>Variables</h2><table>
 <thead>

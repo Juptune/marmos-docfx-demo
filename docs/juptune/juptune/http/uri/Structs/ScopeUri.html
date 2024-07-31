@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,28 +90,30 @@
 </div><pre><code class='lang-d'>public struct ScopeUri
 {
   // 
-  void mustReconstruct( ) ;
+  void mustReconstruct() 
   // Reconstructs the URI from the data it points to, and validates that the reconstructed URI matches the original URI. 
-  Result reconstruct( Array!(char) result ) ;
+  Result reconstruct( out scope Array!(char) result ) @nogc @trusted nothrow
+  // 
+  void reconstructSink( SinkT )( ref scope SinkT sink ) 
 
   // The fragment of the URI, e.g. &quot;#some-fragment&quot;, if one exists 
-  &lt;bug: unknown&gt; fragment;
+  char[] fragment
   // A bitmask of hints that can be used to determine the structure of the URI 
-  UriParseHints hints;
+  UriParseHints hints
   // The host of the URI, e.g. &quot;localhost&quot;, if one exists 
-  &lt;bug: unknown&gt; host;
+  char[] host
   // The host of the URI as an IP address, if one exists. 
-  Nullable!(IpAddress) hostAsIp;
+  Nullable!(IpAddress) hostAsIp
   // The path of the URI, e.g. &quot;/some/path&quot;, if one exists 
-  &lt;bug: unknown&gt; path;
+  char[] path
   // The port of the URI, if one exists. 
-  Nullable!(ushort) port;
+  Nullable!(ushort) port
   // The query of the URI, e.g. &quot;?some=query&quot;, if one exists 
-  &lt;bug: unknown&gt; query;
+  char[] query
   // The scheme of the URI, e.g. &quot;http&quot;, if one exists 
-  &lt;bug: unknown&gt; scheme;
+  char[] scheme
   // The user info of the URI, e.g. &quot;user:info&quot;, if one exists 
-  &lt;bug: unknown&gt; userInfo;
+  char[] userInfo
 }</code></pre><h2 class='section'>About</h2><p>A fairly featureless POD struct that represents a URI that specifically does <strong>not</strong> own the data it points to.</p>
 <p>This means this struct is only valid for as long as the data it points to is valid, but it has other interesting implications such as using data from multiple non-contigous memory blocks if suitable.</p>
 <h2 class='section'>Functions</h2><table>
@@ -129,6 +131,10 @@
 <tr>
 <td><a href="../ScopeUri/ScopeUri/Functions/reconstruct.html">reconstruct</a></td>
 <td>Reconstructs the URI from the data it points to, and validates that the reconstructed URI matches the original URI.</td>
+</tr>
+<tr>
+<td><a href="../ScopeUri/ScopeUri/Functions/reconstructSink.html">reconstructSink</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>

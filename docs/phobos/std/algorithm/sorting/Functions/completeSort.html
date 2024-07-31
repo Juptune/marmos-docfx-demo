@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,7 +89,12 @@
 <dl><dt>Module</dt><dd>std.algorithm.sorting</dd></dl>
 </div><h2 class='section api'>completeSort(lhs, rhs)   </h2>
  <pre><code class='lang-d'>void completeSort(
-  SortedRange!(Lhsless) lhs,
+  alias less = &quot;a &lt; b&quot;,
+  SwapStrategy ss = SwapStrategy.unstable,
+  Lhs,
+  Rhs
+)(
+  SortedRange!(Lhs,less) lhs,
   Rhs rhs
 ) </code></pre><p>Sorts the random-access range <code>chain(lhs, rhs)</code> according to predicate <code>less</code> .</p>
 <p>The left-hand side of the range <code>lhs</code> is assumed to be already sorted; <code>rhs</code> is assumed to be unsorted. The exact strategy chosen depends on the relative sizes of <code>lhs</code> and <code>rhs</code> .  Performs $(BIGOH lhs.length + rhs.length log(rhs.length)) (best case) to $(BIGOH (lhs.length + rhs.length) log(lhs.length + rhs.length)) (worst-case) evaluations of $(REF_ALTTEXT swap, swap, std,algorithm,mutation).</p>
@@ -105,7 +110,7 @@
 
 <p>The swapping strategy to use.</p>
 
-</dd><dt><code>lhs</code> SortedRange!(Lhsless)  </dt>
+</dd><dt><code>lhs</code> SortedRange!(Lhs,less)  </dt>
 <dd>
 
 

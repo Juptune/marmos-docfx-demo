@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,14 +88,10 @@
 <h1 class='section'>Overloads for - allocatorObject</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator</dd></dl>
 </div><h2 class='section api'>allocatorObject(a)   </h2>
- <pre><code class='lang-d'>RCIAllocator allocatorObject(
-  A a
-) </code></pre><p>Returns a dynamically-typed <code>CAllocator</code> built around a given statically- typed allocator <code>a</code> of type <code>A</code> . Passing a pointer to the allocator creates a dynamic allocator around the allocator pointed to by the pointer, without attempting to copy or move it. Passing the allocator by value or reference behaves as follows.</p>
+ <pre><code class='lang-d'>RCIAllocator allocatorObject( A )( auto ref A a ) </code></pre><p>Returns a dynamically-typed <code>CAllocator</code> built around a given statically- typed allocator <code>a</code> of type <code>A</code> . Passing a pointer to the allocator creates a dynamic allocator around the allocator pointed to by the pointer, without attempting to copy or move it. Passing the allocator by value or reference behaves as follows.</p>
 <p>$(UL $(LI If <code>A</code> has no state, the resulting object is allocated in static shared storage.) $(LI If <code>A</code> has state, the result will $(REF move, std,algorithm,mutation) the supplied allocator $(D A a) within. The result itself is allocated in its own statically-typed allocator.) )</p>
 <h2 class='section api'>allocatorObject(pa)   </h2>
- <pre><code class='lang-d'>RCIAllocator allocatorObject(
-  &lt;bug: unknown&gt; pa
-) </code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>RCIAllocator allocatorObject( A )( A* pa ) </code></pre><p>Ditto</p>
 
 </article>
 

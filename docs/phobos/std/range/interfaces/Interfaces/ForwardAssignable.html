@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,10 +87,10 @@
         <article data-uid="std.range.interfaces.Interfaces.ForwardAssignable">
 <h1 class='section'>Interface - ForwardAssignable</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range.interfaces</dd></dl>
-</div><pre><code class='lang-d'>public interface ForwardAssignable
+</div><pre><code class='lang-d'>interface ForwardAssignable( E )
 {
   // 
-  ForwardAssignable!(E) save( ) ;
+  ForwardAssignable!(E) save() @property
 }</code></pre><h2 class='section'>About</h2><p>Adds assignable elements to ForwardRange.</p>
 <h2 class='section'>Functions</h2><table>
 <thead>

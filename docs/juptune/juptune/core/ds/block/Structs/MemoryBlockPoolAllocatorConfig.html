@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,10 +90,13 @@
 </div><pre><code class='lang-d'>public struct MemoryBlockPoolAllocatorConfig
 {
   // 
-  MemoryBlockPoolAllocatorConfig withPowerConfig( size_t powerOfTwo, PowerOfTwo config ) ;
+  ref MemoryBlockPoolAllocatorConfig withPowerConfig(
+    size_t powerOfTwo,
+    PowerOfTwo config
+  ) return
 
   // 
-  &lt;bug: unknown&gt; powerConfig;
+  PowerOfTwo[MemoryBlockPool] powerConfig = PowerOfTwo.DefaultArray
 }</code></pre><h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -104,6 +107,20 @@
 <tbody>
 <tr>
 <td><a href="../MemoryBlockPoolAllocatorConfig/MemoryBlockPoolAllocatorConfig/Functions/withPowerConfig.html">withPowerConfig</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../MemoryBlockPoolAllocatorConfig/MemoryBlockPoolAllocatorConfig/Structs/PowerOfTwo.html">PowerOfTwo</a></td>
 <td></td>
 </tr>
 </tbody>

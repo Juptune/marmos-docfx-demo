@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,9 +89,9 @@
 <dl><dt>Module</dt><dd>std.path</dd></dl>
 </div><h2 class='section api'>absolutePath(path, base)   </h2>
  <pre><code class='lang-d'>string absolutePath(
-  string path,
-  string base
-) </code></pre><p>Transforms <code>path</code> into an absolute path.</p>
+  const scope return ref return ref scope string path,
+  lazy string base
+) @safe pure</code></pre><p>Transforms <code>path</code> into an absolute path.</p>
 <p>The following algorithm is used: $(OL $(LI If <code>path</code> is empty, return <code>null</code> .) $(LI If <code>path</code> is already absolute, return it.) $(LI Otherwise, append <code>path</code> to <code>base</code> and return the result. If <code>base</code> is not specified, the current working directory is used.) ) The function allocates memory if and only if it gets to the third stage of this algorithm.</p>
 <p>Note that <code>absolutePath</code> will not normalize <code>..</code> segments. Use <code>buildNormalizedPath(absolutePath(path))</code> if that is desired.</p>
 <p>Params: path = the relative path to transform base = the base directory of the relative path</p>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,47 +87,55 @@
         <article data-uid="std.container.array.Structs.RangeT">
 <h1 class='section'>Struct - RangeT</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.container.array</dd></dl>
-</div><pre><code class='lang-d'>public struct RangeT
+</div><pre><code class='lang-d'>struct RangeT( A )
 {
   // 
-  alias E = &lt;todo: marmos support pending&gt;;
+  alias E = &lt;todo: marmos support pending&gt;
   // 
-  alias opDollar = &lt;todo: marmos support pending&gt;;
+  alias opDollar = &lt;todo: marmos support pending&gt;
 
   // 
-  E back( ) ;
+  ref E back() @property
   // 
-  bool empty( ) ;
+  bool empty() @property @safe nothrow pure
   // 
-  E front( ) ;
+  ref E front() @property
   // 
-  size_t length( ) ;
+  size_t length() @property @safe nothrow pure
   // 
-  E moveAt( size_t i ) ;
+  E moveAt( size_t i ) 
   // 
-  E moveBack( ) ;
+  E moveBack() 
   // 
-  E moveFront( ) ;
+  E moveFront() 
   // 
-  E opIndex( size_t i ) ;
+  ref E opIndex( size_t i ) 
   // 
-  RangeT opSlice( ) ;
+  RangeT opSlice() 
   // 
-  RangeT opSlice( size_t i, size_t j ) ;
+  RangeT opSlice( size_t i, size_t j ) 
   // 
-  RangeT!(const(A)) opSlice( ) ;
+  RangeT!(const(A)) opSlice() 
   // 
-  RangeT!(const(A)) opSlice( size_t i, size_t j ) ;
+  RangeT!(const(A)) opSlice( size_t i, size_t j ) 
   // 
-  void opSliceAssign( E value ) ;
+  void opSliceAssign( E value ) 
   // 
-  void opSliceAssign( E value, size_t i, size_t j ) ;
+  void opSliceAssign( E value, size_t i, size_t j ) 
   // 
-  void popBack( ) ;
+  void opSliceOpAssign( string op )( E value ) 
   // 
-  void popFront( ) ;
+  void opSliceOpAssign( string op )( E value, size_t i, size_t j ) 
   // 
-  RangeT save( ) ;
+  void opSliceUnary( string op )() 
+  // 
+  void opSliceUnary( string op )( size_t i, size_t j ) 
+  // 
+  void popBack() @nogc @safe nothrow pure
+  // 
+  void popFront() @nogc @safe nothrow pure
+  // 
+  RangeT save() @property
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>
@@ -192,6 +200,14 @@
 </tr>
 <tr>
 <td><a href="../RangeT/RangeT/Functions/opSliceAssign.html">opSliceAssign</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../RangeT/RangeT/Functions/opSliceOpAssign.html">opSliceOpAssign</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../RangeT/RangeT/Functions/opSliceUnary.html">opSliceUnary</a></td>
 <td></td>
 </tr>
 <tr>

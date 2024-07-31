@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - yield</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.event.loop</dd></dl>
 </div><h2 class='section api'>yield()   </h2>
- <pre><code class='lang-d'>Result yield(
-) </code></pre><p>Manually yields the current fiber so that other fibers can be ran.</p>
+ <pre><code class='lang-d'>Result yield() @nogc nothrow</code></pre><p>Manually yields the current fiber so that other fibers can be ran.</p>
 <p>Since yielded fibers aren't waiting for IO to complete, the event loop thread will not sleep while there are manually yielded fibers waiting to be woken up.</p>
 <p>This means that the event loop thread will keep spinning its CPU usage.</p>
 <p>If you need/want to delay execution of the fiber then please use the (not currently implemented!) <code>yieldSleep</code> function instead. This will allow the event loop thread to sleep, easing CPU usage.</p>

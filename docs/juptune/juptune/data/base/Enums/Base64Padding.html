@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,16 +87,16 @@
         <article data-uid="juptune.data.base.Enums.Base64Padding">
 <h1 class='section'>Enum - Base64Padding</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.data.base</dd></dl>
-</div><pre><code class='lang-d'>enum Base64Padding
+</div><pre><code class='lang-d'>enum Base64Padding : int
 {
   // No padding is allowed in both encoding and decoding. 
-  __enumMember none;
-  // Padding is optional in both encoding and decoding; and the encoder should never output padding. 
-  __enumMember optionalNoPrefer;
+  none,
   // Padding is optional in both encoding and decoding; and the encoder should always output padding where possible. 
-  __enumMember optionalPrefer;
+  optionalPrefer,
+  // Padding is optional in both encoding and decoding; and the encoder should never output padding. 
+  optionalNoPrefer,
   // Padding is required in both encoding and decoding. 
-  __enumMember required;
+  required,
 }</code></pre><h2 class='section'>About</h2><p>Used with an Alphabet to describe how padding is handled.</p>
 <h2 class='section'>Variables</h2><table>
 <thead>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,7 @@
 <h1 class='section'>Variable - maxReadAttempts</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.http.v1.Http1Config</dd></dl><dl><dt>Parent</dt><dd>Http1Config</dd></dl>
 </div><h2 class='section api'>maxReadAttempts   </h2>
- <pre><code class='lang-d'>size_t maxReadAttempts</code></pre><h2 class='section'>About</h2><p>The maximum number of times the reader will attempt to read data from the socket before giving up and returning an error (in certain circumstances).</p>
+ <pre><code class='lang-d'>size_t maxReadAttempts = 5</code></pre><h2 class='section'>About</h2><p>The maximum number of times the reader will attempt to read data from the socket before giving up and returning an error (in certain circumstances).</p>
 <p>Imagine this situtation: There is a bad actor trying to exhuast the server's resources by opening a bunch of connections, sending just enough data at just enough of a rate to keep the connection alive, but not enough to actually send a request.</p>
 <p>The reader in this case could be trying to just parse a request line, so is looking for a <code>\r\n</code> that never ends up coming. If after <code>maxReadAttempts</code> the reader still hasn't found the <code>\r\n</code> , it will return an error as it assumes the client is acting in bad faith.</p>
 <p>Body data is not included in this check currently, as a better method/heuristic is needed for large bodies.</p>

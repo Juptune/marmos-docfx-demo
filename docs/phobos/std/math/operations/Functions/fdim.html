@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - fdim</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.math.operations</dd></dl>
 </div><h2 class='section api'>fdim(x, y)   </h2>
- <pre><code class='lang-d'>real fdim(
-  real x,
-  real y
-) </code></pre><p>Returns the positive difference between x and y.</p>
+ <pre><code class='lang-d'>real fdim( real x, real y ) @nogc @safe nothrow pure</code></pre><p>Returns the positive difference between x and y.</p>
 <p>Equivalent to <code>fmax(x-y, 0)</code> .</p>
 <h3 class='section'>Returns</h3><p>$(TABLE_SV $(TR $(TH x, y)       $(TH fdim(x, y))) $(TR $(TD x $(GT) y)  $(TD x - y)) $(TR $(TD x $(LT)= y) $(TD +0.0)) )</p>
 

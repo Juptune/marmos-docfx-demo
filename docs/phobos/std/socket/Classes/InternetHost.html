@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,25 +90,27 @@
 </div><pre><code class='lang-d'>public class InternetHost
 {
   // 
-  alias getHost = &lt;todo: marmos support pending&gt;;
+  alias getHost = &lt;todo: marmos support pending&gt;
 
   // Resolve IPv4 address number. 
-  bool getHostByAddr( uint addr ) ;
+  bool getHostByAddr( uint addr ) @trusted
   // Same as previous, but addr is an IPv4 address string in the dotted-decimal form $(I a.b.c.d). Returns: false if unable to resolve. 
-  bool getHostByAddr( &lt;bug: unknown&gt; addr ) ;
+  bool getHostByAddr( scope char[] addr ) @trusted
   // Resolve host name. Returns: false if unable to resolve. 
-  bool getHostByName( &lt;bug: unknown&gt; name ) ;
+  bool getHostByName( scope char[] name ) @trusted
   // 
-  void populate( &lt;bug: unknown&gt; he ) ;
+  bool getHostNoSync( string opMixin, T )( T param ) @system
   // 
-  void validHostent( &lt;bug: unknown&gt; he ) ;
+  void populate( hostent* he ) @system nothrow pure
+  // 
+  void validHostent( in hostent* he ) 
 
   // ditto 
-  &lt;bug: unknown&gt; addrList;
+  uint[] addrList
   // ditto 
-  &lt;bug: unknown&gt; aliases;
+  string[] aliases
   // 
-  string name;
+  string name
 }</code></pre><h2 class='section'>About</h2><p>Class for resolving IPv4 addresses.</p>
 <p>Consider using <code>getAddress</code> , <code>parseAddress</code> and <code>Address</code> methods instead of using this class directly.</p>
 <h2 class='section'>Aliases</h2><table>
@@ -140,6 +142,10 @@
 <tr>
 <td><a href="../InternetHost/InternetHost/Functions/getHostByName.html">getHostByName</a></td>
 <td>Resolve host name. Returns: false if unable to resolve.</td>
+</tr>
+<tr>
+<td><a href="../InternetHost/InternetHost/Functions/getHostNoSync.html">getHostNoSync</a></td>
+<td></td>
 </tr>
 <tr>
 <td><a href="../InternetHost/InternetHost/Functions/populate.html">populate</a></td>

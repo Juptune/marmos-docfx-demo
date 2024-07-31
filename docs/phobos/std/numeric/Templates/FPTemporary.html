@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,7 +90,7 @@
 </div><pre><code class='lang-d'>template FPTemporary
 {
   // 
-  alias FPTemporary = &lt;todo: marmos support pending&gt;;
+  alias FPTemporary = &lt;todo: marmos support pending&gt;
 }</code></pre><h2 class='section'>About</h2><p>Defines the fastest type to use when storing temporaries of a calculation intended to ultimately yield a result of type <code>F</code> (where <code>F</code> must be one of <code>float</code> , <code>double</code> , or $(D real)). When doing a multi-step computation, you may want to store intermediate results as <code>FPTemporary!F</code> .</p>
 <p>The necessity of <code>FPTemporary</code> stems from the optimized floating-point operations and registers present in virtually all processors. When adding numbers in the example above, the addition may in fact be done in <code>real</code> precision internally. In that case, storing the intermediate <code>result</code> in $(D double format) is not only less precise, it is also (surprisingly) slower, because a conversion from <code>real</code> to <code>double</code> is performed every pass through the loop. This being a lose-lose situation, <code>FPTemporary!F</code> has been defined as the $(I fastest) type to use for calculations at precision <code>F</code> . There is no need to define a type for the $(I most accurate) calculations, as that is always <code>real</code> .</p>
 <p>Finally, there is no guarantee that using <code>FPTemporary!F</code> will always be fastest, as the speed of floating-point calculations depends on very many factors.</p>

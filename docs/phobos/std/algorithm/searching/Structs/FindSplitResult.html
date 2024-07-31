@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,13 +87,15 @@
         <article data-uid="std.algorithm.searching.Structs.FindSplitResult">
 <h1 class='section'>Struct - FindSplitResult</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.searching</dd></dl>
-</div><pre><code class='lang-d'>public struct FindSplitResult
+</div><pre><code class='lang-d'>struct FindSplitResult( ubyte emptyRangeIndex, Types... )
 {
   // 
-  void opAssign( &lt;bug: unknown&gt; rhs ) ;
+  void opAssign( typeof(asTuple) rhs ) 
+  // 
+  bool opCast( T : bool )() 
 
   // 
-  Tuple!(Types) asTuple;
+  Tuple!(Types) asTuple
 }</code></pre><h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -104,6 +106,10 @@
 <tbody>
 <tr>
 <td><a href="../FindSplitResult/FindSplitResult/Functions/opAssign.html">opAssign</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../FindSplitResult/FindSplitResult/Functions/opCast.html">opCast</a></td>
 <td></td>
 </tr>
 </tbody>

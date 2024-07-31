@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,22 +88,13 @@
 <h1 class='section'>Overloads for - scalbn</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.math.exponential</dd></dl>
 </div><h2 class='section api'>scalbn(x, n)   </h2>
- <pre><code class='lang-d'>real scalbn(
-  real x,
-  int n
-) </code></pre><p>Efficiently calculates x 2$(SUPERSCRIPT n).</p>
+ <pre><code class='lang-d'>real scalbn( real x, int n ) @nogc @safe nothrow pure</code></pre><p>Efficiently calculates x 2$(SUPERSCRIPT n).</p>
 <p>scalbn handles underflow and overflow in the same fashion as the basic arithmetic operators.</p>
 <p>$(TABLE_SV $(TR $(TH x)                 $(TH scalb(x))) $(TR $(TD $(PLUSMNINF))      $(TD $(PLUSMNINF)) ) $(TR $(TD $(PLUSMN)0.0)      $(TD $(PLUSMN)0.0) ) )</p>
 <h2 class='section api'>scalbn(x, n)   </h2>
- <pre><code class='lang-d'>double scalbn(
-  double x,
-  int n
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>double scalbn( double x, int n ) @nogc @safe nothrow pure</code></pre><p>ditto</p>
 <h2 class='section api'>scalbn(x, n)   </h2>
- <pre><code class='lang-d'>float scalbn(
-  float x,
-  int n
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>float scalbn( float x, int n ) @nogc @safe nothrow pure</code></pre><p>ditto</p>
 
 </article>
 

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,19 +88,22 @@
 <h1 class='section'>Overloads for - sformat</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.format</dd></dl>
 </div><h2 class='section api'>sformat(buf, fmt, args)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; sformat(
-  &lt;bug: unknown&gt; buf,
-  &lt;bug: unknown&gt; fmt,
+ <pre><code class='lang-d'>char[] sformat(
+  Char,
+  Args...
+)(
+  scope return ref return ref scope char[] buf,
+  scope Char[] fmt,
   Args args
 ) </code></pre><p>Converts its arguments according to a format string into a buffer. The buffer has to be large enough to hold the formatted string.</p>
 <p>The second version of <code>sformat</code> takes the format string as a template argument. In this case, it is checked for consistency at compile-time.</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>buf</code> &lt;bug: unknown&gt;  </dt>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>buf</code> char[]  </dt>
 <dd>
 
 
 <p>the buffer where the formatted string should go</p>
 
-</dd><dt><code>fmt</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>fmt</code> Char[]  </dt>
 <dd>
 
 
@@ -129,10 +132,7 @@
 <h3 class='section'>Note</h3><p>In theory this function should be <code>@nogc</code> . But with the current implementation there are some cases where allocations occur:</p>
 <p>$(UL $(LI An exception is thrown.) $(LI A custom <code>toString</code> function of a compound type allocates.))</p>
 <h2 class='section api'>sformat(buf, args)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; sformat(
-  &lt;bug: unknown&gt; buf,
-  Args args
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>char[] sformat( alias fmt, Args... )( char[] buf, Args args ) </code></pre><p>ditto</p>
 
 </article>
 

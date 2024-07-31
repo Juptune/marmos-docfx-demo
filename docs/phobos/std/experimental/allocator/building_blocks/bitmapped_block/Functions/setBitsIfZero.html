@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,11 +88,7 @@
 <h1 class='section'>Overloads for - setBitsIfZero</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator.building_blocks.bitmapped_block</dd></dl>
 </div><h2 class='section api'>setBitsIfZero(w, lsb, msb)   </h2>
- <pre><code class='lang-d'>bool setBitsIfZero(
-  ulong w,
-  uint lsb,
-  uint msb
-) </code></pre>
+ <pre><code class='lang-d'>bool setBitsIfZero( ref ulong w, uint lsb, uint msb ) @nogc @safe nothrow pure</code></pre>
 </article>
 
         <div class="contribution d-print-none">

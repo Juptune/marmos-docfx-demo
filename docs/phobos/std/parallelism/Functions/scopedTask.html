@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - scopedTask</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.parallelism</dd></dl>
 </div><h2 class='section api'>scopedTask(args)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; scopedTask(
-  Args args
-) auto</code></pre><p>These functions allow the creation of <code>Task</code> objects on the stack rather than the GC heap.  The lifetime of a <code>Task</code> created by <code>scopedTask</code> cannot exceed the lifetime of the scope it was created in.</p>
+ <pre><code class='lang-d'>auto scopedTask( alias fun, Args... )( Args args ) </code></pre><p>These functions allow the creation of <code>Task</code> objects on the stack rather than the GC heap.  The lifetime of a <code>Task</code> created by <code>scopedTask</code> cannot exceed the lifetime of the scope it was created in.</p>
 <h3 class='section'>`scopedTask` might be preferred over `task`</h3><pre><code>1.1. When a `Task` that calls a delegate is being created and a
 </code></pre>
 <p>closure cannot be allocated due to objects on the stack that have scoped destruction.  The delegate overload of <code>scopedTask</code> takes a <code>scope</code> delegate.</p>
@@ -100,15 +98,9 @@
 <p>Usage is otherwise identical to <code>task</code> .</p>
 <p>Notes:  <code>Task</code> objects created using <code>scopedTask</code> will automatically call <code>Task.yieldForce</code> in their destructor if necessary to ensure the <code>Task</code> is complete before the stack frame they reside on is destroyed.</p>
 <h2 class='section api'>scopedTask(delegateOrFp, args)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; scopedTask(
-  F delegateOrFp,
-  Args args
-) auto</code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>auto scopedTask( F, Args... )( scope F delegateOrFp, Args args ) </code></pre><p>Ditto</p>
 <h2 class='section api'>scopedTask(fun, args)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; scopedTask(
-  F fun,
-  Args args
-) auto</code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>auto scopedTask( F, Args... )( F fun, Args args ) @trusted</code></pre><p>Ditto</p>
 
 </article>
 

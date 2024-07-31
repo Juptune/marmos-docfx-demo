@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,49 +87,49 @@
         <article data-uid="std.range.Structs.Slides">
 <h1 class='section'>Struct - Slides</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
-</div><pre><code class='lang-d'>public struct Slides
+</div><pre><code class='lang-d'>struct Slides( Flag!(&quot;withPartial&quot;) withPartial = Yes.withPartial, Source )
 {
   // Bidirectional range primitives. Provided only if both `hasSlicing!Source` and `!isInfinite!Source` are `true` . 
-  &lt;bug: unknown&gt; back( ) auto;
+  auto back() @property
   // Ditto 
-  bool empty( ) ;
+  bool empty() @property
   // Forward range primitives. Always present. 
-  &lt;bug: unknown&gt; front( ) auto;
+  auto front() @property
   // 
-  size_t gap( ) ;
+  size_t gap() 
   // 
-  bool hasPartialElements( ) ;
+  bool hasPartialElements() 
   // Length. Only if `hasLength!Source` is `true` 
-  size_t length( ) ;
+  size_t length() @property
   // 
-  size_t numberOfFullFrames( ) ;
+  size_t numberOfFullFrames() 
   // 
-  DollarToken opDollar( ) ;
+  DollarToken opDollar() 
   // Indexing and slicing operations. Provided only if `hasSlicing!Source` is `true` . 
-  &lt;bug: unknown&gt; opIndex( size_t index ) auto;
+  auto opIndex( size_t index ) 
   // ditto 
-  &lt;bug: unknown&gt; opSlice( size_t lower, size_t upper ) ;
+  typeof(this) opSlice( size_t lower, size_t upper ) 
   // 
-  &lt;bug: unknown&gt; opSlice( size_t lower, DollarToken __anonymous ) ;
+  typeof(this) opSlice( size_t lower, DollarToken __anonymous ) 
   // Ditto 
-  void popBack( ) ;
+  void popBack() 
   // Ditto 
-  void popFront( ) ;
+  void popFront() 
   // Ditto 
-  &lt;bug: unknown&gt; save( ) ;
+  typeof(this) save() @property
 
   // 
-  bool hasShownPartialBefore;
+  bool hasShownPartialBefore
   // 
-  __enumMember hasSliceToEnd;
+  &lt;enum or auto&gt; hasSliceToEnd = hasSlicing!Source &amp;&amp; is(typeof(Source.init[0..__dollar]) == Source)
   // 
-  __enumMember needsEndTracker;
+  &lt;enum or auto&gt; needsEndTracker = false
   // 
-  Source source;
+  Source source
   // 
-  size_t stepSize;
+  size_t stepSize
   // 
-  size_t windowSize;
+  size_t windowSize
 }</code></pre><h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -189,6 +189,20 @@
 <tr>
 <td><a href="../Slides/Slides/Functions/save.html">save</a></td>
 <td>Ditto</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Slides/Slides/Structs/DollarToken.html">DollarToken</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>

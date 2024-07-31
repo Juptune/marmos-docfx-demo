@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,43 +90,43 @@
 </div><pre><code class='lang-d'>public class SocketSet
 {
   // 
-  alias fd_set_count_type = &lt;todo: marmos support pending&gt;;
+  alias fd_set_count_type = &lt;todo: marmos support pending&gt;
   // 
-  alias fd_set_type = &lt;todo: marmos support pending&gt;;
+  alias fd_set_type = &lt;todo: marmos support pending&gt;
 
   // 
-  void add( socket_t s ) ;
+  void add( socket_t s ) @trusted nothrow pure
   // Add a `Socket` to the collection. The socket must not already be in the collection. 
-  void add( Socket s ) ;
+  void add( Socket s ) nothrow pure
   // 
-  size_t capacity( ) ;
+  size_t capacity() @nogc @property nothrow pure
   // 
-  fd_set_count_type count( ) ;
+  ref fd_set_count_type count() @nogc @property @trusted nothrow pure
   // 
-  &lt;bug: unknown&gt; fds( ) ;
+  socket_t[] fds() @nogc @property @trusted nothrow pure
   // 
-  int isSet( socket_t s ) ;
+  int isSet( socket_t s ) @nogc nothrow pure
   // Return nonzero if this `Socket` is in the collection. 
-  int isSet( Socket s ) ;
+  int isSet( Socket s ) @nogc nothrow pure
   // 
-  uint max( ) ;
+  uint max() @nogc @property nothrow pure
   // 
-  void remove( socket_t s ) ;
+  void remove( socket_t s ) nothrow pure
   // Remove this `Socket` from the collection. Does nothing if the socket is not in the collection already. 
-  void remove( Socket s ) ;
+  void remove( Socket s ) nothrow pure
   // Reset the `SocketSet` so that there are 0 `Socket` s in the collection. 
-  void reset( ) ;
+  void reset() @nogc nothrow pure
   // 
-  void resize( size_t size ) ;
+  void resize( size_t size ) nothrow pure
   // 
-  int selectn( ) ;
+  int selectn() @nogc nothrow pure
   // 
-  &lt;bug: unknown&gt; toFd_set( ) ;
+  fd_set* toFd_set() @nogc @trusted nothrow pure
 
   // 
-  __enumMember FD_SET_OFFSET;
+  &lt;enum or auto&gt; FD_SET_OFFSET = fd_set.fd_array.offsetof / fd_set_type.sizeof
   // 
-  &lt;bug: unknown&gt; set;
+  fd_set_type[] set
 }</code></pre><h2 class='section'>About</h2><p>A collection of sockets for use with <code>Socket.select</code> .</p>
 <p><code>SocketSet</code> wraps the platform <code>fd_set</code> type. However, unlike <code>fd_set</code> , <code>SocketSet</code> is not statically limited to <code>FD_SETSIZE</code> or any other limit, and grows as needed.</p>
 <h2 class='section'>Aliases</h2><table>

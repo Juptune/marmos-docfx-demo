@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,23 +87,23 @@
         <article data-uid="std.algorithm.iteration.Structs.FilterBidiResult">
 <h1 class='section'>Struct - FilterBidiResult</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.iteration</dd></dl>
-</div><pre><code class='lang-d'>public struct FilterBidiResult
+</div><pre><code class='lang-d'>struct FilterBidiResult( alias pred, Range )
 {
   // 
-  alias R = &lt;todo: marmos support pending&gt;;
+  alias R = &lt;todo: marmos support pending&gt;
 
   // 
-  &lt;bug: unknown&gt; back( ) auto;
+  ref auto back() @property
   // 
-  bool empty( ) ;
+  bool empty() @property
   // 
-  &lt;bug: unknown&gt; front( ) auto;
+  ref auto front() @property
   // 
-  void popBack( ) ;
+  void popBack() 
   // 
-  void popFront( ) ;
+  void popFront() 
   // 
-  &lt;bug: unknown&gt; save( ) auto;
+  auto save() @property
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>

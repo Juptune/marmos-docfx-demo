@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,32 +87,35 @@
         <article data-uid="std.experimental.allocator.Structs.InternalPointersTree">
 <h1 class='section'>Struct - InternalPointersTree</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator</dd></dl>
-</div><pre><code class='lang-d'>public struct InternalPointersTree
+</div><pre><code class='lang-d'>struct InternalPointersTree( Allocator )
 {
   // 
-  alias alignment = &lt;todo: marmos support pending&gt;;
+  alias alignment = &lt;todo: marmos support pending&gt;
   // 
-  alias Parent = &lt;todo: marmos support pending&gt;;
+  alias Parent = &lt;todo: marmos support pending&gt;
   // 
-  alias Tree = &lt;todo: marmos support pending&gt;;
+  alias Tree = &lt;todo: marmos support pending&gt;
 
   // Allocator API. 
-  &lt;bug: unknown&gt; allocate( size_t bytes ) ;
+  void[] allocate( size_t bytes ) 
   // Ditto 
-  bool deallocate( &lt;bug: unknown&gt; b ) ;
+  bool deallocate( void[] b ) 
   // Ditto 
-  Ternary empty( ) ;
+  Ternary empty() 
   // Ditto 
-  Ternary owns( &lt;bug: unknown&gt; b ) ;
+  Ternary owns( void[] b ) 
   // Ditto 
-  bool reallocate( &lt;bug: unknown&gt; b, size_t s ) ;
+  bool reallocate( ref void[] b, size_t s ) 
   // Returns the block inside which `p` resides, or `null` if the pointer does not belong. 
-  Ternary resolveInternalPointer( &lt;bug: unknown&gt; p, &lt;bug: unknown&gt; result ) ;
+  Ternary resolveInternalPointer(
+    const void* p,
+    ref void[] result
+  ) @nogc @safe nothrow pure
 
   // 
-  Tree blockMap;
+  Tree blockMap
   // The implementation is available as a public member. 
-  Parent parent;
+  Parent parent
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>

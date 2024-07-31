@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,8 @@
 <h1 class='section'>Overloads for - getAvailableDiskSpace</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.file</dd></dl>
 </div><h2 class='section api'>getAvailableDiskSpace(path)   </h2>
- <pre><code class='lang-d'>ulong getAvailableDiskSpace(
-  &lt;bug: unknown&gt; path
-) </code></pre><p>Returns the available disk space based on a given path. On Windows, <code>path</code> must be a directory; on POSIX systems, it can be a file or directory.</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>path</code> &lt;bug: unknown&gt;  </dt>
+ <pre><code class='lang-d'>ulong getAvailableDiskSpace( scope char[] path ) @safe</code></pre><p>Returns the available disk space based on a given path. On Windows, <code>path</code> must be a directory; on POSIX systems, it can be a file or directory.</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>path</code> char[]  </dt>
 <dd>
 
 

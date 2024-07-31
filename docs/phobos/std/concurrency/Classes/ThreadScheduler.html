@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,15 +90,15 @@
 </div><pre><code class='lang-d'>public class ThreadScheduler
 {
   // Creates a new `Condition` variable.  No custom behavior is needed here. 
-  Condition newCondition( Mutex m ) ;
+  Condition newCondition( Mutex m ) nothrow
   // Creates a new kernel thread and assigns it to run the supplied op. 
-  void spawn( &lt;bug: unknown&gt; op ) ;
+  void spawn( &lt;bug: unknown&gt; op ) 
   // This simply runs op directly, since no real scheduling is needed by this approach. 
-  void start( &lt;bug: unknown&gt; op ) ;
+  void start( &lt;bug: unknown&gt; op ) 
   // Returns `ThreadInfo.thisInfo` , since it is a thread-local instance of `ThreadInfo` , which is the correct behavior for this scheduler. 
-  ThreadInfo thisInfo( ) ;
+  ref ThreadInfo thisInfo() @property nothrow
   // This scheduler does no explicit multiplexing, so this is a no-op. 
-  void yield( ) ;
+  void yield() nothrow
 }</code></pre><h2 class='section'>About</h2><p>An example <code>Scheduler</code> using kernel threads.</p>
 <p>This is an example <code>Scheduler</code> that mirrors the default scheduling behavior of creating one kernel thread per call to spawn.  It is fully functional and may be instantiated and used, but is not a necessary part of the default functioning of this module.</p>
 <h2 class='section'>Functions</h2><table>

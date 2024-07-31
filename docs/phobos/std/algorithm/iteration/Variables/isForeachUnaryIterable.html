@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,14 @@
 <h1 class='section'>Variable - isForeachUnaryIterable</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.iteration</dd></dl>
 </div><h2 class='section api'>isForeachUnaryIterable   </h2>
- <pre><code class='lang-d'>__enumMember isForeachUnaryIterable</code></pre><h2 class='section'>About</h2><p>Eagerly iterates over <code>r</code> and calls <code>fun</code> with each element.</p>
+ <pre><code class='lang-d'>&lt;enum or auto&gt; isForeachUnaryIterable = is(typeof((R r)
+{
+foreach (ref a; r)
+{
+cast(void)unaryFun!fun(a);
+}
+}
+))</code></pre><h2 class='section'>About</h2><p>Eagerly iterates over <code>r</code> and calls <code>fun</code> with each element.</p>
 <p>If no function to call is specified, <code>each</code> defaults to doing nothing but consuming the entire range. <code>r.front</code> will be evaluated, but that can be avoided by specifying a lambda with a <code>lazy</code> parameter.</p>
 <p><code>each</code> also supports <code>opApply</code> -based types, so it works with e.g. $(REF parallel, std,parallelism).</p>
 <p>Normally the entire range is iterated. If partial iteration (early stopping) is desired, <code>fun</code> needs to return a value of type $(REF Flag, std,typecons)<code>!&quot;each&quot;</code> (<code>Yes.each</code> to continue iteration, or <code>No.each</code> to stop iteration).</p>

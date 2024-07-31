@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,30 +87,30 @@
         <article data-uid="std.uni.Structs.PackedPtrImpl">
 <h1 class='section'>Struct - PackedPtrImpl</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.uni</dd></dl>
-</div><pre><code class='lang-d'>public struct PackedPtrImpl
+</div><pre><code class='lang-d'>struct PackedPtrImpl( T, size_t bits )
 {
   // 
-  alias U = &lt;todo: marmos support pending&gt;;
+  alias U = &lt;todo: marmos support pending&gt;
 
   // 
-  T opIndex( size_t idx ) ;
+  T opIndex( size_t idx ) 
   // 
-  void opIndexAssign( T val, size_t idx ) ;
+  void opIndexAssign( T val, size_t idx ) 
   // 
-  void opIndexAssign( TypeOfBitPacked!(T) val, size_t idx ) ;
+  void opIndexAssign( TypeOfBitPacked!(T) val, size_t idx ) 
   // 
-  T simpleIndex( size_t n ) ;
+  T simpleIndex( size_t n ) 
   // 
-  void simpleWrite( TypeOfBitPacked!(T) val, size_t n ) ;
+  void simpleWrite( TypeOfBitPacked!(T) val, size_t n ) 
 
   // 
-  __enumMember bytesPerWord;
+  &lt;enum or auto&gt; bytesPerWord = size_t.sizeof
   // 
-  __enumMember factor;
+  &lt;enum or auto&gt; factor = size_t.sizeof * 8 / bits
   // 
-  __enumMember mask;
+  &lt;enum or auto&gt; mask = 2 ^^ bits - 1
   // 
-  &lt;bug: unknown&gt; origin;
+  size_t* origin
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,14 @@
 <h1 class='section'>Variable - isDigest</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.digest</dd></dl>
 </div><h2 class='section api'>isDigest   </h2>
- <pre><code class='lang-d'>bool isDigest</code></pre><h2 class='section'>About</h2><p>Use this to check if a type is a digest. See $(LREF ExampleDigest) to see what a type must provide to pass this check.</p>
+ <pre><code class='lang-d'>bool isDigest = isOutputRange!(T, const(ubyte)[]) &amp;&amp; isOutputRange!(T, ubyte) &amp;&amp; is(T == struct) &amp;&amp; is(typeof(()
+{
+T dig = void;
+dig.put(cast(ubyte)0, cast(ubyte)0);
+dig.start();
+auto value = dig.finish();
+}
+))</code></pre><h2 class='section'>About</h2><p>Use this to check if a type is a digest. See $(LREF ExampleDigest) to see what a type must provide to pass this check.</p>
 <h3 class='section'>Note</h3><p>This is very useful as a template constraint (see examples)</p>
 <h3 class='section'>BUGS</h3><p>$(UL $(LI Does not yet verify that put takes scope parameters.) $(LI Should check that finish() returns a ubyte[num] array) )</p>
 

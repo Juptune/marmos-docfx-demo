@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - value_MULTI_SZ</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.windows.registry.Value</dd></dl><dl><dt>Parent</dt><dd>Value</dd></dl>
 </div><h2 class='section api'>value_MULTI_SZ()   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; value_MULTI_SZ(
-) </code></pre><p>Obtains the current value as an array of strings.</p>
+ <pre><code class='lang-d'>string[] value_MULTI_SZ() @property</code></pre><p>Obtains the current value as an array of strings.</p>
 <h3 class='section'>Returns</h3><p>The contents of the value. Throws: <code>RegistryException</code> if the type of the value is not REG_MULTI_SZ.</p>
 
 </article>

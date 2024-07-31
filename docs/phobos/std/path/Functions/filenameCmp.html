@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,6 +89,10 @@
 <dl><dt>Module</dt><dd>std.path</dd></dl>
 </div><h2 class='section api'>filenameCmp(filename1, filename2)   </h2>
  <pre><code class='lang-d'>int filenameCmp(
+  CaseSensitive cs = CaseSensitive.osDefault,
+  Range1,
+  Range2
+)(
   Range1 filename1,
   Range2 filename2
 ) </code></pre><p>Compares file names and returns</p>
@@ -99,8 +103,12 @@
 <p>See_Also: $(LREF filenameCharCmp)</p>
 <h2 class='section api'>filenameCmp(filename1, filename2)   </h2>
  <pre><code class='lang-d'>int filenameCmp(
-  Range1 filename1,
-  Range2 filename2
+  CaseSensitive cs = CaseSensitive.osDefault,
+  Range1,
+  Range2
+)(
+  auto ref Range1 filename1,
+  auto ref Range2 filename2
 ) </code></pre>
 </article>
 

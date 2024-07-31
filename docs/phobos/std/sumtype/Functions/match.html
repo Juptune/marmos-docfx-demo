@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - match</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.sumtype</dd></dl>
 </div><h2 class='section api'>match(args)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; match(
-  SumTypes args
-) auto</code></pre><p>Calls a type-appropriate function with the value held in a [SumType].</p>
+ <pre><code class='lang-d'>ref auto match( SumTypes... )( auto ref SumTypes args ) </code></pre><p>Calls a type-appropriate function with the value held in a [SumType].</p>
 <p>For each possible type the [SumType] can hold, the given handlers are checked, in order, to see whether they accept a single argument of that type. The first one that does is chosen as the match for that type. (Note that the first match may not always be the most exact match. See <a href="#avoiding-unintentional-matches">&quot;Avoiding unintentional matches&quot;</a> for one common pitfall.)</p>
 <p>Every type must have a matching handler, and every handler must match at least one type. This is enforced at compile time.</p>
 <p>Handlers may be functions, delegates, or objects with <code>opCall</code> overloads. If a function with more than one overload is given as a handler, all of the overloads are considered as potential matches.</p>

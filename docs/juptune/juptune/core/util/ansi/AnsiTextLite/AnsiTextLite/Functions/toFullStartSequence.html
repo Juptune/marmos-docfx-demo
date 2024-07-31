@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,13 +88,11 @@
 <h1 class='section'>Overloads for - toFullStartSequence</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.core.util.ansi.AnsiTextLite</dd></dl><dl><dt>Parent</dt><dd>AnsiTextLite</dd></dl>
 </div><h2 class='section api'>toFullStartSequence(buffer)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; toFullStartSequence(
-  &lt;bug: unknown&gt; buffer
-) </code></pre><p>Populates the given buffer with the full ANSI sequence needed to enable the styling defined within this <code>AnsiTextLite</code></p>
+ <pre><code class='lang-d'>char[] toFullStartSequence( ref return ref char[MAX_CHARS_NEEDED] buffer ) </code></pre><p>Populates the given buffer with the full ANSI sequence needed to enable the styling defined within this <code>AnsiTextLite</code></p>
 <p>Unlike the usual <code>toSequence</code> functions, this function includes the <code>ANSI_CSI</code> and <code>ANSI_COLOUR_END</code> markers, meaning the output from this function is ready to be printed as-is.</p>
 <p>Do note that this function doesn't insert a null-terminator, so if you're using anything based on C strings, you need to insert that yourself.</p>
 <h3 class='section'>Notes</h3><p>Any parts of the <code>buffer</code> that are not populated by this function are left untouched.</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>buffer</code> &lt;bug: unknown&gt;  </dt>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>buffer</code> char[MAX_CHARS_NEEDED]  </dt>
 <dd>
 
 

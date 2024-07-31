@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,32 +90,44 @@
 </div><pre><code class='lang-d'>public class EncodingScheme
 {
   // Returns true if the character c can be represented in this encoding scheme. 
-  bool canEncode( dchar c ) abstract;
+  bool canEncode( dchar c ) abstract
+  // Returns the total number of code points encoded in a ubyte array. 
+  size_t count( )( ubyte[] s ) 
   // Obtains a subclass of EncodingScheme which is capable of encoding and decoding the named encoding scheme. 
-  EncodingScheme create( string encodingName ) static;
+  static EncodingScheme create( string encodingName ) 
   // Decodes a single code point. 
-  dchar decode( &lt;bug: unknown&gt; s ) abstract;
+  dchar decode( ref ubyte[] s ) abstract
   // Encodes a single code point into a user-supplied, fixed-size buffer. 
-  size_t encode( dchar c, &lt;bug: unknown&gt; buffer ) abstract;
+  size_t encode( dchar c, ubyte[] buffer ) abstract
   // Returns the number of ubytes required to encode this code point. 
-  size_t encodedLength( dchar c ) abstract;
+  size_t encodedLength( dchar c ) abstract
+  // Returns the length of the first encoded sequence. 
+  size_t firstSequence( )( ubyte[] s ) 
+  // Returns the array index at which the (n+1)th code point begins. 
+  ptrdiff_t index( )( ubyte[] s, size_t n ) 
   // Returns true if the array is encoded correctly 
-  bool isValid( &lt;bug: unknown&gt; s ) ;
+  bool isValid( ubyte[] s ) 
   // Returns an array of all known names for this encoding scheme 
-  &lt;bug: unknown&gt; names( ) abstract;
+  string[] names() abstract
   // 
-  void register( string className ) static;
+  static void register( string className ) 
+  // Registers a subclass of EncodingScheme. 
+  void register( Klass : EncodingScheme )() 
   // Returns the sequence of ubytes to be used to represent any character which cannot be represented in the encoding scheme. 
-  &lt;bug: unknown&gt; replacementSequence( ) abstract;
+  ubyte[] replacementSequence() abstract @property
   // Decodes a single code point. The input does not have to be valid. 
-  dchar safeDecode( &lt;bug: unknown&gt; s ) abstract;
+  dchar safeDecode( ref ubyte[] s ) abstract
+  // Sanitizes an array by replacing malformed ubyte sequences with valid ubyte sequences. The result is guaranteed to be valid for this encoding scheme. 
+  ubyte[] sanitize( )( ubyte[] s ) 
   // Returns the standard name of the encoding scheme 
-  string toString( ) abstract override;
+  string toString() abstract override
+  // Returns the length of the longest possible substring, starting from the first element, which is validly encoded. 
+  size_t validLength( )( ubyte[] s ) 
 
   // 
-  __gshared &lt;bug: unknown&gt; supported;
+  __gshared *[string] supported
   // 
-  __gshared &lt;bug: unknown&gt; supportedFactories;
+  __gshared string[string] supportedFactories
 }</code></pre><h2 class='section'>About</h2><p>Abstract base class of all encoding schemes</p>
 <h2 class='section'>Functions</h2><table>
 <thead>
@@ -128,6 +140,10 @@
 <tr>
 <td><a href="../EncodingScheme/EncodingScheme/Functions/canEncode.html">canEncode</a></td>
 <td>Returns true if the character c can be represented in this encoding scheme.</td>
+</tr>
+<tr>
+<td><a href="../EncodingScheme/EncodingScheme/Functions/count.html">count</a></td>
+<td>Returns the total number of code points encoded in a ubyte array.</td>
 </tr>
 <tr>
 <td><a href="../EncodingScheme/EncodingScheme/Functions/create.html">create</a></td>
@@ -144,6 +160,14 @@
 <tr>
 <td><a href="../EncodingScheme/EncodingScheme/Functions/encodedLength.html">encodedLength</a></td>
 <td>Returns the number of ubytes required to encode this code point.</td>
+</tr>
+<tr>
+<td><a href="../EncodingScheme/EncodingScheme/Functions/firstSequence.html">firstSequence</a></td>
+<td>Returns the length of the first encoded sequence.</td>
+</tr>
+<tr>
+<td><a href="../EncodingScheme/EncodingScheme/Functions/index.html">index</a></td>
+<td>Returns the array index at which the (n+1)th code point begins.</td>
 </tr>
 <tr>
 <td><a href="../EncodingScheme/EncodingScheme/Functions/isValid.html">isValid</a></td>
@@ -166,8 +190,16 @@
 <td>Decodes a single code point. The input does not have to be valid.</td>
 </tr>
 <tr>
+<td><a href="../EncodingScheme/EncodingScheme/Functions/sanitize.html">sanitize</a></td>
+<td>Sanitizes an array by replacing malformed ubyte sequences with valid ubyte sequences. The result is guaranteed to be valid for this encoding scheme.</td>
+</tr>
+<tr>
 <td><a href="../EncodingScheme/EncodingScheme/Functions/toString.html">toString</a></td>
 <td>Returns the standard name of the encoding scheme</td>
+</tr>
+<tr>
+<td><a href="../EncodingScheme/EncodingScheme/Functions/validLength.html">validLength</a></td>
+<td>Returns the length of the longest possible substring, starting from the first element, which is validly encoded.</td>
 </tr>
 </tbody>
 </table>

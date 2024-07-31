@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,11 +88,11 @@
 <h1 class='section'>Overloads for - uncompress2</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.zlib</dd></dl>
 </div><h2 class='section api'>uncompress2(dest, destLen, source, sourceLen)   </h2>
- <pre><code class='lang-d'>int uncompress2(
-  &lt;bug: unknown&gt; dest,
-  &lt;bug: unknown&gt; destLen,
-  &lt;bug: unknown&gt; source,
-  &lt;bug: unknown&gt; sourceLen
+ <pre><code class='lang-d'>extern(C) int uncompress2(
+  ubyte* dest,
+  size_t* destLen,
+  ubyte* source,
+  size_t* sourceLen
 ) </code></pre>
 </article>
 

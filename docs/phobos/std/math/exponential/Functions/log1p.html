@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,32 +88,18 @@
 <h1 class='section'>Overloads for - log1p</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.math.exponential</dd></dl>
 </div><h2 class='section api'>log1p(x)   </h2>
- <pre><code class='lang-d'>real log1p(
-  real x
-) </code></pre><p>Calculates the natural logarithm of 1 + x.</p>
+ <pre><code class='lang-d'>real log1p( real x ) @nogc @safe nothrow pure</code></pre><p>Calculates the natural logarithm of 1 + x.</p>
 <p>For very small x, log1p(x) will be more accurate than log(1 + x).</p>
 <p>$(TABLE_SV $(TR $(TH x)            $(TH log1p(x))     $(TH divide by 0?) $(TH invalid?)) $(TR $(TD $(PLUSMN)0.0) $(TD $(PLUSMN)0.0) $(TD no)           $(TD no)) $(TR $(TD -1.0)         <span class="math">\((TD -\)</span>(INFIN))    $(TD yes)          $(TD no)) $(TR $(TD $(LT)-1.0)    <span class="math">\((TD -\)</span>(NAN))      $(TD no)           $(TD yes)) $(TR <span class="math">\((TD +\)</span>(INFIN))    <span class="math">\((TD +\)</span>(INFIN))    $(TD no)           $(TD no)) )</p>
 <h2 class='section api'>log1p(x)   </h2>
- <pre><code class='lang-d'>double log1p(
-  double x
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>double log1p( double x ) @nogc @safe nothrow pure</code></pre><p>ditto</p>
 <h2 class='section api'>log1p(x)   </h2>
- <pre><code class='lang-d'>float log1p(
-  float x
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>float log1p( float x ) @nogc @safe nothrow pure</code></pre><p>ditto</p>
 <h2 class='section api'>log1p(x)   </h2>
- <pre><code class='lang-d'>real log1p(
-  int x
-) </code></pre><h2 class='section api'>log1p(x)   </h2>
- <pre><code class='lang-d'>real log1p(
-  uint x
-) </code></pre><h2 class='section api'>log1p(x)   </h2>
- <pre><code class='lang-d'>real log1p(
-  long x
-) </code></pre><h2 class='section api'>log1p(x)   </h2>
- <pre><code class='lang-d'>real log1p(
-  ulong x
-) </code></pre>
+ <pre><code class='lang-d'>real log1p( int x ) @nogc @safe nothrow pure</code></pre><h2 class='section api'>log1p(x)   </h2>
+ <pre><code class='lang-d'>real log1p( uint x ) @nogc @safe nothrow pure</code></pre><h2 class='section api'>log1p(x)   </h2>
+ <pre><code class='lang-d'>real log1p( long x ) @nogc @safe nothrow pure</code></pre><h2 class='section api'>log1p(x)   </h2>
+ <pre><code class='lang-d'>real log1p( ulong x ) @nogc @safe nothrow pure</code></pre>
 </article>
 
         <div class="contribution d-print-none">

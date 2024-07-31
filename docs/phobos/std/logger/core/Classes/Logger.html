@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,59 +90,217 @@
 </div><pre><code class='lang-d'>public class Logger
 {
   // Ditto 
-  alias critical = &lt;todo: marmos support pending&gt;;
+  alias critical = &lt;todo: marmos support pending&gt;
   // Ditto 
-  alias criticalf = &lt;todo: marmos support pending&gt;;
+  alias criticalf = &lt;todo: marmos support pending&gt;
   // Ditto 
-  alias error = &lt;todo: marmos support pending&gt;;
+  alias error = &lt;todo: marmos support pending&gt;
   // Ditto 
-  alias errorf = &lt;todo: marmos support pending&gt;;
+  alias errorf = &lt;todo: marmos support pending&gt;
   // Ditto 
-  alias fatal = &lt;todo: marmos support pending&gt;;
+  alias fatal = &lt;todo: marmos support pending&gt;
   // Ditto 
-  alias fatalf = &lt;todo: marmos support pending&gt;;
+  alias fatalf = &lt;todo: marmos support pending&gt;
   // Ditto 
-  alias info = &lt;todo: marmos support pending&gt;;
+  alias info = &lt;todo: marmos support pending&gt;
   // Ditto 
-  alias infof = &lt;todo: marmos support pending&gt;;
+  alias infof = &lt;todo: marmos support pending&gt;
   // Ditto 
-  alias trace = &lt;todo: marmos support pending&gt;;
+  alias trace = &lt;todo: marmos support pending&gt;
   // Ditto 
-  alias tracef = &lt;todo: marmos support pending&gt;;
+  alias tracef = &lt;todo: marmos support pending&gt;
   // Ditto 
-  alias warning = &lt;todo: marmos support pending&gt;;
+  alias warning = &lt;todo: marmos support pending&gt;
   // Ditto 
-  alias warningf = &lt;todo: marmos support pending&gt;;
+  alias warningf = &lt;todo: marmos support pending&gt;
 
   // 
-  void beginLogMsg( string file, int line, string funcName, string prettyFuncName, string moduleName, LogLevel logLevel, Tid threadId, SysTime timestamp, Logger logger ) ;
+  void beginLogMsg(
+    string file,
+    int line,
+    string funcName,
+    string prettyFuncName,
+    string moduleName,
+    LogLevel logLevel,
+    Tid threadId,
+    SysTime timestamp,
+    Logger logger
+  ) @safe
   // This `delegate` is called in case a log message with `LogLevel.fatal` gets logged. 
-  &lt;bug: unknown&gt; fatalHandler( ) final;
+  &lt;bug: unknown&gt; fatalHandler() final @nogc @property @safe
   // Ditto 
-  void fatalHandler( &lt;bug: unknown&gt; fh ) final;
+  void fatalHandler( &lt;bug: unknown&gt; fh ) final @nogc @property @safe
   // Signals that the message has been written and no more calls to `logMsgPart` follow. 
-  void finishLogMsg( ) ;
+  void finishLogMsg() @safe
   // This method allows forwarding log entries from one logger to another. 
-  void forwardMsg( LogEntry payload ) ;
-  // The `LogLevel` determines if the log call are processed or dropped by the `Logger` . In order for the log call to be processed the `LogLevel` of the log call must be greater or equal to the `LogLevel` of the `logger` . 
-  LogLevel logLevel( ) final;
+  void forwardMsg( ref LogEntry payload ) @trusted
+  // This method logs data with the `LogLevel` of the used `Logger` . 
+  void log(
+    int line = __LINE__,
+    string file = __FILE__,
+    string funcName = __FUNCTION__,
+    string prettyFuncName = __PRETTY_FUNCTION__,
+    string moduleName = __MODULE__,
+    A...
+  )(
+    const LogLevel ll,
+    lazy bool condition,
+    lazy A args
+  ) 
   // Ditto 
-  void logLevel( LogLevel lv ) final;
+  void log(
+    T,
+    string moduleName = __MODULE__
+  )(
+    const LogLevel ll,
+    lazy bool condition,
+    lazy T args,
+    int line,
+    string file,
+    string funcName,
+    string prettyFuncName
+  ) 
+  // This function logs data to the used `Logger` with a specific `LogLevel` . 
+  void log(
+    int line = __LINE__,
+    string file = __FILE__,
+    string funcName = __FUNCTION__,
+    string prettyFuncName = __PRETTY_FUNCTION__,
+    string moduleName = __MODULE__,
+    A...
+  )(
+    const LogLevel ll,
+    lazy A args
+  ) 
+  // Ditto 
+  void log(
+    T
+  )(
+    const LogLevel ll,
+    lazy T args,
+    int line,
+    string file,
+    string funcName,
+    string prettyFuncName,
+    string moduleName
+  ) 
+  // This function logs data to the used `Logger` depending on a explicitly passed condition with the `LogLevel` of the used `Logger` . 
+  void log(
+    int line = __LINE__,
+    string file = __FILE__,
+    string funcName = __FUNCTION__,
+    string prettyFuncName = __PRETTY_FUNCTION__,
+    string moduleName = __MODULE__,
+    A...
+  )(
+    lazy bool condition,
+    lazy A args
+  ) 
+  // Ditto 
+  void log(
+    T
+  )(
+    lazy bool condition,
+    lazy T args,
+    int line,
+    string file,
+    string funcName,
+    string prettyFuncName,
+    string moduleName
+  ) 
+  // This function logs data to the used `Logger` with the `LogLevel` of the used `Logger` . 
+  void log(
+    int line = __LINE__,
+    string file = __FILE__,
+    string funcName = __FUNCTION__,
+    string prettyFuncName = __PRETTY_FUNCTION__,
+    string moduleName = __MODULE__,
+    A...
+  )(
+    lazy A args
+  ) 
+  // Ditto 
+  void log(
+    T
+  )(
+    lazy T arg,
+    int line,
+    string file,
+    string funcName,
+    string prettyFuncName,
+    string moduleName
+  ) 
+  // This function logs data to the used `Logger` with a specific `LogLevel` and depending on a condition in a `printf` -style manner. 
+  void logf(
+    int line = __LINE__,
+    string file = __FILE__,
+    string funcName = __FUNCTION__,
+    string prettyFuncName = __PRETTY_FUNCTION__,
+    string moduleName = __MODULE__,
+    A...
+  )(
+    const LogLevel ll,
+    lazy bool condition,
+    lazy string msg,
+    lazy A args
+  ) 
+  // This function logs data to the used `Logger` with a specific `LogLevel` in a `printf` -style manner. 
+  void logf(
+    int line = __LINE__,
+    string file = __FILE__,
+    string funcName = __FUNCTION__,
+    string prettyFuncName = __PRETTY_FUNCTION__,
+    string moduleName = __MODULE__,
+    A...
+  )(
+    const LogLevel ll,
+    lazy string msg,
+    lazy A args
+  ) 
+  // This function logs data to the used `Logger` depending on a condition with the `LogLevel` of the used `Logger` in a `printf` -style manner. 
+  void logf(
+    int line = __LINE__,
+    string file = __FILE__,
+    string funcName = __FUNCTION__,
+    string prettyFuncName = __PRETTY_FUNCTION__,
+    string moduleName = __MODULE__,
+    A...
+  )(
+    lazy bool condition,
+    lazy string msg,
+    lazy A args
+  ) 
+  // This method logs data to the used `Logger` with the `LogLevel` of the this `Logger` in a `printf` -style manner. 
+  void logf(
+    int line = __LINE__,
+    string file = __FILE__,
+    string funcName = __FUNCTION__,
+    string prettyFuncName = __PRETTY_FUNCTION__,
+    string moduleName = __MODULE__,
+    A...
+  )(
+    lazy string msg,
+    lazy A args
+  ) 
+  // The `LogLevel` determines if the log call are processed or dropped by the `Logger` . In order for the log call to be processed the `LogLevel` of the log call must be greater or equal to the `LogLevel` of the `logger` . 
+  LogLevel logLevel() final @nogc @property @safe pure
+  // Ditto 
+  void logLevel( const LogLevel lv ) final @nogc @property @safe
   // Logs a part of the log message. 
-  void logMsgPart( &lt;bug: unknown&gt; msg ) ;
+  void logMsgPart( scope char[] msg ) @safe
   // A custom logger must implement this method in order to work in a `MultiLogger` and `ArrayLogger` . 
-  void writeLogMsg( LogEntry payload ) abstract;
+  void writeLogMsg( ref LogEntry payload ) abstract @safe
 
   // 
-  &lt;bug: unknown&gt; fatalHandler_;
+  &lt;bug: unknown&gt; fatalHandler_
   // 
-  LogEntry header;
+  LogEntry header
   // 
-  shared LogLevel logLevel_;
+  shared LogLevel logLevel_ = LogLevel.info
   // 
-  Appender!(string) msgAppender;
+  Appender!(string) msgAppender
   // 
-  Mutex mutex;
+  Mutex mutex
 }</code></pre><h2 class='section'>About</h2><p>This class is the base of every logger. In order to create a new kind of logger a deriving class needs to implement the <code>writeLogMsg</code> method. By default this is not thread-safe.</p>
 <p>It is also possible to <code>override</code> the three methods <code>beginLogMsg</code> , <code>logMsgPart</code> and <code>finishLogMsg</code> together, this option gives more flexibility.</p>
 <h2 class='section'>Aliases</h2><table>
@@ -228,6 +386,14 @@
 <td>This method allows forwarding log entries from one logger to another.</td>
 </tr>
 <tr>
+<td><a href="../Logger/Logger/Functions/log.html">log</a></td>
+<td>This method logs data with the <code>LogLevel</code> of the used <code>Logger</code> .</td>
+</tr>
+<tr>
+<td><a href="../Logger/Logger/Functions/logf.html">logf</a></td>
+<td>This function logs data to the used <code>Logger</code> with a specific <code>LogLevel</code> and depending on a condition in a <code>printf</code> -style manner.</td>
+</tr>
+<tr>
 <td><a href="../Logger/Logger/Functions/logLevel.html">logLevel</a></td>
 <td>The <code>LogLevel</code> determines if the log call are processed or dropped by the <code>Logger</code> . In order for the log call to be processed the <code>LogLevel</code> of the log call must be greater or equal to the <code>LogLevel</code> of the <code>logger</code> .</td>
 </tr>
@@ -238,6 +404,34 @@
 <tr>
 <td><a href="../Logger/Logger/Functions/writeLogMsg.html">writeLogMsg</a></td>
 <td>A custom logger must implement this method in order to work in a <code>MultiLogger</code> and <code>ArrayLogger</code> .</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Logger/Logger/Structs/LogEntry.html">LogEntry</a></td>
+<td>LogEntry is a aggregation combining all information associated with a log message. This aggregation will be passed to the method writeLogMsg.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Templates</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Logger/Logger/Templates/memLogFunctions.html">memLogFunctions</a></td>
+<td>This template provides the log functions for the <code>Logger</code> <code>class</code> with the <code>LogLevel</code> encoded in the function name.</td>
 </tr>
 </tbody>
 </table>

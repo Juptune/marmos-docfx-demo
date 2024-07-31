@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,7 @@
 <h1 class='section'>Variable - isSomeString</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.traits</dd></dl>
 </div><h2 class='section api'>isSomeString   </h2>
- <pre><code class='lang-d'>bool isSomeString</code></pre><h2 class='section'>About</h2><p>Detect whether <code>T</code> is one of the built-in string types.</p>
+ <pre><code class='lang-d'>bool isSomeString = is(immutable(T) == immutable(C[]), C) &amp;&amp; (is(C == char) || is(C == wchar) || is(C == dchar))</code></pre><h2 class='section'>About</h2><p>Detect whether <code>T</code> is one of the built-in string types.</p>
 <p>The built-in string types are <code>Char[]</code> , where <code>Char</code> is any of <code>char</code> , <code>wchar</code> or <code>dchar</code> , with or without qualifiers.</p>
 <p>Static arrays of characters (like <code>char[80]</code> ) are not considered built-in string types.</p>
 

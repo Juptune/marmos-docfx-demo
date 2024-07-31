@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - findSplit</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.searching</dd></dl>
 </div><h2 class='section api'>findSplit(haystack, needle)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; findSplit(
-  R1 haystack,
-  R2 needle
-) auto</code></pre><p>These functions find the first occurrence of <code>needle</code> in <code>haystack</code> and then split <code>haystack</code> as follows.</p>
+ <pre><code class='lang-d'>auto findSplit( alias pred = &quot;a == b&quot;, R1, R2 )( R1 haystack, R2 needle ) </code></pre><p>These functions find the first occurrence of <code>needle</code> in <code>haystack</code> and then split <code>haystack</code> as follows.</p>
 <p>$(PANEL <code>findSplit</code> returns a tuple <code>result</code> containing $(I three) ranges. $(UL $(LI <code>result[0]</code> is the portion of <code>haystack</code> before <code>needle</code> ) $(LI <code>result[1]</code> is the portion of <code>haystack</code> that matches <code>needle</code> ) $(LI <code>result[2]</code> is the portion of <code>haystack</code> after the match.) ) If <code>needle</code> was not found, <code>result[0]</code> comprehends <code>haystack</code> entirely and <code>result[1]</code> and <code>result[2]</code> are empty.</p>
 <p><code>findSplitBefore</code> returns a tuple <code>result</code> containing two ranges. $(UL $(LI <code>result[0]</code> is the portion of <code>haystack</code> before <code>needle</code> ) $(LI <code>result[1]</code> is the balance of <code>haystack</code> starting with the match.) ) If <code>needle</code> was not found, <code>result[0]</code> comprehends <code>haystack</code> entirely and <code>result[1]</code> is empty.</p>
 <p><code>findSplitAfter</code> returns a tuple <code>result</code> containing two ranges. $(UL $(LI <code>result[0]</code> is the portion of <code>haystack</code> up to and including the match) $(LI <code>result[1]</code> is the balance of <code>haystack</code> starting after the match.) ) If <code>needle</code> was not found, <code>result[0]</code> is empty and <code>result[1]</code> is <code>haystack</code> . ) $(P In all cases, the concatenation of the returned ranges spans the entire <code>haystack</code> .</p>

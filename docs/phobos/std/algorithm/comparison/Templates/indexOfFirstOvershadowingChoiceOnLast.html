@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,14 +90,14 @@
 </div><pre><code class='lang-d'>template indexOfFirstOvershadowingChoiceOnLast
 {
   // 
-  alias firstParameterTypes = &lt;todo: marmos support pending&gt;;
+  alias firstParameterTypes = &lt;todo: marmos support pending&gt;
   // 
-  alias lastParameterTypes = &lt;todo: marmos support pending&gt;;
+  alias lastParameterTypes = &lt;todo: marmos support pending&gt;
 
   // 
-  __enumMember indexOfFirstOvershadowingChoiceOnLast;
+  &lt;enum or auto&gt; indexOfFirstOvershadowingChoiceOnLast = 0
   // 
-  __enumMember isOvershadowing;
+  &lt;enum or auto&gt; isOvershadowing = firstParameterTypes.length == 0
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>

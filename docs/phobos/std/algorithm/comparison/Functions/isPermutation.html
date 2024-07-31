@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,6 +89,10 @@
 <dl><dt>Module</dt><dd>std.algorithm.comparison</dd></dl>
 </div><h2 class='section api'>isPermutation(r1, r2)   </h2>
  <pre><code class='lang-d'>bool isPermutation(
+  Flag!(&quot;allocateGC&quot;) allocateGC,
+  Range1,
+  Range2
+)(
   Range1 r1,
   Range2 r2
 ) </code></pre><p>Checks if both ranges are permutations of each other.</p>
@@ -120,10 +124,7 @@
 
 </dd></dl><h3 class='section'>Returns</h3><p><code>true</code> if all of the elements in <code>r1</code> appear the same number of times in <code>r2</code> . Otherwise, returns <code>false</code> .</p>
 <h2 class='section api'>isPermutation(r1, r2)   </h2>
- <pre><code class='lang-d'>bool isPermutation(
-  Range1 r1,
-  Range2 r2
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>bool isPermutation( alias pred = &quot;a == b&quot;, Range1, Range2 )( Range1 r1, Range2 r2 ) </code></pre><p>ditto</p>
 
 </article>
 

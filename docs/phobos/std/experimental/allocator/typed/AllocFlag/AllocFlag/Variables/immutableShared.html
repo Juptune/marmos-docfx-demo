@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,7 @@
 <h1 class='section'>Variable - immutableShared</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator.typed.AllocFlag</dd></dl><dl><dt>Parent</dt><dd>AllocFlag</dd></dl>
 </div><h2 class='section api'>immutableShared   </h2>
- <pre><code class='lang-d'>__enumMember immutableShared</code></pre><h2 class='section'>About</h2><p>By default it is conservatively assumed that allocated memory may be <code>cast</code> to <code>shared</code> , passed across threads, and deallocated in a different thread than the one that allocated it. If that's not the case, there are two options. First, <code>immutableShared</code> means the memory is allocated for <code>immutable</code> data and will be deallocated in the same thread it was allocated in. Second, <code>threadLocal</code> means the memory is not to be shared across threads at all. The two flags cannot be simultaneously present.</p>
+ <pre><code class='lang-d'>int immutableShared = 8</code></pre><h2 class='section'>About</h2><p>By default it is conservatively assumed that allocated memory may be <code>cast</code> to <code>shared</code> , passed across threads, and deallocated in a different thread than the one that allocated it. If that's not the case, there are two options. First, <code>immutableShared</code> means the memory is allocated for <code>immutable</code> data and will be deallocated in the same thread it was allocated in. Second, <code>threadLocal</code> means the memory is not to be shared across threads at all. The two flags cannot be simultaneously present.</p>
 
 </article>
 

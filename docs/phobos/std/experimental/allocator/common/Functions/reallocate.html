@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,11 +88,7 @@
 <h1 class='section'>Overloads for - reallocate</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator.common</dd></dl>
 </div><h2 class='section api'>reallocate(a, b, s)   </h2>
- <pre><code class='lang-d'>bool reallocate(
-  Allocator a,
-  &lt;bug: unknown&gt; b,
-  size_t s
-) </code></pre><p>The default <code>reallocate</code> function first attempts to use <code>expand</code> . If $(D Allocator.expand) is not defined or returns <code>false</code> , <code>reallocate</code> allocates a new block of memory of appropriate size and copies data from the old block to the new block. Finally, if <code>Allocator</code> defines <code>deallocate</code> , $(D reallocate) uses it to free the old memory block.</p>
+ <pre><code class='lang-d'>bool reallocate( Allocator )( ref Allocator a, ref void[] b, size_t s ) </code></pre><p>The default <code>reallocate</code> function first attempts to use <code>expand</code> . If $(D Allocator.expand) is not defined or returns <code>false</code> , <code>reallocate</code> allocates a new block of memory of appropriate size and copies data from the old block to the new block. Finally, if <code>Allocator</code> defines <code>deallocate</code> , $(D reallocate) uses it to free the old memory block.</p>
 <p><code>reallocate</code> does not attempt to use <code>Allocator.reallocate</code> even if defined. This is deliberate so allocators may use it internally within their own implementation of <code>reallocate</code> .</p>
 
 </article>

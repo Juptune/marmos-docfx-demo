@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,41 +87,50 @@
         <article data-uid="juptune.http.v1.Structs.Http1ReaderBase">
 <h1 class='section'>Struct - Http1ReaderBase</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.http.v1</dd></dl>
-</div><pre><code class='lang-d'>public struct Http1ReaderBase
+</div><pre><code class='lang-d'>struct Http1ReaderBase( SocketT )
 {
   // Checks if the headers have ended. 
-  alias checkEndOfHeaders = &lt;todo: marmos support pending&gt;;
+  alias checkEndOfHeaders = &lt;todo: marmos support pending&gt;
   // ditto. 
-  alias checkEndOfTrailers = &lt;todo: marmos support pending&gt;;
+  alias checkEndOfTrailers = &lt;todo: marmos support pending&gt;
   // 
-  alias Machine = &lt;todo: marmos support pending&gt;;
+  alias Machine = &lt;todo: marmos support pending&gt;
   // Reads a single header. 
-  alias readHeader = &lt;todo: marmos support pending&gt;;
+  alias readHeader = &lt;todo: marmos support pending&gt;
   // Ditto. 
-  alias readTrailer = &lt;todo: marmos support pending&gt;;
+  alias readTrailer = &lt;todo: marmos support pending&gt;
   // 
-  alias StateMachine = &lt;todo: marmos support pending&gt;;
+  alias StateMachine = &lt;todo: marmos support pending&gt;
 
   // 
-  Result fetchData( size_t bytesFetched, size_t savedCursor ) ;
+  Result checkEndOfHeadersImpl( bool internal, bool trailers )( out scope bool isEnd ) 
+  // 
+  Result fetchData( out size_t bytesFetched, ref size_t savedCursor ) 
   // Acknowledges that the message has been fully read, and returns the summary of the message. 
-  Result finishMessage( Http1MessageSummary summary ) ;
+  Result finishMessage( out scope Http1MessageSummary summary ) 
   // 
-  Result processHeader( Http1Header header ) ;
+  Result processHeader( ref scope Http1Header header ) 
   // Reads a single chunk of body data. 
-  Result readBody( Http1BodyChunk bodyChunk ) ;
+  Result readBody( out scope Http1BodyChunk bodyChunk ) 
   // 
-  Result readBodyBytes( Http1BodyChunk chunk ) ;
+  Result readBodyBytes( ref scope Http1BodyChunk chunk ) 
   // 
-  Result readBodyChunked( Http1BodyChunk chunk ) ;
+  Result readBodyChunked( out scope Http1BodyChunk chunk ) 
   // 
-  Result readBodyContentLength( Http1BodyChunk chunk ) ;
+  Result readBodyContentLength( out scope Http1BodyChunk chunk ) 
   // 
-  Result readChunkSize( size_t chunkSize, &lt;bug: unknown&gt; chunkExtension ) ;
+  Result readChunkSize( out size_t chunkSize, out char[] chunkExtension ) 
+  // 
+  Result readHeaderImpl( bool trailers )( out scope Http1Header header ) 
   // Reads the entire request line. This will configure the reader to be a request parser for the remainder of this message, until `finishMessage` is called. 
-  Result readRequestLine( Http1RequestLine requestLine ) ;
+  Result readRequestLine( out scope Http1RequestLine requestLine ) 
   // Reads the entire response line. This will configure the reader to be a response parser for the remainder of this message, until `finishMessage` is called. 
-  Result readResponseLine( Http1ResponseLine responseLine, Http1ReadResponseConfig responseConfig ) ;
+  Result readResponseLine(
+    out scope Http1ResponseLine responseLine,
+    Http1ReadResponseConfig responseConfig
+  ) 
+  // 
+  Result readUntil( ubyte delimiter )( out scope ubyte[] slice ) 
 }</code></pre><h2 class='section'>About</h2><p>A low-level reader for the HTTP/1.0 and HTTP/1.1 protocols, operating directly on a socket.</p>
 <h3 class='section'>Performance</h3><p>No explicit effort has been made to optimise this reader for performance, but it should be reasonably fast. No benchmarks have been done yet.</p>
 <p>Correctness, safety, and readability have been the main priorities. This is not to say that optimisations will not be made in the future, but they are not a priority at the moment.</p>
@@ -221,6 +230,24 @@
 </tr>
 </tbody>
 </table>
+<h2 class='section'>Enums</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Http1ReaderBase/Http1ReaderBase/Enums/BodyEncoding.html">BodyEncoding</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Http1ReaderBase/Http1ReaderBase/Enums/State.html">State</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -229,6 +256,10 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="../Http1ReaderBase/Http1ReaderBase/Functions/checkEndOfHeadersImpl.html">checkEndOfHeadersImpl</a></td>
+<td></td>
+</tr>
 <tr>
 <td><a href="../Http1ReaderBase/Http1ReaderBase/Functions/fetchData.html">fetchData</a></td>
 <td></td>
@@ -262,12 +293,34 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="../Http1ReaderBase/Http1ReaderBase/Functions/readHeaderImpl.html">readHeaderImpl</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../Http1ReaderBase/Http1ReaderBase/Functions/readRequestLine.html">readRequestLine</a></td>
 <td>Reads the entire request line. This will configure the reader to be a request parser for the remainder of this message, until <code>finishMessage</code> is called.</td>
 </tr>
 <tr>
 <td><a href="../Http1ReaderBase/Http1ReaderBase/Functions/readResponseLine.html">readResponseLine</a></td>
 <td>Reads the entire response line. This will configure the reader to be a response parser for the remainder of this message, until <code>finishMessage</code> is called.</td>
+</tr>
+<tr>
+<td><a href="../Http1ReaderBase/Http1ReaderBase/Functions/readUntil.html">readUntil</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Http1ReaderBase/Http1ReaderBase/Structs/MessageState.html">MessageState</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>

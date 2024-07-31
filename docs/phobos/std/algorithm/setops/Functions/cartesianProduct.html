@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - cartesianProduct</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.setops</dd></dl>
 </div><h2 class='section api'>cartesianProduct(range1, range2)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; cartesianProduct(
-  R1 range1,
-  R2 range2
-) auto</code></pre><p>Lazily computes the Cartesian product of two or more ranges. The product is a range of tuples of elements from each respective range.</p>
+ <pre><code class='lang-d'>auto cartesianProduct( R1, R2 )( R1 range1, R2 range2 ) </code></pre><p>Lazily computes the Cartesian product of two or more ranges. The product is a range of tuples of elements from each respective range.</p>
 <h3 class='section'>The conditions for the two-range case are as follows</h3><p>If both ranges are finite, then one must be (at least) a $(REF_ALTTEXT forward range, isForwardRange, std,range,primitives) and the other an $(REF_ALTTEXT input range, isInputRange, std,range,primitives).</p>
 <p>If one range is infinite and the other finite, then the finite range must be a forward range, and the infinite range can be an input range.</p>
 <p>If both ranges are infinite, then both must be forward ranges.</p>
@@ -122,15 +119,9 @@
 
 </dd></dl><h3 class='section'>Returns</h3><p>A forward range of $(REF Tuple, std,typecons) representing elements of the cartesian product of the given ranges.</p>
 <h2 class='section api'>cartesianProduct(ranges)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; cartesianProduct(
-  RR ranges
-) auto</code></pre><p>ditto</p>
+ <pre><code class='lang-d'>auto cartesianProduct( RR... )( RR ranges ) </code></pre><p>ditto</p>
 <h2 class='section api'>cartesianProduct(range1, range2, otherRanges)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; cartesianProduct(
-  R1 range1,
-  R2 range2,
-  RR otherRanges
-) auto</code></pre><p>ditto</p>
+ <pre><code class='lang-d'>auto cartesianProduct( R1, R2, RR... )( R1 range1, R2 range2, RR otherRanges ) </code></pre><p>ditto</p>
 
 </article>
 

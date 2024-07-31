@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,74 +88,37 @@
 <h1 class='section'>Overloads for - toImpl</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.conv</dd></dl>
 </div><h2 class='section api'>toImpl(value)   </h2>
- <pre><code class='lang-d'>T toImpl(
-  S value
-) </code></pre><p>If the source type is implicitly convertible to the target type, $(D to) simply performs the implicit conversion.</p>
+ <pre><code class='lang-d'>T toImpl( T, S )( S value ) </code></pre><p>If the source type is implicitly convertible to the target type, $(D to) simply performs the implicit conversion.</p>
 <h2 class='section api'>toImpl(value)   </h2>
- <pre><code class='lang-d'>T toImpl(
-  S value
-) </code></pre><h2 class='section api'>toImpl(s)   </h2>
- <pre><code class='lang-d'>T toImpl(
-  S s
-) </code></pre><h2 class='section api'>toImpl(value)   </h2>
- <pre><code class='lang-d'>T toImpl(
-  S value
-) </code></pre><p>When source type supports member template function opCast, it is used.</p>
+ <pre><code class='lang-d'>T toImpl( T, S )( S value ) </code></pre><h2 class='section api'>toImpl(s)   </h2>
+ <pre><code class='lang-d'>T toImpl( T, S )( ref S s ) </code></pre><h2 class='section api'>toImpl(value)   </h2>
+ <pre><code class='lang-d'>T toImpl( T, S )( S value ) </code></pre><p>When source type supports member template function opCast, it is used.</p>
 <h2 class='section api'>toImpl(value)   </h2>
- <pre><code class='lang-d'>T toImpl(
-  S value
-) </code></pre><p>When target type supports 'converting construction', it is used. $(UL $(LI If target type is struct, <code>T(value)</code> is used.) $(LI If target type is class, $(D new T(value)) is used.))</p>
+ <pre><code class='lang-d'>T toImpl( T, S )( S value ) </code></pre><p>When target type supports 'converting construction', it is used. $(UL $(LI If target type is struct, <code>T(value)</code> is used.) $(LI If target type is class, $(D new T(value)) is used.))</p>
 <h2 class='section api'>toImpl(value)   </h2>
- <pre><code class='lang-d'>T toImpl(
-  S value
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>T toImpl( T, S )( S value ) </code></pre><p>ditto</p>
 <h2 class='section api'>toImpl(value)   </h2>
- <pre><code class='lang-d'>T toImpl(
-  S value
-) </code></pre><p>Object-to-object conversions by dynamic casting throw exception when the source is non-null and the target is null.</p>
+ <pre><code class='lang-d'>T toImpl( T, S )( S value ) </code></pre><p>Object-to-object conversions by dynamic casting throw exception when the source is non-null and the target is null.</p>
 <h2 class='section api'>toImpl(value)   </h2>
- <pre><code class='lang-d'>T toImpl(
-  S value
-) </code></pre><p>Handles type to string conversions</p>
+ <pre><code class='lang-d'>T toImpl( T, S )( S value ) </code></pre><p>Handles type to string conversions</p>
 <h2 class='section api'>toImpl(value)   </h2>
- <pre><code class='lang-d'>T toImpl(
-  S value
-) </code></pre><h2 class='section api'>toImpl(value, radix, letterCase)   </h2>
- <pre><code class='lang-d'>T toImpl(
-  S value,
-  uint radix,
-  LetterCase letterCase
-) </code></pre><h2 class='section api'>toImpl(value)   </h2>
- <pre><code class='lang-d'>T toImpl(
-  S value
-) </code></pre><p>Narrowing numeric-numeric conversions throw when the value does not fit in the narrower type.</p>
+ <pre><code class='lang-d'>T toImpl( T, S )( ref S value ) </code></pre><h2 class='section api'>toImpl(value, radix, letterCase)   </h2>
+ <pre><code class='lang-d'>T toImpl( T, S )( S value, uint radix, LetterCase letterCase ) @trusted pure</code></pre><h2 class='section api'>toImpl(value)   </h2>
+ <pre><code class='lang-d'>T toImpl( T, S )( S value ) </code></pre><p>Narrowing numeric-numeric conversions throw when the value does not fit in the narrower type.</p>
 <h2 class='section api'>toImpl(value)   </h2>
- <pre><code class='lang-d'>T toImpl(
-  S value
-) </code></pre><p>Array-to-array conversion (except when target is a string type) converts each element in turn by using <code>to</code> .</p>
+ <pre><code class='lang-d'>T toImpl( T, S )( scope S value ) </code></pre><p>Array-to-array conversion (except when target is a string type) converts each element in turn by using <code>to</code> .</p>
 <h2 class='section api'>toImpl(value)   </h2>
- <pre><code class='lang-d'>T toImpl(
-  S value
-) </code></pre><p>Associative array to associative array conversion converts each key and each value in turn.</p>
+ <pre><code class='lang-d'>T toImpl( T, S )( S value ) </code></pre><p>Associative array to associative array conversion converts each key and each value in turn.</p>
 <h2 class='section api'>toImpl(value)   </h2>
- <pre><code class='lang-d'>T toImpl(
-  S value
-) </code></pre><p>String, or string-like input range, to non-string conversion runs parsing. $(UL $(LI When the source is a wide string, it is first converted to a narrow string and then parsed.) $(LI When the source is a narrow string, normal text parsing occurs.))</p>
+ <pre><code class='lang-d'>T toImpl( T, S )( S value ) </code></pre><p>String, or string-like input range, to non-string conversion runs parsing. $(UL $(LI When the source is a wide string, it is first converted to a narrow string and then parsed.) $(LI When the source is a narrow string, normal text parsing occurs.))</p>
 <h2 class='section api'>toImpl(value, radix)   </h2>
- <pre><code class='lang-d'>T toImpl(
-  S value,
-  uint radix
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>T toImpl( T, S )( S value, uint radix ) </code></pre><p>ditto</p>
 <h2 class='section api'>toImpl(value)   </h2>
- <pre><code class='lang-d'>T toImpl(
-  S value
-) </code></pre><p>String, or string-like input range, to char type not directly supported by parse parses the first dchar of the source.</p>
+ <pre><code class='lang-d'>T toImpl( T, S )( S value ) </code></pre><p>String, or string-like input range, to char type not directly supported by parse parses the first dchar of the source.</p>
 <p>Returns: the first code point of the input range, converted to type T.</p>
 <p>Throws: ConvException if the input range contains more than a single code point, or if the code point does not fit into a code unit of type T.</p>
 <h2 class='section api'>toImpl(value)   </h2>
- <pre><code class='lang-d'>T toImpl(
-  S value
-) </code></pre><p>Convert a value that is implicitly convertible to the enum base type into an Enum value. If the value does not match any enum member values a ConvException is thrown. Enums with floating-point or string base types are not supported.</p>
+ <pre><code class='lang-d'>T toImpl( T, S )( S value ) </code></pre><p>Convert a value that is implicitly convertible to the enum base type into an Enum value. If the value does not match any enum member values a ConvException is thrown. Enums with floating-point or string base types are not supported.</p>
 
 </article>
 

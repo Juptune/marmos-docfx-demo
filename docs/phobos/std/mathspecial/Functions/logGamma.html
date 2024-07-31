@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - logGamma</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.mathspecial</dd></dl>
 </div><h2 class='section api'>logGamma(x)   </h2>
- <pre><code class='lang-d'>real logGamma(
-  real x
-) </code></pre><p>Natural logarithm of the gamma function, $(GAMMA)(x)</p>
+ <pre><code class='lang-d'>real logGamma( real x ) </code></pre><p>Natural logarithm of the gamma function, $(GAMMA)(x)</p>
 <p>Returns the base e (2.718...) logarithm of the absolute value of the gamma function of the argument.</p>
 <p>For reals, logGamma is equivalent to log(fabs(gamma(x))).</p>
 <p>$(TABLE_SV $(SVH  x,             logGamma(x)   ) $(SV  $(NAN),         $(NAN)      ) <span class="math">\((SV integer &lt;= 0,    +\)</span>(INFIN)    ) $(SV <span class="math">\((PLUSMNINF),    +\)</span>(INFIN)    ) )</p>

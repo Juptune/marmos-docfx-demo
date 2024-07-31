@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - levenshteinDistance</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.comparison</dd></dl>
 </div><h2 class='section api'>levenshteinDistance(s, t)   </h2>
- <pre><code class='lang-d'>size_t levenshteinDistance(
-  Range1 s,
-  Range2 t
-) </code></pre><p>Returns the $(HTTP wikipedia.org/wiki/Levenshtein_distance, Levenshtein distance) between <code>s</code> and <code>t</code> . The Levenshtein distance computes the minimal amount of edit operations necessary to transform <code>s</code> into <code>t</code> .  Performs $(BIGOH s.length t.length) evaluations of $(D equals) and occupies $(BIGOH min(s.length, t.length)) storage.</p>
+ <pre><code class='lang-d'>size_t levenshteinDistance( alias equals, Range1, Range2 )( Range1 s, Range2 t ) </code></pre><p>Returns the $(HTTP wikipedia.org/wiki/Levenshtein_distance, Levenshtein distance) between <code>s</code> and <code>t</code> . The Levenshtein distance computes the minimal amount of edit operations necessary to transform <code>s</code> into <code>t</code> .  Performs $(BIGOH s.length t.length) evaluations of $(D equals) and occupies $(BIGOH min(s.length, t.length)) storage.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>equals</code> &lt;parameter not found&gt;  </dt>
 <dd>
 
@@ -114,8 +111,12 @@
 <p>Does not allocate GC memory.</p>
 <h2 class='section api'>levenshteinDistance(s, t)   </h2>
  <pre><code class='lang-d'>size_t levenshteinDistance(
-  Range1 s,
-  Range2 t
+  alias equals,
+  Range1,
+  Range2
+)(
+  auto ref Range1 s,
+  auto ref Range2 t
 ) </code></pre><p>ditto</p>
 
 </article>

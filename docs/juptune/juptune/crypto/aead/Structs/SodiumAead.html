@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,26 +87,49 @@
         <article data-uid="juptune.crypto.aead.Structs.SodiumAead">
 <h1 class='section'>Struct - SodiumAead</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.crypto.aead</dd></dl>
-</div><pre><code class='lang-d'>public struct SodiumAead
+</div><pre><code class='lang-d'>struct SodiumAead(
+  size_t NonceLength,
+  alias NonceLengthFunc,
+  size_t KeyLength,
+  alias KeyLengthFunc,
+  size_t ABytes,
+  alias ABytesFunc,
+  alias EncryptFunc,
+  alias DecryptFunc
+)
 {
   // 
-  alias EncryptionContext = &lt;todo: marmos support pending&gt;;
+  alias EncryptionContext = &lt;todo: marmos support pending&gt;
 
   // 
-  Result decrypt( &lt;bug: unknown&gt; m, &lt;bug: unknown&gt; c, &lt;bug: unknown&gt; ad, SecureMemory n, SecureMemory k, &lt;bug: unknown&gt; outSlice ) ;
+  Result decrypt(
+    scope return ref ubyte[] m,
+    const scope ubyte[] c,
+    const scope ubyte[] ad,
+    scope SecureMemory n,
+    const scope SecureMemory k,
+    out scope ubyte[] outSlice
+  ) @trusted
   // 
-  Result encrypt( &lt;bug: unknown&gt; c, &lt;bug: unknown&gt; m, &lt;bug: unknown&gt; ad, SecureMemory n, SecureMemory k, &lt;bug: unknown&gt; outC ) ;
+  Result encrypt(
+    scope return ref ubyte[] c,
+    const scope ubyte[] m,
+    const scope ubyte[] ad,
+    scope SecureMemory n,
+    const scope SecureMemory k,
+    out scope ubyte[] outC
+  ) @trusted
   // 
-  void initNonce( SecureMemory nonce ) ;
+  void initNonce( scope SecureMemory nonce ) @trusted
   // 
-  void nextNonce( SecureMemory nonce ) ;
+  void nextNonce( scope SecureMemory nonce ) @trusted
 
   // 
-  __enumMember ABYTES;
+  &lt;enum or auto&gt; ABYTES = ABytes
   // 
-  __enumMember KEY_LENGTH;
+  &lt;enum or auto&gt; KEY_LENGTH = KeyLength
   // 
-  __enumMember NONCE_LENGTH;
+  &lt;enum or auto&gt; NONCE_LENGTH = NonceLength
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>

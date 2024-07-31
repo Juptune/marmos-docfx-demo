@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,14 +87,14 @@
         <article data-uid="std.range.Enums.SortedRangeOptions">
 <h1 class='section'>Enum - SortedRangeOptions</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
-</div><pre><code class='lang-d'>enum SortedRangeOptions
+</div><pre><code class='lang-d'>enum SortedRangeOptions : int
 {
   // Assume, that the range is sorted without checking. 
-  __enumMember assumeSorted;
-  // Some elements of the range are checked to be sorted. For ranges with random order, this will almost surely detect, that it is not sorted. For almost sorted ranges it&#39;s more likely to fail. The checked elements are choosen in a deterministic manner, which makes this check reproducable. The check is performed in O(log(n)) time. 
-  __enumMember checkRoughly;
+  assumeSorted,
   // All elements of the range are checked to be sorted. The check is performed in O(n) time. 
-  __enumMember checkStrictly;
+  checkStrictly,
+  // Some elements of the range are checked to be sorted. For ranges with random order, this will almost surely detect, that it is not sorted. For almost sorted ranges it&#39;s more likely to fail. The checked elements are choosen in a deterministic manner, which makes this check reproducable. The check is performed in O(log(n)) time. 
+  checkRoughly,
 }</code></pre><h2 class='section'>About</h2><p>Options for $(LREF SortedRange) ranges (below).</p>
 <h2 class='section'>Variables</h2><table>
 <thead>

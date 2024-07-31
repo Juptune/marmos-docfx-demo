@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -91,8 +91,8 @@
  <pre><code class='lang-d'>Result allocate(
   size_t powerOfTwo,
   size_t blockCount,
-  MemoryBlockAllocation allocation
-) </code></pre><p>This is mainly a wrapper that ties together <code>MemoryBlockPool.allocate</code> and <code>MemoryBlockPool.preallocateBlocks</code> . So please see those functions for the bulk of information.</p>
+  out scope return ref MemoryBlockAllocation allocation
+) @trusted</code></pre><p>This is mainly a wrapper that ties together <code>MemoryBlockPool.allocate</code> and <code>MemoryBlockPool.preallocateBlocks</code> . So please see those functions for the bulk of information.</p>
 <p>This function will automatically preallocate blocks if the underlying pool returns <code>notEnoughBlocks</code> on allocation, but only up to the <code>maxBlockCount</code> specified in this config for the given power of two.</p>
 <h3 class='section'>Behaviour</h3><p>Allocate <code>blockCount</code> blocks for <code>powerOfTwo</code> .</p>
 <p>If the underlying pool returns <code>notEnoughBlocks</code> , then preallocate blocks for <code>powerOfTwo</code> up to <code>maxBlockCount</code> at a step of <code>blocksPerAllocation</code> specified within the allocator's config for the given power of two.</p>

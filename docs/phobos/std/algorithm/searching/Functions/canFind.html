@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,23 +88,15 @@
 <h1 class='section'>Overloads for - canFind</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.searching</dd></dl>
 </div><h2 class='section api'>canFind(haystack)   </h2>
- <pre><code class='lang-d'>bool canFind(
-  Range haystack
-) </code></pre><p>Convenience function. Like find, but only returns whether or not the search was successful.</p>
+ <pre><code class='lang-d'>bool canFind( Range )( Range haystack ) </code></pre><p>Convenience function. Like find, but only returns whether or not the search was successful.</p>
 <p>For more information about <code>pred</code> see $(LREF find).</p>
 <h3 class='section'>See_Also</h3><p>$(REF among, std,algorithm,comparison) for checking a value against multiple arguments.</p>
 <h2 class='section api'>canFind(haystack, needle)   </h2>
- <pre><code class='lang-d'>bool canFind(
-  Range haystack,
-  Element needle
-) </code></pre><p>Convenience function. Like find, but only returns whether or not the search was successful.</p>
+ <pre><code class='lang-d'>bool canFind( Range, Element )( Range haystack, scope Element needle ) </code></pre><p>Convenience function. Like find, but only returns whether or not the search was successful.</p>
 <p>For more information about <code>pred</code> see $(LREF find).</p>
 <h3 class='section'>See_Also</h3><p>$(REF among, std,algorithm,comparison) for checking a value against multiple arguments.</p>
 <h2 class='section api'>canFind(haystack, needles)   </h2>
- <pre><code class='lang-d'>size_t canFind(
-  Range haystack,
-  Needles needles
-) </code></pre><p>Convenience function. Like find, but only returns whether or not the search was successful.</p>
+ <pre><code class='lang-d'>size_t canFind( Range, Needles... )( Range haystack, scope Needles needles ) </code></pre><p>Convenience function. Like find, but only returns whether or not the search was successful.</p>
 <p>For more information about <code>pred</code> see $(LREF find).</p>
 <h3 class='section'>See_Also</h3><p>$(REF among, std,algorithm,comparison) for checking a value against multiple arguments.</p>
 

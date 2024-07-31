@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - isZip64</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.zip.ZipArchive</dd></dl><dl><dt>Parent</dt><dd>ZipArchive</dd></dl>
 </div><h2 class='section api'>isZip64()   </h2>
- <pre><code class='lang-d'>bool isZip64(
-) </code></pre><p>True when the archive is in Zip64 format. Set this to true to force building a Zip64 archive.</p>
+ <pre><code class='lang-d'>bool isZip64() @nogc @property @safe nothrow pure</code></pre><p>True when the archive is in Zip64 format. Set this to true to force building a Zip64 archive.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>value</code> &lt;parameter not found&gt;  </dt>
 <dd>
 
@@ -98,9 +97,7 @@
 
 </dd></dl><p>Returns: True, when the archive is in Zip64 format.</p>
 <h2 class='section api'>isZip64(value)   </h2>
- <pre><code class='lang-d'>void isZip64(
-  bool value
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>void isZip64( bool value ) @nogc @property @safe nothrow pure</code></pre><p>ditto</p>
 
 </article>
 

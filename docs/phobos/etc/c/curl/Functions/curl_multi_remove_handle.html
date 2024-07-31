@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - curl_multi_remove_handle</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.curl</dd></dl>
 </div><h2 class='section api'>curl_multi_remove_handle(multi_handle, curl_handle)   </h2>
- <pre><code class='lang-d'>CURLMcode curl_multi_remove_handle(
-  &lt;bug: unknown&gt; multi_handle,
-  &lt;bug: unknown&gt; curl_handle
-) </code></pre><p>Name:    curl_multi_remove_handle()</p>
+ <pre><code class='lang-d'>extern(C) CURLMcode curl_multi_remove_handle( CURLM* multi_handle, CURL* curl_handle ) </code></pre><p>Name:    curl_multi_remove_handle()</p>
 <p>Desc:    removes a curl handle from the multi stack again</p>
 <p>Returns: CURLMcode type, general multi error code.</p>
 

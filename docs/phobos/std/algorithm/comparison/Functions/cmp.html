@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - cmp</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.comparison</dd></dl>
 </div><h2 class='section api'>cmp(r1, r2)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; cmp(
-  R1 r1,
-  R2 r2
-) auto</code></pre><p>Performs a lexicographical comparison on two $(REF_ALTTEXT input ranges, isInputRange, std,range,primitives). Iterating <code>r1</code> and <code>r2</code> in lockstep, <code>cmp</code> compares each element <code>e1</code> of <code>r1</code> with the corresponding element <code>e2</code> in <code>r2</code> . If one of the ranges has been finished, <code>cmp</code> returns a negative value if <code>r1</code> has fewer elements than <code>r2</code> , a positive value if <code>r1</code> has more elements than <code>r2</code> , and <code>0</code> if the ranges have the same number of elements.</p>
+ <pre><code class='lang-d'>auto cmp( R1, R2 )( R1 r1, R2 r2 ) </code></pre><p>Performs a lexicographical comparison on two $(REF_ALTTEXT input ranges, isInputRange, std,range,primitives). Iterating <code>r1</code> and <code>r2</code> in lockstep, <code>cmp</code> compares each element <code>e1</code> of <code>r1</code> with the corresponding element <code>e2</code> in <code>r2</code> . If one of the ranges has been finished, <code>cmp</code> returns a negative value if <code>r1</code> has fewer elements than <code>r2</code> , a positive value if <code>r1</code> has more elements than <code>r2</code> , and <code>0</code> if the ranges have the same number of elements.</p>
 <p>If the ranges are strings, <code>cmp</code> performs UTF decoding appropriately and compares the ranges one code point at a time.</p>
 <p>A custom predicate may be specified, in which case <code>cmp</code> performs a three-way lexicographical comparison using <code>pred</code> . Otherwise the elements are compared using <code>opCmp</code> .</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>pred</code> &lt;parameter not found&gt;  </dt>
@@ -115,10 +112,7 @@
 </dd></dl><h3 class='section'>Returns</h3><p><code>0</code> if the ranges compare equal. A negative value if <code>r1</code> is a prefix of <code>r2</code> or the first differing element of <code>r1</code> is less than the corresponding element of <code>r2</code> according to <code>pred</code> . A positive value if <code>r2</code> is a prefix of <code>r1</code> or the first differing element of <code>r2</code> is less than the corresponding element of <code>r1</code> according to <code>pred</code> .</p>
 <h3 class='section'>Note</h3><p>An earlier version of the documentation incorrectly stated that <code>-1</code> is the only negative value returned and <code>1</code> is the only positive value returned. Whether that is true depends on the types being compared.</p>
 <h2 class='section api'>cmp(r1, r2)   </h2>
- <pre><code class='lang-d'>int cmp(
-  R1 r1,
-  R2 r2
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>int cmp( alias pred, R1, R2 )( R1 r1, R2 r2 ) </code></pre><p>ditto</p>
 
 </article>
 

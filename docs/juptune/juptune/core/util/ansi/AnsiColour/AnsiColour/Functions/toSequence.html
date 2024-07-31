@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,14 +88,12 @@
 <h1 class='section'>Overloads for - toSequence</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.core.util.ansi.AnsiColour</dd></dl><dl><dt>Parent</dt><dd>AnsiColour</dd></dl>
 </div><h2 class='section api'>toSequence(buffer)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; toSequence(
-  &lt;bug: unknown&gt; buffer
-) </code></pre><p>OUTPUT</p>
+ <pre><code class='lang-d'>char[] toSequence( ref return ref char[MAX_CHARS_NEEDED] buffer ) @nogc @safe nothrow</code></pre><p>OUTPUT</p>
 <p>Creates an ANSI SGR command that either sets the foreground, or the background (<code>isBg</code>) to the colour stored inside of this <code>AnsiColour</code> .</p>
 <p>Please note that the CSI (<code>ANSI_CSI</code>/<code>\033[</code>) and the SGR marker (<code>ANSI_COLOUR_END</code>/<code>m</code>) are not included in this output.</p>
 <h3 class='section'>Notes</h3><p>Any characters inside of <code>buffer</code> that are not covered by the returned slice, are left unmodified.</p>
 <p>If this colour hasn't been initialised or assigned a value, then the returned value is simply <code>null</code> .</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>buffer</code> &lt;bug: unknown&gt;  </dt>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>buffer</code> char[MAX_CHARS_NEEDED]  </dt>
 <dd>
 
 

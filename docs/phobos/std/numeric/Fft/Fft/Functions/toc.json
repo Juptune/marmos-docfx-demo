@@ -1,2 +1,2 @@
 
-{"items":[{"name":"size","href":"size.html","topicHref":"size.html"}],"pdf":false}
+{"items":[{"name":"size","href":"size.html","topicHref":"size.html"},{"name":"enforceSize","href":"enforceSize.html","topicHref":"enforceSize.html"},{"name":"fftImpl","href":"fftImpl.html","topicHref":"fftImpl.html"},{"name":"fftImplPureReal","href":"fftImplPureReal.html","topicHref":"fftImplPureReal.html"},{"name":"butterfly","href":"butterfly.html","topicHref":"butterfly.html"},{"name":"fft","href":"fft.html","topicHref":"fft.html"},{"name":"inverseFft","href":"inverseFft.html","topicHref":"inverseFft.html"}],"pdf":false}

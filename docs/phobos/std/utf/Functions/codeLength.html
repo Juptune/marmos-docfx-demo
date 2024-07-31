@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,13 +88,9 @@
 <h1 class='section'>Overloads for - codeLength</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.utf</dd></dl>
 </div><h2 class='section api'>codeLength(c)   </h2>
- <pre><code class='lang-d'>ubyte codeLength(
-  dchar c
-) </code></pre><p>Returns the number of code units that are required to encode the code point <code>c</code> when <code>C</code> is the character type used to encode it.</p>
+ <pre><code class='lang-d'>ubyte codeLength( C )( dchar c ) @nogc @safe nothrow pure</code></pre><p>Returns the number of code units that are required to encode the code point <code>c</code> when <code>C</code> is the character type used to encode it.</p>
 <h2 class='section api'>codeLength(input)   </h2>
- <pre><code class='lang-d'>size_t codeLength(
-  InputRange input
-) </code></pre><p>Returns the number of code units that are required to encode <code>str</code> in a string whose character type is <code>C</code> . This is particularly useful when slicing one string with the length of another and the two string types use different character types.</p>
+ <pre><code class='lang-d'>size_t codeLength( C, InputRange )( InputRange input ) </code></pre><p>Returns the number of code units that are required to encode <code>str</code> in a string whose character type is <code>C</code> . This is particularly useful when slicing one string with the length of another and the two string types use different character types.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>C</code> &lt;parameter not found&gt;  </dt>
 <dd>
 

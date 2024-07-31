@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - name</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.timezone.TimeZone</dd></dl><dl><dt>Parent</dt><dd>TimeZone</dd></dl>
 </div><h2 class='section api'>name()   </h2>
- <pre><code class='lang-d'>string name(
-) </code></pre><p>The name of the time zone. Exactly how the time zone name is formatted depends on the derived class. In the case of $(LREF PosixTimeZone), it's the TZ Database name, whereas with $(LREF WindowsTimeZone), it's the name that Windows chose to give the registry key for that time zone (typically the name that they give $(LREF stdTime) if the OS is in English). For other time zone types, what it is depends on how they're implemented.</p>
+ <pre><code class='lang-d'>string name() @property @safe nothrow</code></pre><p>The name of the time zone. Exactly how the time zone name is formatted depends on the derived class. In the case of $(LREF PosixTimeZone), it's the TZ Database name, whereas with $(LREF WindowsTimeZone), it's the name that Windows chose to give the registry key for that time zone (typically the name that they give $(LREF stdTime) if the OS is in English). For other time zone types, what it is depends on how they're implemented.</p>
 <h3 class='section'>See_Also</h3><p>$(HTTP en.wikipedia.org/wiki/Tz_database, Wikipedia entry on TZ Database)<br> $(HTTP en.wikipedia.org/wiki/List_of_tz_database_time_zones, List of Time Zones)</p>
 
 </article>

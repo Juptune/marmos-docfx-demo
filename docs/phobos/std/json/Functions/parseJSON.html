@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,16 +88,9 @@
 <h1 class='section'>Overloads for - parseJSON</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.json</dd></dl>
 </div><h2 class='section api'>parseJSON(json, maxDepth, options)   </h2>
- <pre><code class='lang-d'>JSONValue parseJSON(
-  T json,
-  int maxDepth,
-  JSONOptions options
-) </code></pre><p>Parses a serialized string and returns a tree of JSON values. Throws: $(LREF JSONException) if string does not follow the JSON grammar or the depth exceeds the max depth, $(LREF ConvException) if a number in the input cannot be represented by a native D type. Params: json = json-formatted string to parse maxDepth = maximum depth of nesting allowed, -1 disables depth checking options = enable decoding string representations of NaN/Inf as float values</p>
+ <pre><code class='lang-d'>JSONValue parseJSON( T )( T json, int maxDepth, JSONOptions options ) </code></pre><p>Parses a serialized string and returns a tree of JSON values. Throws: $(LREF JSONException) if string does not follow the JSON grammar or the depth exceeds the max depth, $(LREF ConvException) if a number in the input cannot be represented by a native D type. Params: json = json-formatted string to parse maxDepth = maximum depth of nesting allowed, -1 disables depth checking options = enable decoding string representations of NaN/Inf as float values</p>
 <h2 class='section api'>parseJSON(json, options)   </h2>
- <pre><code class='lang-d'>JSONValue parseJSON(
-  T json,
-  JSONOptions options
-) </code></pre><p>Parses a serialized string and returns a tree of JSON values. Throws: $(LREF JSONException) if the depth exceeds the max depth. Params: json = json-formatted string to parse options = enable decoding string representations of NaN/Inf as float values</p>
+ <pre><code class='lang-d'>JSONValue parseJSON( T )( T json, JSONOptions options ) </code></pre><p>Parses a serialized string and returns a tree of JSON values. Throws: $(LREF JSONException) if the depth exceeds the max depth. Params: json = json-formatted string to parse options = enable decoding string representations of NaN/Inf as float values</p>
 
 </article>
 

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,56 +88,67 @@
 <h1 class='section'>Overloads for - translate</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.string</dd></dl>
 </div><h2 class='section api'>translate(str, transTable, toRemove)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; translate(
-  &lt;bug: unknown&gt; str,
-  &lt;bug: unknown&gt; transTable,
-  &lt;bug: unknown&gt; toRemove
-) </code></pre><p>Replaces the characters in <code>str</code> which are keys in <code>transTable</code> with their corresponding values in <code>transTable</code> . <code>transTable</code> is an AA where its keys are <code>dchar</code> and its values are either <code>dchar</code> or some type of string. Also, if <code>toRemove</code> is given, the characters in it are removed from <code>str</code> prior to translation. <code>str</code> itself is unaltered. A copy with the changes is returned.</p>
+ <pre><code class='lang-d'>C1[] translate(
+  C1,
+  C2 = char
+)(
+  C1[] str,
+  in dchar[dchar] transTable,
+  C2[] toRemove
+) @safe pure</code></pre><p>Replaces the characters in <code>str</code> which are keys in <code>transTable</code> with their corresponding values in <code>transTable</code> . <code>transTable</code> is an AA where its keys are <code>dchar</code> and its values are either <code>dchar</code> or some type of string. Also, if <code>toRemove</code> is given, the characters in it are removed from <code>str</code> prior to translation. <code>str</code> itself is unaltered. A copy with the changes is returned.</p>
 <h3 class='section'>See_Also</h3><p>$(LREF tr), $(REF replace, std,array), $(REF substitute, std,algorithm,iteration)</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>str</code> &lt;bug: unknown&gt;  </dt>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>str</code> C1[]  </dt>
 <dd>
 
 
 <p>The original string.</p>
 
-</dd><dt><code>transTable</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>transTable</code> dchar[dchar]  </dt>
 <dd>
 
 
 <p>The AA indicating which characters to replace and what to replace them with.</p>
 
-</dd><dt><code>toRemove</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>toRemove</code> C2[]  </dt>
 <dd>
 
 
 <p>The characters to remove from the string.</p>
 
 </dd></dl><h2 class='section api'>translate(str, transTable, toRemove)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; translate(
-  &lt;bug: unknown&gt; str,
-  &lt;bug: unknown&gt; transTable,
-  &lt;bug: unknown&gt; toRemove
-) </code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>C1[] translate(
+  C1,
+  S,
+  C2 = char
+)(
+  C1[] str,
+  in S[dchar] transTable,
+  C2[] toRemove
+) @safe pure</code></pre><p>Ditto</p>
 <h2 class='section api'>translate(str, transTable, toRemove, buffer)   </h2>
  <pre><code class='lang-d'>void translate(
-  &lt;bug: unknown&gt; str,
-  &lt;bug: unknown&gt; transTable,
-  &lt;bug: unknown&gt; toRemove,
+  C1,
+  C2 = char,
+  Buffer
+)(
+  C1[] str,
+  in dchar[dchar] transTable,
+  C2[] toRemove,
   Buffer buffer
 ) </code></pre><p>This is an overload of <code>translate</code> which takes an existing buffer to write the contents to.</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>str</code> &lt;bug: unknown&gt;  </dt>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>str</code> C1[]  </dt>
 <dd>
 
 
 <p>The original string.</p>
 
-</dd><dt><code>transTable</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>transTable</code> dchar[dchar]  </dt>
 <dd>
 
 
 <p>The AA indicating which characters to replace and what to replace them with.</p>
 
-</dd><dt><code>toRemove</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>toRemove</code> C2[]  </dt>
 <dd>
 
 
@@ -151,34 +162,41 @@
 
 </dd></dl><h2 class='section api'>translate(str, transTable, toRemove, buffer)   </h2>
  <pre><code class='lang-d'>void translate(
-  &lt;bug: unknown&gt; str,
-  &lt;bug: unknown&gt; transTable,
-  &lt;bug: unknown&gt; toRemove,
+  C1,
+  S,
+  C2 = char,
+  Buffer
+)(
+  C1[] str,
+  in S[dchar] transTable,
+  C2[] toRemove,
   Buffer buffer
 ) </code></pre><p>Ditto</p>
 <h2 class='section api'>translate(str, transTable, toRemove)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; translate(
-  &lt;bug: unknown&gt; str,
-  &lt;bug: unknown&gt; transTable,
-  &lt;bug: unknown&gt; toRemove
-) </code></pre><p>This is an $(I $(RED ASCII-only)) overload of $(LREF translate). It will $(I not) work with Unicode. It exists as an optimization for the cases where Unicode processing is not necessary.</p>
+ <pre><code class='lang-d'>C[] translate(
+  C = char
+)(
+  scope char[] str,
+  scope char[] transTable,
+  scope char[] toRemove
+) @trusted nothrow pure</code></pre><p>This is an $(I $(RED ASCII-only)) overload of $(LREF translate). It will $(I not) work with Unicode. It exists as an optimization for the cases where Unicode processing is not necessary.</p>
 <p>Unlike the other overloads of $(LREF translate), this one does not take an AA. Rather, it takes a <code>string</code> generated by $(LREF makeTransTable).</p>
 <p>The array generated by <code>makeTransTable</code> is <code>256</code> elements long such that the index is equal to the ASCII character being replaced and the value is equal to the character that it's being replaced with. Note that translate does not decode any of the characters, so you can actually pass it Extended ASCII characters if you want to (ASCII only actually uses <code>128</code> characters), but be warned that Extended ASCII characters are not valid Unicode and therefore will result in a <code>UTFException</code> being thrown from most other Phobos functions.</p>
 <p>Also, because no decoding occurs, it is possible to use this overload to translate ASCII characters within a proper UTF-8 string without altering the other, non-ASCII characters. It's replacing any code unit greater than <code>127</code> with another code unit or replacing any code unit with another code unit greater than <code>127</code> which will cause UTF validation issues.</p>
 <h3 class='section'>See_Also</h3><p>$(LREF tr), $(REF replace, std,array), $(REF substitute, std,algorithm,iteration)</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>str</code> &lt;bug: unknown&gt;  </dt>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>str</code> char[]  </dt>
 <dd>
 
 
 <p>The original string.</p>
 
-</dd><dt><code>transTable</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>transTable</code> char[]  </dt>
 <dd>
 
 
 <p>The string indicating which characters to replace and what to replace them with. It is generated by $(LREF makeTransTable).</p>
 
-</dd><dt><code>toRemove</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>toRemove</code> char[]  </dt>
 <dd>
 
 
@@ -186,24 +204,27 @@
 
 </dd></dl><h2 class='section api'>translate(str, transTable, toRemove, buffer)   </h2>
  <pre><code class='lang-d'>void translate(
-  &lt;bug: unknown&gt; str,
-  &lt;bug: unknown&gt; transTable,
-  &lt;bug: unknown&gt; toRemove,
+  C = char,
+  Buffer
+)(
+  scope char[] str,
+  scope char[] transTable,
+  scope char[] toRemove,
   Buffer buffer
-) </code></pre><p>This is an $(I $(RED ASCII-only)) overload of <code>translate</code> which takes an existing buffer to write the contents to.</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>str</code> &lt;bug: unknown&gt;  </dt>
+) @trusted pure</code></pre><p>This is an $(I $(RED ASCII-only)) overload of <code>translate</code> which takes an existing buffer to write the contents to.</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>str</code> char[]  </dt>
 <dd>
 
 
 <p>The original string.</p>
 
-</dd><dt><code>transTable</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>transTable</code> char[]  </dt>
 <dd>
 
 
 <p>The string indicating which characters to replace and what to replace them with. It is generated by $(LREF makeTransTable).</p>
 
-</dd><dt><code>toRemove</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>toRemove</code> char[]  </dt>
 <dd>
 
 

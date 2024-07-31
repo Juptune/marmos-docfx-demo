@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,21 +88,12 @@
 <h1 class='section'>Overloads for - atan2</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.math.trigonometry</dd></dl>
 </div><h2 class='section api'>atan2(y, x)   </h2>
- <pre><code class='lang-d'>real atan2(
-  real y,
-  real x
-) </code></pre><p>Calculates the arc tangent of y / x, returning a value ranging from -$(PI) to $(PI).</p>
+ <pre><code class='lang-d'>real atan2( real y, real x ) @nogc @trusted nothrow pure</code></pre><p>Calculates the arc tangent of y / x, returning a value ranging from -$(PI) to $(PI).</p>
 <p>$(TABLE_SV $(TR $(TH y)                 $(TH x)            $(TH atan(y, x))) $(TR $(TD $(NAN))            $(TD anything)     $(TD $(NAN)) ) $(TR $(TD anything)          $(TD $(NAN))       $(TD $(NAN)) ) $(TR $(TD $(PLUSMN)0.0)      $(TD $(GT)0.0)     $(TD $(PLUSMN)0.0) ) $(TR $(TD $(PLUSMN)0.0)      $(TD +0.0)         $(TD $(PLUSMN)0.0) ) $(TR $(TD $(PLUSMN)0.0)      $(TD $(LT)0.0)     $(TD <span class="math">\((PLUSMN)\)</span>(PI))) $(TR $(TD $(PLUSMN)0.0)      $(TD -0.0)         $(TD <span class="math">\((PLUSMN)\)</span>(PI))) $(TR $(TD $(GT)0.0)          $(TD $(PLUSMN)0.0) $(TD $(PI)/2) ) $(TR $(TD $(LT)0.0)          $(TD $(PLUSMN)0.0) <span class="math">\((TD -\)</span>(PI)/2) ) $(TR $(TD $(GT)0.0)          $(TD $(INFIN))     $(TD $(PLUSMN)0.0) ) $(TR $(TD <span class="math">\((PLUSMN)\)</span>(INFIN)) $(TD anything)     $(TD <span class="math">\((PLUSMN)\)</span>(PI)/2)) $(TR $(TD $(GT)0.0)          <span class="math">\((TD -\)</span>(INFIN))    $(TD <span class="math">\((PLUSMN)\)</span>(PI)) ) $(TR $(TD <span class="math">\((PLUSMN)\)</span>(INFIN)) $(TD $(INFIN))     $(TD <span class="math">\((PLUSMN)\)</span>(PI)/4)) $(TR $(TD <span class="math">\((PLUSMN)\)</span>(INFIN)) <span class="math">\((TD -\)</span>(INFIN))    $(TD <span class="math">\((PLUSMN)3\)</span>(PI)/4)) )</p>
 <h2 class='section api'>atan2(y, x)   </h2>
- <pre><code class='lang-d'>double atan2(
-  double y,
-  double x
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>double atan2( double y, double x ) @nogc @safe nothrow pure</code></pre><p>ditto</p>
 <h2 class='section api'>atan2(y, x)   </h2>
- <pre><code class='lang-d'>float atan2(
-  float y,
-  float x
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>float atan2( float y, float x ) @nogc @safe nothrow pure</code></pre><p>ditto</p>
 
 </article>
 

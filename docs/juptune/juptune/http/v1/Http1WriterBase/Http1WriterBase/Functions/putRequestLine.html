@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,19 +89,19 @@
 <dl><dt>Module</dt><dd>juptune.http.v1.Http1WriterBase</dd></dl><dl><dt>Parent</dt><dd>Http1WriterBase</dd></dl>
 </div><h2 class='section api'>putRequestLine(method, path, httpVersion)   </h2>
  <pre><code class='lang-d'>Result putRequestLine(
-  &lt;bug: unknown&gt; method,
-  &lt;bug: unknown&gt; path,
+  const scope char[] method,
+  const scope char[] path,
   Http1Version httpVersion
 ) </code></pre><p>Writes an entire request line. This will configure this writer to be a request writer for the remainder of the message, until <code>finishMessage</code> is called.</p>
 <h3 class='section'>State</h3><p>The writer must be in the <code>startLine</code> state.</p>
 <p>The writer will be in the <code>headers</code> state after this function is called.</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>method</code> &lt;bug: unknown&gt;  </dt>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>method</code> char[]  </dt>
 <dd>
 
 
 <p>The method to use.</p>
 
-</dd><dt><code>path</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>path</code> char[]  </dt>
 <dd>
 
 

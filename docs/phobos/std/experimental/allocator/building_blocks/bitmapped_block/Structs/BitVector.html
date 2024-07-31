@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,25 +90,27 @@
 </div><pre><code class='lang-d'>public struct BitVector
 {
   // Are all bits zero? 
-  bool allAre0( ) ;
+  bool allAre0() @nogc @safe nothrow pure
   // Are all bits one? 
-  bool allAre1( ) ;
+  bool allAre1() @nogc @safe nothrow pure
   // 
-  ulong find1( ulong i ) ;
+  ulong find1( ulong i ) @nogc @safe nothrow pure
   // 
-  ulong find1Backward( ulong i ) ;
+  ulong find1Backward( ulong i ) @nogc @safe nothrow pure
   // 
-  ulong findZeros( size_t howMany, ulong start ) ;
+  ulong findZeros( immutable size_t howMany, ulong start ) @nogc @safe nothrow pure
   // 
-  ulong length( ) ;
+  ulong length() @nogc @safe nothrow pure
   // 
-  bool opIndex( ulong x ) ;
+  bool opIndex( ulong x ) @nogc @safe nothrow pure
   // 
-  void opIndexAssign( bool b, ulong x ) ;
+  void opIndexAssign( bool b, ulong x ) @nogc @safe nothrow pure
   // 
-  void opSliceAssign( bool b ) ;
+  void opSliceAssign( bool b ) @nogc @safe nothrow pure
   // 
-  void opSliceAssign( bool b, ulong x, ulong y ) ;
+  void opSliceAssign( bool b, ulong x, ulong y ) @nogc @safe nothrow pure
+  // 
+  auto rep( _ )() 
 }</code></pre><h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -151,6 +153,10 @@
 </tr>
 <tr>
 <td><a href="../BitVector/BitVector/Functions/opSliceAssign.html">opSliceAssign</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BitVector/BitVector/Functions/rep.html">rep</a></td>
 <td></td>
 </tr>
 </tbody>

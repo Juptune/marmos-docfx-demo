@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,17 +90,17 @@
 </div><pre><code class='lang-d'>public struct StopWatch
 {
   // Peek at the amount of time that the StopWatch has been running. 
-  Duration peek( ) ;
+  Duration peek() @nogc @safe nothrow
   // Resets the StopWatch. 
-  void reset( ) ;
+  void reset() @nogc @safe nothrow
   // Returns whether this StopWatch is currently running. 
-  bool running( ) ;
+  bool running() @nogc @property @safe nothrow pure
   // Sets the total time which the StopWatch has been running (i.e. what peek returns). 
-  void setTimeElapsed( Duration timeElapsed ) ;
+  void setTimeElapsed( Duration timeElapsed ) @nogc @safe nothrow
   // Starts the StopWatch. 
-  void start( ) ;
+  void start() @nogc @safe nothrow
   // Stops the StopWatch. 
-  void stop( ) ;
+  void stop() @nogc @safe nothrow
 }</code></pre><h2 class='section'>About</h2><p>StopWatch is used to measure time just like one would do with a physical stopwatch, including stopping, restarting, and/or resetting it.</p>
 <p>$(REF MonoTime,core,time) is used to hold the time, and it uses the system's monotonic clock, which is high precision and never counts backwards (unlike the wall clock time, which $(I can) count backwards, which is why $(REF SysTime,std,datetime,systime) should not be used for timing).</p>
 <p>Note that the precision of StopWatch differs from system to system. It is impossible for it to be the same for all systems, since the precision of the system clock and other system-dependent and situation-dependent factors (such as the overhead of a context switch between threads) varies from system to system and can affect StopWatch's accuracy.</p>

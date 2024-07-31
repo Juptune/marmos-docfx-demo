@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,12 +88,10 @@
 <h1 class='section'>Overloads for - safeDecode</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.encoding.EncodingScheme</dd></dl><dl><dt>Parent</dt><dd>EncodingScheme</dd></dl>
 </div><h2 class='section api'>safeDecode(s)   </h2>
- <pre><code class='lang-d'>dchar safeDecode(
-  &lt;bug: unknown&gt; s
-) abstract</code></pre><p>Decodes a single code point. The input does not have to be valid.</p>
+ <pre><code class='lang-d'>dchar safeDecode( ref ubyte[] s ) abstract</code></pre><p>Decodes a single code point. The input does not have to be valid.</p>
 <p>This function removes one or more ubytes from the start of an array, and returns the decoded code point which those ubytes represent.</p>
 <p>This function will accept an invalidly encoded array as input. If an invalid sequence is found at the start of the string, this function will remove it, and return the value INVALID_SEQUENCE.</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>s</code> &lt;bug: unknown&gt;  </dt>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>s</code> ubyte[]  </dt>
 <dd>
 
 

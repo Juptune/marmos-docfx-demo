@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,32 +90,32 @@
 </div><pre><code class='lang-d'>public struct NullAllocator
 {
   // Always returns `null` . 
-  &lt;bug: unknown&gt; alignedAllocate( size_t __anonymous, uint __anonymous ) ;
+  void[] alignedAllocate( size_t __anonymous, uint __anonymous ) 
   // Ditto 
-  bool alignedReallocate( &lt;bug: unknown&gt; b, size_t __anonymous, uint __anonymous ) ;
+  bool alignedReallocate( ref void[] b, size_t __anonymous, uint __anonymous ) 
   // Always returns `null` . 
-  &lt;bug: unknown&gt; allocate( size_t __anonymous ) ;
+  void[] allocate( size_t __anonymous ) 
   // Always returns `null` . 
-  &lt;bug: unknown&gt; allocateAll( ) ;
+  void[] allocateAll() 
   // No-op. Precondition: $(D b is null) 
-  bool deallocate( &lt;bug: unknown&gt; b ) ;
+  bool deallocate( void[] b ) 
   // No-op. 
-  bool deallocateAll( ) ;
+  bool deallocateAll() 
   // Returns `Ternary.yes` . 
-  Ternary empty( ) ;
+  Ternary empty() 
   // These methods return `false` . Precondition: $(D b is null). This is because there is no other possible legitimate input. 
-  bool expand( &lt;bug: unknown&gt; b, size_t s ) ;
+  bool expand( ref void[] b, size_t s ) 
   // Returns `Ternary.no` . 
-  Ternary owns( &lt;bug: unknown&gt; __anonymous ) ;
+  Ternary owns( const void[] __anonymous ) 
   // Ditto 
-  bool reallocate( &lt;bug: unknown&gt; b, size_t __anonymous ) ;
+  bool reallocate( ref void[] b, size_t __anonymous ) 
   // Returns `Ternary.no` . 
-  Ternary resolveInternalPointer( &lt;bug: unknown&gt; __anonymous, &lt;bug: unknown&gt; __anonymous ) ;
+  Ternary resolveInternalPointer( const void* __anonymous, ref void[] __anonymous ) 
 
   // `NullAllocator` advertises a relatively large alignment equal to 64 KB. This is because `NullAllocator` never actually needs to honor this alignment and because composite allocators using `NullAllocator` shouldn&#39;t be unnecessarily constrained. 
-  uint alignment;
+  uint alignment = 64 * 1024
   // Returns the `shared` global instance of the `NullAllocator` . 
-  static shared NullAllocator instance;
+  static shared NullAllocator instance
 }</code></pre><h2 class='section'>About</h2><p><code>NullAllocator</code> is an emphatically empty implementation of the allocator interface. Although it has no direct use, it is useful as a &quot;terminator&quot; in composite allocators.</p>
 <h2 class='section'>Functions</h2><table>
 <thead>

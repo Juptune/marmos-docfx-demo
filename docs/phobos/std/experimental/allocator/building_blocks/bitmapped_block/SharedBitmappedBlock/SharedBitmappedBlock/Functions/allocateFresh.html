@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - allocateFresh</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator.building_blocks.bitmapped_block.SharedBitmappedBlock</dd></dl><dl><dt>Parent</dt><dd>SharedBitmappedBlock</dd></dl>
 </div><h2 class='section api'>allocateFresh(s)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; allocateFresh(
-  size_t s
-) </code></pre><p>Allocates s bytes of memory and returns it, or <code>null</code> if memory could not be allocated. <code>allocateFresh</code> behaves just like allocate, the only difference being that this always returns unused(fresh) memory. Although there may still be available space in the <code>SharedBitmappedBlock</code> , <code>allocateFresh</code> could still return null, because all the available blocks have been previously deallocated.</p>
+ <pre><code class='lang-d'>void[] allocateFresh( const size_t s ) @trusted</code></pre><p>Allocates s bytes of memory and returns it, or <code>null</code> if memory could not be allocated. <code>allocateFresh</code> behaves just like allocate, the only difference being that this always returns unused(fresh) memory. Although there may still be available space in the <code>SharedBitmappedBlock</code> , <code>allocateFresh</code> could still return null, because all the available blocks have been previously deallocated.</p>
 
 </article>
 

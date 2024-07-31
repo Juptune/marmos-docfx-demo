@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - allocate</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator.building_blocks.bitmapped_block.BitmappedBlock</dd></dl><dl><dt>Parent</dt><dd>BitmappedBlock</dd></dl>
 </div><h2 class='section api'>allocate(s)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; allocate(
-  size_t s
-) </code></pre><p>Allocates <code>s</code> bytes of memory and returns it, or <code>null</code> if memory could not be allocated.</p>
+ <pre><code class='lang-d'>void[] allocate( const size_t s ) @nogc @trusted nothrow pure</code></pre><p>Allocates <code>s</code> bytes of memory and returns it, or <code>null</code> if memory could not be allocated.</p>
 <p>The following information might be of help with choosing the appropriate block size. Actual allocation occurs in sizes multiple of the block size. Allocating one block is the fastest because only one 0 bit needs to be found in the metadata. Allocating 2 through 64 blocks is the next cheapest because it affects a maximum of two <code>ulong</code> in the metadata. Allocations greater than 64 blocks require a multiword search through the metadata.</p>
 <p>If instantiated with <code>No.multiblock</code> , it performs a search for the first zero bit in the bitmap and sets it.</p>
 

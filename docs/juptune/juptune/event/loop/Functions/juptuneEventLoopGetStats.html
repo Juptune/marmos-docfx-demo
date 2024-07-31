@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - juptuneEventLoopGetStats</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.event.loop</dd></dl>
 </div><h2 class='section api'>juptuneEventLoopGetStats()   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; juptuneEventLoopGetStats(
-) </code></pre><p>Accesses the current event loop's <code>EventLoopThreadStats</code> .</p>
+ <pre><code class='lang-d'>EventLoopThreadStats* juptuneEventLoopGetStats() @nogc nothrow scope</code></pre><p>Accesses the current event loop's <code>EventLoopThreadStats</code> .</p>
 <p>This is a pointer to the live underlying data, so will always be up to date.</p>
 <h3 class='section'>Returns</h3><p>A pointer to the event loop's <code>EventLoopThreadStats</code> .</p>
 

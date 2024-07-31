@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,13 +90,23 @@
 </div><pre><code class='lang-d'>template GenericEncoder
 {
   // 
-  bool canEncode( dchar c ) ;
+  bool canEncode( dchar c ) @nogc @safe nothrow pure
   // 
-  size_t encodedLength( dchar c ) ;
+  dchar decodeReverseViaRead( )() 
   // 
-  bool isValidCodeUnit( E c ) ;
+  dchar decodeViaRead( )() 
   // 
-  EString replacementSequence( ) ;
+  size_t encodedLength( dchar c ) @nogc @safe nothrow pure
+  // 
+  void encodeViaWrite( )( dchar c ) 
+  // 
+  bool isValidCodeUnit( E c ) @nogc @safe nothrow pure
+  // 
+  EString replacementSequence() @nogc @property @safe nothrow pure
+  // 
+  dchar safeDecodeViaRead( )() 
+  // 
+  void skipViaRead( )() 
 }</code></pre><h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -110,7 +120,19 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="../GenericEncoder/GenericEncoder/Functions/decodeReverseViaRead.html">decodeReverseViaRead</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../GenericEncoder/GenericEncoder/Functions/decodeViaRead.html">decodeViaRead</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../GenericEncoder/GenericEncoder/Functions/encodedLength.html">encodedLength</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../GenericEncoder/GenericEncoder/Functions/encodeViaWrite.html">encodeViaWrite</a></td>
 <td></td>
 </tr>
 <tr>
@@ -119,6 +141,14 @@
 </tr>
 <tr>
 <td><a href="../GenericEncoder/GenericEncoder/Functions/replacementSequence.html">replacementSequence</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../GenericEncoder/GenericEncoder/Functions/safeDecodeViaRead.html">safeDecodeViaRead</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../GenericEncoder/GenericEncoder/Functions/skipViaRead.html">skipViaRead</a></td>
 <td></td>
 </tr>
 </tbody>

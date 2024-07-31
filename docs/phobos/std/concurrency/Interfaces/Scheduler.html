@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,15 +90,15 @@
 </div><pre><code class='lang-d'>public interface Scheduler
 {
   // Creates a `Condition` variable analog for signaling. 
-  Condition newCondition( Mutex m ) ;
+  Condition newCondition( Mutex m ) nothrow
   // Assigns a logical thread to execute the supplied op. 
-  void spawn( &lt;bug: unknown&gt; op ) ;
+  void spawn( &lt;bug: unknown&gt; op ) 
   // Spawns the supplied op and starts the `Scheduler` . 
-  void start( &lt;bug: unknown&gt; op ) ;
+  void start( &lt;bug: unknown&gt; op ) 
   // Returns an appropriate `ThreadInfo` instance. 
-  ThreadInfo thisInfo( ) ;
+  ref ThreadInfo thisInfo() @property nothrow
   // Yields execution to another logical thread. 
-  void yield( ) ;
+  void yield() nothrow
 }</code></pre><h2 class='section'>About</h2><p>A <code>Scheduler</code> controls how threading is performed by spawn.</p>
 <p>Implementing a <code>Scheduler</code> allows the concurrency mechanism used by this module to be customized according to different needs.  By default, a call to spawn will create a new kernel thread that executes the supplied routine and terminates when finished.  But it is possible to create <code>Scheduler</code> s that reuse threads, that multiplex <code>Fiber</code> s (coroutines) across a single thread, or any number of other approaches.  By making the choice of <code>Scheduler</code> a user-level option, <code>std.concurrency</code> may be used for far more types of application than if this behavior were predefined.</p>
 <h3 class='section'>Example</h3><p>--- import std.concurrency; import std.stdio;</p>

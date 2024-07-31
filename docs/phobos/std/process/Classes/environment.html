@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,20 +90,27 @@
 </div><pre><code class='lang-d'>public class environment
 {
   // 
-  alias OSChar = &lt;todo: marmos support pending&gt;;
+  alias OSChar = &lt;todo: marmos support pending&gt;
 
-  // Retrieves the value of the environment variable with the given `name` , or a default value if the variable doesn&#39;t exist. 
-  string get( &lt;bug: unknown&gt; name, string defaultValue ) ;
   // 
-  void getImpl( &lt;bug: unknown&gt; name, &lt;bug: unknown&gt; sink ) ;
+  string cachedToString( C )( scope C[] v ) @safe
+  // Retrieves the value of the environment variable with the given `name` , or a default value if the variable doesn&#39;t exist. 
+  string get( scope char[] name, string defaultValue ) @safe
+  // 
+  void getImpl( scope char[] name, scope &lt;bug: unknown&gt; sink ) @trusted
+  // Identify whether a variable is defined in the environment. 
+  bool opBinaryRight( string op )( scope char[] name ) @trusted
   // Retrieves the value of the environment variable with the given `name` . --- auto path = environment[&quot;PATH&quot;]; --- 
-  string opIndex( &lt;bug: unknown&gt; name ) ;
+  string opIndex( scope char[] name ) @safe
   // Assigns the given `value` to the environment variable with the given `name` . If `value` is null the variable is removed from environment. 
-  &lt;bug: unknown&gt; opIndexAssign( &lt;bug: unknown&gt; value, &lt;bug: unknown&gt; name ) ;
+  char[] opIndexAssign(
+    scope return ref return ref scope char[] value,
+    scope char[] name
+  ) @trusted
   // Removes the environment variable with the given `name` . 
-  void remove( &lt;bug: unknown&gt; name ) ;
+  void remove( scope char[] name ) @nogc @trusted nothrow
   // Copies all environment variables into an associative array. 
-  &lt;bug: unknown&gt; toAA( ) ;
+  string[string] toAA() @trusted
 }</code></pre><h2 class='section'>About</h2><p>Manipulates environment variables using an associative-array-like interface.</p>
 <p>This class contains only static methods, and cannot be instantiated. See below for examples of use.</p>
 <h2 class='section'>Aliases</h2><table>
@@ -129,12 +136,20 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../environment/environment/Functions/cachedToString.html">cachedToString</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../environment/environment/Functions/get.html">get</a></td>
 <td>Retrieves the value of the environment variable with the given <code>name</code> , or a default value if the variable doesn't exist.</td>
 </tr>
 <tr>
 <td><a href="../environment/environment/Functions/getImpl.html">getImpl</a></td>
 <td></td>
+</tr>
+<tr>
+<td><a href="../environment/environment/Functions/opBinaryRight.html">opBinaryRight</a></td>
+<td>Identify whether a variable is defined in the environment.</td>
 </tr>
 <tr>
 <td><a href="../environment/environment/Functions/opIndex.html">opIndex</a></td>

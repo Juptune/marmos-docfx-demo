@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,28 +87,28 @@
         <article data-uid="std.algorithm.setops.Structs.SetSymmetricDifference">
 <h1 class='section'>Struct - SetSymmetricDifference</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.setops</dd></dl>
-</div><pre><code class='lang-d'>public struct SetSymmetricDifference
+</div><pre><code class='lang-d'>struct SetSymmetricDifference( alias less = &quot;a &lt; b&quot;, R1, R2 )
 {
   // 
-  alias comp = &lt;todo: marmos support pending&gt;;
+  alias comp = &lt;todo: marmos support pending&gt;
 
   // 
-  void adjustPosition( ) ;
+  void adjustPosition() 
   // 
-  bool empty( ) ;
+  bool empty() @property
   // 
-  &lt;bug: unknown&gt; front( ) auto;
+  ref auto front() @property
   // 
-  &lt;bug: unknown&gt; opSlice( ) auto;
+  ref auto opSlice() 
   // 
-  void popFront( ) ;
+  void popFront() 
   // 
-  &lt;bug: unknown&gt; save( ) ;
+  typeof(this) save() @property
 
   // 
-  R1 r1;
+  R1 r1
   // 
-  R2 r2;
+  R2 r2
 }</code></pre><h2 class='section'>About</h2><p>Lazily computes the symmetric difference of <code>r1</code> and <code>r2</code> , i.e. the elements that are present in exactly one of <code>r1</code> and $(D r2). The two ranges are assumed to be sorted by <code>less</code> , and the output is also sorted by <code>less</code> . The element types of the two ranges must have a common type.</p>
 <p>If both ranges are sets (without duplicated elements), the resulting range is going to be a set. If at least one of the ranges is a multiset, the number of occurences of an element <code>x</code> in the resulting range is <code>abs(a-b)</code> where <code>a</code> is the number of occurences of <code>x</code> in <code>r1</code> , <code>b</code> is the number of occurences of <code>x</code> in <code>r2</code> , and <code>abs</code> is the absolute value.</p>
 <p>If both arguments are ranges of L-values of the same type then <code>SetSymmetricDifference</code> will also be a range of L-values of that type.</p>

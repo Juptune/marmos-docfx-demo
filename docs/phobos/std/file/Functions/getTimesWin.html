@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,10 +89,12 @@
 <dl><dt>Module</dt><dd>std.file</dd></dl>
 </div><h2 class='section api'>getTimesWin(name, fileCreationTime, fileAccessTime, fileModificationTime)   </h2>
  <pre><code class='lang-d'>void getTimesWin(
+  R
+)(
   R name,
-  SysTime fileCreationTime,
-  SysTime fileAccessTime,
-  SysTime fileModificationTime
+  out SysTime fileCreationTime,
+  out SysTime fileAccessTime,
+  out SysTime fileModificationTime
 ) </code></pre><p>$(BLUE This function is Windows-Only.)</p>
 <p>Get creation/access/modified times of file <code>name</code> .</p>
 <p>This is the same as <code>getTimes</code> except that it also gives you the file creation time - which isn't possible on POSIX systems.</p>

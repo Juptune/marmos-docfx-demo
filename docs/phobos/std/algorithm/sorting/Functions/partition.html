@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - partition</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.sorting</dd></dl>
 </div><h2 class='section api'>partition(r)   </h2>
- <pre><code class='lang-d'>Range partition(
-  Range r
-) </code></pre><p>Partitions a range in two using the given <code>predicate</code> .</p>
+ <pre><code class='lang-d'>Range partition( alias predicate, SwapStrategy ss, Range )( Range r ) </code></pre><p>Partitions a range in two using the given <code>predicate</code> .</p>
 <p>Specifically, reorders the range <code>r = [left, right$(RPAREN)</code> using $(REF_ALTTEXT swap, swap, std,algorithm,mutation) such that all elements <code>i</code> for which <code>predicate(i)</code> is <code>true</code> come before all elements <code>j</code> for which <code>predicate(j)</code> returns <code>false</code> .</p>
 <p>Performs $(BIGOH r.length) (if unstable or semistable) or $(BIGOH r.length log(r.length)) (if stable) evaluations of <code>less</code> and $(REF_ALTTEXT swap, swap, std,algorithm,mutation). The unstable version computes the minimum possible evaluations of <code>swap</code> (roughly half of those performed by the semistable version).</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>predicate</code> &lt;parameter not found&gt;  </dt>
@@ -115,6 +113,10 @@
 <p>If <code>ss == SwapStrategy.stable</code> , <code>partition</code> preserves the relative ordering of all elements <code>a</code> , <code>b</code> in <code>r</code> for which <code>predicate(a) == predicate(b)</code> . If <code>ss == SwapStrategy.semistable</code> , <code>partition</code> preserves the relative ordering of all elements <code>a</code> , <code>b</code> in the left part of <code>r</code> for which <code>predicate(a) == predicate(b)</code> .</p>
 <h2 class='section api'>partition(r)   </h2>
  <pre><code class='lang-d'>Range partition(
+  alias predicate,
+  SwapStrategy ss = SwapStrategy.unstable,
+  Range
+)(
   Range r
 ) </code></pre><p>ditto</p>
 

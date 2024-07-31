@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - sumOfLog2s</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.numeric</dd></dl>
 </div><h2 class='section api'>sumOfLog2s(r)   </h2>
- <pre><code class='lang-d'>ElementType!(Range) sumOfLog2s(
-  Range r
-) </code></pre><p>Compute the sum of binary logarithms of the input range <code>r</code> . The error of this method is much smaller than with a naive sum of log2.</p>
+ <pre><code class='lang-d'>ElementType!(Range) sumOfLog2s( Range )( Range r ) </code></pre><p>Compute the sum of binary logarithms of the input range <code>r</code> . The error of this method is much smaller than with a naive sum of log2.</p>
 
 </article>
 

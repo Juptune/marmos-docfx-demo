@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,8 +89,20 @@
 <dl><dt>Module</dt><dd>std.checkedint</dd></dl>
 </div><pre><code class='lang-d'>public struct Saturate
 {
+  // Implements saturation for operators `+=` , `-=` , `*=` , `/=` , `%=` , `^^=` , `&amp;=` , `|=` , `^=` , `&lt;&lt;=` , `&gt;&gt;=` , and `&gt;&gt;&gt;=` . This hook is called if the result of the binary operation does not fit in `Lhs` without loss of information or a change in sign. 
+  T onLowerBound( Rhs, T )( Rhs __anonymous, T bound ) 
+  // Implements saturation for operators `+` , `-` (unary and binary), `*` , `/` , `%` , `^^` , `&amp;` , `|` , `^` , `&lt;&lt;` , `&gt;&gt;` , and `&gt;&gt;&gt;` . 
+  auto onOverflow( string x, Lhs )( Lhs __anonymous ) 
+  // ditto 
+  typeof(Lhs() + Rhs()) onOverflow( string x, Lhs, Rhs )( Lhs lhs, Rhs rhs ) 
+  // ditto 
+  T onUpperBound( Rhs, T )( Rhs __anonymous, T bound ) 
 }</code></pre><h2 class='section'>About</h2><p>Hook that implements $(I saturation), i.e. any arithmetic operation that would overflow leaves the result at its extreme value (<code>min</code> or <code>max</code> depending on the direction of the overflow).</p>
 <p>Saturation is not sticky; if a value reaches its saturation value, another operation may take it back to normal range.</p>
+<h2 class='section'>Functions</h2><p>Name | Description
+-- | --
+<a href="../Saturate/Saturate/Functions/onLowerBound.html">onLowerBound</a> | Implements saturation for operators <code>+=</code> , <code>-=</code> , <code>*=</code> , <code>/=</code> , <code>%=</code> , <code>^^=</code> , <code>&amp;=</code> , <code>|`=` , `^=` , `&lt;&lt;=` , `&gt;&gt;=` , and `&gt;&gt;&gt;=` . This hook is called if the result of the binary operation does not fit in `Lhs` without loss of information or a change in sign.  [onOverflow](../Saturate/Saturate/Functions/onOverflow.html) | Implements saturation for operators `+` , `-` (unary and binary), `*` , `/` , `%` , `^^` , `&amp;` , </code>|`` , <code>^</code> , <code>&lt;&lt;</code> , <code>&gt;&gt;</code> , and <code>&gt;&gt;&gt;</code> .
+<a href="../Saturate/Saturate/Functions/onUpperBound.html">onUpperBound</a> | ditto</p>
 
 </article>
 

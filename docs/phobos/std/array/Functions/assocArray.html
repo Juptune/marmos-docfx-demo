@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - assocArray</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.array</dd></dl>
 </div><h2 class='section api'>assocArray(r)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; assocArray(
-  Range r
-) auto</code></pre><p>Returns a newly allocated associative array from a range of key/value tuples or from a range of keys and a range of values.</p>
+ <pre><code class='lang-d'>auto assocArray( Range )( Range r ) </code></pre><p>Returns a newly allocated associative array from a range of key/value tuples or from a range of keys and a range of values.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>r</code> Range  </dt>
 <dd>
 
@@ -101,10 +99,7 @@
 <h3 class='section'>Returns</h3><p>A newly allocated associative array out of elements of the input range, which must be a range of tuples (Key, Value) or a range of keys and a range of values. If given two ranges of unequal lengths after the elements of the shorter are exhausted the remaining elements of the longer will not be considered. Returns a null associative array reference when given an empty range. Duplicates: Associative arrays have unique keys. If r contains duplicate keys, then the result will contain the value of the last pair for that key in r.</p>
 <p>See_Also: $(REF Tuple, std,typecons), $(REF zip, std,range)</p>
 <h2 class='section api'>assocArray(keys, values)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; assocArray(
-  Keys keys,
-  Values values
-) auto</code></pre><p>ditto</p>
+ <pre><code class='lang-d'>auto assocArray( Keys, Values )( Keys keys, Values values ) </code></pre><p>ditto</p>
 
 </article>
 

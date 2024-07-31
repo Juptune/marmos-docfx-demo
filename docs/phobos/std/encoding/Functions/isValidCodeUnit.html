@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - isValidCodeUnit</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.encoding</dd></dl>
 </div><h2 class='section api'>isValidCodeUnit(c)   </h2>
- <pre><code class='lang-d'>bool isValidCodeUnit(
-  E c
-) </code></pre><p>Returns true if the code unit is legal. For example, the byte 0x80 would not be legal in ASCII, because ASCII code units must always be in the range 0x00 to 0x7F.</p>
+ <pre><code class='lang-d'>bool isValidCodeUnit( E )( E c ) </code></pre><p>Returns true if the code unit is legal. For example, the byte 0x80 would not be legal in ASCII, because ASCII code units must always be in the range 0x00 to 0x7F.</p>
 <p>Standards: Unicode 5.0, ASCII, ISO-8859-1, ISO-8859-2, WINDOWS-1250, WINDOWS-1251, WINDOWS-1252</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>c</code> E  </dt>
 <dd>

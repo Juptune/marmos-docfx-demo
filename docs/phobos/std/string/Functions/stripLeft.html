@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - stripLeft</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.string</dd></dl>
 </div><h2 class='section api'>stripLeft(input)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; stripLeft(
-  Range input
-) auto</code></pre><p>Strips leading whitespace (as defined by $(REF isWhite, std,uni)) or as specified in the second argument.</p>
+ <pre><code class='lang-d'>auto stripLeft( Range )( Range input ) </code></pre><p>Strips leading whitespace (as defined by $(REF isWhite, std,uni)) or as specified in the second argument.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>input</code> Range  </dt>
 <dd>
 
@@ -102,13 +100,8 @@
 <p>Postconditions: <code>input</code> and the returned value will share the same tail (see $(REF sameTail, std,array)).</p>
 <h3 class='section'>See_Also</h3><p>Generic stripping on ranges: $(REF stripLeft, std, algorithm, mutation)</p>
 <h2 class='section api'>stripLeft(str)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; stripLeft(
-  Range str
-) auto</code></pre><h2 class='section api'>stripLeft(input, chars)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; stripLeft(
-  Range input,
-  &lt;bug: unknown&gt; chars
-) auto</code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>auto stripLeft( Range )( auto ref Range str ) </code></pre><h2 class='section api'>stripLeft(input, chars)   </h2>
+ <pre><code class='lang-d'>auto stripLeft( Range, Char )( Range input, Char[] chars ) </code></pre><p>Ditto</p>
 
 </article>
 

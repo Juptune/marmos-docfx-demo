@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,12 +88,15 @@
 <h1 class='section'>Overloads for - assertNotThrown</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.exception</dd></dl>
 </div><h2 class='section api'>assertNotThrown(expression, msg, file, line)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; assertNotThrown(
-  E expression,
+ <pre><code class='lang-d'>auto assertNotThrown(
+  T : Throwable = Exception,
+  E
+)(
+  lazy E expression,
   string msg,
   string file,
   size_t line
-) auto</code></pre><p>Asserts that the given expression does $(I not) throw the given type of <code>Throwable</code> . If a <code>Throwable</code> of the given type is thrown, it is caught and does not escape assertNotThrown. Rather, an <code>AssertError</code> is thrown. However, any other <code>Throwable</code> s will escape.</p>
+) </code></pre><p>Asserts that the given expression does $(I not) throw the given type of <code>Throwable</code> . If a <code>Throwable</code> of the given type is thrown, it is caught and does not escape assertNotThrown. Rather, an <code>AssertError</code> is thrown. However, any other <code>Throwable</code> s will escape.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>T</code> &lt;parameter not found&gt;  </dt>
 <dd>
 

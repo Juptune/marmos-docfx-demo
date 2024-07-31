@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,53 +90,55 @@
 </div><pre><code class='lang-d'>public class MessageBox
 {
   // 
-  alias ListT = &lt;todo: marmos support pending&gt;;
+  alias ListT = &lt;todo: marmos support pending&gt;
   // 
-  alias OnMaxFn = &lt;todo: marmos support pending&gt;;
+  alias OnMaxFn = &lt;todo: marmos support pending&gt;
 
   // 
-  void close( ) final;
+  void close() final
   // 
-  bool isClosed( ) final;
+  bool get( T... )( scope T vals ) 
   // 
-  bool isControlMsg( Message msg ) ;
+  bool isClosed() final @nogc @property @safe pure
   // 
-  bool isLinkDeadMsg( Message msg ) ;
+  bool isControlMsg( ref Message msg ) @nogc @safe nothrow pure
   // 
-  bool isPriorityMsg( Message msg ) ;
+  bool isLinkDeadMsg( ref Message msg ) @nogc @safe nothrow pure
   // 
-  bool mboxFull( ) ;
+  bool isPriorityMsg( ref Message msg ) @nogc @safe nothrow pure
   // 
-  void put( Message msg ) final;
+  bool mboxFull() @nogc @safe nothrow pure
   // 
-  void setMaxMsgs( size_t num, &lt;bug: unknown&gt; call ) final;
+  void put( ref Message msg ) final
   // 
-  void updateMsgCount( ) ;
+  void setMaxMsgs( size_t num, * call ) final @nogc @safe pure
+  // 
+  void updateMsgCount() @nogc @safe nothrow pure
 
   // 
-  bool m_closed;
+  bool m_closed
   // 
-  ListT m_localBox;
+  ListT m_localBox
   // 
-  size_t m_localMsgs;
+  size_t m_localMsgs
   // 
-  ListT m_localPty;
+  ListT m_localPty
   // 
-  Mutex m_lock;
+  Mutex m_lock
   // 
-  size_t m_maxMsgs;
+  size_t m_maxMsgs
   // 
-  Condition m_notFull;
+  Condition m_notFull
   // 
-  OnMaxFn m_onMaxMsgs;
+  OnMaxFn m_onMaxMsgs
   // 
-  Condition m_putMsg;
+  Condition m_putMsg
   // 
-  size_t m_putQueue;
+  size_t m_putQueue
   // 
-  ListT m_sharedBox;
+  ListT m_sharedBox
   // 
-  ListT m_sharedPty;
+  ListT m_sharedPty
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>
@@ -165,6 +167,10 @@
 <tbody>
 <tr>
 <td><a href="../MessageBox/MessageBox/Functions/close.html">close</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../MessageBox/MessageBox/Functions/get.html">get</a></td>
 <td></td>
 </tr>
 <tr>

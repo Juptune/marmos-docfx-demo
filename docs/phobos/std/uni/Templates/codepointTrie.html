@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,7 +90,14 @@
 </div><pre><code class='lang-d'>template codepointTrie
 {
   // 
-  alias Prefix = &lt;todo: marmos support pending&gt;;
+  alias Prefix = &lt;todo: marmos support pending&gt;
+
+  // 
+  auto codepointTrie( Set )( const scope Set set ) 
+  // 
+  auto codepointTrie( )( T[dchar] map, T defValue ) 
+  // 
+  auto codepointTrie( R )( R range, T defValue ) 
 }</code></pre><h2 class='section'>About</h2><p>A slightly more general tool for building fixed <code>Trie</code> for the Unicode data.</p>
 <p>Specifically unlike <code>codepointSetTrie</code> it's allows creating mappings of <code>dchar</code> to an arbitrary type <code>T</code> .</p>
 <p>Note: Overload taking <code>CodepointSet</code> s will naturally convert only to bool mapping <code>Trie</code> s.</p>
@@ -105,6 +112,20 @@
 <tbody>
 <tr>
 <td><a href="../codepointTrie/codepointTrie/Aliases/Prefix.html">Prefix</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../codepointTrie/codepointTrie/Functions/codepointTrie.html">codepointTrie</a></td>
 <td></td>
 </tr>
 </tbody>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,34 +90,36 @@
 </div><pre><code class='lang-d'>public struct AnsiColour
 {
   // 
-  ubyte asEightBit( ) ;
+  ubyte asEightBit() @property
   // 
-  Ansi4BitColour asFourBit( ) ;
+  Ansi4BitColour asFourBit() @property
   // 
-  AnsiRgbColour asRgb( ) ;
+  AnsiRgbColour asRgb() @property
   // Returns: Whether this `AnsiColour` is for a background or not (it affects the output!). 
-  IsBgColour isBg( ) ;
+  IsBgColour isBg() @property
   // ditto 
-  void isBg( IsBgColour bg ) ;
+  void isBg( IsBgColour bg ) @property
   // ditto 
-  void isBg( bool bg ) ;
+  void isBg( bool bg ) @property
+  // Allows direct assignment from any type that can also be used in any of this struct&#39;s ctors. 
+  ref auto opAssign( T )( T colour ) return
   // OUTPUT 
-  &lt;bug: unknown&gt; toSequence( &lt;bug: unknown&gt; buffer ) ;
+  char[] toSequence( ref return ref char[MAX_CHARS_NEEDED] buffer ) @nogc @safe nothrow
   // Returns: The `AnsiColourType` of this `AnsiColour` . 
-  AnsiColourType type( ) ;
+  AnsiColourType type() @property
 
   // 
-  static immutable __enumMember BG_MARKER;
+  static immutable &lt;enum or auto&gt; BG_MARKER = &quot;48&quot;
   // A variant of `.init` that is used for background colours. 
-  static immutable __enumMember bgInit;
+  static immutable &lt;enum or auto&gt; bgInit = AnsiColour(IsBgColour.yes)
   // 
-  static immutable __enumMember EIGHT_BIT_MARKER;
+  static immutable &lt;enum or auto&gt; EIGHT_BIT_MARKER = &#39;5&#39;
   // 
-  static immutable __enumMember FG_MARKER;
+  static immutable &lt;enum or auto&gt; FG_MARKER = &quot;38&quot;
   // The maximum amount of characters any singular `AnsiColour` sequence may use. 
-  __enumMember MAX_CHARS_NEEDED;
+  &lt;enum or auto&gt; MAX_CHARS_NEEDED = &quot;38;2;255;255;255&quot;.length
   // 
-  static immutable __enumMember RGB_MARKER;
+  static immutable &lt;enum or auto&gt; RGB_MARKER = &#39;2&#39;
 }</code></pre><h2 class='section'>About</h2><p>Contains any type of ANSI colour and provides the ability to create a valid SGR command to set the foreground/background.</p>
 <p>This struct overloads <code>opAssign</code> allowing easy assignment from <code>Ansi4BitColour</code> , <code>Ansi8BitColour</code> , <code>AnsiRgbColour</code> , and any user-defined type that satisfies <code>isUserDefinedRgbType</code> .</p>
 <p>CONSTANTS</p>
@@ -144,6 +146,10 @@
 <tr>
 <td><a href="../AnsiColour/AnsiColour/Functions/isBg.html">isBg</a></td>
 <td>Returns: Whether this <code>AnsiColour</code> is for a background or not (it affects the output!).</td>
+</tr>
+<tr>
+<td><a href="../AnsiColour/AnsiColour/Functions/opAssign.html">opAssign</a></td>
+<td>Allows direct assignment from any type that can also be used in any of this struct's ctors.</td>
 </tr>
 <tr>
 <td><a href="../AnsiColour/AnsiColour/Functions/toSequence.html">toSequence</a></td>

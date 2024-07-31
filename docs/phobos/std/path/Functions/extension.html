@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - extension</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.path</dd></dl>
 </div><h2 class='section api'>extension(path)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; extension(
-  R path
-) auto</code></pre><p>Params: path = A path name. Returns: The extension part of a file name, including the dot.</p>
+ <pre><code class='lang-d'>auto extension( R )( R path ) </code></pre><p>Params: path = A path name. Returns: The extension part of a file name, including the dot.</p>
 <p>If there is no extension, <code>null</code> is returned.</p>
 
 </article>

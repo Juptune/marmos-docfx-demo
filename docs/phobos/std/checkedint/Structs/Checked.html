@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,24 +87,70 @@
         <article data-uid="std.checkedint.Structs.Checked">
 <h1 class='section'>Struct - Checked</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.checkedint</dd></dl>
-</div><pre><code class='lang-d'>public struct Checked
+</div><pre><code class='lang-d'>struct Checked( T, Hook = Abort )
 {
   // The type of the integral subject to checking. 
-  alias Representation = &lt;todo: marmos support pending&gt;;
+  alias Representation = &lt;todo: marmos support pending&gt;
 
   // 
-  &lt;bug: unknown&gt; get( ) auto;
+  auto get() 
+  // Assignment operator. Has the same constraints as the constructor. 
+  ref Checked opAssign( U )( U rhs ) return
+  // Defines binary operators `+` , `-` , `*` , `/` , `%` , `^^` , `&amp;` , `|` , `^` , `&lt;&lt;` , `&gt;&gt;` , and `&gt;&gt;&gt;` . If `Hook` defines `hookOpBinary` , `opBinary` forwards to $(D Checked!(typeof(hook.hookOpBinary!op(get, rhs)), Hook)(hook.hookOpBinary!op(get, rhs))). 
+  auto opBinary( string op, Rhs )( const Rhs rhs ) 
+  // ditto 
+  auto opBinary( string op, Rhs )( const Rhs rhs ) 
+  // ditto 
+  auto opBinary( string op, U, Hook1 )( Checked!(U,Hook1) rhs ) 
+  // ditto 
+  auto opBinary( string op, U, Hook1 )( Checked!(U,Hook1) rhs ) 
+  // 
+  auto opBinaryImpl( string op, Rhs, _ )( const Rhs rhs ) 
+  // 
+  auto opBinaryImpl2( string op, U, Hook1, _ )( Checked!(U,Hook1) rhs ) 
+  // Defines binary operators `+` , `-` , `*` , `/` , `%` , `^^` , `&amp;` , `|` , `^` , `&lt;&lt;` , `&gt;&gt;` , and `&gt;&gt;&gt;` for the case when a built-in numeric or Boolean type is on the left-hand side, and a `Checked` instance is on the right-hand side. 
+  auto opBinaryRight( string op, Lhs )( const Lhs lhs ) 
+  // ditto 
+  auto opBinaryRight( string op, Lhs )( const Lhs lhs ) 
+  // 
+  auto opBinaryRightImpl( string op, Lhs, _ )( const Lhs lhs ) 
+  // Casting operator to integral, `bool` , or floating point type. 
+  U opCast( U, _ )() 
+  // Compares `this` against `rhs` for ordering. If `Hook` defines `hookOpCmp` , the function forwards to $(D hook.hookOpCmp(get, rhs)). Otherwise, the result of the built-in comparison operation is returned. 
+  auto opCmp( U, _ )( const U rhs ) 
+  // ditto 
+  auto opCmp( U, Hook1, _ )( Checked!(U,Hook1) rhs ) 
+  // Compares `this` against `rhs` for equality. 
+  bool opEquals( U, _ )( U rhs ) 
+  // Defines operators `+=` , `-=` , `*=` , `/=` , `%=` , `^^=` , `&amp;=` , `|=` , `^=` , `&lt;&lt;=` , `&gt;&gt;=` , and `&gt;&gt;&gt;=` . 
+  ref Checked opOpAssign( string op, Rhs )( const Rhs rhs ) return
+  // ditto 
+  ref Checked opOpAssign( string op, Rhs )( const Rhs rhs ) return
+  // Defines unary operators `+` , `-` , `~` , `++` , and `--` . Unary `+` is not overridable and always has built-in behavior (returns `this` ). For the others, if `Hook` defines `hookOpUnary` , `opUnary` forwards to $(D Checked!(typeof(hook.hookOpUnary!op(get)), Hook)(hook.hookOpUnary!op(get))). 
+  auto opUnary( string op, _ )() 
+  // ditto 
+  ref Checked opUnary( string op )() return
   // Generates a hash for `this` . If `Hook` defines `hookToHash` , the call immediately returns `hook.hookToHash(payload)` . If `Hook` does not implement `hookToHash` , but it has state, a hash will be generated for the `Hook` using the built-in function and it will be xored with the hash of the `payload` . 
-  size_t toHash( ) ;
+  size_t toHash() @safe nothrow
+  // ditto 
+  size_t toHash( _ )() @safe nothrow
+  // Writes a string representation of this to a `sink` . 
+  void toString(
+    Writer,
+    Char
+  )(
+    ref scope Writer sink,
+    const ref scope FormatSpec!(Char) fmt
+  ) 
 
   // `hook` is a member variable if it has state, or an alias for `Hook` otherwise. 
-  Hook hook;
+  Hook hook
   // ditto 
-  Checked!(THook) max;
+  Checked!(T,Hook) max = Checked(Hook.max!T)
   // Defines the minimum and maximum. These values are hookable by defining `Hook.min` and/or `Hook.max` . 
-  Checked!(THook) min;
+  Checked!(T,Hook) min = Checked!(T, Hook)(Hook.min!T)
   // 
-  T payload;
+  T payload = Hook.defaultValue!T
 }</code></pre><h2 class='section'>About</h2><p>Checked integral type wraps an integral <code>T</code> and customizes its behavior with the help of a <code>Hook</code> type. The type wrapped must be one of the predefined integrals (unqualified), or another instance of <code>Checked</code> .</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>T</code>   </dt>
 <dd>
@@ -137,16 +183,79 @@
 <tr>
 <th>Name</th>
 <th>Description</th>
+<th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><a href="../Checked/Checked/Functions/get.html">get</a></td>
 <td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Checked/Checked/Functions/opAssign.html">opAssign</a></td>
+<td>Assignment operator. Has the same constraints as the constructor.</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Checked/Checked/Functions/opBinary.html">opBinary</a></td>
+<td>Defines binary operators <code>+</code> , <code>-</code> , <code>*</code> , <code>/</code> , <code>%</code> , <code>^^</code> , <code>&amp;</code> , <code>|</code> , <code>^</code> , <code>&lt;&lt;</code> , <code>&gt;&gt;</code> , and <code>&gt;&gt;&gt;</code> . If <code>Hook</code> defines <code>hookOpBinary</code> , <code>opBinary</code> forwards to $(D Checked!(typeof(hook.hookOpBinary!op(get, rhs)), Hook)(hook.hookOpBinary!op(get, rhs))).</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Checked/Checked/Functions/opBinaryImpl.html">opBinaryImpl</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Checked/Checked/Functions/opBinaryImpl2.html">opBinaryImpl2</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Checked/Checked/Functions/opBinaryRight.html">opBinaryRight</a></td>
+<td>Defines binary operators <code>+</code> , <code>-</code> , <code>*</code> , <code>/</code> , <code>%</code> , <code>^^</code> , <code>&amp;</code> , <code>|</code> , <code>^</code> , <code>&lt;&lt;</code> , <code>&gt;&gt;</code> , and <code>&gt;&gt;&gt;</code> for the case when a built-in numeric or Boolean type is on the left-hand side, and a <code>Checked</code> instance is on the right-hand side.</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Checked/Checked/Functions/opBinaryRightImpl.html">opBinaryRightImpl</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Checked/Checked/Functions/opCast.html">opCast</a></td>
+<td>Casting operator to integral, <code>bool</code> , or floating point type.</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Checked/Checked/Functions/opCmp.html">opCmp</a></td>
+<td>Compares <code>this</code> against <code>rhs</code> for ordering. If <code>Hook</code> defines <code>hookOpCmp</code> , the function forwards to $(D hook.hookOpCmp(get, rhs)). Otherwise, the result of the built-in comparison operation is returned.</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Checked/Checked/Functions/opEquals.html">opEquals</a></td>
+<td>Compares <code>this</code> against <code>rhs</code> for equality.</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Checked/Checked/Functions/opOpAssign.html">opOpAssign</a></td>
+<td>Defines operators <code>+=</code> , <code>-=</code> , <code>*=</code> , <code>/=</code> , <code>%=</code> , <code>^^=</code> , <code>&amp;=</code> , ``</td>
+<td><code>=</code> , <code>^=</code> , <code>&lt;&lt;=</code> , <code>&gt;&gt;=</code> , and <code>&gt;&gt;&gt;=</code> .</td>
+</tr>
+<tr>
+<td><a href="../Checked/Checked/Functions/opUnary.html">opUnary</a></td>
+<td>Defines unary operators <code>+</code> , <code>-</code> , <code>~</code> , <code>++</code> , and <code>--</code> . Unary <code>+</code> is not overridable and always has built-in behavior (returns <code>this</code> ). For the others, if <code>Hook</code> defines <code>hookOpUnary</code> , <code>opUnary</code> forwards to $(D Checked!(typeof(hook.hookOpUnary!op(get)), Hook)(hook.hookOpUnary!op(get))).</td>
+<td></td>
 </tr>
 <tr>
 <td><a href="../Checked/Checked/Functions/toHash.html">toHash</a></td>
 <td>Generates a hash for <code>this</code> . If <code>Hook</code> defines <code>hookToHash</code> , the call immediately returns <code>hook.hookToHash(payload)</code> . If <code>Hook</code> does not implement <code>hookToHash</code> , but it has state, a hash will be generated for the <code>Hook</code> using the built-in function and it will be xored with the hash of the <code>payload</code> .</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Checked/Checked/Functions/toString.html">toString</a></td>
+<td>Writes a string representation of this to a <code>sink</code> .</td>
+<td></td>
 </tr>
 </tbody>
 </table>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,37 +89,57 @@
 <dl><dt>Module</dt><dd>std.datetime.date</dd></dl>
 </div><pre><code class='lang-d'>public struct TimeOfDay
 {
+  // Creates a $(LREF TimeOfDay) from a string with the format HH:MM:SS. Whitespace is stripped from the given string. 
+  TimeOfDay fromISOExtString( S )( const scope S isoExtString ) @safe pure
+  // Creates a $(LREF TimeOfDay) from a string with the format HHMMSS. Whitespace is stripped from the given string. 
+  TimeOfDay fromISOString( S )( const scope S isoString ) @safe pure
   // Hours past midnight. 
-  ubyte hour( ) ;
+  ubyte hour() @nogc @property @safe nothrow pure
   // Hours past midnight. 
-  void hour( int hour ) ;
+  void hour( int hour ) @property @safe pure
   // Returns one second short of midnight. 
-  TimeOfDay max( ) static;
+  static TimeOfDay max() @nogc @property @safe nothrow pure
   // Returns midnight. 
-  TimeOfDay min( ) static;
+  static TimeOfDay min() @nogc @property @safe nothrow pure
   // Minutes past the hour. 
-  ubyte minute( ) ;
+  ubyte minute() @nogc @property @safe nothrow pure
   // Minutes past the hour. 
-  void minute( int minute ) ;
+  void minute( int minute ) @property @safe pure
+  // Gives the result of adding or subtracting a $(REF Duration, core,time) from this $(LREF TimeOfDay). 
+  TimeOfDay opBinary( string op )( Duration duration ) @nogc @safe nothrow pure
+  // Gives the difference between two $(LREF TimeOfDay)s. 
+  Duration opBinary( string op )( TimeOfDay rhs ) @nogc @safe nothrow pure
   // Compares this $(LREF TimeOfDay) with the given $(LREF TimeOfDay). 
-  int opCmp( TimeOfDay rhs ) ;
+  int opCmp( TimeOfDay rhs ) @nogc @safe nothrow pure
+  // Gives the result of adding or subtracting a $(REF Duration, core,time) from this $(LREF TimeOfDay), as well as assigning the result to this $(LREF TimeOfDay). 
+  ref TimeOfDay opOpAssign( string op )( Duration duration ) @nogc @safe nothrow pure
+  // Adds the given number of units to this $(LREF TimeOfDay), mutating it. A negative number will subtract. 
+  ref TimeOfDay roll( string units )( long value ) @nogc @safe nothrow pure
+  // ditto 
+  ref TimeOfDay roll( string units )( long value ) @nogc @safe nothrow pure
   // Seconds past the minute. 
-  ubyte second( ) ;
+  ubyte second() @nogc @property @safe nothrow pure
   // Seconds past the minute. 
-  void second( int second ) ;
+  void second( int second ) @property @safe pure
   // Converts this $(LREF TimeOfDay) to a string with the format `HH:MM:SS` . If `writer` is set, the resulting string will be written directly to it. 
-  string toISOExtString( ) ;
+  string toISOExtString() @safe nothrow pure
+  // ditto 
+  void toISOExtString( W )( ref W writer ) 
   // Converts this $(LREF TimeOfDay) to a string with the format `HHMMSS` . If `writer` is set, the resulting string will be written directly to it. 
-  string toISOString( ) ;
+  string toISOString() @safe nothrow pure
+  // ditto 
+  void toISOString( W )( ref W writer ) 
   // Converts this TimeOfDay to a string. 
-  string toString( ) ;
+  string toString() @safe nothrow pure
+  // ditto 
+  void toString( W )( ref W writer ) 
 
   // 
-  ubyte maxHour;
+  ubyte maxHour = 24 - 1
   // 
-  ubyte maxMinute;
+  ubyte maxMinute = 60 - 1
   // 
-  ubyte maxSecond;
+  ubyte maxSecond = 60 - 1
 }</code></pre><h2 class='section'>About</h2><p>Represents a time of day with hours, minutes, and seconds. It uses 24 hour time.</p>
 <h2 class='section'>Functions</h2><table>
 <thead>
@@ -129,6 +149,14 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="../TimeOfDay/TimeOfDay/Functions/fromISOExtString.html">fromISOExtString</a></td>
+<td>Creates a $(LREF TimeOfDay) from a string with the format HH:MM:SS. Whitespace is stripped from the given string.</td>
+</tr>
+<tr>
+<td><a href="../TimeOfDay/TimeOfDay/Functions/fromISOString.html">fromISOString</a></td>
+<td>Creates a $(LREF TimeOfDay) from a string with the format HHMMSS. Whitespace is stripped from the given string.</td>
+</tr>
 <tr>
 <td><a href="../TimeOfDay/TimeOfDay/Functions/hour.html">hour</a></td>
 <td>Hours past midnight.</td>
@@ -146,8 +174,20 @@
 <td>Minutes past the hour.</td>
 </tr>
 <tr>
+<td><a href="../TimeOfDay/TimeOfDay/Functions/opBinary.html">opBinary</a></td>
+<td>Gives the result of adding or subtracting a $(REF Duration, core,time) from this $(LREF TimeOfDay).</td>
+</tr>
+<tr>
 <td><a href="../TimeOfDay/TimeOfDay/Functions/opCmp.html">opCmp</a></td>
 <td>Compares this $(LREF TimeOfDay) with the given $(LREF TimeOfDay).</td>
+</tr>
+<tr>
+<td><a href="../TimeOfDay/TimeOfDay/Functions/opOpAssign.html">opOpAssign</a></td>
+<td>Gives the result of adding or subtracting a $(REF Duration, core,time) from this $(LREF TimeOfDay), as well as assigning the result to this $(LREF TimeOfDay).</td>
+</tr>
+<tr>
+<td><a href="../TimeOfDay/TimeOfDay/Functions/roll.html">roll</a></td>
+<td>Adds the given number of units to this $(LREF TimeOfDay), mutating it. A negative number will subtract.</td>
 </tr>
 <tr>
 <td><a href="../TimeOfDay/TimeOfDay/Functions/second.html">second</a></td>

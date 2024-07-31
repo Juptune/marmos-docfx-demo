@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,11 @@
 <h1 class='section'>Overloads for - slurp</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.file</dd></dl>
 </div><h2 class='section api'>slurp(filename, format)   </h2>
- <pre><code class='lang-d'>Select!(Types.length == 1Types[0][]Tuple!Types[]) slurp(
+ <pre><code class='lang-d'>Select!(Types.length == 1,Types[0][],Tuple!Types[]) slurp(
+  Types...
+)(
   string filename,
-  &lt;bug: unknown&gt; format
+  scope char[] format
 ) </code></pre><p>Reads a file line by line and parses the line into a single value or a $(REF Tuple, std,typecons) of values depending on the length of <code>Types</code> . The lines are parsed using the specified format string. The format string is passed to $(REF formattedRead, std,_format), and therefore must conform to the *format string specification outlined in $(MREF std, * format).</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>Types</code> &lt;parameter not found&gt;  </dt>
 <dd>
@@ -104,7 +106,7 @@
 
 <p>the name of the file to read</p>
 
-</dd><dt><code>format</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>format</code> char[]  </dt>
 <dd>
 
 

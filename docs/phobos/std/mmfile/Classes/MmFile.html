@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,55 +90,55 @@
 </div><pre><code class='lang-d'>public class MmFile
 {
   // Forwards `length` . 
-  alias opDollar = &lt;todo: marmos support pending&gt;;
+  alias opDollar = &lt;todo: marmos support pending&gt;
 
   // 
-  void ensureMapped( ulong i ) ;
+  void ensureMapped( ulong i ) 
   // 
-  void ensureMapped( ulong i, ulong j ) ;
+  void ensureMapped( ulong i, ulong j ) 
   // 
-  void flush( ) ;
+  void flush() 
   // Gives size in bytes of the memory mapped file. 
-  ulong length( ) ;
+  ulong length() @property
   // 
-  void map( ulong start, size_t len ) ;
+  void map( ulong start, size_t len ) 
   // 
-  int mapped( ulong i ) ;
+  int mapped( ulong i ) 
   // Read-only property returning the file mode. 
-  Mode mode( ) ;
+  Mode mode() 
   // Returns byte at index i in file. 
-  ubyte opIndex( ulong i ) ;
+  ubyte opIndex( ulong i ) 
   // Sets and returns byte at index i in file to value. 
-  ubyte opIndexAssign( ubyte value, ulong i ) ;
+  ubyte opIndexAssign( ubyte value, ulong i ) 
   // Returns entire file contents as an array. 
-  &lt;bug: unknown&gt; opSlice( ) ;
+  void[] opSlice() 
   // Returns slice of file contents as an array. 
-  &lt;bug: unknown&gt; opSlice( ulong i1, ulong i2 ) ;
+  void[] opSlice( ulong i1, ulong i2 ) 
   // 
-  void unmap( ) ;
+  void unmap() 
 
   // 
-  &lt;bug: unknown&gt; address;
+  void* address
   // 
-  &lt;bug: unknown&gt; data;
+  void[] data
   // 
-  uint dwDesiredAccess;
+  uint dwDesiredAccess
   // 
-  File file;
+  File file
   // 
-  string filename;
+  string filename
   // 
-  HANDLE hFile;
+  HANDLE hFile = INVALID_HANDLE_VALUE
   // 
-  HANDLE hFileMap;
+  HANDLE hFileMap = null
   // 
-  Mode mMode;
+  Mode mMode
   // 
-  ulong size;
+  ulong size
   // 
-  ulong start;
+  ulong start
   // 
-  size_t window;
+  size_t window
 }</code></pre><h2 class='section'>About</h2><p>MmFile objects control the memory mapped file resource.</p>
 <h2 class='section'>Aliases</h2><table>
 <thead>
@@ -151,6 +151,20 @@
 <tr>
 <td><a href="../MmFile/MmFile/Aliases/opDollar.html">opDollar</a></td>
 <td>Forwards <code>length</code> .</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Enums</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../MmFile/MmFile/Enums/Mode.html">Mode</a></td>
+<td>The mode the memory mapped file is opened with.</td>
 </tr>
 </tbody>
 </table>

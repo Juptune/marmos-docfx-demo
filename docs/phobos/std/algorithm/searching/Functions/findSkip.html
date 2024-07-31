@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - findSkip</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.searching</dd></dl>
 </div><h2 class='section api'>findSkip(haystack, needle)   </h2>
- <pre><code class='lang-d'>bool findSkip(
-  R1 haystack,
-  R2 needle
-) </code></pre><p>Finds <code>needle</code> in <code>haystack</code> and positions <code>haystack</code> right after the first occurrence of <code>needle</code> .</p>
+ <pre><code class='lang-d'>bool findSkip( alias pred = &quot;a == b&quot;, R1, R2 )( ref R1 haystack, R2 needle ) </code></pre><p>Finds <code>needle</code> in <code>haystack</code> and positions <code>haystack</code> right after the first occurrence of <code>needle</code> .</p>
 <p>If no needle is provided, the <code>haystack</code> is advanced as long as <code>pred</code> evaluates to <code>true</code> . Similarly, the haystack is positioned so as <code>pred</code> evaluates to <code>false</code> for <code>haystack.front</code> .</p>
 <p>For more information about <code>pred</code> see $(LREF find).</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>haystack</code> R1  </dt>
@@ -115,9 +112,7 @@
 </dd></dl><p>Returns: <code>true</code> if the needle was found, in which case <code>haystack</code> is positioned after the end of the first occurrence of <code>needle</code> ; otherwise <code>false</code> , leaving <code>haystack</code> untouched. If no needle is provided, it returns the number of times <code>pred(haystack.front)</code> returned true.</p>
 <p>See_Also: $(LREF find)</p>
 <h2 class='section api'>findSkip(haystack)   </h2>
- <pre><code class='lang-d'>size_t findSkip(
-  R1 haystack
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>size_t findSkip( alias pred, R1 )( ref R1 haystack ) </code></pre><p>ditto</p>
 
 </article>
 

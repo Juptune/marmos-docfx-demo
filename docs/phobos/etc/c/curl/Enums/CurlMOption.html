@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,22 +87,22 @@
         <article data-uid="etc.c.curl.Enums.CurlMOption">
 <h1 class='section'>Enum - CurlMOption</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.curl</dd></dl>
-</div><pre><code class='lang-d'>enum CurlMOption
+</div><pre><code class='lang-d'>enum CurlMOption : int
 {
-  // 
-  __enumMember lastentry;
-  // maximum number of entries in the connection cache 
-  __enumMember maxconnects;
-  // set to 1 to enable pipelining for this multi handle 
-  __enumMember pipelining;
-  // This is the argument passed to the socket callback 
-  __enumMember socketdata;
   // This is the socket callback function pointer 
-  __enumMember socketfunction;
-  // This is the argument passed to the timer callback 
-  __enumMember timerdata;
+  socketfunction = 20001,
+  // This is the argument passed to the socket callback 
+  socketdata = 10002,
+  // set to 1 to enable pipelining for this multi handle 
+  pipelining = 3,
   // This is the timer callback function pointer 
-  __enumMember timerfunction;
+  timerfunction = 20004,
+  // This is the argument passed to the timer callback 
+  timerdata = 10005,
+  // maximum number of entries in the connection cache 
+  maxconnects = 6,
+  // 
+  lastentry,
 }</code></pre><h2 class='section'>Variables</h2><table>
 <thead>
 <tr>

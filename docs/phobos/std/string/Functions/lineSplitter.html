@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - lineSplitter</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.string</dd></dl>
 </div><h2 class='section api'>lineSplitter(r)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; lineSplitter(
-  Range r
-) auto</code></pre><p>Split an array or slicable range of characters into a range of lines using <code>'\r'</code> , <code>'\n'</code> , <code>'\v'</code> , <code>'\f'</code> , <code>&quot;\r\n&quot;</code> , $(REF lineSep, std,uni), $(REF paraSep, std,uni) and <code>'\u0085'</code> (NEL) as delimiters. If <code>keepTerm</code> is set to <code>Yes.keepTerminator</code> , then the delimiter is included in the slices returned.</p>
+ <pre><code class='lang-d'>auto lineSplitter( KeepTerminator keepTerm = No.keepTerminator, Range )( Range r ) </code></pre><p>Split an array or slicable range of characters into a range of lines using <code>'\r'</code> , <code>'\n'</code> , <code>'\v'</code> , <code>'\f'</code> , <code>&quot;\r\n&quot;</code> , $(REF lineSep, std,uni), $(REF paraSep, std,uni) and <code>'\u0085'</code> (NEL) as delimiters. If <code>keepTerm</code> is set to <code>Yes.keepTerminator</code> , then the delimiter is included in the slices returned.</p>
 <p>Does not throw on invalid UTF; such is simply passed unchanged to the output.</p>
 <p>Adheres to $(HTTP <a href="http://www.unicode.org/versions/Unicode7.0.0/ch05.pdf">www.unicode.org/versions/Unicode7.0.0/ch05.pdf</a>, Unicode 7.0).</p>
 <p>Does not allocate memory.</p>
@@ -109,9 +107,7 @@
 </dd></dl><p>keepTerm = whether delimiter is included or not in the results Returns: range of slices of the input range <code>r</code></p>
 <h3 class='section'>See_Also</h3><p>$(LREF splitLines) $(REF splitter, std,algorithm) $(REF splitter, std,regex)</p>
 <h2 class='section api'>lineSplitter(r)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; lineSplitter(
-  &lt;bug: unknown&gt; r
-) auto</code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>auto lineSplitter( KeepTerminator keepTerm = No.keepTerminator, C )( C[] r ) </code></pre><p>Ditto</p>
 
 </article>
 

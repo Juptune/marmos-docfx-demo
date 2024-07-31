@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,25 +90,25 @@
 </div><pre><code class='lang-d'>template Signal
 {
   // A slot is implemented as a delegate. The slot_t is the type of the delegate. The delegate must be to an instance of a class or an interface to a class instance. Delegates to struct instances or nested functions must not be used as slots. This applies even if the nested function does not access it&#39;s parent function variables. 
-  alias slot_t = &lt;todo: marmos support pending&gt;;
+  alias slot_t = &lt;todo: marmos support pending&gt;
 
   // Add a slot to the list of slots to be called when emit() is called. 
-  void connect( slot_t slot ) final;
+  void connect( slot_t slot ) final
   // Remove a slot from the list of slots to be called when emit() is called. 
-  void disconnect( slot_t slot ) final;
+  void disconnect( slot_t slot ) final
   // Disconnect all the slots. 
-  void disconnectAll( ) final;
+  void disconnectAll() final
   // Call each of the connected slots, passing the argument(s) i to them. Nested call will be ignored. 
-  void emit( T1 i ) final;
+  void emit( T1 i ) final
   // 
-  void unhook( Object o ) final;
+  void unhook( Object o ) final
 
   // 
-  &lt;bug: unknown&gt; slots;
+  slot_t[] slots
   // 
-  size_t slots_idx;
+  size_t slots_idx
   // 
-  ST status;
+  ST status
 }</code></pre><h2 class='section'>About</h2><p>Mixin to create a signal within a class object.</p>
 <p>Different signals can be added to a class by naming the mixins.</p>
 <h2 class='section'>Aliases</h2><table>
@@ -122,6 +122,20 @@
 <tr>
 <td><a href="../Signal/Signal/Aliases/slot_t.html">slot_t</a></td>
 <td>A slot is implemented as a delegate. The slot_t is the type of the delegate. The delegate must be to an instance of a class or an interface to a class instance. Delegates to struct instances or nested functions must not be used as slots. This applies even if the nested function does not access it's parent function variables.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Enums</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Signal/Signal/Enums/ST.html">ST</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>

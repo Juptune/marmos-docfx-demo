@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,20 +88,14 @@
 <h1 class='section'>Overloads for - acosh</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.math.trigonometry</dd></dl>
 </div><h2 class='section api'>acosh(x)   </h2>
- <pre><code class='lang-d'>real acosh(
-  real x
-) </code></pre><p>Calculates the inverse hyperbolic cosine of x.</p>
+ <pre><code class='lang-d'>real acosh( real x ) @nogc @safe nothrow pure</code></pre><p>Calculates the inverse hyperbolic cosine of x.</p>
 <p>Mathematically, acosh(x) = log(x + sqrt( x*x - 1))</p>
 <p>$(TABLE_DOMRG <span class="math">\((DOMAIN 1..\)</span>(INFIN)), <span class="math">\((RANGE  0..\)</span>(INFIN)) )</p>
 <p>$(TABLE_SV $(SVH  x,     acosh(x) ) $(SV  $(NAN), $(NAN) ) $(SV  $(LT)1,     $(NAN) ) $(SV  1,      0       ) <span class="math">\((SV  +\)</span>(INFIN),+$(INFIN)) )</p>
 <h2 class='section api'>acosh(x)   </h2>
- <pre><code class='lang-d'>double acosh(
-  double x
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>double acosh( double x ) @nogc @safe nothrow pure</code></pre><p>ditto</p>
 <h2 class='section api'>acosh(x)   </h2>
- <pre><code class='lang-d'>float acosh(
-  float x
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>float acosh( float x ) @nogc @safe nothrow pure</code></pre><p>ditto</p>
 
 </article>
 

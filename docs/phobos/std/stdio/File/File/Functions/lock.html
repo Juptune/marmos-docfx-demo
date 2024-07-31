@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,11 +88,7 @@
 <h1 class='section'>Overloads for - lock</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.stdio.File</dd></dl><dl><dt>Parent</dt><dd>File</dd></dl>
 </div><h2 class='section api'>lock(lockType, start, length)   </h2>
- <pre><code class='lang-d'>void lock(
-  LockType lockType,
-  ulong start,
-  ulong length
-) </code></pre><p>Locks the specified file segment. If the file segment is already locked by another process, waits until the existing lock is released. If both <code>start</code> and <code>length</code> are zero, the entire file is locked.</p>
+ <pre><code class='lang-d'>void lock( LockType lockType, ulong start, ulong length ) </code></pre><p>Locks the specified file segment. If the file segment is already locked by another process, waits until the existing lock is released. If both <code>start</code> and <code>length</code> are zero, the entire file is locked.</p>
 <h3 class='section'>Locks created using `lock` and `tryLock` have the following properties</h3><p>$(UL $(LI All locks are automatically released when the process terminates.) $(LI Locks are not inherited by child processes.) $(LI Closing a file will release all locks associated with the file. On POSIX, even locks acquired via a different <code>File</code> will be released as well.) $(LI Not all NFS implementations correctly implement file locking.) )</p>
 
 </article>

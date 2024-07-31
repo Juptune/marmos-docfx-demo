@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - minimallyInitializedArray</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.array</dd></dl>
 </div><h2 class='section api'>minimallyInitializedArray(sizes)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; minimallyInitializedArray(
-  I sizes
-) auto</code></pre><p>Returns a new array of type <code>T</code> allocated on the garbage collected heap.</p>
+ <pre><code class='lang-d'>auto minimallyInitializedArray( T, I... )( I sizes ) @trusted nothrow</code></pre><p>Returns a new array of type <code>T</code> allocated on the garbage collected heap.</p>
 <p>Partial initialization is done for types with indirections, for preservation of memory safety. Note that elements will only be initialized to 0, but not necessarily the element type's <code>.init</code> .</p>
 <p>minimallyInitializedArray is <code>nothrow</code> and weakly <code>pure</code> .</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>T</code> &lt;parameter not found&gt;  </dt>

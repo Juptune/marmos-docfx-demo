@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - gamma</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.mathspecial</dd></dl>
 </div><h2 class='section api'>gamma(x)   </h2>
- <pre><code class='lang-d'>real gamma(
-  real x
-) </code></pre><p>The Gamma function, $(GAMMA)(x)</p>
+ <pre><code class='lang-d'>real gamma( real x ) </code></pre><p>The Gamma function, $(GAMMA)(x)</p>
 <p>$(GAMMA)(x) is a generalisation of the factorial function to real and complex numbers. Like x!, $(GAMMA)(x+1) = x $(GAMMA)(x).</p>
 <p>Mathematically, if z.re &gt; 0 then $(GAMMA)(z) = $(INTEGRATE 0, $(INFIN)) <span class="math">\((POWER t, z-1)\)</span>(POWER e, -t) dt</p>
 <p>$(TABLE_SV $(SVH  x,           $(GAMMA)(x) ) $(SV  $(NAN),       $(NAN)      ) $(SV  $(PLUSMN)0.0, $(PLUSMNINF)) $(SV integer &gt; 0,   (x-1)!      ) $(SV integer &lt; 0,   $(NAN)      ) <span class="math">\((SV +\)</span>(INFIN),      +$(INFIN)   ) <span class="math">\((SV -\)</span>(INFIN),      $(NAN)      ) )</p>

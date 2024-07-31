@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,7 +89,57 @@
 <dl><dt>Module</dt><dd>std.uni</dd></dl>
 </div><pre><code class='lang-d'>public struct GcPolicy
 {
-}</code></pre>
+  // 
+  T[] alloc( T )( size_t size ) 
+  // 
+  void append( T, V )( ref T[] arr, V value ) 
+  // 
+  void append( T, V )( ref T[] arr, V value ) 
+  // 
+  void destroy( T )( ref T arr ) pure
+  // 
+  void destroy( T )( ref T arr ) pure
+  // 
+  T[] dup( T )( const T[] arr ) 
+  // 
+  T[] realloc( T )( T[] arr, size_t sz ) 
+  // 
+  void replaceImpl( T, Range )( ref T[] dest, size_t from, size_t to, Range stuff ) 
+}</code></pre><h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../GcPolicy/GcPolicy/Functions/alloc.html">alloc</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../GcPolicy/GcPolicy/Functions/append.html">append</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../GcPolicy/GcPolicy/Functions/destroy.html">destroy</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../GcPolicy/GcPolicy/Functions/dup.html">dup</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../GcPolicy/GcPolicy/Functions/realloc.html">realloc</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../GcPolicy/GcPolicy/Functions/replaceImpl.html">replaceImpl</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
 </article>
 
         <div class="contribution d-print-none">

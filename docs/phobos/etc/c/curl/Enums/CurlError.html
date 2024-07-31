@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,188 +87,188 @@
         <article data-uid="etc.c.curl.Enums.CurlError">
 <h1 class='section'>Enum - CurlError</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.curl</dd></dl>
-</div><pre><code class='lang-d'>enum CurlError
+</div><pre><code class='lang-d'>enum CurlError : int
 {
-  // 42 
-  __enumMember aborted_by_callback;
-  // 81 - socket is not ready for send/recv, wait till it&#39;s ready and try again (Added in 7.18.2) 
-  __enumMember again;
-  // 61 - Unrecognized transfer encoding 
-  __enumMember bad_content_encoding;
-  // 36 - couldn&#39;t resume download 
-  __enumMember bad_download_resume;
-  // 43 
-  __enumMember bad_function_argument;
-  // 88 - chunk callback reported error 
-  __enumMember chunk_failed;
-  // 75 - conversion failed 
-  __enumMember conv_failed;
-  // 76 - caller must register conversion callbacks using curl_easy_setopt options CURLOPT_CONV_FROM_NETWORK_FUNCTION, CURLOPT_CONV_TO_NETWORK_FUNCTION, and CURLOPT_CONV_FROM_UTF8_FUNCTION 
-  __enumMember conv_reqd;
-  // 7 
-  __enumMember couldnt_connect;
-  // 6 
-  __enumMember couldnt_resolve_host;
-  // 5 
-  __enumMember couldnt_resolve_proxy;
-  // never use! 
-  __enumMember curl_last;
-  // 2 
-  __enumMember failed_init;
-  // 37 
-  __enumMember file_couldnt_read_file;
-  // 63 - Maximum file size exceeded 
-  __enumMember filesize_exceeded;
-  // 87 - unable to parse FTP file list 
-  __enumMember ftp_bad_file_list;
-  // 15 
-  __enumMember ftp_cant_get_host;
-  // 19 
-  __enumMember ftp_couldnt_retr_file;
-  // 17 
-  __enumMember ftp_couldnt_set_type;
-  // 31 - the REST command failed 
-  __enumMember ftp_couldnt_use_rest;
-  // 30 - FTP PORT operation failed 
-  __enumMember ftp_port_failed;
-  // 84 - a PRET command failed 
-  __enumMember ftp_pret_failed;
-  // 14 
-  __enumMember ftp_weird_227_format;
-  // 11 
-  __enumMember ftp_weird_pass_reply;
-  // 13 
-  __enumMember ftp_weird_pasv_reply;
-  // 8 
-  __enumMember ftp_weird_server_reply;
-  // 41 
-  __enumMember function_not_found;
-  // 52 - when this is a specific error 
-  __enumMember got_nothing;
-  // 34 
-  __enumMember http_post_error;
-  // 22 
-  __enumMember http_returned_error;
-  // 45 - CURLOPT_INTERFACE failed 
-  __enumMember interface_failed;
-  // 38 
-  __enumMember ldap_cannot_bind;
-  // 62 - Invalid LDAP URL 
-  __enumMember ldap_invalid_url;
-  // 39 
-  __enumMember ldap_search_failed;
-  // 67 - user, password or similar was not accepted and we failed to login 
-  __enumMember login_denied;
-  // 4 - [was obsoleted in August 2007 for 7.17.0, reused in April 2011 for 7.21.5] 
-  __enumMember not_built_in;
-  // 10 - NOT USED 
-  __enumMember obsolete10;
-  // 12 - NOT USED 
-  __enumMember obsolete12;
-  // 16 - NOT USED 
-  __enumMember obsolete16;
-  // 20 - NOT USED 
-  __enumMember obsolete20;
-  // 24 - NOT USED 
-  __enumMember obsolete24;
-  // 29 - NOT USED 
-  __enumMember obsolete29;
-  // 32 - NOT USED 
-  __enumMember obsolete32;
-  // 40 - NOT USED 
-  __enumMember obsolete40;
-  // 44 - NOT USED 
-  __enumMember obsolete44;
-  // 46 - NOT USED 
-  __enumMember obsolete46;
-  // 50 - NOT USED 
-  __enumMember obsolete50;
-  // 57 - NOT IN USE 
-  __enumMember obsolete57;
   // 
-  __enumMember ok;
-  // Note: CURLE_OUT_OF_MEMORY may sometimes indicate a conversion error instead of a memory allocation error if CURL_DOES_CONVERSIONS is defined 
-  __enumMember operation_timedout;
-  // 27 
-  __enumMember out_of_memory;
-  // 18 
-  __enumMember partial_file;
-  // 51 - peer&#39;s certificate or fingerprint wasn&#39;t verified fine 
-  __enumMember peer_failed_verification;
-  // 21 - quote command failure 
-  __enumMember quote_error;
-  // 33 - RANGE &quot;command&quot; didn&#39;t work 
-  __enumMember range_error;
-  // 26 - couldn&#39;t open/read from file 
-  __enumMember read_error;
-  // 56 - failure in receiving network data 
-  __enumMember recv_error;
-  // 9 a service was denied by the server due to lack of access - when login fails this is not returned. 
-  __enumMember remote_access_denied;
-  // 70 - out of disk space on server 
-  __enumMember remote_disk_full;
-  // 73 - File already exists 
-  __enumMember remote_file_exists;
-  // 78 - remote file not found 
-  __enumMember remote_file_not_found;
-  // 85 - mismatch of RTSP CSeq numbers 
-  __enumMember rtsp_cseq_error;
-  // 86 - mismatch of RTSP Session Identifiers 
-  __enumMember rtsp_session_error;
-  // 55 - failed sending network data 
-  __enumMember send_error;
-  // 65 - Sending the data requires a rewind that failed 
-  __enumMember send_fail_rewind;
-  // 79 - error from the SSH layer, somewhat generic so the error message will be of interest when this has happened 
-  __enumMember ssh;
-  // 60 - problem with the CA cert (path?) 
-  __enumMember ssl_cacert;
-  // 77 - could not load CACERT file, missing  or wrong format 
-  __enumMember ssl_cacert_badfile;
-  // 58 - problem with the local certificate 
-  __enumMember ssl_certproblem;
-  // 59 - couldn&#39;t use specified cipher 
-  __enumMember ssl_cipher;
-  // 35 - wrong when connecting with SSL 
-  __enumMember ssl_connect_error;
-  // 82 - could not load CRL file, missing or wrong format (Added in 7.19.0) 
-  __enumMember ssl_crl_badfile;
-  // 66 - failed to initialise ENGINE 
-  __enumMember ssl_engine_initfailed;
-  // 53 - SSL crypto engine not found 
-  __enumMember ssl_engine_notfound;
-  // 54 - can not set SSL crypto engine as default 
-  __enumMember ssl_engine_setfailed;
-  // 83 - Issuer check failed.  (Added in 7.19.0) 
-  __enumMember ssl_issuer_error;
-  // 80 - Failed to shut down the SSL connection 
-  __enumMember ssl_shutdown_failed;
-  // 49 - Malformed telnet option 
-  __enumMember telnet_option_syntax;
-  // 71 - Illegal TFTP operation 
-  __enumMember tftp_illegal;
-  // 74 - No such user 
-  __enumMember tftp_nosuchuser;
-  // 68 - file not found on server 
-  __enumMember tftp_notfound;
-  // 69 - permission problem on server 
-  __enumMember tftp_perm;
-  // 72 - Unknown transfer ID 
-  __enumMember tftp_unknownid;
-  // 47 - catch endless re-direct loops 
-  __enumMember too_many_redirects;
-  // 48 - User specified an unknown option 
-  __enumMember unknown_option;
+  ok,
   // 1 
-  __enumMember unsupported_protocol;
-  // 25 - failed upload &quot;command&quot; 
-  __enumMember upload_failed;
+  unsupported_protocol,
+  // 2 
+  failed_init,
   // 3 
-  __enumMember url_malformat;
-  // 64 - Requested FTP SSL level failed 
-  __enumMember use_ssl_failed;
+  url_malformat,
+  // 4 - [was obsoleted in August 2007 for 7.17.0, reused in April 2011 for 7.21.5] 
+  not_built_in,
+  // 5 
+  couldnt_resolve_proxy,
+  // 6 
+  couldnt_resolve_host,
+  // 7 
+  couldnt_connect,
+  // 8 
+  ftp_weird_server_reply,
+  // 9 a service was denied by the server due to lack of access - when login fails this is not returned. 
+  remote_access_denied,
+  // 10 - NOT USED 
+  obsolete10,
+  // 11 
+  ftp_weird_pass_reply,
+  // 12 - NOT USED 
+  obsolete12,
+  // 13 
+  ftp_weird_pasv_reply,
+  // 14 
+  ftp_weird_227_format,
+  // 15 
+  ftp_cant_get_host,
+  // 16 - NOT USED 
+  obsolete16,
+  // 17 
+  ftp_couldnt_set_type,
+  // 18 
+  partial_file,
+  // 19 
+  ftp_couldnt_retr_file,
+  // 20 - NOT USED 
+  obsolete20,
+  // 21 - quote command failure 
+  quote_error,
+  // 22 
+  http_returned_error,
   // 23 
-  __enumMember write_error;
+  write_error,
+  // 24 - NOT USED 
+  obsolete24,
+  // 25 - failed upload &quot;command&quot; 
+  upload_failed,
+  // 26 - couldn&#39;t open/read from file 
+  read_error,
+  // 27 
+  out_of_memory,
+  // Note: CURLE_OUT_OF_MEMORY may sometimes indicate a conversion error instead of a memory allocation error if CURL_DOES_CONVERSIONS is defined 
+  operation_timedout,
+  // 29 - NOT USED 
+  obsolete29,
+  // 30 - FTP PORT operation failed 
+  ftp_port_failed,
+  // 31 - the REST command failed 
+  ftp_couldnt_use_rest,
+  // 32 - NOT USED 
+  obsolete32,
+  // 33 - RANGE &quot;command&quot; didn&#39;t work 
+  range_error,
+  // 34 
+  http_post_error,
+  // 35 - wrong when connecting with SSL 
+  ssl_connect_error,
+  // 36 - couldn&#39;t resume download 
+  bad_download_resume,
+  // 37 
+  file_couldnt_read_file,
+  // 38 
+  ldap_cannot_bind,
+  // 39 
+  ldap_search_failed,
+  // 40 - NOT USED 
+  obsolete40,
+  // 41 
+  function_not_found,
+  // 42 
+  aborted_by_callback,
+  // 43 
+  bad_function_argument,
+  // 44 - NOT USED 
+  obsolete44,
+  // 45 - CURLOPT_INTERFACE failed 
+  interface_failed,
+  // 46 - NOT USED 
+  obsolete46,
+  // 47 - catch endless re-direct loops 
+  too_many_redirects,
+  // 48 - User specified an unknown option 
+  unknown_option,
+  // 49 - Malformed telnet option 
+  telnet_option_syntax,
+  // 50 - NOT USED 
+  obsolete50,
+  // 51 - peer&#39;s certificate or fingerprint wasn&#39;t verified fine 
+  peer_failed_verification,
+  // 52 - when this is a specific error 
+  got_nothing,
+  // 53 - SSL crypto engine not found 
+  ssl_engine_notfound,
+  // 54 - can not set SSL crypto engine as default 
+  ssl_engine_setfailed,
+  // 55 - failed sending network data 
+  send_error,
+  // 56 - failure in receiving network data 
+  recv_error,
+  // 57 - NOT IN USE 
+  obsolete57,
+  // 58 - problem with the local certificate 
+  ssl_certproblem,
+  // 59 - couldn&#39;t use specified cipher 
+  ssl_cipher,
+  // 60 - problem with the CA cert (path?) 
+  ssl_cacert,
+  // 61 - Unrecognized transfer encoding 
+  bad_content_encoding,
+  // 62 - Invalid LDAP URL 
+  ldap_invalid_url,
+  // 63 - Maximum file size exceeded 
+  filesize_exceeded,
+  // 64 - Requested FTP SSL level failed 
+  use_ssl_failed,
+  // 65 - Sending the data requires a rewind that failed 
+  send_fail_rewind,
+  // 66 - failed to initialise ENGINE 
+  ssl_engine_initfailed,
+  // 67 - user, password or similar was not accepted and we failed to login 
+  login_denied,
+  // 68 - file not found on server 
+  tftp_notfound,
+  // 69 - permission problem on server 
+  tftp_perm,
+  // 70 - out of disk space on server 
+  remote_disk_full,
+  // 71 - Illegal TFTP operation 
+  tftp_illegal,
+  // 72 - Unknown transfer ID 
+  tftp_unknownid,
+  // 73 - File already exists 
+  remote_file_exists,
+  // 74 - No such user 
+  tftp_nosuchuser,
+  // 75 - conversion failed 
+  conv_failed,
+  // 76 - caller must register conversion callbacks using curl_easy_setopt options CURLOPT_CONV_FROM_NETWORK_FUNCTION, CURLOPT_CONV_TO_NETWORK_FUNCTION, and CURLOPT_CONV_FROM_UTF8_FUNCTION 
+  conv_reqd,
+  // 77 - could not load CACERT file, missing  or wrong format 
+  ssl_cacert_badfile,
+  // 78 - remote file not found 
+  remote_file_not_found,
+  // 79 - error from the SSH layer, somewhat generic so the error message will be of interest when this has happened 
+  ssh,
+  // 80 - Failed to shut down the SSL connection 
+  ssl_shutdown_failed,
+  // 81 - socket is not ready for send/recv, wait till it&#39;s ready and try again (Added in 7.18.2) 
+  again,
+  // 82 - could not load CRL file, missing or wrong format (Added in 7.19.0) 
+  ssl_crl_badfile,
+  // 83 - Issuer check failed.  (Added in 7.19.0) 
+  ssl_issuer_error,
+  // 84 - a PRET command failed 
+  ftp_pret_failed,
+  // 85 - mismatch of RTSP CSeq numbers 
+  rtsp_cseq_error,
+  // 86 - mismatch of RTSP Session Identifiers 
+  rtsp_session_error,
+  // 87 - unable to parse FTP file list 
+  ftp_bad_file_list,
+  // 88 - chunk callback reported error 
+  chunk_failed,
+  // never use! 
+  curl_last,
 }</code></pre><h2 class='section'>About</h2><p>All possible error codes from all sorts of curl functions. Future versions may return other values, stay prepared.</p>
 <p>Always add new return codes last. Never <strong>EVER</strong> remove any. The return codes must remain the same!</p>
 <h2 class='section'>Variables</h2><table>

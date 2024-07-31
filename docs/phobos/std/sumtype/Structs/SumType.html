@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,32 +87,42 @@
         <article data-uid="std.sumtype.Structs.SumType">
 <h1 class='section'>Struct - SumType</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.sumtype</dd></dl>
-</div><pre><code class='lang-d'>public struct SumType
+</div><pre><code class='lang-d'>struct SumType( Types... )
 {
   // 
-  alias Tag = &lt;todo: marmos support pending&gt;;
+  alias Tag = &lt;todo: marmos support pending&gt;
   // The types a `SumType` can hold. 
-  alias Types = &lt;todo: marmos support pending&gt;;
+  alias Types = &lt;todo: marmos support pending&gt;
   // 
-  alias unsignedInts = &lt;todo: marmos support pending&gt;;
+  alias unsignedInts = &lt;todo: marmos support pending&gt;
 
+  // 
+  ref T get( T )() @trusted
   // Assigns a value to a `SumType` . 
-  SumType opAssign( T rhs ) ;
+  ref SumType opAssign( T rhs ) 
   // Assigns a value to a `SumType` . 
-  SumType opAssign( T rhs ) ;
+  ref SumType opAssign( T rhs ) 
   // Copies the value from another `SumType` into this one. 
-  SumType opAssign( SumType rhs ) ;
+  ref SumType opAssign( ref SumType rhs ) 
   // Moves the value from another `SumType` into this one. 
-  SumType opAssign( SumType rhs ) ;
+  ref SumType opAssign( SumType rhs ) 
+  // Compares two `SumType` s for equality. 
+  bool opEquals( This, Rhs )( auto ref Rhs rhs ) 
   // Returns the hash of the `SumType` &#39;s current value. 
-  size_t toHash( ) ;
+  size_t toHash() 
+  // Returns a string representation of the `SumType` &#39;s current value. 
+  string toString( This )() 
+  // Handles formatted writing of the `SumType` &#39;s current value. 
+  void toString( This, Sink, Char )( ref Sink sink, const ref FormatSpec!(Char) fmt ) 
 
   // 
-  __enumMember includeDtor;
+  bool canHoldTag = Types.length &lt;= T.max
   // 
-  Storage storage;
+  &lt;enum or auto&gt; includeDtor = anySatisfy!(hasElaborateDestructor, Types)
   // 
-  Tag tag;
+  Storage storage
+  // 
+  Tag tag
 }</code></pre><h2 class='section'>About</h2><p>A <a href="https://en.wikipedia.org/wiki/Tagged_union">tagged union</a> that can hold a single value from any of a specified set of types.</p>
 <p>The value in a <code>SumType</code> can be operated on using [pattern matching][match].</p>
 <p>To avoid ambiguity, duplicate types are not allowed (but see the <a href="#basic-usage">&quot;basic usage&quot; example</a> for a workaround).</p>
@@ -150,12 +160,56 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../SumType/SumType/Functions/get.html">get</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../SumType/SumType/Functions/opAssign.html">opAssign</a></td>
 <td>Assigns a value to a <code>SumType</code> .</td>
 </tr>
 <tr>
+<td><a href="../SumType/SumType/Functions/opEquals.html">opEquals</a></td>
+<td>Compares two <code>SumType</code> s for equality.</td>
+</tr>
+<tr>
 <td><a href="../SumType/SumType/Functions/toHash.html">toHash</a></td>
 <td>Returns the hash of the <code>SumType</code> 's current value.</td>
+</tr>
+<tr>
+<td><a href="../SumType/SumType/Functions/toString.html">toString</a></td>
+<td>Returns a string representation of the <code>SumType</code> 's current value.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../SumType/SumType/Structs/T.html">T</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../SumType/SumType/Structs/T.html">T</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Unions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../SumType/SumType/Unions/Storage.html">Storage</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -167,6 +221,10 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="../SumType/SumType/Variables/canHoldTag.html">canHoldTag</a></td>
+<td></td>
+</tr>
 <tr>
 <td><a href="../SumType/SumType/Variables/includeDtor.html">includeDtor</a></td>
 <td></td>

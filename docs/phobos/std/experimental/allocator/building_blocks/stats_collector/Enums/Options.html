@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,54 +87,54 @@
         <article data-uid="std.experimental.allocator.building_blocks.stats_collector.Enums.Options">
 <h1 class='section'>Enum - Options</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator.building_blocks.stats_collector</dd></dl>
-</div><pre><code class='lang-d'>enum Options
+</div><pre><code class='lang-d'>enum Options : ulong
 {
-  // Combines all flags above. 
-  __enumMember all;
-  // Chooses all `byteXxx` flags. 
-  __enumMember bytesAll;
-  // Tracks total cumulative bytes allocated by means of `allocate` , `expand` , and `reallocate` (when resulting in an expansion). This number always grows and indicates allocation traffic. To compute bytes deallocated cumulatively, subtract `bytesUsed` from `bytesAllocated` . 
-  __enumMember bytesAllocated;
-  // Tracks the sum of all $(D b.length - s) with $(D b.length &gt; s) in calls of the form $(D realloc(b, s)) that succeed (return `true` ). In per-call statistics, also unambiguously counts the bytes deallocated with `deallocate` . 
-  __enumMember bytesContracted;
-  // Tracks the sum of all `delta` values in calls of the form $(D expand(b, delta)) that succeed (return `true` ). 
-  __enumMember bytesExpanded;
-  // Measures the maximum bytes allocated over the time. This is useful for dimensioning allocators. 
-  __enumMember bytesHighTide;
-  // Tracks the sum of all bytes moved as a result of calls to `realloc` that were unable to reallocate in place. A large number (relative to $(D bytesAllocated)) indicates that the application should use larger preallocations. 
-  __enumMember bytesMoved;
-  // Tracks the sum of all bytes NOT moved as result of calls to `realloc` that managed to reallocate in place. A large number (relative to $(D bytesAllocated)) indicates that the application is expansion-intensive and is saving a good amount of moves. However, if this number is relatively small and `bytesSlack` is high, it means the application is overallocating for little benefit. 
-  __enumMember bytesNotMoved;
-  // Measures the sum of extra bytes allocated beyond the bytes requested, i.e. the $(HTTP goo.gl/YoKffF, internal fragmentation). This is the current effective number of slack bytes, and it goes up and down with time. 
-  __enumMember bytesSlack;
-  // Tracks bytes currently allocated by this allocator. This number goes up and down as memory is allocated and deallocated, and is zero if the allocator currently has no active allocation. 
-  __enumMember bytesUsed;
-  // Counts the number of calls to `alignedAllocate` . All calls are counted, including requests for zero bytes or failed requests. 
-  __enumMember numAlignedAllocate;
-  // Counts the number of calls to `alignedAllocate` that succeeded, i.e. they returned a block as large as requested. (N.B. requests for zero bytes count as successful.) 
-  __enumMember numAlignedAllocateOk;
-  // Chooses all `numXxx` flags. 
-  __enumMember numAll;
-  // Counts the number of calls to `allocate` . All calls are counted, including requests for zero bytes or failed requests. 
-  __enumMember numAllocate;
-  // Counts the number of calls to `allocate` that succeeded, i.e. they returned a block as large as requested. (N.B. requests for zero bytes count as successful.) 
-  __enumMember numAllocateOK;
-  // Counts the number of calls to `deallocate` . 
-  __enumMember numDeallocate;
-  // Counts the number of calls to `deallocateAll` . 
-  __enumMember numDeallocateAll;
-  // Counts the number of calls to `expand` , regardless of arguments or result. 
-  __enumMember numExpand;
-  // Counts the number of calls to `expand` that resulted in a successful expansion. 
-  __enumMember numExpandOK;
   // Counts the number of calls to `owns` . 
-  __enumMember numOwns;
+  numOwns = 1u &lt;&lt; 0,
+  // Counts the number of calls to `allocate` . All calls are counted, including requests for zero bytes or failed requests. 
+  numAllocate = 1u &lt;&lt; 1,
+  // Counts the number of calls to `allocate` that succeeded, i.e. they returned a block as large as requested. (N.B. requests for zero bytes count as successful.) 
+  numAllocateOK = 1u &lt;&lt; 2,
+  // Counts the number of calls to `expand` , regardless of arguments or result. 
+  numExpand = 1u &lt;&lt; 3,
+  // Counts the number of calls to `expand` that resulted in a successful expansion. 
+  numExpandOK = 1u &lt;&lt; 4,
   // Counts the number of calls to `reallocate` , regardless of arguments or result. 
-  __enumMember numReallocate;
-  // Counts the number of calls to `reallocate` that resulted in an in-place reallocation (no memory moved). If this number is close to the total number of reallocations, that indicates the allocator finds room at the current block&#39;s end in a large fraction of the cases, but also that internal fragmentation may be high (the size of the unit of allocation is large compared to the typical allocation size of the application). 
-  __enumMember numReallocateInPlace;
+  numReallocate = 1u &lt;&lt; 5,
   // Counts the number of calls to `reallocate` that succeeded. (Reallocations to zero bytes count as successful.) 
-  __enumMember numReallocateOK;
+  numReallocateOK = 1u &lt;&lt; 6,
+  // Counts the number of calls to `reallocate` that resulted in an in-place reallocation (no memory moved). If this number is close to the total number of reallocations, that indicates the allocator finds room at the current block&#39;s end in a large fraction of the cases, but also that internal fragmentation may be high (the size of the unit of allocation is large compared to the typical allocation size of the application). 
+  numReallocateInPlace = 1u &lt;&lt; 7,
+  // Counts the number of calls to `deallocate` . 
+  numDeallocate = 1u &lt;&lt; 8,
+  // Counts the number of calls to `deallocateAll` . 
+  numDeallocateAll = 1u &lt;&lt; 9,
+  // Counts the number of calls to `alignedAllocate` . All calls are counted, including requests for zero bytes or failed requests. 
+  numAlignedAllocate = 1u &lt;&lt; 10,
+  // Counts the number of calls to `alignedAllocate` that succeeded, i.e. they returned a block as large as requested. (N.B. requests for zero bytes count as successful.) 
+  numAlignedAllocateOk = 1u &lt;&lt; 11,
+  // Chooses all `numXxx` flags. 
+  numAll = (1u &lt;&lt; 12) - 1,
+  // Tracks bytes currently allocated by this allocator. This number goes up and down as memory is allocated and deallocated, and is zero if the allocator currently has no active allocation. 
+  bytesUsed = 1u &lt;&lt; 12,
+  // Tracks total cumulative bytes allocated by means of `allocate` , `expand` , and `reallocate` (when resulting in an expansion). This number always grows and indicates allocation traffic. To compute bytes deallocated cumulatively, subtract `bytesUsed` from `bytesAllocated` . 
+  bytesAllocated = 1u &lt;&lt; 13,
+  // Tracks the sum of all `delta` values in calls of the form $(D expand(b, delta)) that succeed (return `true` ). 
+  bytesExpanded = 1u &lt;&lt; 14,
+  // Tracks the sum of all $(D b.length - s) with $(D b.length &gt; s) in calls of the form $(D realloc(b, s)) that succeed (return `true` ). In per-call statistics, also unambiguously counts the bytes deallocated with `deallocate` . 
+  bytesContracted = 1u &lt;&lt; 15,
+  // Tracks the sum of all bytes moved as a result of calls to `realloc` that were unable to reallocate in place. A large number (relative to $(D bytesAllocated)) indicates that the application should use larger preallocations. 
+  bytesMoved = 1u &lt;&lt; 16,
+  // Tracks the sum of all bytes NOT moved as result of calls to `realloc` that managed to reallocate in place. A large number (relative to $(D bytesAllocated)) indicates that the application is expansion-intensive and is saving a good amount of moves. However, if this number is relatively small and `bytesSlack` is high, it means the application is overallocating for little benefit. 
+  bytesNotMoved = 1u &lt;&lt; 17,
+  // Measures the sum of extra bytes allocated beyond the bytes requested, i.e. the $(HTTPS en.wikipedia.org/wiki/Fragmentation_(computing)#Internal_fragmentation, internal fragmentation). This is the current effective number of slack bytes, and it goes up and down with time. 
+  bytesSlack = 1u &lt;&lt; 18,
+  // Measures the maximum bytes allocated over the time. This is useful for dimensioning allocators. 
+  bytesHighTide = 1u &lt;&lt; 19,
+  // Chooses all `byteXxx` flags. 
+  bytesAll = (1u &lt;&lt; 20) - 1 &amp; ~numAll,
+  // Combines all flags above. 
+  all = (1u &lt;&lt; 20) - 1,
 }</code></pre><h2 class='section'>About</h2><p>Options for <code>StatsCollector</code> defined below. Each enables during compilation one specific counter, statistic, or other piece of information.</p>
 <h2 class='section'>Variables</h2><table>
 <thead>
@@ -178,7 +178,7 @@
 </tr>
 <tr>
 <td><a href="../Options/Options/Variables/bytesSlack.html">bytesSlack</a></td>
-<td>Measures the sum of extra bytes allocated beyond the bytes requested, i.e. the $(HTTP goo.gl/YoKffF, internal fragmentation). This is the current effective number of slack bytes, and it goes up and down with time.</td>
+<td>Measures the sum of extra bytes allocated beyond the bytes requested, i.e. the $(HTTPS en.wikipedia.org/wiki/Fragmentation_(computing)#Internal_fragmentation, internal fragmentation). This is the current effective number of slack bytes, and it goes up and down with time.</td>
 </tr>
 <tr>
 <td><a href="../Options/Options/Variables/bytesUsed.html">bytesUsed</a></td>

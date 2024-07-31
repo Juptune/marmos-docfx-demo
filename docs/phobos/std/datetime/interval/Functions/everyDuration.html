@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - everyDuration</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.interval</dd></dl>
 </div><h2 class='section api'>everyDuration(duration)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; everyDuration(
-  D duration
-) </code></pre><p>Range-generating function.</p>
+ <pre><code class='lang-d'>&lt;bug: unknown&gt; everyDuration( TP, Direction dir = Direction.fwd, D )( D duration ) nothrow</code></pre><p>Range-generating function.</p>
 <p>Returns a delegate which returns the next time point which is the given duration later.</p>
 <p>Using this delegate allows iteration over successive time points which are apart by the given duration e.g. passing <code>dur!&quot;days&quot;(3)</code> to <code>everyDuration</code> would result in a delegate which could be used to iterate over a range of days which are each 3 days apart.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>dir</code> &lt;parameter not found&gt;  </dt>
@@ -107,11 +105,15 @@
 
 </dd></dl><h2 class='section api'>everyDuration(years, months, allowOverflow, duration)   </h2>
  <pre><code class='lang-d'>&lt;bug: unknown&gt; everyDuration(
+  TP,
+  Direction dir = Direction.fwd,
+  D
+)(
   int years,
   int months,
   AllowDayOverflow allowOverflow,
   D duration
-) </code></pre><p>Range-generating function.</p>
+) nothrow</code></pre><p>Range-generating function.</p>
 <p>Returns a delegate which returns the next time point which is the given number of years, month, and duration later.</p>
 <p>The difference between this version of <code>everyDuration</code> and the version which just takes a $(REF Duration, core,time) is that this one also takes the number of years and months (along with an <code>AllowDayOverflow</code> to indicate whether adding years and months should allow the days to overflow).</p>
 <p>Note that if iterating forward, <code>add!&quot;years&quot;()</code> is called on the given time point, then <code>add!&quot;months&quot;()</code> , and finally the duration is added to it. However, if iterating backwards, the duration is added first, then <code>add!&quot;months&quot;()</code> is called, and finally <code>add!&quot;years&quot;()</code> is called. That way, going backwards generates close to the same time points that iterating forward does, but since adding years and months is not entirely reversible (due to possible day overflow, regardless of whether <code>AllowDayOverflow.yes</code> or <code>AllowDayOverflow.no</code> is used), it can't be guaranteed that iterating backwards will give the same time points as iterating forward would have (even assuming that the end of the range is a time point which would be returned by the delegate when iterating forward from <code>begin</code> ).</p>

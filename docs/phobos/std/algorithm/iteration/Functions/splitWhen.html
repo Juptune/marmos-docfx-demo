@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - splitWhen</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.iteration</dd></dl>
 </div><h2 class='section api'>splitWhen(r)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; splitWhen(
-  Range r
-) auto</code></pre><p>Splits a forward range into subranges in places determined by a binary predicate.</p>
+ <pre><code class='lang-d'>auto splitWhen( alias pred, Range )( Range r ) </code></pre><p>Splits a forward range into subranges in places determined by a binary predicate.</p>
 <p>When iterating, one element of <code>r</code> is compared with <code>pred</code> to the next element. If <code>pred</code> return true, a new subrange is started for the next element. Otherwise, they are part of the same subrange.</p>
 <p>If the elements are compared with an inequality (!=) operator, consider $(LREF chunkBy) instead, as it's likely faster to execute.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>pred</code> &lt;parameter not found&gt;  </dt>

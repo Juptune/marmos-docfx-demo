@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - getInstalledTZNames</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.timezone.WindowsTimeZone</dd></dl><dl><dt>Parent</dt><dd>WindowsTimeZone</dd></dl>
 </div><h2 class='section api'>getInstalledTZNames()   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; getInstalledTZNames(
-) static</code></pre><p>Returns a list of the names of the time zones installed on the system. The list returned by WindowsTimeZone contains the Windows TZ names, not the TZ Database names. However, <code>TimeZone.getinstalledTZNames</code> will return the TZ Database names which are equivalent to the Windows TZ names.</p>
+ <pre><code class='lang-d'>static string[] getInstalledTZNames() @safe</code></pre><p>Returns a list of the names of the time zones installed on the system. The list returned by WindowsTimeZone contains the Windows TZ names, not the TZ Database names. However, <code>TimeZone.getinstalledTZNames</code> will return the TZ Database names which are equivalent to the Windows TZ names.</p>
 
 </article>
 

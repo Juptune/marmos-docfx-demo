@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,11 +88,9 @@
 <h1 class='section'>Overloads for - assumeUnique</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.exception</dd></dl>
 </div><h2 class='section api'>assumeUnique(array)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; assumeUnique(
-  &lt;bug: unknown&gt; array
-) </code></pre><p>Casts a mutable array to an immutable array in an idiomatic manner. Technically, <code>assumeUnique</code> just inserts a cast, but its name documents assumptions on the part of the caller. <code>assumeUnique(arr)</code> should only be called when there are no more active mutable aliases to elements of $(D arr). To strengthen this assumption, <code>assumeUnique(arr)</code> also clears <code>arr</code> before returning. Essentially $(D assumeUnique(arr)) indicates commitment from the caller that there is no more mutable access to any of <code>arr</code> 's elements (transitively), and that all future accesses will be done through the immutable array returned by <code>assumeUnique</code> .</p>
+ <pre><code class='lang-d'>T[] assumeUnique( T )( T[] array ) nothrow pure</code></pre><p>Casts a mutable array to an immutable array in an idiomatic manner. Technically, <code>assumeUnique</code> just inserts a cast, but its name documents assumptions on the part of the caller. <code>assumeUnique(arr)</code> should only be called when there are no more active mutable aliases to elements of $(D arr). To strengthen this assumption, <code>assumeUnique(arr)</code> also clears <code>arr</code> before returning. Essentially $(D assumeUnique(arr)) indicates commitment from the caller that there is no more mutable access to any of <code>arr</code> 's elements (transitively), and that all future accesses will be done through the immutable array returned by <code>assumeUnique</code> .</p>
 <p>Typically, <code>assumeUnique</code> is used to return arrays from functions that have allocated and built them.</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>array</code> &lt;bug: unknown&gt;  </dt>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>array</code> T[]  </dt>
 <dd>
 
 
@@ -110,13 +108,9 @@
 <p>For more on infering uniqueness see the $(B unique) and $(B lent) keywords in the $(HTTP <a href="http://www.cs.cmu.edu/%7Ealdrich/papers/aldrich-dissertation.pdf">www.cs.cmu.edu/~aldrich/papers/aldrich-dissertation.pdf</a>, ArchJava) language. )</p>
 <p>The downside of using <code>assumeUnique</code> 's convention-based usage is that at this time there is no formal checking of the correctness of the assumption; on the upside, the idiomatic use of <code>assumeUnique</code> is simple and rare enough to be tolerable.</p>
 <h2 class='section api'>assumeUnique(array)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; assumeUnique(
-  &lt;bug: unknown&gt; array
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>T[] assumeUnique( T )( ref T[] array ) nothrow pure</code></pre><p>ditto</p>
 <h2 class='section api'>assumeUnique(array)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; assumeUnique(
-  &lt;bug: unknown&gt; array
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>T[U] assumeUnique( T, U )( ref T[U] array ) nothrow pure</code></pre><p>ditto</p>
 
 </article>
 

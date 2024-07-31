@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,16 +88,17 @@
 <h1 class='section'>Overloads for - poly</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.math.algebraic</dd></dl>
 </div><h2 class='section api'>poly(x, A)   </h2>
- <pre><code class='lang-d'>Unqual!(CommonType!(T1, T2)) poly(
-  T1 x,
-  &lt;bug: unknown&gt; A
-) </code></pre><p>Evaluate polynomial A(x) = $(SUB a, 0) + $(SUB a, 1)x + <span class="math">\((SUB a, 2)\)</span>(POWER x,2) + <span class="math">\((SUB a,3)\)</span>(POWER x,3); ...</p>
+ <pre><code class='lang-d'>Unqual!(CommonType!(T1, T2)) poly( T1, T2 )( T1 x, in T2[] A ) @nogc @trusted nothrow pure</code></pre><p>Evaluate polynomial A(x) = $(SUB a, 0) + $(SUB a, 1)x + <span class="math">\((SUB a, 2)\)</span>(POWER x,2) + <span class="math">\((SUB a,3)\)</span>(POWER x,3); ...</p>
 <p>Uses Horner's rule A(x) = <span class="math">\((SUB a, 0) + x(\)</span>(SUB a, 1) + x(<span class="math">\((SUB a, 2) + x(\)</span>(SUB a, 3) + ...))) Params: x =     the value to evaluate. A =     array of coefficients $(SUB a, 0), $(SUB a, 1), etc.</p>
 <h2 class='section api'>poly(x, A)   </h2>
  <pre><code class='lang-d'>Unqual!(CommonType!(T1, T2)) poly(
+  T1,
+  T2,
+  int N
+)(
   T1 x,
-  &lt;bug: unknown&gt; A
-) </code></pre><p>ditto</p>
+  const ref T2[N] A
+) @nogc @safe nothrow pure</code></pre><p>ditto</p>
 
 </article>
 

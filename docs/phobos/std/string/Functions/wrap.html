@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,13 +88,7 @@
 <h1 class='section'>Overloads for - wrap</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.string</dd></dl>
 </div><h2 class='section api'>wrap(s, columns, firstindent, indent, tabsize)   </h2>
- <pre><code class='lang-d'>S wrap(
-  S s,
-  size_t columns,
-  S firstindent,
-  S indent,
-  size_t tabsize
-) </code></pre><p>Wrap text into a paragraph.</p>
+ <pre><code class='lang-d'>S wrap( S )( S s, in size_t columns, S firstindent, S indent, in size_t tabsize ) </code></pre><p>Wrap text into a paragraph.</p>
 <p>The input text string s is formed into a paragraph by breaking it up into a sequence of lines, delineated by \n, such that the number of columns is not exceeded on each line. The last line is terminated with a \n. Params: s = text string to be wrapped columns = maximum number of columns in the paragraph firstindent = string used to indent first line of the paragraph indent = string to use to indent following lines of the paragraph tabsize = column spacing of tabs in firstindent[] and indent[] Returns: resulting paragraph as an allocated string</p>
 
 </article>

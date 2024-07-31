@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,30 +87,30 @@
         <article data-uid="std.range.Structs.Sequence">
 <h1 class='section'>Struct - Sequence</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
-</div><pre><code class='lang-d'>public struct Sequence
+</div><pre><code class='lang-d'>struct Sequence( alias fun, State )
 {
   // 
-  alias compute = &lt;todo: marmos support pending&gt;;
+  alias compute = &lt;todo: marmos support pending&gt;
   // 
-  alias ElementType = &lt;todo: marmos support pending&gt;;
+  alias ElementType = &lt;todo: marmos support pending&gt;
 
   // 
-  ElementType front( ) ;
+  ElementType front() @property
   // 
-  ElementType opIndex( size_t n ) ;
+  ElementType opIndex( size_t n ) 
   // 
-  &lt;bug: unknown&gt; opSlice( size_t lower, size_t upper ) auto;
+  auto opSlice( size_t lower, size_t upper ) 
   // 
-  &lt;bug: unknown&gt; opSlice( size_t lower, DollarToken __anonymous ) auto;
+  auto opSlice( size_t lower, DollarToken __anonymous ) 
   // 
-  void popFront( ) ;
+  void popFront() 
   // 
-  Sequence save( ) ;
+  Sequence save() @property
 
   // 
-  bool empty;
+  bool empty = false
   // 
-  __enumMember opDollar;
+  &lt;enum or auto&gt; opDollar = DollarToken()
 }</code></pre><h2 class='section'>About</h2><p><code>Sequence</code> is similar to <code>Recurrence</code> except that iteration is presented in the so-called $(HTTP en.wikipedia.org/wiki/Closed_form, closed form). This means that the <code>n</code> th element in the series is computable directly from the initial values and <code>n</code> itself. This implies that the interface offered by <code>Sequence</code> is a random-access range, as opposed to the regular <code>Recurrence</code> , which only offers forward iteration.</p>
 <p>The state of the sequence is stored as a <code>Tuple</code> so it can be heterogeneous.</p>
 <h2 class='section'>Aliases</h2><table>
@@ -157,6 +157,20 @@
 </tr>
 <tr>
 <td><a href="../Sequence/Sequence/Functions/save.html">save</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Sequence/Sequence/Structs/DollarToken.html">DollarToken</a></td>
 <td></td>
 </tr>
 </tbody>

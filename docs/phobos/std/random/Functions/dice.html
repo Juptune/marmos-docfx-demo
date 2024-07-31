@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - dice</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.random</dd></dl>
 </div><h2 class='section api'>dice(rnd, proportions)   </h2>
- <pre><code class='lang-d'>size_t dice(
-  Rng rnd,
-  &lt;bug: unknown&gt; proportions
-) </code></pre><p>Get a random index into a list of weights corresponding to each index</p>
+ <pre><code class='lang-d'>size_t dice( Rng, Num )( ref Rng rnd, Num[] proportions ) </code></pre><p>Get a random index into a list of weights corresponding to each index</p>
 <p>Similar to rolling a die with relative probabilities stored in <code>proportions</code> . Returns the index in <code>proportions</code> that was chosen.</p>
 <h3 class='section'>Note</h3><p>Usually, dice are 'fair', meaning that each side has equal probability to come up, in which case <code>1 + uniform(0, 6)</code> can simply be used. In future Phobos versions, this function might get renamed to something like <code>weightedChoice</code> to avoid confusion.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>rnd</code> Rng  </dt>
@@ -100,7 +97,7 @@
 
 <p>(optional) random number generator to use; if not specified, defaults to <code>rndGen</code></p>
 
-</dd><dt><code>proportions</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>proportions</code> Num[]  </dt>
 <dd>
 
 
@@ -108,18 +105,11 @@
 
 </dd></dl><h3 class='section'>Returns</h3><p>Random variate drawn from the index values [0, ... <code>proportions.length</code> - 1], with the probability of getting an individual index value <code>i</code> being proportional to <code>proportions[i]</code> .</p>
 <h2 class='section api'>dice(rnd, proportions)   </h2>
- <pre><code class='lang-d'>size_t dice(
-  R rnd,
-  Range proportions
-) </code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>size_t dice( R, Range )( ref R rnd, Range proportions ) </code></pre><p>Ditto</p>
 <h2 class='section api'>dice(proportions)   </h2>
- <pre><code class='lang-d'>size_t dice(
-  Range proportions
-) </code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>size_t dice( Range )( Range proportions ) </code></pre><p>Ditto</p>
 <h2 class='section api'>dice(proportions)   </h2>
- <pre><code class='lang-d'>size_t dice(
-  &lt;bug: unknown&gt; proportions
-) </code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>size_t dice( Num )( Num[] proportions ) </code></pre><p>Ditto</p>
 
 </article>
 

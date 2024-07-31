@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - fill</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.mutation</dd></dl>
 </div><h2 class='section api'>fill(range, value)   </h2>
- <pre><code class='lang-d'>void fill(
-  Range range,
-  Value value
-) </code></pre><p>Assigns <code>value</code> to each element of input range <code>range</code> .</p>
+ <pre><code class='lang-d'>void fill( Range, Value )( auto ref Range range, auto ref Value value ) </code></pre><p>Assigns <code>value</code> to each element of input range <code>range</code> .</p>
 <p>Alternatively, instead of using a single <code>value</code> to fill the <code>range</code> , a <code>filler</code> $(REF_ALTTEXT forward range, isForwardRange, std,range,primitives) can be provided. The length of <code>filler</code> and <code>range</code> do not need to match, but <code>filler</code> must not be empty.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>range</code> Range  </dt>
 <dd>
@@ -114,10 +111,7 @@
 </dd></dl><p>Throws: If <code>filler</code> is empty.</p>
 <h3 class='section'>See_Also</h3><p>$(LREF uninitializedFill) $(LREF initializeAll)</p>
 <h2 class='section api'>fill(range, filler)   </h2>
- <pre><code class='lang-d'>void fill(
-  InputRange range,
-  ForwardRange filler
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>void fill( InputRange, ForwardRange )( InputRange range, ForwardRange filler ) </code></pre><p>ditto</p>
 
 </article>
 

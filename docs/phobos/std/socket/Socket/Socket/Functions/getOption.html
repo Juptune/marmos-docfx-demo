@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -91,26 +91,18 @@
  <pre><code class='lang-d'>int getOption(
   SocketOptionLevel level,
   SocketOption option,
-  &lt;bug: unknown&gt; result
-) </code></pre><p>Get a socket option. Returns: The number of bytes written to <code>result</code> . The length, in bytes, of the actual result - very different from getsockopt()</p>
+  scope void[] result
+) @trusted</code></pre><p>Get a socket option. Returns: The number of bytes written to <code>result</code> . The length, in bytes, of the actual result - very different from getsockopt()</p>
 <h2 class='section api'>getOption(level, option, result)   </h2>
- <pre><code class='lang-d'>int getOption(
-  SocketOptionLevel level,
-  SocketOption option,
-  int32_t result
-) </code></pre><p>Common case of getting integer and boolean options.</p>
+ <pre><code class='lang-d'>int getOption( SocketOptionLevel level, SocketOption option, out int32_t result ) @trusted</code></pre><p>Common case of getting integer and boolean options.</p>
 <h2 class='section api'>getOption(level, option, result)   </h2>
- <pre><code class='lang-d'>int getOption(
-  SocketOptionLevel level,
-  SocketOption option,
-  Linger result
-) </code></pre><p>Get the linger option.</p>
+ <pre><code class='lang-d'>int getOption( SocketOptionLevel level, SocketOption option, out Linger result ) @trusted</code></pre><p>Get the linger option.</p>
 <h2 class='section api'>getOption(level, option, result)   </h2>
  <pre><code class='lang-d'>void getOption(
   SocketOptionLevel level,
   SocketOption option,
-  Duration result
-) </code></pre><p>Get a timeout (duration) option.</p>
+  out Duration result
+) @trusted</code></pre><p>Get a timeout (duration) option.</p>
 
 </article>
 

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - uniformDistribution</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.random</dd></dl>
 </div><h2 class='section api'>uniformDistribution(n, useThis)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; uniformDistribution(
-  size_t n,
-  &lt;bug: unknown&gt; useThis
-) </code></pre><p>Generates a uniform probability distribution of size <code>n</code> , i.e., an array of size <code>n</code> of positive numbers of type <code>F</code> that sum to <code>1</code> . If <code>useThis</code> is provided, it is used as storage.</p>
+ <pre><code class='lang-d'>F[] uniformDistribution( F = double )( size_t n, F[] useThis ) </code></pre><p>Generates a uniform probability distribution of size <code>n</code> , i.e., an array of size <code>n</code> of positive numbers of type <code>F</code> that sum to <code>1</code> . If <code>useThis</code> is provided, it is used as storage.</p>
 
 </article>
 

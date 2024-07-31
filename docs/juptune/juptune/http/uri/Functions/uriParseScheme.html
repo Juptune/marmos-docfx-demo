@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,28 +89,28 @@
 <dl><dt>Module</dt><dd>juptune.http.uri</dd></dl>
 </div><h2 class='section api'>uriParseScheme(chars, scheme, next, hints)   </h2>
  <pre><code class='lang-d'>Result uriParseScheme(
-  &lt;bug: unknown&gt; chars,
-  &lt;bug: unknown&gt; scheme,
-  &lt;bug: unknown&gt; next,
-  UriParseHints hints
-) </code></pre><p>&quot;Low level&quot; Uri parsing functions</p>
+  char[] chars,
+  out scope char[] scheme,
+  out scope char[] next,
+  ref scope UriParseHints hints
+) @nogc @trusted nothrow</code></pre><p>&quot;Low level&quot; Uri parsing functions</p>
 <p>Parses the scheme of a URI.</p>
 <h3 class='section'>Notes</h3><p>Given the string &quot;https://abc.com&quot;, the <code>scheme</code> parameter will be set to &quot;https&quot; and the <code>next</code> parameter will be set to &quot;//abc.com&quot;. The colon is dropped.</p>
 <p>The output of all <code>out</code> parameters is undefined if the function returns an error.</p>
 <p>The hint <code>UriParseHints.isAbsolute</code> is always set.</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>chars</code> &lt;bug: unknown&gt;  </dt>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>chars</code> char[]  </dt>
 <dd>
 
 
 <p>The input string to parse</p>
 
-</dd><dt><code>scheme</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>scheme</code> char[]  </dt>
 <dd>
 
 
 <p>The slice of <code>chars</code> that contains the scheme</p>
 
-</dd><dt><code>next</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>next</code> char[]  </dt>
 <dd>
 
 

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,15 +88,10 @@
 <h1 class='section'>Overloads for - fft</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.numeric</dd></dl>
 </div><h2 class='section api'>fft(range)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; fft(
-  R range
-) </code></pre><p>Convenience functions that create an <code>Fft</code> object, run the FFT or inverse FFT and return the result.  Useful for one-off FFTs.</p>
+ <pre><code class='lang-d'>Complex!(F)[] fft( F = double, R )( R range ) </code></pre><p>Convenience functions that create an <code>Fft</code> object, run the FFT or inverse FFT and return the result.  Useful for one-off FFTs.</p>
 <p>Note:  In addition to convenience, these functions are slightly more efficient than manually creating an Fft object for a single use, as the Fft object is deterministically destroyed before these functions return.</p>
 <h2 class='section api'>fft(range, buf)   </h2>
- <pre><code class='lang-d'>void fft(
-  R range,
-  Ret buf
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>void fft( Ret, R )( R range, Ret buf ) </code></pre><p>ditto</p>
 
 </article>
 

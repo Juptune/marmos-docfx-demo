@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,13 +88,9 @@
 <h1 class='section'>Overloads for - listen</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.event.io.PosixTcpSocket</dd></dl><dl><dt>Parent</dt><dd>PosixTcpSocket</dd></dl>
 </div><h2 class='section api'>listen(address, backlog, defaultPort)   </h2>
- <pre><code class='lang-d'>Result listen(
-  &lt;bug: unknown&gt; address,
-  uint backlog,
-  ushort defaultPort
-) </code></pre><p>Binds the socket to an address, and begins listening for connections.</p>
+ <pre><code class='lang-d'>Result listen( const scope char[] address, uint backlog, ushort defaultPort ) </code></pre><p>Binds the socket to an address, and begins listening for connections.</p>
 <p>This overload is for convenience, as it will call <code>IpAddress.parse</code> on the given <code>address</code> .</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>address</code> &lt;bug: unknown&gt;  </dt>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>address</code> char[]  </dt>
 <dd>
 
 
@@ -117,10 +113,7 @@
 <p>Anything thrown by the main overload.</p>
 <h3 class='section'>Returns</h3><p>A <code>Result</code></p>
 <h2 class='section api'>listen(address, backlog)   </h2>
- <pre><code class='lang-d'>Result listen(
-  IpAddress address,
-  uint backlog
-) </code></pre><p>Binds the socket to an address, and begins listening for connections.</p>
+ <pre><code class='lang-d'>Result listen( IpAddress address, uint backlog ) </code></pre><p>Binds the socket to an address, and begins listening for connections.</p>
 <p>Note that <code>address</code> will be converted into an IPv6 address before listening starts.</p>
 <p>Note that io_uring currently doesn't provide a <code>listen</code> or <code>bind</code> command, so the syscalls are immediately made.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>address</code> IpAddress  </dt>

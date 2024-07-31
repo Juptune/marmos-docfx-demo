@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,18 +90,20 @@
 </div><pre><code class='lang-d'>public struct FiberAllocator
 {
   // 
-  Result allocateBlock( &lt;bug: unknown&gt; block ) ;
+  Result allocateBlock( out Block* block ) 
   // 
-  size_t allocatedFiberCount( ) ;
+  size_t allocatedFiberCount() 
   // 
-  void freeBlock( &lt;bug: unknown&gt; block ) ;
+  Result allocateFiber( FuncT )( uint id, FuncT entryPoint, out JuptuneFiber* fiber ) 
   // 
-  void freeFiber( &lt;bug: unknown&gt; fiber ) ;
+  void freeBlock( ref Block* block ) 
   // 
-  Result makeWall( size_t blockCount, size_t fiberStackBytes, &lt;bug: unknown&gt; wall ) ;
+  void freeFiber( ref JuptuneFiber* fiber ) 
+  // 
+  Result makeWall( size_t blockCount, size_t fiberStackBytes, out Wall* wall ) 
 
   // 
-  __enumMember POSIX_MIN_STACK_SIZE;
+  &lt;enum or auto&gt; POSIX_MIN_STACK_SIZE = 4096
 }</code></pre><h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -119,6 +121,10 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="../FiberAllocator/FiberAllocator/Functions/allocateFiber.html">allocateFiber</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../FiberAllocator/FiberAllocator/Functions/freeBlock.html">freeBlock</a></td>
 <td></td>
 </tr>
@@ -128,6 +134,24 @@
 </tr>
 <tr>
 <td><a href="../FiberAllocator/FiberAllocator/Functions/makeWall.html">makeWall</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../FiberAllocator/FiberAllocator/Structs/Block.html">Block</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../FiberAllocator/FiberAllocator/Structs/Wall.html">Wall</a></td>
 <td></td>
 </tr>
 </tbody>

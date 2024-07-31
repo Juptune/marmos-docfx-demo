@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,12 @@
 <h1 class='section'>Overloads for - chooseAmong</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
 </div><h2 class='section api'>chooseAmong(index, rs)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; chooseAmong(
+ <pre><code class='lang-d'>auto chooseAmong(
+  Ranges...
+)(
   size_t index,
-  Ranges rs
-) auto</code></pre><p>Choose one of multiple ranges at runtime.</p>
+  scope return ref return ref scope Ranges rs
+) </code></pre><p>Choose one of multiple ranges at runtime.</p>
 <p>The ranges may be different, but they must have compatible element types. The result is a range that offers the weakest capabilities of all <code>Ranges</code> .</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>index</code> size_t  </dt>
 <dd>

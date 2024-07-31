@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,76 +90,76 @@
 </div><pre><code class='lang-d'>public class ZipArchive
 {
   // Add a member to the archive. The file is compressed on the fly. 
-  void addMember( ArchiveMember de ) ;
+  void addMember( ArchiveMember de ) @safe
   // Construct the entire contents of the current members of the archive. 
-  &lt;bug: unknown&gt; build( ) ;
+  void[] build() @safe pure
   // Array representing the entire contents of the archive. 
-  &lt;bug: unknown&gt; data( ) ;
+  ubyte[] data() @nogc @property @safe nothrow pure
   // Delete member `de` from the archive. Uses the name of the member to detect which element to delete. 
-  void deleteMember( ArchiveMember de ) ;
+  void deleteMember( ArchiveMember de ) @safe
   // Associative array indexed by the name of each member of the archive. 
-  &lt;bug: unknown&gt; directory( ) ;
+  ArchiveMember[string] directory() @nogc @property @safe nothrow pure
   // Decompress the contents of a member. 
-  &lt;bug: unknown&gt; expand( ArchiveMember de ) ;
+  ubyte[] expand( ArchiveMember de ) 
   // 
-  uint findEndOfCentralDirRecord( ) ;
+  uint findEndOfCentralDirRecord() 
   // 
-  uint getUint( uint i ) ;
+  uint getUint( uint i ) @nogc @safe nothrow pure
   // 
-  ulong getUlong( uint i ) ;
+  ulong getUlong( uint i ) @nogc @safe nothrow pure
   // 
-  ushort getUshort( uint i ) ;
+  ushort getUshort( uint i ) @nogc @safe nothrow pure
   // True when the archive is in Zip64 format. Set this to true to force building a Zip64 archive. 
-  bool isZip64( ) ;
+  bool isZip64() @nogc @property @safe nothrow pure
   // ditto 
-  void isZip64( bool value ) ;
+  void isZip64( bool value ) @nogc @property @safe nothrow pure
   // 
-  void print( ) ;
+  void print() @safe
   // 
-  void putUint( uint i, uint ui ) ;
+  void putUint( uint i, uint ui ) @nogc @safe nothrow pure
   // 
-  void putUlong( uint i, ulong ul ) ;
+  void putUlong( uint i, ulong ul ) @nogc @safe nothrow pure
   // 
-  void putUshort( uint i, ushort us ) ;
+  void putUshort( uint i, ushort us ) @nogc @safe nothrow pure
   // 
-  void removeSegment( uint start, uint end ) ;
+  void removeSegment( uint start, uint end ) @safe pure
   // Number of ArchiveMembers in the directory. 
-  uint totalEntries( ) ;
+  uint totalEntries() @nogc @property @safe nothrow pure
 
   // 
-  __enumMember archiveExtraDataLength;
+  &lt;enum or auto&gt; archiveExtraDataLength = 8
   // 
-  static immutable &lt;bug: unknown&gt; archiveExtraDataSignature;
+  static immutable ubyte[] archiveExtraDataSignature = &lt;todo: support array literal&gt;
   // 
-  __enumMember centralFileHeaderLength;
+  &lt;enum or auto&gt; centralFileHeaderLength = 46
   // 
-  static immutable &lt;bug: unknown&gt; centralFileHeaderSignature;
+  static immutable ubyte[] centralFileHeaderSignature = &lt;todo: support array literal&gt;
   // The archive comment. Must be less than 65536 bytes in length. 
-  string comment;
+  string comment
   // 
-  __enumMember dataDescriptorLength;
+  &lt;enum or auto&gt; dataDescriptorLength = 12
   // 
-  __enumMember digitalSignatureLength;
+  &lt;enum or auto&gt; digitalSignatureLength = 6
   // 
-  static immutable &lt;bug: unknown&gt; digitalSignatureSignature;
+  static immutable ubyte[] digitalSignatureSignature = &lt;todo: support array literal&gt;
   // 
-  __enumMember endOfCentralDirLength;
+  &lt;enum or auto&gt; endOfCentralDirLength = 22
   // 
-  static immutable &lt;bug: unknown&gt; endOfCentralDirSignature;
+  static immutable ubyte[] endOfCentralDirSignature = &lt;todo: support array literal&gt;
   // 
-  __enumMember localFileHeaderLength;
+  &lt;enum or auto&gt; localFileHeaderLength = 30
   // 
-  static immutable &lt;bug: unknown&gt; localFileHeaderSignature;
+  static immutable ubyte[] localFileHeaderSignature = &lt;todo: support array literal&gt;
   // 
-  __enumMember zip64EndOfCentralDirLength;
+  &lt;enum or auto&gt; zip64EndOfCentralDirLength = 56
   // 
-  __enumMember zip64EndOfCentralDirLocatorLength;
+  &lt;enum or auto&gt; zip64EndOfCentralDirLocatorLength = 20
   // 
-  static immutable &lt;bug: unknown&gt; zip64EndOfCentralDirLocatorSignature;
+  static immutable ubyte[] zip64EndOfCentralDirLocatorSignature = &lt;todo: support array literal&gt;
   // 
-  static immutable &lt;bug: unknown&gt; zip64EndOfCentralDirSignature;
+  static immutable ubyte[] zip64EndOfCentralDirSignature = &lt;todo: support array literal&gt;
   // 
-  static const ushort zip64ExtractVersion;
+  static const ushort zip64ExtractVersion = 45
 }</code></pre><h2 class='section'>About</h2><p>Object representing the entire archive. ZipArchives are collections of ArchiveMembers.</p>
 <h2 class='section'>Functions</h2><table>
 <thead>
@@ -236,6 +236,20 @@
 <tr>
 <td><a href="../ZipArchive/ZipArchive/Functions/totalEntries.html">totalEntries</a></td>
 <td>Number of ArchiveMembers in the directory.</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../ZipArchive/ZipArchive/Structs/Segment.html">Segment</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>

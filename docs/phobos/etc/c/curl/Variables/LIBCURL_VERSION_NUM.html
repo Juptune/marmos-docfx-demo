@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,11 @@
 <h1 class='section'>Variable - LIBCURL_VERSION_NUM</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.curl</dd></dl>
 </div><h2 class='section api'>LIBCURL_VERSION_NUM   </h2>
- <pre><code class='lang-d'>__enumMember LIBCURL_VERSION_NUM</code></pre><h2 class='section'>About</h2><p>This is the numeric version of the libcurl version number, meant for easier parsing and comparions by programs. The LIBCURL_VERSION_NUM define will always follow this syntax:</p>
+ <pre><code class='lang-d'>&lt;enum or auto&gt; LIBCURL_VERSION_NUM = 464132</code></pre><h2 class='section'>About</h2><p>This is the numeric version of the libcurl version number, meant for easier parsing and comparions by programs. The LIBCURL_VERSION_NUM define will always follow this syntax:</p>
 <p>0xXXYYZZ</p>
 <p>Where XX, YY and ZZ are the main version, release and patch numbers in hexadecimal (using 8 bits each). All three numbers are always represented using two digits.  1.2 would appear as &quot;0x010200&quot; while version 9.11.7 appears as &quot;0x090b07&quot;.</p>
 <p>This 6-digit (24 bits) hexadecimal number does not show pre-release number, and it is always a greater number in a more recent release. It makes comparisons with greater than and less than work.</p>
+<h3 class='section'>(Marmos Notes)</h3><p>Type may be inaccurate as marmos couldn't figure it out - potentially needs semantic analysis.</p>
 
 </article>
 

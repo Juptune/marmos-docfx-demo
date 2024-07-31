@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - abbrev</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.string</dd></dl>
 </div><h2 class='section api'>abbrev(values)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; abbrev(
-  &lt;bug: unknown&gt; values
-) </code></pre><p>Construct an associative array consisting of all abbreviations that uniquely map to the strings in values.</p>
+ <pre><code class='lang-d'>string[string] abbrev( string[] values ) @safe pure</code></pre><p>Construct an associative array consisting of all abbreviations that uniquely map to the strings in values.</p>
 <p>This is useful in cases where the user is expected to type in one of a known set of strings, and the program will helpfully auto-complete the string once sufficient characters have been entered that uniquely identify it.</p>
 
 </article>

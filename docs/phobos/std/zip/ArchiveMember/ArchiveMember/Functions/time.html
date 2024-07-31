@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - time</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.zip.ArchiveMember</dd></dl><dl><dt>Parent</dt><dd>ArchiveMember</dd></dl>
 </div><h2 class='section api'>time()   </h2>
- <pre><code class='lang-d'>DosFileTime time(
-) </code></pre><p>Get or set the last modification time for this member.</p>
+ <pre><code class='lang-d'>DosFileTime time() @nogc @property @safe nothrow pure</code></pre><p>Get or set the last modification time for this member.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>time</code> &lt;parameter not found&gt;  </dt>
 <dd>
 
@@ -98,13 +97,9 @@
 
 </dd></dl><h3 class='section'>Returns</h3><p>The last modification time in DosFileFormat.</p>
 <h2 class='section api'>time(time)   </h2>
- <pre><code class='lang-d'>void time(
-  SysTime time
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>void time( SysTime time ) @property</code></pre><p>ditto</p>
 <h2 class='section api'>time(time)   </h2>
- <pre><code class='lang-d'>void time(
-  DosFileTime time
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>void time( DosFileTime time ) @nogc @property @safe nothrow pure</code></pre><p>ditto</p>
 
 </article>
 

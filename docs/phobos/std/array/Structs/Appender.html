@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,25 +87,44 @@
         <article data-uid="std.array.Structs.Appender">
 <h1 class='section'>Struct - Appender</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.array</dd></dl>
-</div><pre><code class='lang-d'>public struct Appender
+</div><pre><code class='lang-d'>struct Appender( A )
 {
+  // Appends to the managed array. 
+  alias opOpAssign = &lt;todo: marmos support pending&gt;
   // 
-  alias T = &lt;todo: marmos support pending&gt;;
+  alias T = &lt;todo: marmos support pending&gt;
 
   // Returns: the capacity of the array (the maximum number of elements the managed array can accommodate before triggering a reallocation). If any appending will reallocate, `0` will be returned. 
-  size_t capacity( ) ;
+  size_t capacity() @property
   // Clears the managed array.  This allows the elements of the array to be reused for appending. 
-  void clear( ) ;
+  void clear() @trusted nothrow pure
   // Use opSlice() from now on. Returns: The managed array. 
-  &lt;bug: unknown&gt; data( ) ;
+  T[] data() @property @trusted
   // 
-  void ensureAddable( size_t nelems ) ;
+  void ensureAddable( size_t nelems ) 
   // Returns: The managed array. 
-  &lt;bug: unknown&gt; opSlice( ) ;
+  T[] opSlice() @property @trusted
+  // Appends `item` to the managed array. Performs encoding for `char` types if `A` is a differently typed `char` array. 
+  void put( U )( U item ) 
+  // 
+  void put( Range )( Range items ) 
+  // Appends an entire range to the managed array. Performs encoding for `char` elements if `A` is a differently typed `char` array. 
+  void put( Range )( Range items ) 
   // Reserve at least newCapacity elements for appending.  Note that more elements may be reserved than requested. If `newCapacity &lt;= capacity` , then nothing is done. 
-  void reserve( size_t newCapacity ) ;
+  void reserve( size_t newCapacity ) 
   // Shrinks the managed array to the given length. 
-  void shrinkTo( size_t newlength ) ;
+  void shrinkTo( size_t newlength ) @trusted pure
+  // Gives a string in the form of `Appender!(A)(data)` . 
+  string toString( )() 
+  // ditto 
+  void toString( Writer )( ref Writer w, const ref scope FormatSpec!(char) fmt ) 
+
+  // 
+  bool canPutConstRange = isInputRange!(Unqual!Range) &amp;&amp; !isInputRange!Range &amp;&amp; is(typeof(Appender.init.put(Range.init.front)))
+  // 
+  bool canPutItem = is(Unqual!U : Unqual!T) || isSomeChar!T &amp;&amp; isSomeChar!U
+  // 
+  bool canPutRange = isInputRange!Range &amp;&amp; is(typeof(Appender.init.put(Range.init.front)))
 }</code></pre><h2 class='section'>About</h2><p>Implements an output range that appends data to an array. This is recommended over $(D array ~= data) when appending many elements because it is more efficient. <code>Appender</code> maintains its own array metadata locally, so it can avoid the $(DDSUBLINK spec/arrays, capacity-reserve, performance hit of looking up slice <code>capacity</code> ) for each append.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>A</code>   </dt>
 <dd>
@@ -122,6 +141,10 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="../Appender/Appender/Aliases/opOpAssign.html">opOpAssign</a></td>
+<td>Appends to the managed array.</td>
+</tr>
 <tr>
 <td><a href="../Appender/Appender/Aliases/T.html">T</a></td>
 <td></td>
@@ -157,12 +180,56 @@
 <td>Returns: The managed array.</td>
 </tr>
 <tr>
+<td><a href="../Appender/Appender/Functions/put.html">put</a></td>
+<td>Appends <code>item</code> to the managed array. Performs encoding for <code>char</code> types if <code>A</code> is a differently typed <code>char</code> array.</td>
+</tr>
+<tr>
 <td><a href="../Appender/Appender/Functions/reserve.html">reserve</a></td>
 <td>Reserve at least newCapacity elements for appending.  Note that more elements may be reserved than requested. If <code>newCapacity &lt;= capacity</code> , then nothing is done.</td>
 </tr>
 <tr>
 <td><a href="../Appender/Appender/Functions/shrinkTo.html">shrinkTo</a></td>
 <td>Shrinks the managed array to the given length.</td>
+</tr>
+<tr>
+<td><a href="../Appender/Appender/Functions/toString.html">toString</a></td>
+<td>Gives a string in the form of <code>Appender!(A)(data)</code> .</td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Appender/Appender/Structs/Data.html">Data</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Variables</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Appender/Appender/Variables/canPutConstRange.html">canPutConstRange</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Appender/Appender/Variables/canPutItem.html">canPutItem</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../Appender/Appender/Variables/canPutRange.html">canPutRange</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>

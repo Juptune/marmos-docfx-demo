@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,8 @@
 <h1 class='section'>Variable - gallop</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range.SearchPolicy</dd></dl><dl><dt>Parent</dt><dd>SearchPolicy</dd></dl>
 </div><h2 class='section api'>gallop   </h2>
- <pre><code class='lang-d'>__enumMember gallop</code></pre><h2 class='section'>About</h2><p>Performs a $(LINK2 <a href="https://en.wikipedia.org/wiki/Exponential_search">https://en.wikipedia.org/wiki/Exponential_search</a>, galloping search algorithm), i.e. searches with a step that doubles every time, (1, 2, 4, 8, ...)  leading to an exponential search schedule (indexes tried are 0, 1, 3, 7, 15, 31, 63,...) Once the search overshoots its target, the remaining interval is searched using binary search. A value is found in $(BIGOH log(n)) time.</p>
+ <pre><code class='lang-d'>&lt;enum or auto&gt; gallop</code></pre><h2 class='section'>About</h2><p>Performs a $(LINK2 <a href="https://en.wikipedia.org/wiki/Exponential_search">https://en.wikipedia.org/wiki/Exponential_search</a>, galloping search algorithm), i.e. searches with a step that doubles every time, (1, 2, 4, 8, ...)  leading to an exponential search schedule (indexes tried are 0, 1, 3, 7, 15, 31, 63,...) Once the search overshoots its target, the remaining interval is searched using binary search. A value is found in $(BIGOH log(n)) time.</p>
+<h3 class='section'>(Marmos Notes)</h3><p>Type may be inaccurate as marmos couldn't figure it out - potentially needs semantic analysis.</p>
 
 </article>
 

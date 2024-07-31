@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,17 +87,17 @@
         <article data-uid="std.range.Structs.Recurrence">
 <h1 class='section'>Struct - Recurrence</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
-</div><pre><code class='lang-d'>public struct Recurrence
+</div><pre><code class='lang-d'>struct Recurrence( alias fun, StateType, size_t stateSize )
 {
   // 
-  StateType front( ) ;
+  StateType front() @property
   // 
-  void popFront( ) ;
+  void popFront() 
   // 
-  &lt;bug: unknown&gt; save( ) ;
+  typeof(this) save() @property
 
   // 
-  bool empty;
+  bool empty = false
 }</code></pre><h2 class='section'>About</h2><p>Creates a mathematical sequence given the initial values and a recurrence function that computes the next value from the existing values. The sequence comes in the form of an infinite forward range. The type <code>Recurrence</code> itself is seldom used directly; most often, recurrences are obtained by calling the function $(D recurrence).</p>
 <p>When calling <code>recurrence</code> , the function that computes the next value is specified as a template argument, and the initial values in the recurrence are passed as regular arguments. For example, in a Fibonacci sequence, there are two initial values (and therefore a state size of 2) because computing the next Fibonacci value needs the past two values.</p>
 <h3 class='section'>The signature of this function should be</h3><p>---- auto fun(R)(R state, size_t n) ---- where <code>n</code> will be the index of the current value, and <code>state</code> will be an opaque state vector that can be indexed with array-indexing notation <code>state[i]</code> , where valid values of <code>i</code> range from $(D (n - 1)) to $(D (n - State.length)).</p>

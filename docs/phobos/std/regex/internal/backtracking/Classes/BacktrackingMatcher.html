@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,96 +87,106 @@
         <article data-uid="std.regex.internal.backtracking.Classes.BacktrackingMatcher">
 <h1 class='section'>Class - BacktrackingMatcher</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.regex.internal.backtracking</dd></dl>
-</div><pre><code class='lang-d'>public class BacktrackingMatcher
+</div><pre><code class='lang-d'>class BacktrackingMatcher( Char, Stream = Input!(Char) )
 {
   // 
-  alias DataIndex = &lt;todo: marmos support pending&gt;;
+  alias DataIndex = &lt;todo: marmos support pending&gt;
   // 
-  alias MatchFn = &lt;todo: marmos support pending&gt;;
+  alias MatchFn = &lt;todo: marmos support pending&gt;
   // 
-  alias RegEx = &lt;todo: marmos support pending&gt;;
+  alias RegEx = &lt;todo: marmos support pending&gt;
   // 
-  alias String = &lt;todo: marmos support pending&gt;;
+  alias String = &lt;todo: marmos support pending&gt;
 
   // 
-  bool atEnd( ) ;
+  bool atEnd() @property
   // 
-  bool atStart( ) ;
+  bool atStart() @property
   // 
-  &lt;bug: unknown&gt; bwdMatcher( RegEx re, &lt;bug: unknown&gt; memBlock ) auto;
+  auto bwdMatcher( const ref RegEx re, void[] memBlock ) 
   // 
-  void dupTo( Matcher!(Char) m, &lt;bug: unknown&gt; memBlock ) override;
+  void dupTo( Matcher!(Char) m, void[] memBlock ) override
   // 
-  &lt;bug: unknown&gt; fwdMatcher( RegEx re, &lt;bug: unknown&gt; memBlock ) auto;
+  auto fwdMatcher( const ref RegEx re, void[] memBlock ) 
   // 
-  void initExternalMemory( &lt;bug: unknown&gt; memBlock ) ;
+  void initExternalMemory( void[] memBlock ) 
   // 
-  void initialize( RegEx program, Stream stream, &lt;bug: unknown&gt; memBlock ) ;
+  void initialize( const ref RegEx program, Stream stream, void[] memBlock ) 
   // 
-  size_t initialMemory( RegEx re ) static;
+  static size_t initialMemory( const ref RegEx re ) 
   // 
-  int match( &lt;bug: unknown&gt; matches ) override;
+  int match( Group!(DataIndex)[] matches ) override
   // 
-  int matchFinalize( ) ;
+  int matchFinalize() 
   // 
-  int matchImpl( ) ;
+  int matchImpl() pure
   // 
-  void newStack( ) ;
+  void newStack() 
   // 
-  void next( ) ;
+  void next() 
   // 
-  RegEx pattern( ) override;
+  ref RegEx pattern() override @property
   // 
-  bool popState( ) ;
+  bool popState() 
   // 
-  bool prevStack( ) ;
+  bool prevStack() 
   // 
-  void pushState( uint pc, uint counter ) ;
+  void pushState( uint pc, uint counter ) 
   // 
-  Matcher!(Char) rearm( &lt;bug: unknown&gt; data ) override;
+  Matcher!(Char) rearm( in Char[] data ) override
   // 
-  size_t refCount( ) override;
+  ref size_t refCount() override @property
   // 
-  void search( ) ;
+  void search() 
   // 
-  size_t stackAvail( ) ;
+  size_t stackAvail() @property
   // 
-  size_t stackSize( RegEx re ) static;
+  void stackPop( T )( ref T val ) 
+  // 
+  void stackPop( T )( T[] val ) 
+  // 
+  void stackPop( T )( ref T[] val ) 
+  // 
+  void stackPush( T )( T val ) 
+  // 
+  void stackPush( T )( T[] val ) 
+  // 
+  static size_t stackSize( const ref RegEx re ) 
 
   // 
-  &lt;bug: unknown&gt; backrefed;
+  Group!(DataIndex)[] backrefed
   // 
-  uint counter;
+  uint counter
   // 
-  bool exhausted;
+  bool exhausted
   // 
-  dchar front;
+  dchar front
   // 
-  DataIndex index;
+  DataIndex index
   // 
-  uint infiniteNesting;
+  uint infiniteNesting
   // 
-  __enumMember initialStack;
+  &lt;enum or auto&gt; initialStack = 1 &lt;&lt; 11
   // 
-  __enumMember kicked;
+  &lt;enum or auto&gt; kicked = __traits(hasMember, Stream, &quot;search&quot;)
   // 
-  DataIndex lastState;
+  DataIndex lastState = 0
   // 
-  &lt;bug: unknown&gt; matches;
+  Group!(DataIndex)[] matches
   // 
-  &lt;bug: unknown&gt; memory;
+  size_t[] memory
   // 
-  &lt;bug: unknown&gt; merge;
+  Trace[] merge
   // 
-  MatchFn nativeFn;
+  MatchFn nativeFn
   // 
-  uint pc;
+  uint pc
   // 
-  const RegEx re;
+  const RegEx re
   // 
-  Stream s;
+  Stream s
   // 
-  __enumMember stateSize;
+  &lt;enum or auto&gt; stateSize = State.sizeof / size_t.sizeof
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>
@@ -296,7 +306,33 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="../BacktrackingMatcher/BacktrackingMatcher/Functions/stackPop.html">stackPop</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/BacktrackingMatcher/Functions/stackPush.html">stackPush</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../BacktrackingMatcher/BacktrackingMatcher/Functions/stackSize.html">stackSize</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../BacktrackingMatcher/BacktrackingMatcher/Structs/State.html">State</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../BacktrackingMatcher/BacktrackingMatcher/Structs/Trace.html">Trace</a></td>
 <td></td>
 </tr>
 </tbody>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,13 +88,10 @@
 <h1 class='section'>Overloads for - end</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.interval.NegInfInterval</dd></dl><dl><dt>Parent</dt><dd>NegInfInterval</dd></dl>
 </div><h2 class='section api'>end()   </h2>
- <pre><code class='lang-d'>TP end(
-) </code></pre><p>The end point of the interval. It is excluded from the interval.</p>
+ <pre><code class='lang-d'>TP end() @property nothrow pure</code></pre><p>The end point of the interval. It is excluded from the interval.</p>
 <h3 class='section'>Example</h3><p>-------------------- assert(NegInfInterval!Date(Date(2012, 3, 1)).end == Date(2012, 3, 1)); --------------------</p>
 <h2 class='section api'>end(timePoint)   </h2>
- <pre><code class='lang-d'>void end(
-  TP timePoint
-) </code></pre><p>The end point of the interval. It is excluded from the interval.</p>
+ <pre><code class='lang-d'>void end( TP timePoint ) @property nothrow pure</code></pre><p>The end point of the interval. It is excluded from the interval.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>timePoint</code> TP  </dt>
 <dd>
 

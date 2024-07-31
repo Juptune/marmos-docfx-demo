@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,17 +89,65 @@
 <dl><dt>Module</dt><dd>std.base64</dd></dl>
 </div><pre><code class='lang-d'>template Base64Impl
 {
+  // Decodes $(D_PARAM source) into the given buffer. 
+  ubyte[] decode(
+    R1,
+    R2
+  )(
+    in R1 source,
+    scope return ref return ref scope R2 buffer
+  ) @trusted pure
+  // ditto 
+  ubyte[] decode( R1, R2 )( R1 source, R2 buffer ) 
+  // Decodes $(D_PARAM source) into a given $(REF_ALTTEXT output range, isOutputRange, std,range,primitives). 
+  size_t decode( R1, R2 )( in R1 source, auto ref R2 range ) 
+  // ditto 
+  size_t decode( R1, R2 )( R1 source, auto ref R2 range ) 
+  // Decodes $(D_PARAM source) into newly-allocated buffer. 
+  ubyte[] decode( Range )( Range source ) @safe pure
+  // ditto 
+  ubyte[] decode( Range )( Range source ) 
+  // 
+  int decodeChar( )( char chr ) @safe pure
+  // 
+  int decodeChar( )( dchar chr ) @safe pure
   // Given a Base64 encoded string, calculates the length of the decoded string. 
-  size_t decodeLength( size_t sourceLength ) ;
+  size_t decodeLength( in size_t sourceLength ) @nogc @safe nothrow pure
+  // Construct a `Decoder` that iterates over the decoding of the given Base64 encoded data. 
+  Decoder!(Range) decoder( Range )( Range range ) 
+  // ditto 
+  Decoder!(const(ubyte)[]) decoder( )( char[] range ) 
+  // Encode $(D_PARAM source) into a `char[]` buffer using Base64 encoding. 
+  char[] encode(
+    R1,
+    R2
+  )(
+    const scope R1 source,
+    scope return ref return ref scope R2 buffer
+  ) @trusted pure
+  // ditto 
+  char[] encode( R1, R2 )( R1 source, R2 buffer ) 
+  // Encodes $(D_PARAM source) into an $(REF_ALTTEXT output range, isOutputRange, std,range,primitives) using Base64 encoding. 
+  size_t encode( E, R )( scope E[] source, auto ref R range ) 
+  // ditto 
+  size_t encode( R1, R2 )( R1 source, auto ref R2 range ) 
+  // Encodes $(D_PARAM source) to newly-allocated buffer. 
+  char[] encode( Range )( Range source ) @safe pure
+  // ditto 
+  char[] encode( Range )( Range source ) 
   // Calculates the length needed to store the encoded string corresponding to an input of the given length. 
-  size_t encodeLength( size_t sourceLength ) ;
+  size_t encodeLength( in size_t sourceLength ) @nogc @safe nothrow pure
+  // Construct an `Encoder` that iterates over the Base64 encoding of the given $(REF_ALTTEXT input range, isInputRange, std,range,primitives). 
+  Encoder!(Range) encoder( Range )( Range range ) 
+  // 
+  size_t realDecodeLength( R )( R source ) @nogc @safe nothrow pure
 
   // 
-  immutable &lt;bug: unknown&gt; DecodeMap;
+  immutable int[(char).max + 1] DecodeMap = &lt;todo: support array literal&gt;
   // 
-  immutable __enumMember EncodeMap;
+  immutable &lt;enum or auto&gt; EncodeMap = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789&quot; ~ Map62th ~ Map63th
   // represents no-padding encoding 
-  __enumMember NoPadding;
+  &lt;enum or auto&gt; NoPadding = &#39;\0&#39;
 }</code></pre><h2 class='section'>About</h2><p>Template for implementing Base64 encoding and decoding.</p>
 <p>For most purposes, direct usage of this template is not necessary; instead, this module provides default implementations: $(LREF Base64), implementing basic Base64 encoding, and $(LREF Base64URL) and $(LREF Base64URLNoPadding), that implement the Base64 variant for use in URLs and filenames, with and without padding, respectively.</p>
 <p>Customized Base64 encoding schemes can be implemented by instantiating this template with the appropriate arguments. For example:</p>
@@ -114,12 +162,62 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../Base64Impl/Base64Impl/Functions/decode.html">decode</a></td>
+<td>Decodes $(D_PARAM source) into the given buffer.</td>
+</tr>
+<tr>
+<td><a href="../Base64Impl/Base64Impl/Functions/decodeChar.html">decodeChar</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../Base64Impl/Base64Impl/Functions/decodeLength.html">decodeLength</a></td>
 <td>Given a Base64 encoded string, calculates the length of the decoded string.</td>
 </tr>
 <tr>
+<td><a href="../Base64Impl/Base64Impl/Functions/decoder.html">decoder</a></td>
+<td>Construct a <code>Decoder</code> that iterates over the decoding of the given Base64 encoded data.</td>
+</tr>
+<tr>
+<td><a href="../Base64Impl/Base64Impl/Functions/encode.html">encode</a></td>
+<td>Encode $(D_PARAM source) into a <code>char[]</code> buffer using Base64 encoding.</td>
+</tr>
+<tr>
 <td><a href="../Base64Impl/Base64Impl/Functions/encodeLength.html">encodeLength</a></td>
 <td>Calculates the length needed to store the encoded string corresponding to an input of the given length.</td>
+</tr>
+<tr>
+<td><a href="../Base64Impl/Base64Impl/Functions/encoder.html">encoder</a></td>
+<td>Construct an <code>Encoder</code> that iterates over the Base64 encoding of the given $(REF_ALTTEXT input range, isInputRange, std,range,primitives).</td>
+</tr>
+<tr>
+<td><a href="../Base64Impl/Base64Impl/Functions/realDecodeLength.html">realDecodeLength</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../Base64Impl/Base64Impl/Structs/Decoder.html">Decoder</a></td>
+<td>An $(REF_ALTTEXT input range, isInputRange, std,range,primitives) that iterates over the decoded data of a range of Base64 encodings.</td>
+</tr>
+<tr>
+<td><a href="../Base64Impl/Base64Impl/Structs/Decoder.html">Decoder</a></td>
+<td>An $(REF_ALTTEXT input range, isInputRange, std,range,primitives) that iterates over the bytes of data decoded from a Base64 encoded string.</td>
+</tr>
+<tr>
+<td><a href="../Base64Impl/Base64Impl/Structs/Encoder.html">Encoder</a></td>
+<td>An $(REF_ALTTEXT input range, isInputRange, std,range,primitives) that iterates over the respective Base64 encodings of a range of data items.</td>
+</tr>
+<tr>
+<td><a href="../Base64Impl/Base64Impl/Structs/Encoder.html">Encoder</a></td>
+<td>An $(REF_ALTTEXT input range, isInputRange, std,range,primitives) that iterates over the encoded bytes of the given source data.</td>
 </tr>
 </tbody>
 </table>

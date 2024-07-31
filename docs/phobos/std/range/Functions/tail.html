@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - tail</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
 </div><h2 class='section api'>tail(range, n)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; tail(
-  Range range,
-  size_t n
-) auto</code></pre><p>Return a range advanced to within <code>_n</code> elements of the end of <code>range</code> .</p>
+ <pre><code class='lang-d'>auto tail( Range )( Range range, size_t n ) </code></pre><p>Return a range advanced to within <code>_n</code> elements of the end of <code>range</code> .</p>
 <p>Intended as the range equivalent of the Unix $(HTTP en.wikipedia.org/wiki/Tail_%28Unix%29, tail) utility. When the length of <code>range</code> is less than or equal to <code>_n</code> , <code>range</code> is returned as-is.</p>
 <p>Completes in $(BIGOH 1) steps for ranges that support slicing and have length. Completes in $(BIGOH range.length) time for all other ranges.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>range</code> Range  </dt>

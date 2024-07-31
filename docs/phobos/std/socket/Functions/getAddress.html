@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,18 +88,12 @@
 <h1 class='section'>Overloads for - getAddress</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.socket</dd></dl>
 </div><h2 class='section api'>getAddress(hostname, service)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; getAddress(
-  &lt;bug: unknown&gt; hostname,
-  &lt;bug: unknown&gt; service
-) </code></pre><p>Provides protocol-independent translation from host names to socket addresses. Uses <code>getAddressInfo</code> if the current system supports it, and <code>InternetHost</code> otherwise.</p>
+ <pre><code class='lang-d'>Address[] getAddress( scope char[] hostname, scope char[] service ) </code></pre><p>Provides protocol-independent translation from host names to socket addresses. Uses <code>getAddressInfo</code> if the current system supports it, and <code>InternetHost</code> otherwise.</p>
 <p>Returns: Array with one <code>Address</code> instance per socket address.</p>
 <p>Throws: <code>SocketOSException</code> on failure.</p>
 <h3 class='section'>Example</h3><p>--- writeln(&quot;Resolving <a href="http://www.digitalmars.com:%22">www.digitalmars.com:&quot;</a>); try { auto addresses = getAddress(&quot;www.digitalmars.com&quot;); foreach (address; addresses) writefln(&quot;  IP: %s&quot;, address.toAddrString()); } catch (SocketException e) writefln(&quot;  Lookup failed: %s&quot;, e.msg); ---</p>
 <h2 class='section api'>getAddress(hostname, port)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; getAddress(
-  &lt;bug: unknown&gt; hostname,
-  ushort port
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>Address[] getAddress( scope char[] hostname, ushort port ) </code></pre><p>ditto</p>
 
 </article>
 

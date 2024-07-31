@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,22 +90,22 @@
 </div><pre><code class='lang-d'>public struct AlignedMallocator
 {
   // Uses $(HTTP man7.org/linux/man-pages/man3/posix_memalign.3.html, `posix_memalign` ) on Posix and $(HTTP msdn.microsoft.com/en-us/library/8z34s9c6(v=vs.80).aspx, `__aligned_malloc` ) on Windows. 
-  &lt;bug: unknown&gt; alignedAllocate( size_t bytes, uint a ) ;
+  void[] alignedAllocate( size_t bytes, uint a ) @nogc @trusted nothrow
   // On Posix there is no `realloc` for aligned memory, so `alignedReallocate` emulates the needed behavior by using `alignedAllocate` to get a new block. The existing block is copied to the new block and then freed. On Windows, calls $(HTTPS msdn.microsoft.com/en-us/library/y69db7sx.aspx, $(D aligned_realloc(b.ptr, newSize, a))). 
-  bool alignedReallocate( &lt;bug: unknown&gt; b, size_t s, uint a ) ;
+  bool alignedReallocate( ref void[] b, size_t s, uint a ) @nogc @system nothrow
   // ditto 
-  bool alignedReallocate( &lt;bug: unknown&gt; b, size_t s, uint a ) ;
+  bool alignedReallocate( ref void[] b, size_t s, uint a ) @nogc @system nothrow
   // Forwards to $(D alignedAllocate(bytes, platformAlignment)). 
-  &lt;bug: unknown&gt; allocate( size_t bytes ) ;
+  void[] allocate( size_t bytes ) @nogc @trusted nothrow
   // Calls `free(b.ptr)` on Posix and $(HTTP msdn.microsoft.com/en-US/library/17b5h8td(v=vs.80).aspx, `__aligned_free(b.ptr)` ) on Windows. 
-  bool deallocate( &lt;bug: unknown&gt; b ) ;
+  bool deallocate( void[] b ) @nogc @system nothrow
   // Forwards to $(D alignedReallocate(b, newSize, platformAlignment)). Should be used with blocks obtained with `allocate` otherwise the custom alignment passed with `alignedAllocate` can be lost. 
-  bool reallocate( &lt;bug: unknown&gt; b, size_t newSize ) ;
+  bool reallocate( ref void[] b, size_t newSize ) @nogc @system nothrow
 
   // The default alignment is `platformAlignment` . 
-  uint alignment;
+  uint alignment = platformAlignment
   // Returns the global instance of this allocator type. The C heap allocator is thread-safe, therefore all of its methods and `instance` itself are `shared` . 
-  static shared AlignedMallocator instance;
+  static shared AlignedMallocator instance
 }</code></pre><h2 class='section'>About</h2><p>Aligned allocator using OS-specific primitives, under a uniform API.</p>
 <h2 class='section'>Functions</h2><table>
 <thead>

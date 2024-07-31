@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,32 +90,32 @@
 </div><pre><code class='lang-d'>public struct DirEntry
 {
   // 
-  alias stat_t = &lt;todo: marmos support pending&gt;;
+  alias stat_t = &lt;todo: marmos support pending&gt;
 
   // Returns the attributes of the file represented by this `DirEntry`. 
-  uint attributes( ) ;
+  uint attributes() @property scope
   // Returns whether the file represented by this `DirEntry` is a directory. 
-  bool isDir( ) ;
+  bool isDir() @property scope
   // Returns whether the file represented by this `DirEntry` is a file. 
-  bool isFile( ) ;
+  bool isFile() @property scope
   // Returns whether the file represented by this `DirEntry` is a symbolic link. 
-  bool isSymlink( ) ;
+  bool isSymlink() @property scope
   // On POSIX systems, if the file represented by this `DirEntry` is a symbolic link, then `linkAttributes` are the attributes of the symbolic link itself. Otherwise, `linkAttributes` is identical to `attributes` . 
-  uint linkAttributes( ) ;
+  uint linkAttributes() @property scope
   // Returns the path to the file represented by this `DirEntry` . 
-  string name( ) ;
+  ref string name() @property scope return scope
   // Returns the size of the file represented by this `DirEntry` in bytes. 
-  ulong size( ) ;
+  ulong size() @property scope
   // $(BLUE This function is POSIX-Only.) 
-  stat_t statBuf( ) ;
+  stat_t statBuf() @property scope
   // $(BLUE This function is Windows-Only.) 
-  SysTime timeCreated( ) ;
+  SysTime timeCreated() @property scope
   // Returns the time that the file represented by this `DirEntry` was last accessed. 
-  SysTime timeLastAccessed( ) ;
+  SysTime timeLastAccessed() @property scope
   // Returns the time that the file represented by this `DirEntry` was last modified. 
-  SysTime timeLastModified( ) ;
+  SysTime timeLastModified() @property scope
   // $(BLUE This function is POSIX-Only.) 
-  SysTime timeStatusChanged( ) ;
+  SysTime timeStatusChanged() @property scope
 }</code></pre><h2 class='section'>About</h2><p>Info on a file, similar to what you'd get from stat on a POSIX system.</p>
 <h2 class='section'>Aliases</h2><table>
 <thead>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,14 @@
 <h1 class='section'>Overloads for - topN</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.sorting</dd></dl>
 </div><h2 class='section api'>topN(r, nth)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; topN(
+ <pre><code class='lang-d'>auto topN(
+  alias less = &quot;a &lt; b&quot;,
+  SwapStrategy ss = SwapStrategy.unstable,
+  Range
+)(
   Range r,
   size_t nth
-) auto</code></pre><p>Reorders the range <code>r</code> using $(REF_ALTTEXT swap, swap, std,algorithm,mutation) such that <code>r[nth]</code> refers to the element that would fall there if the range were fully sorted.</p>
+) </code></pre><p>Reorders the range <code>r</code> using $(REF_ALTTEXT swap, swap, std,algorithm,mutation) such that <code>r[nth]</code> refers to the element that would fall there if the range were fully sorted.</p>
 <p>It is akin to $(LINK2 <a href="https://en.wikipedia.org/wiki/Quickselect">https://en.wikipedia.org/wiki/Quickselect</a>, Quickselect), and partitions <code>r</code> such that all elements <code>e1</code> from <code>r[0]</code> to <code>r[nth]</code> satisfy <code>!less(r[nth], e1)</code> , and all elements <code>e2</code> from <code>r[nth]</code> to <code>r[r.length]</code> satisfy <code>!less(e2, r[nth])</code> . Effectively, it finds the <code>nth + 1</code> smallest (according to <code>less</code> ) elements in <code>r</code> . Performs an expected $(BIGOH r.length) (if unstable) or $(BIGOH r.length log(r.length)) (if stable) evaluations of <code>less</code> and $(REF_ALTTEXT swap, swap, std,algorithm,mutation).</p>
 <p>If <code>n &gt;= r.length</code> , the algorithm has no effect and returns <code>r[0 .. r.length]</code> .</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>less</code> &lt;parameter not found&gt;  </dt>
@@ -122,10 +126,15 @@
 <h3 class='section'>See_Also</h3><p>$(LREF topNIndex),</p>
 <h3 class='section'>BUGS</h3><p>Stable topN has not been implemented yet.</p>
 <h2 class='section api'>topN(r1, r2)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; topN(
+ <pre><code class='lang-d'>auto topN(
+  alias less = &quot;a &lt; b&quot;,
+  SwapStrategy ss = SwapStrategy.unstable,
+  Range1,
+  Range2
+)(
   Range1 r1,
   Range2 r2
-) auto</code></pre><p>Stores the smallest elements of the two ranges in the left-hand range.</p>
+) </code></pre><p>Stores the smallest elements of the two ranges in the left-hand range.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>less</code> &lt;parameter not found&gt;  </dt>
 <dd>
 

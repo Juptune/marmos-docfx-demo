@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,7 +90,7 @@
 </div><pre><code class='lang-d'>template Stride
 {
   // 
-  alias Stride = &lt;todo: marmos support pending&gt;;
+  alias Stride = &lt;todo: marmos support pending&gt;
 }</code></pre><h2 class='section'>About</h2><p>Evaluates to an $(LREF AliasSeq) which only contains every nth element from the $(LREF AliasSeq) that was passed in, where $(D n) is stepSize.</p>
 <p>So, if stepSize is $(D 2), then the result contains every other element from the original. If stepSize is $(D 3), then the result contains every third element from the original. Etc.</p>
 <p>If stepSize is negative, then the result is equivalent to using $(LREF Reverse) on the given $(LREF AliasSeq) and then using Stride on it with the absolute value of that stepSize.</p>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,43 +87,43 @@
         <article data-uid="std.range.Structs.Indexed">
 <h1 class='section'>Struct - Indexed</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
-</div><pre><code class='lang-d'>public struct Indexed
+</div><pre><code class='lang-d'>struct Indexed( Source, Indices )
 {
   // Ditto 
-  &lt;bug: unknown&gt; back( ) auto;
+  ref auto back() @property
   // Ditto 
-  &lt;bug: unknown&gt; back( ElementType!(Source) newVal ) auto;
+  ref auto back( ElementType!(Source) newVal ) @property
   // Range primitives 
-  &lt;bug: unknown&gt; front( ) auto;
+  ref auto front() @property
   // Ditto 
-  &lt;bug: unknown&gt; front( ElementType!(Source) newVal ) auto;
+  ref auto front( ElementType!(Source) newVal ) @property
   // Returns the indices range. 
-  Indices indices( ) ;
+  Indices indices() @property
   // Ditto 
-  &lt;bug: unknown&gt; moveAt( size_t index ) auto;
+  auto moveAt( size_t index ) 
   // Ditto 
-  &lt;bug: unknown&gt; moveBack( ) auto;
+  auto moveBack() 
   // Ditto 
-  &lt;bug: unknown&gt; moveFront( ) auto;
+  auto moveFront() 
   // Ditto 
-  &lt;bug: unknown&gt; opIndex( size_t index ) auto;
+  ref auto opIndex( size_t index ) 
   // Ditto 
-  &lt;bug: unknown&gt; opIndexAssign( ElementType!(Source) newVal, size_t index ) auto;
+  auto opIndexAssign( ElementType!(Source) newVal, size_t index ) 
   // Ditto 
-  &lt;bug: unknown&gt; opSlice( size_t a, size_t b ) ;
+  typeof(this) opSlice( size_t a, size_t b ) 
   // Returns the physical index into the source range corresponding to a given logical index.  This is useful, for example, when indexing an `Indexed` without adding another layer of indirection. 
-  size_t physicalIndex( size_t logicalIndex ) ;
+  size_t physicalIndex( size_t logicalIndex ) 
   // Ditto 
-  void popBack( ) ;
+  void popBack() 
   // Ditto 
-  void popFront( ) ;
+  void popFront() 
   // Ditto 
-  &lt;bug: unknown&gt; save( ) ;
+  typeof(this) save() @property
   // Returns the source range. 
-  Source source( ) ;
+  Source source() @property
 
   // 
-  bool empty;
+  bool empty = false
 }</code></pre><h2 class='section'>About</h2><p>This struct takes two ranges, <code>source</code> and <code>indices</code> , and creates a view of <code>source</code> as if its elements were reordered according to <code>indices</code> . <code>indices</code> may include only a subset of the elements of <code>source</code> and may also repeat elements.</p>
 <p><code>Source</code> must be a random access range.  The returned range will be bidirectional or random-access if <code>Indices</code> is bidirectional or random-access, respectively.</p>
 <h2 class='section'>Functions</h2><table>

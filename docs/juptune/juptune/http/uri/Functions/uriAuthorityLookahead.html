@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,9 +89,9 @@
 <dl><dt>Module</dt><dd>juptune.http.uri</dd></dl>
 </div><h2 class='section api'>uriAuthorityLookahead(chars, hints)   </h2>
  <pre><code class='lang-d'>void uriAuthorityLookahead(
-  &lt;bug: unknown&gt; chars,
-  UriParseHints hints
-) </code></pre><p>Looks ahead in the URI to determine whether the authority component has a user info and/or port component.</p>
+  char[] chars,
+  ref scope UriParseHints hints
+) @nogc @safe nothrow pure</code></pre><p>Looks ahead in the URI to determine whether the authority component has a user info and/or port component.</p>
 <h3 class='section'>Notes</h3><p>O(n) worst case. Terminate on first character that terminates the authority component.</p>
 <p>Sets the <code>UriParseHints.authorityHasUserInfo</code> and <code>UriParseHints.authorityHasPort</code> hints where appropriate.</p>
 <p>IPv6 style addresses are handled correctly.</p>

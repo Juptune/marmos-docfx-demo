@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - start</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.digest.sha.SHA</dd></dl><dl><dt>Parent</dt><dd>SHA</dd></dl>
 </div><h2 class='section api'>start()   </h2>
- <pre><code class='lang-d'>void start(
-) </code></pre><p>SHA initialization. Begins an SHA1/SHA2 operation.</p>
+ <pre><code class='lang-d'>void start() @nogc @safe nothrow pure</code></pre><p>SHA initialization. Begins an SHA1/SHA2 operation.</p>
 <h3 class='section'>Note</h3><p>For this SHA Digest implementation calling start after default construction is not necessary. Calling start is only necessary to reset the Digest.</p>
 <p>Generic code which deals with different Digest types should always call start though.</p>
 <h3 class='section'>Example</h3><p>-------- SHA1 digest; //digest.start(); //Not necessary digest.put(0); --------</p>

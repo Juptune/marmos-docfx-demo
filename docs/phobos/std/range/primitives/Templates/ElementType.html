@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,7 +90,7 @@
 </div><pre><code class='lang-d'>template ElementType
 {
   // 
-  alias ElementType = &lt;todo: marmos support pending&gt;;
+  alias ElementType = &lt;todo: marmos support pending&gt;
 }</code></pre><h2 class='section'>About</h2><p>The element type of <code>R</code> . <code>R</code> does not have to be a range. The element type is determined as the type yielded by <code>r.front</code> for an object <code>r</code> of type <code>R</code> . For example, <code>ElementType!(T[])</code> is <code>T</code> if <code>T[]</code> isn't a narrow string; if it is, the element type is <code>dchar</code> . If <code>R</code> doesn't have <code>front</code> , <code>ElementType!R</code> is <code>void</code> .</p>
 <h2 class='section'>Aliases</h2><table>
 <thead>

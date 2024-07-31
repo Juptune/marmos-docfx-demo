@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - start</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.digest.ExampleDigest</dd></dl><dl><dt>Parent</dt><dd>ExampleDigest</dd></dl>
 </div><h2 class='section api'>start()   </h2>
- <pre><code class='lang-d'>void start(
-) </code></pre><p>This function is used to (re)initialize the digest. It must be called before using the digest and it also works as a 'reset' function if the digest has already processed data.</p>
+ <pre><code class='lang-d'>void start() @trusted</code></pre><p>This function is used to (re)initialize the digest. It must be called before using the digest and it also works as a 'reset' function if the digest has already processed data.</p>
 
 </article>
 

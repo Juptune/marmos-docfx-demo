@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - dropOne</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
 </div><h2 class='section api'>dropOne(range)   </h2>
- <pre><code class='lang-d'>R dropOne(
-  R range
-) </code></pre><p>Convenience function which calls <code>range.popFront()</code> and returns <code>range</code> . <code>dropOne</code> makes it easier to pop an element from a range and then pass it to another function within a single expression, whereas <code>popFront</code> would require multiple statements.</p>
+ <pre><code class='lang-d'>R dropOne( R )( R range ) </code></pre><p>Convenience function which calls <code>range.popFront()</code> and returns <code>range</code> . <code>dropOne</code> makes it easier to pop an element from a range and then pass it to another function within a single expression, whereas <code>popFront</code> would require multiple statements.</p>
 <p><code>dropBackOne</code> provides the same functionality but instead calls <code>range.popBack()</code> .</p>
 
 </article>

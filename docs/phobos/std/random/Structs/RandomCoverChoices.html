@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,18 +90,20 @@
 </div><pre><code class='lang-d'>public struct RandomCoverChoices
 {
   // 
-  size_t length( ) ;
+  size_t length() @nogc @property @safe nothrow pure
   // 
-  bool opIndex( size_t index ) ;
+  void opAssign( T )( T __anonymous ) @disable
   // 
-  void opIndexAssign( bool value, size_t index ) ;
+  bool opIndex( size_t index ) @nogc @trusted nothrow pure
+  // 
+  void opIndexAssign( bool value, size_t index ) @nogc @trusted nothrow pure
 
   // 
-  __enumMember BITS_PER_WORD;
+  &lt;enum or auto&gt; BITS_PER_WORD = (typeof(buffer[0])).sizeof * 8
   // 
-  &lt;bug: unknown&gt; buffer;
+  size_t* buffer
   // 
-  immutable bool hasPackedBits;
+  immutable bool hasPackedBits
 }</code></pre><h2 class='section'>Functions</h2><table>
 <thead>
 <tr>
@@ -112,6 +114,10 @@
 <tbody>
 <tr>
 <td><a href="../RandomCoverChoices/RandomCoverChoices/Functions/length.html">length</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../RandomCoverChoices/RandomCoverChoices/Functions/opAssign.html">opAssign</a></td>
 <td></td>
 </tr>
 <tr>

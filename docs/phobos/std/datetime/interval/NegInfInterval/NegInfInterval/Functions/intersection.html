@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - intersection</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.interval.NegInfInterval</dd></dl><dl><dt>Parent</dt><dd>NegInfInterval</dd></dl>
 </div><h2 class='section api'>intersection(interval)   </h2>
- <pre><code class='lang-d'>Interval!(TP) intersection(
-  Interval!(TP) interval
-) </code></pre><p>Returns the intersection of two intervals</p>
+ <pre><code class='lang-d'>Interval!(TP) intersection( const scope Interval!(TP) interval ) </code></pre><p>Returns the intersection of two intervals</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>interval</code> Interval!(TP)  </dt>
 <dd>
 
@@ -101,9 +99,7 @@
 <h3 class='section'>Example</h3><p>-------------------- assert(NegInfInterval!Date(Date(2012, 3, 1)).intersection( Interval!Date(Date(1990, 7, 6), Date(2000, 8, 2))) == Interval!Date(Date(1990, 7 , 6), Date(2000, 8, 2)));</p>
 <p>assert(NegInfInterval!Date(Date(2012, 3, 1)).intersection( Interval!Date(Date(1999, 1, 12), Date(2015, 9, 2))) == Interval!Date(Date(1999, 1 , 12), Date(2012, 3, 1))); --------------------</p>
 <h2 class='section api'>intersection(interval)   </h2>
- <pre><code class='lang-d'>Interval!(TP) intersection(
-  PosInfInterval!(TP) interval
-) </code></pre><p>Returns the intersection of two intervals</p>
+ <pre><code class='lang-d'>Interval!(TP) intersection( const scope PosInfInterval!(TP) interval ) </code></pre><p>Returns the intersection of two intervals</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>interval</code> PosInfInterval!(TP)  </dt>
 <dd>
 
@@ -114,9 +110,7 @@
 <h3 class='section'>Example</h3><p>-------------------- assert(NegInfInterval!Date(Date(2012, 3, 1)).intersection( PosInfInterval!Date(Date(1990, 7, 6))) == Interval!Date(Date(1990, 7 , 6), Date(2012, 3, 1)));</p>
 <p>assert(NegInfInterval!Date(Date(2012, 3, 1)).intersection( PosInfInterval!Date(Date(1999, 1, 12))) == Interval!Date(Date(1999, 1 , 12), Date(2012, 3, 1))); --------------------</p>
 <h2 class='section api'>intersection(interval)   </h2>
- <pre><code class='lang-d'>NegInfInterval intersection(
-  NegInfInterval interval
-) </code></pre><p>Returns the intersection of two intervals</p>
+ <pre><code class='lang-d'>NegInfInterval intersection( const scope NegInfInterval interval ) nothrow</code></pre><p>Returns the intersection of two intervals</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>interval</code> NegInfInterval  </dt>
 <dd>
 

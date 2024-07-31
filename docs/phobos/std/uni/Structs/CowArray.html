@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,40 +87,48 @@
         <article data-uid="std.uni.Structs.CowArray">
 <h1 class='section'>Struct - CowArray</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.uni</dd></dl>
-</div><pre><code class='lang-d'>public struct CowArray
+</div><pre><code class='lang-d'>struct CowArray( SP = GcPolicy )
 {
   // 
-  alias opDollar = &lt;todo: marmos support pending&gt;;
+  alias opDollar = &lt;todo: marmos support pending&gt;
 
   // 
-  void dupThisReference( uint count ) ;
+  void append( Range )( Range range ) 
   // 
-  bool empty( ) ;
+  void append( )( uint[] val ) 
   // 
-  void freeThisReference( ) ;
+  void dupThisReference( uint count ) 
   // 
-  size_t length( ) ;
+  bool empty() @property
   // 
-  void length( size_t len ) ;
+  void freeThisReference() 
   // 
-  void opIndexAssign( uint val, size_t idx ) ;
+  size_t length() @property
   // 
-  &lt;bug: unknown&gt; opSlice( size_t from, size_t to ) auto;
+  void length( size_t len ) @property
   // 
-  &lt;bug: unknown&gt; opSlice( size_t from, size_t to ) auto;
+  bool opEquals( )( const auto ref CowArray rhs ) 
   // 
-  &lt;bug: unknown&gt; opSlice( ) auto;
+  uint opIndex( )( size_t idx ) 
   // 
-  &lt;bug: unknown&gt; opSlice( ) auto;
+  void opIndexAssign( uint val, size_t idx ) 
   // 
-  uint refCount( ) ;
+  auto opSlice( size_t from, size_t to ) 
   // 
-  void refCount( uint cnt ) ;
+  auto opSlice( size_t from, size_t to ) 
   // 
-  &lt;bug: unknown&gt; reuse( &lt;bug: unknown&gt; arr ) static auto;
+  auto opSlice() 
+  // 
+  auto opSlice() 
+  // 
+  uint refCount() @property
+  // 
+  void refCount( uint cnt ) @property
+  // 
+  static auto reuse( uint[] arr ) 
 
   // 
-  &lt;bug: unknown&gt; data;
+  uint[] data
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>
@@ -144,6 +152,10 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../CowArray/CowArray/Functions/append.html">append</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../CowArray/CowArray/Functions/dupThisReference.html">dupThisReference</a></td>
 <td></td>
 </tr>
@@ -157,6 +169,14 @@
 </tr>
 <tr>
 <td><a href="../CowArray/CowArray/Functions/length.html">length</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CowArray/CowArray/Functions/opEquals.html">opEquals</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CowArray/CowArray/Functions/opIndex.html">opIndex</a></td>
 <td></td>
 </tr>
 <tr>

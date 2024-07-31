@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,11 +88,7 @@
 <h1 class='section'>Overloads for - iota</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
 </div><h2 class='section api'>iota(begin, end, step)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; iota(
-  B begin,
-  E end,
-  S step
-) auto</code></pre><p>Creates a range of values that span the given starting and stopping values.</p>
+ <pre><code class='lang-d'>auto iota( B, E, S )( B begin, E end, S step ) </code></pre><p>Creates a range of values that span the given starting and stopping values.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>begin</code> B  </dt>
 <dd>
 
@@ -122,30 +118,15 @@
 <p>writefln(&quot;%(%s %|%)&quot;, iota(0, 5));</p>
 <p>import std.algorithm.iteration : map; import std.algorithm.mutation : copy; import std.format; iota(0, 5).map!(i =&gt; format(&quot;%s &quot;, i)).copy(stdout.lockingTextWriter()); writeln(); } ---</p>
 <h2 class='section api'>iota(begin, end)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; iota(
-  B begin,
-  E end
-) auto</code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>auto iota( B, E )( B begin, E end ) </code></pre><p>Ditto</p>
 <h2 class='section api'>iota(begin, end)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; iota(
-  B begin,
-  E end
-) auto</code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>auto iota( B, E )( B begin, E end ) </code></pre><p>Ditto</p>
 <h2 class='section api'>iota(end)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; iota(
-  E end
-) auto</code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>auto iota( E )( E end ) </code></pre><p>Ditto</p>
 <h2 class='section api'>iota(begin, end, step)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; iota(
-  B begin,
-  E end,
-  S step
-) auto</code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>auto iota( B, E, S )( B begin, E end, S step ) </code></pre><p>Ditto</p>
 <h2 class='section api'>iota(begin, end)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; iota(
-  B begin,
-  E end
-) auto</code></pre><p>ditto</p>
+ <pre><code class='lang-d'>auto iota( B, E )( B begin, E end ) </code></pre><p>ditto</p>
 
 </article>
 

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,16 +90,16 @@
 </div><pre><code class='lang-d'>public class KeyNameSequence
 {
   // The number of keys. 
-  size_t count( ) ;
+  size_t count() @property
   // The name of the key at the given index. 
-  string getKeyName( size_t index ) ;
+  string getKeyName( size_t index ) 
   // 
-  int opApply( &lt;bug: unknown&gt; dg ) ;
+  int opApply( scope &lt;bug: unknown&gt; dg ) 
   // The name of the key at the given index. 
-  string opIndex( size_t index ) ;
+  string opIndex( size_t index ) 
 
   // 
-  Key m_key;
+  Key m_key
 }</code></pre><h2 class='section'>About</h2><p>An enumerable sequence representing the names of the sub-keys of a registry Key.</p>
 <p>Example: ---- Key key = ... foreach (string subkeyName; key.keyNames) { // using subkeyName } ----</p>
 <h2 class='section'>Functions</h2><table>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - reduceImpl</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.iteration</dd></dl>
 </div><h2 class='section api'>reduceImpl(r, args)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; reduceImpl(
-  R r,
-  Args args
-) auto</code></pre><p>Implements the homonym function (also known as <code>accumulate</code> , $(D compress), <code>inject</code> , or <code>foldl</code> ) present in various programming languages of functional flavor. There is also $(LREF fold) which does the same thing but with the opposite parameter order. The call <code>reduce!(fun)(seed, range)</code> first assigns <code>seed</code> to an internal variable <code>result</code> , also called the accumulator. Then, for each element <code>x</code> in <code>range</code> , <code>result = fun(result, x)</code> gets evaluated. Finally, <code>result</code> is returned. The one-argument version <code>reduce!(fun)(range)</code> works similarly, but it uses the first element of the range as the seed (the range must be non-empty).</p>
+ <pre><code class='lang-d'>auto reduceImpl( bool mustInitialize, R, Args... )( R r, ref Args args ) </code></pre><p>Implements the homonym function (also known as <code>accumulate</code> , $(D compress), <code>inject</code> , or <code>foldl</code> ) present in various programming languages of functional flavor. There is also $(LREF fold) which does the same thing but with the opposite parameter order. The call <code>reduce!(fun)(seed, range)</code> first assigns <code>seed</code> to an internal variable <code>result</code> , also called the accumulator. Then, for each element <code>x</code> in <code>range</code> , <code>result = fun(result, x)</code> gets evaluated. Finally, <code>result</code> is returned. The one-argument version <code>reduce!(fun)(range)</code> works similarly, but it uses the first element of the range as the seed (the range must be non-empty).</p>
 <h3 class='section'>Returns</h3><p>the accumulated <code>result</code></p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>fun</code> &lt;parameter not found&gt;  </dt>
 <dd>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,35 +90,35 @@
 </div><pre><code class='lang-d'>public interface ISharedAllocator
 {
   // Allocates `n` bytes of memory with specified alignment `a` . Implementations that do not support this primitive should always return `null` . 
-  &lt;bug: unknown&gt; alignedAllocate( size_t n, uint a ) ;
+  void[] alignedAllocate( size_t n, uint a ) 
   // Reallocates a memory block with specified alignment. 
-  bool alignedReallocate( &lt;bug: unknown&gt; b, size_t size, uint alignment ) ;
+  bool alignedReallocate( ref void[] b, size_t size, uint alignment ) 
   // Returns the alignment offered. 
-  uint alignment( ) ;
+  uint alignment() @property
   // Allocates `n` bytes of memory. 
-  &lt;bug: unknown&gt; allocate( size_t __anonymous, TypeInfo ti ) ;
+  void[] allocate( size_t __anonymous, TypeInfo ti ) 
   // Allocates and returns all memory available to this allocator. Implementations that do not support this primitive should always return `null` . 
-  &lt;bug: unknown&gt; allocateAll( ) ;
+  void[] allocateAll() 
   // Deallocates a memory block. Implementations that don&#39;t support this primitive should always return `false` . A simple way to check that an allocator supports deallocation is to call `deallocate(null)` . 
-  bool deallocate( &lt;bug: unknown&gt; b ) ;
+  bool deallocate( void[] b ) 
   // Deallocates all memory. Implementations that don&#39;t support this primitive should always return `false` . 
-  bool deallocateAll( ) ;
+  bool deallocateAll() 
   // Decreases the reference count of the concrete class that implements this interface. When the reference count is `0` , the object self-destructs. 
-  bool decRef( ) ;
+  bool decRef() @nogc @safe pure
   // Returns `Ternary.yes` if no memory is currently allocated from this allocator, `Ternary.no` if some allocations are currently active, or `Ternary.unknown` if not supported. 
-  Ternary empty( ) ;
+  Ternary empty() 
   // Expands a memory block in place and returns `true` if successful. Implementations that don&#39;t support this primitive should always return `false` . 
-  bool expand( &lt;bug: unknown&gt; __anonymous, size_t __anonymous ) ;
+  bool expand( ref void[] __anonymous, size_t __anonymous ) 
   // Returns the good allocation size that guarantees zero internal fragmentation. 
-  size_t goodAllocSize( size_t s ) ;
+  size_t goodAllocSize( size_t s ) 
   // Increases the reference count of the concrete class that implements this interface. 
-  void incRef( ) ;
+  void incRef() @nogc @safe pure
   // Returns `Ternary.yes` if the allocator owns `b` , `Ternary.no` if the allocator doesn&#39;t own `b` , and `Ternary.unknown` if ownership cannot be determined. Implementations that don&#39;t support this primitive should always return `Ternary.unknown` . 
-  Ternary owns( &lt;bug: unknown&gt; b ) ;
+  Ternary owns( void[] b ) 
   // Reallocates a memory block. 
-  bool reallocate( &lt;bug: unknown&gt; __anonymous, size_t __anonymous ) ;
+  bool reallocate( ref void[] __anonymous, size_t __anonymous ) 
   // Resolves an internal pointer to the full block allocated. Implementations that don&#39;t support this primitive should always return `Ternary.unknown` . 
-  Ternary resolveInternalPointer( &lt;bug: unknown&gt; p, &lt;bug: unknown&gt; result ) ;
+  Ternary resolveInternalPointer( const void* p, ref void[] result ) 
 }</code></pre><h2 class='section'>About</h2><p>Dynamic shared allocator interface. Code that defines allocators shareable across threads ultimately implements this interface. This should be used wherever a uniform type is required for encapsulating various allocator implementations.</p>
 <p>Composition of allocators is not recommended at this level due to inflexibility of dynamic interfaces and inefficiencies caused by cascaded multiple calls. Instead, compose allocators using the static interface defined in $(MREF std,experimental,allocator,building_blocks), then adapt the composed allocator to <code>ISharedAllocator</code> (possibly by using $(LREF CSharedAllocatorImpl) below).</p>
 <p>Methods returning <code>Ternary</code> return <code>Ternary.yes</code> upon success, <code>Ternary.no</code> upon failure, and <code>Ternary.unknown</code> if the primitive is not implemented by the allocator instance.</p>

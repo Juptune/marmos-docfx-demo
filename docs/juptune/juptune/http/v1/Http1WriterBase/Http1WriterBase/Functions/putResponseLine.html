@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -91,7 +91,7 @@
  <pre><code class='lang-d'>Result putResponseLine(
   Http1Version httpVersion,
   uint statusCode,
-  &lt;bug: unknown&gt; reason
+  const scope char[] reason
 ) </code></pre><p>Writes an entire response line. This will configure this writer to be a response writer for the remainder of the message, until <code>finishMessage</code> is called.</p>
 <h3 class='section'>State</h3><p>The writer must be in the <code>startLine</code> state.</p>
 <p>The writer will be in the <code>headers</code> state after this function is called.</p>
@@ -107,7 +107,7 @@
 
 <p>The status code to use.</p>
 
-</dd><dt><code>reason</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>reason</code> char[]  </dt>
 <dd>
 
 

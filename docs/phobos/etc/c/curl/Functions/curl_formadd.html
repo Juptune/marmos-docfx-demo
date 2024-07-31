@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,9 @@
 <h1 class='section'>Overloads for - curl_formadd</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.curl</dd></dl>
 </div><h2 class='section api'>curl_formadd(httppost, last_post)   </h2>
- <pre><code class='lang-d'>CURLFORMcode curl_formadd(
-  &lt;bug: unknown&gt; httppost,
-  &lt;bug: unknown&gt; last_post
+ <pre><code class='lang-d'>extern(C) CURLFORMcode curl_formadd(
+  curl_httppost** httppost,
+  curl_httppost** last_post
 ) </code></pre><p>Name: curl_formadd()</p>
 <h3 class='section'>Description</h3><p>Pretty advanced function for building multi-part formposts. Each invoke adds one part that together construct a full post. Then use CURLOPT_HTTPPOST to send it off to libcurl.</p>
 

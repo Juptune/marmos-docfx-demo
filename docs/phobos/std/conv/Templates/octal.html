@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,7 +90,7 @@
 </div><pre><code class='lang-d'>template octal
 {
   // 
-  __enumMember octal;
+  &lt;enum or auto&gt; octal = octal!int(num)
 }</code></pre><h2 class='section'>About</h2><p>The <code>octal</code> facility provides a means to declare a number in base 8. Using <code>octal!177</code> or <code>octal!&quot;177&quot;</code> for 127 represented in octal (same as 0177 in C).</p>
 <p>The rules for strings are the usual for literals: If it can fit in an <code>int</code> , it is an <code>int</code> . Otherwise, it is a <code>long</code> . But, if the user specifically asks for a <code>long</code> with the <code>L</code> suffix, always give the <code>long</code> . Give an unsigned iff it is asked for with the $(D U) or <code>u</code> suffix. Octals created from integers preserve the type of the passed-in integral.</p>
 <h3 class='section'>See_Also</h3><p>$(LREF parse) for parsing octal strings at runtime.</p>

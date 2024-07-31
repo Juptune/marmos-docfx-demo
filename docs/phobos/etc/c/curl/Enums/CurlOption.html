@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,394 +87,394 @@
         <article data-uid="etc.c.curl.Enums.CurlOption">
 <h1 class='section'>Enum - CurlOption</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.curl</dd></dl>
-</div><pre><code class='lang-d'>enum CurlOption
+</div><pre><code class='lang-d'>enum CurlOption : int
 {
-  // (IPv6) Address scope 
-  __enumMember address_scope;
-  // Append instead of overwrite on upload! 
-  __enumMember append;
-  // We want the referrer field set automatically when following locations 
-  __enumMember autoreferer;
-  // Instruct libcurl to use a smaller receive buffer 
-  __enumMember buffersize;
-  // The CApath or CAfile used to validate the peer certificate this option is used only if SSL_VERIFYPEER is true 
-  __enumMember cainfo;
-  // The CApath directory used to validate the peer certificate this option is used only if SSL_VERIFYPEER is true 
-  __enumMember capath;
-  // Collect certificate chain info and allow it to get retrievable with CURLINFO_CERTINFO after the transfer is complete. (Unfortunately) only working with OpenSSL-powered builds. 
-  __enumMember certinfo;
-  // Directory matching callback called before downloading of an individual file (chunk) started 
-  __enumMember chunk_bgn_function;
-  // Let the application define custom chunk data pointer 
-  __enumMember chunk_data;
-  // Directory matching callback called after the file (chunk) was downloaded, or skipped 
-  __enumMember chunk_end_function;
-  // What policy to use when closing connections when the cache is filled up 
-  __enumMember closepolicy;
-  // no transfer, set up connection and let application use the socket by extracting it with CURLINFO_LASTSOCKET 
-  __enumMember connect_only;
-  // Time-out connect operations after this amount of seconds, if connects are OK within this time, then fine... This only aborts the connect phase. [Only works on unix-style/SIGALRM operating systems] 
-  __enumMember connecttimeout;
-  // ditto 
-  __enumMember connecttimeout_ms;
-  // Function that will be called to convert from the network encoding (instead of using the iconv calls in libcurl) 
-  __enumMember conv_from_network_function;
-  // Function that will be called to convert from UTF8 (instead of using the iconv calls in libcurl) Note that this is used only for SSL certificate processing 
-  __enumMember conv_from_utf8_function;
-  // Function that will be called to convert to the network encoding (instead of using the iconv calls in libcurl) 
-  __enumMember conv_to_network_function;
-  // 
-  __enumMember cookie;
-  // point to a file to read the initial cookies from, also enables &quot;cookie awareness&quot; 
-  __enumMember cookiefile;
-  // Specify which file name to write all known cookies in after completed operation. Set file name to &quot;-&quot; (dash) to make it go to stdout. 
-  __enumMember cookiejar;
-  // feed cookies into cookie engine 
-  __enumMember cookielist;
-  // mark this as start of a cookie session 
-  __enumMember cookiesession;
-  // POST volatile input fields. 
-  __enumMember copypostfields;
-  // send TYPE parameter? 
-  __enumMember crlf;
-  // CRL file 
-  __enumMember crlfile;
-  // Custom request, for customizing the get command like HTTP: DELETE, TRACE and others FTP: to use a different list command 
-  __enumMember customrequest;
-  // set the data for the debug function 
-  __enumMember debugdata;
-  // set the debug function 
-  __enumMember debugfunction;
-  // return bare names when listing directories 
-  __enumMember dirlistonly;
-  // DNS cache timeout 
-  __enumMember dns_cache_timeout;
-  // Non-zero value means to use the global dns cache 
-  __enumMember dns_use_global_cache;
-  // Set to the Entropy Gathering Daemon socket pathname 
-  __enumMember egdsocket;
-  // Set the Accept-Encoding string. Use this to tell a server you would like the response to be compressed. 
-  __enumMember encoding;
-  // Buffer to receive error messages in, must be at least CURL_ERROR_SIZE bytes big. If this is not used, error messages go to stderr instead: 
-  __enumMember errorbuffer;
-  // no output on http error codes &gt;= 300 
-  __enumMember failonerror;
   // This is the FILE **or void ** the regular output should be written to. 
-  __enumMember file;
-  // Pass a long set to 1 to get the date of the requested document (if possible)! Pass a zero to shut it off. 
-  __enumMember filetime;
-  // FNMATCH_FUNCTION user pointer 
-  __enumMember fnmatch_data;
-  // Change match (fnmatch-like) callback for wildcard matching 
-  __enumMember fnmatch_function;
-  // use Location: Luke! 
-  __enumMember followlocation;
-  // Set to explicitly forbid the upcoming transfer&#39;s connection to be re-used when done. Do not use this unless you&#39;re absolutely sure of this, as it makes the operation slower and is less friendly for the network. 
-  __enumMember forbid_reuse;
-  // Set to explicitly use a new connection for the upcoming transfer. Do not use this unless you&#39;re absolutely sure of this, as it makes the operation slower and is less friendly for the network. 
-  __enumMember fresh_connect;
-  // zero terminated string for pass on to the FTP server when asked for &quot;account&quot; info 
-  __enumMember ftp_account;
-  // Pointer to command string to send if USER/PASS fails. 
-  __enumMember ftp_alternative_to_user;
-  // FTP Option that causes missing dirs to be created on the remote server. In 7.19.4 we introduced the convenience enums for this option using the CURLFTP_CREATE_DIR prefix. 
-  __enumMember ftp_create_missing_dirs;
-  // Select &quot;file method&quot; to use when doing FTP, see the curl_ftpmethod above. 
-  __enumMember ftp_filemethod;
-  // FTP option that changes the timeout, in seconds, associated with getting a response.  This is different from transfer timeout time and essentially places a demand on the FTP server to acknowledge commands in a timely manner. 
-  __enumMember ftp_response_timeout;
-  // Set to non-zero to skip the IP address received in a 227 PASV FTP server response. Typically used for FTP-SSL purposes but is not restricted to that. libcurl will then instead use the same IP address it used for the control connection. 
-  __enumMember ftp_skip_pasv_ip;
-  // Send CCC (Clear Command Channel) after authentication 
-  __enumMember ftp_ssl_ccc;
-  // Specifically switch on or off the FTP engine&#39;s use of the EPRT command ( it also disables the LPRT attempt). By default, those ones will always be attempted before the good old traditional PORT command. 
-  __enumMember ftp_use_eprt;
-  // Specifically switch on or off the FTP engine&#39;s use of the EPSV command. By default, that one will always be attempted before the more traditional PASV command. 
-  __enumMember ftp_use_epsv;
-  // FTP: send PRET before PASV 
-  __enumMember ftp_use_pret;
-  // Set the FTP PORT string (interface name, named or numerical IP address) Use i.e &#39;-&#39; to use default address. 
-  __enumMember ftpport;
-  // When FTP over SSL/TLS is selected (with CURLOPT_USE_SSL), this option can be used to change libcurl&#39;s default action which is to first try &quot;AUTH SSL&quot; and then &quot;AUTH TLS&quot; in this order, and proceed when a OK response has been received. 
-  __enumMember ftpsslauth;
-  // throw the header out too 
-  __enumMember header;
-  // ditto 
-  __enumMember headerdata;
-  // Function that will be called to store headers (instead of fwrite). The parameters will use fwrite() syntax, make sure to follow them. 
-  __enumMember headerfunction;
-  // ditto 
-  __enumMember http_content_decoding;
-  // set to zero to disable the libcurl&#39;s decoding and thus pass the raw body data to the application even when it is encoded/compressed 
-  __enumMember http_transfer_decoding;
-  // Specify which HTTP version to use! This must be set to one of the CURL_HTTP_VERSION* enums set below. 
-  __enumMember http_version;
-  // Set aliases for HTTP 200 in the HTTP Response header 
-  __enumMember http200aliases;
-  // Set this to a bitmask value to enable the particular authentications methods you like. Use this in combination with CURLOPT_USERPWD. Note that setting multiple bits may cause extra network round-trips. 
-  __enumMember httpauth;
-  // Set this to force the HTTP request to get back to GET. Only really usable if POST, PUT or a custom request have been used first. 
-  __enumMember httpget;
-  // This points to a linked list of headers, struct curl_slist kind 
-  __enumMember httpheader;
-  // This points to a linked list of post entries, struct curl_httppost 
-  __enumMember httppost;
-  // tunnel non-http operations through a HTTP proxy 
-  __enumMember httpproxytunnel;
-  // ignore Content-Length 
-  __enumMember ignore_content_length;
-  // not used 
-  __enumMember infile;
-  // If the CURLOPT_INFILE is used, this can be used to inform libcurl about how large the file being sent really is. That allows better error checking and better verifies that the upload was successful. -1 means unknown size. 
-  __enumMember infilesize;
-  // See the comment for INFILESIZE above, but in short, specifies the size of the file being uploaded.  -1 means unknown. 
-  __enumMember infilesize_large;
-  // The stream to pass to INTERLEAVEFUNCTION. 
-  __enumMember interleavedata;
-  // Let the application define a custom write method for RTP data 
-  __enumMember interleavefunction;
-  // Set the interface string to use as outgoing network interface 
-  __enumMember intrface;
-  // 
-  __enumMember ioctldata;
-  // 
-  __enumMember ioctlfunction;
-  // Set this option to one of the CURL_IPRESOLVE_* defines (see below) to tell libcurl to resolve names to those IP versions only. This only has affect on systems with support for more than one, i.e IPv4 *and* IPv6. 
-  __enumMember ipresolve;
-  // Issuer certificate 
-  __enumMember issuercert;
-  // password for the SSL or SSH private key 
-  __enumMember keypasswd;
-  // Set the krb4/5 security level, this also enables krb4/5 awareness.  This is a string, &#39;clear&#39;, &#39;safe&#39;, &#39;confidential&#39; or &#39;private&#39;.  If the string is set but doesn&#39;t match one of these, &#39;private&#39; will be used. 
-  __enumMember krblevel;
-  // the last unused 
-  __enumMember lastentry;
-  // Local port number to bind the socket to 
-  __enumMember localport;
-  // Number of ports to try, including the first one set with LOCALPORT. Thus, setting it to 1 will make no additional attempts but the first. 
-  __enumMember localportrange;
-  // If the download receives less than &quot;low speed limit&quot; bytes/second during &quot;low speed time&quot; seconds, the operations is aborted. You could i.e if you have a pretty high speed connection, abort if it is less than 2000 bytes/sec during 20 seconds. 
-  __enumMember low_speed_limit;
-  // Set the &quot;low speed time&quot; 
-  __enumMember low_speed_time;
-  // set the SMTP mail originator 
-  __enumMember mail_from;
-  // set the SMTP mail receiver(s) 
-  __enumMember mail_rcpt;
-  // ditto 
-  __enumMember max_recv_speed_large;
-  // If the connection proceeds too quickly then need to slow it down 
-  __enumMember max_send_speed_large;
-  // Max amount of cached alive connections 
-  __enumMember maxconnects;
-  // Set this option to limit the size of a file that will be downloaded from an HTTP or FTP server. 
-  __enumMember maxfilesize;
-  // Sets the maximum size of data that will be downloaded from an HTTP or FTP server.  See MAXFILESIZE above for the LONG version. 
-  __enumMember maxfilesize_large;
-  // Maximum number of http redirects to follow 
-  __enumMember maxredirs;
-  // Specify whether to read the user+password from the .netrc or the URL. This must be one of the CURL_NETRC_* enums below. 
-  __enumMember netrc;
-  // Set this option to the file name of your .netrc file you want libcurl to parse (using the CURLOPT_NETRC option). If not set, libcurl will do a poor attempt to find the user&#39;s home directory and check for a .netrc file in there. 
-  __enumMember netrc_file;
-  // ditto 
-  __enumMember new_directory_perms;
-  // Permission used when creating new files and directories on the remote server for protocols that support it, SFTP/SCP/FILE 
-  __enumMember new_file_perms;
-  // use HEAD to get http document 
-  __enumMember nobody;
-  // shut off the progress meter 
-  __enumMember noprogress;
-  // Comma separated list of hostnames defining no-proxy zones. These should match both hostnames directly, and hostnames within a domain. For example, local.com will match local.com and www.local.com, but NOT notlocal.com or www.notlocal.com. For compatibility with other implementations of this, .local.com will be considered to be the same as local.com. A single is the only valid wildcard, and effectively disables the use of proxy. 
-  __enumMember noproxy;
-  // Instruct libcurl to not use any signal/alarm handlers, even when using timeouts. This option is useful for multi-threaded applications. See libcurl-the-guide for more background information. 
-  __enumMember nosignal;
-  // ditto 
-  __enumMember opensocketdata;
-  // Callback function for opening socket (instead of socket(2)). Optionally, callback is able change the address or refuse to connect returning CURL_SOCKET_BAD.  The callback should have type curl_opensocket_callback 
-  __enumMember opensocketfunction;
-  // ditto 
-  __enumMember password;
-  // Port number to connect to, if other than default. 
-  __enumMember port;
-  // HTTP POST method 
-  __enumMember post;
-  // POST static input fields. 
-  __enumMember postfields;
-  // size of the POST input data, if strlen() is not good to use 
-  __enumMember postfieldsize;
-  // The LARGE version of the standard POSTFIELDSIZE option 
-  __enumMember postfieldsize_large;
-  // send linked-list of post-transfer QUOTE commands 
-  __enumMember postquote;
-  // Set the behaviour of POST when redirecting. Values must be set to one of CURL_REDIR* defines below. This used to be called CURLOPT_POST301 
-  __enumMember postredir;
-  // send linked-list of pre-transfer QUOTE commands 
-  __enumMember prequote;
-  // Set pointer to private data 
-  __enumMember private_opt;
-  // Data passed to the progress callback 
-  __enumMember progressdata;
-  // Function that will be called instead of the internal progress display function. This function should be defined as the curl_progress_callback prototype defines. 
-  __enumMember progressfunction;
-  // set the bitmask for the protocols that are allowed to be used for the transfer, which thus helps the app which takes URLs from users or other external inputs and want to restrict what protocol(s) to deal with. Defaults to CURLPROTO_ALL. 
-  __enumMember protocols;
-  // Name of proxy to use. 
-  __enumMember proxy;
-  // set transfer mode (;type=$(LT)a|i$(GT)) when doing FTP via an HTTP proxy 
-  __enumMember proxy_transfer_mode;
-  // Set this to a bitmask value to enable the particular authentications methods you like. Use this in combination with CURLOPT_PROXYUSERPWD. Note that setting multiple bits may cause extra network round-trips. 
-  __enumMember proxyauth;
-  // ditto 
-  __enumMember proxypassword;
-  // 
-  __enumMember proxyport;
-  // indicates type of proxy. accepted values are CURLPROXY_HTTP (default), CURLPROXY_SOCKS4, CURLPROXY_SOCKS4A and CURLPROXY_SOCKS5. 
-  __enumMember proxytype;
-  // &quot;name&quot; and &quot;pwd&quot; to use with Proxy when fetching. 
-  __enumMember proxyusername;
-  // &quot;name:password&quot; to use with proxy. 
-  __enumMember proxyuserpwd;
-  // HTTP PUT 
-  __enumMember put;
-  // send linked-list of QUOTE commands 
-  __enumMember quote;
-  // Set to a file name that contains random data for libcurl to use to seed the random engine when doing SSL connects. 
-  __enumMember random_file;
-  // Range to get, specified as an ASCII string. 
-  __enumMember range;
-  // ditto 
-  __enumMember readdata;
-  // Function that will be called to read the input (instead of fread). The parameters will use fread() syntax, make sure to follow them. 
-  __enumMember readfunction;
-  // set the bitmask for the protocols that libcurl is allowed to follow to, as a subset of the CURLOPT_PROTOCOLS ones. That means the protocol needs to be set in both bitmasks to be allowed to get redirected to. Defaults to all protocols except FILE and SCP. 
-  __enumMember redir_protocols;
-  // Set the referrer page (needed by some CGIs) 
-  __enumMember referer;
-  // send linked-list of name:port:address sets 
-  __enumMember resolve;
-  // Set the continuation offset. 
-  __enumMember resume_from;
-  // Sets the continuation offset.  There is also a LONG version of this; look above for RESUME_FROM. 
-  __enumMember resume_from_large;
-  // Manually initialize the client RTSP CSeq for this handle 
-  __enumMember rtsp_client_cseq;
-  // RTSP request method (OPTIONS, SETUP, PLAY, etc...) 
-  __enumMember rtsp_request;
-  // Manually initialize the server RTSP CSeq for this handle 
-  __enumMember rtsp_server_cseq;
-  // The RTSP session identifier 
-  __enumMember rtsp_session_id;
-  // The RTSP stream URI 
-  __enumMember rtsp_stream_uri;
-  // The Transport: header to use in RTSP requests 
-  __enumMember rtsp_transport;
-  // ditto 
-  __enumMember rtspheader;
-  // ditto 
-  __enumMember seekdata;
-  // Callback function for seeking in the input stream 
-  __enumMember seekfunction;
-  // Provide a CURLShare for mutexing non-ts data 
-  __enumMember share;
-  // 
-  __enumMember sockoptdata;
-  // callback function for setting socket options 
-  __enumMember sockoptfunction;
-  // Socks Service 
-  __enumMember socks5_gssapi_nec;
-  // Socks Service 
-  __enumMember socks5_gssapi_service;
-  // allowed SSH authentication methods 
-  __enumMember ssh_auth_types;
-  // used by scp/sftp to verify the host&#39;s public key 
-  __enumMember ssh_host_public_key_md5;
-  // set the SSH host key callback custom pointer 
-  __enumMember ssh_keydata;
-  // set the SSH host key callback, must point to a curl_sshkeycallback function 
-  __enumMember ssh_keyfunction;
-  // set the SSH knownhost file name to use 
-  __enumMember ssh_knownhosts;
-  // 
-  __enumMember ssh_private_keyfile;
-  // Used by scp/sftp to do public/private key authentication 
-  __enumMember ssh_public_keyfile;
-  // Specify which SSL ciphers to use 
-  __enumMember ssl_cipher_list;
-  // Set the userdata for the ssl context callback function&#39;s third argument 
-  __enumMember ssl_ctx_data;
-  // Set the ssl context callback function, currently only for OpenSSL ssl_ctx in second argument. The function must be matching the curl_ssl_ctx_callback proto. 
-  __enumMember ssl_ctx_function;
-  // set to 0 to disable session ID re-use for this transfer, default is enabled (== 1) 
-  __enumMember ssl_sessionid_cache;
-  // Set if we should verify the Common name from the peer certificate in ssl handshake, set 1 to check existence, 2 to ensure that it matches the provided hostname. 
-  __enumMember ssl_verifyhost;
-  // Set if we should verify the peer in ssl handshake, set 1 to verify. 
-  __enumMember ssl_verifypeer;
-  // name of the file keeping your private SSL-certificate 
-  __enumMember sslcert;
-  // type of the file keeping your SSL-certificate (&quot;DER&quot;, &quot;PEM&quot;, &quot;ENG&quot;) 
-  __enumMember sslcerttype;
-  // crypto engine for the SSL-sub system 
-  __enumMember sslengine;
-  // set the crypto engine for the SSL-sub system as default the param has no meaning... 
-  __enumMember sslengine_default;
-  // name of the file keeping your private SSL-key 
-  __enumMember sslkey;
-  // type of the file keeping your private SSL-key (&quot;DER&quot;, &quot;PEM&quot;, &quot;ENG&quot;) 
-  __enumMember sslkeytype;
-  // What version to specifically try to use. See CURL_SSLVERSION defines below. 
-  __enumMember sslversion;
-  // HTTP request, for odd commands like DELETE, TRACE and others 
-  __enumMember stderr;
-  // Enable/disable the TCP Nagle algorithm 
-  __enumMember tcp_nodelay;
-  // This points to a linked list of telnet options 
-  __enumMember telnetoptions;
-  // block size for TFTP transfers 
-  __enumMember tftp_blksize;
-  // What kind of HTTP time condition to use, see defines 
-  __enumMember timecondition;
-  // Time-out the read operation after this amount of seconds 
-  __enumMember timeout;
-  // Same as TIMEOUT and CONNECTTIMEOUT, but with ms resolution 
-  __enumMember timeout_ms;
-  // Time to use with the above condition. Specified in number of seconds since 1 Jan 1970 
-  __enumMember timevalue;
-  // Set a password for authenticated TLS 
-  __enumMember tlsauth_password;
-  // Set authentication type for authenticated TLS 
-  __enumMember tlsauth_type;
-  // Set a username for authenticated TLS 
-  __enumMember tlsauth_username;
-  // transfer data in text/ASCII format 
-  __enumMember transfertext;
-  // Continue to send authentication (user+password) when following locations, even when hostname changed. This can potentially send off the name and password to whatever host the server decides. 
-  __enumMember unrestricted_auth;
-  // this is an upload 
-  __enumMember upload;
+  file = 10001,
   // The full URL to get/put 
-  __enumMember url;
-  // 
-  __enumMember use_ssl;
-  // Set the User-Agent string (examined by some CGIs) 
-  __enumMember useragent;
-  // &quot;name&quot; and &quot;pwd&quot; to use when fetching. 
-  __enumMember username;
+  url,
+  // Port number to connect to, if other than default. 
+  port = 3,
+  // Name of proxy to use. 
+  proxy = 10004,
   // &quot;name:password&quot; to use when fetching. 
-  __enumMember userpwd;
-  // talk a lot 
-  __enumMember verbose;
-  // Turn on wildcard matching 
-  __enumMember wildcardmatch;
-  // convenient alias 
-  __enumMember writedata;
+  userpwd,
+  // &quot;name:password&quot; to use with proxy. 
+  proxyuserpwd,
+  // Range to get, specified as an ASCII string. 
+  range,
+  // not used 
+  infile = 10009,
+  // Buffer to receive error messages in, must be at least CURL_ERROR_SIZE bytes big. If this is not used, error messages go to stderr instead: 
+  errorbuffer,
   // Function that will be called to store the output (instead of fwrite). The parameters will use fwrite() syntax, make sure to follow them. 
-  __enumMember writefunction;
+  writefunction = 20011,
+  // Function that will be called to read the input (instead of fread). The parameters will use fread() syntax, make sure to follow them. 
+  readfunction,
+  // Time-out the read operation after this amount of seconds 
+  timeout = 13,
+  // If the CURLOPT_INFILE is used, this can be used to inform libcurl about how large the file being sent really is. That allows better error checking and better verifies that the upload was successful. -1 means unknown size. 
+  infilesize,
+  // POST static input fields. 
+  postfields = 10015,
+  // Set the referrer page (needed by some CGIs) 
+  referer,
+  // Set the FTP PORT string (interface name, named or numerical IP address) Use i.e &#39;-&#39; to use default address. 
+  ftpport,
+  // Set the User-Agent string (examined by some CGIs) 
+  useragent,
+  // If the download receives less than &quot;low speed limit&quot; bytes/second during &quot;low speed time&quot; seconds, the operations is aborted. You could i.e if you have a pretty high speed connection, abort if it is less than 2000 bytes/sec during 20 seconds. 
+  low_speed_limit = 19,
+  // Set the &quot;low speed time&quot; 
+  low_speed_time,
+  // Set the continuation offset. 
+  resume_from,
+  // 
+  cookie = 10022,
+  // This points to a linked list of headers, struct curl_slist kind 
+  httpheader,
+  // This points to a linked list of post entries, struct curl_httppost 
+  httppost,
+  // name of the file keeping your private SSL-certificate 
+  sslcert,
+  // password for the SSL or SSH private key 
+  keypasswd,
+  // send TYPE parameter? 
+  crlf = 27,
+  // send linked-list of QUOTE commands 
+  quote = 10028,
   // send FILE **or void ** to store headers to, if you use a callback it is simply passed to the callback unmodified 
-  __enumMember writeheader;
+  writeheader,
+  // point to a file to read the initial cookies from, also enables &quot;cookie awareness&quot; 
+  cookiefile = 10031,
+  // What version to specifically try to use. See CURL_SSLVERSION defines below. 
+  sslversion = 32,
+  // What kind of HTTP time condition to use, see defines 
+  timecondition,
+  // Time to use with the above condition. Specified in number of seconds since 1 Jan 1970 
+  timevalue,
+  // Custom request, for customizing the get command like HTTP: DELETE, TRACE and others FTP: to use a different list command 
+  customrequest = 10036,
+  // HTTP request, for odd commands like DELETE, TRACE and others 
+  stderr,
+  // send linked-list of post-transfer QUOTE commands 
+  postquote = 10039,
   // Pass a pointer to string of the output using full variable-replacement as described elsewhere. 
-  __enumMember writeinfo;
+  writeinfo,
+  // talk a lot 
+  verbose = 41,
+  // throw the header out too 
+  header,
+  // shut off the progress meter 
+  noprogress,
+  // use HEAD to get http document 
+  nobody,
+  // no output on http error codes &gt;= 300 
+  failonerror,
+  // this is an upload 
+  upload,
+  // HTTP POST method 
+  post,
+  // return bare names when listing directories 
+  dirlistonly,
+  // Append instead of overwrite on upload! 
+  append = 50,
+  // Specify whether to read the user+password from the .netrc or the URL. This must be one of the CURL_NETRC_* enums below. 
+  netrc,
+  // use Location: Luke! 
+  followlocation,
+  // transfer data in text/ASCII format 
+  transfertext,
+  // HTTP PUT 
+  put,
+  // Function that will be called instead of the internal progress display function. This function should be defined as the curl_progress_callback prototype defines. 
+  progressfunction = 20056,
+  // Data passed to the progress callback 
+  progressdata = 10057,
+  // We want the referrer field set automatically when following locations 
+  autoreferer = 58,
+  // 
+  proxyport,
+  // size of the POST input data, if strlen() is not good to use 
+  postfieldsize,
+  // tunnel non-http operations through a HTTP proxy 
+  httpproxytunnel,
+  // Set the interface string to use as outgoing network interface 
+  intrface = 10062,
+  // Set the krb4/5 security level, this also enables krb4/5 awareness.  This is a string, &#39;clear&#39;, &#39;safe&#39;, &#39;confidential&#39; or &#39;private&#39;.  If the string is set but doesn&#39;t match one of these, &#39;private&#39; will be used. 
+  krblevel,
+  // Set if we should verify the peer in ssl handshake, set 1 to verify. 
+  ssl_verifypeer = 64,
+  // The CApath or CAfile used to validate the peer certificate this option is used only if SSL_VERIFYPEER is true 
+  cainfo = 10065,
+  // Maximum number of http redirects to follow 
+  maxredirs = 68,
+  // Pass a long set to 1 to get the date of the requested document (if possible)! Pass a zero to shut it off. 
+  filetime,
+  // This points to a linked list of telnet options 
+  telnetoptions = 10070,
+  // Max amount of cached alive connections 
+  maxconnects = 71,
+  // What policy to use when closing connections when the cache is filled up 
+  closepolicy,
+  // Set to explicitly use a new connection for the upcoming transfer. Do not use this unless you&#39;re absolutely sure of this, as it makes the operation slower and is less friendly for the network. 
+  fresh_connect = 74,
+  // Set to explicitly forbid the upcoming transfer&#39;s connection to be re-used when done. Do not use this unless you&#39;re absolutely sure of this, as it makes the operation slower and is less friendly for the network. 
+  forbid_reuse,
+  // Set to a file name that contains random data for libcurl to use to seed the random engine when doing SSL connects. 
+  random_file = 10076,
+  // Set to the Entropy Gathering Daemon socket pathname 
+  egdsocket,
+  // Time-out connect operations after this amount of seconds, if connects are OK within this time, then fine... This only aborts the connect phase. [Only works on unix-style/SIGALRM operating systems] 
+  connecttimeout = 78,
+  // Function that will be called to store headers (instead of fwrite). The parameters will use fwrite() syntax, make sure to follow them. 
+  headerfunction = 20079,
+  // Set this to force the HTTP request to get back to GET. Only really usable if POST, PUT or a custom request have been used first. 
+  httpget = 80,
+  // Set if we should verify the Common name from the peer certificate in ssl handshake, set 1 to check existence, 2 to ensure that it matches the provided hostname. 
+  ssl_verifyhost,
+  // Specify which file name to write all known cookies in after completed operation. Set file name to &quot;-&quot; (dash) to make it go to stdout. 
+  cookiejar = 10082,
+  // Specify which SSL ciphers to use 
+  ssl_cipher_list,
+  // Specify which HTTP version to use! This must be set to one of the CURL_HTTP_VERSION* enums set below. 
+  http_version = 84,
+  // Specifically switch on or off the FTP engine&#39;s use of the EPSV command. By default, that one will always be attempted before the more traditional PASV command. 
+  ftp_use_epsv,
+  // type of the file keeping your SSL-certificate (&quot;DER&quot;, &quot;PEM&quot;, &quot;ENG&quot;) 
+  sslcerttype = 10086,
+  // name of the file keeping your private SSL-key 
+  sslkey,
+  // type of the file keeping your private SSL-key (&quot;DER&quot;, &quot;PEM&quot;, &quot;ENG&quot;) 
+  sslkeytype,
+  // crypto engine for the SSL-sub system 
+  sslengine,
+  // set the crypto engine for the SSL-sub system as default the param has no meaning... 
+  sslengine_default = 90,
+  // Non-zero value means to use the global dns cache 
+  dns_use_global_cache,
+  // DNS cache timeout 
+  dns_cache_timeout,
+  // send linked-list of pre-transfer QUOTE commands 
+  prequote = 10093,
+  // set the debug function 
+  debugfunction = 20094,
+  // set the data for the debug function 
+  debugdata = 10095,
+  // mark this as start of a cookie session 
+  cookiesession = 96,
+  // The CApath directory used to validate the peer certificate this option is used only if SSL_VERIFYPEER is true 
+  capath = 10097,
+  // Instruct libcurl to use a smaller receive buffer 
+  buffersize = 98,
+  // Instruct libcurl to not use any signal/alarm handlers, even when using timeouts. This option is useful for multi-threaded applications. See libcurl-the-guide for more background information. 
+  nosignal,
+  // Provide a CURLShare for mutexing non-ts data 
+  share = 10100,
+  // indicates type of proxy. accepted values are CURLPROXY_HTTP (default), CURLPROXY_SOCKS4, CURLPROXY_SOCKS4A and CURLPROXY_SOCKS5. 
+  proxytype = 101,
+  // Set the Accept-Encoding string. Use this to tell a server you would like the response to be compressed. 
+  encoding = 10102,
+  // Set pointer to private data 
+  private_opt,
+  // Set aliases for HTTP 200 in the HTTP Response header 
+  http200aliases,
+  // Continue to send authentication (user+password) when following locations, even when hostname changed. This can potentially send off the name and password to whatever host the server decides. 
+  unrestricted_auth = 105,
+  // Specifically switch on or off the FTP engine&#39;s use of the EPRT command ( it also disables the LPRT attempt). By default, those ones will always be attempted before the good old traditional PORT command. 
+  ftp_use_eprt,
+  // Set this to a bitmask value to enable the particular authentications methods you like. Use this in combination with CURLOPT_USERPWD. Note that setting multiple bits may cause extra network round-trips. 
+  httpauth,
+  // Set the ssl context callback function, currently only for OpenSSL ssl_ctx in second argument. The function must be matching the curl_ssl_ctx_callback proto. 
+  ssl_ctx_function = 20108,
+  // Set the userdata for the ssl context callback function&#39;s third argument 
+  ssl_ctx_data = 10109,
+  // FTP Option that causes missing dirs to be created on the remote server. In 7.19.4 we introduced the convenience enums for this option using the CURLFTP_CREATE_DIR prefix. 
+  ftp_create_missing_dirs = 110,
+  // Set this to a bitmask value to enable the particular authentications methods you like. Use this in combination with CURLOPT_PROXYUSERPWD. Note that setting multiple bits may cause extra network round-trips. 
+  proxyauth,
+  // FTP option that changes the timeout, in seconds, associated with getting a response.  This is different from transfer timeout time and essentially places a demand on the FTP server to acknowledge commands in a timely manner. 
+  ftp_response_timeout,
+  // Set this option to one of the CURL_IPRESOLVE_* defines (see below) to tell libcurl to resolve names to those IP versions only. This only has affect on systems with support for more than one, i.e IPv4 *and* IPv6. 
+  ipresolve,
+  // Set this option to limit the size of a file that will be downloaded from an HTTP or FTP server. 
+  maxfilesize,
+  // See the comment for INFILESIZE above, but in short, specifies the size of the file being uploaded.  -1 means unknown. 
+  infilesize_large = 30115,
+  // Sets the continuation offset.  There is also a LONG version of this; look above for RESUME_FROM. 
+  resume_from_large,
+  // Sets the maximum size of data that will be downloaded from an HTTP or FTP server.  See MAXFILESIZE above for the LONG version. 
+  maxfilesize_large,
+  // Set this option to the file name of your .netrc file you want libcurl to parse (using the CURLOPT_NETRC option). If not set, libcurl will do a poor attempt to find the user&#39;s home directory and check for a .netrc file in there. 
+  netrc_file = 10118,
+  // 
+  use_ssl = 119,
+  // The LARGE version of the standard POSTFIELDSIZE option 
+  postfieldsize_large = 30120,
+  // Enable/disable the TCP Nagle algorithm 
+  tcp_nodelay = 121,
+  // When FTP over SSL/TLS is selected (with CURLOPT_USE_SSL), this option can be used to change libcurl&#39;s default action which is to first try &quot;AUTH SSL&quot; and then &quot;AUTH TLS&quot; in this order, and proceed when a OK response has been received. 
+  ftpsslauth = 129,
+  // 
+  ioctlfunction = 20130,
+  // 
+  ioctldata = 10131,
+  // zero terminated string for pass on to the FTP server when asked for &quot;account&quot; info 
+  ftp_account = 10134,
+  // feed cookies into cookie engine 
+  cookielist,
+  // ignore Content-Length 
+  ignore_content_length = 136,
+  // Set to non-zero to skip the IP address received in a 227 PASV FTP server response. Typically used for FTP-SSL purposes but is not restricted to that. libcurl will then instead use the same IP address it used for the control connection. 
+  ftp_skip_pasv_ip,
+  // Select &quot;file method&quot; to use when doing FTP, see the curl_ftpmethod above. 
+  ftp_filemethod,
+  // Local port number to bind the socket to 
+  localport,
+  // Number of ports to try, including the first one set with LOCALPORT. Thus, setting it to 1 will make no additional attempts but the first. 
+  localportrange,
+  // no transfer, set up connection and let application use the socket by extracting it with CURLINFO_LASTSOCKET 
+  connect_only,
+  // Function that will be called to convert from the network encoding (instead of using the iconv calls in libcurl) 
+  conv_from_network_function = 20142,
+  // Function that will be called to convert to the network encoding (instead of using the iconv calls in libcurl) 
+  conv_to_network_function,
+  // Function that will be called to convert from UTF8 (instead of using the iconv calls in libcurl) Note that this is used only for SSL certificate processing 
+  conv_from_utf8_function,
+  // If the connection proceeds too quickly then need to slow it down 
+  max_send_speed_large = 30145,
+  // ditto 
+  max_recv_speed_large,
+  // Pointer to command string to send if USER/PASS fails. 
+  ftp_alternative_to_user = 10147,
+  // callback function for setting socket options 
+  sockoptfunction = 20148,
+  // 
+  sockoptdata = 10149,
+  // set to 0 to disable session ID re-use for this transfer, default is enabled (== 1) 
+  ssl_sessionid_cache = 150,
+  // allowed SSH authentication methods 
+  ssh_auth_types,
+  // Used by scp/sftp to do public/private key authentication 
+  ssh_public_keyfile = 10152,
+  // 
+  ssh_private_keyfile,
+  // Send CCC (Clear Command Channel) after authentication 
+  ftp_ssl_ccc = 154,
+  // Same as TIMEOUT and CONNECTTIMEOUT, but with ms resolution 
+  timeout_ms,
+  // ditto 
+  connecttimeout_ms,
+  // set to zero to disable the libcurl&#39;s decoding and thus pass the raw body data to the application even when it is encoded/compressed 
+  http_transfer_decoding,
+  // ditto 
+  http_content_decoding,
+  // Permission used when creating new files and directories on the remote server for protocols that support it, SFTP/SCP/FILE 
+  new_file_perms,
+  // ditto 
+  new_directory_perms,
+  // Set the behaviour of POST when redirecting. Values must be set to one of CURL_REDIR* defines below. This used to be called CURLOPT_POST301 
+  postredir,
+  // used by scp/sftp to verify the host&#39;s public key 
+  ssh_host_public_key_md5 = 10162,
+  // Callback function for opening socket (instead of socket(2)). Optionally, callback is able change the address or refuse to connect returning CURL_SOCKET_BAD.  The callback should have type curl_opensocket_callback 
+  opensocketfunction = 20163,
+  // ditto 
+  opensocketdata = 10164,
+  // POST volatile input fields. 
+  copypostfields,
+  // set transfer mode (;type=$(LT)a|i$(GT)) when doing FTP via an HTTP proxy 
+  proxy_transfer_mode = 166,
+  // Callback function for seeking in the input stream 
+  seekfunction = 20167,
+  // ditto 
+  seekdata = 10168,
+  // CRL file 
+  crlfile,
+  // Issuer certificate 
+  issuercert,
+  // (IPv6) Address scope 
+  address_scope = 171,
+  // Collect certificate chain info and allow it to get retrievable with CURLINFO_CERTINFO after the transfer is complete. (Unfortunately) only working with OpenSSL-powered builds. 
+  certinfo,
+  // &quot;name&quot; and &quot;pwd&quot; to use when fetching. 
+  username = 10173,
+  // ditto 
+  password,
+  // &quot;name&quot; and &quot;pwd&quot; to use with Proxy when fetching. 
+  proxyusername,
+  // ditto 
+  proxypassword,
+  // Comma separated list of hostnames defining no-proxy zones. These should match both hostnames directly, and hostnames within a domain. For example, local.com will match local.com and www.local.com, but NOT notlocal.com or www.notlocal.com. For compatibility with other implementations of this, .local.com will be considered to be the same as local.com. A single is the only valid wildcard, and effectively disables the use of proxy. 
+  noproxy,
+  // block size for TFTP transfers 
+  tftp_blksize = 178,
+  // Socks Service 
+  socks5_gssapi_service = 10179,
+  // Socks Service 
+  socks5_gssapi_nec = 180,
+  // set the bitmask for the protocols that are allowed to be used for the transfer, which thus helps the app which takes URLs from users or other external inputs and want to restrict what protocol(s) to deal with. Defaults to CURLPROTO_ALL. 
+  protocols,
+  // set the bitmask for the protocols that libcurl is allowed to follow to, as a subset of the CURLOPT_PROTOCOLS ones. That means the protocol needs to be set in both bitmasks to be allowed to get redirected to. Defaults to all protocols except FILE and SCP. 
+  redir_protocols,
+  // set the SSH knownhost file name to use 
+  ssh_knownhosts = 10183,
+  // set the SSH host key callback, must point to a curl_sshkeycallback function 
+  ssh_keyfunction = 20184,
+  // set the SSH host key callback custom pointer 
+  ssh_keydata = 10185,
+  // set the SMTP mail originator 
+  mail_from,
+  // set the SMTP mail receiver(s) 
+  mail_rcpt,
+  // FTP: send PRET before PASV 
+  ftp_use_pret = 188,
+  // RTSP request method (OPTIONS, SETUP, PLAY, etc...) 
+  rtsp_request,
+  // The RTSP session identifier 
+  rtsp_session_id = 10190,
+  // The RTSP stream URI 
+  rtsp_stream_uri,
+  // The Transport: header to use in RTSP requests 
+  rtsp_transport,
+  // Manually initialize the client RTSP CSeq for this handle 
+  rtsp_client_cseq = 193,
+  // Manually initialize the server RTSP CSeq for this handle 
+  rtsp_server_cseq,
+  // The stream to pass to INTERLEAVEFUNCTION. 
+  interleavedata = 10195,
+  // Let the application define a custom write method for RTP data 
+  interleavefunction = 20196,
+  // Turn on wildcard matching 
+  wildcardmatch = 197,
+  // Directory matching callback called before downloading of an individual file (chunk) started 
+  chunk_bgn_function = 20198,
+  // Directory matching callback called after the file (chunk) was downloaded, or skipped 
+  chunk_end_function,
+  // Change match (fnmatch-like) callback for wildcard matching 
+  fnmatch_function,
+  // Let the application define custom chunk data pointer 
+  chunk_data = 10201,
+  // FNMATCH_FUNCTION user pointer 
+  fnmatch_data,
+  // send linked-list of name:port:address sets 
+  resolve,
+  // Set a username for authenticated TLS 
+  tlsauth_username,
+  // Set a password for authenticated TLS 
+  tlsauth_password,
+  // Set authentication type for authenticated TLS 
+  tlsauth_type,
+  // the last unused 
+  lastentry,
+  // convenient alias 
+  writedata = file,
+  // ditto 
+  readdata = infile,
+  // ditto 
+  headerdata = writeheader,
+  // ditto 
+  rtspheader = httpheader,
 }</code></pre><h2 class='section'>Variables</h2><table>
 <thead>
 <tr>

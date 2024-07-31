@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,18 +90,18 @@
 </div><pre><code class='lang-d'>public struct Http1Config
 {
   // 
-  Http1Config withMaxReadAttempts( size_t v ) ;
+  ref Http1Config withMaxReadAttempts( size_t v ) return
   // 
-  Http1Config withReadTimeout( Duration v ) ;
+  ref Http1Config withReadTimeout( Duration v ) return
   // 
-  Http1Config withWriteTimeout( Duration v ) ;
+  ref Http1Config withWriteTimeout( Duration v ) return
 
   // The maximum number of times the reader will attempt to read data from the socket before giving up and returning an error (in certain circumstances). 
-  size_t maxReadAttempts;
+  size_t maxReadAttempts = 5
   // The default timeout for reading data 
-  Duration readTimeout;
+  Duration readTimeout = Duration.zero
   // The default timeout for writing data 
-  Duration writeTimeout;
+  Duration writeTimeout = Duration.zero
 }</code></pre><h2 class='section'>About</h2><p>Configuration for the Http1Reader and Http1Writer.</p>
 <p>The main reason the config is combined is for simplicity, as the reader and writer are intended to be used together, and thus it makes sense to have a single config struct.</p>
 <p>This is especially apparent for higher level APIs that may not display the distinction between the reader and writer, and thus would benefit from a unified configuration object.</p>

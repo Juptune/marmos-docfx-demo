@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - mmapRegionList</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator.showcase</dd></dl>
 </div><h2 class='section api'>mmapRegionList(bytesPerRegion)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; mmapRegionList(
-  size_t bytesPerRegion
-) auto</code></pre><p>Creates a scalable <code>AllocatorList</code> of <code>Regions</code> , each having at least <code>bytesPerRegion</code> bytes. Allocation is very fast. This allocator does not offer <code>deallocate</code> but does free all regions in its destructor. It is recommended for short-lived batch applications that count on never running out of memory.</p>
+ <pre><code class='lang-d'>auto mmapRegionList( size_t bytesPerRegion ) </code></pre><p>Creates a scalable <code>AllocatorList</code> of <code>Regions</code> , each having at least <code>bytesPerRegion</code> bytes. Allocation is very fast. This allocator does not offer <code>deallocate</code> but does free all regions in its destructor. It is recommended for short-lived batch applications that count on never running out of memory.</p>
 
 </article>
 

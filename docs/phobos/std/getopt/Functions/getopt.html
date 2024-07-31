@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - getopt</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.getopt</dd></dl>
 </div><h2 class='section api'>getopt(args, opts)   </h2>
- <pre><code class='lang-d'>GetoptResult getopt(
-  &lt;bug: unknown&gt; args,
-  T opts
-) </code></pre><p>Parse and remove command line options from a string array.</p>
+ <pre><code class='lang-d'>GetoptResult getopt( T... )( ref string[] args, T opts ) </code></pre><p>Parse and remove command line options from a string array.</p>
 <h3 class='section'>Synopsis</h3><p>--------- import std.getopt;</p>
 <p>string data = &quot;file.dat&quot;; int length = 24; bool verbose; enum Color { no, yes }; Color color;</p>
 <p>void main(string[] args) { auto helpInformation = getopt( args, &quot;length&quot;,  &amp;length,    // numeric &quot;file&quot;,    &amp;data,      // string &quot;verbose&quot;, &amp;verbose,   // flag &quot;color&quot;, &quot;Information about this color&quot;, &amp;color);    // enum ...</p>

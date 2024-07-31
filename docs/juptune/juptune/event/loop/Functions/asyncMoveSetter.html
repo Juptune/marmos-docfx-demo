@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,9 +89,11 @@
 <dl><dt>Module</dt><dd>juptune.event.loop</dd></dl>
 </div><h2 class='section api'>asyncMoveSetter(a, b)   </h2>
  <pre><code class='lang-d'>void asyncMoveSetter(
-  ContextT a,
-  ContextT b
-) </code></pre><p>A setter that uses <code>std.algorithm.move</code> to perform a move operation into the user context's shared memory location.</p>
+  ContextT
+)(
+  ref scope ContextT a,
+  out scope ContextT b
+) @nogc nothrow</code></pre><p>A setter that uses <code>std.algorithm.move</code> to perform a move operation into the user context's shared memory location.</p>
 <p>This is best to use for types that are non-copyable, e.g. <code>TcpSocket</code> .</p>
 <p>This, being a move operation, will of course mean your source input will be reverted to .init without having its dtor called.</p>
 <p>Please note that as with any move operation, be very careful if your context contains an internal pointer.</p>

@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - minElement</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.searching</dd></dl>
 </div><h2 class='section api'>minElement(r)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; minElement(
-  Range r
-) auto</code></pre><p>Iterates the passed range and returns the minimal element. A custom mapping function can be passed to <code>map</code> . In other languages this is sometimes called <code>argmin</code> .</p>
+ <pre><code class='lang-d'>auto minElement( alias map, Range )( Range r ) </code></pre><p>Iterates the passed range and returns the minimal element. A custom mapping function can be passed to <code>map</code> . In other languages this is sometimes called <code>argmin</code> .</p>
 <p>Complexity: O(n) Exactly <code>n - 1</code> comparisons are needed.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>map</code> &lt;parameter not found&gt;  </dt>
 <dd>
@@ -119,10 +117,14 @@
 <p>--- <range>.fold!((a,b)=&gt;a.isNaN || b.isNaN ? real.nan : a &lt; b ? a : b); ---</range></p>
 <h3 class='section'>See_Also</h3><p>$(LREF maxElement), $(REF min, std,algorithm,comparison), $(LREF minCount), $(LREF minIndex), $(LREF minPos)</p>
 <h2 class='section api'>minElement(r, seed)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; minElement(
+ <pre><code class='lang-d'>auto minElement(
+  alias map,
+  Range,
+  RangeElementType = ElementType!(Range)
+)(
   Range r,
   RangeElementType seed
-) auto</code></pre><p>ditto</p>
+) </code></pre><p>ditto</p>
 
 </article>
 

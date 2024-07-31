@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,7 @@
 <h1 class='section'>Variable - isStaticArray</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>phobos.sys.traits</dd></dl>
 </div><h2 class='section api'>isStaticArray   </h2>
- <pre><code class='lang-d'>__enumMember isStaticArray</code></pre><h2 class='section'>About</h2><p>Whether type $(D T) is a static array.</p>
+ <pre><code class='lang-d'>&lt;enum or auto&gt; isStaticArray = is(T == U[n], U, size_t n)</code></pre><h2 class='section'>About</h2><p>Whether type $(D T) is a static array.</p>
 <p>Note that this does not include implicit conversions or enum types. The type itself must be a static array. This is in contrast to $(D traits(isStaticArray, T)) which is true for enums (but not for other implict conversions to static arrays).</p>
 <p>As explained in the module documentation, traits like this one are not true for enums (unlike most of the $(D traits) traits) in order to avoid testing for implicit conversions by default with template constraints, since that tends to lead to subtle bugs when the code isn't carefully written to take implicit conversions into account.</p>
 <h3 class='section'>See also</h3><p>$(DDSUBLINK spec/traits, isStaticArray, $(D traits(isStaticArray, T))) $(DDSUBLINK spec/arrays, , The language spec for arrays)</p>

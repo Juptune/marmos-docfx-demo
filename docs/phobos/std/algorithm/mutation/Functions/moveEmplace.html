@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - moveEmplace</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.mutation</dd></dl>
 </div><h2 class='section api'>moveEmplace(source, target)   </h2>
- <pre><code class='lang-d'>void moveEmplace(
-  T source,
-  T target
-) </code></pre><p>Similar to $(LREF move) but assumes <code>target</code> is uninitialized. This is more efficient because <code>source</code> can be blitted over <code>target</code> without destroying or initializing it first.</p>
+ <pre><code class='lang-d'>void moveEmplace( T )( ref T source, ref T target ) @system pure</code></pre><p>Similar to $(LREF move) but assumes <code>target</code> is uninitialized. This is more efficient because <code>source</code> can be blitted over <code>target</code> without destroying or initializing it first.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>source</code> T  </dt>
 <dd>
 

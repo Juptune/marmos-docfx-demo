@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,11 +88,7 @@
 <h1 class='section'>Overloads for - getTimes</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.file</dd></dl>
 </div><h2 class='section api'>getTimes(name, accessTime, modificationTime)   </h2>
- <pre><code class='lang-d'>void getTimes(
-  R name,
-  SysTime accessTime,
-  SysTime modificationTime
-) </code></pre><p>Get the access and modified times of file or folder <code>name</code> .</p>
+ <pre><code class='lang-d'>void getTimes( R )( R name, out SysTime accessTime, out SysTime modificationTime ) </code></pre><p>Get the access and modified times of file or folder <code>name</code> .</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>name</code> R  </dt>
 <dd>
 
@@ -114,9 +110,11 @@
 </dd></dl><h3 class='section'>Throws</h3><p>$(LREF FileException) on error.</p>
 <h2 class='section api'>getTimes(name, accessTime, modificationTime)   </h2>
  <pre><code class='lang-d'>void getTimes(
-  R name,
-  SysTime accessTime,
-  SysTime modificationTime
+  R
+)(
+  auto ref R name,
+  out SysTime accessTime,
+  out SysTime modificationTime
 ) </code></pre><p>ditto</p>
 
 </article>

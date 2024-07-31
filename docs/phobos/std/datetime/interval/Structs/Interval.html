@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,84 +87,94 @@
         <article data-uid="std.datetime.interval.Structs.Interval">
 <h1 class='section'>Struct - Interval</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.interval</dd></dl>
-</div><pre><code class='lang-d'>public struct Interval
+</div><pre><code class='lang-d'>struct Interval( TP )
 {
   // The starting point of the interval. It is included in the interval. 
-  TP begin( ) ;
+  TP begin() @property nothrow pure
   // The starting point of the interval. It is included in the interval. 
-  void begin( TP timePoint ) ;
+  void begin( TP timePoint ) @property pure
   // Returns a range which iterates backwards over the interval, starting at `end` , using $(D_PARAM func) to generate each successive time point. 
-  IntervalRange!(TPDirection.bwd) bwdRange( &lt;bug: unknown&gt; func, PopFirst popFirst ) ;
+  IntervalRange!(TP,Direction.bwd) bwdRange( &lt;bug: unknown&gt; func, PopFirst popFirst ) 
   // Whether the given time point is within this interval. 
-  bool contains( TP timePoint ) ;
+  bool contains( const scope TP timePoint ) pure
   // Whether the given interval is completely within this interval. 
-  bool contains( Interval interval ) ;
+  bool contains( const scope Interval interval ) pure
   // Whether the given interval is completely within this interval. 
-  bool contains( PosInfInterval!(TP) interval ) ;
+  bool contains( const scope PosInfInterval!(TP) interval ) pure
   // Whether the given interval is completely within this interval. 
-  bool contains( NegInfInterval!(TP) interval ) ;
+  bool contains( const scope NegInfInterval!(TP) interval ) pure
   // Whether the interval&#39;s length is 0, that is, whether $(D begin == end). 
-  bool empty( ) ;
+  bool empty() @property nothrow pure
   // The end point of the interval. It is excluded from the interval. 
-  TP end( ) ;
+  TP end() @property nothrow pure
   // The end point of the interval. It is excluded from the interval. 
-  void end( TP timePoint ) ;
+  void end( TP timePoint ) @property pure
+  // Expands the interval forwards and/or backwards in time. Effectively, it does $(D begin -= duration) and/or $(D end += duration). Whether it expands forwards and/or backwards in time is determined by $(D_PARAM dir). 
+  void expand( D )( D duration, Direction dir ) pure
+  // Expands the interval forwards and/or backwards in time. Effectively, it subtracts the given number of months/years from `begin` and adds them to `end` . Whether it expands forwards and/or backwards in time is determined by $(D_PARAM dir). 
+  void expand( T )( T years, T months, AllowDayOverflow allowOverflow, Direction dir ) 
   // Returns a range which iterates forward over the interval, starting at `begin` , using $(D_PARAM func) to generate each successive time point. 
-  IntervalRange!(TPDirection.fwd) fwdRange( &lt;bug: unknown&gt; func, PopFirst popFirst ) ;
+  IntervalRange!(TP,Direction.fwd) fwdRange( &lt;bug: unknown&gt; func, PopFirst popFirst ) 
   // Returns the intersection of two intervals 
-  Interval intersection( Interval interval ) ;
+  Interval intersection( const scope Interval interval ) 
   // Returns the intersection of two intervals 
-  Interval intersection( PosInfInterval!(TP) interval ) ;
+  Interval intersection( const scope PosInfInterval!(TP) interval ) 
   // Returns the intersection of two intervals 
-  Interval intersection( NegInfInterval!(TP) interval ) ;
+  Interval intersection( const scope NegInfInterval!(TP) interval ) 
   // Whether the given interval overlaps this interval. 
-  bool intersects( Interval interval ) ;
+  bool intersects( const scope Interval interval ) pure
   // Whether the given interval overlaps this interval. 
-  bool intersects( PosInfInterval!(TP) interval ) ;
+  bool intersects( const scope PosInfInterval!(TP) interval ) pure
   // Whether the given interval overlaps this interval. 
-  bool intersects( NegInfInterval!(TP) interval ) ;
+  bool intersects( const scope NegInfInterval!(TP) interval ) pure
   // Whether the given interval is adjacent to this interval. 
-  bool isAdjacent( Interval interval ) ;
+  bool isAdjacent( const scope Interval interval ) pure
   // Whether the given interval is adjacent to this interval. 
-  bool isAdjacent( PosInfInterval!(TP) interval ) ;
+  bool isAdjacent( const scope PosInfInterval!(TP) interval ) pure
   // Whether the given interval is adjacent to this interval. 
-  bool isAdjacent( NegInfInterval!(TP) interval ) ;
+  bool isAdjacent( const scope NegInfInterval!(TP) interval ) pure
   // Whether this interval is after the given time point. 
-  bool isAfter( TP timePoint ) ;
+  bool isAfter( const scope TP timePoint ) pure
   // Whether this interval is after the given interval and does not intersect it. 
-  bool isAfter( Interval interval ) ;
+  bool isAfter( const scope Interval interval ) pure
   // Whether this interval is after the given interval and does not intersect it. 
-  bool isAfter( PosInfInterval!(TP) interval ) ;
+  bool isAfter( const scope PosInfInterval!(TP) interval ) pure
   // Whether this interval is after the given interval and does not intersect it. 
-  bool isAfter( NegInfInterval!(TP) interval ) ;
+  bool isAfter( const scope NegInfInterval!(TP) interval ) pure
   // Whether this interval is before the given time point. 
-  bool isBefore( TP timePoint ) ;
+  bool isBefore( const scope TP timePoint ) pure
   // Whether this interval is before the given interval and does not intersect with it. 
-  bool isBefore( Interval interval ) ;
+  bool isBefore( const scope Interval interval ) pure
   // Whether this interval is before the given interval and does not intersect with it. 
-  bool isBefore( PosInfInterval!(TP) interval ) ;
+  bool isBefore( const scope PosInfInterval!(TP) interval ) pure
   // Whether this interval is before the given interval and does not intersect with it. 
-  bool isBefore( NegInfInterval!(TP) interval ) ;
+  bool isBefore( const scope NegInfInterval!(TP) interval ) pure
   // Returns the duration between `begin` and `end` . 
-  &lt;bug: unknown&gt; length( ) auto;
+  auto length() @property nothrow pure
   // Returns the union of two intervals 
-  Interval merge( Interval interval ) ;
+  Interval merge( const scope Interval interval ) 
   // Returns the union of two intervals 
-  PosInfInterval!(TP) merge( PosInfInterval!(TP) interval ) ;
+  PosInfInterval!(TP) merge( const scope PosInfInterval!(TP) interval ) 
   // Returns the union of two intervals 
-  NegInfInterval!(TP) merge( NegInfInterval!(TP) interval ) ;
+  NegInfInterval!(TP) merge( const scope NegInfInterval!(TP) interval ) 
   // 
-  Interval opAssign( Interval rhs ) ;
+  ref Interval opAssign( const ref Interval rhs ) nothrow pure
   // 
-  Interval opAssign( Interval rhs ) ;
+  ref Interval opAssign( Interval rhs ) nothrow pure
+  // Shifts the interval forward or backwards in time by the given duration (a positive duration shifts the interval forward; a negative duration shifts it backward). Effectively, it does $(D begin += duration) and $(D end += duration). 
+  void shift( D )( D duration ) pure
+  // Shifts the interval forward or backwards in time by the given number of years and/or months (a positive number of years and months shifts the interval forward; a negative number shifts it backward). It adds the years the given years and months to both begin and end. It effectively calls `add!&quot;years&quot;()` and then `add!&quot;months&quot;()` on begin and end with the given number of years and months. 
+  void shift( T )( T years, T months, AllowDayOverflow allowOverflow ) 
   // Returns an interval that covers from the earliest time point of two intervals up to (but not including) the latest time point of two intervals. 
-  Interval span( Interval interval ) ;
+  Interval span( const scope Interval interval ) pure
   // Returns an interval that covers from the earliest time point of two intervals up to (but not including) the latest time point of two intervals. 
-  PosInfInterval!(TP) span( PosInfInterval!(TP) interval ) ;
+  PosInfInterval!(TP) span( const scope PosInfInterval!(TP) interval ) pure
   // Returns an interval that covers from the earliest time point of two intervals up to (but not including) the latest time point of two intervals. 
-  NegInfInterval!(TP) span( NegInfInterval!(TP) interval ) ;
+  NegInfInterval!(TP) span( const scope NegInfInterval!(TP) interval ) pure
   // Converts this interval to a string. Params: w = A `char` accepting $(REF_ALTTEXT output range, isOutputRange, std, range, primitives) Returns: A `string` when not using an output range; `void` otherwise. 
-  string toString( ) ;
+  string toString() @safe nothrow
+  // ditto 
+  void toString( Writer )( ref Writer w ) 
 }</code></pre><h2 class='section'>About</h2><p>Represents an interval of time.</p>
 <p>An <code>Interval</code> has a starting point and an end point. The interval of time is therefore the time starting at the starting point up to, but not including, the end point. e.g.</p>
 <p>$(BOOKTABLE, $(TR <span class="math">\((TD [January 5th, 2010 - March 10th, 2010\)</span>(RPAREN))) $(TR <span class="math">\((TD [05:00:30 - 12:00:00\)</span>(RPAREN))) $(TR <span class="math">\((TD [1982-01-04T08:59:00 - 2010-07-04T12:00:00\)</span>(RPAREN))) )</p>
@@ -196,6 +206,10 @@
 <tr>
 <td><a href="../Interval/Interval/Functions/end.html">end</a></td>
 <td>The end point of the interval. It is excluded from the interval.</td>
+</tr>
+<tr>
+<td><a href="../Interval/Interval/Functions/expand.html">expand</a></td>
+<td>Expands the interval forwards and/or backwards in time. Effectively, it does $(D begin -= duration) and/or $(D end += duration). Whether it expands forwards and/or backwards in time is determined by $(D_PARAM dir).</td>
 </tr>
 <tr>
 <td><a href="../Interval/Interval/Functions/fwdRange.html">fwdRange</a></td>
@@ -232,6 +246,10 @@
 <tr>
 <td><a href="../Interval/Interval/Functions/opAssign.html">opAssign</a></td>
 <td></td>
+</tr>
+<tr>
+<td><a href="../Interval/Interval/Functions/shift.html">shift</a></td>
+<td>Shifts the interval forward or backwards in time by the given duration (a positive duration shifts the interval forward; a negative duration shifts it backward). Effectively, it does $(D begin += duration) and $(D end += duration).</td>
 </tr>
 <tr>
 <td><a href="../Interval/Interval/Functions/span.html">span</a></td>

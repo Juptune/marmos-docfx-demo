@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,13 +88,21 @@
 <h1 class='section'>Overloads for - hexDigest</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.digest</dd></dl>
 </div><h2 class='section api'>hexDigest(range)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; hexDigest(
-  Range range
+ <pre><code class='lang-d'>char[digestLength!Hash * 2] hexDigest(
+  Hash,
+  Order order = Order.increasing,
+  Range
+)(
+  ref Range range
 ) </code></pre><p>This is a convenience function similar to $(LREF digest), but it returns the string representation of the hash. Every digest passing the $(LREF isDigest) test can be used with this function.</p>
 <h3 class='section'>Params</h3><p>order= the order in which the bytes are processed (see $(LREF toHexString)) range= an <code>InputRange</code> with <code>ElementType</code> <code>ubyte</code> , <code>ubyte[]</code> or <code>ubyte[num]</code></p>
 <h2 class='section api'>hexDigest(data)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; hexDigest(
-  T data
+ <pre><code class='lang-d'>char[digestLength!Hash * 2] hexDigest(
+  Hash,
+  Order order = Order.increasing,
+  T...
+)(
+  const scope T data
 ) </code></pre><p>This overload of the hexDigest function handles arrays.</p>
 <h3 class='section'>Params</h3><p>order= the order in which the bytes are processed (see $(LREF toHexString)) data= one or more arrays of any type</p>
 

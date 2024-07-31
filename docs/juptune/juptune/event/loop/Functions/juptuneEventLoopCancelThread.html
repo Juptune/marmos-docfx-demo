@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - juptuneEventLoopCancelThread</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.event.loop</dd></dl>
 </div><h2 class='section api'>juptuneEventLoopCancelThread()   </h2>
- <pre><code class='lang-d'>void juptuneEventLoopCancelThread(
-) </code></pre><p>Cancels the current event loop thread.</p>
+ <pre><code class='lang-d'>void juptuneEventLoopCancelThread() @nogc nothrow</code></pre><p>Cancels the current event loop thread.</p>
 <p>More specifically, canceling a thread means that <code>juptuneEventLoopIsThreadCanceled</code> will now return <code>true</code> , and it will also cause functions like <code>yield</code> to start returning a <code>Result</code> that contains an error.</p>
 <p>Canceling is intended for when the thread needs to gracefully shutdown ASAP. Application code should currently refrain from attempting to perform any action that generates an io_uring event, as it may be dropped or completely ignored.</p>
 <p>The exact behaviour of canceling threads is in a bit of development limbo right now, so try to not make too many assumptions on what you're allowed to do. I hope to properly refine this over time into something more exact.</p>

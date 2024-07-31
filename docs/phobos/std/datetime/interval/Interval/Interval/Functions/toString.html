@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,9 @@
 <h1 class='section'>Overloads for - toString</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.interval.Interval</dd></dl><dl><dt>Parent</dt><dd>Interval</dd></dl>
 </div><h2 class='section api'>toString()   </h2>
- <pre><code class='lang-d'>string toString(
-) </code></pre><p>Converts this interval to a string. Params: w = A <code>char</code> accepting $(REF_ALTTEXT output range, isOutputRange, std, range, primitives) Returns: A <code>string</code> when not using an output range; <code>void</code> otherwise.</p>
+ <pre><code class='lang-d'>string toString() @safe nothrow</code></pre><p>Converts this interval to a string. Params: w = A <code>char</code> accepting $(REF_ALTTEXT output range, isOutputRange, std, range, primitives) Returns: A <code>string</code> when not using an output range; <code>void</code> otherwise.</p>
+<h2 class='section api'>toString(w)   </h2>
+ <pre><code class='lang-d'>void toString( Writer )( ref Writer w ) </code></pre><p>ditto</p>
 
 </article>
 

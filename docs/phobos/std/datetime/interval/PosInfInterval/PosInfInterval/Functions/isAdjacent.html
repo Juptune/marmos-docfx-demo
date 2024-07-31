@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - isAdjacent</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.interval.PosInfInterval</dd></dl><dl><dt>Parent</dt><dd>PosInfInterval</dd></dl>
 </div><h2 class='section api'>isAdjacent(interval)   </h2>
- <pre><code class='lang-d'>bool isAdjacent(
-  Interval!(TP) interval
-) </code></pre><p>Whether the given interval is adjacent to this interval.</p>
+ <pre><code class='lang-d'>bool isAdjacent( const scope Interval!(TP) interval ) pure</code></pre><p>Whether the given interval is adjacent to this interval.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>interval</code> Interval!(TP)  </dt>
 <dd>
 
@@ -101,9 +99,7 @@
 <h3 class='section'>Example</h3><p>-------------------- assert(PosInfInterval!Date(Date(1996, 1, 2)).isAdjacent( Interval!Date(Date(1989, 3, 1), Date(1996, 1, 2))));</p>
 <p>assert(!PosInfInterval!Date(Date(1999, 1, 12)).isAdjacent( Interval!Date(Date(1999, 1, 12), Date(2011, 9, 17)))); --------------------</p>
 <h2 class='section api'>isAdjacent(interval)   </h2>
- <pre><code class='lang-d'>bool isAdjacent(
-  PosInfInterval interval
-) </code></pre><p>Whether the given interval is adjacent to this interval.</p>
+ <pre><code class='lang-d'>bool isAdjacent( const scope PosInfInterval interval ) nothrow pure</code></pre><p>Whether the given interval is adjacent to this interval.</p>
 <p>Always returns false because two intervals going to positive infinity can never be adjacent to one another.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>interval</code> PosInfInterval  </dt>
 <dd>
@@ -114,9 +110,7 @@
 </dd></dl><h3 class='section'>Example</h3><p>-------------------- assert(!PosInfInterval!Date(Date(1996, 1, 2)).isAdjacent( PosInfInterval!Date(Date(1990, 1, 7))));</p>
 <p>assert(!PosInfInterval!Date(Date(1996, 1, 2)).isAdjacent( PosInfInterval!Date(Date(1996, 1, 2)))); --------------------</p>
 <h2 class='section api'>isAdjacent(interval)   </h2>
- <pre><code class='lang-d'>bool isAdjacent(
-  NegInfInterval!(TP) interval
-) </code></pre><p>Whether the given interval is adjacent to this interval.</p>
+ <pre><code class='lang-d'>bool isAdjacent( const scope NegInfInterval!(TP) interval ) nothrow pure</code></pre><p>Whether the given interval is adjacent to this interval.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>interval</code> NegInfInterval!(TP)  </dt>
 <dd>
 

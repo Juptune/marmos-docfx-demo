@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,18 +90,24 @@
 </div><pre><code class='lang-d'>template AutoImplement_Helper
 {
   // 
-  alias ConstructorGenerator = &lt;todo: marmos support pending&gt;;
+  alias ConstructorGenerator = &lt;todo: marmos support pending&gt;
   // 
-  alias ctorOverloadSet = &lt;todo: marmos support pending&gt;;
+  alias ctorOverloadSet = &lt;todo: marmos support pending&gt;
   // 
-  alias MethodGenerator = &lt;todo: marmos support pending&gt;;
+  alias enumerateOverloads = &lt;todo: marmos support pending&gt;
   // 
-  alias Super = &lt;todo: marmos support pending&gt;;
+  alias MethodGenerator = &lt;todo: marmos support pending&gt;
   // 
-  alias targetOverloadSets = &lt;todo: marmos support pending&gt;;
+  alias Super = &lt;todo: marmos support pending&gt;
+  // 
+  alias targetOverloadSets = &lt;todo: marmos support pending&gt;
 
   // 
-  string code;
+  bool canonicalPicker = !__traits(isFinalFunction, fun[0]) &amp;&amp; cherrypickMethod!fun
+  // 
+  string code = ConstructorGenerator.generateCode!ctorOverloadSet ~ &quot;\n&quot; ~ MethodGenerator.generateCode!targetOverloadSets
+  // 
+  string INTERNAL_FUNCINFO_ID = format(&quot;F_%s_%s&quot;, name, i)
 }</code></pre><h2 class='section'>Aliases</h2><table>
 <thead>
 <tr>
@@ -119,6 +125,10 @@
 <td></td>
 </tr>
 <tr>
+<td><a href="../AutoImplement_Helper/AutoImplement_Helper/Aliases/enumerateOverloads.html">enumerateOverloads</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../AutoImplement_Helper/AutoImplement_Helper/Aliases/MethodGenerator.html">MethodGenerator</a></td>
 <td></td>
 </tr>
@@ -132,6 +142,40 @@
 </tr>
 </tbody>
 </table>
+<h2 class='section'>Templates</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../AutoImplement_Helper/AutoImplement_Helper/Templates/CommonGeneratingPolicy.html">CommonGeneratingPolicy</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../AutoImplement_Helper/AutoImplement_Helper/Templates/ConstructorGeneratingPolicy.html">ConstructorGeneratingPolicy</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../AutoImplement_Helper/AutoImplement_Helper/Templates/Impl.html">Impl</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../AutoImplement_Helper/AutoImplement_Helper/Templates/MethodGeneratingPolicy.html">MethodGeneratingPolicy</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../AutoImplement_Helper/AutoImplement_Helper/Templates/populate.html">populate</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../AutoImplement_Helper/AutoImplement_Helper/Templates/populate.html">populate</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <h2 class='section'>Variables</h2><table>
 <thead>
 <tr>
@@ -141,7 +185,15 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../AutoImplement_Helper/AutoImplement_Helper/Variables/canonicalPicker.html">canonicalPicker</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="../AutoImplement_Helper/AutoImplement_Helper/Variables/code.html">code</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../AutoImplement_Helper/AutoImplement_Helper/Variables/INTERNAL_FUNCINFO_ID.html">INTERNAL_FUNCINFO_ID</a></td>
 <td></td>
 </tr>
 </tbody>

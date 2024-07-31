@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - timeLastModified</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.file</dd></dl>
 </div><h2 class='section api'>timeLastModified(name)   </h2>
- <pre><code class='lang-d'>SysTime timeLastModified(
-  R name
-) </code></pre><p>Returns the time that the given file was last modified.</p>
+ <pre><code class='lang-d'>SysTime timeLastModified( R )( R name ) </code></pre><p>Returns the time that the given file was last modified.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>name</code> R  </dt>
 <dd>
 
@@ -99,14 +97,9 @@
 
 </dd></dl><h3 class='section'>Returns</h3><p>A $(REF SysTime,std,datetime,systime). Throws: $(LREF FileException) if the given file does not exist.</p>
 <h2 class='section api'>timeLastModified(name)   </h2>
- <pre><code class='lang-d'>SysTime timeLastModified(
-  R name
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>SysTime timeLastModified( R )( auto ref R name ) </code></pre><p>ditto</p>
 <h2 class='section api'>timeLastModified(name, returnIfMissing)   </h2>
- <pre><code class='lang-d'>SysTime timeLastModified(
-  R name,
-  SysTime returnIfMissing
-) </code></pre><p>Returns the time that the given file was last modified. If the file does not exist, returns <code>returnIfMissing</code> .</p>
+ <pre><code class='lang-d'>SysTime timeLastModified( R )( R name, SysTime returnIfMissing ) </code></pre><p>Returns the time that the given file was last modified. If the file does not exist, returns <code>returnIfMissing</code> .</p>
 <p>A frequent usage pattern occurs in build automation tools such as $(HTTP gnu.org/software/make, make) or $(HTTP en.wikipedia.org/wiki/Apache_Ant, ant). To check whether file $(D target) must be rebuilt from file <code>source</code> (i.e., <code>target</code> is older than <code>source</code> or does not exist), use the comparison below. The code throws a $(LREF FileException) if <code>source</code> does not exist (as it should). On the other hand, the <code>SysTime.min</code> default makes a non-existing <code>target</code> seem infinitely old so the test correctly prompts building it.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>name</code> R  </dt>
 <dd>
@@ -123,9 +116,7 @@
 </dd></dl><p>returnIfMissing = The time to return if the given file does not exist. Returns: A $(REF SysTime,std,datetime,systime).</p>
 <p>Example: -------------------- if (source.timeLastModified &gt;= target.timeLastModified(SysTime.min)) { // must (re)build } else { // target is up-to-date } --------------------</p>
 <h2 class='section api'>timeLastModified(statbuf)   </h2>
- <pre><code class='lang-d'>SysTime timeLastModified(
-  stat_t statbuf
-) </code></pre><p>$(BLUE This function is POSIX-Only.)</p>
+ <pre><code class='lang-d'>SysTime timeLastModified( )( auto ref stat_t statbuf ) nothrow pure</code></pre><p>$(BLUE This function is POSIX-Only.)</p>
 <p>Returns the time that the given file was last modified. Params: statbuf = stat_t retrieved from file.</p>
 
 </article>

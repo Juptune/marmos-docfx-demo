@@ -1,2 +1,2 @@
 
-{"items":[{"name":"putBody","href":"putBody.html","topicHref":"putBody.html"},{"name":"headers","href":"headers.html","topicHref":"headers.html"},{"name":"body","href":"body.html","topicHref":"body.html"}],"pdf":false}
+{"items":[{"name":"putBody","href":"putBody.html","topicHref":"putBody.html"},{"name":"headers","href":"headers.html","topicHref":"headers.html"},{"name":"body","href":"body.html","topicHref":"body.html"},{"name":"setHeader","href":"setHeader.html","topicHref":"setHeader.html"},{"name":"tryGetHeader","href":"tryGetHeader.html","topicHref":"tryGetHeader.html"}],"pdf":false}

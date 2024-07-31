@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,75 +87,83 @@
         <article data-uid="std.datetime.interval.Structs.NegInfInterval">
 <h1 class='section'>Struct - NegInfInterval</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.interval</dd></dl>
-</div><pre><code class='lang-d'>public struct NegInfInterval
+</div><pre><code class='lang-d'>struct NegInfInterval( TP )
 {
   // Returns a range which iterates backwards over the interval, starting at `end` , using $(D_PARAM func) to generate each successive time point. 
-  NegInfIntervalRange!(TP) bwdRange( &lt;bug: unknown&gt; func, PopFirst popFirst ) ;
+  NegInfIntervalRange!(TP) bwdRange( &lt;bug: unknown&gt; func, PopFirst popFirst ) 
   // Whether the given time point is within this interval. 
-  bool contains( TP timePoint ) ;
+  bool contains( TP timePoint ) nothrow pure
   // Whether the given interval is completely within this interval. 
-  bool contains( Interval!(TP) interval ) ;
+  bool contains( const scope Interval!(TP) interval ) pure
   // Whether the given interval is completely within this interval. 
-  bool contains( PosInfInterval!(TP) interval ) ;
+  bool contains( const scope PosInfInterval!(TP) interval ) nothrow pure
   // Whether the given interval is completely within this interval. 
-  bool contains( NegInfInterval interval ) ;
+  bool contains( const scope NegInfInterval interval ) nothrow pure
   // The end point of the interval. It is excluded from the interval. 
-  TP end( ) ;
+  TP end() @property nothrow pure
   // The end point of the interval. It is excluded from the interval. 
-  void end( TP timePoint ) ;
+  void end( TP timePoint ) @property nothrow pure
+  // Expands the interval forwards in time. Effectively, it does $(D end += duration). 
+  void expand( D )( D duration ) nothrow pure
+  // Expands the interval forwards and/or backwards in time. Effectively, it adds the given number of months/years to end. 
+  void expand( T )( T years, T months, AllowDayOverflow allowOverflow ) 
   // Returns the intersection of two intervals 
-  Interval!(TP) intersection( Interval!(TP) interval ) ;
+  Interval!(TP) intersection( const scope Interval!(TP) interval ) 
   // Returns the intersection of two intervals 
-  Interval!(TP) intersection( PosInfInterval!(TP) interval ) ;
+  Interval!(TP) intersection( const scope PosInfInterval!(TP) interval ) 
   // Returns the intersection of two intervals 
-  NegInfInterval intersection( NegInfInterval interval ) ;
+  NegInfInterval intersection( const scope NegInfInterval interval ) nothrow
   // Whether the given interval overlaps this interval. 
-  bool intersects( Interval!(TP) interval ) ;
+  bool intersects( const scope Interval!(TP) interval ) pure
   // Whether the given interval overlaps this interval. 
-  bool intersects( PosInfInterval!(TP) interval ) ;
+  bool intersects( const scope PosInfInterval!(TP) interval ) nothrow pure
   // Whether the given interval overlaps this interval. 
-  bool intersects( NegInfInterval!(TP) interval ) ;
+  bool intersects( const scope NegInfInterval!(TP) interval ) nothrow pure
   // Whether the given interval is adjacent to this interval. 
-  bool isAdjacent( Interval!(TP) interval ) ;
+  bool isAdjacent( const scope Interval!(TP) interval ) pure
   // Whether the given interval is adjacent to this interval. 
-  bool isAdjacent( PosInfInterval!(TP) interval ) ;
+  bool isAdjacent( const scope PosInfInterval!(TP) interval ) nothrow pure
   // Whether the given interval is adjacent to this interval. 
-  bool isAdjacent( NegInfInterval interval ) ;
+  bool isAdjacent( const scope NegInfInterval interval ) nothrow pure
   // Whether this interval is after the given time point. 
-  bool isAfter( TP timePoint ) ;
+  bool isAfter( const scope TP timePoint ) nothrow pure
   // Whether this interval is after the given interval and does not intersect it. 
-  bool isAfter( Interval!(TP) interval ) ;
+  bool isAfter( const scope Interval!(TP) interval ) pure
   // Whether this interval is after the given interval and does not intersect it. 
-  bool isAfter( PosInfInterval!(TP) interval ) ;
+  bool isAfter( const scope PosInfInterval!(TP) interval ) nothrow pure
   // Whether this interval is after the given interval and does not intersect it. 
-  bool isAfter( NegInfInterval interval ) ;
+  bool isAfter( const scope NegInfInterval interval ) nothrow pure
   // Whether this interval is before the given time point. 
-  bool isBefore( TP timePoint ) ;
+  bool isBefore( const scope TP timePoint ) nothrow pure
   // Whether this interval is before the given interval and does not intersect it. 
-  bool isBefore( Interval!(TP) interval ) ;
+  bool isBefore( const scope Interval!(TP) interval ) pure
   // Whether this interval is before the given interval and does not intersect it. 
-  bool isBefore( PosInfInterval!(TP) interval ) ;
+  bool isBefore( const scope PosInfInterval!(TP) interval ) nothrow pure
   // Whether this interval is before the given interval and does not intersect it. 
-  bool isBefore( NegInfInterval interval ) ;
+  bool isBefore( const scope NegInfInterval interval ) nothrow pure
   // Returns the union of two intervals 
-  NegInfInterval merge( Interval!(TP) interval ) ;
+  NegInfInterval merge( const scope Interval!(TP) interval ) 
   // Returns the union of two intervals 
-  NegInfInterval merge( NegInfInterval interval ) ;
+  NegInfInterval merge( const scope NegInfInterval interval ) nothrow pure
   // 
-  NegInfInterval opAssign( NegInfInterval rhs ) ;
+  ref NegInfInterval opAssign( const ref NegInfInterval rhs ) nothrow pure
   // 
-  NegInfInterval opAssign( NegInfInterval rhs ) ;
+  ref NegInfInterval opAssign( NegInfInterval rhs ) nothrow pure
+  // Shifts the `end` of this interval forward or backwards in time by the given duration (a positive duration shifts the interval forward; a negative duration shifts it backward). Effectively, it does $(D end += duration). 
+  void shift( D )( D duration ) nothrow pure
+  // Shifts the `end` of this interval forward or backwards in time by the given number of years and/or months (a positive number of years and months shifts the interval forward; a negative number shifts it backward). It adds the years the given years and months to end. It effectively calls `add!&quot;years&quot;()` and then `add!&quot;months&quot;()` on end with the given number of years and months. 
+  void shift( T )( T years, T months, AllowDayOverflow allowOverflow ) 
   // Returns an interval that covers from the earliest time point of two intervals up to (but not including) the latest time point of two intervals. 
-  NegInfInterval span( Interval!(TP) interval ) ;
+  NegInfInterval span( const scope Interval!(TP) interval ) pure
   // Returns an interval that covers from the earliest time point of two intervals up to (but not including) the latest time point of two intervals. 
-  NegInfInterval span( NegInfInterval interval ) ;
+  NegInfInterval span( const scope NegInfInterval interval ) nothrow pure
   // 
-  string toString( ) ;
+  string toString() 
   // Converts this interval to a string. 
-  string toString( ) ;
+  string toString() nothrow
 
   // Whether the interval&#39;s length is 0. Always returns false. 
-  bool empty;
+  bool empty = false
 }</code></pre><h2 class='section'>About</h2><p>Represents an interval of time which has negative infinity as its starting point.</p>
 <p>Any ranges which iterate over a <code>NegInfInterval</code> are infinite. So, the main purpose of using <code>NegInfInterval</code> is to create an infinite range which starts at negative infinity and goes to a fixed end point. Iterate over it in reverse.</p>
 <h2 class='section'>Functions</h2><table>
@@ -177,6 +185,10 @@
 <tr>
 <td><a href="../NegInfInterval/NegInfInterval/Functions/end.html">end</a></td>
 <td>The end point of the interval. It is excluded from the interval.</td>
+</tr>
+<tr>
+<td><a href="../NegInfInterval/NegInfInterval/Functions/expand.html">expand</a></td>
+<td>Expands the interval forwards in time. Effectively, it does $(D end += duration).</td>
 </tr>
 <tr>
 <td><a href="../NegInfInterval/NegInfInterval/Functions/intersection.html">intersection</a></td>
@@ -205,6 +217,10 @@
 <tr>
 <td><a href="../NegInfInterval/NegInfInterval/Functions/opAssign.html">opAssign</a></td>
 <td></td>
+</tr>
+<tr>
+<td><a href="../NegInfInterval/NegInfInterval/Functions/shift.html">shift</a></td>
+<td>Shifts the <code>end</code> of this interval forward or backwards in time by the given duration (a positive duration shifts the interval forward; a negative duration shifts it backward). Effectively, it does $(D end += duration).</td>
 </tr>
 <tr>
 <td><a href="../NegInfInterval/NegInfInterval/Functions/span.html">span</a></td>

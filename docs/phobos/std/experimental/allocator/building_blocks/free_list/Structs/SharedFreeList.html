@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,70 +87,75 @@
         <article data-uid="std.experimental.allocator.building_blocks.free_list.Structs.SharedFreeList">
 <h1 class='section'>Struct - SharedFreeList</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator.building_blocks.free_list</dd></dl>
-</div><pre><code class='lang-d'>public struct SharedFreeList
+</div><pre><code class='lang-d'>struct SharedFreeList(
+  ParentAllocator,
+  size_t minSize,
+  size_t maxSize = minSize,
+  size_t approxMaxNodes = unbounded
+)
 {
   // 
-  alias approxMaxLength = &lt;todo: marmos support pending&gt;;
+  alias approxMaxLength = &lt;todo: marmos support pending&gt;
   // 
-  alias max = &lt;todo: marmos support pending&gt;;
+  alias max = &lt;todo: marmos support pending&gt;
   // 
-  alias min = &lt;todo: marmos support pending&gt;;
+  alias min = &lt;todo: marmos support pending&gt;
 
   // Ditto 
-  &lt;bug: unknown&gt; allocate( size_t bytes ) ;
+  void[] allocate( size_t bytes ) 
   // 
-  &lt;bug: unknown&gt; allocateFresh( size_t bytes ) ;
+  void[] allocateFresh( const size_t bytes ) 
   // Properties for getting (and possibly setting) the approximate maximum length of a shared freelist. 
-  size_t approxMaxLength( ) ;
+  size_t approxMaxLength() @property
   // ditto 
-  void approxMaxLength( size_t x ) ;
+  void approxMaxLength( size_t x ) @property
   // Ditto 
-  bool deallocate( &lt;bug: unknown&gt; b ) ;
+  bool deallocate( void[] b ) 
   // Ditto 
-  bool deallocateAll( ) ;
+  bool deallocateAll() 
   // 
-  void decNodes( ) ;
+  void decNodes() 
   // 
-  bool freeListEligible( size_t n ) ;
+  bool freeListEligible( size_t n ) 
   // Ditto 
-  size_t goodAllocSize( size_t bytes ) ;
+  size_t goodAllocSize( size_t bytes ) 
   // 
-  void incNodes( ) ;
+  void incNodes() 
   // Ditto 
-  size_t max( ) ;
+  size_t max() @property
   // Ditto 
-  void max( size_t newMaxSize ) ;
+  void max( size_t newMaxSize ) @property
   // Properties for getting (and possibly setting) the bounds. Setting bounds is allowed only once , and before any allocation takes place. Otherwise, the primitives have the same semantics as those of `FreeList` . 
-  size_t min( ) ;
+  size_t min() @property
   // Ditto 
-  void min( size_t newMinSize ) ;
+  void min( size_t newMinSize ) @property
   // Nonstandard function that minimizes the memory usage of the freelist by freeing each element in turn. Defined only if `ParentAllocator` defines `deallocate` . 
-  void minimize( ) ;
+  void minimize() 
   // 
-  bool nodesFull( ) ;
+  bool nodesFull() 
   // Ditto 
-  Ternary owns( &lt;bug: unknown&gt; b ) ;
+  Ternary owns( const void[] b ) 
   // Ditto 
-  bool reallocate( &lt;bug: unknown&gt; b, size_t s ) ;
+  bool reallocate( ref void[] b, size_t s ) 
   // 
-  void resetNodes( ) ;
+  void resetNodes() 
   // Ditto 
-  void setBounds( size_t newMin, size_t newMax ) ;
+  void setBounds( size_t newMin, size_t newMax ) 
   // 
-  bool tooLarge( size_t n ) ;
+  bool tooLarge( size_t n ) 
   // 
-  bool tooSmall( size_t n ) ;
+  bool tooSmall( size_t n ) 
 
   // Standard primitives. 
-  uint alignment;
+  uint alignment = ParentAllocator.alignment
   // 
-  SpinLock lock;
+  SpinLock lock
   // 
-  shared size_t nodes;
+  shared size_t nodes
   // The parent allocator. Depending on whether `ParentAllocator` holds state or not, this is a member variable or an alias for `ParentAllocator.instance` . 
-  shared ParentAllocator parent;
+  shared ParentAllocator parent
   // 
-  __enumMember unchecked;
+  &lt;enum or auto&gt; unchecked = minSize == 0 &amp;&amp; (maxSize == unbounded)
 }</code></pre><h2 class='section'>About</h2><p>FreeList shared across threads. Allocation and deallocation are lock-free. The parameters have the same semantics as for <code>FreeList</code> .</p>
 <p><code>expand</code> is defined to forward to <code>ParentAllocator.expand</code> (it must be also <code>shared</code> ).</p>
 <h2 class='section'>Aliases</h2><table>
@@ -257,6 +262,20 @@
 </tr>
 <tr>
 <td><a href="../SharedFreeList/SharedFreeList/Functions/tooSmall.html">tooSmall</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 class='section'>Structs</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../SharedFreeList/SharedFreeList/Structs/Node.html">Node</a></td>
 <td></td>
 </tr>
 </tbody>

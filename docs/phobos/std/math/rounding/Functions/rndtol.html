@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,17 +88,11 @@
 <h1 class='section'>Overloads for - rndtol</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.math.rounding</dd></dl>
 </div><h2 class='section api'>rndtol(x)   </h2>
- <pre><code class='lang-d'>long rndtol(
-  real x
-) </code></pre><p>Returns x rounded to a long value using the current rounding mode. If the integer value of x is greater than long.max, the result is indeterminate.</p>
+ <pre><code class='lang-d'>long rndtol( real x ) @nogc @safe nothrow pure</code></pre><p>Returns x rounded to a long value using the current rounding mode. If the integer value of x is greater than long.max, the result is indeterminate.</p>
 <h2 class='section api'>rndtol(x)   </h2>
- <pre><code class='lang-d'>long rndtol(
-  double x
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>long rndtol( double x ) @nogc @safe nothrow pure</code></pre><p>ditto</p>
 <h2 class='section api'>rndtol(x)   </h2>
- <pre><code class='lang-d'>long rndtol(
-  float x
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>long rndtol( float x ) @nogc @safe nothrow pure</code></pre><p>ditto</p>
 
 </article>
 

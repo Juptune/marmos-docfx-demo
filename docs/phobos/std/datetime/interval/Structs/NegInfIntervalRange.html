@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,25 +87,25 @@
         <article data-uid="std.datetime.interval.Structs.NegInfIntervalRange">
 <h1 class='section'>Struct - NegInfIntervalRange</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.interval</dd></dl>
-</div><pre><code class='lang-d'>public struct NegInfIntervalRange
+</div><pre><code class='lang-d'>struct NegInfIntervalRange( TP )
 {
   // The first time point in the range. 
-  TP front( ) ;
+  TP front() @property nothrow pure
   // The function used to generate the next time point in the range. 
-  &lt;bug: unknown&gt; func( ) ;
+  &lt;bug: unknown&gt; func() @property nothrow pure
   // The interval that this range currently covers. 
-  NegInfInterval!(TP) interval( ) ;
+  NegInfInterval!(TP) interval() @property nothrow pure
   // 
-  NegInfIntervalRange opAssign( NegInfIntervalRange rhs ) ;
+  ref NegInfIntervalRange opAssign( ref NegInfIntervalRange rhs ) nothrow pure
   // Ditto 
-  NegInfIntervalRange opAssign( NegInfIntervalRange rhs ) ;
+  ref NegInfIntervalRange opAssign( NegInfIntervalRange rhs ) nothrow pure
   // Pops `front` from the range, using `func` to generate the next time point in the range. 
-  void popFront( ) ;
+  void popFront() 
   // Returns a copy of `this` . 
-  NegInfIntervalRange save( ) ;
+  NegInfIntervalRange save() @property nothrow pure
 
   // This is an infinite range, so it is never empty. 
-  bool empty;
+  bool empty = false
 }</code></pre><h2 class='section'>About</h2><p>A range over a <code>NegInfInterval</code> . It is an infinite range.</p>
 <p><code>NegInfIntervalRange</code> is only ever constructed by <code>NegInfInterval</code> . However, when it is constructed, it is given a function, <code>func</code> , which is used to generate the time points which are iterated over. <code>func</code> takes a time point and returns a time point of the same type. For instance, to iterate over all of the days in the interval <code>NegInfInterval!Date</code> , pass a function to <code>NegInfInterval</code> 's <code>bwdRange</code> where that function took a $(REF Date,std,datetime,date) and returned a $(REF Date,std,datetime,date) which was one day earlier. That function would then be used by <code>NegInfIntervalRange</code> 's <code>popFront</code> to iterate over the $(REF Date,std,datetime,date)s in the interval - though obviously, since the range is infinite, use a function such as <code>std.range.take</code> with it rather than iterating over $(I all) of the dates.</p>
 <p>As the interval goes to negative infinity, the range is always iterated over backwards, never forwards. <code>func</code> must generate a time point going in the proper direction of iteration, or a $(REF DateTimeException,std,datetime,date) will be thrown. So, the time points that <code>func</code> generates must be earlier in time than the one passed to it. If it's either identical or later in time, then a $(REF DateTimeException,std,datetime,date) will be thrown.</p>

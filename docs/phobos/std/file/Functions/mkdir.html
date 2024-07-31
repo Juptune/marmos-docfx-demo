@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - mkdir</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.file</dd></dl>
 </div><h2 class='section api'>mkdir(pathname)   </h2>
- <pre><code class='lang-d'>void mkdir(
-  R pathname
-) </code></pre><p>Make a new directory <code>pathname</code> .</p>
+ <pre><code class='lang-d'>void mkdir( R )( R pathname ) </code></pre><p>Make a new directory <code>pathname</code> .</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>pathname</code> R  </dt>
 <dd>
 
@@ -99,9 +97,7 @@
 
 </dd></dl><h3 class='section'>Throws</h3><p>$(LREF FileException) on POSIX or $(LREF WindowsException) on Windows if an error occured.</p>
 <h2 class='section api'>mkdir(pathname)   </h2>
- <pre><code class='lang-d'>void mkdir(
-  R pathname
-) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>void mkdir( R )( auto ref R pathname ) </code></pre><p>ditto</p>
 
 </article>
 

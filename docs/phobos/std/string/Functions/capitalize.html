@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - capitalize</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.string</dd></dl>
 </div><h2 class='section api'>capitalize(input)   </h2>
- <pre><code class='lang-d'>S capitalize(
-  S input
-) </code></pre><p>Capitalize the first character of <code>s</code> and convert the rest of <code>s</code> to lowercase.</p>
+ <pre><code class='lang-d'>S capitalize( S )( S input ) @trusted pure</code></pre><p>Capitalize the first character of <code>s</code> and convert the rest of <code>s</code> to lowercase.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>input</code> S  </dt>
 <dd>
 
@@ -100,9 +98,7 @@
 </dd></dl><h3 class='section'>Returns</h3><p>The capitalized string.</p>
 <h3 class='section'>See_Also</h3><p>$(REF asCapitalized, std,uni) for a lazy range version that doesn't allocate memory</p>
 <h2 class='section api'>capitalize(s)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; capitalize(
-  S s
-) auto</code></pre>
+ <pre><code class='lang-d'>auto capitalize( S )( auto ref S s ) </code></pre>
 </article>
 
         <div class="contribution d-print-none">

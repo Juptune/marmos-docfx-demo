@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - among</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.comparison</dd></dl>
 </div><h2 class='section api'>among(value, values)   </h2>
- <pre><code class='lang-d'>uint among(
-  Value value,
-  Values values
-) </code></pre><p>Find <code>value</code> among <code>values</code>, returning the 1-based index of the first matching value in <code>values</code> , or <code>0</code> if <code>value</code> is not among <code>values</code>. The predicate <code>pred</code> is used to compare values, and uses equality by default.</p>
+ <pre><code class='lang-d'>uint among( alias pred, Value, Values... )( Value value, Values values ) </code></pre><p>Find <code>value</code> among <code>values</code>, returning the 1-based index of the first matching value in <code>values</code> , or <code>0</code> if <code>value</code> is not among <code>values</code>. The predicate <code>pred</code> is used to compare values, and uses equality by default.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>pred</code> &lt;parameter not found&gt;  </dt>
 <dd>
 
@@ -113,9 +110,7 @@
 </dd></dl><h3 class='section'>Returns</h3><p>0 if value was not found among the values, otherwise the index of the found value plus one is returned.</p>
 <h3 class='section'>See_Also</h3><p>$(REF_ALTTEXT find, find, std,algorithm,searching) and $(REF_ALTTEXT canFind, canFind, std,algorithm,searching) for finding a value in a range.</p>
 <h2 class='section api'>among(value)   </h2>
- <pre><code class='lang-d'>uint among(
-  Value value
-) </code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>uint among( Value )( Value value ) </code></pre><p>Ditto</p>
 
 </article>
 

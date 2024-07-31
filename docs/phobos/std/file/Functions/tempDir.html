@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - tempDir</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.file</dd></dl>
 </div><h2 class='section api'>tempDir()   </h2>
- <pre><code class='lang-d'>string tempDir(
-) </code></pre><p>Returns the path to a directory for temporary files. On POSIX platforms, it searches through the following list of directories and returns the first one which is found to exist: $(OL $(LI The directory given by the <code>TMPDIR</code> environment variable.) $(LI The directory given by the <code>TEMP</code> environment variable.) $(LI The directory given by the <code>TMP</code> environment variable.) $(LI <code>/tmp/</code> ) $(LI <code>/var/tmp/</code> ) $(LI <code>/usr/tmp/</code> ) )</p>
+ <pre><code class='lang-d'>string tempDir() @trusted</code></pre><p>Returns the path to a directory for temporary files. On POSIX platforms, it searches through the following list of directories and returns the first one which is found to exist: $(OL $(LI The directory given by the <code>TMPDIR</code> environment variable.) $(LI The directory given by the <code>TEMP</code> environment variable.) $(LI The directory given by the <code>TMP</code> environment variable.) $(LI <code>/tmp/</code> ) $(LI <code>/var/tmp/</code> ) $(LI <code>/usr/tmp/</code> ) )</p>
 <p>On all platforms, <code>tempDir</code> returns the current working directory on failure.</p>
 <p>The return value of the function is cached, so the procedures described below will only be performed the first time the function is called.  All subsequent runs will return the same string, regardless of whether environment variables and directory structures have changed in the meantime.</p>
 <p>The POSIX <code>tempDir</code> algorithm is inspired by Python's $(LINK2 <a href="http://docs.python.org/library/tempfile.html#tempfile.tempdir">http://docs.python.org/library/tempfile.html#tempfile.tempdir</a>, <code>tempfile.tempdir</code> ).</p>

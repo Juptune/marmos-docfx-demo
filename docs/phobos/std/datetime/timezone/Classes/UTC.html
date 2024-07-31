@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,17 +90,17 @@
 </div><pre><code class='lang-d'>public class UTC
 {
   // Always returns false. 
-  bool dstInEffect( long stdTime ) override;
+  bool dstInEffect( long stdTime ) override @safe nothrow scope
   // Always returns false. 
-  bool hasDST( ) override;
+  bool hasDST() override @property @safe nothrow
   // `UTC` is a singleton class. `UTC` returns its only instance. 
-  UTC opCall( ) static;
+  static UTC opCall() @safe nothrow pure
   // Returns the given hnsecs without changing them at all. 
-  long tzToUTC( long adjTime ) override;
+  long tzToUTC( long adjTime ) override @safe nothrow scope
   // Returns a $(REF Duration, core,time) of 0. 
-  Duration utcOffsetAt( long stdTime ) override;
+  Duration utcOffsetAt( long stdTime ) override @safe nothrow scope
   // Returns the given hnsecs without changing them at all. 
-  long utcToTZ( long stdTime ) override;
+  long utcToTZ( long stdTime ) override @safe nothrow scope
 }</code></pre><h2 class='section'>About</h2><p>A $(LREF TimeZone) which represents UTC.</p>
 <h2 class='section'>Functions</h2><table>
 <thead>

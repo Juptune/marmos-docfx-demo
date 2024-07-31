@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,11 +88,7 @@
 <h1 class='section'>Overloads for - chainPath</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.path</dd></dl>
 </div><h2 class='section api'>chainPath(r1, r2, ranges)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; chainPath(
-  R1 r1,
-  R2 r2,
-  Ranges ranges
-) auto</code></pre><p>Concatenate path segments together to form one path.</p>
+ <pre><code class='lang-d'>auto chainPath( R1, R2, Ranges... )( R1 r1, R2 r2, Ranges ranges ) </code></pre><p>Concatenate path segments together to form one path.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>r1</code> R1  </dt>
 <dd>
 
@@ -113,9 +109,7 @@
 
 </dd></dl><p>r2 = second segment ranges = 0 or more segments Returns: Lazy range which is the concatenation of r1, r2 and ranges with path separators. The resulting element type is that of r1. See_Also: $(LREF buildPath)</p>
 <h2 class='section api'>chainPath(ranges)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; chainPath(
-  Ranges ranges
-) auto</code></pre>
+ <pre><code class='lang-d'>auto chainPath( Ranges... )( auto ref Ranges ranges ) </code></pre>
 </article>
 
         <div class="contribution d-print-none">

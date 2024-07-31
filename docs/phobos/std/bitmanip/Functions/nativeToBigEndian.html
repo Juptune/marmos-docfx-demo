@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - nativeToBigEndian</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.bitmanip</dd></dl>
 </div><h2 class='section api'>nativeToBigEndian(val)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; nativeToBigEndian(
-  T val
-) auto</code></pre><p>Converts the given value from the native endianness to big endian and returns it as a <code>ubyte[n]</code> where <code>n</code> is the size of the given type.</p>
+ <pre><code class='lang-d'>auto nativeToBigEndian( T )( const T val ) @nogc @safe nothrow pure</code></pre><p>Converts the given value from the native endianness to big endian and returns it as a <code>ubyte[n]</code> where <code>n</code> is the size of the given type.</p>
 <p>Returning a <code>ubyte[n]</code> helps prevent accidentally using a swapped value as a regular one (and in the case of floating point values, it's necessary, because the FPU will mess up any swapped floating point values. So, you can't actually have swapped floating point values as floating point values).</p>
 <p><code>real</code> is not supported, because its size is implementation-dependent and therefore could vary from machine to machine (which could make it unusable if you tried to transfer it to another machine).</p>
 

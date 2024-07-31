@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,9 +88,7 @@
 <h1 class='section'>Overloads for - encodedLength</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.encoding</dd></dl>
 </div><h2 class='section api'>encodedLength(c)   </h2>
- <pre><code class='lang-d'>size_t encodedLength(
-  dchar c
-) </code></pre><p>Returns the number of code units required to encode a single code point.</p>
+ <pre><code class='lang-d'>size_t encodedLength( E )( dchar c ) </code></pre><p>Returns the number of code units required to encode a single code point.</p>
 <p>The input to this function MUST be a valid code point. This is enforced by the function's in-contract.</p>
 <p>The type of the output cannot be deduced. Therefore, it is necessary to explicitly specify the encoding as a template parameter.</p>
 <p>Standards: Unicode 5.0, ASCII, ISO-8859-1, ISO-8859-2, WINDOWS-1250, WINDOWS-1251, WINDOWS-1252</p>

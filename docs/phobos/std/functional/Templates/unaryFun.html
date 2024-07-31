@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -89,6 +89,8 @@
 <dl><dt>Module</dt><dd>std.functional</dd></dl>
 </div><pre><code class='lang-d'>template unaryFun
 {
+  // 
+  auto unaryFun( ElementType )( auto ref ElementType __a ) 
 }</code></pre><h2 class='section'>About</h2><p>Transforms a <code>string</code> representing an expression into a unary function. The <code>string</code> must either use symbol name <code>a</code> as the parameter or provide the symbol via the <code>parmName</code> argument.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>fun</code>   </dt>
 <dd>
@@ -104,6 +106,20 @@
 
 </dd></dl><p>parmName = the name of the parameter if <code>fun</code> is a string. Defaults to <code>&quot;a&quot;</code> . Returns: If <code>fun</code> is a <code>string</code> , a new single parameter function</p>
 <p>If <code>fun</code> is not a <code>string</code> , an alias to <code>fun</code> .</p>
+<h2 class='section'>Functions</h2><table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../unaryFun/unaryFun/Functions/unaryFun.html">unaryFun</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
 </article>
 

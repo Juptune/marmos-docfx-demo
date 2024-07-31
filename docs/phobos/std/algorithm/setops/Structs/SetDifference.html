@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -87,26 +87,26 @@
         <article data-uid="std.algorithm.setops.Structs.SetDifference">
 <h1 class='section'>Struct - SetDifference</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.setops</dd></dl>
-</div><pre><code class='lang-d'>public struct SetDifference
+</div><pre><code class='lang-d'>struct SetDifference( alias less = &quot;a &lt; b&quot;, R1, R2 )
 {
   // 
-  alias comp = &lt;todo: marmos support pending&gt;;
+  alias comp = &lt;todo: marmos support pending&gt;
 
   // 
-  void adjustPosition( ) ;
+  void adjustPosition() 
   // 
-  bool empty( ) ;
+  bool empty() @property
   // 
-  &lt;bug: unknown&gt; front( ) auto;
+  ref auto front() @property
   // 
-  void popFront( ) ;
+  void popFront() 
   // 
-  &lt;bug: unknown&gt; save( ) ;
+  typeof(this) save() @property
 
   // 
-  R1 r1;
+  R1 r1
   // 
-  R2 r2;
+  R2 r2
 }</code></pre><h2 class='section'>About</h2><p>Lazily computes the difference of <code>r1</code> and <code>r2</code> . The two ranges are assumed to be sorted by <code>less</code> . The element types of the two ranges must have a common type.</p>
 <p>In the case of multisets, considering that element <code>a</code> appears <code>x</code> times in <code>r1</code> and <code>y</code> times and <code>r2</code> , the number of occurences of <code>a</code> in the resulting range is going to be <code>x-y</code> if x &gt; y or 0 otherwise.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>less</code>   </dt>

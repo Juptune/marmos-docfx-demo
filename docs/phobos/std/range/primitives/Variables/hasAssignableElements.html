@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,7 +88,7 @@
 <h1 class='section'>Variable - hasAssignableElements</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range.primitives</dd></dl>
 </div><h2 class='section api'>hasAssignableElements   </h2>
- <pre><code class='lang-d'>bool hasAssignableElements</code></pre><h2 class='section'>About</h2><p>Returns <code>true</code> if <code>R</code> is an input range and has mutable elements. The following code should compile for any range with assignable elements.</p>
+ <pre><code class='lang-d'>bool hasAssignableElements = isInputRange!R &amp;&amp; is(typeof(lvalueOf!R.front = lvalueOf!R.front)) &amp;&amp; (!isBidirectionalRange!R || is(typeof(lvalueOf!R.back = lvalueOf!R.back))) &amp;&amp; (!isRandomAccessRange!R || is(typeof(lvalueOf!R[0] = lvalueOf!R.front)))</code></pre><h2 class='section'>About</h2><p>Returns <code>true</code> if <code>R</code> is an input range and has mutable elements. The following code should compile for any range with assignable elements.</p>
 <p>---- R r; static assert(isInputRange!R); r.front = r.front; static if (isBidirectionalRange!R) r.back = r.front; static if (isRandomAccessRange!R) r[0] = r.front; ----</p>
 
 </article>

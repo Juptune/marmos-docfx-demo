@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -90,9 +90,9 @@
 </div><pre><code class='lang-d'>public struct HttpHeader
 {
   // The name of the header. 
-  String2 name( ) ;
+  ref String2 name() @nogc @safe nothrow scope return
   // The value of the header. 
-  String2 value( ) ;
+  ref String2 value() @nogc @safe nothrow scope return
 }</code></pre><h2 class='section'>About</h2><p>Represents a single HTTP header.</p>
 <h2 class='section'>Functions</h2><table>
 <thead>

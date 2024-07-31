@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,8 +88,7 @@
 <h1 class='section'>Overloads for - deallocateAll</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator.building_blocks.region.BorrowedRegion</dd></dl><dl><dt>Parent</dt><dd>BorrowedRegion</dd></dl>
 </div><h2 class='section api'>deallocateAll()   </h2>
- <pre><code class='lang-d'>bool deallocateAll(
-) </code></pre><p>Deallocates all memory allocated by this region, which can be subsequently reused for new allocations.</p>
+ <pre><code class='lang-d'>bool deallocateAll() @nogc nothrow pure</code></pre><p>Deallocates all memory allocated by this region, which can be subsequently reused for new allocations.</p>
 
 </article>
 

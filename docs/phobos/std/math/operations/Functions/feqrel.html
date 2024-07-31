@@ -77,7 +77,7 @@
 
       <div class="content">
         <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
             <i class="bi bi-list"></i>
           </button>
 
@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - feqrel</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.math.operations</dd></dl>
 </div><h2 class='section api'>feqrel(x, y)   </h2>
- <pre><code class='lang-d'>int feqrel(
-  X x,
-  X y
-) </code></pre><p>To what precision is x equal to y?</p>
+ <pre><code class='lang-d'>int feqrel( X )( const X x, const X y ) @nogc @trusted nothrow pure</code></pre><p>To what precision is x equal to y?</p>
 <p>Returns: the number of mantissa bits which are equal in x and y. eg, 0x1.F8p+60 and 0x1.F1p+60 are equal to 5 bits of precision.</p>
 <p>$(TABLE_SV $(TR $(TH x)      $(TH y)          $(TH feqrel(x, y))) $(TR $(TD x)      $(TD x)          $(TD real.mant_dig)) $(TR $(TD x)      $(TD $(GT)= 2*x) $(TD 0)) $(TR $(TD x)      $(TD $(LT)= x/2) $(TD 0)) $(TR $(TD $(NAN)) $(TD any)        $(TD 0)) $(TR $(TD any)    $(TD $(NAN))     $(TD 0)) )</p>
 
