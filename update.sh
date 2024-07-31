@@ -1,8 +1,7 @@
 # Args:
 #  $1 = Absolute path to marmos executable
-#  $2 = Absolute path to root of marmos-docfx's folder
 #
-# Example: bash ./update.sh $PWD/../marmos/build/marmos $PWD/../marmos/dogfood/typescript/
+# Example: bash ./update.sh $PWD/../marmos/build/marmos
 
 rm -rf _marmos-output/models/
 
@@ -33,10 +32,8 @@ rm __anonymous*.json
 # Convert to docfx
 popd
 cwd=$(pwd)
-pushd $2
-./bin/dev.js convert $cwd/_marmos-output/models/phobos/*.json --outputFolder $cwd/src/phobos
-./bin/dev.js convert $cwd/_marmos-output/models/juptune/*.json --outputFolder $cwd/src/juptune
-popd
+npx marmos-docfx convert $cwd/_marmos-output/models/phobos/*.json --outputFolder $cwd/src/phobos
+npx marmos-docfx convert $cwd/_marmos-output/models/juptune/*.json --outputFolder $cwd/src/juptune
 
 # Build
 pushd src
