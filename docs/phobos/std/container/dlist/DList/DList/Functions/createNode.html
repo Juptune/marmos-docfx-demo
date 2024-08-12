@@ -88,7 +88,13 @@
 <h1 class='section'>Overloads for - createNode</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.container.dlist.DList</dd></dl><dl><dt>Parent</dt><dd>DList</dd></dl>
 </div><h2 class='section api'>createNode(arg, prev, next)   </h2>
- <pre><code class='lang-d'>BaseNode* createNode( Stuff )( auto ref Stuff arg, BaseNode* prev, BaseNode* next ) </code></pre>
+ <pre><code class='lang-d'>BaseNode* createNode(
+  Stuff
+)(
+  auto ref Stuff arg,
+  BaseNode* prev = null,
+  BaseNode* next = null
+) </code></pre>
 </article>
 
         <div class="contribution d-print-none">

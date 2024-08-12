@@ -107,7 +107,7 @@
   // If `n` is eligible for freelisting, returns `max` . Otherwise, returns `parent.goodAllocSize(n)` . 
   size_t goodAllocSize( size_t n ) 
   // 
-  void initialize( ubyte[] buffer, size_t itemSize ) 
+  void initialize( ubyte[] buffer, size_t itemSize = fl.max ) 
   // Defined if `ParentAllocator` defines it. Checks whether the block belongs to this allocator. 
   Ternary owns( void[] b ) 
 

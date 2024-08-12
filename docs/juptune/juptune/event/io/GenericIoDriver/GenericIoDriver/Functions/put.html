@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - put</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.event.io.GenericIoDriver</dd></dl><dl><dt>Parent</dt><dd>GenericIoDriver</dd></dl>
 </div><h2 class='section api'>put(buffer, timeout)   </h2>
- <pre><code class='lang-d'>Result put( void[] buffer, Duration timeout ) @nogc</code></pre><p>Writes an entire buffer.</p>
+ <pre><code class='lang-d'>Result put( void[] buffer, Duration timeout = Duration.zero ) @nogc</code></pre><p>Writes an entire buffer.</p>
 <p>This is a high level helper around the <code>send</code> function.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>buffer</code> void[]  </dt>
 <dd>
@@ -99,7 +99,7 @@
 </dd></dl><h3 class='section'>Throws</h3><p>Any error that the platform's underlying <code>send</code> command returns. (e.g. <code>LinuxError</code> on Linux)</p>
 <h3 class='section'>Returns</h3><p>A <code>Result</code></p>
 <h2 class='section api'>put(range, timeout)   </h2>
- <pre><code class='lang-d'>Result put( RangeT )( scope RangeT range, Duration timeout ) </code></pre><p>Continue to write data from a range until it's empty.</p>
+ <pre><code class='lang-d'>Result put( RangeT )( scope RangeT range, Duration timeout = Duration.zero ) </code></pre><p>Continue to write data from a range until it's empty.</p>
 <p>This is a high level helper around the <code>send</code> function.</p>
 <p>The range's element type must be some sort of slice.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>range</code> RangeT  </dt>

@@ -92,13 +92,13 @@
   // Returns the current number in the random sequence. 
   UIntType front() @nogc @property @safe nothrow pure
   // 
-  static ulong gcd( ulong a, ulong b ) @nogc @safe nothrow pure
+  ulong gcd( ulong a, ulong b ) @nogc @safe nothrow pure
   // Advances the random sequence. 
   void popFront() @nogc @safe nothrow pure
   // 
-  static ulong primeFactorsOnly( ulong n ) @nogc @safe nothrow pure
+  ulong primeFactorsOnly( ulong n ) @nogc @safe nothrow pure
   // 
-  static bool properLinearCongruentialParameters(
+  bool properLinearCongruentialParameters(
     ulong m,
     ulong a,
     ulong c
@@ -106,7 +106,7 @@
   // 
   typeof(this) save() @nogc @property @safe nothrow pure
   // (Re)seeds the generator. 
-  void seed( UIntType x0 ) @nogc @safe nothrow pure
+  void seed( UIntType x0 = 1 ) @nogc @safe nothrow pure
 
   // Always `false` (random generators are infinite ranges). 
   bool empty = false

@@ -109,7 +109,7 @@
   T2 grouped,
   T3 suffix,
   const ref scope FormatSpec!(Char) f,
-  bool integer_precision
+  bool integer_precision = false
 ) </code></pre><h2 class='section api'>writeAligned(w, prefix, grouped, fracts, suffix, f, p)   </h2>
  <pre><code class='lang-d'>void writeAligned(
   Writer,
@@ -125,7 +125,7 @@
   T3 fracts,
   T4 suffix,
   const ref scope FormatSpec!(Char) f,
-  PrecisionType p
+  PrecisionType p = PrecisionType.none
 ) </code></pre>
 </article>
 

@@ -90,9 +90,13 @@
 </div><pre><code class='lang-d'>public struct Http1RequestLine
 {
   // Accesses the request line data. 
-  void access( scope &lt;bug: unknown&gt; func ) @safe nothrow
+  void access(
+    scope void delegate(const scope char[],scope ScopeUri) @safe nothrow func
+  ) @safe nothrow
   // ditto. 
-  void access( scope &lt;bug: unknown&gt; func ) @nogc @safe nothrow
+  void access(
+    scope void delegate(const scope char[],scope ScopeUri) @nogc @safe nothrow func
+  ) @nogc @safe nothrow
 
   // 
   Http1PinnedSlice entireLine

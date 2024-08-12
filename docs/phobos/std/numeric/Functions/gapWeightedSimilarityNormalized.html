@@ -97,8 +97,8 @@
   R1 s,
   R2 t,
   F lambda,
-  F sSelfSim,
-  F tSelfSim
+  F sSelfSim = F.init,
+  F tSelfSim = F.init
 ) </code></pre><p>The similarity per <code>gapWeightedSimilarity</code> has an issue in that it grows with the lengths of the two strings, even though the strings are not actually very similar. For example, the range $(D [&quot;Hello&quot;, &quot;world&quot;]) is increasingly similar with the range $(D [&quot;Hello&quot;, &quot;world&quot;, &quot;world&quot;, &quot;world&quot;,...]) as more instances of <code>&quot;world&quot;</code> are appended. To prevent that, <code>gapWeightedSimilarityNormalized</code> computes a normalized version of the similarity that is computed as $(D gapWeightedSimilarity(s, t, lambda) / sqrt(gapWeightedSimilarity(s, t, lambda) gapWeightedSimilarity(s, t, lambda))). The function <code>gapWeightedSimilarityNormalized</code> (a so-called normalized kernel) is bounded in $(D [0, 1]), reaches <code>0</code> only for ranges that don't match in any position, and <code>1</code> only for identical ranges.</p>
 <p>The optional parameters <code>sSelfSim</code> and <code>tSelfSim</code> are meant for avoiding duplicate computation. Many applications may have already computed $(D gapWeightedSimilarity(s, s, lambda)) and/or $(D gapWeightedSimilarity(t, t, lambda)). In that case, they can be passed as <code>sSelfSim</code> and <code>tSelfSim</code> , respectively.</p>
 

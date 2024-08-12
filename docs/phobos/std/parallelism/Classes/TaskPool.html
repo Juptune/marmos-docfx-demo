@@ -98,9 +98,17 @@
   // 
   auto amap( Args... )( Args args ) 
   // Given a `source` range that is expensive to iterate over, returns an $(REF_ALTTEXT input range, isInputRange, std,range,primitives) that asynchronously buffers the contents of `source` into a buffer of `bufSize` elements in a worker thread, while making previously buffered elements from a second buffer, also of size `bufSize` , available via the range interface of the returned object.  The returned range has a length iff `hasLength!S` . `asyncBuf` is useful, for example, when performing expensive operations on the elements of ranges that represent data on a disk or network. 
-  auto asyncBuf( S )( S source, size_t bufSize ) 
+  auto asyncBuf( S )( S source, size_t bufSize = 100 ) 
   // Given a callable object `next` that writes to a user-provided buffer and a second callable object `empty` that determines whether more data is available to write via `next` , returns an input range that asynchronously calls `next` with a set of size `nBuffers` of buffers and makes the results available in the order they were obtained via the input range interface of the returned object.  Similarly to the input range overload of `asyncBuf` , the first half of the buffers are made available via the range interface while the second half are filled and vice-versa. 
-  auto asyncBuf( C1, C2 )( C1 next, C2 empty, size_t initialBufSize, size_t nBuffers ) 
+  auto asyncBuf(
+    C1,
+    C2
+  )(
+    C1 next,
+    C2 empty,
+    size_t initialBufSize = 0,
+    size_t nBuffers = 100
+  ) 
   // 
   size_t defaultWorkUnitSize( size_t rangeLen ) @safe nothrow pure
   // 
@@ -114,7 +122,7 @@
   // 
   void executeWorkLoop() 
   // Signals worker threads to terminate when the queue becomes empty. 
-  void finish( bool blocking ) @trusted
+  void finish( bool blocking = false ) @trusted
   // 
   auto fold( Args... )( Args args ) 
   // These properties control whether the worker threads are daemon threads. A daemon thread is automatically terminated when all non-daemon threads have terminated.  A non-daemon thread will prevent a program from terminating as long as it has not terminated. 
@@ -122,7 +130,7 @@
   // Ditto 
   void isDaemon( bool newVal ) @property @trusted
   // 
-  auto map( S )( S source, size_t bufSize, size_t workUnitSize ) 
+  auto map( S )( S source, size_t bufSize = 100, size_t workUnitSize = size_t.max ) 
   // 
   void notify() 
   // 
@@ -174,7 +182,7 @@
   // Gets the index of the current thread relative to this `TaskPool` .  Any thread not in this pool will receive an index of 0.  The worker threads in this pool receive unique indices of 1 through `this.size` . 
   size_t workerIndex() @property @safe nothrow
   // Creates an instance of worker-local storage, initialized with a given value.  The value is `lazy` so that you can, for example, easily create one instance of a class for each worker.  For usage example, see the `WorkerLocalStorage` struct. 
-  WorkerLocalStorage!(T) workerLocalStorage( T )( lazy T initialVal ) 
+  WorkerLocalStorage!(T) workerLocalStorage( T )( lazy T initialVal = T.init ) 
 
   // 
   AbstractTask* head

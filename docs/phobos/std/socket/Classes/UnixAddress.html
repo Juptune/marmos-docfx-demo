@@ -90,15 +90,15 @@
 </div><pre><code class='lang-d'>public class UnixAddress
 {
   // 
-  sockaddr* name() override @property
+  sockaddr* name() @property
   // 
-  sockaddr* name() override @property
+  sockaddr* name() @property
   // 
-  socklen_t nameLen() override @property
+  socklen_t nameLen() @property
   // Get the underlying path. 
   string path() @property
   // ditto 
-  string toString() override
+  string toString() 
 }</code></pre><h2 class='section'>About</h2><p>Encapsulates an address for a Unix domain socket (<code>AF_UNIX</code>), i.e. a socket bound to a path name in the file system. Available only on supported systems.</p>
 <p>Linux also supports an abstract address namespace, in which addresses are independent of the file system. A socket address is abstract iff <code>path</code> starts with a null byte (<code>'\0'</code>). Null bytes in other positions of an abstract address are allowed and have no special meaning.</p>
 <h3 class='section'>Example</h3><p>--- auto addr = new UnixAddress(&quot;/var/run/dbus/system_bus_socket&quot;); auto abstractAddr = new UnixAddress(&quot;\0/tmp/dbus-OtHLWmCLPR&quot;); ---</p>

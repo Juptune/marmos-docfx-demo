@@ -90,17 +90,17 @@
 </div><pre><code class='lang-d'>public class UTC
 {
   // Always returns false. 
-  bool dstInEffect( long stdTime ) override @safe nothrow scope
+  bool dstInEffect( long stdTime ) @safe nothrow scope
   // Always returns false. 
-  bool hasDST() override @property @safe nothrow
+  bool hasDST() @property @safe nothrow
   // `UTC` is a singleton class. `UTC` returns its only instance. 
-  static UTC opCall() @safe nothrow pure
+  UTC opCall() @safe nothrow pure
   // Returns the given hnsecs without changing them at all. 
-  long tzToUTC( long adjTime ) override @safe nothrow scope
+  long tzToUTC( long adjTime ) @safe nothrow scope
   // Returns a $(REF Duration, core,time) of 0. 
-  Duration utcOffsetAt( long stdTime ) override @safe nothrow scope
+  Duration utcOffsetAt( long stdTime ) @safe nothrow scope
   // Returns the given hnsecs without changing them at all. 
-  long utcToTZ( long stdTime ) override @safe nothrow scope
+  long utcToTZ( long stdTime ) @safe nothrow scope
 }</code></pre><h2 class='section'>About</h2><p>A $(LREF TimeZone) which represents UTC.</p>
 <h2 class='section'>Functions</h2><table>
 <thead>

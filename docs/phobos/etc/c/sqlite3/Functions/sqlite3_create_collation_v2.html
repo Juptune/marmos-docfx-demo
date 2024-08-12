@@ -93,8 +93,8 @@
   char* zName,
   int eTextRep,
   void* pArg,
-  * xCompare,
-  * xDestroy
+  int function(void*,int,const void*,int,const void*)* xCompare,
+  void function(void*)* xDestroy
 ) </code></pre><p>Ditto</p>
 
 </article>

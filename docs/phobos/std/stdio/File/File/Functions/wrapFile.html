@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - wrapFile</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.stdio.File</dd></dl><dl><dt>Parent</dt><dd>File</dd></dl>
 </div><h2 class='section api'>wrapFile(f)   </h2>
- <pre><code class='lang-d'>static File wrapFile( FILE* f ) @safe</code></pre><p>Unsafe function that wraps an existing <code>FILE*</code> . The resulting $(D File) never takes the initiative in closing the file. Note that the created file has no $(LREF name)</p>
+ <pre><code class='lang-d'>File wrapFile( FILE* f ) @safe</code></pre><p>Unsafe function that wraps an existing <code>FILE*</code> . The resulting $(D File) never takes the initiative in closing the file. Note that the created file has no $(LREF name)</p>
 
 </article>
 

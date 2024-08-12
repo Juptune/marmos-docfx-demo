@@ -90,23 +90,23 @@
 </div><pre><code class='lang-d'>public struct sqlite3_mutex_methods
 {
   // 
-  * xMutexAlloc
+  sqlite3_mutex* function(int)* xMutexAlloc
   // 
-  * xMutexEnd
+  int function()* xMutexEnd
   // 
-  * xMutexEnter
+  void function(sqlite3_mutex*)* xMutexEnter
   // 
-  * xMutexFree
+  void function(sqlite3_mutex*)* xMutexFree
   // 
-  * xMutexHeld
+  int function(sqlite3_mutex*)* xMutexHeld
   // 
-  * xMutexInit
+  int function()* xMutexInit
   // 
-  * xMutexLeave
+  void function(sqlite3_mutex*)* xMutexLeave
   // 
-  * xMutexNotheld
+  int function(sqlite3_mutex*)* xMutexNotheld
   // 
-  * xMutexTry
+  int function(sqlite3_mutex*)* xMutexTry
 }</code></pre><h2 class='section'>About</h2><p>CAPI3REF: Mutex Methods Object</p>
 <h2 class='section'>Variables</h2><table>
 <thead>

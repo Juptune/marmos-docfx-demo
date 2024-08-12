@@ -88,11 +88,14 @@
 <h1 class='section'>Overloads for - bwdRange</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.interval.Interval</dd></dl><dl><dt>Parent</dt><dd>Interval</dd></dl>
 </div><h2 class='section api'>bwdRange(func, popFirst)   </h2>
- <pre><code class='lang-d'>IntervalRange!(TP,Direction.bwd) bwdRange( &lt;bug: unknown&gt; func, PopFirst popFirst ) </code></pre><p>Returns a range which iterates backwards over the interval, starting at <code>end</code> , using $(D_PARAM func) to generate each successive time point.</p>
+ <pre><code class='lang-d'>IntervalRange!(TP,Direction.bwd) bwdRange(
+  TP delegate(const scope TP) func,
+  PopFirst popFirst = PopFirst.no
+) </code></pre><p>Returns a range which iterates backwards over the interval, starting at <code>end</code> , using $(D_PARAM func) to generate each successive time point.</p>
 <p>The range's <code>front</code> is the interval's <code>end</code> . $(D_PARAM func) is used to generate the next <code>front</code> when <code>popFront</code> is called. If $(D_PARAM popFirst) is <code>PopFirst.yes</code> , then <code>popFront</code> is called before the range is returned (so that <code>front</code> is a time point which $(D_PARAM func) would generate).</p>
 <p>If $(D_PARAM func) ever generates a time point greater than or equal to the current <code>front</code> of the range, then a $(REF DateTimeException,std,datetime,date) will be thrown. The range will be empty and iteration complete when $(D_PARAM func) generates a time point equal to or less than the <code>begin</code> of the interval.</p>
 <p>There are helper functions in this module which generate common delegates to pass to <code>bwdRange</code> . Their documentation starts with &quot;Range-generating function,&quot; making them easily searchable.</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>func</code> &lt;bug: unknown&gt;  </dt>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>func</code> TP delegate(const scope TP)  </dt>
 <dd>
 
 

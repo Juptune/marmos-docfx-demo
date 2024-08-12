@@ -88,7 +88,11 @@
 <h1 class='section'>Overloads for - lvalueOf</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>phobos.sys.traits</dd></dl>
 </div><h2 class='section api'>lvalueOf(__anonymous)   </h2>
- <pre><code class='lang-d'>ref T lvalueOf( T )( __InoutWorkaroundStruct __anonymous ) @property</code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>ref T lvalueOf(
+  T
+)(
+  __InoutWorkaroundStruct __anonymous = __InoutWorkaroundStruct.init
+) @property</code></pre><p>Ditto</p>
 
 </article>
 

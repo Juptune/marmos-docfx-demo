@@ -95,7 +95,7 @@
 )(
   SRange source,
   TRange target,
-  SortOutput sorted
+  SortOutput sorted = No.sortOutput
 ) </code></pre><p>Copies the top <code>n</code> elements of the $(REF_ALTTEXT input range, isInputRange, std,range,primitives) <code>source</code> into the random-access range <code>target</code> , where <code>n = target.length</code> .</p>
 <p>Elements of <code>source</code> are not touched. If $(D sorted) is <code>true</code> , the target is sorted. Otherwise, the target respects the $(HTTP en.wikipedia.org/wiki/Binary_heap, heap property).</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>less</code> &lt;parameter not found&gt;  </dt>

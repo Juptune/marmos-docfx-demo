@@ -92,7 +92,7 @@
   CaseSensitive cs = CaseSensitive.osDefault
 )(
   string path,
-  lazy string base
+  lazy string base = getcwd()
 ) </code></pre><p>Translates <code>path</code> into a relative path.</p>
 <p>The returned path is relative to <code>base</code> , which is by default taken to be the current working directory.  If specified, <code>base</code> must be an absolute path, and it is always assumed to refer to a directory.  If <code>path</code> and <code>base</code> refer to the same directory, the function returns $(D <code>.</code> ).</p>
 <p>The following algorithm is used: $(OL $(LI If <code>path</code> is a relative directory, return it unaltered.) $(LI Find a common root between <code>path</code> and <code>base</code> . If there is no common root, return <code>path</code> unaltered.) $(LI Prepare a string with as many $(D <code>../</code> ) or $(D <code>..\</code> ) as necessary to reach the common root from base path.) $(LI Append the remaining segments of <code>path</code> to the string and return.) )</p>

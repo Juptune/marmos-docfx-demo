@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - finish</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.parallelism.TaskPool</dd></dl><dl><dt>Parent</dt><dd>TaskPool</dd></dl>
 </div><h2 class='section api'>finish(blocking)   </h2>
- <pre><code class='lang-d'>void finish( bool blocking ) @trusted</code></pre><p>Signals worker threads to terminate when the queue becomes empty.</p>
+ <pre><code class='lang-d'>void finish( bool blocking = false ) @trusted</code></pre><p>Signals worker threads to terminate when the queue becomes empty.</p>
 <p>If blocking argument is true, wait for all worker threads to terminate before returning.  This option might be used in applications where task results are never consumed-- e.g. when <code>TaskPool</code> is employed as a rudimentary scheduler for tasks which communicate by means other than return values.</p>
 <p>Warning:  Calling this function with $(D blocking = true) from a worker thread that is a member of the same <code>TaskPool</code> that <code>finish</code> is being called on will result in a deadlock.</p>
 

@@ -94,7 +94,7 @@
   Output output,
   string text,
   Option[] opt,
-  string style
+  string style = &quot;%*s %*s%*s%s\n&quot;
 ) </code></pre><p>This function writes the passed text and <code>Option</code> into an output range in the manner described in the documentation of function <code>defaultGetoptPrinter</code> , unless the style option is used.</p>
 <p>Params: output = The output range used to write the help information. text = The text to print at the beginning of the help output. opt = The <code>Option</code> extracted from the <code>getopt</code> parameter. style = The manner in which to display the output of each <code>Option.</code></p>
 

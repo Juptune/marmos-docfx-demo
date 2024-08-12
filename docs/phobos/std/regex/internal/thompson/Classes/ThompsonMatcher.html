@@ -113,9 +113,9 @@
   // 
   auto bwdMatcher( )( size_t lo, size_t hi, uint nGroup, size_t counter ) 
   // 
-  Thread!(DataIndex)* createStart( DataIndex index, uint pc ) 
+  Thread!(DataIndex)* createStart( DataIndex index, uint pc = 0 ) 
   // 
-  void dupTo( Matcher!(Char) engine, void[] memory ) override
+  void dupTo( Matcher!(Char) engine, void[] memory ) 
   // 
   void eval( bool withInput )( State* state ) 
   // 
@@ -125,31 +125,31 @@
   // 
   auto fwdMatcher( )( size_t lo, size_t hi, uint nGroup, size_t counter ) 
   // 
-  static size_t getThreadSize( const ref Regex!(Char) re ) 
+  size_t getThreadSize( const ref Regex!(Char) re ) 
   // 
   void initExternalMemory( void[] memory ) 
   // 
-  static size_t initialMemory( const ref Regex!(Char) re ) 
+  size_t initialMemory( const ref Regex!(Char) re ) 
   // 
-  int match( Group!(DataIndex)[] matches ) override
+  int match( Group!(DataIndex)[] matches ) 
   // 
   int matchImpl( bool withSearch )( Group!(DataIndex)[] matches ) 
   // 
-  int matchOneShot( Group!(DataIndex)[] matches, uint startPc ) 
+  int matchOneShot( Group!(DataIndex)[] matches, uint startPc = 0 ) 
   // 
   bool next() 
   // 
-  ref Regex!(Char) pattern() override @property @safe
+  ref Regex!(Char) pattern() @property @safe
   // 
   void prepareFreeList( size_t size, ref void[] memory ) 
   // 
-  Matcher!(Char) rearm( in Char[] data ) override
+  Matcher!(Char) rearm( in Char[] data ) 
   // 
   void recycle( Thread!(DataIndex)* t ) 
   // 
   void recycle( ref ThreadList!(DataIndex) list ) 
   // 
-  ref size_t refCount() override @property @safe
+  ref size_t refCount() @property @safe
   // 
   bool search() 
 

@@ -107,7 +107,7 @@
   // 
   ref ReturnType fixRef( ReturnType* val ) 
   // 
-  static void impl( void* myTask ) 
+  void impl( void* myTask ) 
   // 
   typeof(this) opAssign( typeof(this) rhs ) 
   // If the `Task` isn&#39;t started yet, execute it in the current thread. If it&#39;s done, return its return value, if any.  If it&#39;s in progress, busy spin until it&#39;s done, then return the return value.  If it threw an exception, rethrow that exception. 

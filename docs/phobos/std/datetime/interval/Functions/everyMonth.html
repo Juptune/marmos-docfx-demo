@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - everyMonth</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.interval</dd></dl>
 </div><h2 class='section api'>everyMonth(month)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; everyMonth( TP, Direction dir = Direction.fwd )( int month ) </code></pre><p>Range-generating function.</p>
+ <pre><code class='lang-d'>TP delegate(const scope TP) everyMonth( TP, Direction dir = Direction.fwd )( int month ) </code></pre><p>Range-generating function.</p>
 <p>Returns a delegate which returns the next time point with the given month which would be reached by adding months to the given time point.</p>
 <p>So, using this delegate allows iteration over successive time points which are in the same month but different years. For example, iterate over each successive December 25th in an interval by starting with a date which had the 25th as its day and passed <code>Month.dec</code> to <code>everyMonth</code> to create the delegate.</p>
 <p>Since it wouldn't really make sense to be iterating over a specific month and end up with some of the time points in the succeeding month or two years after the previous time point, <code>AllowDayOverflow.no</code> is always used when calculating the next time point.</p>

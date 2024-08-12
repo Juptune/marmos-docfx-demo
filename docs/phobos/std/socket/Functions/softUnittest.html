@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - softUnittest</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.socket</dd></dl>
 </div><h2 class='section api'>softUnittest(test, line)   </h2>
- <pre><code class='lang-d'>void softUnittest( &lt;bug: unknown&gt; test, int line ) @trusted</code></pre>
+ <pre><code class='lang-d'>void softUnittest( void delegate() @safe test, int line = __LINE__ ) @trusted</code></pre>
 </article>
 
         <div class="contribution d-print-none">

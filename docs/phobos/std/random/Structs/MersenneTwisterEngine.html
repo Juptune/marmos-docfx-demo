@@ -105,21 +105,21 @@
 )
 {
   // Generates the default initial state for a Mersenne Twister; equivalent to the internal state obtained by calling `seed(defaultSeed)` 
-  static State defaultState() @nogc @safe nothrow pure
+  State defaultState() @nogc @safe nothrow pure
   // Returns the current random value. 
   UIntType front() @nogc @property @safe nothrow pure
   // Advances the generator. 
   void popFront() @nogc @safe nothrow pure
   // 
-  static void popFrontImpl( ref State mtState ) @nogc
+  void popFrontImpl( ref State mtState ) @nogc
   // 
   typeof(this) save() @nogc @property @safe nothrow pure
   // Seeds a MersenneTwisterEngine object. Note: This seed function gives 2^w starting points (the lowest w bits of the value provided will be used). To allow the RNG to be started in any one of its internal states use the seed overload taking an InputRange. 
-  void seed( )( UIntType value ) @nogc @safe nothrow pure
+  void seed( )( UIntType value = defaultSeed ) @nogc @safe nothrow pure
   // Seeds a MersenneTwisterEngine object using an InputRange. 
   void seed( T )( T range ) 
   // Implementation of the seeding mechanism, which can be used with an arbitrary `State` instance 
-  static void seedImpl( UIntType value, ref State mtState ) @nogc
+  void seedImpl( UIntType value, ref State mtState ) @nogc
   // Implementation of the range-based seeding mechanism, which can be used with an arbitrary `State` instance 
   void seedImpl( T )( T range, ref State mtState ) 
 

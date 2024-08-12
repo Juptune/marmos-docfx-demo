@@ -108,7 +108,7 @@
   // Returns: `Ternary.yes` if the allocator is empty, `Ternary.no` otherwise. Never returns `Ternary.unknown` . 
   Ternary empty() @nogc @safe nothrow pure
   // Adjusts `n` to a size suitable for allocation (two words or larger, word-aligned). 
-  static size_t goodAllocSize( size_t n ) @nogc @safe nothrow pure
+  size_t goodAllocSize( size_t n ) @nogc @safe nothrow pure
   // 
   Node* merge( Node* left, Node* right ) 
   // Checks whether the allocator is responsible for the allocation of `b` . It does a simple $(BIGOH 1) range check. `b` should be a buffer either allocated with `this` or obtained through other means. 

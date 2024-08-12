@@ -127,7 +127,7 @@
   // Reads the entire response line. This will configure the reader to be a response parser for the remainder of this message, until `finishMessage` is called. 
   Result readResponseLine(
     out scope Http1ResponseLine responseLine,
-    Http1ReadResponseConfig responseConfig
+    Http1ReadResponseConfig responseConfig = Http1ReadResponseConfig.init
   ) 
   // 
   Result readUntil( ubyte delimiter )( out scope ubyte[] slice ) 

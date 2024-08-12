@@ -88,10 +88,10 @@
 <h1 class='section'>Overloads for - toPrettyString</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.json.JSONValue</dd></dl><dl><dt>Parent</dt><dd>JSONValue</dd></dl>
 </div><h2 class='section api'>toPrettyString(options)   </h2>
- <pre><code class='lang-d'>string toPrettyString( in JSONOptions options ) @safe</code></pre><p>Implicitly calls <code>toJSON</code> on this JSONValue, like <code>toString</code> , but also passes $(I true) as $(I pretty) argument.</p>
+ <pre><code class='lang-d'>string toPrettyString( in JSONOptions options = JSONOptions.none ) @safe</code></pre><p>Implicitly calls <code>toJSON</code> on this JSONValue, like <code>toString</code> , but also passes $(I true) as $(I pretty) argument.</p>
 <p>$(I options) can be used to tweak the conversion behavior</p>
 <h2 class='section api'>toPrettyString(sink, options)   </h2>
- <pre><code class='lang-d'>void toPrettyString( Out )( Out sink, in JSONOptions options ) </code></pre>
+ <pre><code class='lang-d'>void toPrettyString( Out )( Out sink, in JSONOptions options = JSONOptions.none ) </code></pre>
 </article>
 
         <div class="contribution d-print-none">

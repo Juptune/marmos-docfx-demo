@@ -90,9 +90,9 @@
 </div><h2 class='section api'>sqlite3_profile(__anonymous, xProfile, __anonymous)   </h2>
  <pre><code class='lang-d'>extern(C) void* sqlite3_profile(
   sqlite3* __anonymous,
-  * xProfile,
+  void function(void*,const char*,sqlite3_uint64)* xProfile,
   void* __anonymous
-) deprecated</code></pre><p>Ditto</p>
+) </code></pre><p>Ditto</p>
 
 </article>
 

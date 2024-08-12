@@ -94,7 +94,10 @@
   // The starting point of the interval. It is included in the interval. 
   void begin( TP timePoint ) @property pure
   // Returns a range which iterates backwards over the interval, starting at `end` , using $(D_PARAM func) to generate each successive time point. 
-  IntervalRange!(TP,Direction.bwd) bwdRange( &lt;bug: unknown&gt; func, PopFirst popFirst ) 
+  IntervalRange!(TP,Direction.bwd) bwdRange(
+    TP delegate(const scope TP) func,
+    PopFirst popFirst = PopFirst.no
+  ) 
   // Whether the given time point is within this interval. 
   bool contains( const scope TP timePoint ) pure
   // Whether the given interval is completely within this interval. 
@@ -110,11 +113,21 @@
   // The end point of the interval. It is excluded from the interval. 
   void end( TP timePoint ) @property pure
   // Expands the interval forwards and/or backwards in time. Effectively, it does $(D begin -= duration) and/or $(D end += duration). Whether it expands forwards and/or backwards in time is determined by $(D_PARAM dir). 
-  void expand( D )( D duration, Direction dir ) pure
+  void expand( D )( D duration, Direction dir = Direction.both ) pure
   // Expands the interval forwards and/or backwards in time. Effectively, it subtracts the given number of months/years from `begin` and adds them to `end` . Whether it expands forwards and/or backwards in time is determined by $(D_PARAM dir). 
-  void expand( T )( T years, T months, AllowDayOverflow allowOverflow, Direction dir ) 
+  void expand(
+    T
+  )(
+    T years,
+    T months = 0,
+    AllowDayOverflow allowOverflow = AllowDayOverflow.yes,
+    Direction dir = Direction.both
+  ) 
   // Returns a range which iterates forward over the interval, starting at `begin` , using $(D_PARAM func) to generate each successive time point. 
-  IntervalRange!(TP,Direction.fwd) fwdRange( &lt;bug: unknown&gt; func, PopFirst popFirst ) 
+  IntervalRange!(TP,Direction.fwd) fwdRange(
+    TP delegate(const scope TP) func,
+    PopFirst popFirst = PopFirst.no
+  ) 
   // Returns the intersection of two intervals 
   Interval intersection( const scope Interval interval ) 
   // Returns the intersection of two intervals 
@@ -164,7 +177,13 @@
   // Shifts the interval forward or backwards in time by the given duration (a positive duration shifts the interval forward; a negative duration shifts it backward). Effectively, it does $(D begin += duration) and $(D end += duration). 
   void shift( D )( D duration ) pure
   // Shifts the interval forward or backwards in time by the given number of years and/or months (a positive number of years and months shifts the interval forward; a negative number shifts it backward). It adds the years the given years and months to both begin and end. It effectively calls `add!&quot;years&quot;()` and then `add!&quot;months&quot;()` on begin and end with the given number of years and months. 
-  void shift( T )( T years, T months, AllowDayOverflow allowOverflow ) 
+  void shift(
+    T
+  )(
+    T years,
+    T months = 0,
+    AllowDayOverflow allowOverflow = AllowDayOverflow.yes
+  ) 
   // Returns an interval that covers from the earliest time point of two intervals up to (but not including) the latest time point of two intervals. 
   Interval span( const scope Interval interval ) pure
   // Returns an interval that covers from the earliest time point of two intervals up to (but not including) the latest time point of two intervals. 

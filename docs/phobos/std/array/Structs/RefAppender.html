@@ -96,6 +96,8 @@
   size_t capacity() @property
   // 
   T[] data() @property
+  // Returns: The number of elements appended. 
+  size_t length() @property
   // Wraps remaining `Appender` methods such as $(LREF put). Params: fn = Method name to call. args = Arguments to pass to the method. 
   void opDispatch( string fn, Args... )( Args args ) 
   // Appends `rhs` to the managed array. Params: rhs = Element or range. 
@@ -144,6 +146,10 @@
 <tr>
 <td><a href="../RefAppender/RefAppender/Functions/data.html">data</a></td>
 <td></td>
+</tr>
+<tr>
+<td><a href="../RefAppender/RefAppender/Functions/length.html">length</a></td>
+<td>Returns: The number of elements appended.</td>
 </tr>
 <tr>
 <td><a href="../RefAppender/RefAppender/Functions/opDispatch.html">opDispatch</a></td>

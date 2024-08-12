@@ -90,7 +90,7 @@
 </div><pre><code class='lang-d'>public struct BigUint
 {
   // 
-  static BigUint addOrSub(
+  BigUint addOrSub(
     scope BigUint x,
     scope BigUint y,
     bool wantSub,
@@ -116,7 +116,7 @@
     ref bool resultSign
   ) @safe nothrow pure
   // 
-  static BigUint div(
+  BigUint div(
     scope return ref return ref scope BigUint x,
     scope BigUint y
   ) @safe nothrow pure
@@ -130,7 +130,7 @@
   // 
   BigUint divInt( T )( scope BigUint x, T y ) @safe nothrow pure
   // 
-  static void divMod(
+  void divMod(
     BigUint x,
     scope BigUint y,
     out BigUint quotient,
@@ -145,14 +145,14 @@
   // 
   bool isZero() @nogc @safe nothrow scope pure
   // 
-  static BigUint mod(
+  BigUint mod(
     scope return ref return ref scope BigUint x,
     scope BigUint y
   ) @safe nothrow pure
   // 
   uint modInt( T )( scope BigUint x, T y_ ) pure
   // 
-  static BigUint mul( scope BigUint x, scope BigUint y ) @safe nothrow pure
+  BigUint mul( scope BigUint x, scope BigUint y ) @safe nothrow pure
   // 
   BigUint mulInt( T = ulong )( BigUint x, T y ) @safe nothrow pure
   // 
@@ -183,10 +183,7 @@
   // 
   ulong peekUlong( size_t n ) @nogc @safe nothrow scope pure
   // Return a BigUint which is x raised to the power of y. Method: Powers of 2 are removed from x, then left-to-right binary exponentiation is used. Memory allocation is minimized: at most one temporary BigUint is used. 
-  static BigUint pow(
-    scope return ref return ref scope BigUint x,
-    ulong y
-  ) @safe nothrow pure
+  BigUint pow( scope return ref return ref scope BigUint x, ulong y ) @safe nothrow pure
   // 
   char[] toDecimalString( int frontExtraBytes ) @safe nothrow scope pure
   // 
@@ -194,10 +191,10 @@
   // Convert to a hex string, printing a minimum number of digits &#39;minPadding&#39;, allocating an additional &#39;frontExtraBytes&#39; at the start of the string. Padding is done with padChar, which may be &#39;0&#39; or &#39; &#39;. &#39;separator&#39; is a digit separation character. If non-zero, it is inserted between every 8 digits. Separator characters do not contribute to the minPadding. 
   char[] toHexString(
     int frontExtraBytes,
-    char separator,
-    int minPadding,
-    char padChar,
-    LetterCase letterCase
+    char separator = 0,
+    int minPadding = 0,
+    char padChar = &#39;0&#39;,
+    LetterCase letterCase = LetterCase.upper
   ) @safe nothrow scope pure
   // Convert to an octal string. 
   char[] toOctalString() @safe nothrow scope pure

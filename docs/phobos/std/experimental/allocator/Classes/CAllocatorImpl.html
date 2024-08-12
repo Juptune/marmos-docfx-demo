@@ -90,35 +90,35 @@
 </div><pre><code class='lang-d'>class CAllocatorImpl( Allocator, Flag!(&quot;indirect&quot;) indirect = No.indirect )
 {
   // If `impl.alignedAllocate` exists, calls it and returns the result. Otherwise, always returns `null` . 
-  void[] alignedAllocate( size_t s, uint a ) override
+  void[] alignedAllocate( size_t s, uint a ) 
   // Forwards to `impl.alignedReallocate` if defined, `false` otherwise. 
   bool alignedReallocate( ref void[] b, size_t s, uint a ) 
   // Returns `impl.alignment` . 
-  uint alignment() override @property
+  uint alignment() @property
   // Returns `impl.allocate(s)` . 
-  void[] allocate( size_t s, TypeInfo ti ) override
+  void[] allocate( size_t s, TypeInfo ti = null ) 
   // Returns `impl.allocateAll()` if present, `null` otherwise. 
-  void[] allocateAll() override
+  void[] allocateAll() 
   // If `impl.deallocate` is not defined, returns `false` . Otherwise it forwards the call. 
-  bool deallocate( void[] b ) override
+  bool deallocate( void[] b ) 
   // Calls `impl.deallocateAll()` and returns the result if defined, otherwise returns `false` . 
-  bool deallocateAll() override
+  bool deallocateAll() 
   // 
-  bool decRef() override @nogc @trusted nothrow pure
+  bool decRef() @nogc @trusted nothrow pure
   // Forwards to `impl.empty()` if defined, otherwise returns `Ternary.unknown` . 
-  Ternary empty() override
+  Ternary empty() 
   // Returns $(D impl.expand(b, s)) if defined, `false` otherwise. 
-  bool expand( ref void[] b, size_t s ) override
+  bool expand( ref void[] b, size_t s ) 
   // Returns `impl.goodAllocSize(s)` . 
-  size_t goodAllocSize( size_t s ) override
+  size_t goodAllocSize( size_t s ) 
   // The implementation is available as a public member. 
   ref Allocator impl() @nogc @safe pure
   // 
-  void incRef() override @nogc @safe nothrow pure
+  void incRef() @nogc @safe nothrow pure
   // If `Allocator` implements `owns` , forwards to it. Otherwise, returns `Ternary.unknown` . 
-  Ternary owns( void[] b ) override
+  Ternary owns( void[] b ) 
   // Returns $(D impl.reallocate(b, s)). 
-  bool reallocate( ref void[] b, size_t s ) override
+  bool reallocate( ref void[] b, size_t s ) 
   // 
   Ternary resolveInternalPointer( const void* p, ref void[] result ) 
 

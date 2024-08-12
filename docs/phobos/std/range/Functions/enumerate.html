@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - enumerate</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range</dd></dl>
 </div><h2 class='section api'>enumerate(range, start)   </h2>
- <pre><code class='lang-d'>auto enumerate( Enumerator = size_t, Range )( Range range, Enumerator start ) </code></pre><p>Iterate over <code>range</code> with an attached index variable.</p>
+ <pre><code class='lang-d'>auto enumerate( Enumerator = size_t, Range )( Range range, Enumerator start = 0 ) </code></pre><p>Iterate over <code>range</code> with an attached index variable.</p>
 <p>Each element is a $(REF Tuple, std,typecons) containing the index and the element, in that order, where the index member is named <code>index</code> and the element member is named <code>value</code> .</p>
 <p>The index starts at <code>start</code> and is incremented by one on every iteration.</p>
 <h3 class='section'>Overflow</h3><p>If <code>range</code> has length, then it is an error to pass a value for <code>start</code> so that <code>start + range.length</code> is bigger than <code>Enumerator.max</code> , thus it is ensured that overflow cannot happen.</p>

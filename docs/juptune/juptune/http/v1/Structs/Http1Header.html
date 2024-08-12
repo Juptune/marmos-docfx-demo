@@ -90,9 +90,13 @@
 </div><pre><code class='lang-d'>public struct Http1Header
 {
   // Accesses the header data. 
-  void access( scope &lt;bug: unknown&gt; func ) @safe nothrow
+  void access(
+    scope void delegate(const scope char[],const scope char[]) @safe nothrow func
+  ) @safe nothrow
   // ditto. 
-  void access( scope &lt;bug: unknown&gt; func ) @nogc @safe nothrow
+  void access(
+    scope void delegate(const scope char[],const scope char[]) @nogc @safe nothrow func
+  ) @nogc @safe nothrow
 
   // 
   Http1PinnedSlice entireLine

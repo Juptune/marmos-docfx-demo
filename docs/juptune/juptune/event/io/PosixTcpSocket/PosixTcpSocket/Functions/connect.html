@@ -91,7 +91,7 @@
  <pre><code class='lang-d'>Result connect(
   const scope char[] address,
   out bool lookupWasPerformed,
-  ushort defaultPort
+  ushort defaultPort = 0
 ) </code></pre><p>Connects to the target address.</p>
 <p>This overload is for convenience as it will call <code>IpAddress.parse</code> on <code>address</code> .</p>
 <p>This overload, if parsing of <code>address</code> fails, will attempt a DNS lookup to find the IP address instead.</p>

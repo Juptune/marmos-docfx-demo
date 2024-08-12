@@ -90,7 +90,7 @@
 </div><h2 class='section api'>sqlite3session_changeset_strm(pSession, xOutput, pOut)   </h2>
  <pre><code class='lang-d'>extern(C) int sqlite3session_changeset_strm(
   sqlite3_session* pSession,
-  * xOutput,
+  int function(void*,void*,int)* xOutput,
   void* pOut
 ) </code></pre><p>Ditto</p>
 

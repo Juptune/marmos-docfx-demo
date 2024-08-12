@@ -90,7 +90,7 @@
 </div><h2 class='section api'>readResponseLine(responseLine, responseConfig)   </h2>
  <pre><code class='lang-d'>Result readResponseLine(
   out scope Http1ResponseLine responseLine,
-  Http1ReadResponseConfig responseConfig
+  Http1ReadResponseConfig responseConfig = Http1ReadResponseConfig.init
 ) </code></pre><p>Reads the entire response line. This will configure the reader to be a response parser for the remainder of this message, until <code>finishMessage</code> is called.</p>
 <h3 class='section'>State</h3><p>This function must be called when the reader is in the <code>startLine</code> state.</p>
 <p>After this function is called, the reader will be in the <code>maybeEndOfHeaders</code> state.</p>

@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - safeDecode</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.encoding.EncodingScheme</dd></dl><dl><dt>Parent</dt><dd>EncodingScheme</dd></dl>
 </div><h2 class='section api'>safeDecode(s)   </h2>
- <pre><code class='lang-d'>dchar safeDecode( ref ubyte[] s ) abstract</code></pre><p>Decodes a single code point. The input does not have to be valid.</p>
+ <pre><code class='lang-d'>dchar safeDecode( ref ubyte[] s ) </code></pre><p>Decodes a single code point. The input does not have to be valid.</p>
 <p>This function removes one or more ubytes from the start of an array, and returns the decoded code point which those ubytes represent.</p>
 <p>This function will accept an invalidly encoded array as input. If an invalid sequence is found at the start of the string, this function will remove it, and return the value INVALID_SEQUENCE.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>s</code> ubyte[]  </dt>

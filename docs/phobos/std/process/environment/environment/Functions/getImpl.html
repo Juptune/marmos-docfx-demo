@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - getImpl</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.process.environment</dd></dl><dl><dt>Parent</dt><dd>environment</dd></dl>
 </div><h2 class='section api'>getImpl(name, sink)   </h2>
- <pre><code class='lang-d'>void getImpl( scope char[] name, scope &lt;bug: unknown&gt; sink ) @trusted</code></pre>
+ <pre><code class='lang-d'>void getImpl( scope char[] name, scope void delegate(OSChar[]) @safe sink ) @trusted</code></pre>
 </article>
 
         <div class="contribution d-print-none">

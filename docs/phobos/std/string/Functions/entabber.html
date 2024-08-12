@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - entabber</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.string</dd></dl>
 </div><h2 class='section api'>entabber(r, tabSize)   </h2>
- <pre><code class='lang-d'>auto entabber( Range )( Range r, size_t tabSize ) </code></pre><p>Replaces spaces in range <code>r</code> with the optimal number of tabs. All spaces and tabs at the end of a line are removed.</p>
+ <pre><code class='lang-d'>auto entabber( Range )( Range r, size_t tabSize = 8 ) </code></pre><p>Replaces spaces in range <code>r</code> with the optimal number of tabs. All spaces and tabs at the end of a line are removed.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>r</code> Range  </dt>
 <dd>
 
@@ -104,7 +104,7 @@
 </dd></dl><h3 class='section'>Returns</h3><p>lazy forward range with spaces replaced with tabs</p>
 <h3 class='section'>See_Also</h3><p>$(LREF entab)</p>
 <h2 class='section api'>entabber(r, tabSize)   </h2>
- <pre><code class='lang-d'>auto entabber( Range )( auto ref Range r, size_t tabSize ) </code></pre>
+ <pre><code class='lang-d'>auto entabber( Range )( auto ref Range r, size_t tabSize = 8 ) </code></pre>
 </article>
 
         <div class="contribution d-print-none">

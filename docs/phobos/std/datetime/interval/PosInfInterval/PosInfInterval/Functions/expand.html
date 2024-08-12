@@ -99,7 +99,13 @@
 <p>interval1.expand(dur!&quot;days&quot;(2)); assert(interval1 == PosInfInterval!Date(Date(1995, 12, 31)));</p>
 <p>interval2.expand(dur!&quot;days&quot;(-2)); assert(interval2 == PosInfInterval!Date(Date(1996, 1, 4))); --------------------</p>
 <h2 class='section api'>expand(years, months, allowOverflow)   </h2>
- <pre><code class='lang-d'>void expand( T )( T years, T months, AllowDayOverflow allowOverflow ) </code></pre><p>Expands the interval forwards and/or backwards in time. Effectively, it subtracts the given number of months/years from <code>begin</code> .</p>
+ <pre><code class='lang-d'>void expand(
+  T
+)(
+  T years,
+  T months = 0,
+  AllowDayOverflow allowOverflow = AllowDayOverflow.yes
+) </code></pre><p>Expands the interval forwards and/or backwards in time. Effectively, it subtracts the given number of months/years from <code>begin</code> .</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>years</code> T  </dt>
 <dd>
 

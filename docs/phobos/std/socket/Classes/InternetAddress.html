@@ -92,25 +92,25 @@
   // Returns the IPv4 address number (in host byte order). 
   uint addr() @nogc @property nothrow pure
   // Convert an IPv4 address number in host byte order to a human readable string representing the IPv4 address in dotted-decimal form. 
-  static string addrToString( uint addr ) @trusted nothrow
+  string addrToString( uint addr ) @trusted nothrow
   // 
-  ref sockaddr* name() override @property return
+  ref sockaddr* name() @property return
   // 
-  ref sockaddr* name() override @property return
+  ref sockaddr* name() @property return
   // 
-  socklen_t nameLen() override @property
+  socklen_t nameLen() @property
   // Provides support for comparing equality with another InternetAddress of the same type. Returns: true if the InternetAddresses share the same address and port number. 
-  bool opEquals( Object o ) override
+  bool opEquals( Object o ) 
   // Parse an IPv4 address string in the dotted-decimal form $(I a.b.c.d) and return the number. Returns: If the string is not a legitimate IPv4 address, `ADDR_NONE` is returned. 
-  static uint parse( scope char[] addr ) @trusted nothrow
+  uint parse( scope char[] addr ) @trusted nothrow
   // Returns the IPv4 port number (in host byte order). 
   ushort port() @nogc @property nothrow pure
   // Human readable string representing the IPv4 address in dotted-decimal form. 
-  string toAddrString() override @trusted
+  string toAddrString() @trusted
   // Attempts to retrieve the host name as a fully qualified domain name. 
-  string toHostNameString() override
+  string toHostNameString() 
   // Human readable string representing the IPv4 port. 
-  string toPortString() override
+  string toPortString() 
 
   // Any IPv4 host address. 
   uint ADDR_ANY = INADDR_ANY

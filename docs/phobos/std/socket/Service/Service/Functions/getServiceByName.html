@@ -88,7 +88,10 @@
 <h1 class='section'>Overloads for - getServiceByName</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.socket.Service</dd></dl><dl><dt>Parent</dt><dd>Service</dd></dl>
 </div><h2 class='section api'>getServiceByName(name, protocolName)   </h2>
- <pre><code class='lang-d'>bool getServiceByName( scope char[] name, scope char[] protocolName ) @trusted nothrow</code></pre><p>If a protocol name is omitted, any protocol will be matched. Returns: false on failure.</p>
+ <pre><code class='lang-d'>bool getServiceByName(
+  scope char[] name,
+  scope char[] protocolName = null
+) @trusted nothrow</code></pre><p>If a protocol name is omitted, any protocol will be matched. Returns: false on failure.</p>
 
 </article>
 

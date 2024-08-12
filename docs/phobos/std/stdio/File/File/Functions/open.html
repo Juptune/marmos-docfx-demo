@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - open</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.stdio.File</dd></dl><dl><dt>Parent</dt><dd>File</dd></dl>
 </div><h2 class='section api'>open(name, stdioOpenmode)   </h2>
- <pre><code class='lang-d'>void open( string name, scope char[] stdioOpenmode ) @trusted</code></pre><p>Detaches from the current file (throwing on failure), and then attempts to open file <code>name</code> with mode <code>stdioOpenmode</code>. The mode has the same semantics as in the C standard library $(CSTDIO fopen) function.</p>
+ <pre><code class='lang-d'>void open( string name, scope char[] stdioOpenmode = &quot;rb&quot; ) @trusted</code></pre><p>Detaches from the current file (throwing on failure), and then attempts to open file <code>name</code> with mode <code>stdioOpenmode</code>. The mode has the same semantics as in the C standard library $(CSTDIO fopen) function.</p>
 <p>Throws: <code>ErrnoException</code> in case of error.</p>
 
 </article>

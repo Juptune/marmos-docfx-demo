@@ -88,7 +88,11 @@
 <h1 class='section'>Overloads for - sysErrorString</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.windows.syserror</dd></dl>
 </div><h2 class='section api'>sysErrorString(errCode, langId, subLangId)   </h2>
- <pre><code class='lang-d'>string sysErrorString( DWORD errCode, int langId, int subLangId ) @trusted</code></pre><p>Query the text for a Windows error code, as returned by $(LINK2 <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms679360.aspx">http://msdn.microsoft.com/en-us/library/windows/desktop/ms679360.aspx</a>, <code>GetLastError</code> ), as a D string.</p>
+ <pre><code class='lang-d'>string sysErrorString(
+  DWORD errCode,
+  int langId = LANG_NEUTRAL,
+  int subLangId = SUBLANG_DEFAULT
+) @trusted</code></pre><p>Query the text for a Windows error code, as returned by $(LINK2 <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ms679360.aspx">http://msdn.microsoft.com/en-us/library/windows/desktop/ms679360.aspx</a>, <code>GetLastError</code> ), as a D string.</p>
 
 </article>
 

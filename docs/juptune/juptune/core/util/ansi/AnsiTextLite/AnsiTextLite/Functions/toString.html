@@ -88,8 +88,8 @@
 <h1 class='section'>Overloads for - toString</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.core.util.ansi.AnsiTextLite</dd></dl><dl><dt>Parent</dt><dd>AnsiTextLite</dd></dl>
 </div><h2 class='section api'>toString(sink)   </h2>
- <pre><code class='lang-d'>void toString( scope &lt;bug: unknown&gt; sink ) </code></pre><p>The sink-based version of <code>toString</code> , which doesn't allocate by itself unless the <code>sink</code> decides to allocate.</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>sink</code> &lt;bug: unknown&gt;  </dt>
+ <pre><code class='lang-d'>void toString( scope void delegate(char[]) sink ) </code></pre><p>The sink-based version of <code>toString</code> , which doesn't allocate by itself unless the <code>sink</code> decides to allocate.</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>sink</code> void delegate(char[])  </dt>
 <dd>
 
 

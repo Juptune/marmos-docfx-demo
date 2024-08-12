@@ -91,7 +91,7 @@
  <pre><code class='lang-d'>Result uriParseNoCopy(
   char[] input,
   out scope ScopeUri uri,
-  UriParseRules rules
+  UriParseRules rules = UriParseRules.strict
 ) @nogc @trusted nothrow</code></pre><p>Higher level Uri parsing functions</p>
 <p>Parses a URI from a string into a <code>ScopeUri</code> , which specifically does not contain any copy of the input data, but instead slices from the original <code>input</code> slice.</p>
 <p>This means the returned <code>ScopeUri</code> is only valid for as long as the <code>input</code> slice is valid and unmodified.</p>

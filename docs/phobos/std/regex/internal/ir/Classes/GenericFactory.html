@@ -92,13 +92,13 @@
   // 
   EngineType!(Char) construct( const ref Regex!(Char) re, in Char[] input, void[] memory ) 
   // 
-  EngineType!(Char) create( const ref Regex!(Char) re, in Char[] input ) override @trusted
+  EngineType!(Char) create( const ref Regex!(Char) re, in Char[] input ) @trusted
   // 
-  size_t decRef( Matcher!(Char) m ) override @trusted
+  size_t decRef( Matcher!(Char) m ) @trusted
   // 
-  EngineType!(Char) dup( Matcher!(Char) engine, in Char[] input ) override @trusted
+  EngineType!(Char) dup( Matcher!(Char) engine, in Char[] input ) @trusted
   // 
-  size_t incRef( Matcher!(Char) m ) override
+  size_t incRef( Matcher!(Char) m ) 
 
   // 
   &lt;enum or auto&gt; classSize = __traits(classInstanceSize, EngineType!Char) + size_t.sizeof - 1 &amp; ~(size_t.sizeof - 1)

@@ -88,11 +88,14 @@
 <h1 class='section'>Overloads for - fwdRange</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.interval.PosInfInterval</dd></dl><dl><dt>Parent</dt><dd>PosInfInterval</dd></dl>
 </div><h2 class='section api'>fwdRange(func, popFirst)   </h2>
- <pre><code class='lang-d'>PosInfIntervalRange!(TP) fwdRange( &lt;bug: unknown&gt; func, PopFirst popFirst ) </code></pre><p>Returns a range which iterates forward over the interval, starting at <code>begin</code> , using $(D_PARAM func) to generate each successive time point.</p>
+ <pre><code class='lang-d'>PosInfIntervalRange!(TP) fwdRange(
+  TP delegate(const scope TP) func,
+  PopFirst popFirst = PopFirst.no
+) </code></pre><p>Returns a range which iterates forward over the interval, starting at <code>begin</code> , using $(D_PARAM func) to generate each successive time point.</p>
 <p>The range's <code>front</code> is the interval's <code>begin</code> . $(D_PARAM func) is used to generate the next <code>front</code> when <code>popFront</code> is called. If $(D_PARAM popFirst) is <code>PopFirst.yes</code> , then <code>popFront</code> is called before the range is returned (so that <code>front</code> is a time point which $(D_PARAM func) would generate).</p>
 <p>If $(D_PARAM func) ever generates a time point less than or equal to the current <code>front</code> of the range, then a $(REF DateTimeException,std,datetime,date) will be thrown.</p>
 <p>There are helper functions in this module which generate common delegates to pass to <code>fwdRange</code> . Their documentation starts with &quot;Range-generating function,&quot; to make them easily searchable.</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>func</code> &lt;bug: unknown&gt;  </dt>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>func</code> TP delegate(const scope TP)  </dt>
 <dd>
 
 

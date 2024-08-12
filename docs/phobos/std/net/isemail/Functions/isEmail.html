@@ -92,8 +92,8 @@
   Char
 )(
   Char[] email,
-  CheckDns checkDNS,
-  EmailStatusCode errorLevel
+  CheckDns checkDNS = No.checkDns,
+  EmailStatusCode errorLevel = EmailStatusCode.none
 ) </code></pre><p>Check that an email address conforms to RFCs 5321, 5322 and others.</p>
 <p>Distinguishes between a Mailbox as defined  by RFC 5321 and an addr-spec as defined by RFC 5322. Depending on the context, either can be regarded as a valid email address.</p>
 <p>Note: The DNS check is currently not implemented.</p>

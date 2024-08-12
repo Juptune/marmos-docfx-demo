@@ -106,8 +106,8 @@
     size_t LINE = __LINE__
   )(
     T errorCode,
-    string error,
-    String2 context
+    string error = null,
+    String2 context = String2.init
   ) 
   // 
   Result make(
@@ -122,7 +122,7 @@
     String context
   ) @trusted
   // 
-  static Result noError() 
+  Result noError() 
   // 
   void opAssign( T )( auto ref T other ) 
   // 

@@ -92,8 +92,8 @@
   Terminator = char,
   Char = char
 )(
-  KeepTerminator keepTerminator,
-  Terminator terminator
+  KeepTerminator keepTerminator = No.keepTerminator,
+  Terminator terminator = &#39;\n&#39;
 ) </code></pre><p>Returns an $(REF_ALTTEXT input range, isInputRange, std,range,primitives) set up to read from the file handle one line at a time.</p>
 <p>The element type for the range will be <code>Char[]</code> . Range primitives may throw <code>StdioException</code> on I/O error.</p>
 <h3 class='section'>Note</h3><p>Each <code>front</code> will not persist after $(D popFront) is called, so the caller must copy its contents (e.g. by calling <code>to!string</code> ) when retention is needed. If the caller needs to retain a copy of every line, use the $(LREF byLineCopy) function instead.</p>

@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - isNumeric</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.string</dd></dl>
 </div><h2 class='section api'>isNumeric(s, bAllowSep)   </h2>
- <pre><code class='lang-d'>bool isNumeric( S )( S s, bool bAllowSep ) </code></pre><p>Takes a string <code>s</code> and determines if it represents a number. This function also takes an optional parameter, <code>bAllowSep</code> , which will accept the separator characters <code>','</code> and <code>'__'</code> within the string. But these characters should be stripped from the string before using any of the conversion functions like <code>to!int()</code> , <code>to!float()</code> , and etc else an error will occur.</p>
+ <pre><code class='lang-d'>bool isNumeric( S )( S s, bool bAllowSep = false ) </code></pre><p>Takes a string <code>s</code> and determines if it represents a number. This function also takes an optional parameter, <code>bAllowSep</code> , which will accept the separator characters <code>','</code> and <code>'__'</code> within the string. But these characters should be stripped from the string before using any of the conversion functions like <code>to!int()</code> , <code>to!float()</code> , and etc else an error will occur.</p>
 <p>Also please note, that no spaces are allowed within the string anywhere whether it's a leading, trailing, or embedded space(s), thus they too must be stripped from the string before using this function, or any of the conversion functions.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>s</code> S  </dt>
 <dd>

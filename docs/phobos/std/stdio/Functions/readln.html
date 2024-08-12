@@ -88,12 +88,12 @@
 <h1 class='section'>Overloads for - readln</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.stdio</dd></dl>
 </div><h2 class='section api'>readln(terminator)   </h2>
- <pre><code class='lang-d'>S readln( S = string )( dchar terminator ) </code></pre><p>Read line from <code>stdin</code> .</p>
+ <pre><code class='lang-d'>S readln( S = string )( dchar terminator = &#39;\n&#39; ) </code></pre><p>Read line from <code>stdin</code> .</p>
 <p>This version manages its own read buffer, which means one memory allocation per call. If you are not retaining a reference to the read data, consider the <code>readln(buf)</code> version, which may offer better performance as it can reuse its read buffer.</p>
 <h3 class='section'>Returns</h3><p>The line that was read, including the line terminator character. Params: S = Template parameter; the type of the allocated buffer, and the type returned. Defaults to <code>string</code> . terminator = Line terminator (by default, <code>'\n'</code> ). Note: String terminators are not supported due to ambiguity with readln(buf) below. Throws: <code>StdioException</code> on I/O error, or <code>UnicodeException</code> on Unicode conversion error. Example: Reads <code>stdin</code> and writes it to <code>stdout</code> . --- import std.stdio;</p>
 <p>void main() { string line; while ((line = readln()) !is null) write(line); } ---</p>
 <h2 class='section api'>readln(buf, terminator)   </h2>
- <pre><code class='lang-d'>size_t readln( C )( ref C[] buf, dchar terminator ) </code></pre><p>Read line from <code>stdin</code> and write it to buf[], including terminating character.</p>
+ <pre><code class='lang-d'>size_t readln( C )( ref C[] buf, dchar terminator = &#39;\n&#39; ) </code></pre><p>Read line from <code>stdin</code> and write it to buf[], including terminating character.</p>
 <p>This can be faster than $(D line = readln()) because you can reuse the buffer for each call. Note that reusing the buffer means that you must copy the previous contents if you wish to retain them.</p>
 <h3 class='section'>Returns</h3><p><code>size_t</code> 0 for end of file, otherwise number of characters read Params: buf = Buffer used to store the resulting line data. buf is resized as necessary. terminator = Line terminator (by default, <code>'\n'</code> ). Use $(REF newline, std,ascii) for portability (unless the file was opened in text mode). Throws: <code>StdioException</code> on I/O error, or <code>UnicodeException</code> on Unicode conversion error. Example: Reads <code>stdin</code> and writes it to <code>stdout</code> . --- import std.stdio;</p>
 <p>void main() { char[] buf; while (readln(buf)) write(buf); } ---</p>

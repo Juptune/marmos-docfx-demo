@@ -92,11 +92,11 @@
   // Family of this address. 
   AddressFamily addressFamily() @nogc @property nothrow pure
   // Returns pointer to underlying `sockaddr` structure. 
-  sockaddr* name() abstract @nogc @property nothrow pure
+  sockaddr* name() @nogc @property nothrow pure
   // ditto 
-  sockaddr* name() abstract @nogc @property nothrow pure
+  sockaddr* name() @nogc @property nothrow pure
   // Returns actual size of underlying `sockaddr` structure. 
-  socklen_t nameLen() abstract @nogc @property nothrow pure
+  socklen_t nameLen() @nogc @property nothrow pure
   // 
   void setNameLen( socklen_t len ) 
   // Attempts to retrieve the host address as a human-readable string. 
@@ -112,7 +112,7 @@
   // 
   string toServiceString( bool numeric ) @trusted
   // Human readable string representing this address. 
-  string toString() override
+  string toString() 
 }</code></pre><h2 class='section'>About</h2><p>Abstract class for representing a socket address.</p>
 <h3 class='section'>Example</h3><p>--- writeln(&quot;About <a href="http://www.google.com">www.google.com</a> port 80:&quot;); try { Address[] addresses = getAddress(&quot;www.google.com&quot;, 80); writefln(&quot;  %d addresses found.&quot;, addresses.length); foreach (int i, Address a; addresses) { writefln(&quot;  Address %d:&quot;, i+1); writefln(&quot;    IP address: %s&quot;, a.toAddrString()); writefln(&quot;    Hostname: %s&quot;, a.toHostNameString()); writefln(&quot;    Port: %s&quot;, a.toPortString()); writefln(&quot;    Service name: %s&quot;, a.toServiceNameString()); } } catch (SocketException e) writefln(&quot;  Lookup error: %s&quot;, e.msg); ---</p>
 <h2 class='section'>Functions</h2><table>

@@ -90,15 +90,15 @@
 </div><pre><code class='lang-d'>public struct AnsiStyle
 {
   // SETTERS 
-  ref AnsiStyle bold( bool enable ) return
+  ref AnsiStyle bold( bool enable = true ) return
   // GETTERS 
   bool bold() 
   // SETTERS 
-  ref AnsiStyle dim( bool enable ) return
+  ref AnsiStyle dim( bool enable = true ) return
   // GETTERS 
   bool dim() 
   // SETTERS 
-  ref AnsiStyle fastBlink( bool enable ) return
+  ref AnsiStyle fastBlink( bool enable = true ) return
   // GETTERS 
   bool fastBlink() 
   // Get the status of a certain styling option. 
@@ -106,11 +106,11 @@
   // 
   bool getSgrBit( AnsiSgrStyle style ) @nogc @safe nothrow pure
   // SETTERS 
-  ref AnsiStyle invert( bool enable ) return
+  ref AnsiStyle invert( bool enable = true ) return
   // GETTERS 
   bool invert() 
   // SETTERS 
-  ref AnsiStyle italic( bool enable ) return
+  ref AnsiStyle italic( bool enable = true ) return
   // GETTERS 
   bool italic() 
   // Removes all styling from this `AnsiStyle` . 
@@ -122,17 +122,17 @@
   // 
   int sgrToBit( AnsiSgrStyle style ) @nogc @safe nothrow pure
   // SETTERS 
-  ref AnsiStyle slowBlink( bool enable ) return
+  ref AnsiStyle slowBlink( bool enable = true ) return
   // GETTERS 
   bool slowBlink() 
   // SETTERS 
-  ref AnsiStyle strike( bool enable ) return
+  ref AnsiStyle strike( bool enable = true ) return
   // GETTERS 
   bool strike() 
   // OUTPUT 
   char[] toSequence( ref return ref char[MAX_CHARS_NEEDED] buffer ) @nogc @safe nothrow
   // SETTERS 
-  ref AnsiStyle underline( bool enable ) return
+  ref AnsiStyle underline( bool enable = true ) return
   // GETTERS 
   bool underline() 
 

@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - allocate</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.crypto.memory.SecureMemory</dd></dl><dl><dt>Parent</dt><dd>SecureMemory</dd></dl>
 </div><h2 class='section api'>allocate(memory, length)   </h2>
- <pre><code class='lang-d'>static Result allocate( out scope SecureMemory memory, size_t length ) @trusted</code></pre><p>Allocates a new SecureMemory struct, with the given length.</p>
+ <pre><code class='lang-d'>Result allocate( out scope SecureMemory memory, size_t length ) @trusted</code></pre><p>Allocates a new SecureMemory struct, with the given length.</p>
 <h3 class='section'>Notes</h3><p>Please see the struct documentation for more information on the memory layout.</p>
 <p>A length of 0 is valid, though not really recommended.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>memory</code> SecureMemory  </dt>

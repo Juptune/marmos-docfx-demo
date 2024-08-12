@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - column</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.string</dd></dl>
 </div><h2 class='section api'>column(str, tabsize)   </h2>
- <pre><code class='lang-d'>size_t column( Range )( Range str, in size_t tabsize ) </code></pre><p>Compute column number at the end of the printed form of the string, assuming the string starts in the leftmost column, which is numbered starting from 0.</p>
+ <pre><code class='lang-d'>size_t column( Range )( Range str, in size_t tabsize = 8 ) </code></pre><p>Compute column number at the end of the printed form of the string, assuming the string starts in the leftmost column, which is numbered starting from 0.</p>
 <p>Tab characters are expanded into enough spaces to bring the column number to the next multiple of tabsize. If there are multiple lines in the string, the column number of the last line is returned.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>str</code> Range  </dt>
 <dd>
@@ -104,7 +104,7 @@
 
 </dd></dl><h3 class='section'>Returns</h3><p>column number</p>
 <h2 class='section api'>column(str, tabsize)   </h2>
- <pre><code class='lang-d'>size_t column( Range )( auto ref Range str, in size_t tabsize ) </code></pre>
+ <pre><code class='lang-d'>size_t column( Range )( auto ref Range str, in size_t tabsize = 8 ) </code></pre>
 </article>
 
         <div class="contribution d-print-none">

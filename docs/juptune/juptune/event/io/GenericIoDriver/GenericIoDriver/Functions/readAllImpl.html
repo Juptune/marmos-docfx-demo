@@ -93,9 +93,9 @@
   GrowFuncT
 )(
   ref scope BufferT buffer,
-  size_t cursor,
-  scope GrowFuncT growFunc,
-  Duration timeout
+  size_t cursor = 0,
+  scope GrowFuncT growFunc = null,
+  Duration timeout = Duration.zero
 ) </code></pre>
 </article>
 

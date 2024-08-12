@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - listen</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.event.io.PosixTcpSocket</dd></dl><dl><dt>Parent</dt><dd>PosixTcpSocket</dd></dl>
 </div><h2 class='section api'>listen(address, backlog, defaultPort)   </h2>
- <pre><code class='lang-d'>Result listen( const scope char[] address, uint backlog, ushort defaultPort ) </code></pre><p>Binds the socket to an address, and begins listening for connections.</p>
+ <pre><code class='lang-d'>Result listen( const scope char[] address, uint backlog, ushort defaultPort = 0 ) </code></pre><p>Binds the socket to an address, and begins listening for connections.</p>
 <p>This overload is for convenience, as it will call <code>IpAddress.parse</code> on the given <code>address</code> .</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>address</code> char[]  </dt>
 <dd>

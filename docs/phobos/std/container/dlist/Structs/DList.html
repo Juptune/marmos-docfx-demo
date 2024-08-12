@@ -121,7 +121,13 @@
   // Removes all contents from the `DList` . 
   void clear() 
   // 
-  BaseNode* createNode( Stuff )( auto ref Stuff arg, BaseNode* prev, BaseNode* next ) 
+  BaseNode* createNode(
+    Stuff
+  )(
+    auto ref Stuff arg,
+    BaseNode* prev = null,
+    BaseNode* next = null
+  ) 
   // 
   Range createRange( Stuff )( ref Stuff stuff, ref size_t result ) 
   // Duplicates the container. The elements themselves are not transitively duplicated. 

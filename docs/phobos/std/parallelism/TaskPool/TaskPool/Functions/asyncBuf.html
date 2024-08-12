@@ -88,14 +88,22 @@
 <h1 class='section'>Overloads for - asyncBuf</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.parallelism.TaskPool</dd></dl><dl><dt>Parent</dt><dd>TaskPool</dd></dl>
 </div><h2 class='section api'>asyncBuf(source, bufSize)   </h2>
- <pre><code class='lang-d'>auto asyncBuf( S )( S source, size_t bufSize ) </code></pre><p>Given a <code>source</code> range that is expensive to iterate over, returns an $(REF_ALTTEXT input range, isInputRange, std,range,primitives) that asynchronously buffers the contents of <code>source</code> into a buffer of <code>bufSize</code> elements in a worker thread, while making previously buffered elements from a second buffer, also of size <code>bufSize</code> , available via the range interface of the returned object.  The returned range has a length iff <code>hasLength!S</code> . <code>asyncBuf</code> is useful, for example, when performing expensive operations on the elements of ranges that represent data on a disk or network.</p>
+ <pre><code class='lang-d'>auto asyncBuf( S )( S source, size_t bufSize = 100 ) </code></pre><p>Given a <code>source</code> range that is expensive to iterate over, returns an $(REF_ALTTEXT input range, isInputRange, std,range,primitives) that asynchronously buffers the contents of <code>source</code> into a buffer of <code>bufSize</code> elements in a worker thread, while making previously buffered elements from a second buffer, also of size <code>bufSize</code> , available via the range interface of the returned object.  The returned range has a length iff <code>hasLength!S</code> . <code>asyncBuf</code> is useful, for example, when performing expensive operations on the elements of ranges that represent data on a disk or network.</p>
 <h3 class='section'>Example</h3><p>--- import std.conv, std.stdio;</p>
 <p>void main() { // Fetch lines of a file in a background thread // while processing previously fetched lines, // dealing with byLine's buffer recycling by // eagerly duplicating every line. auto lines = File(&quot;foo.txt&quot;).byLine(); auto duped = std.algorithm.map!&quot;a.idup&quot;(lines);</p>
 <p>// Fetch more lines in the background while we // process the lines already read into memory // into a matrix of doubles. double[][] matrix; auto asyncReader = taskPool.asyncBuf(duped);</p>
 <p>foreach (line; asyncReader) { auto ls = line.split(&quot;\t&quot;); matrix ~= to!(double[])(ls); } } ---</p>
 <h3 class='section'>$(B Exception Handling)</h3><p>Any exceptions thrown while iterating over <code>source</code> are re-thrown on a call to <code>popFront</code> or, if thrown during construction, simply allowed to propagate to the caller.</p>
 <h2 class='section api'>asyncBuf(next, empty, initialBufSize, nBuffers)   </h2>
- <pre><code class='lang-d'>auto asyncBuf( C1, C2 )( C1 next, C2 empty, size_t initialBufSize, size_t nBuffers ) </code></pre><p>Given a callable object <code>next</code> that writes to a user-provided buffer and a second callable object <code>empty</code> that determines whether more data is available to write via <code>next</code> , returns an input range that asynchronously calls <code>next</code> with a set of size <code>nBuffers</code> of buffers and makes the results available in the order they were obtained via the input range interface of the returned object.  Similarly to the input range overload of <code>asyncBuf</code> , the first half of the buffers are made available via the range interface while the second half are filled and vice-versa.</p>
+ <pre><code class='lang-d'>auto asyncBuf(
+  C1,
+  C2
+)(
+  C1 next,
+  C2 empty,
+  size_t initialBufSize = 0,
+  size_t nBuffers = 100
+) </code></pre><p>Given a callable object <code>next</code> that writes to a user-provided buffer and a second callable object <code>empty</code> that determines whether more data is available to write via <code>next</code> , returns an input range that asynchronously calls <code>next</code> with a set of size <code>nBuffers</code> of buffers and makes the results available in the order they were obtained via the input range interface of the returned object.  Similarly to the input range overload of <code>asyncBuf</code> , the first half of the buffers are made available via the range interface while the second half are filled and vice-versa.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>next</code> C1  </dt>
 <dd>
 

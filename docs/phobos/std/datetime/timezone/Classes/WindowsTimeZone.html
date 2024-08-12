@@ -90,17 +90,17 @@
 </div><pre><code class='lang-d'>public class WindowsTimeZone
 {
   // Takes the number of hnsecs (100 ns) since midnight, January 1st, 1 A.D. in UTC time (i.e. std time) and returns whether DST is in effect in this time zone at the given point in time. 
-  bool dstInEffect( long stdTime ) override @safe nothrow scope
+  bool dstInEffect( long stdTime ) @safe nothrow scope
   // Returns a list of the names of the time zones installed on the system. The list returned by WindowsTimeZone contains the Windows TZ names, not the TZ Database names. However, `TimeZone.getinstalledTZNames` will return the TZ Database names which are equivalent to the Windows TZ names. 
-  static string[] getInstalledTZNames() @safe
+  string[] getInstalledTZNames() @safe
   // Returns a $(LREF TimeZone) with the given name per the Windows time zone names. The time zone information is fetched from the Windows registry. 
-  static WindowsTimeZone getTimeZone( string name ) @safe
+  WindowsTimeZone getTimeZone( string name ) @safe
   // Whether this time zone has Daylight Savings Time at any point in time. Note that for some time zone types it may not have DST for current dates but will still return true for `hasDST` because the time zone did at some point have DST. 
-  bool hasDST() override @property @safe nothrow scope
+  bool hasDST() @property @safe nothrow scope
   // Takes the number of hnsecs (100 ns) since midnight, January 1st, 1 A.D. in this time zone&#39;s time and converts it to UTC (i.e. std time). 
-  long tzToUTC( long adjTime ) override @safe nothrow scope
+  long tzToUTC( long adjTime ) @safe nothrow scope
   // Takes the number of hnsecs (100 ns) since midnight, January 1st, 1 A.D. in UTC time (i.e. std time) and converts it to this time zone&#39;s time. 
-  long utcToTZ( long stdTime ) override @safe nothrow scope
+  long utcToTZ( long stdTime ) @safe nothrow scope
 }</code></pre><h2 class='section'>About</h2><p>$(BLUE This class is Windows-Only.)</p>
 <p>Represents a time zone from the Windows registry. Unfortunately, Windows does not use the TZ Database. To use the TZ Database, use $(LREF PosixTimeZone) (which reads its information from the TZ Database files on disk) on Windows by providing the TZ Database files and telling <code>PosixTimeZone.getTimeZone</code> where the directory holding them is.</p>
 <p>The TZ Database files and Windows' time zone information frequently do not match. Windows has many errors with regards to when DST switches occur (especially for historical dates). Also, the TZ Database files include far more time zones than Windows does. So, for accurate time zone information, use the TZ Database files with $(LREF PosixTimeZone) rather than <code>WindowsTimeZone</code> . However, because <code>WindowsTimeZone</code> uses Windows system calls to deal with the time, it's far more likely to match the behavior of other Windows programs. Be aware of the differences when selecting a method.</p>

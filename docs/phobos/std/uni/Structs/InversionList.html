@@ -99,13 +99,13 @@
   // 
   ref &lt;bug: unknown&gt; add( U )( U rhs ) 
   // 
-  Marker addInterval( int a, int b, Marker hint ) scope
+  Marker addInterval( int a, int b, Marker hint = Marker.init ) scope
   // A range that spans each $(CODEPOINT) in this set. 
   auto byCodepoint() @property
   // Get range that spans all of the $(CODEPOINT) intervals in this $(LREF InversionList). 
   auto byInterval() @property scope
   // 
-  Marker dropUpTo( uint a, Marker pos ) 
+  Marker dropUpTo( uint a, Marker pos = Marker.init ) 
   // True if this set doesn&#39;t contain any $(CODEPOINTS). 
   bool empty() @property
   // 
@@ -137,7 +137,7 @@
   // 
   auto scanFor( )( dchar ch ) 
   // 
-  Marker skipUpTo( uint a, Marker pos ) 
+  Marker skipUpTo( uint a, Marker pos = Marker.init ) 
   // 
   ref &lt;bug: unknown&gt; sub( )( dchar ch ) 
   // 
@@ -145,9 +145,9 @@
   // 
   ref &lt;bug: unknown&gt; subChar( dchar ch ) 
   // 
-  static string toSourceCode( CodepointInterval[] range, string funcName ) 
+  string toSourceCode( CodepointInterval[] range, string funcName ) 
   // Generates string with D source code of unary function with name of `funcName` taking a single `dchar` argument. If `funcName` is empty the code is adjusted to be a lambda function. 
-  string toSourceCode( string funcName ) 
+  string toSourceCode( string funcName = &quot;&quot; ) 
   // Obtain a textual representation of this InversionList in form of open-right intervals. 
   void toString( Writer )( scope Writer sink, const ref scope FormatSpec!(char) fmt ) 
 

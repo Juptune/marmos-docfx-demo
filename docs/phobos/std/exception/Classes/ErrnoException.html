@@ -90,9 +90,9 @@
 </div><pre><code class='lang-d'>public class ErrnoException
 {
   // Operating system error code. 
-  uint errno() final @nogc @property @safe nothrow scope pure
+  uint errno() @nogc @property @safe nothrow scope pure
   // Localized error message generated through $(REF strerror_r, core,stdc,string) or $(REF strerror, core,stdc,string). 
-  string errnoMsg() final @nogc @property @safe nothrow scope pure
+  string errnoMsg() @nogc @property @safe nothrow scope pure
 }</code></pre><h2 class='section'>About</h2><p>Thrown if errors that set <code>errno</code> occur.</p>
 <h2 class='section'>Functions</h2><table>
 <thead>

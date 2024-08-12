@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - toISOExtString</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.systime.SysTime</dd></dl><dl><dt>Parent</dt><dd>SysTime</dd></dl>
 </div><h2 class='section api'>toISOExtString(prec)   </h2>
- <pre><code class='lang-d'>string toISOExtString( int prec ) @safe nothrow scope</code></pre><p>Converts this $(LREF SysTime) to a string with the format YYYY-MM-DDTHH:MM:SS.FFFFFFFTZ (where F is fractional seconds and TZ is the time zone).</p>
+ <pre><code class='lang-d'>string toISOExtString( int prec = -1 ) @safe nothrow scope</code></pre><p>Converts this $(LREF SysTime) to a string with the format YYYY-MM-DDTHH:MM:SS.FFFFFFFTZ (where F is fractional seconds and TZ is the time zone).</p>
 <h3 class='section'>Default behaviour</h3><p>Note that the number of digits in the fractional seconds varies with the number of fractional seconds. It's a maximum of 7 (which would be hnsecs), but only has as many as are necessary to hold the correct value (so no trailing zeroes), and if there are no fractional seconds, then there is no decimal point.</p>
 <p>The optional parameter &quot;prec&quot; allows to change the default behavior by specifying the precision of the fractional seconds. The accepted values are in the range [-1, 7], where -1 represents the default behavior.</p>
 <p>If this $(LREF SysTime)'s time zone is $(REF LocalTime,std,datetime,timezone), then TZ is empty. If its time zone is <code>UTC</code> , then it is &quot;Z&quot;. Otherwise, it is the offset from UTC (e.g. +01:00 or -07:00). Note that the offset from UTC is $(I not) enough to uniquely identify the time zone.</p>
@@ -101,7 +101,7 @@
 
 </dd></dl><p>$(REF_ALTTEXT output range, isOutputRange, std, range, primitives) prec = An <code>int</code> representing the desired precision. Acceptable values range from -1 to 7, where -1 represents the default behavior. Returns: A <code>string</code> when not using an output range; <code>void</code> otherwise.</p>
 <h2 class='section api'>toISOExtString(writer, prec)   </h2>
- <pre><code class='lang-d'>void toISOExtString( W )( ref W writer, int prec ) scope</code></pre><p>ditto</p>
+ <pre><code class='lang-d'>void toISOExtString( W )( ref W writer, int prec = -1 ) scope</code></pre><p>ditto</p>
 
 </article>
 

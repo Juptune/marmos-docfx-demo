@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - parseAddress</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.socket</dd></dl>
 </div><h2 class='section api'>parseAddress(hostaddr, service)   </h2>
- <pre><code class='lang-d'>Address parseAddress( scope char[] hostaddr, scope char[] service ) </code></pre><p>Provides protocol-independent parsing of network addresses. Does not attempt name resolution. Uses <code>getAddressInfo</code> with <code>AddressInfoFlags.NUMERICHOST</code> if the current system supports it, and <code>InternetAddress</code> otherwise.</p>
+ <pre><code class='lang-d'>Address parseAddress( scope char[] hostaddr, scope char[] service = null ) </code></pre><p>Provides protocol-independent parsing of network addresses. Does not attempt name resolution. Uses <code>getAddressInfo</code> with <code>AddressInfoFlags.NUMERICHOST</code> if the current system supports it, and <code>InternetAddress</code> otherwise.</p>
 <p>Returns: An <code>Address</code> instance representing specified address.</p>
 <p>Throws: <code>SocketException</code> on failure.</p>
 <h3 class='section'>Example</h3><p>--- writeln(&quot;Enter IP address:&quot;); string ip = readln().chomp(); try { Address address = parseAddress(ip); writefln(&quot;Looking up reverse of %s:&quot;, address.toAddrString()); try { string reverse = address.toHostNameString(); if (reverse) writefln(&quot;  Reverse name: %s&quot;, reverse); else writeln(&quot;  Reverse hostname not found.&quot;); } catch (SocketException e) writefln(&quot;  Lookup error: %s&quot;, e.msg); } catch (SocketException e) { writefln(&quot;  %s is not a valid IP address: %s&quot;, ip, e.msg); } ---</p>

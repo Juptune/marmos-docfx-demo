@@ -90,9 +90,12 @@
 </div><pre><code class='lang-d'>public class Service
 {
   // If a protocol name is omitted, any protocol will be matched. Returns: false on failure. 
-  bool getServiceByName( scope char[] name, scope char[] protocolName ) @trusted nothrow
+  bool getServiceByName(
+    scope char[] name,
+    scope char[] protocolName = null
+  ) @trusted nothrow
   // ditto 
-  bool getServiceByPort( ushort port, scope char[] protocolName ) @trusted nothrow
+  bool getServiceByPort( ushort port, scope char[] protocolName = null ) @trusted nothrow
   // 
   void populate( servent* serv ) @system nothrow pure
 

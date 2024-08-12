@@ -92,8 +92,8 @@
   Terminator = char,
   Char = char
 )(
-  KeepTerminator keepTerminator,
-  Terminator terminator
+  KeepTerminator keepTerminator = No.keepTerminator,
+  Terminator terminator = &#39;\n&#39;
 ) </code></pre><p>Returns an $(REF_ALTTEXT input range, isInputRange, std,range,primitives) set up to read from the file handle one line at a time. Each line will be newly allocated. <code>front</code> will cache its value to allow repeated calls without unnecessary allocations.</p>
 <p>Note: Due to caching byLineCopy can be more memory-efficient than <code>File.byLine.map!idup</code> .</p>
 <p>The element type for the range will be <code>Char[]</code> . Range primitives may throw <code>StdioException</code> on I/O error.</p>

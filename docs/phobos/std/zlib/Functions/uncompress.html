@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - uncompress</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.zlib</dd></dl>
 </div><h2 class='section api'>uncompress(srcbuf, destlen, winbits)   </h2>
- <pre><code class='lang-d'>void[] uncompress( void[] srcbuf, size_t destlen, int winbits ) </code></pre><p>Decompresses the data in srcbuf[]. Params: srcbuf  = buffer containing the compressed data. destlen = size of the uncompressed data. It need not be accurate, but the decompression will be faster if the exact size is supplied. winbits = the base two logarithm of the maximum window size. Returns: the decompressed data.</p>
+ <pre><code class='lang-d'>void[] uncompress( void[] srcbuf, size_t destlen = 0u, int winbits = 15 ) </code></pre><p>Decompresses the data in srcbuf[]. Params: srcbuf  = buffer containing the compressed data. destlen = size of the uncompressed data. It need not be accurate, but the decompression will be faster if the exact size is supplied. winbits = the base two logarithm of the maximum window size. Returns: the decompressed data.</p>
 
 </article>
 

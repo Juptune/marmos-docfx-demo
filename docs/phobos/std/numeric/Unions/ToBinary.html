@@ -90,7 +90,7 @@
 </div><pre><code class='lang-d'>union ToBinary( F )
 {
   // 
-  static typeof(get) opCall( F value ) 
+  typeof(get) opCall( F value ) 
 
   // 
   CustomFloat!(CustomFloatParams!(min(F.sizeof * 8, 80))) get

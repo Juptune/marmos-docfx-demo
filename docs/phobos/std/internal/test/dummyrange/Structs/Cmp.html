@@ -90,16 +90,16 @@
 </div><pre><code class='lang-d'>struct Cmp( T )
 {
   // 
-  static TestFoo dummyValue() @property
+  TestFoo dummyValue() @property
   // 
-  static TestFoo dummyValueRslt() @property
+  TestFoo dummyValueRslt() @property
   // 
-  static void initialize( ref TestFoo[] arr ) 
+  void initialize( ref TestFoo[] arr ) 
   // 
-  static auto iota( size_t low, size_t high ) 
+  auto iota( size_t low = 1, size_t high = 11 ) 
 
   // 
-  static * cmp
+  static bool function(TestFoo,TestFoo)* cmp
 }</code></pre><h2 class='section'>Functions</h2><table>
 <thead>
 <tr>

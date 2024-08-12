@@ -91,7 +91,7 @@
  <pre><code class='lang-d'>void rounding( RoundingMode newMode ) @property @trusted</code></pre><p>Change the floating-point hardware rounding mode</p>
 <p>Changing the rounding mode in the middle of a function can interfere with optimizations of floating point expressions, as the optimizer assumes that the rounding mode does not change. It is best to change the rounding mode only at the beginning of the function, and keep it until the function returns. It is also best to add the line: --- pragma(inline, false); --- as the first line of the function so it will not get inlined. Params: newMode = the new rounding mode</p>
 <h2 class='section api'>rounding()   </h2>
- <pre><code class='lang-d'>static RoundingMode rounding() @property @trusted pure</code></pre><p>Returns: the currently active rounding mode</p>
+ <pre><code class='lang-d'>RoundingMode rounding() @property @trusted pure</code></pre><p>Returns: the currently active rounding mode</p>
 
 </article>
 

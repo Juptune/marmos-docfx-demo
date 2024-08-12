@@ -92,43 +92,43 @@
   // Currently always set to 3 
   int iVersion
   // 
-  * xColumnCount
+  int function(Fts5Context*)* xColumnCount
   // 
-  * xColumnSize
+  int function(Fts5Context*,int,int*)* xColumnSize
   // 
-  * xColumnText
+  int function(Fts5Context*,int,const char**,int*)* xColumnText
   // 
-  * xColumnTotalSize
+  int function(Fts5Context*,int,sqlite3_int64*)* xColumnTotalSize
   // 
-  * xGetAuxdata
+  void* function(Fts5Context*,int)* xGetAuxdata
   // 
-  * xInst
+  int function(Fts5Context*,int,int*,int*,int*)* xInst
   // 
-  * xInstCount
+  int function(Fts5Context*,int*)* xInstCount
   // 
-  * xPhraseCount
+  int function(Fts5Context*)* xPhraseCount
   // 
-  * xPhraseFirst
+  int function(Fts5Context*,int,Fts5PhraseIter*,int*,int*)* xPhraseFirst
   // 
-  * xPhraseFirstColumn
+  int function(Fts5Context*,int,Fts5PhraseIter*,int*)* xPhraseFirstColumn
   // 
-  * xPhraseNext
+  void function(Fts5Context*,Fts5PhraseIter*,int*,int*)* xPhraseNext
   // 
-  * xPhraseNextColumn
+  void function(Fts5Context*,Fts5PhraseIter*,int*)* xPhraseNextColumn
   // 
-  * xPhraseSize
+  int function(Fts5Context*,int)* xPhraseSize
   // 
-  * xQueryPhrase
+  int function(Fts5Context*,int,void*,int function(const Fts5ExtensionApi*,Fts5Context*,void*)*)* xQueryPhrase
   // 
-  * xRowCount
+  int function(Fts5Context*,sqlite3_int64*)* xRowCount
   // 
-  * xRowid
+  sqlite3_int64 function(Fts5Context*)* xRowid
   // 
-  * xSetAuxdata
+  int function(Fts5Context*,void*,void function(void*)*)* xSetAuxdata
   // 
-  * xTokenize
+  int function(Fts5Context*,const char*,int,void*,int function(void*,int,const char*,int,int,int)*)* xTokenize
   // 
-  * xUserData
+  void* function(Fts5Context*)* xUserData
 }</code></pre><h2 class='section'>About</h2><p>Ditto</p>
 <h2 class='section'>Variables</h2><table>
 <thead>

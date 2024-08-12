@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - setMaxMsgs</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.concurrency.MessageBox</dd></dl><dl><dt>Parent</dt><dd>MessageBox</dd></dl>
 </div><h2 class='section api'>setMaxMsgs(num, call)   </h2>
- <pre><code class='lang-d'>void setMaxMsgs( size_t num, * call ) final @nogc @safe pure</code></pre>
+ <pre><code class='lang-d'>void setMaxMsgs( size_t num, bool function(Tid)* call ) @nogc @safe pure</code></pre>
 </article>
 
         <div class="contribution d-print-none">

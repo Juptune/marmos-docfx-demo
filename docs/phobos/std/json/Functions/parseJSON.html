@@ -88,7 +88,13 @@
 <h1 class='section'>Overloads for - parseJSON</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.json</dd></dl>
 </div><h2 class='section api'>parseJSON(json, maxDepth, options)   </h2>
- <pre><code class='lang-d'>JSONValue parseJSON( T )( T json, int maxDepth, JSONOptions options ) </code></pre><p>Parses a serialized string and returns a tree of JSON values. Throws: $(LREF JSONException) if string does not follow the JSON grammar or the depth exceeds the max depth, $(LREF ConvException) if a number in the input cannot be represented by a native D type. Params: json = json-formatted string to parse maxDepth = maximum depth of nesting allowed, -1 disables depth checking options = enable decoding string representations of NaN/Inf as float values</p>
+ <pre><code class='lang-d'>JSONValue parseJSON(
+  T
+)(
+  T json,
+  int maxDepth = -1,
+  JSONOptions options = JSONOptions.none
+) </code></pre><p>Parses a serialized string and returns a tree of JSON values. Throws: $(LREF JSONException) if string does not follow the JSON grammar or the depth exceeds the max depth, $(LREF ConvException) if a number in the input cannot be represented by a native D type. Params: json = json-formatted string to parse maxDepth = maximum depth of nesting allowed, -1 disables depth checking options = enable decoding string representations of NaN/Inf as float values</p>
 <h2 class='section api'>parseJSON(json, options)   </h2>
  <pre><code class='lang-d'>JSONValue parseJSON( T )( T json, JSONOptions options ) </code></pre><p>Parses a serialized string and returns a tree of JSON values. Throws: $(LREF JSONException) if the depth exceeds the max depth. Params: json = json-formatted string to parse options = enable decoding string representations of NaN/Inf as float values</p>
 

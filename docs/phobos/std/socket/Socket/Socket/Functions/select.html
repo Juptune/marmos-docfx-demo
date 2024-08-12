@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - select</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.socket.Socket</dd></dl><dl><dt>Parent</dt><dd>Socket</dd></dl>
 </div><h2 class='section api'>select(checkRead, checkWrite, checkError, timeout)   </h2>
- <pre><code class='lang-d'>static int select(
+ <pre><code class='lang-d'>int select(
   SocketSet checkRead,
   SocketSet checkWrite,
   SocketSet checkError,
@@ -97,9 +97,9 @@
 <p><code>SocketSet</code> 's updated to include only those sockets which an event occured. For a <code>connect()</code> ing socket, writeability means connected. For a <code>listen()</code> ing socket, readability means listening <code>Winsock</code> ; possibly internally limited to 64 sockets per set.</p>
 <h3 class='section'>Returns</h3><p>the number of events, 0 on timeout, or -1 on interruption</p>
 <h2 class='section api'>select(checkRead, checkWrite, checkError)   </h2>
- <pre><code class='lang-d'>static int select( SocketSet checkRead, SocketSet checkWrite, SocketSet checkError ) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>int select( SocketSet checkRead, SocketSet checkWrite, SocketSet checkError ) </code></pre><p>ditto</p>
 <h2 class='section api'>select(checkRead, checkWrite, checkError, timeout)   </h2>
- <pre><code class='lang-d'>static int select(
+ <pre><code class='lang-d'>int select(
   SocketSet checkRead,
   SocketSet checkWrite,
   SocketSet checkError,

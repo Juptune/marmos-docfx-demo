@@ -88,10 +88,10 @@
 <h1 class='section'>Overloads for - fatalHandler</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.logger.core.Logger</dd></dl><dl><dt>Parent</dt><dd>Logger</dd></dl>
 </div><h2 class='section api'>fatalHandler()   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; fatalHandler() final @nogc @property @safe</code></pre><p>This <code>delegate</code> is called in case a log message with <code>LogLevel.fatal</code> gets logged.</p>
+ <pre><code class='lang-d'>void delegate() fatalHandler() @nogc @property @safe</code></pre><p>This <code>delegate</code> is called in case a log message with <code>LogLevel.fatal</code> gets logged.</p>
 <p>By default an <code>Error</code> will be thrown.</p>
 <h2 class='section api'>fatalHandler(fh)   </h2>
- <pre><code class='lang-d'>void fatalHandler( &lt;bug: unknown&gt; fh ) final @nogc @property @safe</code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>void fatalHandler( void delegate() @safe fh ) @nogc @property @safe</code></pre><p>Ditto</p>
 
 </article>
 

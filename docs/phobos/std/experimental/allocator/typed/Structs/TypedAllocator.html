@@ -114,7 +114,7 @@
   // Ditto 
   T[] makeArray( T, R )( R range ) 
   // 
-  static bool match( uint have, uint want ) 
+  bool match( uint have, uint want ) 
   // Shrinks an array by `delta` elements using `allocatorFor!(T[])` . 
   bool shrinkArray( T )( ref T[] arr, size_t delta ) 
   // Given a type `T` , returns its allocation-related flags as a combination of `AllocFlag` values. 

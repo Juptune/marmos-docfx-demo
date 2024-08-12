@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - fdopen</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.stdio.File</dd></dl><dl><dt>Parent</dt><dd>File</dd></dl>
 </div><h2 class='section api'>fdopen(fd, stdioOpenmode)   </h2>
- <pre><code class='lang-d'>void fdopen( int fd, scope char[] stdioOpenmode ) @safe</code></pre><p>First calls <code>detach</code> (throwing on failure), then attempts to associate the given file descriptor with the <code>File</code> , and sets the file's name to <code>null</code> .</p>
+ <pre><code class='lang-d'>void fdopen( int fd, scope char[] stdioOpenmode = &quot;rb&quot; ) @safe</code></pre><p>First calls <code>detach</code> (throwing on failure), then attempts to associate the given file descriptor with the <code>File</code> , and sets the file's name to <code>null</code> .</p>
 <p>The mode must be compatible with the mode of the file descriptor.</p>
 <p>Throws: <code>ErrnoException</code> in case of error. Params: fd = File descriptor to associate with this <code>File</code> . stdioOpenmode = Mode to associate with this File. The mode has the same semantics as in the POSIX library function $(HTTP pubs.opengroup.org/onlinepubs/7908799/xsh/fdopen.html, fdopen) and must be compatible with <code>fd</code> .</p>
 <h2 class='section api'>fdopen(fd, stdioOpenmode, name)   </h2>

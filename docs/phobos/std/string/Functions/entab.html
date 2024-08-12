@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - entab</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.string</dd></dl>
 </div><h2 class='section api'>entab(s, tabSize)   </h2>
- <pre><code class='lang-d'>auto entab( Range )( Range s, size_t tabSize ) </code></pre><p>Replaces spaces in <code>s</code> with the optimal number of tabs. All spaces and tabs at the end of a line are removed.</p>
+ <pre><code class='lang-d'>auto entab( Range )( Range s, size_t tabSize = 8 ) </code></pre><p>Replaces spaces in <code>s</code> with the optimal number of tabs. All spaces and tabs at the end of a line are removed.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>s</code> Range  </dt>
 <dd>
 
@@ -104,7 +104,7 @@
 </dd></dl><h3 class='section'>Returns</h3><p>GC allocated string with spaces replaced with tabs; use $(LREF entabber) to not allocate.</p>
 <h3 class='section'>See_Also</h3><p>$(LREF entabber)</p>
 <h2 class='section api'>entab(s, tabSize)   </h2>
- <pre><code class='lang-d'>auto entab( Range )( auto ref Range s, size_t tabSize ) </code></pre>
+ <pre><code class='lang-d'>auto entab( Range )( auto ref Range s, size_t tabSize = 8 ) </code></pre>
 </article>
 
         <div class="contribution d-print-none">

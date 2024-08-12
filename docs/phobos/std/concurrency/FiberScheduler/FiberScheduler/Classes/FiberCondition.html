@@ -90,15 +90,15 @@
 </div><pre><code class='lang-d'>public class FiberCondition
 {
   // 
-  void notify() override nothrow
+  void notify() nothrow
   // 
-  void notifyAll() override nothrow
+  void notifyAll() nothrow
   // 
   void switchContext() nothrow
   // 
-  void wait() override nothrow
+  void wait() nothrow
   // 
-  bool wait( Duration period ) override nothrow
+  bool wait( Duration period ) nothrow
 
   // 
   bool notified

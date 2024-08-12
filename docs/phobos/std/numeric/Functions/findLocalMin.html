@@ -95,8 +95,8 @@
   scope DF f,
   const T ax,
   const T bx,
-  const T relTolerance,
-  const T absTolerance
+  const T relTolerance = sqrt(T.epsilon),
+  const T absTolerance = sqrt(T.epsilon)
 ) </code></pre><p>Find a real minimum of a real function <code>f(x)</code> via bracketing. Given a function <code>f</code> and a range <code>(ax .. bx)</code> , returns the value of <code>x</code> in the range which is closest to a minimum of <code>f(x)</code> . <code>f</code> is never evaluted at the endpoints of <code>ax</code> and <code>bx</code> . If <code>f(x)</code> has more than one minimum in the range, one will be chosen arbitrarily. If <code>f(x)</code> returns NaN or -Infinity, <code>(x, f(x), NaN)</code> will be returned; otherwise, this algorithm is guaranteed to succeed.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>f</code> DF  </dt>
 <dd>

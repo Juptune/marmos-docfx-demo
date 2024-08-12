@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - toString</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.container.rbtree.RedBlackTree</dd></dl><dl><dt>Parent</dt><dd>RedBlackTree</dd></dl>
 </div><h2 class='section api'>toString(sink, fmt)   </h2>
- <pre><code class='lang-d'>void toString( scope &lt;bug: unknown&gt; sink, const ref scope FormatSpec!(char) fmt ) </code></pre><p>Formats the RedBlackTree into a sink function. For more info see $(D std.format.formatValue). Note that this only is available when the element type can be formatted. Otherwise, the default toString from Object is used.</p>
+ <pre><code class='lang-d'>void toString( scope void delegate(char[]) sink, const ref scope FormatSpec!(char) fmt ) </code></pre><p>Formats the RedBlackTree into a sink function. For more info see $(D std.format.formatValue). Note that this only is available when the element type can be formatted. Otherwise, the default toString from Object is used.</p>
 
 </article>
 

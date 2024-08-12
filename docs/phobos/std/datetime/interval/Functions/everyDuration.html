@@ -88,7 +88,13 @@
 <h1 class='section'>Overloads for - everyDuration</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.interval</dd></dl>
 </div><h2 class='section api'>everyDuration(duration)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; everyDuration( TP, Direction dir = Direction.fwd, D )( D duration ) nothrow</code></pre><p>Range-generating function.</p>
+ <pre><code class='lang-d'>TP delegate(const scope return ref return ref scope TP) everyDuration(
+  TP,
+  Direction dir = Direction.fwd,
+  D
+)(
+  D duration
+) nothrow</code></pre><p>Range-generating function.</p>
 <p>Returns a delegate which returns the next time point which is the given duration later.</p>
 <p>Using this delegate allows iteration over successive time points which are apart by the given duration e.g. passing <code>dur!&quot;days&quot;(3)</code> to <code>everyDuration</code> would result in a delegate which could be used to iterate over a range of days which are each 3 days apart.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>dir</code> &lt;parameter not found&gt;  </dt>
@@ -104,15 +110,15 @@
 <p>The duration which separates each successive time point in the range.</p>
 
 </dd></dl><h2 class='section api'>everyDuration(years, months, allowOverflow, duration)   </h2>
- <pre><code class='lang-d'>&lt;bug: unknown&gt; everyDuration(
+ <pre><code class='lang-d'>TP delegate(const scope TP) everyDuration(
   TP,
   Direction dir = Direction.fwd,
   D
 )(
   int years,
-  int months,
-  AllowDayOverflow allowOverflow,
-  D duration
+  int months = 0,
+  AllowDayOverflow allowOverflow = AllowDayOverflow.yes,
+  D duration = dur!&quot;days&quot;(0)
 ) nothrow</code></pre><p>Range-generating function.</p>
 <p>Returns a delegate which returns the next time point which is the given number of years, month, and duration later.</p>
 <p>The difference between this version of <code>everyDuration</code> and the version which just takes a $(REF Duration, core,time) is that this one also takes the number of years and months (along with an <code>AllowDayOverflow</code> to indicate whether adding years and months should allow the days to overflow).</p>

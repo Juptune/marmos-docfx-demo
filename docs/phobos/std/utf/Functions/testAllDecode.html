@@ -88,7 +88,14 @@
 <h1 class='section'>Overloads for - testAllDecode</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.utf</dd></dl>
 </div><h2 class='section api'>testAllDecode(range, expectedChar, expectedIndex, line)   </h2>
- <pre><code class='lang-d'>void testAllDecode( R )( R range, dchar expectedChar, size_t expectedIndex, size_t line ) </code></pre>
+ <pre><code class='lang-d'>void testAllDecode(
+  R
+)(
+  R range,
+  dchar expectedChar,
+  size_t expectedIndex,
+  size_t line = __LINE__
+) </code></pre>
 </article>
 
         <div class="contribution d-print-none">

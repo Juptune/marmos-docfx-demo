@@ -88,7 +88,11 @@
 <h1 class='section'>Overloads for - sqlite3_unlock_notify</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.sqlite3</dd></dl>
 </div><h2 class='section api'>sqlite3_unlock_notify(pBlocked, xNotify, pNotifyArg)   </h2>
- <pre><code class='lang-d'>extern(C) int sqlite3_unlock_notify( sqlite3* pBlocked, * xNotify, void* pNotifyArg ) </code></pre><p>CAPI3REF: Unlock Notification</p>
+ <pre><code class='lang-d'>extern(C) int sqlite3_unlock_notify(
+  sqlite3* pBlocked,
+  void function(void**,int)* xNotify,
+  void* pNotifyArg
+) </code></pre><p>CAPI3REF: Unlock Notification</p>
 
 </article>
 

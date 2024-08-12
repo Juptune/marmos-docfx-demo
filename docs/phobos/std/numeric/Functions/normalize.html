@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - normalize</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.numeric</dd></dl>
 </div><h2 class='section api'>normalize(range, sum)   </h2>
- <pre><code class='lang-d'>bool normalize( R )( R range, ElementType!(R) sum ) </code></pre><p>Normalizes values in <code>range</code> by multiplying each element with a number chosen such that values sum up to <code>sum</code> . If elements in $(D range) sum to zero, assigns $(D sum / range.length) to all. Normalization makes sense only if all elements in <code>range</code> are positive. <code>normalize</code> assumes that is the case without checking it.</p>
+ <pre><code class='lang-d'>bool normalize( R )( R range, ElementType!(R) sum = 1 ) </code></pre><p>Normalizes values in <code>range</code> by multiplying each element with a number chosen such that values sum up to <code>sum</code> . If elements in $(D range) sum to zero, assigns $(D sum / range.length) to all. Normalization makes sense only if all elements in <code>range</code> are positive. <code>normalize</code> assumes that is the case without checking it.</p>
 <p>Returns: <code>true</code> if normalization completed normally, <code>false</code> if all elements in <code>range</code> were zero or if <code>range</code> is empty.</p>
 
 </article>

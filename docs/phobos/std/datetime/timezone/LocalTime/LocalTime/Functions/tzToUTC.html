@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - tzToUTC</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.timezone.LocalTime</dd></dl><dl><dt>Parent</dt><dd>LocalTime</dd></dl>
 </div><h2 class='section api'>tzToUTC(adjTime)   </h2>
- <pre><code class='lang-d'>long tzToUTC( long adjTime ) override @trusted nothrow scope</code></pre><p>Returns std time using the standard C function calls on Posix systems and the standard Windows system calls on Windows systems to adjust the time to UTC from the appropriate time zone.</p>
+ <pre><code class='lang-d'>long tzToUTC( long adjTime ) @trusted nothrow scope</code></pre><p>Returns std time using the standard C function calls on Posix systems and the standard Windows system calls on Windows systems to adjust the time to UTC from the appropriate time zone.</p>
 <h3 class='section'>See_Also</h3><p><code>TimeZone.tzToUTC</code></p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>adjTime</code> long  </dt>
 <dd>

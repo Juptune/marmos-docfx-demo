@@ -88,7 +88,12 @@
 <h1 class='section'>Overloads for - enforceSucc</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.windows.registry</dd></dl>
 </div><h2 class='section api'>enforceSucc(res, message, fn, ln)   </h2>
- <pre><code class='lang-d'>void enforceSucc( LONG res, lazy string message, string fn, size_t ln ) </code></pre>
+ <pre><code class='lang-d'>void enforceSucc(
+  LONG res,
+  lazy string message,
+  string fn = __FILE__,
+  size_t ln = __LINE__
+) </code></pre>
 </article>
 
         <div class="contribution d-print-none">

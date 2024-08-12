@@ -94,7 +94,7 @@
 )(
   Char[] haystack,
   Char2[] needles,
-  in CaseSensitive cs
+  in CaseSensitive cs = Yes.caseSensitive
 ) @safe pure</code></pre><p>Returns the index of the last occurrence of any of the elements in $(D needles) in <code>haystack</code> . If no element of <code>needles</code> is found, then <code>-1</code> is returned. The <code>stopIdx</code> slices <code>haystack</code> in the following way $(D s[0 .. stopIdx]). <code>stopIdx</code> represents a codeunit index in <code>haystack</code> . If the sequence ending at <code>startIdx</code> does not represent a well formed codepoint, then a $(REF UTFException, std,utf) may be thrown.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>haystack</code> Char[]  </dt>
 <dd>
@@ -128,7 +128,7 @@
   Char[] haystack,
   Char2[] needles,
   in size_t stopIdx,
-  in CaseSensitive cs
+  in CaseSensitive cs = Yes.caseSensitive
 ) @safe pure</code></pre><p>Ditto</p>
 
 </article>

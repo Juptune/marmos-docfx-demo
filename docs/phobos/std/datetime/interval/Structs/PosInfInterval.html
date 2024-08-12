@@ -104,9 +104,18 @@
   // Expands the interval backwards in time. Effectively, it does $(D begin -= duration). 
   void expand( D )( D duration ) nothrow pure
   // Expands the interval forwards and/or backwards in time. Effectively, it subtracts the given number of months/years from `begin` . 
-  void expand( T )( T years, T months, AllowDayOverflow allowOverflow ) 
+  void expand(
+    T
+  )(
+    T years,
+    T months = 0,
+    AllowDayOverflow allowOverflow = AllowDayOverflow.yes
+  ) 
   // Returns a range which iterates forward over the interval, starting at `begin` , using $(D_PARAM func) to generate each successive time point. 
-  PosInfIntervalRange!(TP) fwdRange( &lt;bug: unknown&gt; func, PopFirst popFirst ) 
+  PosInfIntervalRange!(TP) fwdRange(
+    TP delegate(const scope TP) func,
+    PopFirst popFirst = PopFirst.no
+  ) 
   // Returns the intersection of two intervals 
   Interval!(TP) intersection( const scope Interval!(TP) interval ) 
   // Returns the intersection of two intervals 
@@ -152,7 +161,13 @@
   // Shifts the `begin` of this interval forward or backwards in time by the given duration (a positive duration shifts the interval forward; a negative duration shifts it backward). Effectively, it does $(D begin += duration). 
   void shift( D )( D duration ) nothrow pure
   // Shifts the `begin` of this interval forward or backwards in time by the given number of years and/or months (a positive number of years and months shifts the interval forward; a negative number shifts it backward). It adds the years the given years and months to `begin` . It effectively calls `add!&quot;years&quot;()` and then `add!&quot;months&quot;()` on `begin` with the given number of years and months. 
-  void shift( T )( T years, T months, AllowDayOverflow allowOverflow ) 
+  void shift(
+    T
+  )(
+    T years,
+    T months = 0,
+    AllowDayOverflow allowOverflow = AllowDayOverflow.yes
+  ) 
   // Returns an interval that covers from the earliest time point of two intervals up to (but not including) the latest time point of two intervals. 
   PosInfInterval span( const scope Interval!(TP) interval ) pure
   // Returns an interval that covers from the earliest time point of two intervals up to (but not including) the latest time point of two intervals. 

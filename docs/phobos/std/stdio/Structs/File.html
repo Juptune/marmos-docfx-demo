@@ -98,8 +98,8 @@
     Terminator = char,
     Char = char
   )(
-    KeepTerminator keepTerminator,
-    Terminator terminator
+    KeepTerminator keepTerminator = No.keepTerminator,
+    Terminator terminator = &#39;\n&#39;
   ) 
   // ditto 
   auto byLine(
@@ -114,8 +114,8 @@
     Terminator = char,
     Char = char
   )(
-    KeepTerminator keepTerminator,
-    Terminator terminator
+    KeepTerminator keepTerminator = No.keepTerminator,
+    Terminator terminator = &#39;\n&#39;
   ) 
   // ditto 
   auto byLineCopy(
@@ -140,7 +140,7 @@
   // If the file is closed or not yet opened, returns `true` . Otherwise, returns $(CSTDIO ferror) for the file handle. 
   bool error() @property @trusted nothrow pure
   // First calls `detach` (throwing on failure), then attempts to associate the given file descriptor with the `File` , and sets the file&#39;s name to `null` . 
-  void fdopen( int fd, scope char[] stdioOpenmode ) @safe
+  void fdopen( int fd, scope char[] stdioOpenmode = &quot;rb&quot; ) @safe
   // 
   void fdopen( int fd, scope char[] stdioOpenmode, string name ) @trusted
   // Returns the file number corresponding to this object. 
@@ -153,13 +153,13 @@
   void initImpl(
     FILE* handle,
     string name,
-    uint refs,
-    bool isPopened
+    uint refs = 1,
+    bool isPopened = false
   ) @nogc @safe nothrow pure
   // Returns `true` if the file is opened. 
   bool isOpen() @property @safe nothrow pure
   // Locks the specified file segment. If the file segment is already locked by another process, waits until the existing lock is released. If both `start` and `length` are zero, the entire file is locked. 
-  void lock( LockType lockType, ulong start, ulong length ) 
+  void lock( LockType lockType = LockType.readWrite, ulong start = 0, ulong length = 0 ) 
   // 
   int lockImpl( int operation, short l_type, ulong start, ulong length ) 
   // 
@@ -173,9 +173,9 @@
   // Assigns a file to another. The target of the assignment gets detached from whatever file it was attached to, and attaches itself to the new file. 
   ref File opAssign( File rhs ) @safe return
   // Detaches from the current file (throwing on failure), and then attempts to open file `name` with mode `stdioOpenmode`. The mode has the same semantics as in the C standard library $(CSTDIO fopen) function. 
-  void open( string name, scope char[] stdioOpenmode ) @trusted
+  void open( string name, scope char[] stdioOpenmode = &quot;rb&quot; ) @trusted
   // Detaches from the current file (throwing on failure), and then runs a command by calling the C standard library function $(HTTP pubs.opengroup.org/onlinepubs/7908799/xsh/popen.html, popen). 
-  void popen( string command, scope char[] stdioOpenmode ) @safe
+  void popen( string command, scope char[] stdioOpenmode = &quot;r&quot; ) @safe
   // Calls $(CSTDIO fread) for the file handle. The number of items to read and the size of each item is inferred from the size and type of the input array, respectively. 
   T[] rawRead( T )( T[] buffer ) 
   // Calls $(CSTDIO fwrite) for the file handle. The number of items to write and the size of each item is inferred from the size and type of the input array, respectively. An error is thrown if the buffer could not be written in its entirety. 
@@ -185,25 +185,25 @@
   // ditto 
   uint readf( Data... )( scope char[] format, auto ref Data data ) 
   // Read line from the file handle and return it as a specified type. 
-  S readln( S = string )( dchar terminator ) @safe
+  S readln( S = string )( dchar terminator = &#39;\n&#39; ) @safe
   // Read line from the file handle and write it to `buf[]` , including terminating character. 
-  size_t readln( C )( ref C[] buf, dchar terminator ) @safe
+  size_t readln( C )( ref C[] buf, dchar terminator = &#39;\n&#39; ) @safe
   // ditto 
   size_t readln( C, R )( ref C[] buf, R terminator ) @safe
   // Reuses the `File` object to either open a different file, or change the file mode. If `name` is `null` , the mode of the currently open file is changed; otherwise, a new file is opened, reusing the C `FILE*` . The function has the same semantics as in the C standard library $(CSTDIO freopen) function. 
-  void reopen( string name, scope char[] stdioOpenmode ) @trusted
+  void reopen( string name, scope char[] stdioOpenmode = &quot;rb&quot; ) @trusted
   // 
   void resetFile( string name, scope char[] stdioOpenmode, bool isPopened ) @trusted
   // Calls $(CSTDIO rewind) for the file handle. 
   void rewind() @safe
   // Calls $(CSTDIO fseek) for the file handle to move its position indicator. 
-  void seek( long offset, int origin ) @trusted
+  void seek( long offset, int origin = SEEK_SET ) @trusted
   // 
   void setAppendWin( scope char[] stdioOpenmode ) @safe
   // Calls $(CSTDIO setvbuf) for the file handle. 
-  void setvbuf( size_t size, int mode ) @trusted
+  void setvbuf( size_t size, int mode = _IOFBF ) @trusted
   // Calls $(CSTDIO setvbuf) for the file handle. 
-  void setvbuf( void[] buf, int mode ) @trusted
+  void setvbuf( void[] buf, int mode = _IOFBF ) @trusted
   // Returns the size of the file in bytes, ulong.max if file is not searchable or throws if the operation fails. Example: --- import std.stdio, std.file; 
   ulong size() @property @safe
   // Forces any data buffered by the OS to be written to disk. Call $(LREF flush) before calling this function to flush the C `FILE` buffers first. 
@@ -211,11 +211,11 @@
   // Calls $(CSTDIO ftell) for the managed file handle, which returns the current value of the position indicator of the file handle. 
   ulong tell() @property @trusted
   // Returns a temporary file by calling $(CSTDIO tmpfile). Note that the created file has no $(LREF name). 
-  static File tmpfile() @safe
+  File tmpfile() @safe
   // Attempts to lock the specified file segment. If both `start` and `length` are zero, the entire file is locked. Returns: `true` if the lock was successful, and `false` if the specified file segment was already locked. 
-  bool tryLock( LockType lockType, ulong start, ulong length ) 
+  bool tryLock( LockType lockType = LockType.readWrite, ulong start = 0, ulong length = 0 ) 
   // Removes the lock over the specified file segment. 
-  void unlock( ulong start, ulong length ) 
+  void unlock( ulong start = 0, ulong length = 0 ) 
   // Returns the underlying operating system `HANDLE` (Windows only). 
   HANDLE windowsHandle() @property
   // 
@@ -225,7 +225,7 @@
   // 
   void windowsHandleOpen( HANDLE handle, scope char[] stdioOpenmode ) 
   // Unsafe function that wraps an existing `FILE*` . The resulting $(D File) never takes the initiative in closing the file. Note that the created file has no $(LREF name) 
-  static File wrapFile( FILE* f ) @safe
+  File wrapFile( FILE* f ) @safe
   // Writes its arguments in text format to the file. 
   void write( S... )( S args ) 
   // Writes its arguments in text format to the file, according to the format string fmt. 

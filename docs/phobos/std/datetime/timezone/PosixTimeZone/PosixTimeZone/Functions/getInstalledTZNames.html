@@ -88,7 +88,10 @@
 <h1 class='section'>Overloads for - getInstalledTZNames</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.timezone.PosixTimeZone</dd></dl><dl><dt>Parent</dt><dd>PosixTimeZone</dd></dl>
 </div><h2 class='section api'>getInstalledTZNames(subName, tzDatabaseDir)   </h2>
- <pre><code class='lang-d'>static string[] getInstalledTZNames( string subName, string tzDatabaseDir ) @safe</code></pre><p>Returns a list of the names of the time zones installed on the system.</p>
+ <pre><code class='lang-d'>string[] getInstalledTZNames(
+  string subName = &quot;&quot;,
+  string tzDatabaseDir = defaultTZDatabaseDir
+) @safe</code></pre><p>Returns a list of the names of the time zones installed on the system.</p>
 <p>Providing a sub-name narrows down the list of time zones (which can number in the thousands). For example, passing in &quot;America&quot; as the sub-name returns only the time zones which begin with &quot;America&quot;.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>subName</code> string  </dt>
 <dd>

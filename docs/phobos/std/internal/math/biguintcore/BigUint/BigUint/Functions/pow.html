@@ -88,10 +88,7 @@
 <h1 class='section'>Overloads for - pow</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.internal.math.biguintcore.BigUint</dd></dl><dl><dt>Parent</dt><dd>BigUint</dd></dl>
 </div><h2 class='section api'>pow(x, y)   </h2>
- <pre><code class='lang-d'>static BigUint pow(
-  scope return ref return ref scope BigUint x,
-  ulong y
-) @safe nothrow pure</code></pre><p>Return a BigUint which is x raised to the power of y. Method: Powers of 2 are removed from x, then left-to-right binary exponentiation is used. Memory allocation is minimized: at most one temporary BigUint is used.</p>
+ <pre><code class='lang-d'>BigUint pow( scope return ref return ref scope BigUint x, ulong y ) @safe nothrow pure</code></pre><p>Return a BigUint which is x raised to the power of y. Method: Powers of 2 are removed from x, then left-to-right binary exponentiation is used. Memory allocation is minimized: at most one temporary BigUint is used.</p>
 
 </article>
 

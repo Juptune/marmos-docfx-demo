@@ -100,37 +100,37 @@
   // Size of subclassed sqlite3_file 
   int szOsFile
   // 
-  * xAccess
+  int function(sqlite3_vfs*,const char*,int,int*)* xAccess
   // 
-  * xCurrentTime
+  int function(sqlite3_vfs*,double*)* xCurrentTime
   // 
-  * xCurrentTimeInt64
+  int function(sqlite3_vfs*,sqlite3_int64*)* xCurrentTimeInt64
   // 
-  * xDelete
+  int function(sqlite3_vfs*,const char*,int)* xDelete
   // 
-  * xDlClose
+  void function(sqlite3_vfs*,void*)* xDlClose
   // 
-  * xDlError
+  void function(sqlite3_vfs*,int,char*)* xDlError
   // 
-  * xDlOpen
+  void* function(sqlite3_vfs*,const char*)* xDlOpen
   // 
-  ** xDlSym
+  xDlSymReturn function(sqlite3_vfs*,void*,const char*)** xDlSym
   // 
-  * xFullPathname
+  int function(sqlite3_vfs*,const char*,int,char*)* xFullPathname
   // 
-  * xGetLastError
+  int function(sqlite3_vfs*,int,char*)* xGetLastError
   // 
-  * xGetSystemCall
+  sqlite3_syscall_ptr function(sqlite3_vfs*,const char*)* xGetSystemCall
   // 
-  * xNextSystemCall
+  char* function(sqlite3_vfs*,const char*)* xNextSystemCall
   // 
-  * xOpen
+  int function(sqlite3_vfs*,const char*,sqlite3_file*,int,int*)* xOpen
   // 
-  * xRandomness
+  int function(sqlite3_vfs*,int,char*)* xRandomness
   // 
-  * xSetSystemCall
+  int function(sqlite3_vfs*,const char*,sqlite3_syscall_ptr)* xSetSystemCall
   // 
-  * xSleep
+  int function(sqlite3_vfs*,int)* xSleep
   // Name of this virtual file system 
   char* zName
 }</code></pre><h2 class='section'>Variables</h2><table>

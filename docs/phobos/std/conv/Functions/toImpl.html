@@ -103,7 +103,14 @@
  <pre><code class='lang-d'>T toImpl( T, S )( S value ) </code></pre><p>Handles type to string conversions</p>
 <h2 class='section api'>toImpl(value)   </h2>
  <pre><code class='lang-d'>T toImpl( T, S )( ref S value ) </code></pre><h2 class='section api'>toImpl(value, radix, letterCase)   </h2>
- <pre><code class='lang-d'>T toImpl( T, S )( S value, uint radix, LetterCase letterCase ) @trusted pure</code></pre><h2 class='section api'>toImpl(value)   </h2>
+ <pre><code class='lang-d'>T toImpl(
+  T,
+  S
+)(
+  S value,
+  uint radix,
+  LetterCase letterCase = LetterCase.upper
+) @trusted pure</code></pre><h2 class='section api'>toImpl(value)   </h2>
  <pre><code class='lang-d'>T toImpl( T, S )( S value ) </code></pre><p>Narrowing numeric-numeric conversions throw when the value does not fit in the narrower type.</p>
 <h2 class='section api'>toImpl(value)   </h2>
  <pre><code class='lang-d'>T toImpl( T, S )( scope S value ) </code></pre><p>Array-to-array conversion (except when target is a string type) converts each element in turn by using <code>to</code> .</p>

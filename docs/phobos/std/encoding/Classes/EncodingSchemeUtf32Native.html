@@ -90,21 +90,21 @@
 </div><pre><code class='lang-d'>public class EncodingSchemeUtf32Native
 {
   // 
-  bool canEncode( dchar c ) override @nogc @safe nothrow pure
+  bool canEncode( dchar c ) @nogc @safe nothrow pure
   // 
-  dchar decode( ref ubyte[] s ) override @nogc @safe nothrow pure
+  dchar decode( ref ubyte[] s ) @nogc @safe nothrow pure
   // 
-  size_t encode( dchar c, ubyte[] buffer ) override @nogc @safe nothrow pure
+  size_t encode( dchar c, ubyte[] buffer ) @nogc @safe nothrow pure
   // 
-  size_t encodedLength( dchar c ) override @nogc @safe nothrow pure
+  size_t encodedLength( dchar c ) @nogc @safe nothrow pure
   // 
-  string[] names() override @safe nothrow pure
+  string[] names() @safe nothrow pure
   // 
-  ubyte[] replacementSequence() override @nogc @property @safe nothrow pure
+  ubyte[] replacementSequence() @nogc @property @safe nothrow pure
   // 
-  dchar safeDecode( ref ubyte[] s ) override @nogc @safe nothrow pure
+  dchar safeDecode( ref ubyte[] s ) @nogc @safe nothrow pure
   // 
-  string toString() override @nogc @safe nothrow pure
+  string toString() @nogc @safe nothrow pure
 
   // 
   string NAME = &quot;UTF-32LE&quot;

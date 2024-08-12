@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - getAddress</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.socket</dd></dl>
 </div><h2 class='section api'>getAddress(hostname, service)   </h2>
- <pre><code class='lang-d'>Address[] getAddress( scope char[] hostname, scope char[] service ) </code></pre><p>Provides protocol-independent translation from host names to socket addresses. Uses <code>getAddressInfo</code> if the current system supports it, and <code>InternetHost</code> otherwise.</p>
+ <pre><code class='lang-d'>Address[] getAddress( scope char[] hostname, scope char[] service = null ) </code></pre><p>Provides protocol-independent translation from host names to socket addresses. Uses <code>getAddressInfo</code> if the current system supports it, and <code>InternetHost</code> otherwise.</p>
 <p>Returns: Array with one <code>Address</code> instance per socket address.</p>
 <p>Throws: <code>SocketOSException</code> on failure.</p>
 <h3 class='section'>Example</h3><p>--- writeln(&quot;Resolving <a href="http://www.digitalmars.com:%22">www.digitalmars.com:&quot;</a>); try { auto addresses = getAddress(&quot;www.digitalmars.com&quot;); foreach (address; addresses) writefln(&quot;  IP: %s&quot;, address.toAddrString()); } catch (SocketException e) writefln(&quot;  Lookup failed: %s&quot;, e.msg); ---</p>

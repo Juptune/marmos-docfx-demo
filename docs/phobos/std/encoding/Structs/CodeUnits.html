@@ -90,9 +90,9 @@
 </div><pre><code class='lang-d'>struct CodeUnits( E )
 {
   // 
-  int opApply( scope &lt;bug: unknown&gt; dg ) 
+  int opApply( scope int delegate(ref E) dg ) 
   // 
-  int opApplyReverse( scope &lt;bug: unknown&gt; dg ) 
+  int opApplyReverse( scope int delegate(ref E) dg ) 
 
   // 
   E[] s

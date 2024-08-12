@@ -90,15 +90,22 @@
 </div><pre><code class='lang-d'>public struct IoUringEmulatedPosixDriver
 {
   // 
-  void enter( uint minCompletes ) 
+  void enter( uint minCompletes = 0 ) 
   // 
   Result initDriver( const IoUringConfig config ) 
   // 
-  void processCompletions( scope &lt;bug: unknown&gt; handler ) @nogc nothrow
+  void processCompletions(
+    scope void delegate(IoUringCompletion) @nogc nothrow handler
+  ) @nogc nothrow
   // 
   SubmitQueueIsFull submit( Command )( Command command ) 
   // 
-  SubmitQueueIsFull submitTimeout( Command )( Command command, Duration timeout ) 
+  SubmitQueueIsFull submitTimeout(
+    Command
+  )(
+    Command command,
+    Duration timeout = Duration.zero
+  ) 
   // 
   void uninitDriver() 
 }</code></pre><h2 class='section'>Functions</h2><table>

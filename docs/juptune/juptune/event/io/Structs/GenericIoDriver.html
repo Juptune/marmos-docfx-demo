@@ -95,18 +95,18 @@
   alias readAllGC = &lt;todo: marmos support pending&gt;
 
   // Writes an entire buffer. 
-  Result put( void[] buffer, Duration timeout ) @nogc
+  Result put( void[] buffer, Duration timeout = Duration.zero ) @nogc
   // Continue to write data from a range until it&#39;s empty. 
-  Result put( RangeT )( scope RangeT range, Duration timeout ) 
+  Result put( RangeT )( scope RangeT range, Duration timeout = Duration.zero ) 
   // 
   Result readAllImpl(
     BufferT,
     GrowFuncT
   )(
     ref scope BufferT buffer,
-    size_t cursor,
-    scope GrowFuncT growFunc,
-    Duration timeout
+    size_t cursor = 0,
+    scope GrowFuncT growFunc = null,
+    Duration timeout = Duration.zero
   ) 
 }</code></pre><h2 class='section'>About</h2><p>Provides generic IO functionality.</p>
 <p>All platform-specific IO drivers will provide an <code>alias this</code> to this struct, so that all drivers have the same facilities for writing and reading.</p>

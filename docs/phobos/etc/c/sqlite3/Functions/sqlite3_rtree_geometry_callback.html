@@ -91,7 +91,7 @@
  <pre><code class='lang-d'>extern(C) int sqlite3_rtree_geometry_callback(
   sqlite3* db,
   char* zGeom,
-  * xGeom,
+  int function(sqlite3_rtree_geometry*,int,double*,int*)* xGeom,
   void* pContext
 ) </code></pre><p>Register a geometry callback named zGeom that can be used as part of an R-Tree geometry query as follows:</p>
 <p>SELECT ... FROM <span class="math">\((LT)rtree\)</span>(GT) WHERE <span class="math">\((LT)rtree col\)</span>(GT) MATCH $zGeom(... params ...)</p>

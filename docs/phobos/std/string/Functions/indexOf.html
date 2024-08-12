@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - indexOf</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.string</dd></dl>
 </div><h2 class='section api'>indexOf(s, c, cs)   </h2>
- <pre><code class='lang-d'>ptrdiff_t indexOf( Range )( Range s, dchar c, CaseSensitive cs ) </code></pre><p>Searches for character in range.</p>
+ <pre><code class='lang-d'>ptrdiff_t indexOf( Range )( Range s, dchar c, CaseSensitive cs = Yes.caseSensitive ) </code></pre><p>Searches for character in range.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>s</code> Range  </dt>
 <dd>
 
@@ -117,11 +117,25 @@
 <h3 class='section'>Throws</h3><p>If the sequence starting at <code>startIdx</code> does not represent a well formed codepoint, then a $(REF UTFException, std,utf) may be thrown.</p>
 <p>See_Also: $(REF countUntil, std,algorithm,searching)</p>
 <h2 class='section api'>indexOf(s, c, cs)   </h2>
- <pre><code class='lang-d'>ptrdiff_t indexOf( C )( scope C[] s, dchar c, CaseSensitive cs ) </code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>ptrdiff_t indexOf( C )( scope C[] s, dchar c, CaseSensitive cs = Yes.caseSensitive ) </code></pre><p>Ditto</p>
 <h2 class='section api'>indexOf(s, c, startIdx, cs)   </h2>
- <pre><code class='lang-d'>ptrdiff_t indexOf( Range )( Range s, dchar c, size_t startIdx, CaseSensitive cs ) </code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>ptrdiff_t indexOf(
+  Range
+)(
+  Range s,
+  dchar c,
+  size_t startIdx,
+  CaseSensitive cs = Yes.caseSensitive
+) </code></pre><p>Ditto</p>
 <h2 class='section api'>indexOf(s, c, startIdx, cs)   </h2>
- <pre><code class='lang-d'>ptrdiff_t indexOf( C )( scope C[] s, dchar c, size_t startIdx, CaseSensitive cs ) </code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>ptrdiff_t indexOf(
+  C
+)(
+  scope C[] s,
+  dchar c,
+  size_t startIdx,
+  CaseSensitive cs = Yes.caseSensitive
+) </code></pre><p>Ditto</p>
 <h2 class='section api'>indexOf(s, sub)   </h2>
  <pre><code class='lang-d'>ptrdiff_t indexOf( Range, Char )( Range s, Char[] sub ) </code></pre><p>Searches for substring in <code>s</code> .</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>s</code> Range  </dt>

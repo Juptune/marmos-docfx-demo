@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - readln</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.stdio.File</dd></dl><dl><dt>Parent</dt><dd>File</dd></dl>
 </div><h2 class='section api'>readln(terminator)   </h2>
- <pre><code class='lang-d'>S readln( S = string )( dchar terminator ) @safe</code></pre><p>Read line from the file handle and return it as a specified type.</p>
+ <pre><code class='lang-d'>S readln( S = string )( dchar terminator = &#39;\n&#39; ) @safe</code></pre><p>Read line from the file handle and return it as a specified type.</p>
 <p>This version manages its own read buffer, which means one memory allocation per call. If you are not retaining a reference to the read data, consider the <code>File.readln(buf)</code> version, which may offer better performance as it can reuse its read buffer.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>S</code> &lt;parameter not found&gt;  </dt>
 <dd>
@@ -108,7 +108,7 @@
 <h3 class='section'>Example</h3><p>--- // Reads <code>stdin</code> and writes it to <code>stdout</code> . import std.stdio;</p>
 <p>void main() { string line; while ((line = stdin.readln()) !is null) write(line); } ---</p>
 <h2 class='section api'>readln(buf, terminator)   </h2>
- <pre><code class='lang-d'>size_t readln( C )( ref C[] buf, dchar terminator ) @safe</code></pre><p>Read line from the file handle and write it to <code>buf[]</code> , including terminating character.</p>
+ <pre><code class='lang-d'>size_t readln( C )( ref C[] buf, dchar terminator = &#39;\n&#39; ) @safe</code></pre><p>Read line from the file handle and write it to <code>buf[]</code> , including terminating character.</p>
 <p>This can be faster than $(D line = File.readln()) because you can reuse the buffer for each call. Note that reusing the buffer means that you must copy the previous contents if you wish to retain them.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>buf</code> C[]  </dt>
 <dd>

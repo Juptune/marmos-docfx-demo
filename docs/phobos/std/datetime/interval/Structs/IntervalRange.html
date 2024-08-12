@@ -96,7 +96,7 @@
   // The first time point in the range. 
   TP front() @property pure
   // The function used to generate the next time point in the range. 
-  &lt;bug: unknown&gt; func() @property nothrow pure
+  TP delegate(const scope TP) func() @property nothrow pure
   // The interval that this `IntervalRange` currently covers. 
   Interval!(TP) interval() @property nothrow pure
   // 

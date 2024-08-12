@@ -92,15 +92,15 @@
   // Returns the IPv6 address. 
   ubyte[16] addr() @nogc @property nothrow pure
   // Any IPv6 host address. 
-  static ref ubyte[16] ADDR_ANY() @nogc @property nothrow pure
+  ref ubyte[16] ADDR_ANY() @nogc @property nothrow pure
   // 
-  ref sockaddr* name() override @property return
+  ref sockaddr* name() @property return
   // 
-  ref sockaddr* name() override @property return
+  ref sockaddr* name() @property return
   // 
-  socklen_t nameLen() override @property
+  socklen_t nameLen() @property
   // Parse an IPv6 host address string as described in RFC 2373, and return the address. Throws: `SocketException` on error. 
-  static ubyte[16] parse( scope char[] addr ) @trusted
+  ubyte[16] parse( scope char[] addr ) @trusted
   // Returns the IPv6 port number. 
   ushort port() @nogc @property nothrow pure
 

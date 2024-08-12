@@ -93,7 +93,7 @@
 )(
   Command command,
   out IoUringCompletion cqe,
-  SubmitEventConfig config
+  SubmitEventConfig config = SubmitEventConfig()
 ) @nogc nothrow</code></pre><p>Submits an event to be processed asynchronously.</p>
 <p>Note that the <code>Command</code> type should be any of the <code>IoUringXXX</code> structs found in <code>juptune.event.iouring</code> , for example <code>IoUringAccept</code> .</p>
 <p>By default the fiber will be suspended until a completion is generated.</p>

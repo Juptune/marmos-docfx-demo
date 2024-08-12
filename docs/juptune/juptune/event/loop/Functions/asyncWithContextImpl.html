@@ -94,7 +94,7 @@
 )(
   EntryPointT func,
   auto ref ContextT context,
-  * setter,
+  void function(ref scope ContextT,out scope ContextT) @nogc nothrow* setter,
   AsyncConfig config
 ) @nogc nothrow</code></pre>
 </article>

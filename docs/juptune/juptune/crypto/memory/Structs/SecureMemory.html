@@ -99,11 +99,13 @@
   alias makeWriteOnly = &lt;todo: marmos support pending&gt;
 
   // Provides a safe(ish) way to access the underlying user memory. 
-  void access( scope &lt;bug: unknown&gt; func ) @nogc @safe nothrow
+  void access(
+    scope void delegate(scope void[]) @nogc @safe nothrow func
+  ) @nogc @safe nothrow
   // ditto 
-  void access( scope &lt;bug: unknown&gt; func ) @safe nothrow
+  void access( scope void delegate(scope void[]) @safe nothrow func ) @safe nothrow
   // Allocates a new SecureMemory struct, with the given length. 
-  static Result allocate( out scope SecureMemory memory, size_t length ) @trusted
+  Result allocate( out scope SecureMemory memory, size_t length ) @trusted
   // Compares this memory to another memory in constant time for the given length of this memory. 
   bool constantTimeCompare( const scope void[] other ) @trusted
   // ditto. 

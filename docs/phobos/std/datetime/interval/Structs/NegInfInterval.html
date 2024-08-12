@@ -90,7 +90,10 @@
 </div><pre><code class='lang-d'>struct NegInfInterval( TP )
 {
   // Returns a range which iterates backwards over the interval, starting at `end` , using $(D_PARAM func) to generate each successive time point. 
-  NegInfIntervalRange!(TP) bwdRange( &lt;bug: unknown&gt; func, PopFirst popFirst ) 
+  NegInfIntervalRange!(TP) bwdRange(
+    TP delegate(const scope TP) func,
+    PopFirst popFirst = PopFirst.no
+  ) 
   // Whether the given time point is within this interval. 
   bool contains( TP timePoint ) nothrow pure
   // Whether the given interval is completely within this interval. 
@@ -106,7 +109,13 @@
   // Expands the interval forwards in time. Effectively, it does $(D end += duration). 
   void expand( D )( D duration ) nothrow pure
   // Expands the interval forwards and/or backwards in time. Effectively, it adds the given number of months/years to end. 
-  void expand( T )( T years, T months, AllowDayOverflow allowOverflow ) 
+  void expand(
+    T
+  )(
+    T years,
+    T months = 0,
+    AllowDayOverflow allowOverflow = AllowDayOverflow.yes
+  ) 
   // Returns the intersection of two intervals 
   Interval!(TP) intersection( const scope Interval!(TP) interval ) 
   // Returns the intersection of two intervals 
@@ -152,7 +161,13 @@
   // Shifts the `end` of this interval forward or backwards in time by the given duration (a positive duration shifts the interval forward; a negative duration shifts it backward). Effectively, it does $(D end += duration). 
   void shift( D )( D duration ) nothrow pure
   // Shifts the `end` of this interval forward or backwards in time by the given number of years and/or months (a positive number of years and months shifts the interval forward; a negative number shifts it backward). It adds the years the given years and months to end. It effectively calls `add!&quot;years&quot;()` and then `add!&quot;months&quot;()` on end with the given number of years and months. 
-  void shift( T )( T years, T months, AllowDayOverflow allowOverflow ) 
+  void shift(
+    T
+  )(
+    T years,
+    T months = 0,
+    AllowDayOverflow allowOverflow = AllowDayOverflow.yes
+  ) 
   // Returns an interval that covers from the earliest time point of two intervals up to (but not including) the latest time point of two intervals. 
   NegInfInterval span( const scope Interval!(TP) interval ) pure
   // Returns an interval that covers from the earliest time point of two intervals up to (but not including) the latest time point of two intervals. 

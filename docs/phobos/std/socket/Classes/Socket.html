@@ -102,7 +102,7 @@
   // ditto 
   void blocking( bool byes ) @property @trusted
   // 
-  static int capToInt( size_t size ) @nogc nothrow
+  int capToInt( size_t size ) @nogc nothrow
   // Immediately drop any connections and release socket resources. The `Socket` object is no longer usable after `close` . Calling `shutdown` before `close` is recommended for connection-oriented sockets. 
   void close() @nogc @trusted nothrow scope
   // Establish a connection. If the socket is blocking, connect waits for the connection to be made. If the socket is nonblocking, connect returns immediately and the connection attempt is still in progress. 
@@ -130,7 +130,7 @@
   // Get underlying socket handle. 
   socket_t handle() @nogc @property nothrow pure
   // Returns: The local machine&#39;s host name 
-  static string hostName() @property @trusted
+  string hostName() @property @trusted
   // Property that indicates if this is a valid, alive socket. 
   bool isAlive() @property @trusted
   // Listen for an incoming connection. `bind` must be called before you can `listen` . The `backlog` is a request of how many pending incoming connections are queued until `accept` ed. 
@@ -154,16 +154,16 @@
   // Remote endpoint `Address` . 
   Address remoteAddress() @property @trusted
   // Wait for a socket to change status. A wait timeout of $(REF Duration, core, time) or `TimeVal` , may be specified; if a timeout is not specified or the `TimeVal` is `null` , the maximum timeout is used. The `TimeVal` timeout has an unspecified value when `select` returns. Returns: The number of sockets with status changes, `0` on timeout, or `-1` on interruption. If the return value is greater than `0` , the `SocketSets` are updated to only contain the sockets having status changes. For a connecting socket, a write status change means the connection is established and it&#39;s able to send. For a listening socket, a read status change means there is an incoming connection request and it&#39;s able to accept. 
-  static int select(
+  int select(
     SocketSet checkRead,
     SocketSet checkWrite,
     SocketSet checkError,
     Duration timeout
   ) @trusted
   // ditto 
-  static int select( SocketSet checkRead, SocketSet checkWrite, SocketSet checkError ) 
+  int select( SocketSet checkRead, SocketSet checkWrite, SocketSet checkError ) 
   // Ditto 
-  static int select(
+  int select(
     SocketSet checkRead,
     SocketSet checkWrite,
     SocketSet checkError,

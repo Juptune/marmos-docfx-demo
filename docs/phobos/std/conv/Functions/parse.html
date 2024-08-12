@@ -239,9 +239,9 @@
   Flag!(&quot;doCount&quot;) doCount = No.doCount
 )(
   ref Source s,
-  dchar lbracket,
-  dchar rbracket,
-  dchar comma
+  dchar lbracket = &#39;[&#39;,
+  dchar rbracket = &#39;]&#39;,
+  dchar comma = &#39;,&#39;
 ) </code></pre><p>Parses an array from a string given the left bracket (default $(D '[')), right bracket (default <code>']'</code> ), and element separator (by default <code>','</code> ). A trailing separator is allowed.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>s</code> Source  </dt>
 <dd>
@@ -281,9 +281,9 @@
   Flag!(&quot;doCount&quot;) doCount = No.doCount
 )(
   ref Source s,
-  dchar lbracket,
-  dchar rbracket,
-  dchar comma
+  dchar lbracket = &#39;[&#39;,
+  dchar rbracket = &#39;]&#39;,
+  dchar comma = &#39;,&#39;
 ) </code></pre><p>ditto</p>
 <h2 class='section api'>parse(s, lbracket, rbracket, keyval, comma)   </h2>
  <pre><code class='lang-d'>auto parse(
@@ -292,10 +292,10 @@
   Flag!(&quot;doCount&quot;) doCount = No.doCount
 )(
   ref Source s,
-  dchar lbracket,
-  dchar rbracket,
-  dchar keyval,
-  dchar comma
+  dchar lbracket = &#39;[&#39;,
+  dchar rbracket = &#39;]&#39;,
+  dchar keyval = &#39;:&#39;,
+  dchar comma = &#39;,&#39;
 ) </code></pre><p>Parses an associative array from a string given the left bracket (default $(D '[')), right bracket (default <code>']'</code> ), key-value separator (default $(D ':')), and element seprator (by default <code>','</code> ).</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>s</code> Source  </dt>
 <dd>

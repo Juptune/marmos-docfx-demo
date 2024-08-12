@@ -88,8 +88,8 @@
 <h1 class='section'>Overloads for - opApply</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.concurrency.Generator</dd></dl><dl><dt>Parent</dt><dd>Generator</dd></dl>
 </div><h2 class='section api'>opApply(loopBody)   </h2>
- <pre><code class='lang-d'>int opApply( scope &lt;bug: unknown&gt; loopBody ) final</code></pre><h2 class='section api'>opApply(loopBody)   </h2>
- <pre><code class='lang-d'>int opApply( scope &lt;bug: unknown&gt; loopBody ) final</code></pre>
+ <pre><code class='lang-d'>int opApply( scope int delegate(T) loopBody ) </code></pre><h2 class='section api'>opApply(loopBody)   </h2>
+ <pre><code class='lang-d'>int opApply( scope int delegate(size_t,T) loopBody ) </code></pre>
 </article>
 
         <div class="contribution d-print-none">

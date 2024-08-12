@@ -91,7 +91,7 @@
  <pre><code class='lang-d'>extern(C) void sqlite3_progress_handler(
   sqlite3* __anonymous,
   int __anonymous,
-  * __anonymous,
+  int function(void*)* __anonymous,
   void* __anonymous
 ) </code></pre><p>CAPI3REF: Query Progress Callbacks</p>
 

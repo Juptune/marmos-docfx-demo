@@ -94,7 +94,7 @@
   // 
   void error( int err ) 
   // Compress and return any remaining data. The returned data should be appended to that returned by compress(). Params: mode = one of the following: $(DL $(DT Z_SYNC_FLUSH ) $(DD Syncs up flushing to the next byte boundary. Used when more data is to be compressed later on.) $(DT Z_FULL_FLUSH ) $(DD Syncs up flushing to the next byte boundary. Used when more data is to be compressed later on, and the decompressor needs to be restartable at this point.) $(DT Z_FINISH) $(DD (default) Used when finished compressing the data. ) ) 
-  void[] flush( int mode ) 
+  void[] flush( int mode = Z_FINISH ) 
 
   // 
   immutable bool gzip

@@ -100,7 +100,14 @@
 <h2 class='section api'>enforce(value, ex)   </h2>
  <pre><code class='lang-d'>T enforce( T )( T value, lazy Throwable ex ) </code></pre><p>ditto</p>
 <h2 class='section api'>enforce(value, msg, file, line)   </h2>
- <pre><code class='lang-d'>T enforce( T )( T value, lazy char[] msg, string file, size_t line ) </code></pre><p>Enforces that the given value is true. If the given value is false, an exception is thrown. The $(UL $(LI <code>msg</code> - error message as a <code>string</code> ) $(LI <code>dg</code> - custom delegate that return a string and is only called if an exception occurred) $(LI <code>ex</code> - custom exception to be thrown. It is <code>lazy</code> and is only created if an exception occurred) )</p>
+ <pre><code class='lang-d'>T enforce(
+  T
+)(
+  T value,
+  lazy char[] msg = null,
+  string file = __FILE__,
+  size_t line = __LINE__
+) </code></pre><p>Enforces that the given value is true. If the given value is false, an exception is thrown. The $(UL $(LI <code>msg</code> - error message as a <code>string</code> ) $(LI <code>dg</code> - custom delegate that return a string and is only called if an exception occurred) $(LI <code>ex</code> - custom exception to be thrown. It is <code>lazy</code> and is only created if an exception occurred) )</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>value</code> T  </dt>
 <dd>
 

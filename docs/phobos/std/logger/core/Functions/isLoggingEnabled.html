@@ -93,7 +93,7 @@
   LogLevel ll,
   LogLevel loggerLL,
   LogLevel globalLL,
-  lazy bool condition
+  lazy bool condition = true
 ) @safe</code></pre><p>This functions is used at runtime to determine if a <code>LogLevel</code> is active. The same previously defined version statements are used to disable certain levels. Again the version statements are associated with a compile unit and can therefore not disable logging in other compile units. pure bool isLoggingEnabled()(LogLevel ll) @safe nothrow @nogc</p>
 
 </article>

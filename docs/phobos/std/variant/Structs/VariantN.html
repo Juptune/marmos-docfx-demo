@@ -156,7 +156,7 @@
   // Tells whether a type `T` is statically allowed for storage inside a `VariantN` object by looking `T` up in `AllowedTypes` . 
   bool allowed = is(T == VariantN) || (AllowedTypes.length == 0 || staticIndexOf!(T, AllowedTypes) &gt;= 0)
   // 
-  * fptr = &amp;handler!void
+  ptrdiff_t function(OpID,ubyte[size]*,void*)* fptr = &amp;handler!void
   // 
   void*[size / (void*).sizeof] p
   // 

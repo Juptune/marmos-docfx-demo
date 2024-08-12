@@ -122,7 +122,7 @@
   // Outputs in order: The start sequence (`.toFullStartSequence`), the output text (`.text`), and the end sequence (`.toFullEndSequence`) into the given `sink` . 
   void toSink( Sink )( ref scope Sink sink ) 
   // The sink-based version of `toString` , which doesn&#39;t allocate by itself unless the `sink` decides to allocate. 
-  void toString( scope &lt;bug: unknown&gt; sink ) 
+  void toString( scope void delegate(char[]) sink ) 
 
   // The maximum amount of chars required by the start sequence of an `AnsiTextLite` (`toFullStartSequence`). 
   &lt;enum or auto&gt; MAX_CHARS_NEEDED = AnsiStyleSet.MAX_CHARS_NEEDED + ANSI_CSI.length + 1

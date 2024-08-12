@@ -95,9 +95,9 @@
   // 
   auto codepointTrie( Set )( const scope Set set ) 
   // 
-  auto codepointTrie( )( T[dchar] map, T defValue ) 
+  auto codepointTrie( )( T[dchar] map, T defValue = T.init ) 
   // 
-  auto codepointTrie( R )( R range, T defValue ) 
+  auto codepointTrie( R )( R range, T defValue = T.init ) 
 }</code></pre><h2 class='section'>About</h2><p>A slightly more general tool for building fixed <code>Trie</code> for the Unicode data.</p>
 <p>Specifically unlike <code>codepointSetTrie</code> it's allows creating mappings of <code>dchar</code> to an arbitrary type <code>T</code> .</p>
 <p>Note: Overload taking <code>CodepointSet</code> s will naturally convert only to bool mapping <code>Trie</code> s.</p>

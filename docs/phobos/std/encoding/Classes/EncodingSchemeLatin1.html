@@ -90,21 +90,21 @@
 </div><pre><code class='lang-d'>public class EncodingSchemeLatin1
 {
   // 
-  bool canEncode( dchar c ) override @nogc @safe nothrow pure
+  bool canEncode( dchar c ) @nogc @safe nothrow pure
   // 
-  dchar decode( ref ubyte[] s ) override @nogc @safe nothrow pure
+  dchar decode( ref ubyte[] s ) @nogc @safe nothrow pure
   // 
-  size_t encode( dchar c, ubyte[] buffer ) override @nogc @safe nothrow pure
+  size_t encode( dchar c, ubyte[] buffer ) @nogc @safe nothrow pure
   // 
-  size_t encodedLength( dchar c ) override @nogc @safe nothrow pure
+  size_t encodedLength( dchar c ) @nogc @safe nothrow pure
   // 
-  string[] names() override @safe nothrow pure
+  string[] names() @safe nothrow pure
   // 
-  ubyte[] replacementSequence() override @nogc @property @safe nothrow pure
+  ubyte[] replacementSequence() @nogc @property @safe nothrow pure
   // 
-  dchar safeDecode( ref ubyte[] s ) override @nogc @safe nothrow pure
+  dchar safeDecode( ref ubyte[] s ) @nogc @safe nothrow pure
   // 
-  string toString() override @nogc @safe nothrow pure
+  string toString() @nogc @safe nothrow pure
 }</code></pre><h2 class='section'>About</h2><p>EncodingScheme to handle Latin-1</p>
 <h3 class='section'>This scheme recognises the following names</h3><p>&quot;CP819&quot;, &quot;IBM819&quot;, &quot;ISO-8859-1&quot;, &quot;ISO_8859-1&quot;, &quot;ISO_8859-1:1987&quot;, &quot;csISOLatin1&quot;, &quot;iso-ir-100&quot;, &quot;l1&quot;, &quot;latin1&quot;</p>
 <h2 class='section'>Functions</h2><table>

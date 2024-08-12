@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - create</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.encoding.EncodingScheme</dd></dl><dl><dt>Parent</dt><dd>EncodingScheme</dd></dl>
 </div><h2 class='section api'>create(encodingName)   </h2>
- <pre><code class='lang-d'>static EncodingScheme create( string encodingName ) </code></pre><p>Obtains a subclass of EncodingScheme which is capable of encoding and decoding the named encoding scheme.</p>
+ <pre><code class='lang-d'>EncodingScheme create( string encodingName ) </code></pre><p>Obtains a subclass of EncodingScheme which is capable of encoding and decoding the named encoding scheme.</p>
 <p>This function is only aware of EncodingSchemes which have been registered with the register() function.</p>
 <h3 class='section'>Example</h3><p>--------------------------------------------------- auto scheme = EncodingScheme.create(&quot;Amiga-1251&quot;); ---------------------------------------------------</p>
 

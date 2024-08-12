@@ -93,9 +93,9 @@
   E
 )(
   lazy E expression,
-  string msg,
-  string file,
-  size_t line
+  string msg = null,
+  string file = __FILE__,
+  size_t line = __LINE__
 ) </code></pre><p>Asserts that the given expression throws the given type of <code>Throwable</code> . The <code>Throwable</code> is caught and does not escape assertThrown. However, any other <code>Throwable</code> s $(I will) escape, and if no <code>Throwable</code> of the given type is thrown, then an <code>AssertError</code> is thrown.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>T</code> &lt;parameter not found&gt;  </dt>
 <dd>

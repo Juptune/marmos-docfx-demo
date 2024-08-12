@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - seed</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.random.MersenneTwisterEngine</dd></dl><dl><dt>Parent</dt><dd>MersenneTwisterEngine</dd></dl>
 </div><h2 class='section api'>seed(value)   </h2>
- <pre><code class='lang-d'>void seed( )( UIntType value ) @nogc @safe nothrow pure</code></pre><p>Seeds a MersenneTwisterEngine object. Note: This seed function gives 2^w starting points (the lowest w bits of the value provided will be used). To allow the RNG to be started in any one of its internal states use the seed overload taking an InputRange.</p>
+ <pre><code class='lang-d'>void seed( )( UIntType value = defaultSeed ) @nogc @safe nothrow pure</code></pre><p>Seeds a MersenneTwisterEngine object. Note: This seed function gives 2^w starting points (the lowest w bits of the value provided will be used). To allow the RNG to be started in any one of its internal states use the seed overload taking an InputRange.</p>
 <h2 class='section api'>seed(range)   </h2>
  <pre><code class='lang-d'>void seed( T )( T range ) </code></pre><p>Seeds a MersenneTwisterEngine object using an InputRange.</p>
 <h3 class='section'>Throws</h3><p><code>Exception</code> if the InputRange didn't provide enough elements to seed the generator. The number of elements required is the 'n' template parameter of the MersenneTwisterEngine struct.</p>

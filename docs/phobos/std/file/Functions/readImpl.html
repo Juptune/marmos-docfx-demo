@@ -88,8 +88,16 @@
 <h1 class='section'>Overloads for - readImpl</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.file</dd></dl>
 </div><h2 class='section api'>readImpl(name, namez, upTo)   </h2>
- <pre><code class='lang-d'>void[] readImpl( scope char[] name, scope FSChar* namez, size_t upTo ) @trusted</code></pre><h2 class='section api'>readImpl(name, namez, upTo)   </h2>
- <pre><code class='lang-d'>void[] readImpl( scope char[] name, scope FSChar* namez, size_t upTo ) @trusted</code></pre>
+ <pre><code class='lang-d'>void[] readImpl(
+  scope char[] name,
+  scope FSChar* namez,
+  size_t upTo = size_t.max
+) @trusted</code></pre><h2 class='section api'>readImpl(name, namez, upTo)   </h2>
+ <pre><code class='lang-d'>void[] readImpl(
+  scope char[] name,
+  scope FSChar* namez,
+  size_t upTo = size_t.max
+) @trusted</code></pre>
 </article>
 
         <div class="contribution d-print-none">

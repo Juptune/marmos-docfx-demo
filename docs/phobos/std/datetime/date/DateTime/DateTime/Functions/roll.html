@@ -92,7 +92,7 @@
   string units
 )(
   long value,
-  AllowDayOverflow allowOverflow
+  AllowDayOverflow allowOverflow = AllowDayOverflow.yes
 ) @nogc @safe nothrow pure</code></pre><p>Adds the given number of years or months to this $(LREF DateTime), mutating it. A negative number will subtract.</p>
 <p>The difference between rolling and adding is that rolling does not affect larger units. Rolling a $(LREF DateTime) 12 months gets the exact same $(LREF DateTime). However, the days can still be affected due to the differing number of days in each month.</p>
 <p>Because there are no units larger than years, there is no difference between adding and rolling years.</p>

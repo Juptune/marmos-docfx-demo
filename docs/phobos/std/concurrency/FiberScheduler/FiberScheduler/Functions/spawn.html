@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - spawn</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.concurrency.FiberScheduler</dd></dl><dl><dt>Parent</dt><dd>FiberScheduler</dd></dl>
 </div><h2 class='section api'>spawn(op)   </h2>
- <pre><code class='lang-d'>void spawn( &lt;bug: unknown&gt; op ) nothrow</code></pre><p>This created a new <code>Fiber</code> for the supplied op and adds it to the dispatch list.</p>
+ <pre><code class='lang-d'>void spawn( void delegate() op ) nothrow</code></pre><p>This created a new <code>Fiber</code> for the supplied op and adds it to the dispatch list.</p>
 
 </article>
 

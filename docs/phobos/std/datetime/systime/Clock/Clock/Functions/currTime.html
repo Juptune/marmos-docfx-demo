@@ -88,7 +88,11 @@
 <h1 class='section'>Overloads for - currTime</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.systime.Clock</dd></dl><dl><dt>Parent</dt><dd>Clock</dd></dl>
 </div><h2 class='section api'>currTime(tz)   </h2>
- <pre><code class='lang-d'>SysTime currTime( ClockType clockType = ClockType.normal )( immutable TimeZone tz ) @safe</code></pre><p>Returns the current time in the given time zone.</p>
+ <pre><code class='lang-d'>SysTime currTime(
+  ClockType clockType = ClockType.normal
+)(
+  immutable TimeZone tz = LocalTime()
+) @safe</code></pre><p>Returns the current time in the given time zone.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>clockType</code> &lt;parameter not found&gt;  </dt>
 <dd>
 

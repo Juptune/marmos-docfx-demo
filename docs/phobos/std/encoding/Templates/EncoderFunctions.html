@@ -98,7 +98,7 @@
   // 
   void encode( dchar c, ref E[] array ) @safe nothrow pure
   // 
-  void encode( dchar c, &lt;bug: unknown&gt; dg ) 
+  void encode( dchar c, void delegate(E) dg ) 
   // 
   dchar safeDecode( S )( ref S s ) 
   // 

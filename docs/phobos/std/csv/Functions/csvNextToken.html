@@ -98,7 +98,7 @@
   ref Output ans,
   Separator sep,
   Separator quote,
-  bool startQuoted
+  bool startQuoted = false
 ) </code></pre><p>Lower level control over parsing CSV</p>
 <p>This function consumes the input. After each call the input will start with either a delimiter or record break (\n, \r\n, \r) which must be removed for subsequent calls.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>input</code> Range  </dt>

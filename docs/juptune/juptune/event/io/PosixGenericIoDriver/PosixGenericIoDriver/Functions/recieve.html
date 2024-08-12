@@ -88,7 +88,11 @@
 <h1 class='section'>Overloads for - recieve</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.event.io.PosixGenericIoDriver</dd></dl><dl><dt>Parent</dt><dd>PosixGenericIoDriver</dd></dl>
 </div><h2 class='section api'>recieve(buffer, sliceWithData, timeout)   </h2>
- <pre><code class='lang-d'>Result recieve( void[] buffer, out void[] sliceWithData, Duration timeout ) </code></pre>
+ <pre><code class='lang-d'>Result recieve(
+  void[] buffer,
+  out void[] sliceWithData,
+  Duration timeout = Duration.zero
+) </code></pre>
 </article>
 
         <div class="contribution d-print-none">

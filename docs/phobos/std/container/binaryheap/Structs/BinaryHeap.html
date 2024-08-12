@@ -101,11 +101,11 @@
   alias Range = &lt;todo: marmos support pending&gt;
 
   // Takes ownership of a store. After this, manipulating `s` may make the heap work incorrectly. 
-  void acquire( Store s, size_t initialSize ) 
+  void acquire( Store s, size_t initialSize = size_t.max ) 
   // 
   void assertValid() 
   // Takes ownership of a store assuming it already was organized as a heap. 
-  void assume( Store s, size_t initialSize ) 
+  void assume( Store s, size_t initialSize = size_t.max ) 
   // Returns the capacity of the heap, which is the length of the underlying store (if the store is a range) or the capacity of the underlying store (if the store is a container). 
   size_t capacity() @property
   // Clears the heap by detaching it from the underlying store. 

@@ -92,41 +92,41 @@
   // 
   int iVersion
   // 
-  * xCheckReservedLock
+  int function(sqlite3_file*,int*)* xCheckReservedLock
   // 
-  * xClose
+  int function(sqlite3_file*)* xClose
   // 
-  * xDeviceCharacteristics
+  int function(sqlite3_file*)* xDeviceCharacteristics
   // 
-  * xFetch
+  int function(sqlite3_file*,sqlite3_int64,int,void**)* xFetch
   // 
-  * xFileControl
+  int function(sqlite3_file*,int,void*)* xFileControl
   // 
-  * xFileSize
+  int function(sqlite3_file*,sqlite3_int64*)* xFileSize
   // 
-  * xLock
+  int function(sqlite3_file*,int)* xLock
   // 
-  * xRead
+  int function(sqlite3_file*,void*,int,sqlite3_int64)* xRead
   // 
-  * xSectorSize
+  int function(sqlite3_file*)* xSectorSize
   // 
-  * xShmBarrier
+  void function(sqlite3_file*)* xShmBarrier
   // 
-  * xShmLock
+  int function(sqlite3_file*,int,int,int)* xShmLock
   // 
-  * xShmMap
+  int function(sqlite3_file*,int,int,int,void**)* xShmMap
   // 
-  * xShmUnmap
+  int function(sqlite3_file*,int)* xShmUnmap
   // 
-  * xSync
+  int function(sqlite3_file*,int)* xSync
   // 
-  * xTruncate
+  int function(sqlite3_file*,sqlite3_int64)* xTruncate
   // 
-  * xUnfetch
+  int function(sqlite3_file*,sqlite3_int64,void*)* xUnfetch
   // 
-  * xUnlock
+  int function(sqlite3_file*,int)* xUnlock
   // 
-  * xWrite
+  int function(sqlite3_file*,const void*,int,sqlite3_int64)* xWrite
 }</code></pre><h2 class='section'>About</h2><p>CAPI3REF: OS Interface File Virtual Methods Object</p>
 <h2 class='section'>Variables</h2><table>
 <thead>

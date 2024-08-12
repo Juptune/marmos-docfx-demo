@@ -95,7 +95,7 @@
 )(
   Range range,
   Sentinel sentinel,
-  OpenRight openRight
+  OpenRight openRight = Yes.openRight
 ) </code></pre><p>Lazily iterates <code>range</code> until the element <code>e</code> for which <code>pred(e, sentinel)</code> is true.</p>
 <p>This is similar to <code>takeWhile</code> in other languages.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>pred</code> &lt;parameter not found&gt;  </dt>
@@ -113,7 +113,13 @@
 </dd></dl><p>range = The $(REF_ALTTEXT input range, isInputRange, std,range,primitives) to iterate over. sentinel = The element to stop at. openRight = Determines whether the element for which the given predicate is true should be included in the resulting range (<code>No.openRight</code>), or not (<code>Yes.openRight</code>).</p>
 <h3 class='section'>Returns</h3><p>An $(REF_ALTTEXT input range, isInputRange, std,range,primitives) that iterates over the original range's elements, but ends when the specified predicate becomes true. If the original range is a $(REF_ALTTEXT forward range, isForwardRange, std,range,primitives) or higher, this range will be a forward range.</p>
 <h2 class='section api'>until(range, openRight)   </h2>
- <pre><code class='lang-d'>Until!(pred,Range,void) until( alias pred, Range )( Range range, OpenRight openRight ) </code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>Until!(pred,Range,void) until(
+  alias pred,
+  Range
+)(
+  Range range,
+  OpenRight openRight = Yes.openRight
+) </code></pre><p>Ditto</p>
 
 </article>
 

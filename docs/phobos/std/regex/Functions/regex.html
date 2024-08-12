@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - regex</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.regex</dd></dl>
 </div><h2 class='section api'>regex(patterns, flags)   </h2>
- <pre><code class='lang-d'>auto regex( S : C[], C )( const S[] patterns, char[] flags ) @trusted</code></pre><p>Compile regular expression pattern for the later execution. Returns: <code>Regex</code> object that works on inputs having the same character width as <code>pattern</code> .</p>
+ <pre><code class='lang-d'>auto regex( S : C[], C )( const S[] patterns, char[] flags = &quot;&quot; ) @trusted</code></pre><p>Compile regular expression pattern for the later execution. Returns: <code>Regex</code> object that works on inputs having the same character width as <code>pattern</code> .</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>pattern</code> &lt;parameter not found&gt;  </dt>
 <dd>
 
@@ -109,7 +109,7 @@
 
 </dd></dl><p>Throws: <code>RegexException</code> if there were any errors during compilation.</p>
 <h2 class='section api'>regex(pattern, flags)   </h2>
- <pre><code class='lang-d'>auto regex( S )( S pattern, char[] flags ) @trusted</code></pre><p>ditto</p>
+ <pre><code class='lang-d'>auto regex( S )( S pattern, char[] flags = &quot;&quot; ) @trusted</code></pre><p>ditto</p>
 
 </article>
 

@@ -94,7 +94,7 @@
 )(
   Source source,
   size_t windowSize,
-  size_t stepSize
+  size_t stepSize = 1
 ) </code></pre><p>A fixed-sized sliding window iteration of size <code>windowSize</code> over a <code>source</code> range by a custom <code>stepSize</code> .</p>
 <p>The <code>Source</code> range must be at least a $(REF_ALTTEXT ForwardRange, isForwardRange, std,range,primitives) and the <code>windowSize</code> must be greater than zero.</p>
 <p>For <code>windowSize = 1</code> it splits the range into single element groups (aka <code>unflatten</code> ) For <code>windowSize = 2</code> it is similar to <code>zip(source, source.save.dropOne)</code> .</p>

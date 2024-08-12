@@ -112,10 +112,10 @@
   const LogLevel ll,
   lazy bool condition,
   lazy T args,
-  int line,
-  string file,
-  string funcName,
-  string prettyFuncName
+  int line = __LINE__,
+  string file = __FILE__,
+  string funcName = __FUNCTION__,
+  string prettyFuncName = __PRETTY_FUNCTION__
 ) </code></pre><p>Ditto</p>
 <h2 class='section api'>log(ll, args)   </h2>
  <pre><code class='lang-d'>void log(
@@ -138,11 +138,11 @@
 )(
   const LogLevel ll,
   lazy T args,
-  int line,
-  string file,
-  string funcName,
-  string prettyFuncName,
-  string moduleName
+  int line = __LINE__,
+  string file = __FILE__,
+  string funcName = __FUNCTION__,
+  string prettyFuncName = __PRETTY_FUNCTION__,
+  string moduleName = __MODULE__
 ) </code></pre><p>Ditto</p>
 <h2 class='section api'>log(condition, args)   </h2>
  <pre><code class='lang-d'>void log(
@@ -165,11 +165,11 @@
 )(
   lazy bool condition,
   lazy T args,
-  int line,
-  string file,
-  string funcName,
-  string prettyFuncName,
-  string moduleName
+  int line = __LINE__,
+  string file = __FILE__,
+  string funcName = __FUNCTION__,
+  string prettyFuncName = __PRETTY_FUNCTION__,
+  string moduleName = __MODULE__
 ) </code></pre><p>Ditto</p>
 <h2 class='section api'>log(args)   </h2>
  <pre><code class='lang-d'>void log(
@@ -190,11 +190,11 @@
   T
 )(
   lazy T arg,
-  int line,
-  string file,
-  string funcName,
-  string prettyFuncName,
-  string moduleName
+  int line = __LINE__,
+  string file = __FILE__,
+  string funcName = __FUNCTION__,
+  string prettyFuncName = __PRETTY_FUNCTION__,
+  string moduleName = __MODULE__
 ) </code></pre><p>Ditto</p>
 
 </article>

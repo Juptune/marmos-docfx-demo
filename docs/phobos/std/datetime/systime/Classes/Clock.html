@@ -92,7 +92,11 @@
   // Returns the number of hnsecs since midnight, January 1st, 1 A.D. for the current time. 
   long currStdTime( ClockType clockType = ClockType.normal )() @property @trusted
   // Returns the current time in the given time zone. 
-  SysTime currTime( ClockType clockType = ClockType.normal )( immutable TimeZone tz ) @safe
+  SysTime currTime(
+    ClockType clockType = ClockType.normal
+  )(
+    immutable TimeZone tz = LocalTime()
+  ) @safe
 }</code></pre><h2 class='section'>About</h2><p>Effectively a namespace to make it clear that the methods it contains are getting the time from the system clock. It cannot be instantiated.</p>
 <h2 class='section'>Functions</h2><table>
 <thead>

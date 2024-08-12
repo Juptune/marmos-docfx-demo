@@ -91,7 +91,7 @@
  <pre><code class='lang-d'>extern(C) int sqlite3_collation_needed(
   sqlite3* __anonymous,
   void* __anonymous,
-  * __anonymous
+  void function(void*,sqlite3*,int,const char*)* __anonymous
 ) </code></pre><p>CAPI3REF: Collation Needed Callbacks</p>
 
 </article>

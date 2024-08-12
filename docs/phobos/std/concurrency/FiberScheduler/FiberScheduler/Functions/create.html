@@ -88,8 +88,8 @@
 <h1 class='section'>Overloads for - create</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.concurrency.FiberScheduler</dd></dl><dl><dt>Parent</dt><dd>FiberScheduler</dd></dl>
 </div><h2 class='section api'>create(op)   </h2>
- <pre><code class='lang-d'>void create( &lt;bug: unknown&gt; op ) nothrow</code></pre><p>Creates a new <code>Fiber</code> which calls the given delegate.</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>op</code> &lt;bug: unknown&gt;  </dt>
+ <pre><code class='lang-d'>void create( void delegate() op ) nothrow</code></pre><p>Creates a new <code>Fiber</code> which calls the given delegate.</p>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>op</code> void delegate()  </dt>
 <dd>
 
 

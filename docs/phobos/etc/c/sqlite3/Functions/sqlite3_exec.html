@@ -91,7 +91,7 @@
  <pre><code class='lang-d'>extern(C) int sqlite3_exec(
   sqlite3* __anonymous,
   char* sql,
-  * callback,
+  int function(void*,int,char**,char**)* callback,
   void* __anonymous,
   char** errmsg
 ) </code></pre><p>CAPI3REF: One-Step Query Execution Interface</p>

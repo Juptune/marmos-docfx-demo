@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - detab</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.string</dd></dl>
 </div><h2 class='section api'>detab(s, tabSize)   </h2>
- <pre><code class='lang-d'>auto detab( Range )( auto ref Range s, size_t tabSize ) pure</code></pre><p>Replace each tab character in <code>s</code> with the number of spaces necessary to align the following character at the next tab stop.</p>
+ <pre><code class='lang-d'>auto detab( Range )( auto ref Range s, size_t tabSize = 8 ) pure</code></pre><p>Replace each tab character in <code>s</code> with the number of spaces necessary to align the following character at the next tab stop.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>s</code> Range  </dt>
 <dd>
 

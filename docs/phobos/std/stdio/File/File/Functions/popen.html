@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - popen</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.stdio.File</dd></dl><dl><dt>Parent</dt><dd>File</dd></dl>
 </div><h2 class='section api'>popen(command, stdioOpenmode)   </h2>
- <pre><code class='lang-d'>void popen( string command, scope char[] stdioOpenmode ) @safe</code></pre><p>Detaches from the current file (throwing on failure), and then runs a command by calling the C standard library function $(HTTP pubs.opengroup.org/onlinepubs/7908799/xsh/popen.html, popen).</p>
+ <pre><code class='lang-d'>void popen( string command, scope char[] stdioOpenmode = &quot;r&quot; ) @safe</code></pre><p>Detaches from the current file (throwing on failure), and then runs a command by calling the C standard library function $(HTTP pubs.opengroup.org/onlinepubs/7908799/xsh/popen.html, popen).</p>
 <p>Throws: <code>ErrnoException</code> in case of error.</p>
 
 </article>

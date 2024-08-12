@@ -91,10 +91,10 @@
  <pre><code class='lang-d'>Result vectorIoImpl(
   alias OpT
 )(
-  scope &lt;bug: unknown&gt; setter,
+  scope void delegate(iovec[]) @nogc nothrow setter,
   size_t bufferCount,
   ref size_t bytesUsed,
-  Duration timeout
+  Duration timeout = Duration.zero
 ) </code></pre>
 </article>
 

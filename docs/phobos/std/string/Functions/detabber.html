@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - detabber</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.string</dd></dl>
 </div><h2 class='section api'>detabber(r, tabSize)   </h2>
- <pre><code class='lang-d'>auto detabber( Range )( Range r, size_t tabSize ) </code></pre><p>Replace each tab character in <code>r</code> with the number of spaces necessary to align the following character at the next tab stop.</p>
+ <pre><code class='lang-d'>auto detabber( Range )( Range r, size_t tabSize = 8 ) </code></pre><p>Replace each tab character in <code>r</code> with the number of spaces necessary to align the following character at the next tab stop.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>r</code> Range  </dt>
 <dd>
 
@@ -103,7 +103,7 @@
 
 </dd></dl><h3 class='section'>Returns</h3><p>lazy forward range with tabs replaced with spaces</p>
 <h2 class='section api'>detabber(r, tabSize)   </h2>
- <pre><code class='lang-d'>auto detabber( Range )( auto ref Range r, size_t tabSize ) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>auto detabber( Range )( auto ref Range r, size_t tabSize = 8 ) </code></pre><p>ditto</p>
 
 </article>
 

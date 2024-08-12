@@ -88,11 +88,11 @@
 <h1 class='section'>Overloads for - logLevel</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.logger.core.Logger</dd></dl><dl><dt>Parent</dt><dd>Logger</dd></dl>
 </div><h2 class='section api'>logLevel()   </h2>
- <pre><code class='lang-d'>LogLevel logLevel() final @nogc @property @safe pure</code></pre><p>The <code>LogLevel</code> determines if the log call are processed or dropped by the <code>Logger</code> . In order for the log call to be processed the <code>LogLevel</code> of the log call must be greater or equal to the <code>LogLevel</code> of the <code>logger</code> .</p>
+ <pre><code class='lang-d'>LogLevel logLevel() @nogc @property @safe pure</code></pre><p>The <code>LogLevel</code> determines if the log call are processed or dropped by the <code>Logger</code> . In order for the log call to be processed the <code>LogLevel</code> of the log call must be greater or equal to the <code>LogLevel</code> of the <code>logger</code> .</p>
 <p>These two methods set and get the <code>LogLevel</code> of the used <code>Logger</code> .</p>
 <p>Example: ----------- auto f = new FileLogger(stdout); f.logLevel = LogLevel.info; assert(f.logLevel == LogLevel.info); -----------</p>
 <h2 class='section api'>logLevel(lv)   </h2>
- <pre><code class='lang-d'>void logLevel( const LogLevel lv ) final @nogc @property @safe</code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>void logLevel( const LogLevel lv ) @nogc @property @safe</code></pre><p>Ditto</p>
 
 </article>
 

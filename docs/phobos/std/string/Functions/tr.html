@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - tr</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.string</dd></dl>
 </div><h2 class='section api'>tr(str, from, to, modifiers)   </h2>
- <pre><code class='lang-d'>C1[] tr( C1, C2, C3, C4 = char )( C1[] str, C2[] from, C3[] to, C4[] modifiers ) </code></pre><p>Replaces the characters in <code>str</code> which are in <code>from</code> with the the corresponding characters in <code>to</code> and returns the resulting string.</p>
+ <pre><code class='lang-d'>C1[] tr( C1, C2, C3, C4 = char )( C1[] str, C2[] from, C3[] to, C4[] modifiers = null ) </code></pre><p>Replaces the characters in <code>str</code> which are in <code>from</code> with the the corresponding characters in <code>to</code> and returns the resulting string.</p>
 <p><code>tr</code> is based on $(HTTP pubs.opengroup.org/onlinepubs/9699919799/utilities/_tr.html, Posix's tr), though it doesn't do everything that the Posix utility does.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>str</code> C1[]  </dt>
 <dd>

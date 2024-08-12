@@ -93,9 +93,13 @@
   alias opDollar = &lt;todo: marmos support pending&gt;
 
   // A safer-ish way to access the underlying slice, by forcing it to go through a scoped delegate. 
-  auto access( RetT )( scope &lt;bug: unknown&gt; accessor ) @trusted
+  auto access( RetT )( scope RetT delegate(scope char[]) @safe accessor ) @trusted
   // ditto. 
-  auto access( RetT )( scope &lt;bug: unknown&gt; accessor ) @nogc @trusted nothrow
+  auto access(
+    RetT
+  )(
+    scope RetT delegate(scope char[]) @nogc @safe nothrow accessor
+  ) @nogc @trusted nothrow
   // A named constructor for `String2` that will convert the given char-based `Array` into a string, and then destroy the array, effectively &quot;moving&quot; the array into a string. 
   String2 fromDestroyingArray( ArrayT )( ref scope ArrayT arr ) 
   // 

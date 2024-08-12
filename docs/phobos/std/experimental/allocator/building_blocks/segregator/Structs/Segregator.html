@@ -106,7 +106,7 @@
   // This method is defined only if at least one of the allocators defines it. If `SmallAllocator` defines `expand` and $(D b.length + delta &lt;= threshold), the call is forwarded to `SmallAllocator` . If $(D LargeAllocator) defines `expand` and $(D b.length &gt; threshold), the call is forwarded to `LargeAllocator` . Otherwise, the call returns `false` . 
   bool expand( ref void[] b, size_t delta ) 
   // This method is defined only if at least one of the allocators defines it. The good allocation size is obtained from `SmallAllocator` if $(D s &lt;= threshold), or `LargeAllocator` otherwise. (If one of the allocators does not define `goodAllocSize` , the default implementation in this module applies.) 
-  static size_t goodAllocSize( size_t s ) 
+  size_t goodAllocSize( size_t s ) 
   // This method is defined only if both allocators define it. The call is forwarded to `SmallAllocator` if $(D b.length &lt;= threshold), or $(D LargeAllocator) otherwise. 
   Ternary owns( void[] b ) 
   // This method is defined only if at least one of the allocators defines it. If `SmallAllocator` defines `reallocate` and $(D b.length &lt;= threshold &amp;&amp; s &lt;= threshold), the call is forwarded to $(D SmallAllocator). If `LargeAllocator` defines `expand` and $(D b.length &gt; threshold &amp;&amp; s &gt; threshold), the call is forwarded to $(D LargeAllocator). Otherwise, the call returns `false` . 

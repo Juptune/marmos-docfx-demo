@@ -93,15 +93,15 @@
   alias slot_t = &lt;todo: marmos support pending&gt;
 
   // Add a slot to the list of slots to be called when emit() is called. 
-  void connect( slot_t slot ) final
+  void connect( slot_t slot ) 
   // Remove a slot from the list of slots to be called when emit() is called. 
-  void disconnect( slot_t slot ) final
+  void disconnect( slot_t slot ) 
   // Disconnect all the slots. 
-  void disconnectAll() final
+  void disconnectAll() 
   // Call each of the connected slots, passing the argument(s) i to them. Nested call will be ignored. 
-  void emit( T1 i ) final
+  void emit( T1 i ) 
   // 
-  void unhook( Object o ) final
+  void unhook( Object o ) 
 
   // 
   slot_t[] slots

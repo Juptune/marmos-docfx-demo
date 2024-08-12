@@ -100,7 +100,7 @@
   // 
   void opIndexAssign( T val, size_t index ) 
   // 
-  static size_t roundToLine( size_t num ) nothrow pure
+  size_t roundToLine( size_t num ) nothrow pure
   // Returns a range view of the values for all threads, which can be used to further process the results of each thread after running the parallel part of your algorithm.  Do not use this method in the parallel portion of your algorithm. 
   WorkerLocalStorageRange!(T) toRange() @property
 

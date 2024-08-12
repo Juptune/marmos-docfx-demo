@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - utcToTZ</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.timezone.SimpleTimeZone</dd></dl><dl><dt>Parent</dt><dd>SimpleTimeZone</dd></dl>
 </div><h2 class='section api'>utcToTZ(stdTime)   </h2>
- <pre><code class='lang-d'>long utcToTZ( long stdTime ) override @safe nothrow scope</code></pre><p>Takes the number of hnsecs (100 ns) since midnight, January 1st, 1 A.D. in UTC time (i.e. std time) and converts it to this time zone's time.</p>
+ <pre><code class='lang-d'>long utcToTZ( long stdTime ) @safe nothrow scope</code></pre><p>Takes the number of hnsecs (100 ns) since midnight, January 1st, 1 A.D. in UTC time (i.e. std time) and converts it to this time zone's time.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>stdTime</code> long  </dt>
 <dd>
 

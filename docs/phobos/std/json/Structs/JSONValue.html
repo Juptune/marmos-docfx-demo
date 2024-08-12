@@ -130,9 +130,9 @@
   // Value getter for `JSONType.object` . Unlike `object` , this retrieves the object by value and can be used in @safe code. 
   JSONValue[string] objectNoRef() @property @trusted pure
   // Implements the foreach `opApply` interface for json arrays. 
-  int opApply( scope &lt;bug: unknown&gt; dg ) @system
+  int opApply( scope int delegate(size_t,ref JSONValue) dg ) @system
   // Implements the foreach `opApply` interface for json objects. 
-  int opApply( scope &lt;bug: unknown&gt; dg ) @system
+  int opApply( scope int delegate(string,ref JSONValue) dg ) @system
   // 
   void opAssign( T )( T arg ) 
   // 
@@ -162,13 +162,13 @@
     scope return ref return ref scope string v
   ) @nogc @property @trusted nothrow return pure
   // Implicitly calls `toJSON` on this JSONValue, like `toString` , but also passes $(I true) as $(I pretty) argument. 
-  string toPrettyString( in JSONOptions options ) @safe
+  string toPrettyString( in JSONOptions options = JSONOptions.none ) @safe
   // 
-  void toPrettyString( Out )( Out sink, in JSONOptions options ) 
+  void toPrettyString( Out )( Out sink, in JSONOptions options = JSONOptions.none ) 
   // Implicitly calls `toJSON` on this JSONValue. 
-  string toString( in JSONOptions options ) @safe
+  string toString( in JSONOptions options = JSONOptions.none ) @safe
   // 
-  void toString( Out )( Out sink, in JSONOptions options ) 
+  void toString( Out )( Out sink, in JSONOptions options = JSONOptions.none ) 
   // Returns the JSONType of the value stored in this structure. 
   JSONType type() @nogc @property @safe nothrow pure
   // Value getter/setter for `JSONType.uinteger` . Throws: `JSONException` for read access if `type` is not `JSONType.uinteger` . 

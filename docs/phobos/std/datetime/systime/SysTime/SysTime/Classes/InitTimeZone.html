@@ -90,17 +90,17 @@
 </div><pre><code class='lang-d'>public class InitTimeZone
 {
   // 
-  bool dstInEffect( long stdTime ) override @nogc @safe nothrow scope
+  bool dstInEffect( long stdTime ) @nogc @safe nothrow scope
   // 
-  bool hasDST() override @nogc @property @safe nothrow
+  bool hasDST() @nogc @property @safe nothrow
   // 
-  static InitTimeZone opCall() @nogc @safe nothrow pure
+  InitTimeZone opCall() @nogc @safe nothrow pure
   // 
-  long tzToUTC( long adjTime ) override @nogc @safe nothrow scope
+  long tzToUTC( long adjTime ) @nogc @safe nothrow scope
   // 
-  Duration utcOffsetAt( long stdTime ) override @nogc @safe nothrow scope
+  Duration utcOffsetAt( long stdTime ) @nogc @safe nothrow scope
   // 
-  long utcToTZ( long stdTime ) override @nogc @safe nothrow scope
+  long utcToTZ( long stdTime ) @nogc @safe nothrow scope
 }</code></pre><h2 class='section'>Functions</h2><table>
 <thead>
 <tr>

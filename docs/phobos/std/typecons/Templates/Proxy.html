@@ -105,13 +105,13 @@
   // 
   ref auto opCast( T, X )() 
   // 
-  int opCmp( Object o ) override
+  int opCmp( Object o ) 
   // 
   int opCmp( T )( const auto ref T b ) 
   // 
   auto opDollar() 
   // 
-  bool opEquals( Object o ) override
+  bool opEquals( Object o ) 
   // 
   bool opEquals( T )( T b ) 
   // 
@@ -153,7 +153,7 @@
   // 
   ref auto opUnary( string op, X )() 
   // 
-  size_t toHash() override @safe nothrow
+  size_t toHash() @safe nothrow
 
   // 
   bool accessibleFrom = is(typeof((T* self)

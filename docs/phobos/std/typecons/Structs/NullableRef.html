@@ -100,9 +100,17 @@
   // Assigns `value` to the internally-held state. 
   void opAssign( )( T value ) 
   // 
-  void toString( )( scope &lt;bug: unknown&gt; sink, const ref scope FormatSpec!(char) fmt ) 
+  void toString(
+  )(
+    scope void delegate(char[]) sink,
+    const ref scope FormatSpec!(char) fmt
+  ) 
   // 
-  void toString( )( scope &lt;bug: unknown&gt; sink, const ref scope FormatSpec!(char) fmt ) 
+  void toString(
+  )(
+    scope void delegate(char[]) sink,
+    const ref scope FormatSpec!(char) fmt
+  ) 
 }</code></pre><h2 class='section'>About</h2><p>Just like <code>Nullable!T</code> , except that the object refers to a value sitting elsewhere in memory. This makes assignments overwrite the initially assigned value. Internally <code>NullableRef!T</code> only stores a pointer to <code>T</code> (i.e., $(D Nullable!T.sizeof == (T*).sizeof)).</p>
 <h2 class='section'>Functions</h2><table>
 <thead>

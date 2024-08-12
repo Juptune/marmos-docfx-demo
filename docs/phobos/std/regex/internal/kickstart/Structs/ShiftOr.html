@@ -90,15 +90,15 @@
 </div><pre><code class='lang-d'>struct ShiftOr( Char )
 {
   // 
-  static uint charLen( uint ch ) 
+  uint charLen( uint ch ) 
   // 
-  static void dump( uint[] table ) 
+  void dump( uint[] table ) 
   // 
   bool empty() @property
   // 
-  static ShiftThread fetch( ref ShiftThread[] worklist ) @trusted
+  ShiftThread fetch( ref ShiftThread[] worklist ) @trusted
   // 
-  static ShiftThread fork( ShiftThread t, uint newPc, uint newCounter ) 
+  ShiftThread fork( ShiftThread t, uint newPc, uint newCounter ) 
   // 
   uint length() @property
   // 

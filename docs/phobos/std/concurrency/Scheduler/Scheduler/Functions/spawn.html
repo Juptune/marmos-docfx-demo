@@ -88,9 +88,9 @@
 <h1 class='section'>Overloads for - spawn</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.concurrency.Scheduler</dd></dl><dl><dt>Parent</dt><dd>Scheduler</dd></dl>
 </div><h2 class='section api'>spawn(op)   </h2>
- <pre><code class='lang-d'>void spawn( &lt;bug: unknown&gt; op ) </code></pre><p>Assigns a logical thread to execute the supplied op.</p>
+ <pre><code class='lang-d'>void spawn( void delegate() op ) </code></pre><p>Assigns a logical thread to execute the supplied op.</p>
 <p>This routine is called by spawn.  It is expected to instantiate a new logical thread and run the supplied operation.  This thread must call <code>thisInfo.cleanup()</code> when the thread terminates if the scheduled thread is not a kernel thread--all kernel threads will have their <code>ThreadInfo</code> cleaned up automatically by a thread-local destructor.</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>op</code> &lt;bug: unknown&gt;  </dt>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>op</code> void delegate()  </dt>
 <dd>
 
 

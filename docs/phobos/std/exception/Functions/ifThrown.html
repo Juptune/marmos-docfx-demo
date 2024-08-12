@@ -134,7 +134,7 @@
   T2
 )(
   lazy scope T1 expression,
-  scope &lt;bug: unknown&gt; errorHandler
+  scope T2 delegate(E) errorHandler
 ) </code></pre><p>ditto</p>
 <h2 class='section api'>ifThrown(expression, errorHandler)   </h2>
  <pre><code class='lang-d'>CommonType!(T1,T2) ifThrown(
@@ -142,7 +142,7 @@
   T2
 )(
   lazy scope T1 expression,
-  scope &lt;bug: unknown&gt; errorHandler
+  scope T2 delegate(Exception) errorHandler
 ) </code></pre><p>ditto</p>
 
 </article>

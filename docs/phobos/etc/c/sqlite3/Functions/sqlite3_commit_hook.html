@@ -90,7 +90,7 @@
 </div><h2 class='section api'>sqlite3_commit_hook(__anonymous, __anonymous, __anonymous)   </h2>
  <pre><code class='lang-d'>extern(C) void* sqlite3_commit_hook(
   sqlite3* __anonymous,
-  * __anonymous,
+  int function(void*)* __anonymous,
   void* __anonymous
 ) </code></pre><p>CAPI3REF: Commit And Rollback Notification Callbacks</p>
 

@@ -90,15 +90,15 @@
 </div><pre><code class='lang-d'>public class Key
 {
   // Returns the named sub-key of this key. 
-  Key createKey( string name, REGSAM access ) 
+  Key createKey( string name, REGSAM access = REGSAM.KEY_ALL_ACCESS ) 
   // Deletes the named key. 
-  void deleteKey( string name, REGSAM access ) 
+  void deleteKey( string name, REGSAM access = cast(REGSAM)0 ) 
   // Deletes the named value. 
   void deleteValue( string name ) 
   // Flushes any changes to the key to disk. 
   void flush() 
   // Returns the named sub-key of this key. 
-  Key getKey( string name, REGSAM access ) 
+  Key getKey( string name, REGSAM access = REGSAM.KEY_READ ) 
   // Returns the named value. If `name` is the empty string, then the default value is returned. 
   Value getValue( string name ) 
   // The number of sub keys. 

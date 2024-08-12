@@ -98,7 +98,7 @@
   // Callback implementation user data 
   void* pUser
   // Called by SQLite to clean up pUser 
-  * xDelUser
+  void function(void*)* xDelUser
 }</code></pre><h2 class='section'>About</h2><p>A pointer to a structure of the following type is passed as the first argument to callbacks registered using rtree_geometry_callback().</p>
 <h2 class='section'>Variables</h2><table>
 <thead>

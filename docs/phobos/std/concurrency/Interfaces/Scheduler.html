@@ -92,9 +92,9 @@
   // Creates a `Condition` variable analog for signaling. 
   Condition newCondition( Mutex m ) nothrow
   // Assigns a logical thread to execute the supplied op. 
-  void spawn( &lt;bug: unknown&gt; op ) 
+  void spawn( void delegate() op ) 
   // Spawns the supplied op and starts the `Scheduler` . 
-  void start( &lt;bug: unknown&gt; op ) 
+  void start( void delegate() op ) 
   // Returns an appropriate `ThreadInfo` instance. 
   ref ThreadInfo thisInfo() @property nothrow
   // Yields execution to another logical thread. 

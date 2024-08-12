@@ -88,7 +88,13 @@
 <h1 class='section'>Overloads for - lastIndexOf</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.string</dd></dl>
 </div><h2 class='section api'>lastIndexOf(s, c, cs)   </h2>
- <pre><code class='lang-d'>ptrdiff_t lastIndexOf( Char )( Char[] s, in dchar c, in CaseSensitive cs ) @safe pure</code></pre><h3 class='section'>Params</h3><dl class='parameters'><dt><code>s</code> Char[]  </dt>
+ <pre><code class='lang-d'>ptrdiff_t lastIndexOf(
+  Char
+)(
+  Char[] s,
+  in dchar c,
+  in CaseSensitive cs = Yes.caseSensitive
+) @safe pure</code></pre><h3 class='section'>Params</h3><dl class='parameters'><dt><code>s</code> Char[]  </dt>
 <dd>
 
 
@@ -122,7 +128,7 @@
   Char[] s,
   in dchar c,
   in size_t startIdx,
-  in CaseSensitive cs
+  in CaseSensitive cs = Yes.caseSensitive
 ) @safe pure</code></pre><p>Ditto</p>
 <h2 class='section api'>lastIndexOf(s, sub, cs)   </h2>
  <pre><code class='lang-d'>ptrdiff_t lastIndexOf(
@@ -131,7 +137,7 @@
 )(
   Char1[] s,
   Char2[] sub,
-  in CaseSensitive cs
+  in CaseSensitive cs = Yes.caseSensitive
 ) @safe pure</code></pre><h3 class='section'>Params</h3><dl class='parameters'><dt><code>s</code> Char1[]  </dt>
 <dd>
 
@@ -167,7 +173,7 @@
   Char1[] s,
   Char2[] sub,
   in size_t startIdx,
-  in CaseSensitive cs
+  in CaseSensitive cs = Yes.caseSensitive
 ) @safe pure</code></pre><p>Ditto</p>
 
 </article>

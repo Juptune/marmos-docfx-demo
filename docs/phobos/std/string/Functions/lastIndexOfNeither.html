@@ -94,7 +94,7 @@
 )(
   Char[] haystack,
   Char2[] needles,
-  in CaseSensitive cs
+  in CaseSensitive cs = Yes.caseSensitive
 ) @safe pure</code></pre><p>Returns the last index of the first occurence of any character that is not an elements in <code>needles</code> in <code>haystack</code> . If all element of <code>haystack</code> are element of <code>needles</code> <code>-1</code> is returned.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>haystack</code> Char[]  </dt>
 <dd>
@@ -128,7 +128,7 @@
   Char[] haystack,
   Char2[] needles,
   in size_t stopIdx,
-  in CaseSensitive cs
+  in CaseSensitive cs = Yes.caseSensitive
 ) @safe pure</code></pre><p>Ditto</p>
 
 </article>

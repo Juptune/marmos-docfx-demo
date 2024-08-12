@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - stdName</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.timezone.LocalTime</dd></dl><dl><dt>Parent</dt><dd>LocalTime</dd></dl>
 </div><h2 class='section api'>stdName()   </h2>
- <pre><code class='lang-d'>string stdName() override @property @trusted nothrow scope</code></pre><p>Typically, the abbreviation (generally 3 or 4 letters) for the time zone when DST is $(I not) in effect (e.g. PST). It is not necessarily unique.</p>
+ <pre><code class='lang-d'>string stdName() @property @trusted nothrow scope</code></pre><p>Typically, the abbreviation (generally 3 or 4 letters) for the time zone when DST is $(I not) in effect (e.g. PST). It is not necessarily unique.</p>
 <p>However, on Windows, it may be the unabbreviated name (e.g. Pacific Standard Time). Regardless, it is not the same as name.</p>
 <p>This property is overridden because the local time of the system could change while the program is running and we need to determine it dynamically rather than it being fixed like it would be with most time zones.</p>
 

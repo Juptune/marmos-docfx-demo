@@ -90,17 +90,17 @@
 </div><pre><code class='lang-d'>public class EncodingScheme
 {
   // Returns true if the character c can be represented in this encoding scheme. 
-  bool canEncode( dchar c ) abstract
+  bool canEncode( dchar c ) 
   // Returns the total number of code points encoded in a ubyte array. 
   size_t count( )( ubyte[] s ) 
   // Obtains a subclass of EncodingScheme which is capable of encoding and decoding the named encoding scheme. 
-  static EncodingScheme create( string encodingName ) 
+  EncodingScheme create( string encodingName ) 
   // Decodes a single code point. 
-  dchar decode( ref ubyte[] s ) abstract
+  dchar decode( ref ubyte[] s ) 
   // Encodes a single code point into a user-supplied, fixed-size buffer. 
-  size_t encode( dchar c, ubyte[] buffer ) abstract
+  size_t encode( dchar c, ubyte[] buffer ) 
   // Returns the number of ubytes required to encode this code point. 
-  size_t encodedLength( dchar c ) abstract
+  size_t encodedLength( dchar c ) 
   // Returns the length of the first encoded sequence. 
   size_t firstSequence( )( ubyte[] s ) 
   // Returns the array index at which the (n+1)th code point begins. 
@@ -108,24 +108,24 @@
   // Returns true if the array is encoded correctly 
   bool isValid( ubyte[] s ) 
   // Returns an array of all known names for this encoding scheme 
-  string[] names() abstract
+  string[] names() 
   // 
-  static void register( string className ) 
+  void register( string className ) 
   // Registers a subclass of EncodingScheme. 
   void register( Klass : EncodingScheme )() 
   // Returns the sequence of ubytes to be used to represent any character which cannot be represented in the encoding scheme. 
-  ubyte[] replacementSequence() abstract @property
+  ubyte[] replacementSequence() @property
   // Decodes a single code point. The input does not have to be valid. 
-  dchar safeDecode( ref ubyte[] s ) abstract
+  dchar safeDecode( ref ubyte[] s ) 
   // Sanitizes an array by replacing malformed ubyte sequences with valid ubyte sequences. The result is guaranteed to be valid for this encoding scheme. 
   ubyte[] sanitize( )( ubyte[] s ) 
   // Returns the standard name of the encoding scheme 
-  string toString() abstract override
+  string toString() 
   // Returns the length of the longest possible substring, starting from the first element, which is validly encoded. 
   size_t validLength( )( ubyte[] s ) 
 
   // 
-  __gshared *[string] supported
+  __gshared EncodingScheme function()*[string] supported
   // 
   __gshared string[string] supportedFactories
 }</code></pre><h2 class='section'>About</h2><p>Abstract base class of all encoding schemes</p>

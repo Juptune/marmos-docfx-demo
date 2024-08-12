@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - access</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.core.ds.string2.String2</dd></dl><dl><dt>Parent</dt><dd>String2</dd></dl>
 </div><h2 class='section api'>access(accessor)   </h2>
- <pre><code class='lang-d'>auto access( RetT )( scope &lt;bug: unknown&gt; accessor ) @trusted</code></pre><p>A safer-ish way to access the underlying slice, by forcing it to go through a scoped delegate.</p>
+ <pre><code class='lang-d'>auto access( RetT )( scope RetT delegate(scope char[]) @safe accessor ) @trusted</code></pre><p>A safer-ish way to access the underlying slice, by forcing it to go through a scoped delegate.</p>
 <p>This should be preferred over <code>String2.slice</code> when the underlying slice needs to be accessed, as it helps to ensure that the slice is not leaked.</p>
 <h3 class='section'>Notes</h3><p>Under the hood this function calls <code>slice</code> , which will force the string to become allocated on the heap if small string optimization is in use. This is extra security to help prevent stack corruption.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>RetT</code> &lt;parameter not found&gt;  </dt>
@@ -97,7 +97,7 @@
 
 <p>The return type of the accessor delegate, can be <code>void</code> .</p>
 
-</dd><dt><code>accessor</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>accessor</code> RetT delegate(scope char[]) @safe  </dt>
 <dd>
 
 
@@ -105,7 +105,11 @@
 
 </dd></dl><h3 class='section'>Returns</h3><p>Anything returned by the accessor delegate if <code>RetT</code> is not <code>void</code> .</p>
 <h2 class='section api'>access(accessor)   </h2>
- <pre><code class='lang-d'>auto access( RetT )( scope &lt;bug: unknown&gt; accessor ) @nogc @trusted nothrow</code></pre><p>ditto.</p>
+ <pre><code class='lang-d'>auto access(
+  RetT
+)(
+  scope RetT delegate(scope char[]) @nogc @safe nothrow accessor
+) @nogc @trusted nothrow</code></pre><p>ditto.</p>
 
 </article>
 

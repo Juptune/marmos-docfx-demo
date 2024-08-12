@@ -90,9 +90,9 @@
 </div><pre><code class='lang-d'>public class StdioException
 {
   // Convenience functions that throw an `StdioException` . 
-  static void opCall( string msg ) @safe
+  void opCall( string msg ) @safe
   // ditto 
-  static void opCall() @safe
+  void opCall() @safe
 
   // Operating system error code. 
   uint errno

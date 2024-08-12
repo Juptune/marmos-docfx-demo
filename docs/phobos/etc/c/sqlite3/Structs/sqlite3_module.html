@@ -92,51 +92,51 @@
   // 
   int iVersion
   // 
-  * xBegin
+  int function(sqlite3_vtab*)* xBegin
   // 
-  * xBestIndex
+  int function(sqlite3_vtab*,sqlite3_index_info*)* xBestIndex
   // 
-  * xClose
+  int function(sqlite3_vtab_cursor*)* xClose
   // 
-  * xColumn
+  int function(sqlite3_vtab_cursor*,sqlite3_context*,int)* xColumn
   // 
-  * xCommit
+  int function(sqlite3_vtab*)* xCommit
   // 
-  * xConnect
+  int function(sqlite3*,void*,int,const char**,sqlite3_vtab**,char**)* xConnect
   // 
-  * xCreate
+  int function(sqlite3*,void*,int,const char**,sqlite3_vtab**,char**)* xCreate
   // 
-  * xDestroy
+  int function(sqlite3_vtab*)* xDestroy
   // 
-  * xDisconnect
+  int function(sqlite3_vtab*)* xDisconnect
   // 
-  * xEof
+  int function(sqlite3_vtab_cursor*)* xEof
   // 
-  * xFilter
+  int function(sqlite3_vtab_cursor*,int,const char*,int,sqlite3_value**)* xFilter
   // 
-  * xFindFunction
+  int function(sqlite3_vtab*,int,const char*,mapFunction*,void**)* xFindFunction
   // 
-  * xNext
+  int function(sqlite3_vtab_cursor*)* xNext
   // 
-  * xOpen
+  int function(sqlite3_vtab*,sqlite3_vtab_cursor**)* xOpen
   // 
-  * xRelease
+  int function(sqlite3_vtab*,int)* xRelease
   // 
-  * xRename
+  int function(sqlite3_vtab*,const char*)* xRename
   // 
-  * xRollback
+  int function(sqlite3_vtab*)* xRollback
   // 
-  * xRollbackTo
+  int function(sqlite3_vtab*,int)* xRollbackTo
   // 
-  * xRowid
+  int function(sqlite3_vtab_cursor*,sqlite3_int64*)* xRowid
   // 
-  * xSavepoint
+  int function(sqlite3_vtab*,int)* xSavepoint
   // 
-  * xShadowName
+  int function(const char*)* xShadowName
   // 
-  * xSync
+  int function(sqlite3_vtab*)* xSync
   // 
-  * xUpdate
+  int function(sqlite3_vtab*,int,sqlite3_value**,sqlite3_int64*)* xUpdate
 }</code></pre><h2 class='section'>About</h2><p>Ditto</p>
 <h2 class='section'>Variables</h2><table>
 <thead>

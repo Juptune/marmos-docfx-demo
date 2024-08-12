@@ -92,25 +92,25 @@
   // 
   void* pArg
   // 
-  * xCachesize
+  void function(sqlite3_pcache*,int)* xCachesize
   // 
-  * xCreate
+  sqlite3_pcache* function(int,int)* xCreate
   // 
-  * xDestroy
+  void function(sqlite3_pcache*)* xDestroy
   // 
-  * xFetch
+  void* function(sqlite3_pcache*,uint,int)* xFetch
   // 
-  * xInit
+  int function(void*)* xInit
   // 
-  * xPagecount
+  int function(sqlite3_pcache*)* xPagecount
   // 
-  * xRekey
+  void function(sqlite3_pcache*,void*,uint,uint)* xRekey
   // 
-  * xShutdown
+  void function(void*)* xShutdown
   // 
-  * xTruncate
+  void function(sqlite3_pcache*,uint)* xTruncate
   // 
-  * xUnpin
+  void function(sqlite3_pcache*,void*,int)* xUnpin
 }</code></pre><h2 class='section'>Variables</h2><table>
 <thead>
 <tr>

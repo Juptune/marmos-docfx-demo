@@ -95,8 +95,8 @@
 )(
   T lhs,
   U rhs,
-  V maxRelDiff,
-  V maxAbsDiff
+  V maxRelDiff = CommonDefaultFor!(T, U),
+  V maxAbsDiff = 0.0
 ) </code></pre><p>Computes whether two values are approximately equal, admitting a maximum relative difference, and a maximum absolute difference.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>lhs</code> T  </dt>
 <dd>

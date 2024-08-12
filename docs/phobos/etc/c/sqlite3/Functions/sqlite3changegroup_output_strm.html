@@ -90,7 +90,7 @@
 </div><h2 class='section api'>sqlite3changegroup_output_strm(__anonymous, xOutput, pOut)   </h2>
  <pre><code class='lang-d'>extern(C) int sqlite3changegroup_output_strm(
   sqlite3_changegroup* __anonymous,
-  * xOutput,
+  int function(void*,void*,int)* xOutput,
   void* pOut
 ) </code></pre><p>Ditto</p>
 

@@ -96,9 +96,9 @@
   // Calls $(REF moveFront, std, range, primitives) on the wrapped range, if possible. Otherwise, throws an $(LREF UnsupportedRangeMethod) exception. 
   E moveFront() 
   // `foreach` iteration uses opApply, since one delegate call per loop iteration is faster than three virtual function calls. 
-  int opApply( scope &lt;bug: unknown&gt; __anonymous ) 
+  int opApply( scope int delegate(E) __anonymous ) 
   // Ditto 
-  int opApply( scope &lt;bug: unknown&gt; __anonymous ) 
+  int opApply( scope int delegate(size_t,E) __anonymous ) 
   // 
   void popFront() 
 }</code></pre><h2 class='section'>About</h2><p>These interfaces are intended to provide virtual function-based wrappers around input ranges with element type E.  This is useful where a well-defined binary interface is required, such as when a DLL function or virtual function needs to accept a generic range as a parameter. Note that $(REF_ALTTEXT isInputRange, isInputRange, std, range, primitives) and friends check for conformance to structural interfaces not for implementation of these <code>interface</code> types.</p>

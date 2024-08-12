@@ -88,9 +88,11 @@
 <h1 class='section'>Overloads for - access</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.http.v1.Http1ResponseLine</dd></dl><dl><dt>Parent</dt><dd>Http1ResponseLine</dd></dl>
 </div><h2 class='section api'>access(func)   </h2>
- <pre><code class='lang-d'>void access( scope &lt;bug: unknown&gt; func ) @safe nothrow</code></pre><p>Accesses the response line data.</p>
+ <pre><code class='lang-d'>void access( scope void delegate(const scope char[]) @safe nothrow func ) @safe nothrow</code></pre><p>Accesses the response line data.</p>
 <h2 class='section api'>access(func)   </h2>
- <pre><code class='lang-d'>void access( scope &lt;bug: unknown&gt; func ) @nogc @safe nothrow</code></pre><p>ditto.</p>
+ <pre><code class='lang-d'>void access(
+  scope void delegate(const scope char[]) @nogc @safe nothrow func
+) @nogc @safe nothrow</code></pre><p>ditto.</p>
 
 </article>
 

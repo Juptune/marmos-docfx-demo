@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - goodAllocSize</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.experimental.allocator.building_blocks.segregator.Segregator</dd></dl><dl><dt>Parent</dt><dd>Segregator</dd></dl>
 </div><h2 class='section api'>goodAllocSize(s)   </h2>
- <pre><code class='lang-d'>static size_t goodAllocSize( size_t s ) </code></pre><p>This method is defined only if at least one of the allocators defines it. The good allocation size is obtained from <code>SmallAllocator</code> if $(D s &lt;= threshold), or <code>LargeAllocator</code> otherwise. (If one of the allocators does not define <code>goodAllocSize</code> , the default implementation in this module applies.)</p>
+ <pre><code class='lang-d'>size_t goodAllocSize( size_t s ) </code></pre><p>This method is defined only if at least one of the allocators defines it. The good allocation size is obtained from <code>SmallAllocator</code> if $(D s &lt;= threshold), or <code>LargeAllocator</code> otherwise. (If one of the allocators does not define <code>goodAllocSize</code> , the default implementation in this module applies.)</p>
 
 </article>
 

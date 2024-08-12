@@ -92,11 +92,11 @@
   // 
   int iVersion
   // 
-  * xCreateFunction
+  int function(fts5_api*,const char*,void*,fts5_extension_function,void function(void*)*)* xCreateFunction
   // 
-  * xCreateTokenizer
+  int function(fts5_api*,const char*,void*,fts5_tokenizer*,void function(void*)*)* xCreateTokenizer
   // 
-  * xFindTokenizer
+  int function(fts5_api*,const char*,void**,fts5_tokenizer*)* xFindTokenizer
 }</code></pre><h2 class='section'>About</h2><p>Ditto</p>
 <h2 class='section'>Variables</h2><table>
 <thead>

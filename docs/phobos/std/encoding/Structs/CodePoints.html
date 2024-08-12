@@ -90,13 +90,13 @@
 </div><pre><code class='lang-d'>struct CodePoints( E )
 {
   // 
-  int opApply( scope &lt;bug: unknown&gt; dg ) 
+  int opApply( scope int delegate(ref dchar) dg ) 
   // 
-  int opApply( scope &lt;bug: unknown&gt; dg ) 
+  int opApply( scope int delegate(ref size_t,ref dchar) dg ) 
   // 
-  int opApplyReverse( scope &lt;bug: unknown&gt; dg ) 
+  int opApplyReverse( scope int delegate(ref dchar) dg ) 
   // 
-  int opApplyReverse( scope &lt;bug: unknown&gt; dg ) 
+  int opApplyReverse( scope int delegate(ref size_t,ref dchar) dg ) 
 
   // 
   E[] s

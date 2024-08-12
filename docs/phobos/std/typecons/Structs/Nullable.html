@@ -98,9 +98,17 @@
   // Assigns `value` to the internally-held state. If the assignment succeeds, `this` becomes non-null. No null checks are made. Note that the assignment may leave `this` in the null state. 
   void opAssign( )( T value ) 
   // 
-  void toString( )( scope &lt;bug: unknown&gt; sink, const ref scope FormatSpec!(char) fmt ) 
+  void toString(
+  )(
+    scope void delegate(char[]) sink,
+    const ref scope FormatSpec!(char) fmt
+  ) 
   // 
-  void toString( )( scope &lt;bug: unknown&gt; sink, const ref scope FormatSpec!(char) fmt ) 
+  void toString(
+  )(
+    scope void delegate(char[]) sink,
+    const ref scope FormatSpec!(char) fmt
+  ) 
 }</code></pre><h2 class='section'>About</h2><p>Just like <code>Nullable!T</code> , except that the null state is defined as a particular value. For example, $(D Nullable!(uint, uint.max)) is an <code>uint</code> that sets aside the value <code>uint.max</code> to denote a null state. $(D Nullable!(T, nullValue)) is more storage-efficient than $(D Nullable!T) because it does not need to store an extra <code>bool</code> .</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>T</code>   </dt>
 <dd>

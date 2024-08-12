@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - tryLock</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.stdio.File</dd></dl><dl><dt>Parent</dt><dd>File</dd></dl>
 </div><h2 class='section api'>tryLock(lockType, start, length)   </h2>
- <pre><code class='lang-d'>bool tryLock( LockType lockType, ulong start, ulong length ) </code></pre><p>Attempts to lock the specified file segment. If both <code>start</code> and <code>length</code> are zero, the entire file is locked. Returns: <code>true</code> if the lock was successful, and <code>false</code> if the specified file segment was already locked.</p>
+ <pre><code class='lang-d'>bool tryLock( LockType lockType = LockType.readWrite, ulong start = 0, ulong length = 0 ) </code></pre><p>Attempts to lock the specified file segment. If both <code>start</code> and <code>length</code> are zero, the entire file is locked. Returns: <code>true</code> if the lock was successful, and <code>false</code> if the specified file segment was already locked.</p>
 
 </article>
 

@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - parseError</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.conv</dd></dl>
 </div><h2 class='section api'>parseError(msg, fn, ln)   </h2>
- <pre><code class='lang-d'>auto parseError( lazy string msg, string fn, size_t ln ) @safe pure</code></pre>
+ <pre><code class='lang-d'>auto parseError( lazy string msg, string fn = __FILE__, size_t ln = __LINE__ ) @safe pure</code></pre>
 </article>
 
         <div class="contribution d-print-none">

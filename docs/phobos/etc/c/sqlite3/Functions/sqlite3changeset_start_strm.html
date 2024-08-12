@@ -90,7 +90,7 @@
 </div><h2 class='section api'>sqlite3changeset_start_strm(pp, xInput, pIn)   </h2>
  <pre><code class='lang-d'>extern(C) int sqlite3changeset_start_strm(
   sqlite3_changeset_iter** pp,
-  * xInput,
+  int function(void*,void*,int*)* xInput,
   void* pIn
 ) </code></pre><p>Ditto</p>
 

@@ -94,11 +94,11 @@
   int nArg,
   int eTextRep,
   void* pApp,
-  * xStep,
-  * xFinal,
-  * xValue,
-  * xInverse,
-  * xDestroy
+  void function(sqlite3_context*,int,sqlite3_value**)* xStep,
+  void function(sqlite3_context*)* xFinal,
+  void function(sqlite3_context*)* xValue,
+  void function(sqlite3_context*,int,sqlite3_value**)* xInverse,
+  void function(void*)* xDestroy
 ) </code></pre><p>Ditto</p>
 
 </article>

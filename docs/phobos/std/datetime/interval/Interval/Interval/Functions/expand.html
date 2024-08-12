@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - expand</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.datetime.interval.Interval</dd></dl><dl><dt>Parent</dt><dd>Interval</dd></dl>
 </div><h2 class='section api'>expand(duration, dir)   </h2>
- <pre><code class='lang-d'>void expand( D )( D duration, Direction dir ) pure</code></pre><p>Expands the interval forwards and/or backwards in time. Effectively, it does $(D begin -= duration) and/or $(D end += duration). Whether it expands forwards and/or backwards in time is determined by $(D_PARAM dir).</p>
+ <pre><code class='lang-d'>void expand( D )( D duration, Direction dir = Direction.both ) pure</code></pre><p>Expands the interval forwards and/or backwards in time. Effectively, it does $(D begin -= duration) and/or $(D end += duration). Whether it expands forwards and/or backwards in time is determined by $(D_PARAM dir).</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>duration</code> D  </dt>
 <dd>
 
@@ -106,7 +106,14 @@
 <p>interval1.expand(2); assert(interval1 == Interval!Date(Date(1994, 1, 2), Date(2014, 3, 1)));</p>
 <p>interval2.expand(-2); assert(interval2 == Interval!Date(Date(1998, 1, 2), Date(2010, 3, 1))); --------------------</p>
 <h2 class='section api'>expand(years, months, allowOverflow, dir)   </h2>
- <pre><code class='lang-d'>void expand( T )( T years, T months, AllowDayOverflow allowOverflow, Direction dir ) </code></pre><p>Expands the interval forwards and/or backwards in time. Effectively, it subtracts the given number of months/years from <code>begin</code> and adds them to <code>end</code> . Whether it expands forwards and/or backwards in time is determined by $(D_PARAM dir).</p>
+ <pre><code class='lang-d'>void expand(
+  T
+)(
+  T years,
+  T months = 0,
+  AllowDayOverflow allowOverflow = AllowDayOverflow.yes,
+  Direction dir = Direction.both
+) </code></pre><p>Expands the interval forwards and/or backwards in time. Effectively, it subtracts the given number of months/years from <code>begin</code> and adds them to <code>end</code> . Whether it expands forwards and/or backwards in time is determined by $(D_PARAM dir).</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>years</code> T  </dt>
 <dd>
 

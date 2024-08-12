@@ -88,10 +88,10 @@
 <h1 class='section'>Overloads for - parse</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.event.io.IpAddress</dd></dl><dl><dt>Parent</dt><dd>IpAddress</dd></dl>
 </div><h2 class='section api'>parse(ip, address, defaultPort)   </h2>
- <pre><code class='lang-d'>static Result parse(
+ <pre><code class='lang-d'>Result parse(
   out scope IpAddress ip,
   const scope char[] address,
-  ushort defaultPort
+  ushort defaultPort = 0
 ) @trusted</code></pre><p>Parses an IPv4 or IPv6 address string into an <code>IpAddress</code> object.</p>
 <p>Addresses can either be a raw address, or a raw address with a port in the IP version's standard form.</p>
 <p>Implementation Note: Currently this function uses inet_aton and inet_pton for the raw address parsing.</p>

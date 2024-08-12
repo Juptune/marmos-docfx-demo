@@ -155,9 +155,12 @@
   // Returns: The value of this `BigInt` as a `long` , or `long.max` /`long.min` if outside the representable range. 
   long toLong() @nogc @safe nothrow pure
   // ditto 
-  void toString( scope &lt;bug: unknown&gt; sink, string formatString ) 
+  void toString( scope void delegate(scope char[]) sink, string formatString ) 
   // ditto 
-  void toString( scope &lt;bug: unknown&gt; sink, const ref scope FormatSpec!(char) f ) 
+  void toString(
+    scope void delegate(scope char[]) sink,
+    const ref scope FormatSpec!(char) f
+  ) 
   // Convert the `BigInt` to `string` , passing it to the given sink. 
   void toString( Writer )( ref scope Writer sink, string formatString ) 
   // ditto 

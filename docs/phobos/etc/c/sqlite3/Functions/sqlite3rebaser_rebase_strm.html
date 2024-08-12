@@ -90,9 +90,9 @@
 </div><h2 class='section api'>sqlite3rebaser_rebase_strm(pRebaser, xInput, pIn, xOutput, pOut)   </h2>
  <pre><code class='lang-d'>extern(C) int sqlite3rebaser_rebase_strm(
   sqlite3_rebaser* pRebaser,
-  * xInput,
+  int function(void*,void*,int*)* xInput,
   void* pIn,
-  * xOutput,
+  int function(void*,void*,int)* xOutput,
   void* pOut
 ) </code></pre><p>Ditto</p>
 

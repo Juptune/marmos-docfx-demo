@@ -94,9 +94,9 @@
   int nArg,
   int eTextRep,
   void* pApp,
-  * xFunc,
-  * xStep,
-  * xFinal
+  void function(sqlite3_context*,int,sqlite3_value**)* xFunc,
+  void function(sqlite3_context*,int,sqlite3_value**)* xStep,
+  void function(sqlite3_context*)* xFinal
 ) </code></pre><p>Ditto</p>
 
 </article>

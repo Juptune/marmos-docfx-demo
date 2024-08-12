@@ -95,11 +95,11 @@
   alias OnMaxFn = &lt;todo: marmos support pending&gt;
 
   // 
-  void close() final
+  void close() 
   // 
   bool get( T... )( scope T vals ) 
   // 
-  bool isClosed() final @nogc @property @safe pure
+  bool isClosed() @nogc @property @safe pure
   // 
   bool isControlMsg( ref Message msg ) @nogc @safe nothrow pure
   // 
@@ -109,9 +109,9 @@
   // 
   bool mboxFull() @nogc @safe nothrow pure
   // 
-  void put( ref Message msg ) final
+  void put( ref Message msg ) 
   // 
-  void setMaxMsgs( size_t num, * call ) final @nogc @safe pure
+  void setMaxMsgs( size_t num, bool function(Tid)* call ) @nogc @safe pure
   // 
   void updateMsgCount() @nogc @safe nothrow pure
 

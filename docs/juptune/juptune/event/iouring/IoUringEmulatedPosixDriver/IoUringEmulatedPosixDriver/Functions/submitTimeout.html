@@ -88,7 +88,12 @@
 <h1 class='section'>Overloads for - submitTimeout</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.event.iouring.IoUringEmulatedPosixDriver</dd></dl><dl><dt>Parent</dt><dd>IoUringEmulatedPosixDriver</dd></dl>
 </div><h2 class='section api'>submitTimeout(command, timeout)   </h2>
- <pre><code class='lang-d'>SubmitQueueIsFull submitTimeout( Command )( Command command, Duration timeout ) </code></pre>
+ <pre><code class='lang-d'>SubmitQueueIsFull submitTimeout(
+  Command
+)(
+  Command command,
+  Duration timeout = Duration.zero
+) </code></pre>
 </article>
 
         <div class="contribution d-print-none">

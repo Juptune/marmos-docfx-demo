@@ -105,7 +105,7 @@
   // 
   auto bwdMatcher( const ref RegEx re, void[] memBlock ) 
   // 
-  void dupTo( Matcher!(Char) m, void[] memBlock ) override
+  void dupTo( Matcher!(Char) m, void[] memBlock ) 
   // 
   auto fwdMatcher( const ref RegEx re, void[] memBlock ) 
   // 
@@ -113,9 +113,9 @@
   // 
   void initialize( const ref RegEx program, Stream stream, void[] memBlock ) 
   // 
-  static size_t initialMemory( const ref RegEx re ) 
+  size_t initialMemory( const ref RegEx re ) 
   // 
-  int match( Group!(DataIndex)[] matches ) override
+  int match( Group!(DataIndex)[] matches ) 
   // 
   int matchFinalize() 
   // 
@@ -125,7 +125,7 @@
   // 
   void next() 
   // 
-  ref RegEx pattern() override @property
+  ref RegEx pattern() @property
   // 
   bool popState() 
   // 
@@ -133,9 +133,9 @@
   // 
   void pushState( uint pc, uint counter ) 
   // 
-  Matcher!(Char) rearm( in Char[] data ) override
+  Matcher!(Char) rearm( in Char[] data ) 
   // 
-  ref size_t refCount() override @property
+  ref size_t refCount() @property
   // 
   void search() 
   // 
@@ -151,7 +151,7 @@
   // 
   void stackPush( T )( T[] val ) 
   // 
-  static size_t stackSize( const ref RegEx re ) 
+  size_t stackSize( const ref RegEx re ) 
 
   // 
   Group!(DataIndex)[] backrefed

@@ -88,7 +88,11 @@
 <h1 class='section'>Overloads for - sqlite3_preupdate_hook</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.sqlite3</dd></dl>
 </div><h2 class='section api'>sqlite3_preupdate_hook(db, xPreUpdate, __anonymous)   </h2>
- <pre><code class='lang-d'>extern(C) void* sqlite3_preupdate_hook( sqlite3* db, * xPreUpdate, void* __anonymous ) </code></pre>
+ <pre><code class='lang-d'>extern(C) void* sqlite3_preupdate_hook(
+  sqlite3* db,
+  void function(void*,sqlite3*,int,char*,char*,sqlite3_int64,sqlite3_int64)* xPreUpdate,
+  void* __anonymous
+) </code></pre>
 </article>
 
         <div class="contribution d-print-none">

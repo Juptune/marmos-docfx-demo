@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - nthPermutation</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.algorithm.sorting</dd></dl>
 </div><h2 class='section api'>nthPermutation(range, perm)   </h2>
- <pre><code class='lang-d'>ref Range nthPermutation( Range )( auto ref Range range, const ulong perm ) auto</code></pre><p>Permutes <code>range</code> into the <code>perm</code> permutation.</p>
+ <pre><code class='lang-d'>ref Range nthPermutation( Range )( auto ref Range range, const ulong perm ) </code></pre><p>Permutes <code>range</code> into the <code>perm</code> permutation.</p>
 <p>The algorithm has a constant runtime complexity with respect to the number of permutations created. Due to the number of unique values of <code>ulong</code> only the first 21 elements of <code>range</code> can be permuted. The rest of the range will therefore not be permuted. This algorithm uses the $(HTTP en.wikipedia.org/wiki/Lehmer_code, Lehmer Code).</p>
 <h3 class='section'>The algorithm works as follows</h3><p>$(D_CODE auto pem = [4,0,4,1,0,0,0]; // permutation 2982 in factorial auto src = [0,1,2,3,4,5,6]; // the range to permutate</p>
 <p>auto i = 0;                    // range index // range index iterates pem and src in sync // pem[i] + i is used as index into src // first src[pem[i] + i] is stored in t auto t = 4;                    // tmp value src = [0,1,2,3,n,5,6];</p>

@@ -88,10 +88,40 @@
 <h1 class='section'>Overloads for - formatTest</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.format.internal.write</dd></dl>
 </div><h2 class='section api'>formatTest(val, expected, ln, fn)   </h2>
- <pre><code class='lang-d'>void formatTest( T )( T val, string expected, size_t ln, string fn ) </code></pre><h2 class='section api'>formatTest(fmt, val, expected, ln, fn)   </h2>
- <pre><code class='lang-d'>void formatTest( T )( string fmt, T val, string expected, size_t ln, string fn ) @safe</code></pre><h2 class='section api'>formatTest(val, expected, ln, fn)   </h2>
- <pre><code class='lang-d'>void formatTest( T )( T val, string[] expected, size_t ln, string fn ) </code></pre><h2 class='section api'>formatTest(fmt, val, expected, ln, fn)   </h2>
- <pre><code class='lang-d'>void formatTest( T )( string fmt, T val, string[] expected, size_t ln, string fn ) @safe</code></pre>
+ <pre><code class='lang-d'>void formatTest(
+  T
+)(
+  T val,
+  string expected,
+  size_t ln = __LINE__,
+  string fn = __FILE__
+) </code></pre><h2 class='section api'>formatTest(fmt, val, expected, ln, fn)   </h2>
+ <pre><code class='lang-d'>void formatTest(
+  T
+)(
+  string fmt,
+  T val,
+  string expected,
+  size_t ln = __LINE__,
+  string fn = __FILE__
+) @safe</code></pre><h2 class='section api'>formatTest(val, expected, ln, fn)   </h2>
+ <pre><code class='lang-d'>void formatTest(
+  T
+)(
+  T val,
+  string[] expected,
+  size_t ln = __LINE__,
+  string fn = __FILE__
+) </code></pre><h2 class='section api'>formatTest(fmt, val, expected, ln, fn)   </h2>
+ <pre><code class='lang-d'>void formatTest(
+  T
+)(
+  string fmt,
+  T val,
+  string[] expected,
+  size_t ln = __LINE__,
+  string fn = __FILE__
+) @safe</code></pre>
 </article>
 
         <div class="contribution d-print-none">

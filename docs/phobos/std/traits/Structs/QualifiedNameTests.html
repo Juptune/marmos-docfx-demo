@@ -111,17 +111,17 @@
   // 
   Inner[] array
   // 
-  &lt;bug: unknown&gt; attrDeleg
+  Inner delegate(ref double,scope string) @trusted nothrow attrDeleg
   // 
-  * cFuncPtr
+  Inner function(double,string)* cFuncPtr
   // 
   Inner[string][] data
   // 
-  const &lt;bug: unknown&gt; deleg
+  const Inner delegate(double,string) @safe nothrow deleg
   // 
-  * funcPtr
+  Inner function(out double,string)* funcPtr
   // 
-  &lt;bug: unknown&gt; inoutDeleg
+  int delegate(int) inoutDeleg
   // 
   Inner[Inner] qualAarray
   // 

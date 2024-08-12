@@ -91,7 +91,7 @@
  <pre><code class='lang-d'>bool http1IsPathValidForMethod(
   const scope char[] method,
   const char[] path,
-  bool isProxyRequest
+  bool isProxyRequest = false
 ) @nogc @safe nothrow</code></pre><p>Checks whether the given path is valid for the given method, taking into account whether the request is being proxied or not.</p>
 <h3 class='section'>Notes</h3><p>HttpWriter and HttpReader already perform path validation, however keeping this logic private doesn't provide much benefit, so it's been made public.</p>
 <p>This check should match the speficiation of Section 3.2 in RFC9112.</p>
@@ -121,13 +121,13 @@
   const scope char[] method,
   const char[] path,
   out scope ScopeUri uri,
-  bool isProxyRequest
+  bool isProxyRequest = false
 ) @nogc @safe nothrow</code></pre><p>ditto.</p>
 <h2 class='section api'>http1IsPathValidForMethod(method, hints, isProxyRequest)   </h2>
  <pre><code class='lang-d'>bool http1IsPathValidForMethod(
   const scope char[] method,
   UriParseHints hints,
-  bool isProxyRequest
+  bool isProxyRequest = false
 ) @nogc @safe nothrow</code></pre><p>ditto</p>
 
 </article>

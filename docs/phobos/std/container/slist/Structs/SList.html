@@ -117,13 +117,13 @@
   // Property returning `true` if and only if the container has no elements. 
   bool empty() @property
   // 
-  static Node* findLastNode( Node* n ) 
+  Node* findLastNode( Node* n ) 
   // 
-  static Node* findLastNode( Node* n, size_t limit ) 
+  Node* findLastNode( Node* n, size_t limit ) 
   // 
-  static Node* findNode( Node* n, Node* findMe ) 
+  Node* findNode( Node* n, Node* findMe ) 
   // 
-  static Node* findNodeByValue( Node* n, T value ) 
+  Node* findNodeByValue( Node* n, T value ) 
   // Forward to `opSlice().front` . 
   ref T front() @property
   // 

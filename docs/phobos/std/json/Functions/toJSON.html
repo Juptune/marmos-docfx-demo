@@ -88,7 +88,11 @@
 <h1 class='section'>Overloads for - toJSON</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.json</dd></dl>
 </div><h2 class='section api'>toJSON(root, pretty, options)   </h2>
- <pre><code class='lang-d'>string toJSON( const ref JSONValue root, in bool pretty, in JSONOptions options ) @safe</code></pre><p>Takes a tree of JSON values and returns the serialized string.</p>
+ <pre><code class='lang-d'>string toJSON(
+  const ref JSONValue root,
+  in bool pretty = false,
+  in JSONOptions options = JSONOptions.none
+) @safe</code></pre><p>Takes a tree of JSON values and returns the serialized string.</p>
 <p>Any Object types will be serialized in a key-sorted order.</p>
 <p>If <code>pretty</code> is false no whitespaces are generated. If <code>pretty</code> is true serialized string is formatted to be human-readable. Set the $(LREF JSONOptions.specialFloatLiterals) flag is set in <code>options</code> to encode NaN/Infinity as strings.</p>
 <h2 class='section api'>toJSON(json, root, pretty, options)   </h2>
@@ -97,8 +101,8 @@
 )(
   auto ref Out json,
   const ref JSONValue root,
-  in bool pretty,
-  in JSONOptions options
+  in bool pretty = false,
+  in JSONOptions options = JSONOptions.none
 ) </code></pre>
 </article>
 

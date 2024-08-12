@@ -94,7 +94,7 @@
   // The name of the key at the given index. 
   string getKeyName( size_t index ) 
   // 
-  int opApply( scope &lt;bug: unknown&gt; dg ) 
+  int opApply( scope int delegate(ref string) dg ) 
   // The name of the key at the given index. 
   string opIndex( size_t index ) 
 

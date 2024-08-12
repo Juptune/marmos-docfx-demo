@@ -94,7 +94,7 @@
   // This method removes a Logger from the `MultiLogger` . 
   Logger removeLogger( in char[] toRemove ) @safe
   // 
-  void writeLogMsg( ref LogEntry payload ) override @safe
+  void writeLogMsg( ref LogEntry payload ) @safe
 
   // This member holds all `Logger` s stored in the `MultiLogger` . 
   MultiLoggerEntry[] logger

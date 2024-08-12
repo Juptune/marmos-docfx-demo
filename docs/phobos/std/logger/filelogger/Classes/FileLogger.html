@@ -100,17 +100,17 @@
     Tid threadId,
     SysTime timestamp,
     Logger logger
-  ) override @safe
+  ) @safe
   // If the `FileLogger` is managing the `File` it logs to, this method will return a reference to this File. 
   File file() @property @safe
   // 
-  void finishLogMsg() override
+  void finishLogMsg() 
   // If the `FileLogger` was constructed with a filename, this method returns this filename. Otherwise an empty `string` is returned. 
   string getFilename() 
   // 
-  void logMsgPart( scope char[] msg ) override
+  void logMsgPart( scope char[] msg ) 
   // 
-  void writeLogMsg( ref LogEntry payload ) override
+  void writeLogMsg( ref LogEntry payload ) 
 
   // The `File` log messages are written to. 
   File file_

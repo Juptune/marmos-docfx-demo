@@ -116,15 +116,15 @@
   // Sets the amount of bits in the `BitArray` . $(RED Warning: increasing length may overwrite bits in the final word of the current underlying data regardless of whether it is shared between BitArray objects. i.e. D dynamic array extension semantics are not followed.) 
   size_t length( size_t newlen ) @property @system nothrow pure
   // 
-  static size_t lenToDim( size_t len ) @nogc @safe nothrow pure
+  size_t lenToDim( size_t len ) @nogc @safe nothrow pure
   // Support for `foreach` loops for `BitArray` . 
-  int opApply( scope &lt;bug: unknown&gt; dg ) 
+  int opApply( scope int delegate(ref bool) dg ) 
   // ditto 
-  int opApply( scope &lt;bug: unknown&gt; dg ) 
+  int opApply( scope int delegate(bool) dg ) 
   // ditto 
-  int opApply( scope &lt;bug: unknown&gt; dg ) 
+  int opApply( scope int delegate(size_t,ref bool) dg ) 
   // ditto 
-  int opApply( scope &lt;bug: unknown&gt; dg ) 
+  int opApply( scope int delegate(size_t,bool) dg ) 
   // Support for binary bitwise operators for `BitArray` . 
   BitArray opBinary( string op )( const BitArray e2 ) nothrow pure
   // Support for binary operator ~ for `BitArray` . 

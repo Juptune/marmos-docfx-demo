@@ -97,27 +97,27 @@
   alias RoundingMode = &lt;todo: marmos support pending&gt;
 
   // 
-  static void clearExceptions() @safe
+  void clearExceptions() @safe
   // Disable (mask) specific hardware exceptions. Multiple exceptions may be ORed together. 
   void disableExceptions( ExceptionMask exceptions ) @trusted
   // Returns: the exceptions which are currently enabled (unmasked) 
-  static ExceptionMask enabledExceptions() @property @trusted pure
+  ExceptionMask enabledExceptions() @property @trusted pure
   // Enable (unmask) specific hardware exceptions. Multiple exceptions may be ORed together. 
   void enableExceptions( ExceptionMask exceptions ) @trusted
   // 
-  static ControlState getControlState() @trusted pure
+  ControlState getControlState() @trusted pure
   // Returns: true if the current FPU supports exception trapping 
-  static bool hasExceptionTraps() @property @safe pure
+  bool hasExceptionTraps() @property @safe pure
   // 
-  static bool hasExceptionTraps_impl() @safe
+  bool hasExceptionTraps_impl() @safe
   // 
   void initialize() @safe
   // Change the floating-point hardware rounding mode 
   void rounding( RoundingMode newMode ) @property @trusted
   // Returns: the currently active rounding mode 
-  static RoundingMode rounding() @property @trusted pure
+  RoundingMode rounding() @property @trusted pure
   // 
-  static void setControlState( ControlState newState ) @trusted
+  void setControlState( ControlState newState ) @trusted
 
   // 
   bool initialized = false

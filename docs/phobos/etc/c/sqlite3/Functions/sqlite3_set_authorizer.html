@@ -88,7 +88,11 @@
 <h1 class='section'>Overloads for - sqlite3_set_authorizer</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.sqlite3</dd></dl>
 </div><h2 class='section api'>sqlite3_set_authorizer(__anonymous, xAuth, pUserData)   </h2>
- <pre><code class='lang-d'>extern(C) int sqlite3_set_authorizer( sqlite3* __anonymous, * xAuth, void* pUserData ) </code></pre><p>CAPI3REF: Compile-Time Authorization Callbacks</p>
+ <pre><code class='lang-d'>extern(C) int sqlite3_set_authorizer(
+  sqlite3* __anonymous,
+  int function(void*,int,const char*,const char*,const char*,const char*)* xAuth,
+  void* pUserData
+) </code></pre><p>CAPI3REF: Compile-Time Authorization Callbacks</p>
 
 </article>
 

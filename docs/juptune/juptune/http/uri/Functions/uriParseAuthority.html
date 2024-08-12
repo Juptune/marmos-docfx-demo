@@ -96,7 +96,7 @@
   out scope Nullable!(ushort) port,
   out scope char[] next,
   ref scope UriParseHints hints,
-  UriParseRules rules
+  UriParseRules rules = UriParseRules.strict
 ) @nogc @trusted nothrow</code></pre><p>Parses the authority of a URI.</p>
 <h3 class='section'>Valid Formats</h3><p>isAbsolute when <code>UriParseHints.isAbsolute</code> is set -&gt; //authority/path?query#fragment, e.g. &quot;//authority/some/path?some=query#some-fragment&quot;</p>
 <p>isNetworkReference when <code>UriParseHints.isAbsolute</code> is not set -&gt; //authority/path?query#fragment, e.g. &quot;//authority/some/path?some=query#some-fragment&quot;</p>

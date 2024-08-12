@@ -91,9 +91,9 @@
  <pre><code class='lang-d'>extern(C) int sqlite3_rtree_query_callback(
   sqlite3* db,
   char* zQueryFunc,
-  * xQueryFunc,
+  int function(sqlite3_rtree_query_info*)* xQueryFunc,
   void* pContext,
-  * xDestructor
+  void function(void*)* xDestructor
 ) </code></pre>
 </article>
 

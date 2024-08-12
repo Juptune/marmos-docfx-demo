@@ -88,9 +88,9 @@
 <h1 class='section'>Overloads for - opApply</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.range.interfaces.InputRange</dd></dl><dl><dt>Parent</dt><dd>InputRange</dd></dl>
 </div><h2 class='section api'>opApply(__anonymous)   </h2>
- <pre><code class='lang-d'>int opApply( scope &lt;bug: unknown&gt; __anonymous ) </code></pre><p><code>foreach</code> iteration uses opApply, since one delegate call per loop iteration is faster than three virtual function calls.</p>
+ <pre><code class='lang-d'>int opApply( scope int delegate(E) __anonymous ) </code></pre><p><code>foreach</code> iteration uses opApply, since one delegate call per loop iteration is faster than three virtual function calls.</p>
 <h2 class='section api'>opApply(__anonymous)   </h2>
- <pre><code class='lang-d'>int opApply( scope &lt;bug: unknown&gt; __anonymous ) </code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>int opApply( scope int delegate(size_t,E) __anonymous ) </code></pre><p>Ditto</p>
 
 </article>
 

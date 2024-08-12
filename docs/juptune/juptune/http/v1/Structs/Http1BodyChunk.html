@@ -90,9 +90,11 @@
 </div><pre><code class='lang-d'>public struct Http1BodyChunk
 {
   // Accesses the body chunk data. 
-  void access( scope &lt;bug: unknown&gt; func ) @safe nothrow
+  void access( scope void delegate(scope ubyte[]) @safe nothrow func ) @safe nothrow
   // ditto. 
-  void access( scope &lt;bug: unknown&gt; func ) @nogc @safe nothrow
+  void access(
+    scope void delegate(scope ubyte[]) @nogc @safe nothrow func
+  ) @nogc @safe nothrow
   // Determines if there&#39;s more data left to read from the body. 
   bool hasDataLeft() @nogc @safe nothrow
 

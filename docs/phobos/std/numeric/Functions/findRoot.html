@@ -137,10 +137,10 @@
   T,
   R
 )(
-  scope &lt;bug: unknown&gt; f,
+  scope R delegate(T) f,
   const T a,
   const T b,
-  scope &lt;bug: unknown&gt; tolerance
+  scope bool delegate(T,T) tolerance
 ) </code></pre><p>ditto</p>
 
 </article>

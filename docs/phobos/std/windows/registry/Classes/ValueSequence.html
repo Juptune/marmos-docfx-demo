@@ -94,7 +94,7 @@
   // The value at the given `index` . 
   Value getValue( size_t index ) 
   // 
-  int opApply( scope &lt;bug: unknown&gt; dg ) 
+  int opApply( scope int delegate(ref Value) dg ) 
   // The value at the given `index` . 
   Value opIndex( size_t index ) 
 

@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - rightJustifier</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.string</dd></dl>
 </div><h2 class='section api'>rightJustifier(r, width, fillChar)   </h2>
- <pre><code class='lang-d'>auto rightJustifier( Range )( Range r, size_t width, dchar fillChar ) </code></pre><p>Right justify <code>s</code> in a field <code>width</code> characters wide. <code>fillChar</code> is the character that will be used to fill up the space in the field that <code>s</code> doesn't fill.</p>
+ <pre><code class='lang-d'>auto rightJustifier( Range )( Range r, size_t width, dchar fillChar = &#39; &#39; ) </code></pre><p>Right justify <code>s</code> in a field <code>width</code> characters wide. <code>fillChar</code> is the character that will be used to fill up the space in the field that <code>s</code> doesn't fill.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>r</code> Range  </dt>
 <dd>
 
@@ -99,7 +99,7 @@
 <h3 class='section'>Returns</h3><p>a lazy range of the right justified result</p>
 <h3 class='section'>See_Also</h3><p>$(LREF leftJustifier)</p>
 <h2 class='section api'>rightJustifier(r, width, fillChar)   </h2>
- <pre><code class='lang-d'>auto rightJustifier( Range )( auto ref Range r, size_t width, dchar fillChar ) </code></pre>
+ <pre><code class='lang-d'>auto rightJustifier( Range )( auto ref Range r, size_t width, dchar fillChar = &#39; &#39; ) </code></pre>
 </article>
 
         <div class="contribution d-print-none">

@@ -90,7 +90,7 @@
 </div><pre><code class='lang-d'>public class StdForwardLogger
 {
   // 
-  void writeLogMsg( ref LogEntry payload ) override @trusted
+  void writeLogMsg( ref LogEntry payload ) @trusted
 }</code></pre><h2 class='section'>About</h2><p>The <code>StdForwardLogger</code> will always forward anything to the sharedLog.</p>
 <p>The <code>StdForwardLogger</code> will not throw if data is logged with $(D LogLevel.fatal).</p>
 <h2 class='section'>Functions</h2><table>

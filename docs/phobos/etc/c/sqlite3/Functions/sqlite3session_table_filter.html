@@ -90,7 +90,7 @@
 </div><h2 class='section api'>sqlite3session_table_filter(pSession, xFilter, pCtx)   </h2>
  <pre><code class='lang-d'>extern(C) void sqlite3session_table_filter(
   sqlite3_session* pSession,
-  * xFilter,
+  int function(void*,char*)* xFilter,
   void* pCtx
 ) </code></pre>
 </article>

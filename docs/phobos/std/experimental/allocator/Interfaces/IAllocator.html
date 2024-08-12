@@ -96,7 +96,7 @@
   // Returns the alignment offered. 
   uint alignment() @property
   // Allocates `n` bytes of memory. 
-  void[] allocate( size_t __anonymous, TypeInfo ti ) 
+  void[] allocate( size_t __anonymous, TypeInfo ti = null ) 
   // Allocates and returns all memory available to this allocator. Implementations that do not support this primitive should always return `null` . 
   void[] allocateAll() 
   // Deallocates a memory block. Implementations that don&#39;t support this primitive should always return `false` . A simple way to check that an allocator supports deallocation is to call `deallocate(null)` . 

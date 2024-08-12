@@ -95,9 +95,9 @@
   // 
   string cachedToString( C )( scope C[] v ) @safe
   // Retrieves the value of the environment variable with the given `name` , or a default value if the variable doesn&#39;t exist. 
-  string get( scope char[] name, string defaultValue ) @safe
+  string get( scope char[] name, string defaultValue = null ) @safe
   // 
-  void getImpl( scope char[] name, scope &lt;bug: unknown&gt; sink ) @trusted
+  void getImpl( scope char[] name, scope void delegate(OSChar[]) @safe sink ) @trusted
   // Identify whether a variable is defined in the environment. 
   bool opBinaryRight( string op )( scope char[] name ) @trusted
   // Retrieves the value of the environment variable with the given `name` . --- auto path = environment[&quot;PATH&quot;]; --- 

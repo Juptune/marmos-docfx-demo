@@ -95,18 +95,18 @@
   Result connect(
     const scope char[] address,
     out bool lookupWasPerformed,
-    ushort defaultPort
+    ushort defaultPort = 0
   ) 
   // Connects to the target address. 
   Result connect( IpAddress address ) 
   // The IP address of this socket. 
   IpAddress ip() 
   // Binds the socket to an address, and begins listening for connections. 
-  Result listen( const scope char[] address, uint backlog, ushort defaultPort ) 
+  Result listen( const scope char[] address, uint backlog, ushort defaultPort = 0 ) 
   // Binds the socket to an address, and begins listening for connections. 
   Result listen( IpAddress address, uint backlog ) 
   // 
-  static Result makePair( out PosixTcpSocket[2] sockets ) 
+  Result makePair( out PosixTcpSocket[2] sockets ) 
   // Creates the underlying socket. 
   Result open() 
 }</code></pre><h2 class='section'>About</h2><p>Implementations</p>

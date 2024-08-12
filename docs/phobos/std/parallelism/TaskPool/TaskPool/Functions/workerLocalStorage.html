@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - workerLocalStorage</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.parallelism.TaskPool</dd></dl><dl><dt>Parent</dt><dd>TaskPool</dd></dl>
 </div><h2 class='section api'>workerLocalStorage(initialVal)   </h2>
- <pre><code class='lang-d'>WorkerLocalStorage!(T) workerLocalStorage( T )( lazy T initialVal ) </code></pre><p>Creates an instance of worker-local storage, initialized with a given value.  The value is <code>lazy</code> so that you can, for example, easily create one instance of a class for each worker.  For usage example, see the <code>WorkerLocalStorage</code> struct.</p>
+ <pre><code class='lang-d'>WorkerLocalStorage!(T) workerLocalStorage( T )( lazy T initialVal = T.init ) </code></pre><p>Creates an instance of worker-local storage, initialized with a given value.  The value is <code>lazy</code> so that you can, for example, easily create one instance of a class for each worker.  For usage example, see the <code>WorkerLocalStorage</code> struct.</p>
 
 </article>
 

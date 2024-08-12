@@ -109,7 +109,7 @@
 <p>The behavior executed when a message is sent to a full mailbox.</p>
 
 </dd></dl><h2 class='section api'>setMaxMailboxSize(tid, messages, onCrowdingDoThis)   </h2>
- <pre><code class='lang-d'>void setMaxMailboxSize( Tid tid, size_t messages, * onCrowdingDoThis ) </code></pre><p>Sets a maximum mailbox size.</p>
+ <pre><code class='lang-d'>void setMaxMailboxSize( Tid tid, size_t messages, bool function(Tid)* onCrowdingDoThis ) </code></pre><p>Sets a maximum mailbox size.</p>
 <p>Sets a limit on the maximum number of user messages allowed in the mailbox. If this limit is reached, the caller attempting to add a new message will execute onCrowdingDoThis.  If messages is zero, the mailbox is unbounded.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>tid</code> Tid  </dt>
 <dd>
@@ -123,7 +123,7 @@
 
 <p>The maximum number of messages or zero if no limit.</p>
 
-</dd><dt><code>onCrowdingDoThis</code> *  </dt>
+</dd><dt><code>onCrowdingDoThis</code> bool function(Tid)*  </dt>
 <dd>
 
 

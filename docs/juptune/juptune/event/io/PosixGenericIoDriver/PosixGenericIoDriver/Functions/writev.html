@@ -91,9 +91,13 @@
  <pre><code class='lang-d'>Result writev(
   ref scope MemoryBlockAllocation buffers,
   out size_t bytesRead,
-  Duration timeout
+  Duration timeout = Duration.zero
 ) </code></pre><h2 class='section api'>writev(buffers, bytesRead, timeout)   </h2>
- <pre><code class='lang-d'>Result writev( scope void[][] buffers, ref size_t bytesRead, Duration timeout ) </code></pre>
+ <pre><code class='lang-d'>Result writev(
+  scope void[][] buffers,
+  ref size_t bytesRead,
+  Duration timeout = Duration.zero
+) </code></pre>
 </article>
 
         <div class="contribution d-print-none">

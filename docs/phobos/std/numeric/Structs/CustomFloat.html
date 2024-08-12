@@ -101,27 +101,27 @@
   alias T_signed_exp = &lt;todo: marmos support pending&gt;
 
   // Returns: number of decimal digits of precision 
-  static size_t dig() @property
+  size_t dig() @property
   // Returns: smallest increment to the value 1 
-  static CustomFloat epsilon() @property
+  CustomFloat epsilon() @property
   // 
   void fromNormalized( T, U )( ref T sig, ref U exp ) 
   // Fetches the stored value either as a `float` , `double` or `real` . 
   F get( F )() @property
   // Returns: imaginary part 
-  static CustomFloat im() @property
+  CustomFloat im() @property
   // Returns: infinity value 
-  static CustomFloat infinity() @property
+  CustomFloat infinity() @property
   // Returns: largest representable value that&#39;s not infinity 
-  static CustomFloat max() @property
+  CustomFloat max() @property
   // Returns: maximum int value such that 10&lt;sup&gt;max_10_exp&lt;/sup&gt; is representable 
-  static int max_10_exp() @property
+  int max_10_exp() @property
   // Returns: minimum int value such that 10&lt;sup&gt;min_10_exp&lt;/sup&gt; is representable 
-  static int min_10_exp() @property
+  int min_10_exp() @property
   // Returns: smallest representable normalized value that&#39;s not 0 
-  static CustomFloat min_normal() @property
+  CustomFloat min_normal() @property
   // Returns: NaN value 
-  static CustomFloat nan() @property
+  CustomFloat nan() @property
   // Self assignment 
   void opAssign( F : CustomFloat )( F input ) 
   // Assigns from any `real` compatible type. 
@@ -145,7 +145,11 @@
   // 
   void toNormalized( T, U )( ref T sig, ref U exp ) 
   // ditto 
-  void toString( )( scope &lt;bug: unknown&gt; sink, const ref scope FormatSpec!(char) fmt ) 
+  void toString(
+  )(
+    scope void delegate(char[]) sink,
+    const ref scope FormatSpec!(char) fmt
+  ) 
 
   // the number of bits in mantissa 
   &lt;enum or auto&gt; mant_dig = precision + ((flags &amp; Flags.storeNormalized) != 0)

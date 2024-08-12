@@ -92,9 +92,9 @@
   // Creates a new `Condition` variable.  No custom behavior is needed here. 
   Condition newCondition( Mutex m ) nothrow
   // Creates a new kernel thread and assigns it to run the supplied op. 
-  void spawn( &lt;bug: unknown&gt; op ) 
+  void spawn( void delegate() op ) 
   // This simply runs op directly, since no real scheduling is needed by this approach. 
-  void start( &lt;bug: unknown&gt; op ) 
+  void start( void delegate() op ) 
   // Returns `ThreadInfo.thisInfo` , since it is a thread-local instance of `ThreadInfo` , which is the correct behavior for this scheduler. 
   ref ThreadInfo thisInfo() @property nothrow
   // This scheduler does no explicit multiplexing, so this is a no-op. 

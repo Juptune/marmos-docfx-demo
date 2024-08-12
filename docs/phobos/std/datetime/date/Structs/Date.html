@@ -94,14 +94,14 @@
     string units
   )(
     long value,
-    AllowDayOverflow allowOverflow
+    AllowDayOverflow allowOverflow = AllowDayOverflow.yes
   ) @nogc @safe nothrow pure
   // 
   ref Date add(
     string units
   )(
     long months,
-    AllowDayOverflow allowOverflow
+    AllowDayOverflow allowOverflow = AllowDayOverflow.yes
   ) @nogc @safe nothrow pure
   // Day of a Gregorian Month. 
   ubyte day() @nogc @property @safe nothrow pure
@@ -128,7 +128,7 @@
   // Creates a $(LREF Date) from a string with the format YYYYMMDD. Whitespace is stripped from the given string. 
   Date fromISOString( S )( const scope S isoString ) @safe pure
   // 
-  static Date fromISOWeek(
+  Date fromISOWeek(
     short isoWeekYear,
     ubyte isoWeek,
     DayOfWeek weekday
@@ -148,9 +148,9 @@
   // The $(HTTP en.wikipedia.org/wiki/Julian_day, Julian day) for this $(LREF Date) at noon (since the Julian day changes at noon). 
   long julianDay() @nogc @property @safe nothrow pure
   // Returns the $(LREF Date) farthest in the future which is representable by $(LREF Date). 
-  static Date max() @nogc @property @safe nothrow pure
+  Date max() @nogc @property @safe nothrow pure
   // Returns the $(LREF Date) farthest in the past which is representable by $(LREF Date). 
-  static Date min() @nogc @property @safe nothrow pure
+  Date min() @nogc @property @safe nothrow pure
   // The modified $(HTTP en.wikipedia.org/wiki/Julian_day, Julian day) for any time on this date (since, the modified Julian day changes at midnight). 
   long modJulianDay() @nogc @property @safe nothrow pure
   // Month of a Gregorian Year. 
@@ -170,14 +170,14 @@
     string units
   )(
     long value,
-    AllowDayOverflow allowOverflow
+    AllowDayOverflow allowOverflow = AllowDayOverflow.yes
   ) @nogc @safe nothrow pure
   // 
   ref Date roll(
     string units
   )(
     long months,
-    AllowDayOverflow allowOverflow
+    AllowDayOverflow allowOverflow = AllowDayOverflow.yes
   ) @nogc @safe nothrow pure
   // Adds the given number of units to this $(LREF Date), mutating it. A negative number will subtract. 
   ref Date roll( string units )( long days ) @nogc @safe nothrow pure

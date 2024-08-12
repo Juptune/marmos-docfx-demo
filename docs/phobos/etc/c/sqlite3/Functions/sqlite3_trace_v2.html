@@ -91,7 +91,7 @@
  <pre><code class='lang-d'>extern(C) int sqlite3_trace_v2(
   sqlite3* __anonymous,
   uint uMask,
-  * xCallback,
+  int function(uint,void*,void*,void*)* xCallback,
   void* pCtx
 ) </code></pre><p>CAPI3REF: SQL Trace Hook</p>
 

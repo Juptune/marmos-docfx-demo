@@ -94,7 +94,7 @@
   // The key at the given index. 
   Key getKey( size_t index ) 
   // 
-  int opApply( scope &lt;bug: unknown&gt; dg ) 
+  int opApply( scope int delegate(ref Key) dg ) 
   // The key at the given index. 
   Key opIndex( size_t index ) 
 

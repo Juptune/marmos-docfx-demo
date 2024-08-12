@@ -98,7 +98,7 @@
   // 
   size_t length() @property
   // 
-  void mutate( scope &lt;bug: unknown&gt; filler ) 
+  void mutate( scope void delegate(T[]) pure filler ) 
   // 
   ref &lt;bug: unknown&gt; opAssign( SmallFixedArray arr ) @trusted
   // 

@@ -90,10 +90,10 @@
 </div><h2 class='section api'>toHexString(frontExtraBytes, separator, minPadding, padChar, letterCase)   </h2>
  <pre><code class='lang-d'>char[] toHexString(
   int frontExtraBytes,
-  char separator,
-  int minPadding,
-  char padChar,
-  LetterCase letterCase
+  char separator = 0,
+  int minPadding = 0,
+  char padChar = &#39;0&#39;,
+  LetterCase letterCase = LetterCase.upper
 ) @safe nothrow scope pure</code></pre><p>Convert to a hex string, printing a minimum number of digits 'minPadding', allocating an additional 'frontExtraBytes' at the start of the string. Padding is done with padChar, which may be '0' or ' '. 'separator' is a digit separation character. If non-zero, it is inserted between every 8 digits. Separator characters do not contribute to the minPadding.</p>
 
 </article>

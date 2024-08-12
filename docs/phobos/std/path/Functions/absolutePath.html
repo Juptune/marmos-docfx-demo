@@ -90,7 +90,7 @@
 </div><h2 class='section api'>absolutePath(path, base)   </h2>
  <pre><code class='lang-d'>string absolutePath(
   const scope return ref return ref scope string path,
-  lazy string base
+  lazy string base = getcwd()
 ) @safe pure</code></pre><p>Transforms <code>path</code> into an absolute path.</p>
 <p>The following algorithm is used: $(OL $(LI If <code>path</code> is empty, return <code>null</code> .) $(LI If <code>path</code> is already absolute, return it.) $(LI Otherwise, append <code>path</code> to <code>base</code> and return the result. If <code>base</code> is not specified, the current working directory is used.) ) The function allocates memory if and only if it gets to the third stage of this algorithm.</p>
 <p>Note that <code>absolutePath</code> will not normalize <code>..</code> segments. Use <code>buildNormalizedPath(absolutePath(path))</code> if that is desired.</p>

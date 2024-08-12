@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - convError</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.conv</dd></dl>
 </div><h2 class='section api'>convError(source, fn, ln)   </h2>
- <pre><code class='lang-d'>auto convError( S, T )( S source, string fn, size_t ln ) </code></pre>
+ <pre><code class='lang-d'>auto convError( S, T )( S source, string fn = __FILE__, size_t ln = __LINE__ ) </code></pre>
 </article>
 
         <div class="contribution d-print-none">

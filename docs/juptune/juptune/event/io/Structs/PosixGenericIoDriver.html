@@ -97,22 +97,34 @@
   Result readv(
     ref scope MemoryBlockAllocation buffers,
     out size_t bytesRead,
-    Duration timeout
+    Duration timeout = Duration.zero
   ) 
   // 
-  Result readv( scope void[][] buffers, ref size_t bytesRead, Duration timeout ) 
+  Result readv(
+    scope void[][] buffers,
+    ref size_t bytesRead,
+    Duration timeout = Duration.zero
+  ) 
   // 
-  Result recieve( void[] buffer, out void[] sliceWithData, Duration timeout ) 
+  Result recieve(
+    void[] buffer,
+    out void[] sliceWithData,
+    Duration timeout = Duration.zero
+  ) 
   // 
-  Result send( void[] buffer, out scope size_t bytesSent, Duration timeout ) 
+  Result send(
+    void[] buffer,
+    out scope size_t bytesSent,
+    Duration timeout = Duration.zero
+  ) 
   // 
   Result vectorIoImpl(
     alias OpT
   )(
-    scope &lt;bug: unknown&gt; setter,
+    scope void delegate(iovec[]) @nogc nothrow setter,
     size_t bufferCount,
     ref size_t bytesUsed,
-    Duration timeout
+    Duration timeout = Duration.zero
   ) 
   // 
   Result vectorMBAImpl(
@@ -120,7 +132,7 @@
   )(
     ref scope MemoryBlockAllocation buffers,
     ref size_t bytesRead,
-    Duration timeout
+    Duration timeout = Duration.zero
   ) 
   // 
   Result vectorVoidArrayImpl(
@@ -128,7 +140,7 @@
   )(
     scope void[][] buffers,
     ref size_t bytesRead,
-    Duration timeout
+    Duration timeout = Duration.zero
   ) 
   // 
   void wrap( int fd ) pure
@@ -136,10 +148,14 @@
   Result writev(
     ref scope MemoryBlockAllocation buffers,
     out size_t bytesRead,
-    Duration timeout
+    Duration timeout = Duration.zero
   ) 
   // 
-  Result writev( scope void[][] buffers, ref size_t bytesRead, Duration timeout ) 
+  Result writev(
+    scope void[][] buffers,
+    ref size_t bytesRead,
+    Duration timeout = Duration.zero
+  ) 
 
   // 
   int fd

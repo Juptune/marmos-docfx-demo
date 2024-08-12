@@ -90,7 +90,7 @@
 </div><pre><code class='lang-d'>public class NullLogger
 {
   // 
-  void writeLogMsg( ref LogEntry payload ) override @nogc @safe
+  void writeLogMsg( ref LogEntry payload ) @nogc @safe
 }</code></pre><h2 class='section'>About</h2><p>The <code>NullLogger</code> will not process any log messages.</p>
 <p>In case of a log message with <code>LogLevel.fatal</code> nothing will happen.</p>
 <h2 class='section'>Functions</h2><table>

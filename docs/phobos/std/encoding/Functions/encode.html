@@ -122,7 +122,7 @@
 </dd></dl><h3 class='section'>Returns</h3><p>the number of code units written to the array</p>
 <h2 class='section api'>encode(c, range)   </h2>
  <pre><code class='lang-d'>size_t encode( E, R )( dchar c, auto ref R range ) </code></pre><h2 class='section api'>encode(c, dg)   </h2>
- <pre><code class='lang-d'>void encode( E )( dchar c, &lt;bug: unknown&gt; dg ) </code></pre><p>Encodes a single code point to a delegate.</p>
+ <pre><code class='lang-d'>void encode( E )( dchar c, void delegate(E) dg ) </code></pre><p>Encodes a single code point to a delegate.</p>
 <p>This function encodes a single code point into one or more code units. The code units are passed one at a time to the supplied delegate.</p>
 <p>The input to this function MUST be a valid code point. This is enforced by the function's in-contract.</p>
 <p>The type of the output cannot be deduced. Therefore, it is necessary to explicitly specify the encoding as a template parameter.</p>
@@ -134,7 +134,7 @@
 
 <p>the code point to be encoded</p>
 
-</dd><dt><code>dg</code> &lt;bug: unknown&gt;  </dt>
+</dd><dt><code>dg</code> void delegate(E)  </dt>
 <dd>
 
 

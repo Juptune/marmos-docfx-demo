@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - reopen</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.stdio.File</dd></dl><dl><dt>Parent</dt><dd>File</dd></dl>
 </div><h2 class='section api'>reopen(name, stdioOpenmode)   </h2>
- <pre><code class='lang-d'>void reopen( string name, scope char[] stdioOpenmode ) @trusted</code></pre><p>Reuses the <code>File</code> object to either open a different file, or change the file mode. If <code>name</code> is <code>null</code> , the mode of the currently open file is changed; otherwise, a new file is opened, reusing the C <code>FILE*</code> . The function has the same semantics as in the C standard library $(CSTDIO freopen) function.</p>
+ <pre><code class='lang-d'>void reopen( string name, scope char[] stdioOpenmode = &quot;rb&quot; ) @trusted</code></pre><p>Reuses the <code>File</code> object to either open a different file, or change the file mode. If <code>name</code> is <code>null</code> , the mode of the currently open file is changed; otherwise, a new file is opened, reusing the C <code>FILE*</code> . The function has the same semantics as in the C standard library $(CSTDIO freopen) function.</p>
 <p>Note: Calling <code>reopen</code> with a <code>null</code> <code>name</code> is not implemented in all C runtimes.</p>
 <p>Throws: <code>ErrnoException</code> in case of error.</p>
 

@@ -118,7 +118,7 @@
   // SHA initialization. Begins an SHA1/SHA2 operation. 
   void start() @nogc @safe nothrow pure
   // 
-  static void T_0_15(
+  void T_0_15(
     int i,
     ubyte[64]* input,
     ref uint[16] W,
@@ -130,7 +130,7 @@
     ref uint T
   ) @nogc nothrow pure
   // 
-  static void T_16_19(
+  void T_16_19(
     int i,
     ref uint[16] W,
     uint A,
@@ -141,7 +141,7 @@
     ref uint T
   ) @nogc nothrow pure
   // 
-  static void T_20_39(
+  void T_20_39(
     int i,
     ref uint[16] W,
     uint A,
@@ -152,7 +152,7 @@
     ref uint T
   ) @nogc nothrow pure
   // 
-  static void T_40_59(
+  void T_40_59(
     int i,
     ref uint[16] W,
     uint A,
@@ -163,7 +163,7 @@
     ref uint T
   ) @nogc nothrow pure
   // 
-  static void T_60_79(
+  void T_60_79(
     int i,
     ref uint[16] W,
     uint A,
@@ -207,7 +207,7 @@
     Word K
   ) @nogc nothrow pure
   // 
-  static void transform( uint[5]* state, ubyte[64]* block ) @nogc nothrow pure
+  void transform( uint[5]* state, ubyte[64]* block ) @nogc nothrow pure
   // 
   void transformSHA2(
     Word
@@ -216,7 +216,7 @@
     ubyte[blockSize / 8]* block
   ) @nogc nothrow pure
   // 
-  static void transformX86( uint[5]* state, ubyte[64]* block ) @nogc nothrow pure
+  void transformX86( uint[5]* state, ubyte[64]* block ) @nogc nothrow pure
 
   // 
   &lt;enum or auto&gt; blockSize = hashBlockSize

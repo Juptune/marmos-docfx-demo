@@ -105,9 +105,9 @@
   alias RBNode = &lt;todo: marmos support pending&gt;
 
   // 
-  static Node allocate() 
+  Node allocate() 
   // 
-  static Node allocate( Elem v ) 
+  Node allocate( Elem v ) 
   // 
   bool arrayEqual( T[] arr ) 
   // The last element in the container 
@@ -135,7 +135,7 @@
   // `in` operator. Check to see if the given element exists in the container. 
   bool opBinaryRight( string op )( Elem e ) 
   // Compares two trees for equality. 
-  bool opEquals( Object rhs ) override
+  bool opEquals( Object rhs ) 
   // Fetch a range that spans all the elements in the container. 
   Range opSlice() 
   // Ditto 
@@ -143,7 +143,7 @@
   // Ditto 
   ImmutableRange opSlice() 
   // 
-  void printTree( Node n, int indent ) 
+  void printTree( Node n, int indent = 0 ) 
   // Removes the given range from the container. 
   Range remove( Range r ) 
   // Removes the given `Take!Range` from the container 
@@ -165,9 +165,9 @@
   // Insert a range of elements in the container.  Note that this does not invalidate any ranges currently iterating the container. 
   size_t stableInsert( Stuff )( scope Stuff stuff ) 
   // Generates a hash for the tree. Note that with a custom comparison function it may not hold that if two rbtrees are equal, the hashes of the trees will be equal. 
-  size_t toHash() override @safe nothrow
+  size_t toHash() @safe nothrow
   // Formats the RedBlackTree into a sink function. For more info see $(D std.format.formatValue). Note that this only is available when the element type can be formatted. Otherwise, the default toString from Object is used. 
-  void toString( scope &lt;bug: unknown&gt; sink, const ref scope FormatSpec!(char) fmt ) 
+  void toString( scope void delegate(char[]) sink, const ref scope FormatSpec!(char) fmt ) 
   // Get a range from the container with all elements that are &gt; e according to the less comparator 
   Range upperBound( Elem e ) 
   // Ditto 

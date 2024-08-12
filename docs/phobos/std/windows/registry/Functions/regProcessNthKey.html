@@ -88,7 +88,10 @@
 <h1 class='section'>Overloads for - regProcessNthKey</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.windows.registry</dd></dl>
 </div><h2 class='section api'>regProcessNthKey(key, dg)   </h2>
- <pre><code class='lang-d'>void regProcessNthKey( Key key, scope &lt;bug: unknown&gt; dg ) </code></pre>
+ <pre><code class='lang-d'>void regProcessNthKey(
+  Key key,
+  scope void delegate(scope LONG delegate(DWORD,out string)) dg
+) </code></pre>
 </article>
 
         <div class="contribution d-print-none">

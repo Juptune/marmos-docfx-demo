@@ -90,11 +90,11 @@
 </div><pre><code class='lang-d'>public struct fts5_tokenizer
 {
   // 
-  * xCreate
+  int function(void*,const char**,int,Fts5Tokenizer**)* xCreate
   // 
-  * xDelete
+  void function(Fts5Tokenizer*)* xDelete
   // 
-  * xTokenize
+  int function(Fts5Tokenizer*,void*,int,const char*,int,int function(void*,int,const char*,int,int,int)*)* xTokenize
 }</code></pre><h2 class='section'>Variables</h2><table>
 <thead>
 <tr>

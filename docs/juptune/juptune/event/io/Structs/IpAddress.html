@@ -103,17 +103,17 @@
   // 
   Kind kind() @safe pure
   // 
-  static IpAddress mustParse( const scope char[] address, ushort defaultPort ) 
+  IpAddress mustParse( const scope char[] address, ushort defaultPort = 0 ) 
   // Parses an IPv4 or IPv6 address string into an `IpAddress` object. 
-  static Result parse(
+  Result parse(
     out scope IpAddress ip,
     const scope char[] address,
-    ushort defaultPort
+    ushort defaultPort = 0
   ) @trusted
   // Converts the current address into an IPv6 address. 
   IpAddress toIpv6() @trusted pure
   // 
-  void toString( Sink )( auto ref scope Sink sink, bool withPort ) 
+  void toString( Sink )( auto ref scope Sink sink, bool withPort = true ) 
   // Creates a copy of this `IpAddress` with the given port. 
   IpAddress withPort( ushort port ) @safe pure
 

@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - flush</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.zlib.Compress</dd></dl><dl><dt>Parent</dt><dd>Compress</dd></dl>
 </div><h2 class='section api'>flush(mode)   </h2>
- <pre><code class='lang-d'>void[] flush( int mode ) </code></pre><p>Compress and return any remaining data. The returned data should be appended to that returned by compress(). Params: mode = one of the following: $(DL $(DT Z_SYNC_FLUSH ) $(DD Syncs up flushing to the next byte boundary. Used when more data is to be compressed later on.) $(DT Z_FULL_FLUSH ) $(DD Syncs up flushing to the next byte boundary. Used when more data is to be compressed later on, and the decompressor needs to be restartable at this point.) $(DT Z_FINISH) $(DD (default) Used when finished compressing the data. ) )</p>
+ <pre><code class='lang-d'>void[] flush( int mode = Z_FINISH ) </code></pre><p>Compress and return any remaining data. The returned data should be appended to that returned by compress(). Params: mode = one of the following: $(DL $(DT Z_SYNC_FLUSH ) $(DD Syncs up flushing to the next byte boundary. Used when more data is to be compressed later on.) $(DT Z_FULL_FLUSH ) $(DD Syncs up flushing to the next byte boundary. Used when more data is to be compressed later on, and the decompressor needs to be restartable at this point.) $(DT Z_FINISH) $(DD (default) Used when finished compressing the data. ) )</p>
 
 </article>
 

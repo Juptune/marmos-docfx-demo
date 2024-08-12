@@ -94,7 +94,7 @@
     string units
   )(
     long value,
-    AllowDayOverflow allowOverflow
+    AllowDayOverflow allowOverflow = AllowDayOverflow.yes
   ) @safe nothrow scope
   // 
   long adjTime() @property @safe nothrow scope
@@ -127,13 +127,26 @@
   // Fractional seconds past the second (i.e. the portion of a $(LREF SysTime) which is less than a second). 
   void fracSecs( Duration fracSecs ) @property @safe scope
   // Creates a $(LREF SysTime) from a string with the format YYYY-MM-DDTHH:MM:SS.FFFFFFFTZ (where F is fractional seconds and TZ is the time zone). Whitespace is stripped from the given string. 
-  SysTime fromISOExtString( S )( const scope S isoExtString, immutable TimeZone tz ) @safe
+  SysTime fromISOExtString(
+    S
+  )(
+    const scope S isoExtString,
+    immutable TimeZone tz = null
+  ) @safe
   // Creates a $(LREF SysTime) from a string with the format YYYYMMDDTHHMMSS.FFFFFFFTZ (where F is fractional seconds and TZ is the time zone). Whitespace is stripped from the given string. 
-  SysTime fromISOString( S )( const scope S isoString, immutable TimeZone tz ) @safe
+  SysTime fromISOString( S )( const scope S isoString, immutable TimeZone tz = null ) @safe
   // Creates a $(LREF SysTime) from a string with the format YYYY-Mon-DD HH:MM:SS.FFFFFFFTZ (where F is fractional seconds and TZ is the time zone). Whitespace is stripped from the given string. 
-  SysTime fromSimpleString( S )( const scope S simpleString, immutable TimeZone tz ) @safe
+  SysTime fromSimpleString(
+    S
+  )(
+    const scope S simpleString,
+    immutable TimeZone tz = null
+  ) @safe
   // Converts from unix time (i.e. seconds from midnight, January 1st, 1970 in UTC) to a $(LREF SysTime). 
-  static SysTime fromUnixTime( long unixTime, immutable TimeZone tz ) @safe nothrow pure
+  SysTime fromUnixTime(
+    long unixTime,
+    immutable TimeZone tz = LocalTime()
+  ) @safe nothrow pure
   // Hours past midnight. 
   ubyte hour() @property @safe nothrow scope
   // Hours past midnight. 
@@ -147,9 +160,9 @@
   // The $(HTTP en.wikipedia.org/wiki/Julian_day, Julian day) for this $(LREF SysTime) at the given time. For example, prior to noon, 1996-03-31 would be the Julian day number 2_450_173, so this function returns 2_450_173, while from noon onward, the Julian day number would be 2_450_174, so this function returns 2_450_174. 
   long julianDay() @property @safe nothrow scope
   // Returns the $(LREF SysTime) farthest in the future which is representable by $(LREF SysTime). 
-  static SysTime max() @property @safe nothrow pure
+  SysTime max() @property @safe nothrow pure
   // Returns the $(LREF SysTime) farthest in the past which is representable by $(LREF SysTime). 
-  static SysTime min() @property @safe nothrow pure
+  SysTime min() @property @safe nothrow pure
   // Minutes past the current hour. 
   ubyte minute() @property @safe nothrow scope
   // Minutes past the current hour. 
@@ -189,14 +202,14 @@
     string units
   )(
     long value,
-    AllowDayOverflow allowOverflow
+    AllowDayOverflow allowOverflow = AllowDayOverflow.yes
   ) @safe nothrow scope
   // 
   ref SysTime roll(
     string units
   )(
     long value,
-    AllowDayOverflow allowOverflow
+    AllowDayOverflow allowOverflow = AllowDayOverflow.yes
   ) @safe nothrow scope
   // Adds the given number of units to this $(LREF SysTime). A negative number will subtract. 
   ref SysTime roll( string units )( long value ) @safe nothrow scope
@@ -219,9 +232,9 @@
   // Returns: A hash of the $(LREF SysTime). 
   size_t toHash() @nogc @safe nothrow scope pure
   // Converts this $(LREF SysTime) to a string with the format YYYY-MM-DDTHH:MM:SS.FFFFFFFTZ (where F is fractional seconds and TZ is the time zone). 
-  string toISOExtString( int prec ) @safe nothrow scope
+  string toISOExtString( int prec = -1 ) @safe nothrow scope
   // ditto 
-  void toISOExtString( W )( ref W writer, int prec ) scope
+  void toISOExtString( W )( ref W writer, int prec = -1 ) scope
   // Converts this $(LREF SysTime) to a string with the format YYYYMMDDTHHMMSS.FFFFFFFTZ (where F is fractional seconds and TZ is time zone). 
   string toISOString() @safe nothrow scope
   // ditto 

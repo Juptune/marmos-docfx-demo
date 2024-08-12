@@ -90,10 +90,10 @@
 </div><h2 class='section api'>sqlite3changeset_apply_strm(db, xInput, pIn, xFilter, xConflict, pCtx)   </h2>
  <pre><code class='lang-d'>extern(C) int sqlite3changeset_apply_strm(
   sqlite3* db,
-  * xInput,
+  int function(void*,void*,int*)* xInput,
   void* pIn,
-  * xFilter,
-  * xConflict,
+  int function(void*,char*)* xFilter,
+  int function(void*,int,sqlite3_changeset_iter*)* xConflict,
   void* pCtx
 ) </code></pre>
 </article>

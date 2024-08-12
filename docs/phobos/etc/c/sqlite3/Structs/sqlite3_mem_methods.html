@@ -92,19 +92,19 @@
   // Argument to xInit() and xShutdown() 
   void* pAppData
   // Free a prior allocation 
-  * xFree
+  void function(void*)* xFree
   // Initialize the memory allocator 
-  * xInit
+  int function(void*)* xInit
   // Memory allocation function 
-  * xMalloc
+  void* function(int)* xMalloc
   // Resize an allocation 
-  * xRealloc
+  void* function(void*,int)* xRealloc
   // Round up request size to allocation size 
-  * xRoundup
+  int function(int)* xRoundup
   // Deinitialize the memory allocator 
-  * xShutdown
+  void function(void*)* xShutdown
   // Return the size of an allocation 
-  * xSize
+  int function(void*)* xSize
 }</code></pre><h2 class='section'>About</h2><p>CAPI3REF: Memory Allocation Routines</p>
 <h2 class='section'>Variables</h2><table>
 <thead>

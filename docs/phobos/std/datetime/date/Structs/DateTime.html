@@ -94,7 +94,7 @@
     string units
   )(
     long value,
-    AllowDayOverflow allowOverflow
+    AllowDayOverflow allowOverflow = AllowDayOverflow.yes
   ) @nogc @safe nothrow pure
   // The date portion of $(LREF DateTime). 
   Date date() @nogc @property @safe nothrow pure
@@ -141,9 +141,9 @@
   // The $(HTTP en.wikipedia.org/wiki/Julian_day, Julian day) for this $(LREF DateTime) at the given time. For example, prior to noon, 1996-03-31 would be the Julian day number 2_450_173, so this function returns 2_450_173, while from noon onward, the julian day number would be 2_450_174, so this function returns 2_450_174. 
   long julianDay() @nogc @property @safe nothrow pure
   // Returns the $(LREF DateTime) farthest in the future which is representable by $(LREF DateTime). 
-  static DateTime max() @nogc @property @safe nothrow pure
+  DateTime max() @nogc @property @safe nothrow pure
   // Returns the $(LREF DateTime) farthest in the past which is representable by $(LREF DateTime). 
-  static DateTime min() @nogc @property @safe nothrow pure
+  DateTime min() @nogc @property @safe nothrow pure
   // Minutes past the hour. 
   ubyte minute() @nogc @property @safe nothrow pure
   // Minutes past the hour. 
@@ -167,7 +167,7 @@
     string units
   )(
     long value,
-    AllowDayOverflow allowOverflow
+    AllowDayOverflow allowOverflow = AllowDayOverflow.yes
   ) @nogc @safe nothrow pure
   // Adds the given number of units to this $(LREF DateTime), mutating it. A negative number will subtract. 
   ref DateTime roll( string units )( long value ) @nogc @safe nothrow pure

@@ -88,9 +88,12 @@
 <h1 class='section'>Overloads for - toString</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.bigint.BigInt</dd></dl><dl><dt>Parent</dt><dd>BigInt</dd></dl>
 </div><h2 class='section api'>toString(sink, formatString)   </h2>
- <pre><code class='lang-d'>void toString( scope &lt;bug: unknown&gt; sink, string formatString ) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>void toString( scope void delegate(scope char[]) sink, string formatString ) </code></pre><p>ditto</p>
 <h2 class='section api'>toString(sink, f)   </h2>
- <pre><code class='lang-d'>void toString( scope &lt;bug: unknown&gt; sink, const ref scope FormatSpec!(char) f ) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>void toString(
+  scope void delegate(scope char[]) sink,
+  const ref scope FormatSpec!(char) f
+) </code></pre><p>ditto</p>
 <h2 class='section api'>toString(sink, formatString)   </h2>
  <pre><code class='lang-d'>void toString( Writer )( ref scope Writer sink, string formatString ) </code></pre><p>Convert the <code>BigInt</code> to <code>string</code> , passing it to the given sink.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>sink</code> Writer  </dt>

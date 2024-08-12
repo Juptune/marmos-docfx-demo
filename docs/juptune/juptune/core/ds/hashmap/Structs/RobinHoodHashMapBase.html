@@ -105,7 +105,7 @@
   // 
   auto byKeyValue() 
   // 
-  ValueT get( KeyT key, ValueT default_ ) 
+  ValueT get( KeyT key, ValueT default_ = ValueT.init ) 
   // 
   uint getHash( alias Hasher )( KeyT key ) 
   // 
@@ -125,7 +125,7 @@
   // 
   void put( VT : ValueT )( KeyT key, VT value ) 
   // 
-  ValueT remove( KeyT key, ValueT default_ ) 
+  ValueT remove( KeyT key, ValueT default_ = ValueT.init ) 
   // 
   ValueT tryGet( KeyT key, out bool wasFound ) 
   // 

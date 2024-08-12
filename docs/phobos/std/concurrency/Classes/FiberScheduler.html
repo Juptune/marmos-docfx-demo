@@ -90,15 +90,15 @@
 </div><pre><code class='lang-d'>public class FiberScheduler
 {
   // Creates a new `Fiber` which calls the given delegate. 
-  void create( &lt;bug: unknown&gt; op ) nothrow
+  void create( void delegate() op ) nothrow
   // 
   void dispatch() 
   // Returns a `Condition` analog that yields when wait or notify is called. 
   Condition newCondition( Mutex m ) nothrow
   // This created a new `Fiber` for the supplied op and adds it to the dispatch list. 
-  void spawn( &lt;bug: unknown&gt; op ) nothrow
+  void spawn( void delegate() op ) nothrow
   // This creates a new `Fiber` for the supplied op and then starts the dispatcher. 
-  void start( &lt;bug: unknown&gt; op ) 
+  void start( void delegate() op ) 
   // Returns an appropriate `ThreadInfo` instance. 
   ref ThreadInfo thisInfo() @property nothrow
   // If the caller is a scheduled `Fiber` , this yields execution to another scheduled `Fiber` . 

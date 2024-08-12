@@ -90,11 +90,7 @@
 </div><pre><code class='lang-d'>class RuntimeFactory( alias EngineType, Char )
 {
   // 
-  EngineType!(Char) construct(
-    const ref Regex!(Char) re,
-    in Char[] input,
-    void[] memory
-  ) override
+  EngineType!(Char) construct( const ref Regex!(Char) re, in Char[] input, void[] memory ) 
 }</code></pre><h2 class='section'>Functions</h2><table>
 <thead>
 <tr>

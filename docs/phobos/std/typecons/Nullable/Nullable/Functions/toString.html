@@ -88,8 +88,16 @@
 <h1 class='section'>Overloads for - toString</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.typecons.Nullable</dd></dl><dl><dt>Parent</dt><dd>Nullable</dd></dl>
 </div><h2 class='section api'>toString(sink, fmt)   </h2>
- <pre><code class='lang-d'>void toString( )( scope &lt;bug: unknown&gt; sink, const ref scope FormatSpec!(char) fmt ) </code></pre><h2 class='section api'>toString(sink, fmt)   </h2>
- <pre><code class='lang-d'>void toString( )( scope &lt;bug: unknown&gt; sink, const ref scope FormatSpec!(char) fmt ) </code></pre>
+ <pre><code class='lang-d'>void toString(
+)(
+  scope void delegate(char[]) sink,
+  const ref scope FormatSpec!(char) fmt
+) </code></pre><h2 class='section api'>toString(sink, fmt)   </h2>
+ <pre><code class='lang-d'>void toString(
+)(
+  scope void delegate(char[]) sink,
+  const ref scope FormatSpec!(char) fmt
+) </code></pre>
 </article>
 
         <div class="contribution d-print-none">

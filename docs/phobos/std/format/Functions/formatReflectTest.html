@@ -94,8 +94,8 @@
   ref T val,
   string fmt,
   string formatted,
-  string fn,
-  size_t ln
+  string fn = __FILE__,
+  size_t ln = __LINE__
 ) </code></pre><h2 class='section api'>formatReflectTest(val, fmt, formatted, fn, ln)   </h2>
  <pre><code class='lang-d'>void formatReflectTest(
   T
@@ -103,8 +103,8 @@
   ref T val,
   string fmt,
   string[] formatted,
-  string fn,
-  size_t ln
+  string fn = __FILE__,
+  size_t ln = __LINE__
 ) </code></pre>
 </article>
 

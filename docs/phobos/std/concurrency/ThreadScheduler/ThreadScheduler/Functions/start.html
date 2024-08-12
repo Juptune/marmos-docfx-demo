@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - start</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.concurrency.ThreadScheduler</dd></dl><dl><dt>Parent</dt><dd>ThreadScheduler</dd></dl>
 </div><h2 class='section api'>start(op)   </h2>
- <pre><code class='lang-d'>void start( &lt;bug: unknown&gt; op ) </code></pre><p>This simply runs op directly, since no real scheduling is needed by this approach.</p>
+ <pre><code class='lang-d'>void start( void delegate() op ) </code></pre><p>This simply runs op directly, since no real scheduling is needed by this approach.</p>
 
 </article>
 

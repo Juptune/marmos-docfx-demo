@@ -127,9 +127,9 @@
     Logger logger
   ) @safe
   // This `delegate` is called in case a log message with `LogLevel.fatal` gets logged. 
-  &lt;bug: unknown&gt; fatalHandler() final @nogc @property @safe
+  void delegate() fatalHandler() @nogc @property @safe
   // Ditto 
-  void fatalHandler( &lt;bug: unknown&gt; fh ) final @nogc @property @safe
+  void fatalHandler( void delegate() @safe fh ) @nogc @property @safe
   // Signals that the message has been written and no more calls to `logMsgPart` follow. 
   void finishLogMsg() @safe
   // This method allows forwarding log entries from one logger to another. 
@@ -155,10 +155,10 @@
     const LogLevel ll,
     lazy bool condition,
     lazy T args,
-    int line,
-    string file,
-    string funcName,
-    string prettyFuncName
+    int line = __LINE__,
+    string file = __FILE__,
+    string funcName = __FUNCTION__,
+    string prettyFuncName = __PRETTY_FUNCTION__
   ) 
   // This function logs data to the used `Logger` with a specific `LogLevel` . 
   void log(
@@ -178,11 +178,11 @@
   )(
     const LogLevel ll,
     lazy T args,
-    int line,
-    string file,
-    string funcName,
-    string prettyFuncName,
-    string moduleName
+    int line = __LINE__,
+    string file = __FILE__,
+    string funcName = __FUNCTION__,
+    string prettyFuncName = __PRETTY_FUNCTION__,
+    string moduleName = __MODULE__
   ) 
   // This function logs data to the used `Logger` depending on a explicitly passed condition with the `LogLevel` of the used `Logger` . 
   void log(
@@ -202,11 +202,11 @@
   )(
     lazy bool condition,
     lazy T args,
-    int line,
-    string file,
-    string funcName,
-    string prettyFuncName,
-    string moduleName
+    int line = __LINE__,
+    string file = __FILE__,
+    string funcName = __FUNCTION__,
+    string prettyFuncName = __PRETTY_FUNCTION__,
+    string moduleName = __MODULE__
   ) 
   // This function logs data to the used `Logger` with the `LogLevel` of the used `Logger` . 
   void log(
@@ -224,11 +224,11 @@
     T
   )(
     lazy T arg,
-    int line,
-    string file,
-    string funcName,
-    string prettyFuncName,
-    string moduleName
+    int line = __LINE__,
+    string file = __FILE__,
+    string funcName = __FUNCTION__,
+    string prettyFuncName = __PRETTY_FUNCTION__,
+    string moduleName = __MODULE__
   ) 
   // This function logs data to the used `Logger` with a specific `LogLevel` and depending on a condition in a `printf` -style manner. 
   void logf(
@@ -283,16 +283,16 @@
     lazy A args
   ) 
   // The `LogLevel` determines if the log call are processed or dropped by the `Logger` . In order for the log call to be processed the `LogLevel` of the log call must be greater or equal to the `LogLevel` of the `logger` . 
-  LogLevel logLevel() final @nogc @property @safe pure
+  LogLevel logLevel() @nogc @property @safe pure
   // Ditto 
-  void logLevel( const LogLevel lv ) final @nogc @property @safe
+  void logLevel( const LogLevel lv ) @nogc @property @safe
   // Logs a part of the log message. 
   void logMsgPart( scope char[] msg ) @safe
   // A custom logger must implement this method in order to work in a `MultiLogger` and `ArrayLogger` . 
-  void writeLogMsg( ref LogEntry payload ) abstract @safe
+  void writeLogMsg( ref LogEntry payload ) @safe
 
   // 
-  &lt;bug: unknown&gt; fatalHandler_
+  void delegate() @safe fatalHandler_
   // 
   LogEntry header
   // 

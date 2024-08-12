@@ -88,13 +88,13 @@
 <h1 class='section'>Overloads for - opApply</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.bitmanip.BitArray</dd></dl><dl><dt>Parent</dt><dd>BitArray</dd></dl>
 </div><h2 class='section api'>opApply(dg)   </h2>
- <pre><code class='lang-d'>int opApply( scope &lt;bug: unknown&gt; dg ) </code></pre><p>Support for <code>foreach</code> loops for <code>BitArray</code> .</p>
+ <pre><code class='lang-d'>int opApply( scope int delegate(ref bool) dg ) </code></pre><p>Support for <code>foreach</code> loops for <code>BitArray</code> .</p>
 <h2 class='section api'>opApply(dg)   </h2>
- <pre><code class='lang-d'>int opApply( scope &lt;bug: unknown&gt; dg ) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>int opApply( scope int delegate(bool) dg ) </code></pre><p>ditto</p>
 <h2 class='section api'>opApply(dg)   </h2>
- <pre><code class='lang-d'>int opApply( scope &lt;bug: unknown&gt; dg ) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>int opApply( scope int delegate(size_t,ref bool) dg ) </code></pre><p>ditto</p>
 <h2 class='section api'>opApply(dg)   </h2>
- <pre><code class='lang-d'>int opApply( scope &lt;bug: unknown&gt; dg ) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>int opApply( scope int delegate(size_t,bool) dg ) </code></pre><p>ditto</p>
 
 </article>
 

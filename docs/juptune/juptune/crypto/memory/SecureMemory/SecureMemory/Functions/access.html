@@ -88,18 +88,20 @@
 <h1 class='section'>Overloads for - access</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.crypto.memory.SecureMemory</dd></dl><dl><dt>Parent</dt><dd>SecureMemory</dd></dl>
 </div><h2 class='section api'>access(func)   </h2>
- <pre><code class='lang-d'>void access( scope &lt;bug: unknown&gt; func ) @nogc @safe nothrow</code></pre><p>Provides a safe(ish) way to access the underlying user memory.</p>
+ <pre><code class='lang-d'>void access(
+  scope void delegate(scope void[]) @nogc @safe nothrow func
+) @nogc @safe nothrow</code></pre><p>Provides a safe(ish) way to access the underlying user memory.</p>
 <h3 class='section'>Notes</h3><p>This wrapper function is used to help enforce the <code>scope</code> attribute.</p>
 <p>You'll probably have to mark your delegate <code>@trusted</code> , just be wary this prevents <code>scope</code> from being checked by the compiler.</p>
 <p>D's compiler is god awful when it comes to error messages, so you may want to store <code>func</code> inside a variable first to see what's going wrong with it.</p>
-<h3 class='section'>Params</h3><dl class='parameters'><dt><code>func</code> &lt;bug: unknown&gt;  </dt>
+<h3 class='section'>Params</h3><dl class='parameters'><dt><code>func</code> void delegate(scope void[]) @nogc @safe nothrow  </dt>
 <dd>
 
 
 <p>The delegate to call.</p>
 
 </dd></dl><h2 class='section api'>access(func)   </h2>
- <pre><code class='lang-d'>void access( scope &lt;bug: unknown&gt; func ) @safe nothrow</code></pre><p>ditto</p>
+ <pre><code class='lang-d'>void access( scope void delegate(scope void[]) @safe nothrow func ) @safe nothrow</code></pre><p>ditto</p>
 
 </article>
 

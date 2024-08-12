@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - read</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.file</dd></dl>
 </div><h2 class='section api'>read(name, upTo)   </h2>
- <pre><code class='lang-d'>void[] read( R )( R name, size_t upTo ) </code></pre><p>Read entire contents of file <code>name</code> and returns it as an untyped array. If the file size is larger than <code>upTo</code> , only <code>upTo</code> bytes are read.</p>
+ <pre><code class='lang-d'>void[] read( R )( R name, size_t upTo = size_t.max ) </code></pre><p>Read entire contents of file <code>name</code> and returns it as an untyped array. If the file size is larger than <code>upTo</code> , only <code>upTo</code> bytes are read.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>name</code> R  </dt>
 <dd>
 
@@ -105,7 +105,7 @@
 <p>Throws: $(LREF FileException) on error.</p>
 <p>See_Also: $(REF readText, std,file) for reading and validating a text file.</p>
 <h2 class='section api'>read(name, upTo)   </h2>
- <pre><code class='lang-d'>void[] read( R )( auto ref R name, size_t upTo ) </code></pre><p>ditto</p>
+ <pre><code class='lang-d'>void[] read( R )( auto ref R name, size_t upTo = size_t.max ) </code></pre><p>ditto</p>
 
 </article>
 

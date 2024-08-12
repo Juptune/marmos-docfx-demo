@@ -90,9 +90,9 @@
 </div><h2 class='section api'>sqlite3_trace(__anonymous, xTrace, __anonymous)   </h2>
  <pre><code class='lang-d'>extern(C) void* sqlite3_trace(
   sqlite3* __anonymous,
-  * xTrace,
+  void function(void*,const char*)* xTrace,
   void* __anonymous
-) deprecated</code></pre><p>CAPI3REF: Tracing And Profiling Functions</p>
+) </code></pre><p>CAPI3REF: Tracing And Profiling Functions</p>
 
 </article>
 

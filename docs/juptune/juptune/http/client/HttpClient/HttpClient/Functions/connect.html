@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - connect</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>juptune.http.client.HttpClient</dd></dl><dl><dt>Parent</dt><dd>HttpClient</dd></dl>
 </div><h2 class='section api'>connect(ip, host)   </h2>
- <pre><code class='lang-d'>Result connect( IpAddress ip, const scope char[] host ) @nogc nothrow</code></pre><p>Connects this client to the given IP address.</p>
+ <pre><code class='lang-d'>Result connect( IpAddress ip, const scope char[] host = null ) @nogc nothrow</code></pre><p>Connects this client to the given IP address.</p>
 <h3 class='section'>Assertions</h3><p>The client must not already be connected.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>ip</code> IpAddress  </dt>
 <dd>

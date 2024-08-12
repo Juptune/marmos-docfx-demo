@@ -105,7 +105,7 @@
   // Closes the connection to the server. 
   Result close() @nogc nothrow
   // Connects this client to the given IP address. 
-  Result connect( IpAddress ip, const scope char[] host ) @nogc nothrow
+  Result connect( IpAddress ip, const scope char[] host = null ) @nogc nothrow
   // 
   auto dispatch( string func, Args... )( auto ref Args args ) nothrow
   // Returns whether this client is connected to a server. 
@@ -132,7 +132,7 @@
     scope StreamResponseFuncGC bodyReader
   ) nothrow
   // 
-  static void wrapPairedSocket(
+  void wrapPairedSocket(
     out HttpClient client,
     ref TcpSocket socket,
     HttpClientConfig config

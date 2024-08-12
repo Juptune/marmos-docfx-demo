@@ -92,7 +92,7 @@
   string units
 )(
   long value,
-  AllowDayOverflow allowOverflow
+  AllowDayOverflow allowOverflow = AllowDayOverflow.yes
 ) @safe nothrow scope</code></pre><p>Adds the given number of years or months to this $(LREF SysTime). A negative number will subtract.</p>
 <p>The difference between rolling and adding is that rolling does not affect larger units. Rolling a $(LREF SysTime) 12 months gets the exact same $(LREF SysTime). However, the days can still be affected due to the differing number of days in each month.</p>
 <p>Because there are no units larger than years, there is no difference between adding and rolling years.</p>
@@ -119,7 +119,7 @@
   string units
 )(
   long value,
-  AllowDayOverflow allowOverflow
+  AllowDayOverflow allowOverflow = AllowDayOverflow.yes
 ) @safe nothrow scope</code></pre><h2 class='section api'>roll(value)   </h2>
  <pre><code class='lang-d'>ref SysTime roll( string units )( long value ) @safe nothrow scope</code></pre><p>Adds the given number of units to this $(LREF SysTime). A negative number will subtract.</p>
 <p>The difference between rolling and adding is that rolling does not affect larger units. For instance, rolling a $(LREF SysTime) one year's worth of days gets the exact same $(LREF SysTime).</p>

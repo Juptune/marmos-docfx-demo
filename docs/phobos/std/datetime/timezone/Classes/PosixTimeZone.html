@@ -92,13 +92,19 @@
   // 
   int calculateLeapSeconds( long stdTime ) @safe nothrow scope pure
   // Takes the number of hnsecs (100 ns) since midnight, January 1st, 1 A.D. in UTC time (i.e. std time) and returns whether DST is in effect in this time zone at the given point in time. 
-  bool dstInEffect( long stdTime ) override @safe nothrow scope
+  bool dstInEffect( long stdTime ) @safe nothrow scope
   // Returns a list of the names of the time zones installed on the system. 
-  static string[] getInstalledTZNames( string subName, string tzDatabaseDir ) @safe
+  string[] getInstalledTZNames(
+    string subName = &quot;&quot;,
+    string tzDatabaseDir = defaultTZDatabaseDir
+  ) @safe
   // Returns a $(LREF TimeZone) with the give name per the TZ Database. The time zone information is fetched from the TZ Database time zone files in the given directory. 
-  static PosixTimeZone getTimeZone( string name, string tzDatabaseDir ) @trusted
+  PosixTimeZone getTimeZone(
+    string name,
+    string tzDatabaseDir = defaultTZDatabaseDir
+  ) @trusted
   // Whether this time zone has Daylight Savings Time at any point in time. Note that for some time zone types it may not have DST for current dates but will still return true for `hasDST` because the time zone did at some point have DST. 
-  bool hasDST() override @property @safe nothrow
+  bool hasDST() @property @safe nothrow
   // 
   T readVal( T )( ref File tzFile ) @trusted
   // 
@@ -106,11 +112,11 @@
   // 
   T readVal( T )( ref File tzFile ) @safe
   // 
-  static uint[string] tzdataIndex( string tzDir ) 
+  uint[string] tzdataIndex( string tzDir ) 
   // Takes the number of hnsecs (100 ns) since midnight, January 1st, 1 A.D. in this time zone&#39;s time and converts it to UTC (i.e. std time). 
-  long tzToUTC( long adjTime ) override @safe nothrow scope
+  long tzToUTC( long adjTime ) @safe nothrow scope
   // Takes the number of hnsecs (100 ns) since midnight, January 1st, 1 A.D. in UTC time (i.e. std time) and converts it to this time zone&#39;s time. 
-  long utcToTZ( long stdTime ) override @safe nothrow scope
+  long utcToTZ( long stdTime ) @safe nothrow scope
 
   // The default directory where the TZ Database files are stored. It&#39;s empty for Windows, since Windows doesn&#39;t have them. You can also use the TZDatabaseDir version to pass an arbitrary path at compile-time, rather than hard-coding it here. Android concatenates all time zone data into a single file called tzdata and stores it in the directory below. 
   &lt;enum or auto&gt; defaultTZDatabaseDir = &quot;&quot;

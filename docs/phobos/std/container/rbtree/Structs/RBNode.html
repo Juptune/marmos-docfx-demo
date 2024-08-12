@@ -93,7 +93,7 @@
   alias Node = &lt;todo: marmos support pending&gt;
 
   // 
-  Node dup( scope &lt;bug: unknown&gt; alloc ) 
+  Node dup( scope Node delegate(V) alloc ) 
   // 
   Node dup() 
   // Returns true if this node is a left child. 

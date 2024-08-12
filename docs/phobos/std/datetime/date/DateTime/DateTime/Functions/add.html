@@ -92,7 +92,7 @@
   string units
 )(
   long value,
-  AllowDayOverflow allowOverflow
+  AllowDayOverflow allowOverflow = AllowDayOverflow.yes
 ) @nogc @safe nothrow pure</code></pre><p>Adds the given number of years or months to this $(LREF DateTime), mutating it. A negative number will subtract.</p>
 <p>Note that if day overflow is allowed, and the date with the adjusted year/month overflows the number of days in the new month, then the month will be incremented by one, and the day set to the number of days overflowed. (e.g. if the day were 31 and the new month were June, then the month would be incremented to July, and the new day would be 1). If day overflow is not allowed, then the day will be set to the last valid day in the month (e.g. June 31st would become June 30th).</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>units</code> &lt;parameter not found&gt;  </dt>

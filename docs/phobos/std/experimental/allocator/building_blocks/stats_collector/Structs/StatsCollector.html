@@ -109,7 +109,7 @@
   // 
   void[] allocateZeroedImpl( string f = null, ulong n = 0 )( size_t bytes ) 
   // Defined if `perCallFlags` is nonzero. Iterates all monitored file/line instances. The order of iteration is not meaningful (items are inserted at the front of a list upon the first call), so preprocessing the statistics after collection might be appropriate. 
-  static auto byFileLine() 
+  auto byFileLine() 
   // Ditto 
   ulong bytesAllocated() @property
   // Ditto 
@@ -135,7 +135,7 @@
   // 
   bool deallocateImpl( string f = null, uint n = 0 )( void[] b ) 
   // 
-  static string define( string type, string[] names ) 
+  string define( string type, string[] names ) 
   // 
   void down( string counter )() 
   // Defined only if `Options.bytesUsed` is defined. Returns $(D bytesUsed == 0). 

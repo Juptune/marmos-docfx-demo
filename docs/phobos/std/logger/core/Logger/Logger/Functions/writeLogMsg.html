@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - writeLogMsg</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.logger.core.Logger</dd></dl><dl><dt>Parent</dt><dd>Logger</dd></dl>
 </div><h2 class='section api'>writeLogMsg(payload)   </h2>
- <pre><code class='lang-d'>void writeLogMsg( ref LogEntry payload ) abstract @safe</code></pre><p>A custom logger must implement this method in order to work in a <code>MultiLogger</code> and <code>ArrayLogger</code> .</p>
+ <pre><code class='lang-d'>void writeLogMsg( ref LogEntry payload ) @safe</code></pre><p>A custom logger must implement this method in order to work in a <code>MultiLogger</code> and <code>ArrayLogger</code> .</p>
 <p>Params: payload = All information associated with call to log function.</p>
 <p>See_Also: beginLogMsg, logMsgPart, finishLogMsg</p>
 

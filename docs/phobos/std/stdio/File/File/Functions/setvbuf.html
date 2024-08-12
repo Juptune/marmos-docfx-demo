@@ -88,10 +88,10 @@
 <h1 class='section'>Overloads for - setvbuf</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.stdio.File</dd></dl><dl><dt>Parent</dt><dd>File</dd></dl>
 </div><h2 class='section api'>setvbuf(size, mode)   </h2>
- <pre><code class='lang-d'>void setvbuf( size_t size, int mode ) @trusted</code></pre><p>Calls $(CSTDIO setvbuf) for the file handle.</p>
+ <pre><code class='lang-d'>void setvbuf( size_t size, int mode = _IOFBF ) @trusted</code></pre><p>Calls $(CSTDIO setvbuf) for the file handle.</p>
 <p>Throws: <code>Exception</code> if the file is not opened. <code>ErrnoException</code> if the call to <code>setvbuf</code> fails.</p>
 <h2 class='section api'>setvbuf(buf, mode)   </h2>
- <pre><code class='lang-d'>void setvbuf( void[] buf, int mode ) @trusted</code></pre><p>Calls $(CSTDIO setvbuf) for the file handle.</p>
+ <pre><code class='lang-d'>void setvbuf( void[] buf, int mode = _IOFBF ) @trusted</code></pre><p>Calls $(CSTDIO setvbuf) for the file handle.</p>
 <p>Throws: <code>Exception</code> if the file is not opened. <code>ErrnoException</code> if the call to <code>setvbuf</code> fails.</p>
 
 </article>

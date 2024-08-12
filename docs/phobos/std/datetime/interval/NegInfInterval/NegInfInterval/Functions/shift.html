@@ -99,7 +99,13 @@
 <p>interval1.shift(dur!&quot;days&quot;(50)); assert(interval1 == NegInfInterval!Date(Date(2012, 5, 25)));</p>
 <p>interval2.shift(dur!&quot;days&quot;(-50)); assert(interval2 == NegInfInterval!Date( Date(2012, 2, 15))); --------------------</p>
 <h2 class='section api'>shift(years, months, allowOverflow)   </h2>
- <pre><code class='lang-d'>void shift( T )( T years, T months, AllowDayOverflow allowOverflow ) </code></pre><p>Shifts the <code>end</code> of this interval forward or backwards in time by the given number of years and/or months (a positive number of years and months shifts the interval forward; a negative number shifts it backward). It adds the years the given years and months to end. It effectively calls <code>add!&quot;years&quot;()</code> and then <code>add!&quot;months&quot;()</code> on end with the given number of years and months.</p>
+ <pre><code class='lang-d'>void shift(
+  T
+)(
+  T years,
+  T months = 0,
+  AllowDayOverflow allowOverflow = AllowDayOverflow.yes
+) </code></pre><p>Shifts the <code>end</code> of this interval forward or backwards in time by the given number of years and/or months (a positive number of years and months shifts the interval forward; a negative number shifts it backward). It adds the years the given years and months to end. It effectively calls <code>add!&quot;years&quot;()</code> and then <code>add!&quot;months&quot;()</code> on end with the given number of years and months.</p>
 <h3 class='section'>Params</h3><dl class='parameters'><dt><code>years</code> T  </dt>
 <dd>
 

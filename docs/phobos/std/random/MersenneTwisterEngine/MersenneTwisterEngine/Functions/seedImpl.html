@@ -88,7 +88,7 @@
 <h1 class='section'>Overloads for - seedImpl</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>std.random.MersenneTwisterEngine</dd></dl><dl><dt>Parent</dt><dd>MersenneTwisterEngine</dd></dl>
 </div><h2 class='section api'>seedImpl(value, mtState)   </h2>
- <pre><code class='lang-d'>static void seedImpl( UIntType value, ref State mtState ) @nogc</code></pre><p>Implementation of the seeding mechanism, which can be used with an arbitrary <code>State</code> instance</p>
+ <pre><code class='lang-d'>void seedImpl( UIntType value, ref State mtState ) @nogc</code></pre><p>Implementation of the seeding mechanism, which can be used with an arbitrary <code>State</code> instance</p>
 <h2 class='section api'>seedImpl(range, mtState)   </h2>
  <pre><code class='lang-d'>void seedImpl( T )( T range, ref State mtState ) </code></pre><p>Implementation of the range-based seeding mechanism, which can be used with an arbitrary <code>State</code> instance</p>
 

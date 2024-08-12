@@ -88,7 +88,12 @@
 <h1 class='section'>Overloads for - sqlite3changeset_invert_strm</h1><div class="facts text-secondary">
 <dl><dt>Module</dt><dd>etc.c.sqlite3</dd></dl>
 </div><h2 class='section api'>sqlite3changeset_invert_strm(xInput, pIn, xOutput, pOut)   </h2>
- <pre><code class='lang-d'>extern(C) int sqlite3changeset_invert_strm( * xInput, void* pIn, * xOutput, void* pOut ) </code></pre><p>Ditto</p>
+ <pre><code class='lang-d'>extern(C) int sqlite3changeset_invert_strm(
+  int function(void*,void*,int*)* xInput,
+  void* pIn,
+  int function(void*,void*,int)* xOutput,
+  void* pOut
+) </code></pre><p>Ditto</p>
 
 </article>
 
